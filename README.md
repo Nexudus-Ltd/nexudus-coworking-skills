@@ -2,10 +2,31 @@
 
 Public Agent Skills repository for Nexudus.
 
+This repository contains the published Agent Skills package for the Nexudus CLI workflow.
+
 Install with:
 
 `ash
 npx skills add Nexudus-Ltd/nexudus-coworking-skills
 `
 
-The published skill content is sourced from the private CLI repository and synced from its skills/ directory.
+Install globally for GitHub Copilot:
+
+`ash
+npx skills add Nexudus-Ltd/nexudus-coworking-skills -g -a github-copilot
+`
+
+Verify:
+
+`ash
+npx skills list
+`
+
+Included content:
+
+- skills/nexudus/SKILL.md
+- install.md
+
+The published skill content is synced from the private CLI repository and only exposes the public skills payload.
+
+If you are updating the skill, edit the private source repository and republish from there.

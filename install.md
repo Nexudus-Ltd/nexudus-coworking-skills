@@ -13,28 +13,28 @@ DONE WHEN: the Nexudus skill is installed in your agent and `npx skills list` sh
 
 ## Step 0: Install skills
 
-If this skill is published from a public GitHub repository at `nexudus/skills`, install it with:
+Install from the public GitHub repository:
 
 ```bash
-npx skills add nexudus/skills
+npx skills add Nexudus-Ltd/nexudus-coworking-skills
 ```
 
-If the skill still lives in a differently named repository, install from the full repository URL instead:
+Or install from the full repository URL:
 
 ```bash
-npx skills add https://github.com/nexudus/nexudus-coworking-cli
+npx skills add https://github.com/Nexudus-Ltd/nexudus-coworking-skills.git
 ```
 
 To install for a specific agent:
 
 ```bash
-npx skills add nexudus/skills -a github-copilot
+npx skills add Nexudus-Ltd/nexudus-coworking-skills -a github-copilot
 ```
 
 To install globally:
 
 ```bash
-npx skills add nexudus/skills -g
+npx skills add Nexudus-Ltd/nexudus-coworking-skills -g
 ```
 
 ## Step 1: Verify
@@ -45,13 +45,10 @@ npx skills list
 
 Expected: the `nexudus` skill is listed.
 
-## Publishing Requirement
+## Publishing Notes
 
-The shorthand form `npx skills add nexudus/skills` depends on the GitHub repository location, not just the skill contents.
+The install command above works because the skill is published in a dedicated public repository.
 
-To support that exact command you need:
+The public repository is synced from the private CLI repository and only exposes the public skills payload.
 
-1. A public GitHub repository at `https://github.com/nexudus/skills`.
-2. The skill committed somewhere the installer discovers, such as `skills/nexudus/SKILL.md`.
-
-If those conditions are not met, the installer can still use a full Git URL or GitHub URL.
+If you are maintaining the skill, make changes in the private repository and republish from there.
