@@ -32,6 +32,15 @@ You can manage Nexudus coworking spaces through the `nexudus` CLI tool. This ski
 4. **Never prompt the user for credentials interactively.** If `ok` is `false` with an auth error, tell the user to run `nexudus login` manually.
 5. **Use `--yes` or `-y` on delete commands** to skip interactive confirmation prompts.
 6. **Use `--json` when you need raw data for scripting.** Use `--agent` when you want the envelope with summary.
+7. **List responses omit collection properties.** The API only returns list/array fields (e.g., `Tariffs`, `Teams`, `LinkedResources`) when fetching a **single entity by ID** (`get <id>`). List commands return a simplified projection without these fields. If you need to read or verify a collection property, always fetch the individual entity first.
+8. **Use the current user's defaults for business, currency, country, and timezone.** Before creating or updating entities that require a business (location), currency, country, or timezone, run `nexudus whoami --agent` and use the defaults from the response:
+   - `DefaultBusinessId` — use as `--business` when creating entities scoped to a location.
+   - `DefaultCurrencyId` — use as `--currency-id` when a currency is needed.
+   - `DefaultCurrencyCode` — for display/reference purposes.
+   - `DefaultCountryId` — use as `--country-id` when a country is needed.
+   - `DefaultSimpleTimeZoneId` — use as `--timezone-id` when a timezone is needed.
+
+   Only ask the user to specify these values if they explicitly want to override the defaults.
 
 ## Bootstrapping
 
@@ -98,7 +107,7 @@ Businesses support Search, Get, and Update (no Create or Delete via API).
 
 #### Business update options
 
-`--name`, `--short-intro`, `--about`, `--quote`, `--terms`, `--website`, `--web-contact`, `--privacy-url`, `--cookie-url`, `--address`, `--street-name`, `--street-number`, `--neighborhood`, `--city`, `--state`, `--postcode`, `--country-id`, `--longitude`, `--latitude`, `--phone`, `--fax`, `--email`, `--contact-phone`, `--contact-email`, `--currency-id`, `--timezone-id`, `--default-language`, `--venue-type`, `--tags`, `--floors`, `--floor-space`, `--floor-space-unit`, `--passport-published`, `--passport-name`, `--passport-tagline`, `--passport-description`
+`--name`, `--short-intro`, `--about`, `--quote`, `--terms`, `--website`, `--web-contact`, `--privacy-url`, `--cookie-url`, `--address`, `--street-name`, `--street-number`, `--neighborhood`, `--city`, `--state`, `--postcode`, `--country-id`, `--longitude`, `--latitude`, `--phone`, `--fax`, `--email`, `--contact-phone`, `--contact-email`, `--currency-id`, `--timezone-id`, `--default-language`, `--venue-type`, `--tags`, `--floors`, `--floor-space`, `--floor-space-unit`, `--passport-published`, `--passport-name`, `--passport-tagline`, `--passport-description`, `--logo-url`, `--banner-url`, `--nexio-banner-url`, `--passport-banner-url`
 
 ### Products
 
@@ -223,7 +232,7 @@ All commands produce a JSON envelope when `--agent` or `--json` is used:
 
 ProductTimePasses link a TimePass to a Product so that customers purchasing the product automatically receive those passes.
 
-1. Find the product: `nexudus products list --query "Day Pass Bundle" --agent` → note the `Id`
+1. Find the product: `nexudus products list --query "Dat Pass Bundle" --agent` → note the `Id`
 2. Find (or create) the time pass: `nexudus timepasses list --query "Day Pass" --agent` → note the `Id`
 3. Create the link:
    ```shell
@@ -273,8 +282,6 @@ ProductTimePasses link a TimePass to a Product so that customers purchasing the 
 `Id`, `Name`, `Address`, `TownCity`, `State`, `PostalCode`, `CountryName`, `Phone`, `EmailContact`, `WebAddress`, `CurrencyCode`, `Tags`, `PassportPublished`, `VenueType`
 
 ### Products
-
-Products are items that customers can purchase as a one-off, as part of a booking, or as an add-on to their plans. They can represent any purchasable item — day passes, food and drinks, credit bundles, printing credits, etc. Products are not booked; they are simply purchased. A product can be internal (`--visible false`) or published to customers (`--visible true`).
 
 Products support Search, Get, Create, Update, Delete.
 Products also support entity commands.
@@ -360,6 +367,88 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 
 `Id`, `ProductId`, `ProductName`, `TimePassId`, `TimePassName`, `PassesIncluded`
 
+### Resources
+
+Resources support Search, Get, Create, Update, Delete.
+
+| Command                                                                                         | Description                 |
+| ----------------------------------------------------------------------------------------------- | --------------------------- |
+| `nexudus resources list --agent`                                                                | List all resources          |
+| `nexudus resources list --query "search" --agent`                                               | Search resources by name    |
+| `nexudus resources list --page 2 --size 10 --agent`                                             | Paginated list              |
+| `nexudus resources get <id> --agent`                                                            | Get single resource         |
+| `nexudus resources create --business <value> --name <value> --resource-type-id <value> --agent` | Create resource             |
+| `nexudus resources update <id> --name "New Name" --agent`                                       | Update resource             |
+| `nexudus resources delete <id> --yes --agent`                                                   | Delete resource (no prompt) |
+
+#### Resource create options
+
+`--business` (required), `--name` (required), `--system-resource-type`, `--resource-type-id` (required), `--description`, `--email-confirmation-content`, `--visible`, `--requires-confirmation`, `--display-order`, `--group-name`, `--projector`, `--internet`, `--conference-phone`, `--standard-phone`, `--white-board`, `--large-display`, `--catering`, `--tea-and-coffee`, `--drinks`, `--security-lock`, `--cctv`, `--voice-recorder`, `--air-conditioning`, `--heating`, `--natural-light`, `--standing-desk`, `--quiet-zone`, `--wireless-charger`, `--privacy-screen`, `--soundproof`, `--video-conferencing`, `--dual-display-screen`, `--display-screen`, `--wireless-presentation`, `--pa-system`, `--desktop-monitor`, `--flip-chart`, `--secure-storage`, `--allow-multiple-bookings`, `--allocation`, `--limit-visitors-to-allocation`, `--book-in-advance-limit`, `--late-booking-limit`, `--late-cancellation-limit`, `--interval-limit`, `--no-return-policy`, `--no-return-policy-all-resources`, `--no-return-policy-all-users`, `--max-booking-length`, `--min-booking-length`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--shifts`, `--linked-resources` (list, repeat flag), `--added-linked-resources` (list, repeat flag), `--removed-linked-resources` (list, repeat flag), `--longitude`, `--latitude`, `--hide-in-calendar`, `--archived`, `--use-shared-zoom-account`, `--zoom-user-id`, `--last-cleaned-at`, `--linked-resource-ids`, `--only-for-contacts`, `--only-for-members`, `--only-for-invoicing-business`, `--booking-availability-exceptions` (list, repeat flag), `--added-booking-availability-exceptions` (list, repeat flag), `--removed-booking-availability-exceptions` (list, repeat flag), `--cancellation-fee-product-id`, `--charge-cancellation-fee`, `--cancellation-fee-type`, `--cancellation-fee-amount`, `--cancellation-fee-percentage`, `--repeat-booking-quantity-limit`, `--repeat-booking-period-limit-in-months`, `--new-picture-url`, `--picture-file-name`, `--clear-picture-file`
+
+#### Resource update options
+
+`--name`, `--system-resource-type`, `--resource-type-id`, `--description`, `--email-confirmation-content`, `--visible`, `--requires-confirmation`, `--display-order`, `--group-name`, `--projector`, `--internet`, `--conference-phone`, `--standard-phone`, `--white-board`, `--large-display`, `--catering`, `--tea-and-coffee`, `--drinks`, `--security-lock`, `--cctv`, `--voice-recorder`, `--air-conditioning`, `--heating`, `--natural-light`, `--standing-desk`, `--quiet-zone`, `--wireless-charger`, `--privacy-screen`, `--soundproof`, `--video-conferencing`, `--dual-display-screen`, `--display-screen`, `--wireless-presentation`, `--pa-system`, `--desktop-monitor`, `--flip-chart`, `--secure-storage`, `--allow-multiple-bookings`, `--allocation`, `--limit-visitors-to-allocation`, `--book-in-advance-limit`, `--late-booking-limit`, `--late-cancellation-limit`, `--interval-limit`, `--no-return-policy`, `--no-return-policy-all-resources`, `--no-return-policy-all-users`, `--max-booking-length`, `--min-booking-length`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--shifts`, `--linked-resources` (list, repeat flag), `--added-linked-resources` (list, repeat flag), `--removed-linked-resources` (list, repeat flag), `--longitude`, `--latitude`, `--hide-in-calendar`, `--archived`, `--use-shared-zoom-account`, `--zoom-user-id`, `--last-cleaned-at`, `--linked-resource-ids`, `--only-for-contacts`, `--only-for-members`, `--only-for-invoicing-business`, `--booking-availability-exceptions` (list, repeat flag), `--added-booking-availability-exceptions` (list, repeat flag), `--removed-booking-availability-exceptions` (list, repeat flag), `--cancellation-fee-product-id`, `--charge-cancellation-fee`, `--cancellation-fee-type`, `--cancellation-fee-amount`, `--cancellation-fee-percentage`, `--repeat-booking-quantity-limit`, `--repeat-booking-period-limit-in-months`, `--new-picture-url`, `--picture-file-name`, `--clear-picture-file`
+
+### Resource (key fields)
+
+`Id`, `BusinessId`, `BusinessName`, `Name`, `ResourceTypeId`, `ResourceTypeName`, `Visible`, `GroupName`, `Allocation`, `Archived`, `OnlyForContacts`, `OnlyForMembers`
+
+**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`, `Teams`, `AddedTeams`, `RemovedTeams`, `LinkedResources`, `AddedLinkedResources`, `RemovedLinkedResources`, `BookingAvailabilityExceptions`, `AddedBookingAvailabilityExceptions`, `RemovedBookingAvailabilityExceptions`
+
+> **Resource Type (`ExtraService`):** Every resource requires a `ResourceTypeId` that references an `ExtraService` entity. The resource type defines the hourly/daily rates and billing rules for bookings. You cannot create a resource without first knowing the ID of an existing resource type.
+
+### ResourceTypes
+
+ResourceTypes support Search, Get, Create, Update, Delete.
+
+| Command                                                       | Description                     |
+| ------------------------------------------------------------- | ------------------------------- |
+| `nexudus resourcetypes list --agent`                          | List all resourcetypes          |
+| `nexudus resourcetypes list --query "search" --agent`         | Search resourcetypes by name    |
+| `nexudus resourcetypes list --page 2 --size 10 --agent`       | Paginated list                  |
+| `nexudus resourcetypes get <id> --agent`                      | Get single resourcetype         |
+| `nexudus resourcetypes create --business <value> --agent`     | Create resourcetype             |
+| `nexudus resourcetypes update <id> --name "New Name" --agent` | Update resourcetype             |
+| `nexudus resourcetypes delete <id> --yes --agent`             | Delete resourcetype (no prompt) |
+
+#### ResourceType create options
+
+`--business` (required), `--name`
+
+#### ResourceType update options
+
+`--name`
+
+### ResourceType (key fields)
+
+`Id`, `BusinessId`, `BusinessName`, `Name`
+
+## Image Uploads
+
+Some entities have image properties (logo, banner, picture, etc.). To set an image, use the corresponding `New{PropertyName}Url` property, which accepts a **publicly accessible URL**. The Nexudus back-end downloads the image from that URL and stores it, so the URL must be reachable from the internet — local file paths or authenticated URLs will not work.
+
+The naming convention is: for an image property called `{PropertyName}`, the upload property is `New{PropertyName}Url`.
+
+| Entity   | Image Property   | CLI Option              | API Property             |
+| -------- | ---------------- | ----------------------- | ------------------------ |
+| Business | Logo             | `--logo-url`            | `NewLogoUrl`             |
+| Business | BannerImage      | `--banner-url`          | `NewBannerImageUrl`      |
+| Business | NexIoBannerImage | `--nexio-banner-url`    | `NewNexIoBannerImageUrl` |
+| Business | PassportBanner   | `--passport-banner-url` | `NewPassportBannerUrl`   |
+| Resource | Picture          | `--new-picture-url`     | `NewPictureUrl`          |
+
+Example — set a logo on a business:
+
+```shell
+nexudus businesses update <id> --logo-url "https://example.com/logo.png" --agent
+```
+
+Example — set a picture on a resource:
+
+```shell
+nexudus resources update <id> --new-picture-url "https://example.com/room.jpg" --agent
+```
+
 ## Nexudus API Pattern
 
 The Nexudus API follows a consistent REST pattern. Each entity at `/api/{module}/{entities}` supports:
@@ -382,6 +471,17 @@ Current entity mappings:
 | Product         | billing | products          |
 | TimePass        | billing | timepasses        |
 | ProductTimePass | billing | producttimepasses |
+| Resource        | spaces  | resources         |
+
+## Passing Multiple Values (List Options)
+
+Some options accept a list of IDs (e.g., `--tariffs`, `--teams`, `--linked-resources`). To pass multiple values, **repeat the flag** for each value:
+
+```shell
+nexudus resources update <id> --tariffs 101 --tariffs 202 --tariffs 303 --agent
+```
+
+Do **not** use comma-separated values or bracket syntax — each value needs its own flag.
 
 ## Tips
 
