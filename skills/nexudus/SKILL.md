@@ -1,12 +1,14 @@
 ---
+name: nexudus
 description: Manage Nexudus coworking spaces via the `nexudus` CLI — businesses, products, authentication, and configuration.
-triggers:
-  - nexudus
-  - coworking
-  - business management
-  - product management
-  - spaces
-invocable: true
+metadata:
+  triggers:
+    - nexudus
+    - coworking
+    - business management
+    - product management
+    - spaces
+user-invocable: true
 ---
 
 # Nexudus CLI Agent Skill
@@ -42,6 +44,7 @@ nexudus doctor --agent
 This returns CLI version, .NET runtime, OS, credential status, config file location, API connectivity, and all available commands. Check `data.CredentialsStored` and `data.ApiStatus` before proceeding.
 
 If credentials are missing, instruct the user:
+
 > Run `nexudus login` to authenticate with your Nexudus account.
 
 ## CLI Introspection
@@ -66,18 +69,18 @@ nexudus products create --help
 
 ### Authentication
 
-| Command           | Description                        |
-| ----------------- | ---------------------------------- |
-| `nexudus login`   | Authenticate (interactive prompt)  |
-| `nexudus logout`  | Clear stored credentials           |
-| `nexudus whoami`  | Show current authenticated user    |
+| Command          | Description                       |
+| ---------------- | --------------------------------- |
+| `nexudus login`  | Authenticate (interactive prompt) |
+| `nexudus logout` | Clear stored credentials          |
+| `nexudus whoami` | Show current authenticated user   |
 
 ### Configuration
 
-| Command                              | Description              |
-| ------------------------------------ | ------------------------ |
-| `nexudus config get <key>`           | Read a config value      |
-| `nexudus config set <key> <value>`   | Set a config value       |
+| Command                            | Description         |
+| ---------------------------------- | ------------------- |
+| `nexudus config get <key>`         | Read a config value |
+| `nexudus config set <key> <value>` | Set a config value  |
 
 Config keys: `base-url`
 
@@ -85,13 +88,13 @@ Config keys: `base-url`
 
 Businesses support Search, Get, and Update (no Create or Delete via API).
 
-| Command | Description |
-| --- | --- |
-| `nexudus businesses list --agent` | List all businesses |
-| `nexudus businesses list --query "London" --agent` | Search businesses by name |
-| `nexudus businesses list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus businesses get <id> --agent` | Get single business |
-| `nexudus businesses update <id> --name "New Name" --agent` | Update business fields |
+| Command                                                    | Description               |
+| ---------------------------------------------------------- | ------------------------- |
+| `nexudus businesses list --agent`                          | List all businesses       |
+| `nexudus businesses list --query "London" --agent`         | Search businesses by name |
+| `nexudus businesses list --page 2 --size 10 --agent`       | Paginated list            |
+| `nexudus businesses get <id> --agent`                      | Get single business       |
+| `nexudus businesses update <id> --name "New Name" --agent` | Update business fields    |
 
 #### Business update options
 
@@ -101,18 +104,18 @@ Businesses support Search, Get, and Update (no Create or Delete via API).
 
 Products support full CRUD plus entity commands.
 
-| Command | Description |
-| --- | --- |
-| `nexudus products list --agent` | List all products |
-| `nexudus products list --query "Pass" --agent` | Search products by name |
-| `nexudus products list --business <id> --agent` | Filter by business |
-| `nexudus products list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus products get <id> --agent` | Get single product |
-| `nexudus products create --name "Day Pass" --price 25.00 --business <id> --agent` | Create product |
-| `nexudus products update <id> --name "New Name" --price 30.00 --agent` | Update product |
-| `nexudus products delete <id> --yes --agent` | Delete product (no prompt) |
-| `nexudus products commands --agent` | List available entity commands |
-| `nexudus products run-command <key> <ids> --agent` | Run entity command |
+| Command                                                                           | Description                    |
+| --------------------------------------------------------------------------------- | ------------------------------ |
+| `nexudus products list --agent`                                                   | List all products              |
+| `nexudus products list --query "Pass" --agent`                                    | Search products by name        |
+| `nexudus products list --business <id> --agent`                                   | Filter by business             |
+| `nexudus products list --page 2 --size 10 --agent`                                | Paginated list                 |
+| `nexudus products get <id> --agent`                                               | Get single product             |
+| `nexudus products create --name "Day Pass" --price 25.00 --business <id> --agent` | Create product                 |
+| `nexudus products update <id> --name "New Name" --price 30.00 --agent`            | Update product                 |
+| `nexudus products delete <id> --yes --agent`                                      | Delete product (no prompt)     |
+| `nexudus products commands --agent`                                               | List available entity commands |
+| `nexudus products run-command <key> <ids> --agent`                                | Run entity command             |
 
 #### Product create options
 
@@ -130,12 +133,12 @@ nexudus doctor --agent
 
 ### Global Flags
 
-| Flag | Description |
-| --- | --- |
-| `--agent` | JSON envelope with summary (use this) |
-| `--json` | Raw JSON envelope |
-| `--md` | Markdown output |
-| `--base-url <url>` | Override API base URL |
+| Flag               | Description                           |
+| ------------------ | ------------------------------------- |
+| `--agent`          | JSON envelope with summary (use this) |
+| `--json`           | Raw JSON envelope                     |
+| `--md`             | Markdown output                       |
+| `--base-url <url>` | Override API base URL                 |
 
 ## Output Envelope
 
@@ -218,14 +221,14 @@ All commands produce a JSON envelope when `--agent` or `--json` is used:
 
 ## Error Handling
 
-| Error | Meaning | Action |
-| --- | --- | --- |
-| `ok: false`, summary contains "Not logged in" | No stored credentials | Tell user to run `nexudus login` |
-| `ok: false`, summary contains "Unauthorized" | Invalid credentials | Tell user to run `nexudus login` again |
-| `ok: false`, summary contains "Forbidden" | Insufficient permissions | Inform user they lack API permissions |
-| `ok: false`, summary contains "not found" | Entity doesn't exist | Check the ID and try again |
-| `ok: false`, summary contains "Failed to create" | Create validation error | Check required fields (name, business, price) |
-| Non-zero exit code | Command failed | Read stderr or the JSON envelope for details |
+| Error                                            | Meaning                  | Action                                        |
+| ------------------------------------------------ | ------------------------ | --------------------------------------------- |
+| `ok: false`, summary contains "Not logged in"    | No stored credentials    | Tell user to run `nexudus login`              |
+| `ok: false`, summary contains "Unauthorized"     | Invalid credentials      | Tell user to run `nexudus login` again        |
+| `ok: false`, summary contains "Forbidden"        | Insufficient permissions | Inform user they lack API permissions         |
+| `ok: false`, summary contains "not found"        | Entity doesn't exist     | Check the ID and try again                    |
+| `ok: false`, summary contains "Failed to create" | Create validation error  | Check required fields (name, business, price) |
+| Non-zero exit code                               | Command failed           | Read stderr or the JSON envelope for details  |
 
 ## Entity Models
 
@@ -241,22 +244,22 @@ All commands produce a JSON envelope when `--agent` or `--json` is used:
 
 The Nexudus API follows a consistent REST pattern. Each entity at `/api/{module}/{entities}` supports:
 
-| Operation | HTTP | URL |
-| --- | --- | --- |
-| Search | GET | `/api/{module}/{entities}?page=1&size=25` |
-| Get one | GET | `/api/{module}/{entities}/{id}` |
-| Create | POST | `/api/{module}/{entities}` |
-| Update | PUT | `/api/{module}/{entities}` |
-| Delete | DELETE | `/api/{module}/{entities}/{id}` |
-| Commands | GET | `/api/{module}/{entities}/commands` |
-| Run command | POST | `/api/{module}/{entities}/runCommand` |
+| Operation   | HTTP   | URL                                       |
+| ----------- | ------ | ----------------------------------------- |
+| Search      | GET    | `/api/{module}/{entities}?page=1&size=25` |
+| Get one     | GET    | `/api/{module}/{entities}/{id}`           |
+| Create      | POST   | `/api/{module}/{entities}`                |
+| Update      | PUT    | `/api/{module}/{entities}`                |
+| Delete      | DELETE | `/api/{module}/{entities}/{id}`           |
+| Commands    | GET    | `/api/{module}/{entities}/commands`       |
+| Run command | POST   | `/api/{module}/{entities}/runCommand`     |
 
 Current entity mappings:
 
-| Entity | Module | Path |
-| --- | --- | --- |
-| Business | sys | businesses |
-| Product | billing | products |
+| Entity   | Module  | Path       |
+| -------- | ------- | ---------- |
+| Business | sys     | businesses |
+| Product  | billing | products   |
 
 ## Tips
 
