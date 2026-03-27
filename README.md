@@ -6,19 +6,19 @@ This repository contains the published Agent Skills package for the Nexudus CLI 
 
 Install with:
 
-`ash
+`
 npx skills add Nexudus-Ltd/nexudus-coworking-skills
 `
 
 Install globally for GitHub Copilot:
 
-`ash
+`
 npx skills add Nexudus-Ltd/nexudus-coworking-skills -g -a github-copilot
 `
 
 Verify:
 
-`ash
+`
 npx skills list
 `
 
