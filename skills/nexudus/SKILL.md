@@ -423,6 +423,36 @@ ResourceTypes support Search, Get, Create, Update, Delete.
 
 `Id`, `BusinessId`, `BusinessName`, `Name`
 
+### Currencies
+
+Currencies support Search, Get (no Create or Delete via API).
+
+| Command | Description |
+| --- | --- |
+| `nexudus currencies list --agent` | List all currencies |
+| `nexudus currencies list --query "search" --agent` | Search currencies by name |
+| `nexudus currencies list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus currencies get <id> --agent` | Get single currency |
+
+### Countries
+
+Countries support Search, Get (no Create or Delete via API).
+
+| Command | Description |
+| --- | --- |
+| `nexudus countries list --agent` | List all countries |
+| `nexudus countries list --query "search" --agent` | Search countries by name |
+| `nexudus countries list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus countries get <id> --agent` | Get single country |
+
+### Country (key fields)
+
+`Id`, `Name`, `TwoDigitsCode`, `Culture`
+
+### Currency (key fields)
+
+`Id`, `Name`, `Code`, `Format`
+
 ## Image Uploads
 
 Some entities have image properties (logo, banner, picture, etc.). To set an image, use the corresponding `New{PropertyName}Url` property, which accepts a **publicly accessible URL**. The Nexudus back-end downloads the image from that URL and stores it, so the URL must be reachable from the internet — local file paths or authenticated URLs will not work.
@@ -472,6 +502,9 @@ Current entity mappings:
 | TimePass        | billing | timepasses        |
 | ProductTimePass | billing | producttimepasses |
 | Resource        | spaces  | resources         |
+| ResourceType    | spaces  | resourcetypes     |
+| Currency        | sys     | currencies        |
+| Country         | sys     | countries         |
 
 ## Passing Multiple Values (List Options)
 
@@ -489,4 +522,4 @@ Do **not** use comma-separated values or bracket syntax — each value needs its
 - Combine `--query` with pagination for efficient searching.
 - The `run-command` accepts comma-separated IDs to batch operations: `nexudus products run-command archive 123,456,789 --agent`.
 - Business entities cannot be created or deleted via the API — only listed, viewed, and updated.
-- Always pass `--yes` with delete commands when running non-interactively.
+- Always pass `--yes` with delete commands whegin running non-interactively.
