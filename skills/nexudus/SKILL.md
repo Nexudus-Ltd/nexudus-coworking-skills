@@ -380,20 +380,21 @@ A printing credit extra service has `IsPrintingCredit = true`, `ChargePeriod = 5
 ### Products
 
 <!-- BEGIN:GENERATED entity=Products -->
+
 Products support Search, Get, Create, Update, Delete.
 Products also support entity commands.
 
-| Command | Description |
-| --- | --- |
-| `nexudus products list --agent` | List all products |
-| `nexudus products list --query "search" --agent` | Search products by name |
-| `nexudus products list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus products get <id> --agent` | Get single product |
-| `nexudus products create --business <value> --name <value> --price <value> --description <value> --agent` | Create product |
-| `nexudus products update <id> --name "New Name" --agent` | Update product |
-| `nexudus products delete <id> --yes --agent` | Delete product (no prompt) |
-| `nexudus products commands --agent` | List available entity commands |
-| `nexudus products run-command <key> <ids> --agent` | Run entity command |
+| Command                                                                                                   | Description                    |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `nexudus products list --agent`                                                                           | List all products              |
+| `nexudus products list --query "search" --agent`                                                          | Search products by name        |
+| `nexudus products list --page 2 --size 10 --agent`                                                        | Paginated list                 |
+| `nexudus products get <id> --agent`                                                                       | Get single product             |
+| `nexudus products create --business <value> --name <value> --price <value> --description <value> --agent` | Create product                 |
+| `nexudus products update <id> --name "New Name" --agent`                                                  | Update product                 |
+| `nexudus products delete <id> --yes --agent`                                                              | Delete product (no prompt)     |
+| `nexudus products commands --agent`                                                                       | List available entity commands |
+| `nexudus products run-command <key> <ids> --agent`                                                        | Run entity command             |
 
 #### Product create options
 
@@ -411,10 +412,10 @@ Products also support entity commands.
 
 #### Product enum values
 
-| Option | Valid values |
-| ------ | ------------ |
+| Option                  | Valid values                                                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `--system-product-type` | `0` None, `1` DayPass, `2` CreditBundle, `3` Stationery, `4` BookingFeature, `5` BookingProducts, `99` Other |
-| `--available-as` | `1` RecurrentOrOneOff, `2` OnlyRecurrent, `3` OnlyOneOff |
+| `--available-as`        | `1` RecurrentOrOneOff, `2` OnlyRecurrent, `3` OnlyOneOff                                                     |
 
 <!-- END:GENERATED entity=Products -->
 
@@ -426,17 +427,18 @@ Passes allow customers to check in to a coworking space. There are two kinds:
 - **Time Pass** — valid across multiple days up to a fixed amount of time. Created with `--minutes-included <minutes>` set. The customer can check in until the included minutes are exhausted.
 
 <!-- BEGIN:GENERATED entity=TimePasses -->
+
 TimePasses support Search, Get, Create, Update, Delete.
 
-| Command | Description |
-| --- | --- |
-| `nexudus timepasses list --agent` | List all timepasses |
-| `nexudus timepasses list --query "search" --agent` | Search timepasses by name |
-| `nexudus timepasses list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus timepasses get <id> --agent` | Get single timepass |
-| `nexudus timepasses create --business <value> --name <value> --agent` | Create timepass |
-| `nexudus timepasses update <id> --name "New Name" --agent` | Update timepass |
-| `nexudus timepasses delete <id> --yes --agent` | Delete timepass (no prompt) |
+| Command                                                               | Description                 |
+| --------------------------------------------------------------------- | --------------------------- |
+| `nexudus timepasses list --agent`                                     | List all timepasses         |
+| `nexudus timepasses list --query "search" --agent`                    | Search timepasses by name   |
+| `nexudus timepasses list --page 2 --size 10 --agent`                  | Paginated list              |
+| `nexudus timepasses get <id> --agent`                                 | Get single timepass         |
+| `nexudus timepasses create --business <value> --name <value> --agent` | Create timepass             |
+| `nexudus timepasses update <id> --name "New Name" --agent`            | Update timepass             |
+| `nexudus timepasses delete <id> --yes --agent`                        | Delete timepass (no prompt) |
 
 #### TimePass create options
 
@@ -460,17 +462,18 @@ A **ProductTimePass** links a `TimePass` to a `Product` so that customers purcha
 - **Time Pass** (TimePass with `MinutesIncluded` set) — `PassesIncluded` is the number of pass instances (each worth `MinutesIncluded` minutes). Multiply `PassesIncluded` by `MinutesIncluded` to get total hours. For example, `PassesIncluded = 10` with a 60-minute time pass gives the customer 10 hours of check-in time to use across different dates.
 
 <!-- BEGIN:GENERATED entity=ProductTimePasses -->
+
 ProductTimePasses support Search, Get, Create, Update, Delete.
 
-| Command | Description |
-| --- | --- |
-| `nexudus producttimepasses list --agent` | List all producttimepasses |
-| `nexudus producttimepasses list --query "search" --agent` | Search producttimepasses by name |
-| `nexudus producttimepasses list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus producttimepasses get <id> --agent` | Get single producttimepass |
-| `nexudus producttimepasses create --product-id <value> --time-pass-id <value> --agent` | Create producttimepass |
-| `nexudus producttimepasses update <id> --name "New Name" --agent` | Update producttimepass |
-| `nexudus producttimepasses delete <id> --yes --agent` | Delete producttimepass (no prompt) |
+| Command                                                                                | Description                        |
+| -------------------------------------------------------------------------------------- | ---------------------------------- |
+| `nexudus producttimepasses list --agent`                                               | List all producttimepasses         |
+| `nexudus producttimepasses list --query "search" --agent`                              | Search producttimepasses by name   |
+| `nexudus producttimepasses list --page 2 --size 10 --agent`                            | Paginated list                     |
+| `nexudus producttimepasses get <id> --agent`                                           | Get single producttimepass         |
+| `nexudus producttimepasses create --product-id <value> --time-pass-id <value> --agent` | Create producttimepass             |
+| `nexudus producttimepasses update <id> --name "New Name" --agent`                      | Update producttimepass             |
+| `nexudus producttimepasses delete <id> --yes --agent`                                  | Delete producttimepass (no prompt) |
 
 #### ProductTimePass create options
 
@@ -486,8 +489,8 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 
 #### ProductTimePass enum values
 
-| Option | Valid values |
-| ------ | ------------ |
+| Option              | Valid values                                                              |
+| ------------------- | ------------------------------------------------------------------------- |
 | `--expiration-type` | `1` PricePlan, `2` Day, `3` Week, `4` Month, `5` Year, `6` LastDayOfMonth |
 
 <!-- END:GENERATED entity=ProductTimePasses -->
@@ -495,17 +498,18 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 ### Resources
 
 <!-- BEGIN:GENERATED entity=Resources -->
+
 Resources support Search, Get, Create, Update, Delete.
 
-| Command | Description |
-| --- | --- |
-| `nexudus resources list --agent` | List all resources |
-| `nexudus resources list --query "search" --agent` | Search resources by name |
-| `nexudus resources list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus resources get <id> --agent` | Get single resource |
-| `nexudus resources create --business <value> --name <value> --resource-type-id <value> --agent` | Create resource |
-| `nexudus resources update <id> --name "New Name" --agent` | Update resource |
-| `nexudus resources delete <id> --yes --agent` | Delete resource (no prompt) |
+| Command                                                                                         | Description                 |
+| ----------------------------------------------------------------------------------------------- | --------------------------- |
+| `nexudus resources list --agent`                                                                | List all resources          |
+| `nexudus resources list --query "search" --agent`                                               | Search resources by name    |
+| `nexudus resources list --page 2 --size 10 --agent`                                             | Paginated list              |
+| `nexudus resources get <id> --agent`                                                            | Get single resource         |
+| `nexudus resources create --business <value> --name <value> --resource-type-id <value> --agent` | Create resource             |
+| `nexudus resources update <id> --name "New Name" --agent`                                       | Update resource             |
+| `nexudus resources delete <id> --yes --agent`                                                   | Delete resource (no prompt) |
 
 #### Resource create options
 
@@ -523,10 +527,10 @@ Resources support Search, Get, Create, Update, Delete.
 
 #### Resource enum values
 
-| Option | Valid values |
-| ------ | ------------ |
-| `--system-resource-type` | `0` None, `1` MeetingRoom, `2` HotDesk, `3` PrivateOffice, `4` EventSpace, `5` Lab, `6` Kitchen, `7` TreatmentRoom, `9` StorageUnit, `10` Machine, `11` DayPass, `12` PhoneBooth, `99` Other |
-| `--cancellation-fee-type` | `0` None, `1` Absolute, `2` Percentage |
+| Option                    | Valid values                                                                                                                                                                                 |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--system-resource-type`  | `0` None, `1` MeetingRoom, `2` HotDesk, `3` PrivateOffice, `4` EventSpace, `5` Lab, `6` Kitchen, `7` TreatmentRoom, `9` StorageUnit, `10` Machine, `11` DayPass, `12` PhoneBooth, `99` Other |
+| `--cancellation-fee-type` | `0` None, `1` Absolute, `2` Percentage                                                                                                                                                       |
 
 <!-- END:GENERATED entity=Resources -->
 
@@ -537,17 +541,18 @@ Resources support Search, Get, Create, Update, Delete.
 A **ResourceType** is a category of bookable space (e.g., "Meeting Room", "Phone Booth", "Hot Desk"). Every `Resource` must be assigned to exactly one resource type. Pricing for a resource type is not stored on the type itself — it is defined by `ExtraService` records that reference the type. Multiple extra services can apply to the same resource type, covering different charge periods or customer restrictions.
 
 <!-- BEGIN:GENERATED entity=ResourceTypes -->
+
 ResourceTypes support Search, Get, Create, Update, Delete.
 
-| Command | Description |
-| --- | --- |
-| `nexudus resourcetypes list --agent` | List all resourcetypes |
-| `nexudus resourcetypes list --query "search" --agent` | Search resourcetypes by name |
-| `nexudus resourcetypes list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus resourcetypes get <id> --agent` | Get single resourcetype |
-| `nexudus resourcetypes create --business <value> --agent` | Create resourcetype |
-| `nexudus resourcetypes update <id> --name "New Name" --agent` | Update resourcetype |
-| `nexudus resourcetypes delete <id> --yes --agent` | Delete resourcetype (no prompt) |
+| Command                                                       | Description                     |
+| ------------------------------------------------------------- | ------------------------------- |
+| `nexudus resourcetypes list --agent`                          | List all resourcetypes          |
+| `nexudus resourcetypes list --query "search" --agent`         | Search resourcetypes by name    |
+| `nexudus resourcetypes list --page 2 --size 10 --agent`       | Paginated list                  |
+| `nexudus resourcetypes get <id> --agent`                      | Get single resourcetype         |
+| `nexudus resourcetypes create --business <value> --agent`     | Create resourcetype             |
+| `nexudus resourcetypes update <id> --name "New Name" --agent` | Update resourcetype             |
+| `nexudus resourcetypes delete <id> --yes --agent`             | Delete resourcetype (no prompt) |
 
 #### ResourceType create options
 
@@ -584,18 +589,25 @@ To set up pricing for a resource type, create one `ExtraService` per pricing rul
 
 To create a **printing credit** extra service, set `--printing-credit true`, `--charge-period 5`, and `--price 1`. Resource type assignment is not required for printing credit extra services.
 
+### Setting up hourly pricing
+
+For hourly pricing, set `--charge-period 1` (Minutes) and `--price` to the cost of 60 minutes. The system interprets a charge period of 1 minute as hourly billing when the price represents a full hour.
+
+Example — create a $50/hour meeting room pricing rule:
+
 <!-- BEGIN:GENERATED entity=ExtraServices -->
+
 ExtraServices support Search, Get, Create, Update, Delete.
 
-| Command | Description |
-| --- | --- |
-| `nexudus extraservices list --agent` | List all extraservices |
-| `nexudus extraservices list --query "search" --agent` | Search extraservices by name |
-| `nexudus extraservices list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus extraservices get <id> --agent` | Get single extraservice |
-| `nexudus extraservices create --business <value> --name <value> --agent` | Create extraservice |
-| `nexudus extraservices update <id> --name "New Name" --agent` | Update extraservice |
-| `nexudus extraservices delete <id> --yes --agent` | Delete extraservice (no prompt) |
+| Command                                                                  | Description                     |
+| ------------------------------------------------------------------------ | ------------------------------- |
+| `nexudus extraservices list --agent`                                     | List all extraservices          |
+| `nexudus extraservices list --query "search" --agent`                    | Search extraservices by name    |
+| `nexudus extraservices list --page 2 --size 10 --agent`                  | Paginated list                  |
+| `nexudus extraservices get <id> --agent`                                 | Get single extraservice         |
+| `nexudus extraservices create --business <value> --name <value> --agent` | Create extraservice             |
+| `nexudus extraservices update <id> --name "New Name" --agent`            | Update extraservice             |
+| `nexudus extraservices delete <id> --yes --agent`                        | Delete extraservice (no prompt) |
 
 #### ExtraService create options
 
@@ -613,10 +625,10 @@ ExtraServices support Search, Get, Create, Update, Delete.
 
 #### ExtraService enum values
 
-| Option | Valid values |
-| ------ | ------------ |
-| `--charge-period` | `1` Minutes, `2` Days, `3` Weeks, `4` Months, `5` Uses, `6` FourWeekMonths |
-| `--last-minute-adjustment-type` | `1` Disabled, `2` Fixed, `3` Gradual |
+| Option                          | Valid values                                                               |
+| ------------------------------- | -------------------------------------------------------------------------- |
+| `--charge-period`               | `1` Minutes, `2` Days, `3` Weeks, `4` Months, `5` Uses, `6` FourWeekMonths |
+| `--last-minute-adjustment-type` | `1` Disabled, `2` Fixed, `3` Gradual                                       |
 
 <!-- END:GENERATED entity=ExtraServices -->
 
@@ -643,17 +655,18 @@ For booking-time extra services, the unit of `UsesIncluded` is determined by the
 So `--uses-included 60` on a minutes extra service means 60 minutes of booking time included. On a daily extra service it means 60 full days.
 
 <!-- BEGIN:GENERATED entity=ProductExtraServices -->
+
 ProductExtraServices support Search, Get, Create, Update, Delete.
 
-| Command | Description |
-| --- | --- |
-| `nexudus productextraservices list --agent` | List all productextraservices |
-| `nexudus productextraservices list --query "search" --agent` | Search productextraservices by name |
-| `nexudus productextraservices list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus productextraservices get <id> --agent` | Get single productextraservice |
-| `nexudus productextraservices create --product-id <value> --extra-service-id <value> --uses-included <value> --agent` | Create productextraservice |
-| `nexudus productextraservices update <id> --name "New Name" --agent` | Update productextraservice |
-| `nexudus productextraservices delete <id> --yes --agent` | Delete productextraservice (no prompt) |
+| Command                                                                                                               | Description                            |
+| --------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `nexudus productextraservices list --agent`                                                                           | List all productextraservices          |
+| `nexudus productextraservices list --query "search" --agent`                                                          | Search productextraservices by name    |
+| `nexudus productextraservices list --page 2 --size 10 --agent`                                                        | Paginated list                         |
+| `nexudus productextraservices get <id> --agent`                                                                       | Get single productextraservice         |
+| `nexudus productextraservices create --product-id <value> --extra-service-id <value> --uses-included <value> --agent` | Create productextraservice             |
+| `nexudus productextraservices update <id> --name "New Name" --agent`                                                  | Update productextraservice             |
+| `nexudus productextraservices delete <id> --yes --agent`                                                              | Delete productextraservice (no prompt) |
 
 #### ProductExtraService create options
 
@@ -672,14 +685,15 @@ ProductExtraServices support Search, Get, Create, Update, Delete.
 ### Currencies
 
 <!-- BEGIN:GENERATED entity=Currencies -->
+
 Currencies support Search, Get (no Create or Delete via API).
 
-| Command | Description |
-| --- | --- |
-| `nexudus currencies list --agent` | List all currencies |
-| `nexudus currencies list --query "search" --agent` | Search currencies by name |
-| `nexudus currencies list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus currencies get <id> --agent` | Get single currency |
+| Command                                              | Description               |
+| ---------------------------------------------------- | ------------------------- |
+| `nexudus currencies list --agent`                    | List all currencies       |
+| `nexudus currencies list --query "search" --agent`   | Search currencies by name |
+| `nexudus currencies list --page 2 --size 10 --agent` | Paginated list            |
+| `nexudus currencies get <id> --agent`                | Get single currency       |
 
 ### Currency (key fields)
 
@@ -690,14 +704,15 @@ Currencies support Search, Get (no Create or Delete via API).
 ### Countries
 
 <!-- BEGIN:GENERATED entity=Countries -->
+
 Countries support Search, Get (no Create or Delete via API).
 
-| Command | Description |
-| --- | --- |
-| `nexudus countries list --agent` | List all countries |
-| `nexudus countries list --query "search" --agent` | Search countries by name |
-| `nexudus countries list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus countries get <id> --agent` | Get single country |
+| Command                                             | Description              |
+| --------------------------------------------------- | ------------------------ |
+| `nexudus countries list --agent`                    | List all countries       |
+| `nexudus countries list --query "search" --agent`   | Search countries by name |
+| `nexudus countries list --page 2 --size 10 --agent` | Paginated list           |
+| `nexudus countries get <id> --agent`                | Get single country       |
 
 ### Country (key fields)
 
@@ -708,15 +723,16 @@ Countries support Search, Get (no Create or Delete via API).
 ### Businesses
 
 <!-- BEGIN:GENERATED entity=Businesses -->
+
 Businesses support Search, Get, Update (no Create or Delete via API).
 
-| Command | Description |
-| --- | --- |
-| `nexudus businesses list --agent` | List all businesses |
-| `nexudus businesses list --query "search" --agent` | Search businesses by name |
-| `nexudus businesses list --page 2 --size 10 --agent` | Paginated list |
-| `nexudus businesses get <id> --agent` | Get single business |
-| `nexudus businesses update <id> --name "New Name" --agent` | Update business |
+| Command                                                    | Description               |
+| ---------------------------------------------------------- | ------------------------- |
+| `nexudus businesses list --agent`                          | List all businesses       |
+| `nexudus businesses list --query "search" --agent`         | Search businesses by name |
+| `nexudus businesses list --page 2 --size 10 --agent`       | Paginated list            |
+| `nexudus businesses get <id> --agent`                      | Get single business       |
+| `nexudus businesses update <id> --name "New Name" --agent` | Update business           |
 
 #### Business update options
 
