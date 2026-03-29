@@ -8,6 +8,7 @@ Passes allow customers to check in to a coworking space. There are two kinds:
 - **Time Pass** — valid across multiple days up to a fixed amount of time. Created with `--minutes-included <minutes>` set. The customer can check in until the included minutes are exhausted.
 
 TimePasses support Search, Get, Create, Update, Delete.
+TimePasses also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -18,6 +19,7 @@ TimePasses support Search, Get, Create, Update, Delete.
 | `nexudus timepasses create --business <value> --name <value> --agent` | Create timepass |
 | `nexudus timepasses update <id> --name "New Name" --agent` | Update timepass |
 | `nexudus timepasses delete <id> --yes --agent` | Delete timepass (no prompt) |
+| `nexudus timepasses run-command <key> <ids> --agent` | Run entity command |
 
 #### TimePass create options
 

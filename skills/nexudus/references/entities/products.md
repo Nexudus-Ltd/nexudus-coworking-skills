@@ -2,6 +2,14 @@
 
 <!-- BEGIN:GENERATED entity=Products -->
 
+A **Product** represents an item that can be sold to customers. Products can be sold via contracts (`ContractProduct` entity), added to bookings (`BookingProduct` entity), or purchased directly (`CoworkerProduct` entity).
+
+Products support both one-off sales and recurring charges. Recurring charges can be set to daily, weekly, monthly, or yearly frequencies, or charged every time a contract is invoiced. For invoice-linked recurring charges, prefer using `ContractProduct` to associate the sale directly with a specific contract rather than relying on the customer's `MainContract`.
+
+Use `AvailableAs` to control whether a product can be sold as a one-off purchase, a recurring charge, or both. The `SystemProductType` field categorises the product (e.g. day pass, credit bundle, booking product, stationery, or other).
+
+Products can optionally track stock levels, be restricted to specific pricing plans (tariffs), and be limited to members or contacts only.
+
 Products support Search, Get, Create, Update, Delete.
 Products also support entity commands.
 
@@ -36,6 +44,6 @@ Products also support entity commands.
 | Option | Valid values |
 | ------ | ------------ |
 | `--system-product-type` | `0` None, `1` DayPass, `2` CreditBundle, `3` Stationery, `4` BookingFeature, `5` BookingProducts, `99` Other |
-| `--available-as` | `1` RecurrentOrOneOff, `2` OnlyRecurrent, `3` OnlyOneOff |
+| `--available-as` | `0` None, `1` RecurrentOrOneOff, `2` OnlyRecurrent, `3` OnlyOneOff |
 
 <!-- END:GENERATED entity=Products -->

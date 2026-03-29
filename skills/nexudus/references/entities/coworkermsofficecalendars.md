@@ -3,6 +3,7 @@
 <!-- BEGIN:GENERATED entity=CoworkerMsOfficeCalendars -->
 
 CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
+CoworkerMsOfficeCalendars also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +14,7 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 | `nexudus coworkermsofficecalendars create --resource-id <value> --coworker-id <value> --name <value> --subscription-expire-date <value> --agent` | Create coworkermsofficecalendar |
 | `nexudus coworkermsofficecalendars update <id> --name "New Name" --agent` | Update coworkermsofficecalendar |
 | `nexudus coworkermsofficecalendars delete <id> --yes --agent` | Delete coworkermsofficecalendar (no prompt) |
+| `nexudus coworkermsofficecalendars run-command <key> <ids> --agent` | Run entity command |
 
 #### CoworkerMsOfficeCalendar create options
 

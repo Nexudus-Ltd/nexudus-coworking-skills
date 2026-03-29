@@ -3,6 +3,7 @@
 <!-- BEGIN:GENERATED entity=MsOfficeAdminCalendars -->
 
 MsOfficeAdminCalendars support Search, Get, Create, Update, Delete.
+MsOfficeAdminCalendars also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +14,7 @@ MsOfficeAdminCalendars support Search, Get, Create, Update, Delete.
 | `nexudus msofficeadmincalendars create --resource-id <value> --business <value> --name <value> --subscription-expire-date <value> --agent` | Create msofficeadmincalendar |
 | `nexudus msofficeadmincalendars update <id> --name "New Name" --agent` | Update msofficeadmincalendar |
 | `nexudus msofficeadmincalendars delete <id> --yes --agent` | Delete msofficeadmincalendar (no prompt) |
+| `nexudus msofficeadmincalendars run-command <key> <ids> --agent` | Run entity command |
 
 #### MsOfficeAdminCalendar create options
 

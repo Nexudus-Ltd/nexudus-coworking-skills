@@ -2,7 +2,14 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerDataFiles -->
 
+A **CoworkerDataFile** represents a file attached to a customer (coworker) record. Files can be shared with the customer via the portal and mobile app, and optionally require an e-signature.
+
+Use `--available-to-user` to make the file visible to the customer in their portal and app. Use `--request-digital-signature` to send a notification asking the customer to electronically sign the document. When `Signed` is `true`, the signed copy is available via `SignedFileDataFileName`.
+
+You can optionally set `--notify-when-signed-email` to receive an email notification once the customer signs the document.
+
 CoworkerDataFiles support Search, Get, Create, Update, Delete.
+CoworkerDataFiles also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +20,7 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 | `nexudus coworkerdatafiles create --business <value> --coworker-id <value> --name <value> --agent` | Create coworkerdatafile |
 | `nexudus coworkerdatafiles update <id> --name "New Name" --agent` | Update coworkerdatafile |
 | `nexudus coworkerdatafiles delete <id> --yes --agent` | Delete coworkerdatafile (no prompt) |
+| `nexudus coworkerdatafiles run-command <key> <ids> --agent` | Run entity command |
 
 #### CoworkerDataFile create options
 

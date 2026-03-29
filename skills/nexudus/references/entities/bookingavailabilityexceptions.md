@@ -8,6 +8,7 @@ Use exceptions for holidays, maintenance periods, or any other reason a resource
 
 
 BookingAvailabilityExceptions support Search, Get, Create, Update, Delete.
+BookingAvailabilityExceptions also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -18,6 +19,7 @@ BookingAvailabilityExceptions support Search, Get, Create, Update, Delete.
 | `nexudus bookingavailabilityexceptions create --business <value> --from-time <value> --to-time <value> --agent` | Create bookingavailabilityexception |
 | `nexudus bookingavailabilityexceptions update <id> --name "New Name" --agent` | Update bookingavailabilityexception |
 | `nexudus bookingavailabilityexceptions delete <id> --yes --agent` | Delete bookingavailabilityexception (no prompt) |
+| `nexudus bookingavailabilityexceptions run-command <key> <ids> --agent` | Run entity command |
 
 #### BookingAvailabilityException create options
 

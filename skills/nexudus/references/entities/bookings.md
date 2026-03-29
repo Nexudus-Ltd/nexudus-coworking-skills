@@ -15,6 +15,7 @@ A **Booking** is a reservation for a specific `Resource` and, optionally, for a 
 **Pricing overrides** — `OverridePrice` lets an admin set a fixed price for the booking, regardless of what extra service (rate) is associated with it.
 
 Bookings support Search, Get, Create, Update, Delete.
+Bookings also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -25,6 +26,7 @@ Bookings support Search, Get, Create, Update, Delete.
 | `nexudus bookings create --resource-id <value> --from-time <value> --to-time <value> --agent` | Create booking |
 | `nexudus bookings update <id> --name "New Name" --agent` | Update booking |
 | `nexudus bookings delete <id> --yes --agent` | Delete booking (no prompt) |
+| `nexudus bookings run-command <key> <ids> --agent` | Run entity command |
 
 #### Booking create options
 

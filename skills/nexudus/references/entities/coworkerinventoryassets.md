@@ -2,7 +2,14 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerInventoryAssets -->
 
+A **CoworkerInventoryAsset** tracks inventory assets — such as chairs, desks, monitors, or other physical items — that have been assigned to a customer.
+
+Each record links a `Coworker` to an `InventoryAsset` at a specific `Business` (location), with an assignment period defined by `AssignedFrom` and optionally `AssignedTo`. If `AssignedTo` is null, the asset is still assigned to the customer.
+
+Read-only fields prefixed with `Coworker*` and `InventoryAsset*` are denormalized from the linked coworker and inventory asset records for convenience when listing or filtering.
+
 CoworkerInventoryAssets support Search, Get, Create, Update, Delete.
+CoworkerInventoryAssets also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +20,7 @@ CoworkerInventoryAssets support Search, Get, Create, Update, Delete.
 | `nexudus coworkerinventoryassets create --coworker-id <value> --business <value> --inventory-asset-id <value> --assigned-from <value> --agent` | Create coworkerinventoryasset |
 | `nexudus coworkerinventoryassets update <id> --name "New Name" --agent` | Update coworkerinventoryasset |
 | `nexudus coworkerinventoryassets delete <id> --yes --agent` | Delete coworkerinventoryasset (no prompt) |
+| `nexudus coworkerinventoryassets run-command <key> <ids> --agent` | Run entity command |
 
 #### CoworkerInventoryAsset create options
 

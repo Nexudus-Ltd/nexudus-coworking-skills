@@ -28,6 +28,7 @@ For hourly pricing, set `--charge-period 1` (Minutes) and `--price` to the cost 
 Example — create a $50/hour meeting room pricing rule:
 
 ExtraServices support Search, Get, Create, Update, Delete.
+ExtraServices also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -38,6 +39,7 @@ ExtraServices support Search, Get, Create, Update, Delete.
 | `nexudus extraservices create --business <value> --name <value> --agent` | Create extraservice |
 | `nexudus extraservices update <id> --name "New Name" --agent` | Update extraservice |
 | `nexudus extraservices delete <id> --yes --agent` | Delete extraservice (no prompt) |
+| `nexudus extraservices run-command <key> <ids> --agent` | Run entity command |
 
 #### ExtraService create options
 

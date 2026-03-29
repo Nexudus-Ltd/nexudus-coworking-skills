@@ -9,6 +9,7 @@ Visitors can only be added to bookings that are associated with a customer (`Boo
 When a visitor is added to a booking, they may receive a booking confirmation email and a visitor invite email, depending on the notification settings configured for the location of the booked resource.
 
 BookingVisitors support Search, Get, Create, Update, Delete.
+BookingVisitors also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -19,6 +20,7 @@ BookingVisitors support Search, Get, Create, Update, Delete.
 | `nexudus bookingvisitors create --booking-id <value> --visitor-id <value> --agent` | Create bookingvisitor |
 | `nexudus bookingvisitors update <id> --name "New Name" --agent` | Update bookingvisitor |
 | `nexudus bookingvisitors delete <id> --yes --agent` | Delete bookingvisitor (no prompt) |
+| `nexudus bookingvisitors run-command <key> <ids> --agent` | Run entity command |
 
 #### BookingVisitor create options
 

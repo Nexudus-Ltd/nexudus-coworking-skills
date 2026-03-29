@@ -3,6 +3,7 @@
 <!-- BEGIN:GENERATED entity=ResourceTimeSlots -->
 
 ResourceTimeSlots support Search, Get, Create, Update, Delete.
+ResourceTimeSlots also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +14,7 @@ ResourceTimeSlots support Search, Get, Create, Update, Delete.
 | `nexudus resourcetimeslots create --resource-id <value> --from-time <value> --to-time <value> --agent` | Create resourcetimeslot |
 | `nexudus resourcetimeslots update <id> --name "New Name" --agent` | Update resourcetimeslot |
 | `nexudus resourcetimeslots delete <id> --yes --agent` | Delete resourcetimeslot (no prompt) |
+| `nexudus resourcetimeslots run-command <key> <ids> --agent` | Run entity command |
 
 #### ResourceTimeSlot create options
 

@@ -3,6 +3,7 @@
 <!-- BEGIN:GENERATED entity=CoworkerGoogleCalendars -->
 
 CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
+CoworkerGoogleCalendars also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +14,7 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 | `nexudus coworkergooglecalendars create --resource-id <value> --coworker-id <value> --name <value> --agent` | Create coworkergooglecalendar |
 | `nexudus coworkergooglecalendars update <id> --name "New Name" --agent` | Update coworkergooglecalendar |
 | `nexudus coworkergooglecalendars delete <id> --yes --agent` | Delete coworkergooglecalendar (no prompt) |
+| `nexudus coworkergooglecalendars run-command <key> <ids> --agent` | Run entity command |
 
 #### CoworkerGoogleCalendar create options
 

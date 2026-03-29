@@ -3,6 +3,7 @@
 <!-- BEGIN:GENERATED entity=Visitors -->
 
 Visitors support Search, Get, Create, Update, Delete.
+Visitors also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +14,7 @@ Visitors support Search, Get, Create, Update, Delete.
 | `nexudus visitors create --business <value> --full-name <value> --agent` | Create visitor |
 | `nexudus visitors update <id> --name "New Name" --agent` | Update visitor |
 | `nexudus visitors delete <id> --yes --agent` | Delete visitor (no prompt) |
+| `nexudus visitors run-command <key> <ids> --agent` | Run entity command |
 
 #### Visitor create options
 

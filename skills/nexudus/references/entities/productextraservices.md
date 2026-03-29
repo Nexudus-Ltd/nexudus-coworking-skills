@@ -23,6 +23,7 @@ For booking-time extra services, the unit of `UsesIncluded` is determined by the
 So `--uses-included 60` on a minutes extra service means 60 minutes of booking time included. On a daily extra service it means 60 full days.
 
 ProductExtraServices support Search, Get, Create, Update, Delete.
+ProductExtraServices also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -33,6 +34,7 @@ ProductExtraServices support Search, Get, Create, Update, Delete.
 | `nexudus productextraservices create --product-id <value> --extra-service-id <value> --uses-included <value> --agent` | Create productextraservice |
 | `nexudus productextraservices update <id> --name "New Name" --agent` | Update productextraservice |
 | `nexudus productextraservices delete <id> --yes --agent` | Delete productextraservice (no prompt) |
+| `nexudus productextraservices run-command <key> <ids> --agent` | Run entity command |
 
 #### ProductExtraService create options
 

@@ -220,7 +220,7 @@ Before working with an entity, load its reference file for full details (command
 | CancelledBooking | `cancelledbookings` | list, get | [cancelledbookings.md](./references/entities/cancelledbookings.md) |
 | Checkin | `checkins` | list, get, create, update, delete | [checkins.md](./references/entities/checkins.md) |
 | Country | `countries` | list, get | [countries.md](./references/entities/countries.md) |
-| Coworker | `coworkers` | list, get, create, update, delete, commands | [coworkers.md](./references/entities/coworkers.md) |
+| Coworker | `coworkers` | list, get, create, update, commands | [coworkers.md](./references/entities/coworkers.md) |
 | CoworkerDataFile | `cowokerdatafiles` | list, get, create, update, delete | [coworkerdatafiles.md](./references/entities/coworkerdatafiles.md) |
 | CoworkerDelivery | `coworkerdeliveries` | list, get, create, update, delete | [coworkerdeliveries.md](./references/entities/coworkerdeliveries.md) |
 | CoworkerGoogleCalendar | `cowokergooglecalendars` | list, get, create, update, delete | [coworkergooglecalendars.md](./references/entities/coworkergooglecalendars.md) |
@@ -230,7 +230,7 @@ Before working with an entity, load its reference file for full details (command
 | CoworkerMessage | `cowokermessages` | list, get, create, update, delete | [coworkermessages.md](./references/entities/coworkermessages.md) |
 | CoworkerMsOfficeCalendar | `coworkermsoffecalendars` | list, get, create, update, delete | [coworkermsofficecalendars.md](./references/entities/coworkermsofficecalendars.md) |
 | CoworkerNote | `cowokernotes` | list, get, create, update, delete | [coworkernotes.md](./references/entities/coworkernotes.md) |
-| CoworkerNotification | `coworkernotifications` | list, get, create, update, delete | [coworkernotifications.md](./references/entities/coworkernotifications.md) |
+| CoworkerNotification | `coworkernotifications` | list, get | [coworkernotifications.md](./references/entities/coworkernotifications.md) |
 | CoworkerPricePlanHistory | `coworkerpriceplanhistories` | list, get | [coworkerpriceplanhistories.md](./references/entities/coworkerpriceplanhistories.md) |
 | CoworkerSetting | `cowokersettings` | list, get, create, update, delete | [coworkersettings.md](./references/entities/coworkersettings.md) |
 | Currency | `currencies` | list, get | [currencies.md](./references/entities/currencies.md) |
@@ -243,8 +243,8 @@ Before working with an entity, load its reference file for full details (command
 | ProductTimePass | `producttimepasses` | list, get, create, update, delete | [producttimepasses.md](./references/entities/producttimepasses.md) |
 | Resource | `resources` | list, get, create, update, delete | [resources.md](./references/entities/resources.md) |
 | ResourceAccessRule | `resourceaccessrules` | list, get, create, update, delete | [resourceaccessrules.md](./references/entities/resourceaccessrules.md) |
-| ResourceAccessRuleEligibleTimeSlot | `resourceaccessruleeligibletimeslots` | list, get, create, update, delete | [resourceaccessruleeligibletimeslots.md](./references/entities/resourceaccessruleeligibletimeslots.md) |
-| ResourceAccessRuleTimeSlot | `resourceaccessruletimeslots` | list, get, create, update, delete | [resourceaccessruletimeslots.md](./references/entities/resourceaccessruletimeslots.md) |
+| ResourceAccessRuleEligibleTimeSlot | `resourceaccessruleeligibletimeslots` | list | [resourceaccessruleeligibletimeslots.md](./references/entities/resourceaccessruleeligibletimeslots.md) |
+| ResourceAccessRuleTimeSlot | `resourceaccessruletimeslots` | list | [resourceaccessruletimeslots.md](./references/entities/resourceaccessruletimeslots.md) |
 | ResourceTimeSlot | `resourcetimeslots` | list, get, create, update, delete | [resourcetimeslots.md](./references/entities/resourcetimeslots.md) |
 | ResourceType | `resourcetypes` | list, get, create, update, delete | [resourcetypes.md](./references/entities/resourcetypes.md) |
 | Team | `teams` | list, get, create, update, delete | [teams.md](./references/entities/teams.md) |

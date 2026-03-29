@@ -7,6 +7,7 @@ A **BookingNote** is a text note attached to a `Booking`. These notes are visibl
 To add notes that customers cannot see, use the `InternalNotes` field on the `Booking` entity instead.
 
 BookingNotes support Search, Get, Create, Update, Delete.
+BookingNotes also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -17,6 +18,7 @@ BookingNotes support Search, Get, Create, Update, Delete.
 | `nexudus bookingnotes create --booking-id <value> --agent` | Create bookingnote |
 | `nexudus bookingnotes update <id> --name "New Name" --agent` | Update bookingnote |
 | `nexudus bookingnotes delete <id> --yes --agent` | Delete bookingnote (no prompt) |
+| `nexudus bookingnotes run-command <key> <ids> --agent` | Run entity command |
 
 #### BookingNote create options
 

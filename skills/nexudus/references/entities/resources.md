@@ -2,9 +2,36 @@
 
 <!-- BEGIN:GENERATED entity=Resources -->
 
-> **Resource → ResourceType → ExtraService (pricing):** Every resource belongs to exactly one `ResourceType` (via `ResourceTypeId`). A resource type is a category of bookable space (e.g., "Meeting Room", "Hot Desk"). Pricing rules for a resource type are defined as `ExtraService` records — each extra service can apply to one or more resource types and represents a specific price for a given charge period and set of restrictions. You cannot create a resource without first knowing the ID of an existing resource type.
+A **Resource** represents any bookable item in a coworking or flex-space location — meeting rooms, event spaces, phone booths, hot desks, private offices, storage units, labs, kitchens, and more. Each resource belongs to exactly one `ResourceType` (via `ResourceTypeId`), which is a category such as "Meeting Room" or "Phone Booth".
+
+> **Resource → ResourceType → ExtraService (pricing):** Pricing is not set directly on a resource or its type. Instead, one or more `ExtraService` records are linked to a `ResourceType` to define pricing rules — each covering a specific charge period (hourly, daily, etc.) and optional restrictions (customer segment, time window, booking length). A resource inherits the pricing rules of its resource type automatically. You must know the `ResourceTypeId` before creating a resource.
+
+### Booking policies and restrictions
+
+Each resource can define its own booking policies that override or extend location-level defaults:
+
+- **Advance / late booking** — `BookInAdvanceLimit` caps how far ahead a booking can be made; `LateBookingLimit` sets the minimum lead time before a booking can start.
+- **Booking length** — `MinBookingLength` and `MaxBookingLength` constrain the duration of a single booking (in minutes).
+- **Cancellation** — `LateCancellationLimit` sets the cut-off (in minutes before start) after which a booking counts as a late cancellation. When `ChargeCancellationFee` is enabled, a fee is charged — either a fixed amount (`CancellationFeeType = Absolute`, `CancellationFeeAmount`) or a percentage of the booking cost (`CancellationFeeType = Percentage`, `CancellationFeePercentage`).
+- **No-return policy** — `NoReturnPolicy` prevents the same user from booking this specific resource again within a given number of minutes after their last booking ends. `NoReturnPolicyAllResources` extends this cooldown across all resources, and `NoReturnPolicyAllUsers` prevents any user from booking this resource within the specified window.
+- **Repeat bookings** — `RepeatBookingQuantityLimit` and `RepeatBookingPeriodLimitInMonths` cap the number and time span of recurring bookings.
+- **Capacity** — `Allocation` sets the maximum number of attendees. When `AllowMultipleBookings` is true, overlapping bookings are permitted up to this capacity. `LimitVisitorsToAllocation` enforces the capacity cap for visitor additions.
+- **Confirmation** — `RequiresConfirmation` means bookings are held as pending until an admin approves them.
+- **Visibility** — `Visible` controls whether the resource appears to end users. `Archived` hides the resource from all views.
+
+### Access restrictions
+
+- `OnlyForMembers` — only active members (coworkers with a plan) can book this resource.
+- `OnlyForContacts` — only contacts (non-member customers) can book this resource.
+- `Tariffs` — restrict bookings to coworkers on specific pricing plans.
+- `Teams` — restrict bookings to members of specific teams.
+
+### Amenity flags
+
+Boolean flags such as `Projector`, `WhiteBoard`, `VideoConferencing`, `Soundproof`, etc. describe the physical amenities available in the resource. These are used for filtering and display purposes.
 
 Resources support Search, Get, Create, Update, Delete.
+Resources also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -15,6 +42,7 @@ Resources support Search, Get, Create, Update, Delete.
 | `nexudus resources create --business <value> --name <value> --resource-type-id <value> --agent` | Create resource |
 | `nexudus resources update <id> --name "New Name" --agent` | Update resource |
 | `nexudus resources delete <id> --yes --agent` | Delete resource (no prompt) |
+| `nexudus resources run-command <key> <ids> --agent` | Run entity command |
 
 #### Resource create options
 

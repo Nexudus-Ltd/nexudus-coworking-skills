@@ -3,6 +3,7 @@
 <!-- BEGIN:GENERATED entity=Teams -->
 
 Teams support Search, Get, Create, Update, Delete.
+Teams also support entity commands.
 
 | Command | Description |
 | --- | --- |
@@ -13,6 +14,7 @@ Teams support Search, Get, Create, Update, Delete.
 | `nexudus teams create --business <value> --name <value> --agent` | Create team |
 | `nexudus teams update <id> --name "New Name" --agent` | Update team |
 | `nexudus teams delete <id> --yes --agent` | Delete team (no prompt) |
+| `nexudus teams run-command <key> <ids> --agent` | Run entity command |
 
 #### Team create options
 

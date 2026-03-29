@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=Businesses -->
 
+A **Business** represents an individual location or a group of locations in Nexudus. Most records in the system are connected — directly or via other records — to a business, which controls access and visibility based on the locations a user or customer can access.
+
+Businesses can be organised into a hierarchy using `RootLocationId`, which references the parent business of a given business. A business with no `RootLocationId` is a top-level location. Child businesses inherit certain configuration from their parent.
+
+Each business defines its own address, contact details, currency, opening hours, and public-facing content (Passport profile, website text, branding images). Read-only properties such as opening hours, theme, and image URLs reflect the current configuration set through the Nexudus admin UI.
+
 Businesses support Search, Get, Update (no Create or Delete via API).
 
 | Command | Description |
