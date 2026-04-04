@@ -1,0 +1,32 @@
+# CrmOpportunityImportFiles
+
+<!-- BEGIN:GENERATED entity=CrmOpportunityImportFiles -->
+
+CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
+
+| Command | Description |
+| --- | --- |
+| `nexudus crmopportunityimportfiles list --agent` | List all crmopportunityimportfiles |
+| `nexudus crmopportunityimportfiles list --id <id> --agent` | Filter by single ID |
+| `nexudus crmopportunityimportfiles list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus crmopportunityimportfiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus crmopportunityimportfiles list --business-id <value> --new-file-data-url <value> --agent` | Filter crmopportunityimportfiles by properties |
+| `nexudus crmopportunityimportfiles list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus crmopportunityimportfiles get <id> --agent` | Get single crmopportunityimportfile |
+| `nexudus crmopportunityimportfiles create --business-id <value> --name <value> --agent` | Create crmopportunityimportfile |
+| `nexudus crmopportunityimportfiles update <id> --name "New Name" --agent` | Update crmopportunityimportfile |
+| `nexudus crmopportunityimportfiles delete <id> --yes --agent` | Delete crmopportunityimportfile (no prompt) |
+
+#### CrmOpportunityImportFile list filter options
+
+`--business-id`, `--new-file-data-url`, `--clear-file-data`, `--name`, `--imported`
+
+#### CrmOpportunityImportFile create options
+
+`--business-id` (required), `--new-file-data-url`, `--clear-file-data`, `--name` (required), `--imported`
+
+#### CrmOpportunityImportFile update options
+
+`--business-id`, `--new-file-data-url`, `--clear-file-data`, `--name`, `--imported`
+
+<!-- END:GENERATED entity=CrmOpportunityImportFiles -->

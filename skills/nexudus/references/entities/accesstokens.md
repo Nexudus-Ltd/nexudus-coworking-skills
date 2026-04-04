@@ -10,24 +10,31 @@ AccessTokens also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus accesstokens list --agent` | List all accesstokens |
-| `nexudus accesstokens list --query "search" --agent` | Search accesstokens by name |
-| `nexudus accesstokens list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus accesstokens list --id <id> --agent` | Filter by single ID |
+| `nexudus accesstokens list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus accesstokens list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus accesstokens list --access-code <value> --minutes-included <value> --agent` | Filter accesstokens by properties |
+| `nexudus accesstokens list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus accesstokens get <id> --agent` | Get single accesstoken |
-| `nexudus accesstokens create --business <value> --agent` | Create accesstoken |
+| `nexudus accesstokens create --business-id <value> --access-code <value> --minutes-included <value> --agent` | Create accesstoken |
 | `nexudus accesstokens update <id> --name "New Name" --agent` | Update accesstoken |
 | `nexudus accesstokens delete <id> --yes --agent` | Delete accesstoken (no prompt) |
 | `nexudus accesstokens run-command <key> <ids> --agent` | Run entity command |
 
+#### AccessToken list filter options
+
+`--business-id`, `--access-code`, `--description`, `--minutes-included`, `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`, `--booking-guid`, `--visitor-guid`
+
 #### AccessToken create options
 
-`--business` (required), `--access-code`, `--description`, `--minutes-included`, `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`
+`--business-id` (required), `--access-code` (required), `--description`, `--minutes-included` (required), `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`, `--booking-guid`, `--visitor-guid`
 
 #### AccessToken update options
 
-`--access-code`, `--description`, `--minutes-included`, `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`
+`--business-id`, `--access-code`, `--description`, `--minutes-included`, `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`, `--booking-guid`, `--visitor-guid`
 
 ### AccessToken (key fields)
 
-`Id`, `BusinessId`, `AccessCode`, `MinutesIncluded`, `ValidFrom`, `ValidTo`, `MinutesLeft`
+`Id`, `AccessCode`, `MinutesIncluded`, `ValidFrom`, `ValidTo`, `MinutesLeft`
 
 <!-- END:GENERATED entity=AccessTokens -->

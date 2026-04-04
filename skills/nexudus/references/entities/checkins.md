@@ -14,30 +14,31 @@ Checkins also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus checkins list --agent` | List all checkins |
-| `nexudus checkins list --query "search" --agent` | Search checkins by name |
-| `nexudus checkins list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus checkins list --id <id> --agent` | Filter by single ID |
+| `nexudus checkins list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus checkins list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus checkins list --from-time <value> --to-time <value> --agent` | Filter checkins by properties |
+| `nexudus checkins list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus checkins get <id> --agent` | Get single checkin |
-| `nexudus checkins create --coworker-id <value> --business <value> --from-time <value> --agent` | Create checkin |
+| `nexudus checkins create --business-id <value> --from-time <value> --agent` | Create checkin |
 | `nexudus checkins update <id> --name "New Name" --agent` | Update checkin |
 | `nexudus checkins delete <id> --yes --agent` | Delete checkin (no prompt) |
 | `nexudus checkins run-command <key> <ids> --agent` | Run entity command |
 
+#### Checkin list filter options
+
+`--coworker-id`, `--business-id`, `--from-time`, `--to-time`, `--counts-towards-plan-limits`, `--coworker-time-pass-guid`, `--auto-checkout`, `--last-activity`, `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local`, `--to-time-local`
+
 #### Checkin create options
 
-`--coworker-id` (required), `--business` (required), `--source`, `--from-time` (required), `--to-time`, `--mac-addresses`
+`--coworker-id`, `--business-id` (required), `--from-time` (required), `--to-time`, `--counts-towards-plan-limits`, `--coworker-time-pass-guid`, `--auto-checkout`, `--last-activity`, `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local`, `--to-time-local`
 
 #### Checkin update options
 
-`--coworker-id`, `--source`, `--from-time`, `--to-time`, `--mac-addresses`
+`--coworker-id`, `--business-id`, `--from-time`, `--to-time`, `--counts-towards-plan-limits`, `--coworker-time-pass-guid`, `--auto-checkout`, `--last-activity`, `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local`, `--to-time-local`
 
 ### Checkin (key fields)
 
-`Id`, `CoworkerId`, `CoworkerFullName`, `BusinessId`, `BusinessName`, `Source`, `FromTime`, `ToTime`
-
-#### Checkin enum values
-
-| Option | Valid values |
-| ------ | ------------ |
-| `--source` | `0` None, `1` Manual, `2` DoorAccess, `3` NetworkActivity, `4` Tile, `5` Sensor |
+`Id`, `CoworkerFullName`, `BusinessName`, `Source`, `FromTime`, `ToTime`
 
 <!-- END:GENERATED entity=Checkins -->

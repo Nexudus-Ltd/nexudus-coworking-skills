@@ -1,0 +1,32 @@
+# ResellerAccounts
+
+<!-- BEGIN:GENERATED entity=ResellerAccounts -->
+
+ResellerAccounts support Search, Get, Create, Update, Delete.
+
+| Command | Description |
+| --- | --- |
+| `nexudus reselleraccounts list --agent` | List all reselleraccounts |
+| `nexudus reselleraccounts list --id <id> --agent` | Filter by single ID |
+| `nexudus reselleraccounts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus reselleraccounts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus reselleraccounts list --notes <value> --scope-of-work <value> --agent` | Filter reselleraccounts by properties |
+| `nexudus reselleraccounts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus reselleraccounts get <id> --agent` | Get single reselleraccount |
+| `nexudus reselleraccounts create  --agent` | Create reselleraccount |
+| `nexudus reselleraccounts update <id> --name "New Name" --agent` | Update reselleraccount |
+| `nexudus reselleraccounts delete <id> --yes --agent` | Delete reselleraccount (no prompt) |
+
+#### ResellerAccount list filter options
+
+`--notes`, `--scope-of-work`
+
+#### ResellerAccount create options
+
+`--notes`, `--scope-of-work`
+
+#### ResellerAccount update options
+
+`--notes`, `--scope-of-work`
+
+<!-- END:GENERATED entity=ResellerAccounts -->

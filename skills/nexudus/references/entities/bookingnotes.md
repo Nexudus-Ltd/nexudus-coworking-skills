@@ -12,24 +12,31 @@ BookingNotes also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus bookingnotes list --agent` | List all bookingnotes |
-| `nexudus bookingnotes list --query "search" --agent` | Search bookingnotes by name |
-| `nexudus bookingnotes list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus bookingnotes list --id <id> --agent` | Filter by single ID |
+| `nexudus bookingnotes list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus bookingnotes list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus bookingnotes list --added-by <value> --notes <value> --agent` | Filter bookingnotes by properties |
+| `nexudus bookingnotes list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus bookingnotes get <id> --agent` | Get single bookingnote |
-| `nexudus bookingnotes create --booking-id <value> --agent` | Create bookingnote |
+| `nexudus bookingnotes create --booking-id <value> --notes <value> --agent` | Create bookingnote |
 | `nexudus bookingnotes update <id> --name "New Name" --agent` | Update bookingnote |
 | `nexudus bookingnotes delete <id> --yes --agent` | Delete bookingnote (no prompt) |
 | `nexudus bookingnotes run-command <key> <ids> --agent` | Run entity command |
 
+#### BookingNote list filter options
+
+`--booking-id`, `--added-by`, `--notes`
+
 #### BookingNote create options
 
-`--booking-id` (required), `--notes`
+`--booking-id` (required), `--added-by`, `--notes` (required)
 
 #### BookingNote update options
 
-`--booking-id`, `--notes`
+`--booking-id`, `--added-by`, `--notes`
 
 ### BookingNote (key fields)
 
-`Id`, `BookingId`, `AddedBy`, `Notes`
+`Id`, `AddedBy`, `Notes`
 
 <!-- END:GENERATED entity=BookingNotes -->

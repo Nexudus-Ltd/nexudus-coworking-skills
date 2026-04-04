@@ -20,30 +20,31 @@ CoworkerIdentityCheckDocuments also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus coworkeridentitycheckdocuments list --agent` | List all coworkeridentitycheckdocuments |
-| `nexudus coworkeridentitycheckdocuments list --query "search" --agent` | Search coworkeridentitycheckdocuments by name |
-| `nexudus coworkeridentitycheckdocuments list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus coworkeridentitycheckdocuments list --id <id> --agent` | Filter by single ID |
+| `nexudus coworkeridentitycheckdocuments list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus coworkeridentitycheckdocuments list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus coworkeridentitycheckdocuments list --name <value> --agent` | Filter coworkeridentitycheckdocuments by properties |
+| `nexudus coworkeridentitycheckdocuments list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkeridentitycheckdocuments get <id> --agent` | Get single coworkeridentitycheckdocument |
 | `nexudus coworkeridentitycheckdocuments create --coworker-id <value> --coworker-identity-check-id <value> --name <value> --agent` | Create coworkeridentitycheckdocument |
 | `nexudus coworkeridentitycheckdocuments update <id> --name "New Name" --agent` | Update coworkeridentitycheckdocument |
 | `nexudus coworkeridentitycheckdocuments delete <id> --yes --agent` | Delete coworkeridentitycheckdocument (no prompt) |
 | `nexudus coworkeridentitycheckdocuments run-command <key> <ids> --agent` | Run entity command |
 
+#### CoworkerIdentityCheckDocument list filter options
+
+`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo`, `--new-document-url`, `--clear-document`, `--new-additional-document-url`, `--clear-additional-document`, `--notes`
+
 #### CoworkerIdentityCheckDocument create options
 
-`--coworker-id` (required), `--coworker-identity-check-id` (required), `--name` (required), `--verification-status`, `--notes`, `--new-photo-url`, `--clear-photo-file`, `--new-document-url`, `--clear-document-file`, `--new-additional-document-url`, `--clear-additional-document-file`
+`--coworker-id` (required), `--coworker-identity-check-id` (required), `--name` (required), `--new-photo-url`, `--clear-photo`, `--new-document-url`, `--clear-document`, `--new-additional-document-url`, `--clear-additional-document`, `--notes`
 
 #### CoworkerIdentityCheckDocument update options
 
-`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--verification-status`, `--notes`, `--new-photo-url`, `--clear-photo-file`, `--new-document-url`, `--clear-document-file`, `--new-additional-document-url`, `--clear-additional-document-file`
+`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo`, `--new-document-url`, `--clear-document`, `--new-additional-document-url`, `--clear-additional-document`, `--notes`
 
 ### CoworkerIdentityCheckDocument (key fields)
 
-`Id`, `CoworkerId`, `CoworkerFullName`, `CoworkerIdentityCheckId`, `CoworkerIdentityCheckName`, `Name`, `VerificationStatus`
-
-#### CoworkerIdentityCheckDocument enum values
-
-| Option | Valid values |
-| ------ | ------------ |
-| `--verification-status` | `0` None, `1` Pending, `2` Submitted, `3` Successful, `4` Failed, `5` Cancelled |
+`Id`, `CoworkerFullName`, `CoworkerIdentityCheckName`, `Name`, `VerificationStatus`
 
 <!-- END:GENERATED entity=CoworkerIdentityCheckDocuments -->

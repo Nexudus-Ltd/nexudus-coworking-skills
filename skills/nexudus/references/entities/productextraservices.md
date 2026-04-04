@@ -28,25 +28,32 @@ ProductExtraServices also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus productextraservices list --agent` | List all productextraservices |
-| `nexudus productextraservices list --query "search" --agent` | Search productextraservices by name |
-| `nexudus productextraservices list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus productextraservices list --id <id> --agent` | Filter by single ID |
+| `nexudus productextraservices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus productextraservices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus productextraservices list --uses-included <value> --agent` | Filter productextraservices by properties |
+| `nexudus productextraservices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus productextraservices get <id> --agent` | Get single productextraservice |
 | `nexudus productextraservices create --product-id <value> --extra-service-id <value> --uses-included <value> --agent` | Create productextraservice |
 | `nexudus productextraservices update <id> --name "New Name" --agent` | Update productextraservice |
 | `nexudus productextraservices delete <id> --yes --agent` | Delete productextraservice (no prompt) |
 | `nexudus productextraservices run-command <key> <ids> --agent` | Run entity command |
 
+#### ProductExtraService list filter options
+
+`--product-id`, `--extra-service-id`, `--uses-included`, `--expire-time-in-months`, `--expire-time-in-weeks`, `--expiration-type`, `--expires-in`
+
 #### ProductExtraService create options
 
-`--product-id` (required), `--extra-service-id` (required), `--uses-included` (required), `--expiration-type`, `--expires-in`
+`--product-id` (required), `--extra-service-id` (required), `--uses-included` (required), `--expire-time-in-months`, `--expire-time-in-weeks`, `--expiration-type`, `--expires-in`
 
 #### ProductExtraService update options
 
-`--uses-included`, `--expiration-type`, `--expires-in`
+`--product-id`, `--extra-service-id`, `--uses-included`, `--expire-time-in-months`, `--expire-time-in-weeks`, `--expiration-type`, `--expires-in`
 
 ### ProductExtraService (key fields)
 
-`Id`, `ProductId`, `ProductName`, `ExtraServiceId`, `ExtraServiceName`, `ExtraServiceChargePeriod`, `UsesIncluded`
+`Id`, `ProductName`, `ExtraServiceName`, `ExtraServiceChargePeriod`, `UsesIncluded`
 
 <!-- END:GENERATED entity=ProductExtraServices -->
 

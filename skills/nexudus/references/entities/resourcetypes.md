@@ -9,23 +9,32 @@ ResourceTypes support Search, Get, Create, Update, Delete.
 | Command | Description |
 | --- | --- |
 | `nexudus resourcetypes list --agent` | List all resourcetypes |
-| `nexudus resourcetypes list --query "search" --agent` | Search resourcetypes by name |
-| `nexudus resourcetypes list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus resourcetypes list --id <id> --agent` | Filter by single ID |
+| `nexudus resourcetypes list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus resourcetypes list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus resourcetypes list --name <value> --agent` | Filter resourcetypes by properties |
+| `nexudus resourcetypes list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus resourcetypes get <id> --agent` | Get single resourcetype |
-| `nexudus resourcetypes create --business <value> --name <value> --agent` | Create resourcetype |
+| `nexudus resourcetypes create --business-id <value> --name <value> --agent` | Create resourcetype |
 | `nexudus resourcetypes update <id> --name "New Name" --agent` | Update resourcetype |
 | `nexudus resourcetypes delete <id> --yes --agent` | Delete resourcetype (no prompt) |
 
+#### ResourceType list filter options
+
+`--business-id`, `--name`
+
 #### ResourceType create options
 
-`--business` (required), `--name` (required)
+`--business-id` (required), `--name` (required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag)
 
 #### ResourceType update options
 
-`--name`
+`--business-id`, `--name`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag)
 
 ### ResourceType (key fields)
 
-`Id`, `BusinessId`, `BusinessName`, `Name`
+`Id`, `Name`
+
+**List properties (only returned by `get`, not by `list`):** `Resources`, `AddedResources`, `RemovedResources`
 
 <!-- END:GENERATED entity=ResourceTypes -->

@@ -1,0 +1,39 @@
+# AuditTrailEntries
+
+<!-- BEGIN:GENERATED entity=AuditTrailEntries -->
+
+Represents a read-only log of entity creations and modifications by users or the system. Useful for troubleshooting issues or finding out when an entity was created and what modifications were made to it.
+
+Creation entries (`AuditType = 1`) do not record the values for the individual fields. To infer the initial values, look at the first update entry for that entity and read the `OldValue` for each property.
+
+Use `AuditTrailEntry_EntityId` to search by the integer ID of the audited record.
+
+Not all entities are fully audited. These are the ones currently supported by the `AuditTrailEntry_EntityShortName` filter:
+
+Charge, ContractSchedule, CoworkerBookingCredit, CoworkerContract, CoworkerExtraService, CoworkerInvoice, CoworkerLedgerEntry, CoworkerPaymentMethod, CoworkerProduct, FinancialAccount, CoworkerTask, CrmOpportunity, Booking, Checkin, Coworker, CoworkerIdentityCheck, Resource, Team, Visitor, Business, BusinessSetting, FloorPlanDesk, User.
+
+The `AuditType` field uses the `eAuditType` enum: `1` = Create, `2` = Update, `3` = Delete.
+
+AuditTrailEntries support Search, Get (no Create or Delete via API).
+
+| Command | Description |
+| --- | --- |
+| `nexudus audittrailentries list --agent` | List all audittrailentries |
+| `nexudus audittrailentries list --id <id> --agent` | Filter by single ID |
+| `nexudus audittrailentries list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus audittrailentries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus audittrailentries list --business-id <value> --entity-short-name <value> --agent` | Filter audittrailentries by properties |
+| `nexudus audittrailentries list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus audittrailentries get <id> --agent` | Get single audittrailentry |
+
+#### AuditTrailEntry list filter options
+
+`--business-id`, `--entity-short-name`, `--description`, `--property-name`, `--audit-type`, `--old-value`, `--new-value`, `--action-by`, `--entity-id`
+
+#### AuditTrailEntry enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--audit-type` | `1` Create, `2` Update, `3` Delete |
+
+<!-- END:GENERATED entity=AuditTrailEntries -->

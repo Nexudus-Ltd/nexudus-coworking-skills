@@ -23,25 +23,34 @@ CoworkerIdentityChecks also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus coworkeridentitychecks list --agent` | List all coworkeridentitychecks |
-| `nexudus coworkeridentitychecks list --query "search" --agent` | Search coworkeridentitychecks by name |
-| `nexudus coworkeridentitychecks list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus coworkeridentitychecks list --id <id> --agent` | Filter by single ID |
+| `nexudus coworkeridentitychecks list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus coworkeridentitychecks list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus coworkeridentitychecks list --name <value> --agent` | Filter coworkeridentitychecks by properties |
+| `nexudus coworkeridentitychecks list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkeridentitychecks get <id> --agent` | Get single coworkeridentitycheck |
-| `nexudus coworkeridentitychecks create --business <value> --coworker-id <value> --name <value> --agent` | Create coworkeridentitycheck |
+| `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --agent` | Create coworkeridentitycheck |
 | `nexudus coworkeridentitychecks update <id> --name "New Name" --agent` | Update coworkeridentitycheck |
 | `nexudus coworkeridentitychecks delete <id> --yes --agent` | Delete coworkeridentitycheck (no prompt) |
 | `nexudus coworkeridentitychecks run-command <key> <ids> --agent` | Run entity command |
 
+#### CoworkerIdentityCheck list filter options
+
+`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`
+
 #### CoworkerIdentityCheck create options
 
-`--business` (required), `--coworker-id` (required), `--name` (required), `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--verification-type`, `--description`, `--verification-status`
+`--business-id` (required), `--coworker-id` (required), `--name` (required), `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`, `--documents` (list, repeat flag), `--added-documents` (list, repeat flag), `--removed-documents` (list, repeat flag)
 
 #### CoworkerIdentityCheck update options
 
-`--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--verification-type`, `--description`, `--verification-status`
+`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--documents` (list, repeat flag), `--added-documents` (list, repeat flag), `--removed-documents` (list, repeat flag)
 
 ### CoworkerIdentityCheck (key fields)
 
-`Id`, `BusinessId`, `BusinessName`, `CoworkerId`, `CoworkerFullName`, `Name`, `VerificationType`, `VerificationStatus`
+`Id`, `BusinessName`, `CoworkerFullName`, `Name`, `VerificationType`, `VerificationStatus`
+
+**List properties (only returned by `get`, not by `list`):** `Documents`, `AddedDocuments`, `RemovedDocuments`
 
 #### CoworkerIdentityCheck enum values
 
@@ -50,7 +59,5 @@ CoworkerIdentityChecks also support entity commands.
 | `--identity-check-provider` | `0` None, `1` Manual, `2` StripeIdentity |
 | `--identity-document-type` | `0` None, `1` Passport, `2` DriversLicense, `3` IdCard, `4` UniformedServiceId, `5` CertificateOfNaturalization, `6` AccessCard, `7` MatriculaConsular, `8` ResidentCard, `9` UniversityId, `10` NEXUSCard, `99` Other |
 | `--address-document-type` | `0` None, `1` Passport, `2` DriversLicense, `3` IdCard, `4` LeaseRentalAgreement, `5` InsurancePolicy, `6` Mortgage, `7` VehicleRegistrationCard, `8` VoterCard, `99` Other |
-| `--verification-type` | `0` None, `1` IdDocument, `2` Address |
-| `--verification-status` | `0` None, `1` Pending, `2` Submitted, `3` Successful, `4` Failed, `5` Cancelled |
 
 <!-- END:GENERATED entity=CoworkerIdentityChecks -->

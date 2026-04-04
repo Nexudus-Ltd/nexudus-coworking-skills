@@ -20,25 +20,34 @@ Bookings also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus bookings list --agent` | List all bookings |
-| `nexudus bookings list --query "search" --agent` | Search bookings by name |
-| `nexudus bookings list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus bookings list --id <id> --agent` | Filter by single ID |
+| `nexudus bookings list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus bookings list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus bookings list --from-time <value> --to-time <value> --agent` | Filter bookings by properties |
+| `nexudus bookings list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus bookings get <id> --agent` | Get single booking |
 | `nexudus bookings create --resource-id <value> --from-time <value> --to-time <value> --agent` | Create booking |
 | `nexudus bookings update <id> --name "New Name" --agent` | Update booking |
 | `nexudus bookings delete <id> --yes --agent` | Delete booking (no prompt) |
 | `nexudus bookings run-command <key> <ids> --agent` | Run entity command |
 
+#### Booking list filter options
+
+`--resource-id`, `--floor-plan-desk-id`, `--coworker-id`, `--extra-service-id`, `--from-time`, `--to-time`, `--notes`, `--internal-notes`, `--charge-now`, `--invoice-now`, `--invoice-this-coworker`, `--do-not-use-booking-credit`, `--purchase-order`, `--discount-code`, `--last-notification-time`, `--google-calendar-id`, `--google-event-id`, `--office365-event-id`, `--public-google-event-id`, `--tentative`, `--teams-at-booking`, `--tariff-at-booking`, `--repeat-series-unique-id`, `--repeat-booking`, `--repeats`, `--which-bookings-to-update`, `--repeat-every`, `--repeat-until`, `--repeat-on-mondays`, `--repeat-on-tuesdays`, `--repeat-on-wednesdays`, `--repeat-on-thursdays`, `--repeat-on-fridays`, `--repeat-on-saturdays`, `--repeat-on-sundays`, `--reminded`, `--mrm-reminded`, `--override-price`, `--kisi-key-id`, `--start-scheduled-job-id`, `--end-scheduled-job-id`, `--billed`, `--from-time-local`, `--to-time-local`, `--invoice-date-local`, `--coworker-extra-service-price`, `--include-zoom-invite`, `--zoom-event-data`, `--office365-admin-event-id`
+
 #### Booking create options
 
-`--resource-id` (required), `--floor-plan-desk-id`, `--coworker-id`, `--extra-service-id`, `--from-time` (required), `--to-time` (required), `--notes`, `--internal-notes`, `--charge-now`, `--invoice-now`, `--invoice-this-coworker`, `--do-not-use-booking-credit`, `--purchase-order`, `--discount-code`, `--tentative`, `--online`, `--repeat-booking`, `--repeats`, `--which-bookings-to-update`, `--repeat-every`, `--repeat-until`, `--repeat-on-mondays`, `--repeat-on-tuesdays`, `--repeat-on-wednesdays`, `--repeat-on-thursdays`, `--repeat-on-fridays`, `--repeat-on-saturdays`, `--repeat-on-sundays`, `--override-price`, `--include-zoom-invite`, `--cancel-if-not-paid`, `--cancel-if-not-checked-in`, `--max-occupancy`, `--booking-products` (JSON array or @filepath), `--booking-visitors` (JSON array or @filepath)
+`--resource-id` (required), `--floor-plan-desk-id`, `--coworker-id`, `--extra-service-id`, `--from-time` (required), `--to-time` (required), `--notes`, `--internal-notes`, `--charge-now`, `--invoice-now`, `--invoice-this-coworker`, `--do-not-use-booking-credit`, `--purchase-order`, `--discount-code`, `--last-notification-time`, `--google-calendar-id`, `--google-event-id`, `--office365-event-id`, `--public-google-event-id`, `--tentative`, `--teams-at-booking`, `--tariff-at-booking`, `--repeat-series-unique-id`, `--repeat-booking`, `--repeats`, `--which-bookings-to-update`, `--repeat-every`, `--repeat-until`, `--repeat-on-mondays`, `--repeat-on-tuesdays`, `--repeat-on-wednesdays`, `--repeat-on-thursdays`, `--repeat-on-fridays`, `--repeat-on-saturdays`, `--repeat-on-sundays`, `--reminded`, `--mrm-reminded`, `--override-price`, `--booking-notes` (list, repeat flag), `--added-booking-notes` (list, repeat flag), `--removed-booking-notes` (list, repeat flag), `--kisi-key-id`, `--start-scheduled-job-id`, `--end-scheduled-job-id`, `--billed`, `--from-time-local`, `--to-time-local`, `--invoice-date-local`, `--coworker-extra-service-price`, `--include-zoom-invite`, `--zoom-event-data`, `--office365-admin-event-id`, `--booking-products` (JSON array or @filepath), `--booking-visitors` (JSON array or @filepath)
 
 #### Booking update options
 
-`--resource-id`, `--floor-plan-desk-id`, `--coworker-id`, `--extra-service-id`, `--from-time`, `--to-time`, `--notes`, `--internal-notes`, `--charge-now`, `--invoice-now`, `--invoice-this-coworker`, `--do-not-use-booking-credit`, `--purchase-order`, `--discount-code`, `--tentative`, `--online`, `--repeat-booking`, `--repeats`, `--which-bookings-to-update`, `--repeat-every`, `--repeat-until`, `--repeat-on-mondays`, `--repeat-on-tuesdays`, `--repeat-on-wednesdays`, `--repeat-on-thursdays`, `--repeat-on-fridays`, `--repeat-on-saturdays`, `--repeat-on-sundays`, `--override-price`, `--include-zoom-invite`, `--cancel-if-not-paid`, `--cancel-if-not-checked-in`, `--max-occupancy`, `--booking-products` (JSON array or @filepath), `--booking-visitors` (JSON array or @filepath)
+`--resource-id`, `--floor-plan-desk-id`, `--coworker-id`, `--extra-service-id`, `--from-time`, `--to-time`, `--notes`, `--charge-now`, `--invoice-now`, `--invoice-this-coworker`, `--do-not-use-booking-credit`, `--purchase-order`, `--discount-code`, `--last-notification-time`, `--google-calendar-id`, `--google-event-id`, `--office365-event-id`, `--public-google-event-id`, `--tentative`, `--teams-at-booking`, `--tariff-at-booking`, `--which-bookings-to-update`, `--reminded`, `--mrm-reminded`, `--override-price`, `--booking-notes` (list, repeat flag), `--added-booking-notes` (list, repeat flag), `--removed-booking-notes` (list, repeat flag), `--kisi-key-id`, `--start-scheduled-job-id`, `--end-scheduled-job-id`, `--billed`, `--from-time-local`, `--to-time-local`, `--invoice-date-local`, `--coworker-extra-service-price`, `--include-zoom-invite`, `--zoom-event-data`, `--office365-admin-event-id`, `--booking-products` (JSON array or @filepath), `--booking-visitors` (JSON array or @filepath)
 
 ### Booking (key fields)
 
-`Id`, `ResourceId`, `ResourceName`, `CoworkerId`, `CoworkerFullName`, `FromTime`, `ToTime`, `Tentative`, `Invoiced`
+`Id`, `ResourceName`, `CoworkerFullName`, `FromTime`, `ToTime`, `Tentative`, `Invoiced`
+
+**List properties (only returned by `get`, not by `list`):** `BookingNotes`, `AddedBookingNotes`, `RemovedBookingNotes`
 
 #### Booking inline children
 

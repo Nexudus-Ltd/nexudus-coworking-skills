@@ -20,25 +20,34 @@ InventoryAssets also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus inventoryassets list --agent` | List all inventoryassets |
-| `nexudus inventoryassets list --query "search" --agent` | Search inventoryassets by name |
-| `nexudus inventoryassets list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus inventoryassets list --id <id> --agent` | Filter by single ID |
+| `nexudus inventoryassets list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus inventoryassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus inventoryassets list --name <value> --agent` | Filter inventoryassets by properties |
+| `nexudus inventoryassets list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus inventoryassets get <id> --agent` | Get single inventoryasset |
-| `nexudus inventoryassets create --business <value> --name <value> --agent` | Create inventoryasset |
+| `nexudus inventoryassets create --business-id <value> --name <value> --agent` | Create inventoryasset |
 | `nexudus inventoryassets update <id> --name "New Name" --agent` | Update inventoryasset |
 | `nexudus inventoryassets delete <id> --yes --agent` | Delete inventoryasset (no prompt) |
 | `nexudus inventoryassets run-command <key> <ids> --agent` | Run entity command |
 
+#### InventoryAsset list filter options
+
+`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
+
 #### InventoryAsset create options
 
-`--business` (required), `--name` (required), `--description`, `--sku`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`, `--new-image-url`, `--clear-image-file`
+`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
 
 #### InventoryAsset update options
 
-`--name`, `--description`, `--sku`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`, `--new-image-url`, `--clear-image-file`
+`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
 
 ### InventoryAsset (key fields)
 
-`Id`, `BusinessId`, `BusinessName`, `Name`
+`Id`, `BusinessName`, `Name`
+
+**List properties (only returned by `get`, not by `list`):** `AssignedCoworkers`, `AddedAssignedCoworkers`, `RemovedAssignedCoworkers`
 
 #### InventoryAsset enum values
 

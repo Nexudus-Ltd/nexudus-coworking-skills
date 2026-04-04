@@ -13,25 +13,32 @@ BookingAvailabilityExceptions also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus bookingavailabilityexceptions list --agent` | List all bookingavailabilityexceptions |
-| `nexudus bookingavailabilityexceptions list --query "search" --agent` | Search bookingavailabilityexceptions by name |
-| `nexudus bookingavailabilityexceptions list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus bookingavailabilityexceptions list --id <id> --agent` | Filter by single ID |
+| `nexudus bookingavailabilityexceptions list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus bookingavailabilityexceptions list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus bookingavailabilityexceptions list --from-time <value> --to-time <value> --agent` | Filter bookingavailabilityexceptions by properties |
+| `nexudus bookingavailabilityexceptions list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus bookingavailabilityexceptions get <id> --agent` | Get single bookingavailabilityexception |
-| `nexudus bookingavailabilityexceptions create --business <value> --from-time <value> --to-time <value> --agent` | Create bookingavailabilityexception |
+| `nexudus bookingavailabilityexceptions create --business-id <value> --from-time <value> --to-time <value> --message <value> --agent` | Create bookingavailabilityexception |
 | `nexudus bookingavailabilityexceptions update <id> --name "New Name" --agent` | Update bookingavailabilityexception |
 | `nexudus bookingavailabilityexceptions delete <id> --yes --agent` | Delete bookingavailabilityexception (no prompt) |
 | `nexudus bookingavailabilityexceptions run-command <key> <ids> --agent` | Run entity command |
 
+#### BookingAvailabilityException list filter options
+
+`--business-id`, `--from-time`, `--to-time`, `--message`, `--active`, `--every-year`
+
 #### BookingAvailabilityException create options
 
-`--business` (required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time` (required), `--to-time` (required), `--message`, `--active`, `--every-year`
+`--business-id` (required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time` (required), `--to-time` (required), `--message` (required), `--active`, `--every-year`
 
 #### BookingAvailabilityException update options
 
-`--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time`, `--to-time`, `--message`, `--active`, `--every-year`
+`--business-id`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time`, `--to-time`, `--message`, `--active`, `--every-year`
 
 ### BookingAvailabilityException (key fields)
 
-`Id`, `BusinessId`, `BusinessName`, `FromTime`, `ToTime`, `Message`, `Active`
+`Id`, `BusinessName`, `FromTime`, `ToTime`, `Message`, `Active`
 
 **List properties (only returned by `get`, not by `list`):** `Resources`, `AddedResources`, `RemovedResources`
 

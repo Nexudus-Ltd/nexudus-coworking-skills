@@ -29,31 +29,37 @@ CoworkerDeliveries also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus coworkerdeliveries list --agent` | List all coworkerdeliveries |
-| `nexudus coworkerdeliveries list --query "search" --agent` | Search coworkerdeliveries by name |
-| `nexudus coworkerdeliveries list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus coworkerdeliveries list --id <id> --agent` | Filter by single ID |
+| `nexudus coworkerdeliveries list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus coworkerdeliveries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus coworkerdeliveries list --name <value> --collected <value> --agent` | Filter coworkerdeliveries by properties |
+| `nexudus coworkerdeliveries list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerdeliveries get <id> --agent` | Get single coworkerdelivery |
-| `nexudus coworkerdeliveries create --business <value> --name <value> --agent` | Create coworkerdelivery |
+| `nexudus coworkerdeliveries create --business-id <value> --name <value> --location <value> --agent` | Create coworkerdelivery |
 | `nexudus coworkerdeliveries update <id> --name "New Name" --agent` | Update coworkerdelivery |
 | `nexudus coworkerdeliveries delete <id> --yes --agent` | Delete coworkerdelivery (no prompt) |
 | `nexudus coworkerdeliveries run-command <key> <ids> --agent` | Run entity command |
 
+#### CoworkerDelivery list filter options
+
+`--business-id`, `--coworker-id`, `--contract-contact-id`, `--name`, `--location`, `--received-by`, `--notes`, `--new-file-data-url`, `--clear-file-data`, `--new-signature-url`, `--clear-signature`, `--new-scanned-file-data-url`, `--clear-scanned-file-data`, `--new-forwarded-file-data-url`, `--clear-forwarded-file-data`, `--collected`, `--requires-signature`, `--signed`, `--notified`, `--collected-on`, `--billed`, `--delivery-type`, `--handling-preference`, `--check-deposited`, `--forwarded`, `--scanned`, `--recycled`, `--shredded`, `--stored-for-collection`, `--returned-to-sender`, `--check-deposited-on`, `--forwarded-on`, `--scanned-on`, `--recycled-on`, `--shredded-on`, `--stored-for-collection-on`, `--returned-to-sender-on`, `--forwarding-address-unique-id`, `--check-deposited-product-unique-id`, `--forwarded-product-unique-id`, `--scanned-product-unique-id`, `--recycled-product-unique-id`, `--shredded-product-unique-id`, `--stored-for-collection-product-unique-id`, `--returned-to-sender-product-unique-id`, `--collected-product-unique-id`
+
 #### CoworkerDelivery create options
 
-`--business` (required), `--coworker-id`, `--contract-contact-id`, `--name` (required), `--location`, `--received-by`, `--notes`, `--processed`, `--collected`, `--requires-signature`, `--signed`, `--collected-on`, `--delivery-type`, `--handling-preference`, `--check-deposited`, `--forwarded`, `--scanned`, `--recycled`, `--shredded`, `--stored-for-collection`, `--returned-to-sender`, `--check-deposited-on`, `--forwarded-on`, `--scanned-on`, `--recycled-on`, `--shredded-on`, `--stored-for-collection-on`, `--returned-to-sender-on`, `--file-url`, `--clear-file`, `--signature-url`, `--clear-signature`, `--scanned-file-url`, `--clear-scanned-file`, `--forwarded-file-url`, `--clear-forwarded-file`
+`--business-id` (required), `--coworker-id`, `--contract-contact-id`, `--name` (required), `--location` (required), `--received-by`, `--notes`, `--new-file-data-url`, `--clear-file-data`, `--new-signature-url`, `--clear-signature`, `--new-scanned-file-data-url`, `--clear-scanned-file-data`, `--new-forwarded-file-data-url`, `--clear-forwarded-file-data`, `--collected`, `--requires-signature`, `--signed`, `--notified`, `--collected-on`, `--billed`, `--delivery-type`, `--handling-preference`, `--check-deposited`, `--forwarded`, `--scanned`, `--recycled`, `--shredded`, `--stored-for-collection`, `--returned-to-sender`, `--check-deposited-on`, `--forwarded-on`, `--scanned-on`, `--recycled-on`, `--shredded-on`, `--stored-for-collection-on`, `--returned-to-sender-on`, `--forwarding-address-unique-id`, `--check-deposited-product-unique-id`, `--forwarded-product-unique-id`, `--scanned-product-unique-id`, `--recycled-product-unique-id`, `--shredded-product-unique-id`, `--stored-for-collection-product-unique-id`, `--returned-to-sender-product-unique-id`, `--collected-product-unique-id`
 
 #### CoworkerDelivery update options
 
-`--coworker-id`, `--contract-contact-id`, `--name`, `--location`, `--received-by`, `--notes`, `--processed`, `--collected`, `--requires-signature`, `--signed`, `--collected-on`, `--delivery-type`, `--handling-preference`, `--check-deposited`, `--forwarded`, `--scanned`, `--recycled`, `--shredded`, `--stored-for-collection`, `--returned-to-sender`, `--check-deposited-on`, `--forwarded-on`, `--scanned-on`, `--recycled-on`, `--shredded-on`, `--stored-for-collection-on`, `--returned-to-sender-on`, `--file-url`, `--clear-file`, `--signature-url`, `--clear-signature`, `--scanned-file-url`, `--clear-scanned-file`, `--forwarded-file-url`, `--clear-forwarded-file`
+`--business-id`, `--coworker-id`, `--contract-contact-id`, `--name`, `--location`, `--received-by`, `--notes`, `--new-file-data-url`, `--clear-file-data`, `--new-signature-url`, `--clear-signature`, `--new-scanned-file-data-url`, `--clear-scanned-file-data`, `--new-forwarded-file-data-url`, `--clear-forwarded-file-data`, `--collected`, `--requires-signature`, `--signed`, `--notified`, `--collected-on`, `--billed`, `--delivery-type`, `--handling-preference`, `--check-deposited`, `--forwarded`, `--scanned`, `--recycled`, `--shredded`, `--stored-for-collection`, `--returned-to-sender`, `--check-deposited-on`, `--forwarded-on`, `--scanned-on`, `--recycled-on`, `--shredded-on`, `--stored-for-collection-on`, `--returned-to-sender-on`, `--forwarding-address-unique-id`, `--check-deposited-product-unique-id`, `--forwarded-product-unique-id`, `--scanned-product-unique-id`, `--recycled-product-unique-id`, `--shredded-product-unique-id`, `--stored-for-collection-product-unique-id`, `--returned-to-sender-product-unique-id`, `--collected-product-unique-id`
 
 ### CoworkerDelivery (key fields)
 
-`Id`, `BusinessId`, `CoworkerId`, `CoworkerFullName`, `Name`, `Processed`, `Collected`, `DeliveryType`
+`Id`, `CoworkerFullName`, `Name`, `Processed`, `Collected`, `DeliveryType`
 
 #### CoworkerDelivery enum values
 
 | Option | Valid values |
 | ------ | ------------ |
 | `--delivery-type` | `0` None, `1` Mail, `2` Parcel, `3` Check, `4` Publicity, `5` Other |
-| `--handling-preference` | `0` None, `1` StoreForCollection, `2` Forward, `3` OpenScanForward, `4` OpenScanRecycle, `5` OpenScanShred, `6` OpenScanStoreForCollection, `7` Recycle, `8` ReturnToSender, `9` Shred, `10` DepositCheck, `11` Unknown |
 
 <!-- END:GENERATED entity=CoworkerDeliveries -->

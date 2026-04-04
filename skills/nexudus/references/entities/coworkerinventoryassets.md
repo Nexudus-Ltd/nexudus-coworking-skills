@@ -14,24 +14,31 @@ CoworkerInventoryAssets also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus coworkerinventoryassets list --agent` | List all coworkerinventoryassets |
-| `nexudus coworkerinventoryassets list --query "search" --agent` | Search coworkerinventoryassets by name |
-| `nexudus coworkerinventoryassets list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus coworkerinventoryassets list --id <id> --agent` | Filter by single ID |
+| `nexudus coworkerinventoryassets list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus coworkerinventoryassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus coworkerinventoryassets list --coworker-id <value> --business-id <value> --agent` | Filter coworkerinventoryassets by properties |
+| `nexudus coworkerinventoryassets list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerinventoryassets get <id> --agent` | Get single coworkerinventoryasset |
-| `nexudus coworkerinventoryassets create --coworker-id <value> --business <value> --inventory-asset-id <value> --assigned-from <value> --agent` | Create coworkerinventoryasset |
+| `nexudus coworkerinventoryassets create --coworker-id <value> --business-id <value> --inventory-asset-id <value> --assigned-from <value> --agent` | Create coworkerinventoryasset |
 | `nexudus coworkerinventoryassets update <id> --name "New Name" --agent` | Update coworkerinventoryasset |
 | `nexudus coworkerinventoryassets delete <id> --yes --agent` | Delete coworkerinventoryasset (no prompt) |
 | `nexudus coworkerinventoryassets run-command <key> <ids> --agent` | Run entity command |
 
+#### CoworkerInventoryAsset list filter options
+
+`--coworker-id`, `--business-id`, `--inventory-asset-id`, `--notes`, `--assigned-from`, `--assigned-to`
+
 #### CoworkerInventoryAsset create options
 
-`--coworker-id` (required), `--business` (required), `--inventory-asset-id` (required), `--notes`, `--assigned-from` (required), `--assigned-to`
+`--coworker-id` (required), `--business-id` (required), `--inventory-asset-id` (required), `--notes`, `--assigned-from` (required), `--assigned-to`
 
 #### CoworkerInventoryAsset update options
 
-`--coworker-id`, `--inventory-asset-id`, `--notes`, `--assigned-from`, `--assigned-to`
+`--coworker-id`, `--business-id`, `--inventory-asset-id`, `--notes`, `--assigned-from`, `--assigned-to`
 
 ### CoworkerInventoryAsset (key fields)
 
-`Id`, `CoworkerId`, `CoworkerFullName`, `BusinessId`, `InventoryAssetId`, `InventoryAssetName`
+`Id`, `CoworkerFullName`, `InventoryAssetName`
 
 <!-- END:GENERATED entity=CoworkerInventoryAssets -->

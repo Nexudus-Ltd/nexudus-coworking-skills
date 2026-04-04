@@ -16,28 +16,35 @@ Products also support entity commands.
 | Command | Description |
 | --- | --- |
 | `nexudus products list --agent` | List all products |
-| `nexudus products list --query "search" --agent` | Search products by name |
-| `nexudus products list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus products list --id <id> --agent` | Filter by single ID |
+| `nexudus products list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus products list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus products list --name <value> --description <value> --agent` | Filter products by properties |
+| `nexudus products list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus products get <id> --agent` | Get single product |
-| `nexudus products create --business <value> --name <value> --price <value> --description <value> --agent` | Create product |
+| `nexudus products create --business-id <value> --name <value> --description <value> --display-order <value> --price <value> --currency-id <value> --agent` | Create product |
 | `nexudus products update <id> --name "New Name" --agent` | Update product |
 | `nexudus products delete <id> --yes --agent` | Delete product (no prompt) |
 | `nexudus products commands --agent` | List available entity commands |
 | `nexudus products run-command <key> <ids> --agent` | Run entity command |
 
+#### Product list filter options
+
+`--business-id`, `--name`, `--system-product-type`, `--description`, `--invoice-display`, `--sku`, `--tags`, `--display-order`, `--price`, `--visible`, `--sync-square`, `--currency-id`, `--tax-rate-id`, `--reduced-tax-rate-id`, `--exempt-tax-rate-id`, `--financial-account-id`, `--available-as`, `--only-for-contacts`, `--only-for-members`, `--archived`, `--starred`, `--track-stock`, `--allow-negative-stock`, `--stock-alert-level`, `--apply-pro-rating`, `--new-image-url`, `--clear-image`, `--invoice-coworker`, `--sync-nex-kiosk`, `--create-delivery`
+
 #### Product create options
 
-`--business` (required), `--name` (required), `--price` (required), `--description` (required), `--sku`, `--tags`, `--visible`, `--currency-id`, `--tax-rate-id`, `--display-order`, `--only-for-members`, `--only-for-contacts`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--track-stock`, `--archived`, `--financial-account-id`, `--system-product-type`, `--invoice-display`, `--sync-square`, `--reduced-tax-rate-id`, `--exempt-tax-rate-id`, `--available-as`, `--starred`, `--allow-negative-stock`, `--stock-alert-level`, `--apply-pro-rating`, `--invoice-coworker`, `--sync-nex-kiosk`, `--create-delivery`, `--image-url`, `--image-file`, `--clear-image`
+`--business-id` (required), `--name` (required), `--system-product-type`, `--description` (required), `--invoice-display`, `--sku`, `--tags`, `--display-order` (required), `--price` (required), `--visible`, `--sync-square`, `--currency-id` (required), `--tax-rate-id`, `--reduced-tax-rate-id`, `--exempt-tax-rate-id`, `--financial-account-id`, `--time-passes` (list, repeat flag), `--added-time-passes` (list, repeat flag), `--removed-time-passes` (list, repeat flag), `--extra-services` (list, repeat flag), `--added-extra-services` (list, repeat flag), `--removed-extra-services` (list, repeat flag), `--booking-credits` (list, repeat flag), `--added-booking-credits` (list, repeat flag), `--removed-booking-credits` (list, repeat flag), `--available-as`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived`, `--starred`, `--track-stock`, `--allow-negative-stock`, `--stock-alert-level`, `--apply-pro-rating`, `--new-image-url`, `--clear-image`, `--invoice-coworker`, `--sync-nex-kiosk`, `--create-delivery`
 
 #### Product update options
 
-`--name`, `--price`, `--description`, `--sku`, `--tags`, `--visible`, `--currency-id`, `--tax-rate-id`, `--display-order`, `--only-for-members`, `--only-for-contacts`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--track-stock`, `--archived`, `--financial-account-id`, `--system-product-type`, `--invoice-display`, `--sync-square`, `--reduced-tax-rate-id`, `--exempt-tax-rate-id`, `--available-as`, `--starred`, `--allow-negative-stock`, `--stock-alert-level`, `--apply-pro-rating`, `--invoice-coworker`, `--sync-nex-kiosk`, `--create-delivery`, `--image-url`, `--image-file`, `--clear-image`
+`--business-id`, `--name`, `--system-product-type`, `--description`, `--invoice-display`, `--sku`, `--tags`, `--display-order`, `--price`, `--visible`, `--sync-square`, `--currency-id`, `--tax-rate-id`, `--reduced-tax-rate-id`, `--exempt-tax-rate-id`, `--financial-account-id`, `--time-passes` (list, repeat flag), `--added-time-passes` (list, repeat flag), `--removed-time-passes` (list, repeat flag), `--extra-services` (list, repeat flag), `--added-extra-services` (list, repeat flag), `--removed-extra-services` (list, repeat flag), `--booking-credits` (list, repeat flag), `--added-booking-credits` (list, repeat flag), `--removed-booking-credits` (list, repeat flag), `--available-as`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived`, `--starred`, `--track-stock`, `--allow-negative-stock`, `--stock-alert-level`, `--apply-pro-rating`, `--new-image-url`, `--clear-image`, `--invoice-coworker`, `--sync-nex-kiosk`, `--create-delivery`
 
 ### Product (key fields)
 
-`Id`, `BusinessId`, `BusinessName`, `Name`, `Price`, `Description`, `Sku`, `Tags`, `Visible`, `CurrencyCode`, `DisplayOrder`, `OnlyForMembers`, `OnlyForContacts`, `TrackStock`, `CurrentStock`, `Archived`
+`Id`, `BusinessName`, `Name`, `Description`, `Sku`, `Tags`, `DisplayOrder`, `Price`, `Visible`, `CurrencyCode`, `OnlyForContacts`, `OnlyForMembers`, `Archived`, `TrackStock`, `CurrentStock`
 
-**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
+**List properties (only returned by `get`, not by `list`):** `TimePasses`, `AddedTimePasses`, `RemovedTimePasses`, `ExtraServices`, `AddedExtraServices`, `RemovedExtraServices`, `BookingCredits`, `AddedBookingCredits`, `RemovedBookingCredits`, `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 
 #### Product enum values
 

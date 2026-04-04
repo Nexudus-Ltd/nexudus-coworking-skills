@@ -12,30 +12,31 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 | Command | Description |
 | --- | --- |
 | `nexudus producttimepasses list --agent` | List all producttimepasses |
-| `nexudus producttimepasses list --query "search" --agent` | Search producttimepasses by name |
-| `nexudus producttimepasses list --page 2 --size 10 --agent` | Paginated list |
+| `nexudus producttimepasses list --id <id> --agent` | Filter by single ID |
+| `nexudus producttimepasses list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus producttimepasses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus producttimepasses list --passes-included <value> --agent` | Filter producttimepasses by properties |
+| `nexudus producttimepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus producttimepasses get <id> --agent` | Get single producttimepass |
-| `nexudus producttimepasses create --product-id <value> --time-pass-id <value> --agent` | Create producttimepass |
+| `nexudus producttimepasses create --product-id <value> --time-pass-id <value> --passes-included <value> --agent` | Create producttimepass |
 | `nexudus producttimepasses update <id> --name "New Name" --agent` | Update producttimepass |
 | `nexudus producttimepasses delete <id> --yes --agent` | Delete producttimepass (no prompt) |
 
+#### ProductTimePass list filter options
+
+`--product-id`, `--time-pass-id`, `--passes-included`, `--expire-time-in-months`, `--expire-time-in-weeks`, `--expiration-type`, `--expires-in`
+
 #### ProductTimePass create options
 
-`--product-id` (required), `--time-pass-id` (required), `--passes-included`, `--expiration-type`, `--expires-in`
+`--product-id` (required), `--time-pass-id` (required), `--passes-included` (required), `--expire-time-in-months`, `--expire-time-in-weeks`, `--expiration-type`, `--expires-in`
 
 #### ProductTimePass update options
 
-`--passes-included`, `--expiration-type`, `--expires-in`
+`--product-id`, `--time-pass-id`, `--passes-included`, `--expire-time-in-months`, `--expire-time-in-weeks`, `--expiration-type`, `--expires-in`
 
 ### ProductTimePass (key fields)
 
-`Id`, `ProductId`, `ProductName`, `TimePassId`, `TimePassName`, `PassesIncluded`
-
-#### ProductTimePass enum values
-
-| Option | Valid values |
-| ------ | ------------ |
-| `--expiration-type` | `1` PricePlan, `2` Day, `3` Week, `4` Month, `5` Year, `6` LastDayOfMonth |
+`Id`, `ProductName`, `TimePassName`, `PassesIncluded`
 
 <!-- END:GENERATED entity=ProductTimePasses -->
 
