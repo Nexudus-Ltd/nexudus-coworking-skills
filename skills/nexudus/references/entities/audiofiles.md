@@ -21,15 +21,15 @@ AudioFiles support Search, Get, Create, Update, Delete.
 
 #### AudioFile list filter options
 
-`--business-id`, `--name`, `--description`, `--new-audio-url`, `--clear-audio`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--new-audio-url`, `--clear-audio-file`, `--file-size-bytes`
 
 #### AudioFile create options
 
-`--business-id` (required), `--name` (required), `--description`, `--new-audio-url`, `--clear-audio`, `--file-size-bytes`
+`--business-id` (required), `--name` (required), `--description`, `--new-audio-url`, `--clear-audio-file`, `--file-size-bytes`
 
 #### AudioFile update options
 
-`--business-id`, `--name`, `--description`, `--new-audio-url`, `--clear-audio`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--new-audio-url`, `--clear-audio-file`, `--file-size-bytes`
 
 ### AudioFile (key fields)
 

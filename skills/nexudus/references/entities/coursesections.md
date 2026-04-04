@@ -19,14 +19,14 @@ CourseSections support Search, Get, Create, Update, Delete.
 
 #### CourseSection list filter options
 
-`--course-id`, `--title`, `--section-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image`, `--unlock-after-days`
+`--course-id`, `--title`, `--section-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`
 
 #### CourseSection create options
 
-`--course-id` (required), `--title` (required), `--section-contents`, `--active`, `--display-order` (required), `--unlock-type`, `--new-image-url`, `--clear-image`, `--unlock-after-days` (required)
+`--course-id` (required), `--title` (required), `--section-contents`, `--active`, `--display-order` (required), `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days` (required)
 
 #### CourseSection update options
 
-`--course-id`, `--title`, `--section-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image`, `--unlock-after-days`
+`--course-id`, `--title`, `--section-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`
 
 <!-- END:GENERATED entity=CourseSections -->

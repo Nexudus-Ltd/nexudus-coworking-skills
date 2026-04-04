@@ -19,14 +19,14 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 
 #### CoworkerDataFile list filter options
 
-`--business-id`, `--coworker-id`, `--name`, `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data`, `--new-signed-file-data-url`, `--clear-signed-file-data`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
+`--business-id`, `--coworker-id`, `--name`, `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data-file`, `--new-signed-file-data-url`, `--clear-signed-file-data-file`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
 
 #### CoworkerDataFile create options
 
-`--business-id` (required), `--coworker-id` (required), `--name` (required), `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data`, `--new-signed-file-data-url`, `--clear-signed-file-data`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
+`--business-id` (required), `--coworker-id` (required), `--name` (required), `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data-file`, `--new-signed-file-data-url`, `--clear-signed-file-data-file`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
 
 #### CoworkerDataFile update options
 
-`--business-id`, `--coworker-id`, `--name`, `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data`, `--new-signed-file-data-url`, `--clear-signed-file-data`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
+`--business-id`, `--coworker-id`, `--name`, `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data-file`, `--new-signed-file-data-url`, `--clear-signed-file-data-file`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
 
 <!-- END:GENERATED entity=CoworkerDataFiles -->

@@ -19,14 +19,14 @@ FloorPlans support Search, Get, Create, Update, Delete.
 
 #### FloorPlan list filter options
 
-`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image`, `--display-background`, `--background-scale`, `--position-x`, `--position-y`, `--floor-level`, `--scale`, `--capacity`, `--archilogic-unique-id`
+`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale`, `--position-x`, `--position-y`, `--floor-level`, `--scale`, `--capacity`, `--archilogic-unique-id`
 
 #### FloorPlan create options
 
-`--business-id` (required), `--floor-plan-layout-id`, `--name` (required), `--new-background-image-url`, `--clear-background-image`, `--display-background`, `--background-scale` (required), `--position-x` (required), `--position-y` (required), `--floor-level` (required), `--scale` (required), `--capacity`, `--archilogic-unique-id`
+`--business-id` (required), `--floor-plan-layout-id`, `--name` (required), `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale` (required), `--position-x` (required), `--position-y` (required), `--floor-level` (required), `--scale` (required), `--capacity`, `--archilogic-unique-id`
 
 #### FloorPlan update options
 
-`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image`, `--display-background`, `--background-scale`, `--position-x`, `--position-y`, `--floor-level`, `--scale`, `--capacity`, `--archilogic-unique-id`
+`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale`, `--position-x`, `--position-y`, `--floor-level`, `--scale`, `--capacity`, `--archilogic-unique-id`
 
 <!-- END:GENERATED entity=FloorPlans -->

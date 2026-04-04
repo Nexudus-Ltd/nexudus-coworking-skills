@@ -19,15 +19,15 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 
 #### CommunityPerk list filter options
 
-`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image`, `--new-large-image-url`, `--clear-large-image`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--click-count`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--click-count`, `--only-for-contacts`, `--only-for-members`
 
 #### CommunityPerk create options
 
-`--business-id` (required), `--title` (required), `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image`, `--new-large-image-url`, `--clear-large-image`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--click-count` (required), `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+`--business-id` (required), `--title` (required), `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--click-count` (required), `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
 
 #### CommunityPerk update options
 
-`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image`, `--new-large-image-url`, `--clear-large-image`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--click-count`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--click-count`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

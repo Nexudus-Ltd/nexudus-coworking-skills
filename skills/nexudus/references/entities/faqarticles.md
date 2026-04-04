@@ -19,14 +19,14 @@ FaqArticles support Search, Get, Create, Update, Delete.
 
 #### FaqArticle list filter options
 
-`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image`, `--new-large-image-url`, `--clear-large-image`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
 
 #### FaqArticle create options
 
-`--business-id` (required), `--title` (required), `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image`, `--new-large-image-url`, `--clear-large-image`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
+`--business-id` (required), `--title` (required), `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
 
 #### FaqArticle update options
 
-`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image`, `--new-large-image-url`, `--clear-large-image`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
 
 <!-- END:GENERATED entity=FaqArticles -->

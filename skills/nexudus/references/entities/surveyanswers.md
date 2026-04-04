@@ -19,14 +19,14 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 
 #### SurveyAnswer list filter options
 
-`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value`
+`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`
 
 #### SurveyAnswer create options
 
-`--survey-run-id`, `--survey-question-id` (required), `--value`, `--new-file-value-url`, `--clear-file-value`
+`--survey-run-id`, `--survey-question-id` (required), `--value`, `--new-file-value-url`, `--clear-file-value-file`
 
 #### SurveyAnswer update options
 
-`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value`
+`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`
 
 <!-- END:GENERATED entity=SurveyAnswers -->

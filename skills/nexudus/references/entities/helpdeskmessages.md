@@ -19,15 +19,15 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 
 #### HelpDeskMessage list filter options
 
-`--business-id`, `--coworker-id`, `--help-desk-department-id`, `--subject`, `--message-text`, `--priority`, `--ai-processing-result`, `--closed`, `--owner-id`, `--new-image-url`, `--clear-image`
+`--business-id`, `--coworker-id`, `--help-desk-department-id`, `--subject`, `--message-text`, `--priority`, `--ai-processing-result`, `--closed`, `--owner-id`, `--new-image-url`, `--clear-image-file`
 
 #### HelpDeskMessage create options
 
-`--business-id` (required), `--coworker-id` (required), `--help-desk-department-id`, `--subject` (required), `--message-text` (required), `--priority`, `--ai-processing-result`, `--closed`, `--comments` (list, repeat flag), `--added-comments` (list, repeat flag), `--removed-comments` (list, repeat flag), `--owner-id`, `--new-image-url`, `--clear-image`
+`--business-id` (required), `--coworker-id` (required), `--help-desk-department-id`, `--subject` (required), `--message-text` (required), `--priority`, `--ai-processing-result`, `--closed`, `--comments` (list, repeat flag), `--added-comments` (list, repeat flag), `--removed-comments` (list, repeat flag), `--owner-id`, `--new-image-url`, `--clear-image-file`
 
 #### HelpDeskMessage update options
 
-`--business-id`, `--coworker-id`, `--help-desk-department-id`, `--subject`, `--message-text`, `--priority`, `--ai-processing-result`, `--closed`, `--comments` (list, repeat flag), `--added-comments` (list, repeat flag), `--removed-comments` (list, repeat flag), `--owner-id`, `--new-image-url`, `--clear-image`
+`--business-id`, `--coworker-id`, `--help-desk-department-id`, `--subject`, `--message-text`, `--priority`, `--ai-processing-result`, `--closed`, `--comments` (list, repeat flag), `--added-comments` (list, repeat flag), `--removed-comments` (list, repeat flag), `--owner-id`, `--new-image-url`, `--clear-image-file`
 
 **List properties (only returned by `get`, not by `list`):** `Comments`, `AddedComments`, `RemovedComments`
 

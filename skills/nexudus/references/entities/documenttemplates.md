@@ -19,14 +19,14 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 
 #### DocumentTemplate list filter options
 
-`--business-id`, `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document`, `--template-output-format`
+`--business-id`, `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document-file`, `--template-output-format`
 
 #### DocumentTemplate create options
 
-`--business-id` (required), `--name` (required), `--document`, `--new-binary-document-url`, `--clear-binary-document`, `--template-output-format`
+`--business-id` (required), `--name` (required), `--document`, `--new-binary-document-url`, `--clear-binary-document-file`, `--template-output-format`
 
 #### DocumentTemplate update options
 
-`--business-id`, `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document`, `--template-output-format`
+`--business-id`, `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document-file`, `--template-output-format`
 
 <!-- END:GENERATED entity=DocumentTemplates -->

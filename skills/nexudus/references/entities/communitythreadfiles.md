@@ -19,14 +19,14 @@ CommunityThreadFiles support Search, Get, Create, Update, Delete.
 
 #### CommunityThreadFile list filter options
 
-`--community-thread-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data`
+`--community-thread-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`
 
 #### CommunityThreadFile create options
 
-`--community-thread-id` (required), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data`
+`--community-thread-id` (required), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`
 
 #### CommunityThreadFile update options
 
-`--community-thread-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data`
+`--community-thread-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`
 
 <!-- END:GENERATED entity=CommunityThreadFiles -->

@@ -19,15 +19,15 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 #### MarketPlaceApplication list filter options
 
-`--developer-id`, `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo`
+`--developer-id`, `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file`
 
 #### MarketPlaceApplication create options
 
-`--developer-id` (required), `--name` (required), `--terms-and-conditions`, `--support-email` (required), `--developer-name` (required), `--published`, `--secret-key`, `--short-description` (required), `--description`, `--notification-email` (required), `--notification-url` (required), `--new-logo-url`, `--clear-logo`, `--installations` (list, repeat flag), `--added-installations` (list, repeat flag), `--removed-installations` (list, repeat flag)
+`--developer-id` (required), `--name` (required), `--terms-and-conditions`, `--support-email` (required), `--developer-name` (required), `--published`, `--secret-key`, `--short-description` (required), `--description`, `--notification-email` (required), `--notification-url` (required), `--new-logo-url`, `--clear-logo-file`, `--installations` (list, repeat flag), `--added-installations` (list, repeat flag), `--removed-installations` (list, repeat flag)
 
 #### MarketPlaceApplication update options
 
-`--developer-id`, `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo`, `--installations` (list, repeat flag), `--added-installations` (list, repeat flag), `--removed-installations` (list, repeat flag)
+`--developer-id`, `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file`, `--installations` (list, repeat flag), `--added-installations` (list, repeat flag), `--removed-installations` (list, repeat flag)
 
 **List properties (only returned by `get`, not by `list`):** `Installations`, `AddedInstallations`, `RemovedInstallations`
 

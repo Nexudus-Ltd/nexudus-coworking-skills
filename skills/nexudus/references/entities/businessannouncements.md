@@ -31,15 +31,15 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 #### BusinessAnnouncement list filter options
 
-`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
 
 #### BusinessAnnouncement create options
 
-`--business-id` (required), `--name` (required), `--active`, `--new-image-url`, `--clear-image`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
+`--business-id` (required), `--name` (required), `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
 
 #### BusinessAnnouncement update options
 
-`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
 
 ### BusinessAnnouncement (key fields)
 

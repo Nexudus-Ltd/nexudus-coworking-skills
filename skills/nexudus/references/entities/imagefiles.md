@@ -19,14 +19,14 @@ ImageFiles support Search, Get, Create, Update, Delete.
 
 #### ImageFile list filter options
 
-`--business-id`, `--name`, `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image-file`, `--file-size-bytes`
 
 #### ImageFile create options
 
-`--business-id` (required), `--name` (required), `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image`, `--file-size-bytes`
+`--business-id` (required), `--name` (required), `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image-file`, `--file-size-bytes`
 
 #### ImageFile update options
 
-`--business-id`, `--name`, `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image-file`, `--file-size-bytes`
 
 <!-- END:GENERATED entity=ImageFiles -->

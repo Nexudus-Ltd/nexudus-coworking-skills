@@ -33,15 +33,15 @@ CoworkerIdentityCheckDocuments also support entity commands.
 
 #### CoworkerIdentityCheckDocument list filter options
 
-`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo`, `--new-document-url`, `--clear-document`, `--new-additional-document-url`, `--clear-additional-document`, `--notes`
+`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo-file`, `--new-document-url`, `--clear-document-file`, `--new-additional-document-url`, `--clear-additional-document-file`, `--notes`
 
 #### CoworkerIdentityCheckDocument create options
 
-`--coworker-id` (required), `--coworker-identity-check-id` (required), `--name` (required), `--new-photo-url`, `--clear-photo`, `--new-document-url`, `--clear-document`, `--new-additional-document-url`, `--clear-additional-document`, `--notes`
+`--coworker-id` (required), `--coworker-identity-check-id` (required), `--name` (required), `--new-photo-url`, `--clear-photo-file`, `--new-document-url`, `--clear-document-file`, `--new-additional-document-url`, `--clear-additional-document-file`, `--notes`
 
 #### CoworkerIdentityCheckDocument update options
 
-`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo`, `--new-document-url`, `--clear-document`, `--new-additional-document-url`, `--clear-additional-document`, `--notes`
+`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo-file`, `--new-document-url`, `--clear-document-file`, `--new-additional-document-url`, `--clear-additional-document-file`, `--notes`
 
 ### CoworkerIdentityCheckDocument (key fields)
 

@@ -33,15 +33,15 @@ InventoryAssets also support entity commands.
 
 #### InventoryAsset list filter options
 
-`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
+`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
 
 #### InventoryAsset create options
 
-`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
+`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
 
 #### InventoryAsset update options
 
-`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
+`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
 
 ### InventoryAsset (key fields)
 

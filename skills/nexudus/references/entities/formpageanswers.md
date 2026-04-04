@@ -18,14 +18,14 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 
 #### FormPageAnswer list filter options
 
-`--form-page-request-id`, `--form-page-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value`
+`--form-page-request-id`, `--form-page-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`
 
 #### FormPageAnswer create options
 
-`--form-page-request-id`, `--form-page-question-id` (required), `--value`, `--new-file-value-url`, `--clear-file-value`
+`--form-page-request-id`, `--form-page-question-id` (required), `--value`, `--new-file-value-url`, `--clear-file-value-file`
 
 #### FormPageAnswer update options
 
-`--form-page-request-id`, `--form-page-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value`
+`--form-page-request-id`, `--form-page-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`
 
 <!-- END:GENERATED entity=FormPageAnswers -->

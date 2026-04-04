@@ -19,14 +19,14 @@ CourseLessons support Search, Get, Create, Update, Delete.
 
 #### CourseLesson list filter options
 
-`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image`, `--unlock-after-days`, `--completion-type`
+`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--completion-type`
 
 #### CourseLesson create options
 
-`--course-id` (required), `--section-id`, `--instructor-id`, `--title` (required), `--summary-text`, `--lesson-contents`, `--active`, `--display-order` (required), `--unlock-type`, `--new-image-url`, `--clear-image`, `--unlock-after-days` (required), `--completion-type`
+`--course-id` (required), `--section-id`, `--instructor-id`, `--title` (required), `--summary-text`, `--lesson-contents`, `--active`, `--display-order` (required), `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days` (required), `--completion-type`
 
 #### CourseLesson update options
 
-`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image`, `--unlock-after-days`, `--completion-type`
+`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--completion-type`
 
 <!-- END:GENERATED entity=CourseLessons -->

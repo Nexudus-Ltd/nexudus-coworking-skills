@@ -19,14 +19,14 @@ VideoRooms support Search, Get, Create, Update, Delete.
 
 #### VideoRoom list filter options
 
-`--business-id`, `--name`, `--description`, `--new-image-url`, `--clear-image`, `--number-of-participants`, `--active`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--name`, `--description`, `--new-image-url`, `--clear-image-file`, `--number-of-participants`, `--active`, `--only-for-contacts`, `--only-for-members`
 
 #### VideoRoom create options
 
-`--business-id` (required), `--name` (required), `--description`, `--new-image-url`, `--clear-image`, `--number-of-participants` (required), `--active`, `--only-for-contacts`, `--only-for-members`
+`--business-id` (required), `--name` (required), `--description`, `--new-image-url`, `--clear-image-file`, `--number-of-participants` (required), `--active`, `--only-for-contacts`, `--only-for-members`
 
 #### VideoRoom update options
 
-`--business-id`, `--name`, `--description`, `--new-image-url`, `--clear-image`, `--number-of-participants`, `--active`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--name`, `--description`, `--new-image-url`, `--clear-image-file`, `--number-of-participants`, `--active`, `--only-for-contacts`, `--only-for-members`
 
 <!-- END:GENERATED entity=VideoRooms -->

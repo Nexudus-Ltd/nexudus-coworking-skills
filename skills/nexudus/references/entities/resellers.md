@@ -19,14 +19,14 @@ Resellers support Search, Get, Create, Update, Delete.
 
 #### Reseller list filter options
 
-`--name`, `--profile-is-public`, `--new-avatar-url`, `--clear-avatar`, `--new-logo-url`, `--clear-logo`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
+`--name`, `--profile-is-public`, `--new-avatar-url`, `--clear-avatar-file`, `--new-logo-url`, `--clear-logo-file`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
 
 #### Reseller create options
 
-`--name` (required), `--profile-is-public`, `--new-avatar-url`, `--clear-avatar`, `--new-logo-url`, `--clear-logo`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
+`--name` (required), `--profile-is-public`, `--new-avatar-url`, `--clear-avatar-file`, `--new-logo-url`, `--clear-logo-file`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
 
 #### Reseller update options
 
-`--name`, `--profile-is-public`, `--new-avatar-url`, `--clear-avatar`, `--new-logo-url`, `--clear-logo`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
+`--name`, `--profile-is-public`, `--new-avatar-url`, `--clear-avatar-file`, `--new-logo-url`, `--clear-logo-file`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
 
 <!-- END:GENERATED entity=Resellers -->

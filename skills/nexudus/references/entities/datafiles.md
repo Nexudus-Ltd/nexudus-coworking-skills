@@ -19,14 +19,14 @@ DataFiles support Search, Get, Create, Update, Delete.
 
 #### DataFile list filter options
 
-`--business-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`, `--file-size-bytes`
 
 #### DataFile create options
 
-`--business-id` (required), `--name` (required), `--description`, `--new-file-data-url`, `--clear-file-data`, `--file-size-bytes`
+`--business-id` (required), `--name` (required), `--description`, `--new-file-data-url`, `--clear-file-data-file`, `--file-size-bytes`
 
 #### DataFile update options
 
-`--business-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`, `--file-size-bytes`
 
 <!-- END:GENERATED entity=DataFiles -->

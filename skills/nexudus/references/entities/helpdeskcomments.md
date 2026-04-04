@@ -19,14 +19,14 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 
 #### HelpDeskComment list filter options
 
-`--help-desk-message-id`, `--coworker-id`, `--message-text`, `--internal`, `--new-image-url`, `--clear-image`
+`--help-desk-message-id`, `--coworker-id`, `--message-text`, `--internal`, `--new-image-url`, `--clear-image-file`
 
 #### HelpDeskComment create options
 
-`--help-desk-message-id` (required), `--coworker-id` (required), `--message-text` (required), `--internal`, `--new-image-url`, `--clear-image`
+`--help-desk-message-id` (required), `--coworker-id` (required), `--message-text` (required), `--internal`, `--new-image-url`, `--clear-image-file`
 
 #### HelpDeskComment update options
 
-`--help-desk-message-id`, `--coworker-id`, `--message-text`, `--internal`, `--new-image-url`, `--clear-image`
+`--help-desk-message-id`, `--coworker-id`, `--message-text`, `--internal`, `--new-image-url`, `--clear-image-file`
 
 <!-- END:GENERATED entity=HelpDeskComments -->

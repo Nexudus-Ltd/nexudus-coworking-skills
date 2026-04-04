@@ -19,14 +19,14 @@ VideoFiles support Search, Get, Create, Update, Delete.
 
 #### VideoFile list filter options
 
-`--business-id`, `--name`, `--description`, `--new-video-url`, `--clear-video`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--new-video-url`, `--clear-video-file`, `--file-size-bytes`
 
 #### VideoFile create options
 
-`--business-id` (required), `--name` (required), `--description`, `--new-video-url`, `--clear-video`, `--file-size-bytes`
+`--business-id` (required), `--name` (required), `--description`, `--new-video-url`, `--clear-video-file`, `--file-size-bytes`
 
 #### VideoFile update options
 
-`--business-id`, `--name`, `--description`, `--new-video-url`, `--clear-video`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--new-video-url`, `--clear-video-file`, `--file-size-bytes`
 
 <!-- END:GENERATED entity=VideoFiles -->
