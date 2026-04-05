@@ -19,7 +19,7 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 
 #### ProposalSchedule list filter options
 
-`--proposal-id`, `--notes`, `--price`, `--apply-on`
+`--proposal-id`, `--notes`, `--price`, `--from-price` (range), `--to-price` (range), `--apply-on`, `--from-apply-on` (range), `--to-apply-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProposalSchedule create options
 

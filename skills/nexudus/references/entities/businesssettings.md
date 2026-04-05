@@ -746,7 +746,7 @@ BusinessSettings support Search, Get, Create, Update, Delete.
 
 #### BusinessSetting list filter options
 
-`--business-id`, `--name`, `--value`
+`--business-id`, `--name`, `--value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessSetting create options
 

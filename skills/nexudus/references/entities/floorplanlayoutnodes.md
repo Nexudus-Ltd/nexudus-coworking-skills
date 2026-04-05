@@ -19,7 +19,7 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutNode list filter options
 
-`--floor-plan-layout-id`, `--node-key`, `--pos-x`, `--pos-y`
+`--floor-plan-layout-id`, `--node-key`, `--pos-x`, `--from-pos-x` (range), `--to-pos-x` (range), `--pos-y`, `--from-pos-y` (range), `--to-pos-y` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutNode create options
 

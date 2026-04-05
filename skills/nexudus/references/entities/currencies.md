@@ -16,7 +16,7 @@ Currencies support Search, Get (no Create or Delete via API).
 
 #### Currency list filter options
 
-`--name`, `--code`, `--format`
+`--name`, `--code`, `--format`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 ### Currency (key fields)
 

@@ -33,21 +33,19 @@ InventoryAssets also support entity commands.
 
 #### InventoryAsset list filter options
 
-`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
+`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--from-value` (range), `--to-value` (range), `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### InventoryAsset create options
 
-`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
+`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
 
 #### InventoryAsset update options
 
-`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--assigned-coworkers` (list, repeat flag), `--added-assigned-coworkers` (list, repeat flag), `--removed-assigned-coworkers` (list, repeat flag), `--resource-id`, `--assign-to-type`
+`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
 
 ### InventoryAsset (key fields)
 
 `Id`, `BusinessName`, `Name`
-
-**List properties (only returned by `get`, not by `list`):** `AssignedCoworkers`, `AddedAssignedCoworkers`, `RemovedAssignedCoworkers`
 
 #### InventoryAsset enum values
 

@@ -19,7 +19,7 @@ ResourceAccessRuleEligibleTimeSlots support Search, Get, Create, Update, Delete.
 
 #### ResourceAccessRuleEligibleTimeSlot list filter options
 
-`--resource-access-rule-id`, `--from-time`, `--to-time`, `--day-of-week`
+`--resource-access-rule-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--day-of-week`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ResourceAccessRuleEligibleTimeSlot create options
 

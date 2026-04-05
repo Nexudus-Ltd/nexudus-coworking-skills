@@ -19,7 +19,7 @@ PlatformChangeMessages support Search, Get, Create, Update, Delete.
 
 #### PlatformChangeMessage list filter options
 
-`--title`, `--description-english`, `--description-spanish`
+`--title`, `--description-english`, `--description-spanish`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### PlatformChangeMessage create options
 

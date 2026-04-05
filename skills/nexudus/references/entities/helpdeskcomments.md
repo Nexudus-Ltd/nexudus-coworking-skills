@@ -19,7 +19,7 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 
 #### HelpDeskComment list filter options
 
-`--help-desk-message-id`, `--coworker-id`, `--message-text`, `--internal`, `--new-image-url`, `--clear-image-file`
+`--help-desk-message-id`, `--coworker-id`, `--message-text`, `--internal`, `--new-image-url`, `--clear-image-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### HelpDeskComment create options
 

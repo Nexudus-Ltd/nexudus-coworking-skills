@@ -19,16 +19,16 @@ TaskLists support Search, Get, Create, Update, Delete.
 
 #### TaskList list filter options
 
-`--business-id`, `--name`, `--active`, `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`
+`--business-id`, `--name`, `--active`, `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TaskList create options
 
-`--business-id` (required), `--name` (required), `--active`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`, `--task-items` (list, repeat flag), `--added-task-items` (list, repeat flag), `--removed-task-items` (list, repeat flag)
+`--business-id` (required), `--name` (required), `--active`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`
 
 #### TaskList update options
 
-`--business-id`, `--name`, `--active`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`, `--task-items` (list, repeat flag), `--added-task-items` (list, repeat flag), `--removed-task-items` (list, repeat flag)
+`--business-id`, `--name`, `--active`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`
 
-**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`, `TaskItems`, `AddedTaskItems`, `RemovedTaskItems`
+**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 
 <!-- END:GENERATED entity=TaskLists -->

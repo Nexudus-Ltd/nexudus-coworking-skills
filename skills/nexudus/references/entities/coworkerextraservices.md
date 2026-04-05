@@ -27,20 +27,18 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
 #### CoworkerExtraService list filter options
 
-`--coworker-id`, `--business-id`, `--extra-service-id`, `--notes`, `--total-uses`, `--free`, `--price`, `--valid-from`, `--expire-date`, `--due-date`, `--purchase-order`, `--charge-period`, `--invoice-this-coworker`, `--booking-id`, `--booking-from-time`, `--booking-to-time`, `--booking-resource-name`, `--coworker-contract-unique-id`
+`--coworker-id`, `--business-id`, `--extra-service-id`, `--notes`, `--total-uses`, `--from-total-uses` (range), `--to-total-uses` (range), `--free`, `--price`, `--from-price` (range), `--to-price` (range), `--valid-from`, `--from-valid-from` (range), `--to-valid-from` (range), `--expire-date`, `--from-expire-date` (range), `--to-expire-date` (range), `--due-date`, `--from-due-date` (range), `--to-due-date` (range), `--purchase-order`, `--charge-period`, `--invoice-this-coworker`, `--booking-id`, `--from-booking-id` (range), `--to-booking-id` (range), `--booking-from-time`, `--from-booking-from-time` (range), `--to-booking-from-time` (range), `--booking-to-time`, `--from-booking-to-time` (range), `--to-booking-to-time` (range), `--booking-resource-name`, `--coworker-contract-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerExtraService create options
 
-`--coworker-id` (required), `--business-id` (required), `--extra-service-id` (required), `--notes`, `--total-uses` (required), `--free`, `--price`, `--valid-from`, `--expire-date`, `--due-date`, `--purchase-order`, `--charge-period`, `--coworker-extra-service-uses` (list, repeat flag), `--added-coworker-extra-service-uses` (list, repeat flag), `--removed-coworker-extra-service-uses` (list, repeat flag), `--invoice-this-coworker`, `--booking-id`, `--booking-from-time`, `--booking-to-time`, `--booking-resource-name`, `--coworker-contract-unique-id`
+`--coworker-id` (required), `--business-id` (required), `--extra-service-id` (required), `--notes`, `--total-uses` (required), `--free`, `--price`, `--valid-from`, `--expire-date`, `--due-date`, `--purchase-order`, `--charge-period`, `--invoice-this-coworker`, `--booking-id`, `--booking-from-time`, `--booking-to-time`, `--booking-resource-name`, `--coworker-contract-unique-id`
 
 #### CoworkerExtraService update options
 
-`--coworker-id`, `--business-id`, `--extra-service-id`, `--notes`, `--total-uses`, `--free`, `--price`, `--valid-from`, `--expire-date`, `--due-date`, `--purchase-order`, `--charge-period`, `--coworker-extra-service-uses` (list, repeat flag), `--added-coworker-extra-service-uses` (list, repeat flag), `--removed-coworker-extra-service-uses` (list, repeat flag), `--invoice-this-coworker`, `--booking-id`, `--booking-from-time`, `--booking-to-time`, `--booking-resource-name`, `--coworker-contract-unique-id`
+`--coworker-id`, `--business-id`, `--extra-service-id`, `--notes`, `--total-uses`, `--free`, `--price`, `--valid-from`, `--expire-date`, `--due-date`, `--purchase-order`, `--charge-period`, `--invoice-this-coworker`, `--booking-id`, `--booking-from-time`, `--booking-to-time`, `--booking-resource-name`, `--coworker-contract-unique-id`
 
 ### CoworkerExtraService (key fields)
 
 `Id`, `ExtraServiceName`, `Description`, `RemainingUses`, `Price`, `Invoiced`
-
-**List properties (only returned by `get`, not by `list`):** `CoworkerExtraServiceUses`, `AddedCoworkerExtraServiceUses`, `RemovedCoworkerExtraServiceUses`
 
 <!-- END:GENERATED entity=CoworkerExtraServices -->

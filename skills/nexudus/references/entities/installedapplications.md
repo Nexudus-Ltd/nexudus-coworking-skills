@@ -19,7 +19,7 @@ InstalledApplications support Search, Get, Create, Update, Delete.
 
 #### InstalledApplication list filter options
 
-`--application-id`, `--business-id`, `--requires-approval`
+`--application-id`, `--business-id`, `--requires-approval`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### InstalledApplication create options
 

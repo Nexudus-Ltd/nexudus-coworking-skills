@@ -16,7 +16,7 @@ Countries support Search, Get (no Create or Delete via API).
 
 #### Country list filter options
 
-`--name`, `--two-digits-code`, `--culture`
+`--name`, `--two-digits-code`, `--culture`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 ### Country (key fields)
 

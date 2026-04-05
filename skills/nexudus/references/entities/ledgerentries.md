@@ -20,7 +20,7 @@ LedgerEntries support Search, Get (no Create or Delete via API).
 
 #### LedgerEntry list filter options
 
-`--business-id`, `--code`, `--description`, `--debit`, `--credit`, `--balance`
+`--business-id`, `--code`, `--description`, `--debit`, `--from-debit` (range), `--to-debit` (range), `--credit`, `--from-credit` (range), `--to-credit` (range), `--balance`, `--from-balance` (range), `--to-balance` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 ### LedgerEntry (key fields)
 

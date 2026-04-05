@@ -33,7 +33,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 #### FinancialAccount list filter options
 
-`--business-id`, `--name`, `--code`, `--description`, `--account-type`
+`--business-id`, `--name`, `--code`, `--description`, `--account-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FinancialAccount create options
 

@@ -19,7 +19,7 @@ Resellers support Search, Get, Create, Update, Delete.
 
 #### Reseller list filter options
 
-`--name`, `--profile-is-public`, `--new-avatar-url`, `--clear-avatar-file`, `--new-logo-url`, `--clear-logo-file`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
+`--name`, `--profile-is-public`, `--new-avatar-url`, `--clear-avatar-file`, `--new-logo-url`, `--clear-logo-file`, `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Reseller create options
 

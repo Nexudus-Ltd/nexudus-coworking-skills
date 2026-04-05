@@ -19,7 +19,7 @@ EventAttendees support Search, Get, Create, Update, Delete.
 
 #### EventAttendee list filter options
 
-`--business-id`, `--calendar-event-id`, `--event-product-id`, `--coworker-id`, `--full-name`, `--email`, `--purchase-order`, `--checked-in`, `--checked-in-date`, `--invoiced`, `--billed`, `--created-on-local`, `--checked-in-date-local`, `--coworker-invoice-id`, `--coworker-invoice-number`, `--coworker-invoice-paid`, `--reminded`, `--zoom-event-data`, `--zoom-participant-id`, `--is-sent`
+`--business-id`, `--calendar-event-id`, `--event-product-id`, `--coworker-id`, `--full-name`, `--email`, `--purchase-order`, `--checked-in`, `--checked-in-date`, `--from-checked-in-date` (range), `--to-checked-in-date` (range), `--invoiced`, `--billed`, `--created-on-local`, `--from-created-on-local` (range), `--to-created-on-local` (range), `--checked-in-date-local`, `--from-checked-in-date-local` (range), `--to-checked-in-date-local` (range), `--coworker-invoice-id`, `--from-coworker-invoice-id` (range), `--to-coworker-invoice-id` (range), `--coworker-invoice-number`, `--coworker-invoice-paid`, `--reminded`, `--zoom-event-data`, `--zoom-participant-id`, `--is-sent`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EventAttendee create options
 

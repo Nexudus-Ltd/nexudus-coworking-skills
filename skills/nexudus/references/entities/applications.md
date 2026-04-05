@@ -23,7 +23,7 @@ Applications support Search, Get, Create, Update, Delete.
 
 #### Application list filter options
 
-`--developer-id`, `--name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--install-url`
+`--developer-id`, `--name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--install-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Application create options
 

@@ -23,7 +23,7 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 
 #### BlogPostComment list filter options
 
-`--business-id`, `--blog-post-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`
+`--business-id`, `--blog-post-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`, `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BlogPostComment create options
 

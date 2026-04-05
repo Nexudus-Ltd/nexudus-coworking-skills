@@ -19,16 +19,14 @@ CourseMembers support Search, Get, Create, Update, Delete.
 
 #### CourseMember list filter options
 
-`--course-id`, `--coworker-id`, `--approved`, `--blocked`
+`--course-id`, `--coworker-id`, `--approved`, `--blocked`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CourseMember create options
 
-`--course-id` (required), `--coworker-id` (required), `--approved`, `--blocked`, `--completed-lessons` (list, repeat flag), `--added-completed-lessons` (list, repeat flag), `--removed-completed-lessons` (list, repeat flag)
+`--course-id` (required), `--coworker-id` (required), `--approved`, `--blocked`
 
 #### CourseMember update options
 
-`--course-id`, `--coworker-id`, `--approved`, `--blocked`, `--completed-lessons` (list, repeat flag), `--added-completed-lessons` (list, repeat flag), `--removed-completed-lessons` (list, repeat flag)
-
-**List properties (only returned by `get`, not by `list`):** `CompletedLessons`, `AddedCompletedLessons`, `RemovedCompletedLessons`
+`--course-id`, `--coworker-id`, `--approved`, `--blocked`
 
 <!-- END:GENERATED entity=CourseMembers -->

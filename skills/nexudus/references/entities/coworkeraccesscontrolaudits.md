@@ -19,7 +19,7 @@ CoworkerAccessControlAudits support Search, Get, Create, Update, Delete.
 
 #### CoworkerAccessControlAudit list filter options
 
-`--coworker-id`, `--description`, `--is-problem`
+`--coworker-id`, `--description`, `--is-problem`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerAccessControlAudit create options
 

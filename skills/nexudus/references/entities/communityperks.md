@@ -19,7 +19,7 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 
 #### CommunityPerk list filter options
 
-`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--click-count`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page`, `--click-count`, `--from-click-count` (range), `--to-click-count` (range), `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityPerk create options
 

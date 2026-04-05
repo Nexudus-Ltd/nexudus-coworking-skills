@@ -19,7 +19,7 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutAsset list filter options
 
-`--floor-plan-layout-id`, `--area-unique-id`, `--asset-type`, `--angle`, `--height`, `--length`, `--width`, `--pos-x`, `--pos-y`, `--floor-offset`
+`--floor-plan-layout-id`, `--area-unique-id`, `--asset-type`, `--angle`, `--from-angle` (range), `--to-angle` (range), `--height`, `--from-height` (range), `--to-height` (range), `--length`, `--from-length` (range), `--to-length` (range), `--width`, `--from-width` (range), `--to-width` (range), `--pos-x`, `--from-pos-x` (range), `--to-pos-x` (range), `--pos-y`, `--from-pos-y` (range), `--to-pos-y` (range), `--floor-offset`, `--from-floor-offset` (range), `--to-floor-offset` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutAsset create options
 

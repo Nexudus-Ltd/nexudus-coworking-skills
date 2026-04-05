@@ -19,7 +19,7 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 
 #### CrmOpportunityHistory list filter options
 
-`--crm-opportunity-id`, `--old-crm-board-column-id`, `--from-time`, `--to-time`, `--new-crm-board-column-id`, `--user-id`
+`--crm-opportunity-id`, `--old-crm-board-column-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--new-crm-board-column-id`, `--user-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CrmOpportunityHistory create options
 

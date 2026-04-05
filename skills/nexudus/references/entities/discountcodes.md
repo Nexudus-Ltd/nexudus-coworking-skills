@@ -27,7 +27,7 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 
 #### DiscountCode list filter options
 
-`--business-id`, `--code`, `--description`, `--active`, `--publish-from`, `--publish-to`, `--discount-percentage`, `--discount-amount`, `--referral-discount`, `--discount-price-plans`, `--discount-bookings`, `--discount-products`, `--discount-events`, `--max-uses-per-user`, `--max-uses`, `--only-for-contacts`, `--only-for-members`, `--valid-from`, `--valid-to`, `--expiration-type`, `--expires-in`
+`--business-id`, `--code`, `--description`, `--active`, `--publish-from`, `--from-publish-from` (range), `--to-publish-from` (range), `--publish-to`, `--from-publish-to` (range), `--to-publish-to` (range), `--discount-percentage`, `--from-discount-percentage` (range), `--to-discount-percentage` (range), `--discount-amount`, `--from-discount-amount` (range), `--to-discount-amount` (range), `--referral-discount`, `--discount-price-plans`, `--discount-bookings`, `--discount-products`, `--discount-events`, `--max-uses-per-user`, `--from-max-uses-per-user` (range), `--to-max-uses-per-user` (range), `--max-uses`, `--from-max-uses` (range), `--to-max-uses` (range), `--only-for-contacts`, `--only-for-members`, `--valid-from`, `--from-valid-from` (range), `--to-valid-from` (range), `--valid-to`, `--from-valid-to` (range), `--to-valid-to` (range), `--expiration-type`, `--expires-in`, `--from-expires-in` (range), `--to-expires-in` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### DiscountCode create options
 

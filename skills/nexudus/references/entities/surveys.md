@@ -19,16 +19,16 @@ Surveys support Search, Get, Create, Update, Delete.
 
 #### Survey list filter options
 
-`--business-id`, `--name`, `--description`, `--active`, `--next-delivery-date`, `--delivery-rate`, `--delivery-frequency`, `--delivery-rate-maximum`, `--delivery-frequency-maximum`, `--start-date`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--name`, `--description`, `--active`, `--next-delivery-date`, `--from-next-delivery-date` (range), `--to-next-delivery-date` (range), `--delivery-rate`, `--from-delivery-rate` (range), `--to-delivery-rate` (range), `--delivery-frequency`, `--delivery-rate-maximum`, `--from-delivery-rate-maximum` (range), `--to-delivery-rate-maximum` (range), `--delivery-frequency-maximum`, `--start-date`, `--from-start-date` (range), `--to-start-date` (range), `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Survey create options
 
-`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--next-delivery-date` (required), `--delivery-rate` (required), `--delivery-frequency`, `--delivery-rate-maximum` (required), `--delivery-frequency-maximum`, `--start-date`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--survey-questions` (list, repeat flag), `--added-survey-questions` (list, repeat flag), `--removed-survey-questions` (list, repeat flag)
+`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--next-delivery-date` (required), `--delivery-rate` (required), `--delivery-frequency`, `--delivery-rate-maximum` (required), `--delivery-frequency-maximum`, `--start-date`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
 
 #### Survey update options
 
-`--business-id`, `--name`, `--description`, `--active`, `--next-delivery-date`, `--delivery-rate`, `--delivery-frequency`, `--delivery-rate-maximum`, `--delivery-frequency-maximum`, `--start-date`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--survey-questions` (list, repeat flag), `--added-survey-questions` (list, repeat flag), `--removed-survey-questions` (list, repeat flag)
+`--business-id`, `--name`, `--description`, `--active`, `--next-delivery-date`, `--delivery-rate`, `--delivery-frequency`, `--delivery-rate-maximum`, `--delivery-frequency-maximum`, `--start-date`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
 
-**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`, `SurveyQuestions`, `AddedSurveyQuestions`, `RemovedSurveyQuestions`
+**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 
 <!-- END:GENERATED entity=Surveys -->

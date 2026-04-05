@@ -30,7 +30,7 @@ ProductBookingCredits support Search, Get, Create, Update, Delete.
 
 #### ProductBookingCredit list filter options
 
-`--name`, `--product-id`, `--credit`, `--expire-time-in-months`, `--expire-time-in-weeks`, `--can-be-used-for-bookings`, `--can-be-used-for-events`, `--expiration-type`, `--expires-in`, `--is-universal-credit`, `--applies-to-charges`
+`--name`, `--product-id`, `--credit`, `--from-credit` (range), `--to-credit` (range), `--expire-time-in-months`, `--from-expire-time-in-months` (range), `--to-expire-time-in-months` (range), `--expire-time-in-weeks`, `--from-expire-time-in-weeks` (range), `--to-expire-time-in-weeks` (range), `--can-be-used-for-bookings`, `--can-be-used-for-events`, `--expiration-type`, `--expires-in`, `--from-expires-in` (range), `--to-expires-in` (range), `--is-universal-credit`, `--applies-to-charges`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProductBookingCredit create options
 

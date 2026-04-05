@@ -25,7 +25,7 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 
 #### PaymentGateway list filter options
 
-`--business-id`, `--name`, `--payment-gateway-type`, `--attempt3d-secure`, `--configuration-xml`, `--transaction-fee`, `--financial-account-id`, `--tax-rate-id`
+`--business-id`, `--name`, `--payment-gateway-type`, `--attempt3d-secure`, `--configuration-xml`, `--transaction-fee`, `--from-transaction-fee` (range), `--to-transaction-fee` (range), `--financial-account-id`, `--tax-rate-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### PaymentGateway create options
 

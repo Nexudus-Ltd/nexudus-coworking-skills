@@ -39,7 +39,7 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 
 #### AutomationTile list filter options
 
-`--business-id`, `--name`, `--tile-number`, `--action`, `--action-parameters`, `--enable-geofence`, `--check-customer-in`, `--longitude`, `--latitude`, `--geofence-precission`, `--max-distance-meters`, `--success-message`, `--error-message`
+`--business-id`, `--name`, `--tile-number`, `--action`, `--action-parameters`, `--enable-geofence`, `--check-customer-in`, `--longitude`, `--from-longitude` (range), `--to-longitude` (range), `--latitude`, `--from-latitude` (range), `--to-latitude` (range), `--geofence-precission`, `--max-distance-meters`, `--from-max-distance-meters` (range), `--to-max-distance-meters` (range), `--success-message`, `--error-message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### AutomationTile create options
 

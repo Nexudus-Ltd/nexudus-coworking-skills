@@ -19,7 +19,7 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 
 #### TimePassPrice list filter options
 
-`--time-pass-id`, `--tariff-id`, `--price`
+`--time-pass-id`, `--tariff-id`, `--price`, `--from-price` (range), `--to-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TimePassPrice create options
 

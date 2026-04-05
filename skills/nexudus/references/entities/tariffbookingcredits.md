@@ -30,7 +30,7 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 
 #### TariffBookingCredit list filter options
 
-`--name`, `--tariff-id`, `--credit`, `--can-be-used-for-bookings`, `--can-be-used-for-events`, `--service-renewal-time`, `--is-universal-credit`, `--applies-to-charges`
+`--name`, `--tariff-id`, `--credit`, `--from-credit` (range), `--to-credit` (range), `--can-be-used-for-bookings`, `--can-be-used-for-events`, `--service-renewal-time`, `--is-universal-credit`, `--applies-to-charges`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffBookingCredit create options
 

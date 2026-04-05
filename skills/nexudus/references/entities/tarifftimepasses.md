@@ -19,7 +19,7 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 #### TariffTimePass list filter options
 
-`--tariff-id`, `--time-pass-id`, `--passes-included`, `--pass-renewal-time`
+`--tariff-id`, `--time-pass-id`, `--passes-included`, `--from-passes-included` (range), `--to-passes-included` (range), `--pass-renewal-time`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffTimePass create options
 

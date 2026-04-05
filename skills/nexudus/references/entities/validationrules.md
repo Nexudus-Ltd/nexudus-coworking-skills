@@ -19,7 +19,7 @@ ValidationRules support Search, Get, Create, Update, Delete.
 
 #### ValidationRule list filter options
 
-`--business-id`, `--name`, `--record-type`, `--active`, `--formula`, `--description`, `--error-message`
+`--business-id`, `--name`, `--record-type`, `--active`, `--formula`, `--description`, `--error-message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ValidationRule create options
 

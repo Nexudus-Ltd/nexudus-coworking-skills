@@ -19,7 +19,7 @@ HelpDeskDepartments support Search, Get, Create, Update, Delete.
 
 #### HelpDeskDepartment list filter options
 
-`--business-id`, `--name`, `--description`, `--active`, `--task-list-id`
+`--business-id`, `--name`, `--description`, `--active`, `--task-list-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### HelpDeskDepartment create options
 

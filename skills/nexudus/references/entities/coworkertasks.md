@@ -19,7 +19,7 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 
 #### CoworkerTask list filter options
 
-`--business-id`, `--coworker-id`, `--name`, `--notes`, `--task-item-unique-id`, `--completed`, `--due-date`, `--reminded`, `--responsible-id`, `--notify-by-email`, `--display-to-everyone`, `--due-date-local`
+`--business-id`, `--coworker-id`, `--name`, `--notes`, `--task-item-unique-id`, `--completed`, `--due-date`, `--from-due-date` (range), `--to-due-date` (range), `--reminded`, `--responsible-id`, `--notify-by-email`, `--display-to-everyone`, `--due-date-local`, `--from-due-date-local` (range), `--to-due-date-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerTask create options
 

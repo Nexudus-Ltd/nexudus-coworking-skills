@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=CommunityThreadFollows -->
 
+A **CommunityThreadFollow** records a user following a `CommunityThread` conversation on the Discussion Board. Followers receive notifications when new messages are posted. Users automatically start following a conversation when they are mentioned in it.
+
 CommunityThreadFollows support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -19,7 +21,7 @@ CommunityThreadFollows support Search, Get, Create, Update, Delete.
 
 #### CommunityThreadFollow list filter options
 
-`--thread-id`, `--user-id`
+`--thread-id`, `--user-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityThreadFollow create options
 

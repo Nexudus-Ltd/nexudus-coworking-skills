@@ -19,7 +19,7 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 
 #### CoworkerGoogleCalendar list filter options
 
-`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`, `--watch-resource-id`, `--event-sync-token`
+`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`, `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--watch-resource-id`, `--event-sync-token`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerGoogleCalendar create options
 

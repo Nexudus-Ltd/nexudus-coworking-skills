@@ -19,7 +19,7 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 
 #### CourseCompletedLesson list filter options
 
-`--course-lesson-id`, `--course-member-id`
+`--course-lesson-id`, `--course-member-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CourseCompletedLesson create options
 

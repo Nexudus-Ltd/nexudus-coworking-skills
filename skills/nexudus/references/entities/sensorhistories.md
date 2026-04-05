@@ -19,7 +19,7 @@ SensorHistories support Search, Get, Create, Update, Delete.
 
 #### SensorHistory list filter options
 
-`--sensor-id`, `--value`, `--observed-on`
+`--sensor-id`, `--value`, `--observed-on`, `--from-observed-on` (range), `--to-observed-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SensorHistory create options
 

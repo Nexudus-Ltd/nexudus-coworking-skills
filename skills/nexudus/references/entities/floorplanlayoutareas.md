@@ -19,7 +19,7 @@ FloorPlanLayoutAreas support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutArea list filter options
 
-`--floor-plan-layout-id`, `--name`, `--contained-areas`, `--nodes`, `--size`, `--color`
+`--floor-plan-layout-id`, `--name`, `--contained-areas`, `--nodes`, `--size`, `--from-size` (range), `--to-size` (range), `--color`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutArea create options
 

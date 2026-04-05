@@ -19,16 +19,14 @@ CrmBoards support Search, Get, Create, Update, Delete.
 
 #### CrmBoard list filter options
 
-`--business-id`, `--name`, `--archived`
+`--business-id`, `--name`, `--archived`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CrmBoard create options
 
-`--business-id` (required), `--name` (required), `--board-columns` (list, repeat flag), `--added-board-columns` (list, repeat flag), `--removed-board-columns` (list, repeat flag), `--archived`
+`--business-id` (required), `--name` (required), `--archived`
 
 #### CrmBoard update options
 
-`--business-id`, `--name`, `--board-columns` (list, repeat flag), `--added-board-columns` (list, repeat flag), `--removed-board-columns` (list, repeat flag), `--archived`
-
-**List properties (only returned by `get`, not by `list`):** `BoardColumns`, `AddedBoardColumns`, `RemovedBoardColumns`
+`--business-id`, `--name`, `--archived`
 
 <!-- END:GENERATED entity=CrmBoards -->

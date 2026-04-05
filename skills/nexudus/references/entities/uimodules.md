@@ -19,7 +19,7 @@ UiModules support Search, Get, Create, Update, Delete.
 
 #### UiModule list filter options
 
-`--business-id`, `--name`, `--access-url`, `--icon`, `--active`, `--shared-secret`
+`--business-id`, `--name`, `--access-url`, `--icon`, `--active`, `--shared-secret`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### UiModule create options
 

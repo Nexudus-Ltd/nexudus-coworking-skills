@@ -19,7 +19,7 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 
 #### SurveyAnswer list filter options
 
-`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`
+`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SurveyAnswer create options
 

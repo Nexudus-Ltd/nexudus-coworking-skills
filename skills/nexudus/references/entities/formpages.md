@@ -19,16 +19,14 @@ FormPages support Search, Get, Create, Update, Delete.
 
 #### FormPage list filter options
 
-`--business-id`, `--name`, `--description`, `--active`, `--crm-board-column-id`, `--responsible-id`
+`--business-id`, `--name`, `--description`, `--active`, `--crm-board-column-id`, `--responsible-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FormPage create options
 
-`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--form-page-questions` (list, repeat flag), `--added-form-page-questions` (list, repeat flag), `--removed-form-page-questions` (list, repeat flag), `--crm-board-column-id`, `--responsible-id`
+`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--crm-board-column-id`, `--responsible-id`
 
 #### FormPage update options
 
-`--business-id`, `--name`, `--description`, `--active`, `--form-page-questions` (list, repeat flag), `--added-form-page-questions` (list, repeat flag), `--removed-form-page-questions` (list, repeat flag), `--crm-board-column-id`, `--responsible-id`
-
-**List properties (only returned by `get`, not by `list`):** `FormPageQuestions`, `AddedFormPageQuestions`, `RemovedFormPageQuestions`
+`--business-id`, `--name`, `--description`, `--active`, `--crm-board-column-id`, `--responsible-id`
 
 <!-- END:GENERATED entity=FormPages -->

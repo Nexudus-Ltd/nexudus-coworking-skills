@@ -27,7 +27,7 @@ BookingVisitors also support entity commands.
 
 #### BookingVisitor list filter options
 
-`--booking-id`, `--visitor-id`
+`--booking-id`, `--visitor-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BookingVisitor create options
 

@@ -19,7 +19,7 @@ CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 
 #### CrmOpportunityImportFile list filter options
 
-`--business-id`, `--new-file-data-url`, `--clear-file-data-file`, `--name`, `--imported`
+`--business-id`, `--new-file-data-url`, `--clear-file-data-file`, `--name`, `--imported`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CrmOpportunityImportFile create options
 

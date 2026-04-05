@@ -25,7 +25,7 @@ BookingProducts also support entity commands.
 
 #### BookingProduct list filter options
 
-`--booking-id`, `--product-id`, `--invoice-in-minutes`, `--quantity`, `--mrm-reminded`
+`--booking-id`, `--product-id`, `--invoice-in-minutes`, `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--mrm-reminded`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BookingProduct create options
 

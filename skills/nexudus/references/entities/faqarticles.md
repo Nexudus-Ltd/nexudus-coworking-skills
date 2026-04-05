@@ -19,7 +19,7 @@ FaqArticles support Search, Get, Create, Update, Delete.
 
 #### FaqArticle list filter options
 
-`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FaqArticle create options
 

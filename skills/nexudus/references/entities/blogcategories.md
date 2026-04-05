@@ -23,7 +23,7 @@ BlogCategories support Search, Get, Create, Update, Delete.
 
 #### BlogCategory list filter options
 
-`--business-id`, `--language-id`, `--title`
+`--business-id`, `--language-id`, `--title`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BlogCategory create options
 

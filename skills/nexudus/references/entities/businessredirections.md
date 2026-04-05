@@ -23,7 +23,7 @@ BusinessRedirections support Search, Get, Create, Update, Delete.
 
 #### BusinessRedirection list filter options
 
-`--business-id`, `--source-url`, `--destination-url`, `--active`, `--active-from`, `--active-to`
+`--business-id`, `--source-url`, `--destination-url`, `--active`, `--active-from`, `--from-active-from` (range), `--to-active-from` (range), `--active-to`, `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessRedirection create options
 

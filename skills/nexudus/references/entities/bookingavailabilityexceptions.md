@@ -26,7 +26,7 @@ BookingAvailabilityExceptions also support entity commands.
 
 #### BookingAvailabilityException list filter options
 
-`--business-id`, `--from-time`, `--to-time`, `--message`, `--active`, `--every-year`
+`--business-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--message`, `--active`, `--every-year`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BookingAvailabilityException create options
 

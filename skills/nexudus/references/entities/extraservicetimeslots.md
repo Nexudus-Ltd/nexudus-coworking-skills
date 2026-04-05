@@ -25,7 +25,7 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 
 #### ExtraServiceTimeSlot list filter options
 
-`--extra-service-id`, `--from-time`, `--to-time`, `--day-of-week`, `--available`
+`--extra-service-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--day-of-week`, `--available`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ExtraServiceTimeSlot create options
 

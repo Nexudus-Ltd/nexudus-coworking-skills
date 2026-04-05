@@ -19,7 +19,7 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutOpening list filter options
 
-`--floor-plan-layout-edge-id`, `--opening-type`, `--floor-offset`, `--start`, `--height`, `--length`, `--hinge`, `--door-type`, `--door-arc-angle`, `--door-is-locked`, `--window-pane-count`, `--direction`
+`--floor-plan-layout-edge-id`, `--opening-type`, `--floor-offset`, `--from-floor-offset` (range), `--to-floor-offset` (range), `--start`, `--from-start` (range), `--to-start` (range), `--height`, `--from-height` (range), `--to-height` (range), `--length`, `--from-length` (range), `--to-length` (range), `--hinge`, `--door-type`, `--door-arc-angle`, `--from-door-arc-angle` (range), `--to-door-arc-angle` (range), `--door-is-locked`, `--window-pane-count`, `--from-window-pane-count` (range), `--to-window-pane-count` (range), `--direction`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutOpening create options
 

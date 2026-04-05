@@ -23,7 +23,7 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 
 #### CoworkerInvoiceHistory list filter options
 
-`--coworker-invoice-id`, `--name`, `--description`, `--is-problem`, `--notify`
+`--coworker-invoice-id`, `--name`, `--description`, `--is-problem`, `--notify`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerInvoiceHistory create options
 

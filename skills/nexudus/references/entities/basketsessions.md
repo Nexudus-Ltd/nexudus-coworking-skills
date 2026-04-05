@@ -21,7 +21,7 @@ BasketSessions support Search, Get, Create, Update, Delete.
 
 #### BasketSession list filter options
 
-`--business-id`, `--session-id`, `--json-contents`
+`--business-id`, `--session-id`, `--json-contents`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BasketSession create options
 

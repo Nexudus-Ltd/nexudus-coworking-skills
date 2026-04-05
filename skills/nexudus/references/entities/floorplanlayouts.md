@@ -19,16 +19,14 @@ FloorPlanLayouts support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayout list filter options
 
-`--business-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--size`, `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale`, `--tracing-image-scale`, `--floor-level`
+`--business-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--size`, `--from-size` (range), `--to-size` (range), `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale`, `--from-background-image-scale` (range), `--to-background-image-scale` (range), `--tracing-image-scale`, `--from-tracing-image-scale` (range), `--to-tracing-image-scale` (range), `--floor-level`, `--from-floor-level` (range), `--to-floor-level` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayout create options
 
-`--business-id` (required), `--name` (required), `--new-background-image-url`, `--clear-background-image-file`, `--size` (required), `--areas` (list, repeat flag), `--added-areas` (list, repeat flag), `--removed-areas` (list, repeat flag), `--assets` (list, repeat flag), `--added-assets` (list, repeat flag), `--removed-assets` (list, repeat flag), `--floorplan-transitions` (list, repeat flag), `--added-floorplan-transitions` (list, repeat flag), `--removed-floorplan-transitions` (list, repeat flag), `--edges` (list, repeat flag), `--added-edges` (list, repeat flag), `--removed-edges` (list, repeat flag), `--nodes` (list, repeat flag), `--added-nodes` (list, repeat flag), `--removed-nodes` (list, repeat flag), `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale` (required), `--tracing-image-scale` (required), `--floor-level` (required)
+`--business-id` (required), `--name` (required), `--new-background-image-url`, `--clear-background-image-file`, `--size` (required), `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale` (required), `--tracing-image-scale` (required), `--floor-level` (required)
 
 #### FloorPlanLayout update options
 
-`--business-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--size`, `--areas` (list, repeat flag), `--added-areas` (list, repeat flag), `--removed-areas` (list, repeat flag), `--assets` (list, repeat flag), `--added-assets` (list, repeat flag), `--removed-assets` (list, repeat flag), `--floorplan-transitions` (list, repeat flag), `--added-floorplan-transitions` (list, repeat flag), `--removed-floorplan-transitions` (list, repeat flag), `--edges` (list, repeat flag), `--added-edges` (list, repeat flag), `--removed-edges` (list, repeat flag), `--nodes` (list, repeat flag), `--added-nodes` (list, repeat flag), `--removed-nodes` (list, repeat flag), `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale`, `--tracing-image-scale`, `--floor-level`
-
-**List properties (only returned by `get`, not by `list`):** `Areas`, `AddedAreas`, `RemovedAreas`, `Assets`, `AddedAssets`, `RemovedAssets`, `FloorplanTransitions`, `AddedFloorplanTransitions`, `RemovedFloorplanTransitions`, `Edges`, `AddedEdges`, `RemovedEdges`, `Nodes`, `AddedNodes`, `RemovedNodes`
+`--business-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--size`, `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale`, `--tracing-image-scale`, `--floor-level`
 
 <!-- END:GENERATED entity=FloorPlanLayouts -->

@@ -27,7 +27,7 @@ CoworkerInventoryAssets also support entity commands.
 
 #### CoworkerInventoryAsset list filter options
 
-`--coworker-id`, `--business-id`, `--inventory-asset-id`, `--notes`, `--assigned-from`, `--assigned-to`
+`--coworker-id`, `--business-id`, `--inventory-asset-id`, `--notes`, `--assigned-from`, `--from-assigned-from` (range), `--to-assigned-from` (range), `--assigned-to`, `--from-assigned-to` (range), `--to-assigned-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerInventoryAsset create options
 

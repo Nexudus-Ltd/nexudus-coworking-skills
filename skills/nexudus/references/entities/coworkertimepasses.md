@@ -19,7 +19,7 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 
 #### CoworkerTimePass list filter options
 
-`--coworker-id`, `--business-id`, `--time-pass-id`, `--notes`, `--purchase-order`, `--used`, `--free`, `--price`, `--create-multiple`, `--expire-date`, `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`
+`--coworker-id`, `--business-id`, `--time-pass-id`, `--notes`, `--purchase-order`, `--used`, `--free`, `--price`, `--from-price` (range), `--to-price` (range), `--create-multiple`, `--from-create-multiple` (range), `--to-create-multiple` (range), `--expire-date`, `--from-expire-date` (range), `--to-expire-date` (range), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerTimePass create options
 

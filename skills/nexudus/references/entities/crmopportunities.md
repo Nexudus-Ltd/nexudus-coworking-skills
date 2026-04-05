@@ -19,16 +19,14 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 
 #### CrmOpportunity list filter options
 
-`--name`, `--crm-board-column-id`, `--coworker-id`, `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--value`, `--reminded`, `--lead-source`, `--loss-reason`, `--status`, `--won-on`, `--lost-on`, `--position`, `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
+`--name`, `--crm-board-column-id`, `--coworker-id`, `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--from-due-date` (range), `--to-due-date` (range), `--value`, `--from-value` (range), `--to-value` (range), `--reminded`, `--lead-source`, `--loss-reason`, `--status`, `--won-on`, `--from-won-on` (range), `--to-won-on` (range), `--lost-on`, `--from-lost-on` (range), `--to-lost-on` (range), `--position`, `--from-position` (range), `--to-position` (range), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CrmOpportunity create options
 
-`--name`, `--crm-board-column-id` (required), `--coworker-id` (required), `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--value`, `--reminded`, `--lead-source`, `--loss-reason`, `--status`, `--won-on`, `--lost-on`, `--histories` (list, repeat flag), `--added-histories` (list, repeat flag), `--removed-histories` (list, repeat flag), `--position` (required), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
+`--name`, `--crm-board-column-id` (required), `--coworker-id` (required), `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--value`, `--reminded`, `--lead-source`, `--loss-reason`, `--status`, `--won-on`, `--lost-on`, `--position` (required), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
 
 #### CrmOpportunity update options
 
-`--name`, `--crm-board-column-id`, `--coworker-id`, `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--value`, `--reminded`, `--lead-source`, `--loss-reason`, `--status`, `--won-on`, `--lost-on`, `--histories` (list, repeat flag), `--added-histories` (list, repeat flag), `--removed-histories` (list, repeat flag), `--position`, `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
-
-**List properties (only returned by `get`, not by `list`):** `Histories`, `AddedHistories`, `RemovedHistories`
+`--name`, `--crm-board-column-id`, `--coworker-id`, `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--value`, `--reminded`, `--lead-source`, `--loss-reason`, `--status`, `--won-on`, `--lost-on`, `--position`, `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
 
 <!-- END:GENERATED entity=CrmOpportunities -->

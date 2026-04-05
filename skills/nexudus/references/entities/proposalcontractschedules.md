@@ -19,7 +19,7 @@ ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
 #### ProposalContractSchedule list filter options
 
-`--proposal-contract-id`, `--notes`, `--price`, `--apply-on`
+`--proposal-contract-id`, `--notes`, `--price`, `--from-price` (range), `--to-price` (range), `--apply-on`, `--from-apply-on` (range), `--to-apply-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProposalContractSchedule create options
 

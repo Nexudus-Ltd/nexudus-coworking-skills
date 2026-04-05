@@ -19,7 +19,7 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 #### TariffExtraService list filter options
 
-`--tariff-id`, `--extra-service-id`, `--uses-included`, `--service-renewal-time`
+`--tariff-id`, `--extra-service-id`, `--uses-included`, `--from-uses-included` (range), `--to-uses-included` (range), `--service-renewal-time`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffExtraService create options
 

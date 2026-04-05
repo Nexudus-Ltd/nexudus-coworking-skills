@@ -19,7 +19,7 @@ Workspaces support Search, Get, Create, Update, Delete.
 
 #### Workspace list filter options
 
-`--business-id`, `--administrator-id`, `--name`, `--visible-in-my-spaces`, `--visible-by-everyone`, `--archived`, `--description`
+`--business-id`, `--administrator-id`, `--name`, `--visible-in-my-spaces`, `--visible-by-everyone`, `--archived`, `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Workspace create options
 

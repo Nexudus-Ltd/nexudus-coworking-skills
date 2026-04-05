@@ -19,7 +19,7 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 
 #### ProposalProduct list filter options
 
-`--proposal-id`, `--product-id`, `--quantity`, `--price`, `--is-deposit`, `--is-contract-product`, `--regular-charge`, `--repeat-cycle`, `--invoice-on`, `--repeat-from`, `--repeat-until`, `--repeat-unit`, `--apply-pro-rating`, `--notes`
+`--proposal-id`, `--product-id`, `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--price`, `--from-price` (range), `--to-price` (range), `--is-deposit`, `--is-contract-product`, `--regular-charge`, `--repeat-cycle`, `--invoice-on`, `--from-invoice-on` (range), `--to-invoice-on` (range), `--repeat-from`, `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until`, `--from-repeat-until` (range), `--to-repeat-until` (range), `--repeat-unit`, `--from-repeat-unit` (range), `--to-repeat-unit` (range), `--apply-pro-rating`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProposalProduct create options
 

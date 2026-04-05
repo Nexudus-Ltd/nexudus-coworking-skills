@@ -19,7 +19,7 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 
 #### DocumentTemplate list filter options
 
-`--business-id`, `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document-file`, `--template-output-format`
+`--business-id`, `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document-file`, `--template-output-format`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### DocumentTemplate create options
 

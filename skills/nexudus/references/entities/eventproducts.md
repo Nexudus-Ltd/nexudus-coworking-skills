@@ -19,7 +19,7 @@ EventProducts support Search, Get, Create, Update, Delete.
 
 #### EventProduct list filter options
 
-`--calendar-event-id`, `--name`, `--description`, `--ticket-notes`, `--visible`, `--display-order`, `--start-date`, `--end-date`, `--allocation`, `--max-tickets-per-attendee`, `--price`, `--currency-id`, `--tax-rate-id`, `--financial-account-id`, `--only-for-contacts`, `--only-for-members`
+`--calendar-event-id`, `--name`, `--description`, `--ticket-notes`, `--visible`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--start-date`, `--from-start-date` (range), `--to-start-date` (range), `--end-date`, `--from-end-date` (range), `--to-end-date` (range), `--allocation`, `--from-allocation` (range), `--to-allocation` (range), `--max-tickets-per-attendee`, `--from-max-tickets-per-attendee` (range), `--to-max-tickets-per-attendee` (range), `--price`, `--from-price` (range), `--to-price` (range), `--currency-id`, `--tax-rate-id`, `--financial-account-id`, `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EventProduct create options
 

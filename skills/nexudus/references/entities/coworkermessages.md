@@ -16,6 +16,6 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 
 #### CoworkerMessage list filter options
 
-`--coworker-id`, `--email-account-id`, `--subject`, `--body`, `--message-id`, `--reminder-unique-id`
+`--coworker-id`, `--email-account-id`, `--subject`, `--body`, `--message-id`, `--from-message-id` (range), `--to-message-id` (range), `--reminder-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 <!-- END:GENERATED entity=CoworkerMessages -->

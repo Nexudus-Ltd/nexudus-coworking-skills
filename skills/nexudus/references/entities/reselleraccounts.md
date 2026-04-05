@@ -19,7 +19,7 @@ ResellerAccounts support Search, Get, Create, Update, Delete.
 
 #### ResellerAccount list filter options
 
-`--notes`, `--scope-of-work`
+`--notes`, `--scope-of-work`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ResellerAccount create options
 

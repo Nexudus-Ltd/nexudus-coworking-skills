@@ -19,7 +19,7 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 
 #### EmailAccount list filter options
 
-`--business-id`, `--display-name`, `--email-address`, `--active`, `--send-notification-on-new-messages`, `--notification-email-address`, `--incoming-server`, `--incoming-server-type`, `--incoming-server-port`, `--incoming-server-s-s-l`, `--incoming-server-username`, `--delete-message-settings`, `--outgoing-server`, `--outgoing-server-port`, `--outgoing-server-s-s-l`, `--outgoing-server-username`, `--reply-to-email`, `--last-check-time`, `--last-message-id`, `--error-count`, `--google-access-token`, `--office365-access-token`
+`--business-id`, `--display-name`, `--email-address`, `--active`, `--send-notification-on-new-messages`, `--notification-email-address`, `--incoming-server`, `--incoming-server-type`, `--incoming-server-port`, `--from-incoming-server-port` (range), `--to-incoming-server-port` (range), `--incoming-server-s-s-l`, `--incoming-server-username`, `--delete-message-settings`, `--outgoing-server`, `--outgoing-server-port`, `--from-outgoing-server-port` (range), `--to-outgoing-server-port` (range), `--outgoing-server-s-s-l`, `--outgoing-server-username`, `--reply-to-email`, `--last-check-time`, `--from-last-check-time` (range), `--to-last-check-time` (range), `--last-message-id`, `--from-last-message-id` (range), `--to-last-message-id` (range), `--error-count`, `--from-error-count` (range), `--to-error-count` (range), `--google-access-token`, `--office365-access-token`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EmailAccount create options
 

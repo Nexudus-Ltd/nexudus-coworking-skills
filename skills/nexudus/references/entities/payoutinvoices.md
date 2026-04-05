@@ -16,6 +16,10 @@ PayoutInvoices support Search, Get, Create, Update, Delete.
 | `nexudus payoutinvoices update <id> --name "New Name" --agent` | Update payoutinvoice |
 | `nexudus payoutinvoices delete <id> --yes --agent` | Delete payoutinvoice (no prompt) |
 
+#### PayoutInvoice list filter options
+
+`--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+
 #### PayoutInvoice create options
 
 

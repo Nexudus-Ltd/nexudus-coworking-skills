@@ -16,7 +16,7 @@ Roles support Search, Get (no Create or Delete via API).
 
 #### Role list filter options
 
-`--name`
+`--name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 **List properties (only returned by `get`, not by `list`):** `UserRoles`, `AddedUserRoles`, `RemovedUserRoles`
 

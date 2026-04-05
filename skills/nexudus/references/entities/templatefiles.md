@@ -19,7 +19,7 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 
 #### TemplateFile list filter options
 
-`--business-id`, `--template-version-id`, `--name`, `--title`, `--description`, `--new-picture-url`, `--clear-picture-file`, `--permalink`, `--file-language-id`, `--published`, `--visibility`, `--password`, `--file-contents`
+`--business-id`, `--template-version-id`, `--name`, `--title`, `--description`, `--new-picture-url`, `--clear-picture-file`, `--permalink`, `--file-language-id`, `--published`, `--visibility`, `--password`, `--file-contents`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TemplateFile create options
 

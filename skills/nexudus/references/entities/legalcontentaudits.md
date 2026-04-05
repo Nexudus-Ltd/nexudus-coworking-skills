@@ -16,6 +16,10 @@ LegalContentAudits support Search, Get, Create, Update, Delete.
 | `nexudus legalcontentaudits update <id> --name "New Name" --agent` | Update legalcontentaudit |
 | `nexudus legalcontentaudits delete <id> --yes --agent` | Delete legalcontentaudit (no prompt) |
 
+#### LegalContentAudit list filter options
+
+`--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+
 #### LegalContentAudit create options
 
 

@@ -19,7 +19,7 @@ FloorPlans support Search, Get, Create, Update, Delete.
 
 #### FloorPlan list filter options
 
-`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale`, `--position-x`, `--position-y`, `--floor-level`, `--scale`, `--capacity`, `--archilogic-unique-id`
+`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale`, `--from-background-scale` (range), `--to-background-scale` (range), `--position-x`, `--from-position-x` (range), `--to-position-x` (range), `--position-y`, `--from-position-y` (range), `--to-position-y` (range), `--floor-level`, `--from-floor-level` (range), `--to-floor-level` (range), `--scale`, `--from-scale` (range), `--to-scale` (range), `--capacity`, `--from-capacity` (range), `--to-capacity` (range), `--archilogic-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlan create options
 

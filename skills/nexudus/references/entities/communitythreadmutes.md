@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=CommunityThreadMutes -->
 
+A **CommunityThreadMute** records a user muting a `CommunityThread` conversation on the Discussion Board. Muted users will not receive any notifications for that conversation, even if they are mentioned in it.
+
 CommunityThreadMutes support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -19,7 +21,7 @@ CommunityThreadMutes support Search, Get, Create, Update, Delete.
 
 #### CommunityThreadMute list filter options
 
-`--thread-id`, `--user-id`
+`--thread-id`, `--user-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityThreadMute create options
 

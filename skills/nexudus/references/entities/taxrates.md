@@ -19,7 +19,7 @@ TaxRates support Search, Get, Create, Update, Delete.
 
 #### TaxRate list filter options
 
-`--business-id`, `--name`, `--rate`
+`--business-id`, `--name`, `--rate`, `--from-rate` (range), `--to-rate` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TaxRate create options
 

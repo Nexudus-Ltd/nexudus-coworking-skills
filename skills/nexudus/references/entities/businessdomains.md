@@ -28,7 +28,7 @@ BusinessDomains support Search, Get, Create, Update, Delete.
 
 #### BusinessDomain list filter options
 
-`--business-id`, `--name`, `--domain-url`, `--active`, `--ssl-proxy`, `--active-from`, `--active-to`
+`--business-id`, `--name`, `--domain-url`, `--active`, `--ssl-proxy`, `--active-from`, `--from-active-from` (range), `--to-active-from` (range), `--active-to`, `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessDomain create options
 

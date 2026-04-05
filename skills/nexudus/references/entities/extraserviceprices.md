@@ -25,7 +25,7 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 
 #### ExtraServicePrice list filter options
 
-`--extra-service-id`, `--tariff-id`, `--price`, `--maximum-price`
+`--extra-service-id`, `--tariff-id`, `--price`, `--from-price` (range), `--to-price` (range), `--maximum-price`, `--from-maximum-price` (range), `--to-maximum-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ExtraServicePrice create options
 

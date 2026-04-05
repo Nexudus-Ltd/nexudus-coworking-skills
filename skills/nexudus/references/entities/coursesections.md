@@ -19,7 +19,7 @@ CourseSections support Search, Get, Create, Update, Delete.
 
 #### CourseSection list filter options
 
-`--course-id`, `--title`, `--section-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`
+`--course-id`, `--title`, `--section-contents`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--from-unlock-after-days` (range), `--to-unlock-after-days` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CourseSection create options
 

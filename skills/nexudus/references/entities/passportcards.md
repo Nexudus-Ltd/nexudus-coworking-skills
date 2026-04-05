@@ -19,7 +19,7 @@ PassportCards support Search, Get, Create, Update, Delete.
 
 #### PassportCard list filter options
 
-`--code`, `--active`, `--notes`
+`--code`, `--active`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### PassportCard create options
 

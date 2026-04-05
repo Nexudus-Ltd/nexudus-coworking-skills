@@ -19,7 +19,7 @@ UserBookmarks support Search, Get, Create, Update, Delete.
 
 #### UserBookmark list filter options
 
-`--user-id`, `--entity-id`, `--name`, `--entity-url`
+`--user-id`, `--entity-id`, `--from-entity-id` (range), `--to-entity-id` (range), `--name`, `--entity-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### UserBookmark create options
 

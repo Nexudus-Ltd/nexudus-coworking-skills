@@ -19,7 +19,7 @@ SubscriberGroups support Search, Get, Create, Update, Delete.
 
 #### SubscriberGroup list filter options
 
-`--business-id`, `--name`, `--auto-add-members`, `--auto-add-contacts`, `--auto-add-bookings`, `--auto-add-events`, `--auto-add-visitors`, `--auto-add-paying-members`
+`--business-id`, `--name`, `--auto-add-members`, `--auto-add-contacts`, `--auto-add-bookings`, `--auto-add-events`, `--auto-add-visitors`, `--auto-add-paying-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SubscriberGroup create options
 

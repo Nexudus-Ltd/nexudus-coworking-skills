@@ -19,7 +19,7 @@ VideoFiles support Search, Get, Create, Update, Delete.
 
 #### VideoFile list filter options
 
-`--business-id`, `--name`, `--description`, `--new-video-url`, `--clear-video-file`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--new-video-url`, `--clear-video-file`, `--file-size-bytes`, `--from-file-size-bytes` (range), `--to-file-size-bytes` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### VideoFile create options
 

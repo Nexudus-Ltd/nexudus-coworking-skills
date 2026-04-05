@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ChatUserMessages -->
 
+Deprecated. Use CommunityThread and CommunityGroups instead.
+
 ChatUserMessages support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -19,7 +21,7 @@ ChatUserMessages support Search, Get, Create, Update, Delete.
 
 #### ChatUserMessage list filter options
 
-`--from-user-id`, `--chat-text`, `--delievered`
+`--from-user-id`, `--chat-text`, `--delievered`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ChatUserMessage create options
 

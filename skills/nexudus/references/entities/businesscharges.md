@@ -25,7 +25,7 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 
 #### BusinessCharge list filter options
 
-`--business-id`, `--application-id`, `--description`, `--callback-url`, `--due-date`, `--percentage-discount`, `--total-amount`, `--tax-amount`
+`--business-id`, `--application-id`, `--description`, `--callback-url`, `--due-date`, `--from-due-date` (range), `--to-due-date` (range), `--percentage-discount`, `--from-percentage-discount` (range), `--to-percentage-discount` (range), `--total-amount`, `--from-total-amount` (range), `--to-total-amount` (range), `--tax-amount`, `--from-tax-amount` (range), `--to-tax-amount` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessCharge create options
 

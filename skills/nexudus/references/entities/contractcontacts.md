@@ -31,7 +31,7 @@ ContractContacts support Search, Get, Create, Update, Delete.
 
 #### ContractContact list filter options
 
-`--coworker-contract-id`, `--coworker-id`, `--email`, `--full-name`, `--date-of-birth`, `--address`, `--post-code`, `--city-name`, `--state`, `--country-id`, `--phone-number`, `--notes`, `--contract-contact-type`
+`--coworker-contract-id`, `--coworker-id`, `--email`, `--full-name`, `--date-of-birth`, `--from-date-of-birth` (range), `--to-date-of-birth` (range), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id`, `--phone-number`, `--notes`, `--contract-contact-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractContact create options
 

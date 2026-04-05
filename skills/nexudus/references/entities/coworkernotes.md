@@ -19,7 +19,7 @@ CoworkerNotes support Search, Get, Create, Update, Delete.
 
 #### CoworkerNote list filter options
 
-`--coworker-id`, `--notes`, `--added-by`
+`--coworker-id`, `--notes`, `--added-by`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerNote create options
 

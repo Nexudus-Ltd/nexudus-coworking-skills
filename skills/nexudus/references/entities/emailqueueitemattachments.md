@@ -17,7 +17,7 @@ EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via A
 
 #### EmailQueueItemAttachment list filter options
 
-`--email-queue-item-id`, `--name`, `--extension`, `--new-binary-url`, `--clear-binary-file`
+`--email-queue-item-id`, `--name`, `--extension`, `--new-binary-url`, `--clear-binary-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EmailQueueItemAttachment update options
 

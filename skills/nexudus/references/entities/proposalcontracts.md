@@ -19,20 +19,20 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 
 #### ProposalContract list filter options
 
-`--proposal-id`, `--tariff-id`, `--price`, `--start-date`, `--cancellation-limit-days`, `--contract-term`, `--cancellation-date`, `--billing-day`, `--quantity`, `--discount-code-id`
+`--proposal-id`, `--tariff-id`, `--price`, `--from-price` (range), `--to-price` (range), `--start-date`, `--from-start-date` (range), `--to-start-date` (range), `--cancellation-limit-days`, `--from-cancellation-limit-days` (range), `--to-cancellation-limit-days` (range), `--contract-term`, `--from-contract-term` (range), `--to-contract-term` (range), `--cancellation-date`, `--from-cancellation-date` (range), `--to-cancellation-date` (range), `--billing-day`, `--from-billing-day` (range), `--to-billing-day` (range), `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--discount-code-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProposalContract create options
 
-`--proposal-id` (required), `--tariff-id` (required), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--price`, `--start-date`, `--cancellation-limit-days`, `--contract-term`, `--cancellation-date`, `--billing-day` (required), `--quantity` (required), `--discount-code-id`, `--schedules` (list, repeat flag), `--added-schedules` (list, repeat flag), `--removed-schedules` (list, repeat flag)
+`--proposal-id` (required), `--tariff-id` (required), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--price`, `--start-date`, `--cancellation-limit-days`, `--contract-term`, `--cancellation-date`, `--billing-day` (required), `--quantity` (required), `--discount-code-id`
 
 #### ProposalContract update options
 
-`--proposal-id`, `--tariff-id`, `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--price`, `--start-date`, `--cancellation-limit-days`, `--contract-term`, `--cancellation-date`, `--billing-day`, `--quantity`, `--discount-code-id`, `--schedules` (list, repeat flag), `--added-schedules` (list, repeat flag), `--removed-schedules` (list, repeat flag)
+`--proposal-id`, `--tariff-id`, `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--price`, `--start-date`, `--cancellation-limit-days`, `--contract-term`, `--cancellation-date`, `--billing-day`, `--quantity`, `--discount-code-id`
 
 ### ProposalContract (key fields)
 
 `Id`, `ProposalCoworkerFullName`, `TariffName`, `Price`, `StartDate`
 
-**List properties (only returned by `get`, not by `list`):** `Desks`, `AddedDesks`, `RemovedDesks`, `Variants`, `AddedVariants`, `RemovedVariants`, `Schedules`, `AddedSchedules`, `RemovedSchedules`
+**List properties (only returned by `get`, not by `list`):** `Desks`, `AddedDesks`, `RemovedDesks`, `Variants`, `AddedVariants`, `RemovedVariants`
 
 <!-- END:GENERATED entity=ProposalContracts -->

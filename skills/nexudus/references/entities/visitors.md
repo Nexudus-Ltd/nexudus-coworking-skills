@@ -21,7 +21,7 @@ Visitors also support entity commands.
 
 #### Visitor list filter options
 
-`--business-id`, `--full-name`, `--email`, `--coworker-id`, `--visitor-source`, `--host-approval-status`, `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival`, `--arrived`, `--arrival-date`, `--departure-date`, `--notified`, `--internal`, `--is-tour`, `--has-agreed-terms`, `--tour-confirmed`, `--access-control-scheduled-job-id`, `--check-in-now`
+`--business-id`, `--full-name`, `--email`, `--coworker-id`, `--visitor-source`, `--host-approval-status`, `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival`, `--from-expected-arrival` (range), `--to-expected-arrival` (range), `--arrived`, `--arrival-date`, `--from-arrival-date` (range), `--to-arrival-date` (range), `--departure-date`, `--from-departure-date` (range), `--to-departure-date` (range), `--notified`, `--internal`, `--is-tour`, `--has-agreed-terms`, `--tour-confirmed`, `--access-control-scheduled-job-id`, `--check-in-now`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Visitor create options
 

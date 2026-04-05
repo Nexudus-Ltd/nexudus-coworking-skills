@@ -19,16 +19,14 @@ FormPageRequests support Search, Get, Create, Update, Delete.
 
 #### FormPageRequest list filter options
 
-`--coworker-id`, `--form-page-id`, `--sent-on`, `--submitted`
+`--coworker-id`, `--form-page-id`, `--sent-on`, `--from-sent-on` (range), `--to-sent-on` (range), `--submitted`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FormPageRequest create options
 
-`--coworker-id` (required), `--form-page-id` (required), `--sent-on`, `--submitted`, `--form-page-answers` (list, repeat flag), `--added-form-page-answers` (list, repeat flag), `--removed-form-page-answers` (list, repeat flag)
+`--coworker-id` (required), `--form-page-id` (required), `--sent-on`, `--submitted`
 
 #### FormPageRequest update options
 
-`--coworker-id`, `--form-page-id`, `--sent-on`, `--submitted`, `--form-page-answers` (list, repeat flag), `--added-form-page-answers` (list, repeat flag), `--removed-form-page-answers` (list, repeat flag)
-
-**List properties (only returned by `get`, not by `list`):** `FormPageAnswers`, `AddedFormPageAnswers`, `RemovedFormPageAnswers`
+`--coworker-id`, `--form-page-id`, `--sent-on`, `--submitted`
 
 <!-- END:GENERATED entity=FormPageRequests -->

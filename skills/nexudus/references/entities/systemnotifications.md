@@ -19,7 +19,7 @@ SystemNotifications support Search, Get, Create, Update, Delete.
 
 #### SystemNotification list filter options
 
-`--title`, `--severity`, `--start-time`, `--publish-on`, `--un-publish-on`, `--short-description`, `--description`, `--resolution-description`, `--resolved`, `--resolved-on`, `--display-to-admins`, `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type`, `--has-button`, `--button-label`, `--button-url`
+`--title`, `--severity`, `--start-time`, `--from-start-time` (range), `--to-start-time` (range), `--publish-on`, `--from-publish-on` (range), `--to-publish-on` (range), `--un-publish-on`, `--from-un-publish-on` (range), `--to-un-publish-on` (range), `--short-description`, `--description`, `--resolution-description`, `--resolved`, `--resolved-on`, `--from-resolved-on` (range), `--to-resolved-on` (range), `--display-to-admins`, `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type`, `--has-button`, `--button-label`, `--button-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SystemNotification create options
 

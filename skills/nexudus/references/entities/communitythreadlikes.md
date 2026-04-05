@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=CommunityThreadLikes -->
 
+A **CommunityThreadLike** records a like placed by a user on a `CommunityThread` conversation on the Discussion Board. Each record represents a single like from one user on one conversation.
+
 CommunityThreadLikes support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -19,7 +21,7 @@ CommunityThreadLikes support Search, Get, Create, Update, Delete.
 
 #### CommunityThreadLike list filter options
 
-`--thread-id`, `--user-id`
+`--thread-id`, `--user-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityThreadLike create options
 

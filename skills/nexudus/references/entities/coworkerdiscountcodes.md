@@ -19,7 +19,7 @@ CoworkerDiscountCodes support Search, Get, Create, Update, Delete.
 
 #### CoworkerDiscountCode list filter options
 
-`--coworker-id`, `--business-id`, `--discount-code-id`, `--notes`, `--valid-from`, `--expires-on`, `--referer-guid`, `--booking-unique-id`
+`--coworker-id`, `--business-id`, `--discount-code-id`, `--notes`, `--valid-from`, `--from-valid-from` (range), `--to-valid-from` (range), `--expires-on`, `--from-expires-on` (range), `--to-expires-on` (range), `--referer-guid`, `--booking-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerDiscountCode create options
 

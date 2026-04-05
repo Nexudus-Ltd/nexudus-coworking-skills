@@ -19,7 +19,7 @@ CoworkerInvoicePaymentTokens support Search, Get, Create, Update, Delete.
 
 #### CoworkerInvoicePaymentToken list filter options
 
-`--coworker-invoice-id`, `--regular-payment-provider`, `--token`, `--notes`
+`--coworker-invoice-id`, `--regular-payment-provider`, `--token`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerInvoicePaymentToken create options
 

@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=CommunityThreads -->
 
+A **CommunityThread** represents a conversation posted to the Discussion Board. Discussion boards are a community feature that allows customers to communicate on the Members Portal — they can start, follow, like, and reply to conversations, mention other customers, and receive notifications about new messages.
+
+Conversations can be assigned to a group (`CommunityGroupId`) to control who can see and contribute. Conversations not linked to any group are visible to all customers with access to the Discussion Boards page.
+
+Use `Tags` to help customers find relevant conversations. Set `Private` to `true` to limit visibility to only the customers explicitly mentioned in the message. Enable `InstantDelivery` to push notifications to followers immediately rather than waiting for the daily digest.
+
 CommunityThreads support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -19,16 +25,16 @@ CommunityThreads support Search, Get, Create, Update, Delete.
 
 #### CommunityThread list filter options
 
-`--business-id`, `--community-group-id`, `--user-id`, `--coworker-id`, `--subject`, `--message`, `--instant-delivery`, `--tags`, `--private`, `--include-zoom-invite`, `--zoom-event-data`
+`--business-id`, `--community-group-id`, `--user-id`, `--coworker-id`, `--subject`, `--message`, `--instant-delivery`, `--tags`, `--private`, `--include-zoom-invite`, `--zoom-event-data`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityThread create options
 
-`--business-id` (required), `--community-group-id`, `--user-id` (required), `--coworker-id`, `--subject` (required), `--message` (required), `--instant-delivery`, `--tags`, `--private`, `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--messages` (list, repeat flag), `--added-messages` (list, repeat flag), `--removed-messages` (list, repeat flag), `--thread-files` (list, repeat flag), `--added-thread-files` (list, repeat flag), `--removed-thread-files` (list, repeat flag), `--include-zoom-invite`, `--zoom-event-data`
+`--business-id` (required), `--community-group-id`, `--user-id` (required), `--coworker-id`, `--subject` (required), `--message` (required), `--instant-delivery`, `--tags`, `--private`, `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite`, `--zoom-event-data`
 
 #### CommunityThread update options
 
-`--business-id`, `--community-group-id`, `--user-id`, `--coworker-id`, `--subject`, `--message`, `--instant-delivery`, `--tags`, `--private`, `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--messages` (list, repeat flag), `--added-messages` (list, repeat flag), `--removed-messages` (list, repeat flag), `--thread-files` (list, repeat flag), `--added-thread-files` (list, repeat flag), `--removed-thread-files` (list, repeat flag), `--include-zoom-invite`, `--zoom-event-data`
+`--business-id`, `--community-group-id`, `--user-id`, `--coworker-id`, `--subject`, `--message`, `--instant-delivery`, `--tags`, `--private`, `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite`, `--zoom-event-data`
 
-**List properties (only returned by `get`, not by `list`):** `Guests`, `AddedGuests`, `RemovedGuests`, `Messages`, `AddedMessages`, `RemovedMessages`, `ThreadFiles`, `AddedThreadFiles`, `RemovedThreadFiles`
+**List properties (only returned by `get`, not by `list`):** `Guests`, `AddedGuests`, `RemovedGuests`
 
 <!-- END:GENERATED entity=CommunityThreads -->

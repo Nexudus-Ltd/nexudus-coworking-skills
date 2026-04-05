@@ -27,20 +27,20 @@ BlogPosts support Search, Get, Create, Update, Delete.
 
 #### BlogPost list filter options
 
-`--business-id`, `--language-id`, `--posted-by-id`, `--title`, `--summary`, `--body`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--publish-date`, `--show-in-home-banner`, `--show-in-home-page`, `--unpublish-date`, `--allow-comments`, `--comments-count`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--language-id`, `--posted-by-id`, `--title`, `--summary`, `--body`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--publish-date`, `--from-publish-date` (range), `--to-publish-date` (range), `--show-in-home-banner`, `--show-in-home-page`, `--unpublish-date`, `--from-unpublish-date` (range), `--to-unpublish-date` (range), `--allow-comments`, `--comments-count`, `--from-comments-count` (range), `--to-comments-count` (range), `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BlogPost create options
 
-`--business-id` (required), `--language-id`, `--posted-by-id`, `--title` (required), `--summary`, `--body`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--publish-date`, `--show-in-home-banner`, `--show-in-home-page`, `--unpublish-date`, `--allow-comments`, `--blog-categories` (list, repeat flag), `--added-blog-categories` (list, repeat flag), `--removed-blog-categories` (list, repeat flag), `--comments` (list, repeat flag), `--added-comments` (list, repeat flag), `--removed-comments` (list, repeat flag), `--comments-count` (required), `--only-for-contacts`, `--only-for-members`
+`--business-id` (required), `--language-id`, `--posted-by-id`, `--title` (required), `--summary`, `--body`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--publish-date`, `--show-in-home-banner`, `--show-in-home-page`, `--unpublish-date`, `--allow-comments`, `--blog-categories` (list, repeat flag), `--added-blog-categories` (list, repeat flag), `--removed-blog-categories` (list, repeat flag), `--comments-count` (required), `--only-for-contacts`, `--only-for-members`
 
 #### BlogPost update options
 
-`--business-id`, `--language-id`, `--posted-by-id`, `--title`, `--summary`, `--body`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--publish-date`, `--show-in-home-banner`, `--show-in-home-page`, `--unpublish-date`, `--allow-comments`, `--blog-categories` (list, repeat flag), `--added-blog-categories` (list, repeat flag), `--removed-blog-categories` (list, repeat flag), `--comments` (list, repeat flag), `--added-comments` (list, repeat flag), `--removed-comments` (list, repeat flag), `--comments-count`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--language-id`, `--posted-by-id`, `--title`, `--summary`, `--body`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--publish-date`, `--show-in-home-banner`, `--show-in-home-page`, `--unpublish-date`, `--allow-comments`, `--blog-categories` (list, repeat flag), `--added-blog-categories` (list, repeat flag), `--removed-blog-categories` (list, repeat flag), `--comments-count`, `--only-for-contacts`, `--only-for-members`
 
 ### BlogPost (key fields)
 
 `Id`, `Title`
 
-**List properties (only returned by `get`, not by `list`):** `BlogCategories`, `AddedBlogCategories`, `RemovedBlogCategories`, `Comments`, `AddedComments`, `RemovedComments`
+**List properties (only returned by `get`, not by `list`):** `BlogCategories`, `AddedBlogCategories`, `RemovedBlogCategories`
 
 <!-- END:GENERATED entity=BlogPosts -->

@@ -18,7 +18,7 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 
 #### CoworkerBookingCreditUseHistory list filter options
 
-`--description`, `--coworker-booking-credit-id`, `--booking-id`, `--coworker-invoice-line-id`, `--event-attendee-id`, `--credit-used`
+`--description`, `--coworker-booking-credit-id`, `--booking-id`, `--coworker-invoice-line-id`, `--event-attendee-id`, `--credit-used`, `--from-credit-used` (range), `--to-credit-used` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerBookingCreditUseHistory create options
 

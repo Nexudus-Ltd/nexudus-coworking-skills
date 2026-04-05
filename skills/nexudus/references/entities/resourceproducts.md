@@ -19,7 +19,7 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 
 #### ResourceProduct list filter options
 
-`--resource-id`, `--product-id`, `--invoice-in-minutes`, `--request-quantity`, `--visible`, `--price`
+`--resource-id`, `--product-id`, `--invoice-in-minutes`, `--request-quantity`, `--visible`, `--price`, `--from-price` (range), `--to-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ResourceProduct create options
 

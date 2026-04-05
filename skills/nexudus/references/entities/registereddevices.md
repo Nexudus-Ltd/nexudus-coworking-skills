@@ -17,7 +17,7 @@ RegisteredDevices support Search, Get, Update (no Create or Delete via API).
 
 #### RegisteredDevice list filter options
 
-`--name`, `--configuration-data`, `--active`
+`--name`, `--configuration-data`, `--active`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### RegisteredDevice update options
 

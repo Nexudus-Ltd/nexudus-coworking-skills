@@ -19,7 +19,7 @@ Sensors support Search, Get, Create, Update, Delete.
 
 #### Sensor list filter options
 
-`--business-id`, `--canned-response-id`, `--name`, `--reference`, `--unit`, `--active`, `--sensor-type`, `--data-strategy`, `--payload-data-path`, `--action-trigger-function`, `--value-function`, `--action-send-email-alert`, `--alert-email-address`, `--webhook-url`, `--action-update-desk-availability`, `--action-update-resource-availability`, `--action-update-booking-occupancy`, `--action-send-customer-email-alert`, `--action-booking-start`, `--action-booking-terminate`, `--action-check-in-or-out`, `--action-make-http-request`, `--show-in-now-dashboard`, `--show-in-portal`, `--shared-secret`, `--api-key`, `--username`, `--password`
+`--business-id`, `--canned-response-id`, `--name`, `--reference`, `--unit`, `--active`, `--sensor-type`, `--data-strategy`, `--payload-data-path`, `--action-trigger-function`, `--value-function`, `--action-send-email-alert`, `--alert-email-address`, `--webhook-url`, `--action-update-desk-availability`, `--action-update-resource-availability`, `--action-update-booking-occupancy`, `--action-send-customer-email-alert`, `--action-booking-start`, `--action-booking-terminate`, `--action-check-in-or-out`, `--action-make-http-request`, `--show-in-now-dashboard`, `--show-in-portal`, `--shared-secret`, `--api-key`, `--username`, `--password`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Sensor create options
 

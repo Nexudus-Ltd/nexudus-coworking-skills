@@ -19,7 +19,7 @@ EventComments support Search, Get, Create, Update, Delete.
 
 #### EventComment list filter options
 
-`--business-id`, `--calendar-event-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`
+`--business-id`, `--calendar-event-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`, `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EventComment create options
 

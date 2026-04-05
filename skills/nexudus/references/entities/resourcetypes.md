@@ -21,20 +21,18 @@ ResourceTypes support Search, Get, Create, Update, Delete.
 
 #### ResourceType list filter options
 
-`--business-id`, `--name`
+`--business-id`, `--name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ResourceType create options
 
-`--business-id` (required), `--name` (required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag)
+`--business-id` (required), `--name` (required)
 
 #### ResourceType update options
 
-`--business-id`, `--name`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag)
+`--business-id`, `--name`
 
 ### ResourceType (key fields)
 
 `Id`, `Name`
-
-**List properties (only returned by `get`, not by `list`):** `Resources`, `AddedResources`, `RemovedResources`
 
 <!-- END:GENERATED entity=ResourceTypes -->

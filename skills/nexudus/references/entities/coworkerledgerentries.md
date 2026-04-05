@@ -19,7 +19,7 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
 #### CoworkerLedgerEntry list filter options
 
-`--business-id`, `--coworker-id`, `--coworker-invoice-id`, `--description`, `--code`, `--debit`, `--credit`, `--payment-gateway-name`, `--payment-method-number`, `--transaction-date`, `--balance`, `--billed`, `--transaction-date-local`, `--connected-transaction-guid`
+`--business-id`, `--coworker-id`, `--coworker-invoice-id`, `--description`, `--code`, `--debit`, `--from-debit` (range), `--to-debit` (range), `--credit`, `--from-credit` (range), `--to-credit` (range), `--payment-gateway-name`, `--payment-method-number`, `--transaction-date`, `--from-transaction-date` (range), `--to-transaction-date` (range), `--balance`, `--from-balance` (range), `--to-balance` (range), `--billed`, `--transaction-date-local`, `--from-transaction-date-local` (range), `--to-transaction-date-local` (range), `--connected-transaction-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerLedgerEntry create options
 

@@ -31,7 +31,7 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 #### BusinessAnnouncement list filter options
 
-`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--from-active-from` (range), `--to-active-from` (range), `--active-to`, `--from-active-to` (range), `--to-active-to` (range), `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessAnnouncement create options
 

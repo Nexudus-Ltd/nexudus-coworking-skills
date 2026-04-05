@@ -19,7 +19,7 @@ NewsLetters support Search, Get, Create, Update, Delete.
 
 #### NewsLetter list filter options
 
-`--business-id`, `--name`, `--last-sent`, `--language`, `--news-letter-contents`, `--news-letter-design`
+`--business-id`, `--name`, `--last-sent`, `--from-last-sent` (range), `--to-last-sent` (range), `--language`, `--news-letter-contents`, `--news-letter-design`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### NewsLetter create options
 

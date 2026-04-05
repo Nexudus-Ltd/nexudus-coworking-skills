@@ -19,7 +19,7 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 #### OpenAiChatMessage list filter options
 
-`--business-id`, `--user-id`, `--action`, `--content`
+`--business-id`, `--user-id`, `--action`, `--content`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### OpenAiChatMessage create options
 

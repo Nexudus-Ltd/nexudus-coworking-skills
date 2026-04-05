@@ -25,7 +25,7 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 
 #### FailedCheckin list filter options
 
-`--coworker-id`, `--business-id`, `--checkin-attempt-time`, `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local`
+`--coworker-id`, `--business-id`, `--checkin-attempt-time`, `--from-checkin-attempt-time` (range), `--to-checkin-attempt-time` (range), `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local`, `--from-checkin-attempt-time-local` (range), `--to-checkin-attempt-time-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FailedCheckin create options
 

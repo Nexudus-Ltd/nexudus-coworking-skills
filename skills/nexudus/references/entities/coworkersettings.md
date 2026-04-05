@@ -19,7 +19,7 @@ CoworkerSettings support Search, Get, Create, Update, Delete.
 
 #### CoworkerSetting list filter options
 
-`--coworker-id`, `--name`, `--value`, `--encrypted-value`
+`--coworker-id`, `--name`, `--value`, `--encrypted-value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerSetting create options
 

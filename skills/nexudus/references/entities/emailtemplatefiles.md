@@ -19,7 +19,7 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 
 #### EmailTemplateFile list filter options
 
-`--business-id`, `--language`, `--file-language-id`, `--name`, `--subject`, `--file-contents`, `--is-text-only`, `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
+`--business-id`, `--language`, `--file-language-id`, `--name`, `--subject`, `--file-contents`, `--is-text-only`, `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EmailTemplateFile create options
 

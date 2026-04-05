@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=CommunityMessageLikes -->
 
+A **CommunityMessageLike** records a like placed by a user on an individual `CommunityMessage` reply in a Discussion Board conversation. Each record represents a single like from one user on one message.
+
 CommunityMessageLikes support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -19,7 +21,7 @@ CommunityMessageLikes support Search, Get, Create, Update, Delete.
 
 #### CommunityMessageLike list filter options
 
-`--message-id`, `--user-id`
+`--message-id`, `--user-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityMessageLike create options
 

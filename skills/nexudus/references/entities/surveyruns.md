@@ -19,7 +19,7 @@ SurveyRuns support Search, Get, Create, Update, Delete.
 
 #### SurveyRun list filter options
 
-`--coworker-id`, `--survey-id`, `--mailing-date`, `--submitted`
+`--coworker-id`, `--survey-id`, `--mailing-date`, `--from-mailing-date` (range), `--to-mailing-date` (range), `--submitted`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SurveyRun create options
 

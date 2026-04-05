@@ -19,7 +19,7 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 
 #### EventWaitingAttendee list filter options
 
-`--business-id`, `--calendar-event-id`, `--coworker-id`, `--full-name`, `--email`
+`--business-id`, `--calendar-event-id`, `--coworker-id`, `--full-name`, `--email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EventWaitingAttendee create options
 

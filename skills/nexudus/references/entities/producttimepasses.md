@@ -24,7 +24,7 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 
 #### ProductTimePass list filter options
 
-`--product-id`, `--time-pass-id`, `--passes-included`, `--expire-time-in-months`, `--expire-time-in-weeks`, `--expiration-type`, `--expires-in`
+`--product-id`, `--time-pass-id`, `--passes-included`, `--from-passes-included` (range), `--to-passes-included` (range), `--expire-time-in-months`, `--from-expire-time-in-months` (range), `--to-expire-time-in-months` (range), `--expire-time-in-weeks`, `--from-expire-time-in-weeks` (range), `--to-expire-time-in-weeks` (range), `--expiration-type`, `--expires-in`, `--from-expires-in` (range), `--to-expires-in` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProductTimePass create options
 

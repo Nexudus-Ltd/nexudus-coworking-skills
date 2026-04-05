@@ -19,7 +19,7 @@ ImageFiles support Search, Get, Create, Update, Delete.
 
 #### ImageFile list filter options
 
-`--business-id`, `--name`, `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image-file`, `--file-size-bytes`
+`--business-id`, `--name`, `--description`, `--use-in-gallery`, `--new-image-url`, `--clear-image-file`, `--file-size-bytes`, `--from-file-size-bytes` (range), `--to-file-size-bytes` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ImageFile create options
 

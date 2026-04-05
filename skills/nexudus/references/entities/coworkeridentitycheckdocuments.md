@@ -33,7 +33,7 @@ CoworkerIdentityCheckDocuments also support entity commands.
 
 #### CoworkerIdentityCheckDocument list filter options
 
-`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo-file`, `--new-document-url`, `--clear-document-file`, `--new-additional-document-url`, `--clear-additional-document-file`, `--notes`
+`--coworker-id`, `--coworker-identity-check-id`, `--name`, `--new-photo-url`, `--clear-photo-file`, `--new-document-url`, `--clear-document-file`, `--new-additional-document-url`, `--clear-additional-document-file`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerIdentityCheckDocument create options
 

@@ -23,7 +23,7 @@ AccessTokens also support entity commands.
 
 #### AccessToken list filter options
 
-`--business-id`, `--access-code`, `--description`, `--minutes-included`, `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`, `--booking-guid`, `--visitor-guid`
+`--business-id`, `--access-code`, `--description`, `--minutes-included`, `--from-minutes-included` (range), `--to-minutes-included` (range), `--valid-from`, `--from-valid-from` (range), `--to-valid-from` (range), `--valid-to`, `--from-valid-to` (range), `--to-valid-to` (range), `--user-limit`, `--from-user-limit` (range), `--to-user-limit` (range), `--mac-address`, `--booking-guid`, `--visitor-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### AccessToken create options
 

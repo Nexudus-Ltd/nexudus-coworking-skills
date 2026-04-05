@@ -19,7 +19,7 @@ CourseLessons support Search, Get, Create, Update, Delete.
 
 #### CourseLesson list filter options
 
-`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--completion-type`
+`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--from-unlock-after-days` (range), `--to-unlock-after-days` (range), `--completion-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CourseLesson create options
 

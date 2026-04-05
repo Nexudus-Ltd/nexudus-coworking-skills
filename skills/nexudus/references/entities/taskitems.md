@@ -19,7 +19,7 @@ TaskItems support Search, Get, Create, Update, Delete.
 
 #### TaskItem list filter options
 
-`--task-list-id`, `--responsible-id`, `--name`, `--active`, `--notify-by-email`, `--display-to-everyone`, `--delay-in-hours`
+`--task-list-id`, `--responsible-id`, `--name`, `--active`, `--notify-by-email`, `--display-to-everyone`, `--delay-in-hours`, `--from-delay-in-hours` (range), `--to-delay-in-hours` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TaskItem create options
 

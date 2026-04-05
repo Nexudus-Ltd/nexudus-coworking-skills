@@ -19,7 +19,7 @@ Reports support Search, Get, Create, Update, Delete.
 
 #### Report list filter options
 
-`--business-id`, `--name`, `--folder`, `--report-type`, `--report-xml`
+`--business-id`, `--name`, `--folder`, `--report-type`, `--report-xml`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Report create options
 

@@ -21,7 +21,7 @@ ResourceTimeSlots also support entity commands.
 
 #### ResourceTimeSlot list filter options
 
-`--resource-id`, `--from-time`, `--to-time`, `--day-of-week`
+`--resource-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--day-of-week`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ResourceTimeSlot create options
 

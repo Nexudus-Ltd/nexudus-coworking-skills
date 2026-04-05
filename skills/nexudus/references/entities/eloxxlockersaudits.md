@@ -19,7 +19,7 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 
 #### EloxxLockersAudit list filter options
 
-`--business-id`, `--floor-plan-desk-id`, `--coworker-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`
+`--business-id`, `--floor-plan-desk-id`, `--coworker-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EloxxLockersAudit create options
 

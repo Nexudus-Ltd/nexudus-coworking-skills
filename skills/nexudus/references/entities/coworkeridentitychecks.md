@@ -36,21 +36,19 @@ CoworkerIdentityChecks also support entity commands.
 
 #### CoworkerIdentityCheck list filter options
 
-`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`
+`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--from-identity-document-expiration-date` (range), `--to-identity-document-expiration-date` (range), `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerIdentityCheck create options
 
-`--business-id` (required), `--coworker-id` (required), `--name` (required), `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`, `--documents` (list, repeat flag), `--added-documents` (list, repeat flag), `--removed-documents` (list, repeat flag)
+`--business-id` (required), `--coworker-id` (required), `--name` (required), `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`
 
 #### CoworkerIdentityCheck update options
 
-`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--documents` (list, repeat flag), `--added-documents` (list, repeat flag), `--removed-documents` (list, repeat flag)
+`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`
 
 ### CoworkerIdentityCheck (key fields)
 
 `Id`, `BusinessName`, `CoworkerFullName`, `Name`, `VerificationType`, `VerificationStatus`
-
-**List properties (only returned by `get`, not by `list`):** `Documents`, `AddedDocuments`, `RemovedDocuments`
 
 #### CoworkerIdentityCheck enum values
 

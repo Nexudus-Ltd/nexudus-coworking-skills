@@ -19,7 +19,7 @@ RefreshTokens support Search, Get, Create, Update, Delete.
 
 #### RefreshToken list filter options
 
-`--subject`, `--client-id`, `--expires-on`, `--protected-ticket`, `--ticket-hash`, `--ticket-salt`
+`--subject`, `--client-id`, `--expires-on`, `--from-expires-on` (range), `--to-expires-on` (range), `--protected-ticket`, `--ticket-hash`, `--ticket-salt`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### RefreshToken create options
 

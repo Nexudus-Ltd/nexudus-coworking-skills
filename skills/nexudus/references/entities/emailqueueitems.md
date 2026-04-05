@@ -16,8 +16,6 @@ EmailQueueItems support Search, Get (no Create or Delete via API).
 
 #### EmailQueueItem list filter options
 
-`--business-id`, `--email-account-id`, `--from-user-id`, `--header`, `--body`, `--from-email`, `--to-emails`, `--c-c-emails`, `--c-c-o-emails`, `--sent`, `--sent-attempts`, `--delivered`, `--last-send-error`, `--send-date`, `--queued`, `--from-name`
-
-**List properties (only returned by `get`, not by `list`):** `Attachments`, `AddedAttachments`, `RemovedAttachments`
+`--business-id`, `--email-account-id`, `--from-user-id`, `--header`, `--body`, `--from-email`, `--to-emails`, `--c-c-emails`, `--c-c-o-emails`, `--sent`, `--sent-attempts`, `--from-sent-attempts` (range), `--to-sent-attempts` (range), `--delivered`, `--last-send-error`, `--send-date`, `--from-send-date` (range), `--to-send-date` (range), `--queued`, `--from-name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 <!-- END:GENERATED entity=EmailQueueItems -->

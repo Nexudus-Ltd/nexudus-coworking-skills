@@ -19,7 +19,7 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
 #### TariffDefaultDueDate list filter options
 
-`--business-id`, `--auto-collect-on`, `--auto-collect-after`
+`--business-id`, `--auto-collect-on`, `--from-auto-collect-on` (range), `--to-auto-collect-on` (range), `--auto-collect-after`, `--from-auto-collect-after` (range), `--to-auto-collect-after` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffDefaultDueDate create options
 

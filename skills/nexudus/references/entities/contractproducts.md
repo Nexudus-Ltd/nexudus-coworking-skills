@@ -19,7 +19,7 @@ ContractProducts support Search, Get, Create, Update, Delete.
 
 #### ContractProduct list filter options
 
-`--coworker-contract-id`, `--product-id`, `--notes`, `--quantity`, `--price`, `--repeat-from`, `--repeat-until`, `--apply-pro-rating`
+`--coworker-contract-id`, `--product-id`, `--notes`, `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--price`, `--from-price` (range), `--to-price` (range), `--repeat-from`, `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until`, `--from-repeat-until` (range), `--to-repeat-until` (range), `--apply-pro-rating`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractProduct create options
 

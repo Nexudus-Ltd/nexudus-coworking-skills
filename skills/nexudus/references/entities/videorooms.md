@@ -19,7 +19,7 @@ VideoRooms support Search, Get, Create, Update, Delete.
 
 #### VideoRoom list filter options
 
-`--business-id`, `--name`, `--description`, `--new-image-url`, `--clear-image-file`, `--number-of-participants`, `--active`, `--only-for-contacts`, `--only-for-members`
+`--business-id`, `--name`, `--description`, `--new-image-url`, `--clear-image-file`, `--number-of-participants`, `--from-number-of-participants` (range), `--to-number-of-participants` (range), `--active`, `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### VideoRoom create options
 

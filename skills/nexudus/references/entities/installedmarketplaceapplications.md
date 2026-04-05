@@ -19,7 +19,7 @@ InstalledMarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 #### InstalledMarketPlaceApplication list filter options
 
-`--market-place-application-id`, `--business-id`, `--provide-products`, `--provide-resources`, `--provide-events`, `--provide-tariffs`, `--provide-resource-availability`, `--provide-resource-prices`, `--accept-bookings`, `--accept-event-signups`, `--accept-payment-requests`
+`--market-place-application-id`, `--business-id`, `--provide-products`, `--provide-resources`, `--provide-events`, `--provide-tariffs`, `--provide-resource-availability`, `--provide-resource-prices`, `--accept-bookings`, `--accept-event-signups`, `--accept-payment-requests`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### InstalledMarketPlaceApplication create options
 

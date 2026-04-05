@@ -19,7 +19,7 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 
 #### SurveyQuestion list filter options
 
-`--survey-id`, `--text`, `--description`, `--available-options`, `--active`, `--display-order`, `--allow-multiple-options`, `--question-type`
+`--survey-id`, `--text`, `--description`, `--available-options`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--allow-multiple-options`, `--question-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SurveyQuestion create options
 

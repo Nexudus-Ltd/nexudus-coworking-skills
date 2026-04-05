@@ -43,7 +43,7 @@ CoworkerNotifications support Search, Get, Create, Update, Delete.
 
 #### CoworkerNotification list filter options
 
-`--coworker-id`, `--message`, `--notification-type`, `--entity-id`, `--is-dismissed`
+`--coworker-id`, `--message`, `--notification-type`, `--entity-id`, `--from-entity-id` (range), `--to-entity-id` (range), `--is-dismissed`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerNotification create options
 

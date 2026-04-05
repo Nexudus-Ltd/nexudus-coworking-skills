@@ -19,7 +19,7 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 
 #### CoworkerDataFile list filter options
 
-`--business-id`, `--coworker-id`, `--name`, `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data-file`, `--new-signed-file-data-url`, `--clear-signed-file-data-file`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
+`--business-id`, `--coworker-id`, `--name`, `--description`, `--available-to-user`, `--request-digital-signature`, `--new-file-data-url`, `--clear-file-data-file`, `--new-signed-file-data-url`, `--clear-signed-file-data-file`, `--extension`, `--billed`, `--signed`, `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerDataFile create options
 

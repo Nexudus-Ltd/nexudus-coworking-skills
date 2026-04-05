@@ -19,7 +19,7 @@ CustomFields support Search, Get, Create, Update, Delete.
 
 #### CustomField list filter options
 
-`--business-id`, `--name`, `--display-order`, `--record-type`, `--field-type`, `--coworker-field-position`, `--available-options`, `--allow-multiple-options`, `--custom-field-index`, `--required`, `--group-name`, `--display-in-public-profile`, `--display-in-directory-search`, `--name-in-search`, `--visibility`, `--display-in-sign-up-form`, `--display-in-profile-form`, `--display-in-tour-form`, `--display-in-event-sign-up-form`, `--show-in-booking-form`, `--display-in-product-sign-up-form`, `--display-in-team-sign-up-form`, `--display-in-course-sign-up-form`, `--display-in-tariff-sign-up-form`, `--display-in-booking-sign-up-form`, `--display-in-resource-search`
+`--business-id`, `--name`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--record-type`, `--field-type`, `--coworker-field-position`, `--available-options`, `--allow-multiple-options`, `--custom-field-index`, `--from-custom-field-index` (range), `--to-custom-field-index` (range), `--required`, `--group-name`, `--display-in-public-profile`, `--display-in-directory-search`, `--name-in-search`, `--visibility`, `--display-in-sign-up-form`, `--display-in-profile-form`, `--display-in-tour-form`, `--display-in-event-sign-up-form`, `--show-in-booking-form`, `--display-in-product-sign-up-form`, `--display-in-team-sign-up-form`, `--display-in-course-sign-up-form`, `--display-in-tariff-sign-up-form`, `--display-in-booking-sign-up-form`, `--display-in-resource-search`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CustomField create options
 

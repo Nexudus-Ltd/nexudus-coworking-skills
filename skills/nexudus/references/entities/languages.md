@@ -19,16 +19,14 @@ Languages support Search, Get, Create, Update, Delete.
 
 #### Language list filter options
 
-`--business-id`, `--name`, `--culture`, `--active`, `--display-order`
+`--business-id`, `--name`, `--culture`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Language create options
 
-`--business-id` (required), `--name` (required), `--culture` (required), `--active`, `--display-order` (required), `--tokens` (list, repeat flag), `--added-tokens` (list, repeat flag), `--removed-tokens` (list, repeat flag)
+`--business-id` (required), `--name` (required), `--culture` (required), `--active`, `--display-order` (required)
 
 #### Language update options
 
-`--business-id`, `--name`, `--culture`, `--active`, `--display-order`, `--tokens` (list, repeat flag), `--added-tokens` (list, repeat flag), `--removed-tokens` (list, repeat flag)
-
-**List properties (only returned by `get`, not by `list`):** `Tokens`, `AddedTokens`, `RemovedTokens`
+`--business-id`, `--name`, `--culture`, `--active`, `--display-order`
 
 <!-- END:GENERATED entity=Languages -->

@@ -25,7 +25,7 @@ Charges support Search, Get, Create, Update, Delete.
 
 #### Charge list filter options
 
-`--coworker-id`, `--business-id`, `--quantity`, `--description`, `--invoice-line-display-as`, `--regular-charge`, `--discount-amount`, `--credit-amount`, `--due-date`, `--total-amount`, `--purchase-order`, `--tax-rate-id`, `--financial-account-id`, `--invoiced`, `--sale-date`, `--from-team-member`, `--coworker-extra-service-name`, `--coworker-time-pass-name`, `--coworker-product-name`, `--tariff-name`, `--coworker-product-unique-id`, `--booking-unique-id`, `--repeat-from`, `--repeat-until`
+`--coworker-id`, `--business-id`, `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--description`, `--invoice-line-display-as`, `--regular-charge`, `--discount-amount`, `--from-discount-amount` (range), `--to-discount-amount` (range), `--credit-amount`, `--from-credit-amount` (range), `--to-credit-amount` (range), `--due-date`, `--from-due-date` (range), `--to-due-date` (range), `--total-amount`, `--from-total-amount` (range), `--to-total-amount` (range), `--purchase-order`, `--tax-rate-id`, `--financial-account-id`, `--invoiced`, `--sale-date`, `--from-sale-date` (range), `--to-sale-date` (range), `--from-team-member`, `--coworker-extra-service-name`, `--coworker-time-pass-name`, `--coworker-product-name`, `--tariff-name`, `--coworker-product-unique-id`, `--booking-unique-id`, `--repeat-from`, `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until`, `--from-repeat-until` (range), `--to-repeat-until` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Charge create options
 

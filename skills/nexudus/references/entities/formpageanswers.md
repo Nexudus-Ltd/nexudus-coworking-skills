@@ -18,7 +18,7 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 
 #### FormPageAnswer list filter options
 
-`--form-page-request-id`, `--form-page-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`
+`--form-page-request-id`, `--form-page-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FormPageAnswer create options
 

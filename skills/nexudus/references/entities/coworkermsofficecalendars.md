@@ -19,7 +19,7 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 
 #### CoworkerMsOfficeCalendar list filter options
 
-`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`
+`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`, `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerMsOfficeCalendar create options
 

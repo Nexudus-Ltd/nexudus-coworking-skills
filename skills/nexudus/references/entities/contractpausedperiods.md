@@ -19,7 +19,7 @@ ContractPausedPeriods support Search, Get, Create, Update, Delete.
 
 #### ContractPausedPeriod list filter options
 
-`--coworker-contract-id`, `--notes`, `--pause-from`, `--pause-until`, `--pause-from-local`, `--pause-until-local`
+`--coworker-contract-id`, `--notes`, `--pause-from`, `--from-pause-from` (range), `--to-pause-from` (range), `--pause-until`, `--from-pause-until` (range), `--to-pause-until` (range), `--pause-from-local`, `--from-pause-from-local` (range), `--to-pause-from-local` (range), `--pause-until-local`, `--from-pause-until-local` (range), `--to-pause-until-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractPausedPeriod create options
 

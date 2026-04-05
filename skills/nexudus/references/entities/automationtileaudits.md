@@ -23,7 +23,7 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 #### AutomationTileAudit list filter options
 
-`--automation-tile-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`
+`--automation-tile-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### AutomationTileAudit create options
 
