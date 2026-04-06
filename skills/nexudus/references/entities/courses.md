@@ -2,6 +2,19 @@
 
 <!-- BEGIN:GENERATED entity=Courses -->
 
+A **Course** is a structured learning module published to customers through the Members Portal. Courses are organised into **sections** (milestones) and **lessons** (individual content units). They can be used for internal training, community building, or self-learning offers.
+
+Courses belong to a Location and are assigned a Host (a customer or administrator) who is responsible for its content. You can control who can access a course using the `Visibility` field:
+
+| Visibility | Meaning |
+| ---------- | ------- |
+| Public     | Visible and accessible to everyone on the Members Portal |
+| Hidden     | Not listed on the Members Portal but accessible via a direct link |
+| Private    | Only accessible to members who have been explicitly added |
+| Paid       | Requires purchase via the linked `TariffId` pricing plan |
+
+Courses can optionally display a community discussion group (`HasCommunityGroup`), be featured on the portal home page (`ShowInHomePage`), and be grouped together under a `GroupName` for easier navigation.
+
 Courses support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -13,7 +26,7 @@ Courses support Search, Get, Create, Update, Delete.
 | `nexudus courses list --business-id <value> --host-id <value> --agent` | Filter courses by properties |
 | `nexudus courses list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus courses get <id> --agent` | Get single course |
-| `nexudus courses create --business-id <value> --host-id <value> --title <value> --display-order <value> --agent` | Create course |
+| `nexudus courses create --business-id <value> --host-id <value> --title <value> --display-order <value> --visibility <value> --agent` | Create course |
 | `nexudus courses update <id> --name "New Name" --agent` | Update course |
 | `nexudus courses delete <id> --yes --agent` | Delete course (no prompt) |
 
@@ -23,10 +36,16 @@ Courses support Search, Get, Create, Update, Delete.
 
 #### Course create options
 
-`--business-id` (required), `--host-id` (required), `--title` (required), `--summary-text`, `--full-description`, `--show-overview`, `--has-community-group`, `--overview-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--visibility`, `--tariff-id`
+`--business-id` (required), `--host-id` (required), `--title` (required), `--summary-text`, `--full-description`, `--show-overview`, `--has-community-group`, `--overview-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--visibility` (required), `--tariff-id`
 
 #### Course update options
 
 `--business-id`, `--host-id`, `--title`, `--summary-text`, `--full-description`, `--show-overview`, `--has-community-group`, `--overview-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--visibility`, `--tariff-id`
+
+#### Course enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--visibility` | `1` Public, `2` Hidden, `3` Private, `4` Paid |
 
 <!-- END:GENERATED entity=Courses -->

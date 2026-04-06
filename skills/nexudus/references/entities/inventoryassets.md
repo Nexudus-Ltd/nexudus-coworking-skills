@@ -26,7 +26,7 @@ InventoryAssets also support entity commands.
 | `nexudus inventoryassets list --name <value> --agent` | Filter inventoryassets by properties |
 | `nexudus inventoryassets list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus inventoryassets get <id> --agent` | Get single inventoryasset |
-| `nexudus inventoryassets create --business-id <value> --name <value> --agent` | Create inventoryasset |
+| `nexudus inventoryassets create --business-id <value> --name <value> --assign-to-type <value> --agent` | Create inventoryasset |
 | `nexudus inventoryassets update <id> --name "New Name" --agent` | Update inventoryasset |
 | `nexudus inventoryassets delete <id> --yes --agent` | Delete inventoryasset (no prompt) |
 | `nexudus inventoryassets run-command <key> <ids> --agent` | Run entity command |
@@ -37,7 +37,7 @@ InventoryAssets also support entity commands.
 
 #### InventoryAsset create options
 
-`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
+`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type` (required)
 
 #### InventoryAsset update options
 

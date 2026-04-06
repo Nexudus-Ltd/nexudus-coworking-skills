@@ -2,6 +2,15 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerLedgerEntries -->
 
+A **CoworkerLedgerEntry** is an individual financial transaction line in a customer's ledger. Ledger entries record debits, credits, and the running balance between a location and a customer.
+
+Each entry can be linked to a `CoworkerInvoice` and carries a `PaymentGatewayName` that identifies which payment provider processed the transaction.
+
+The ledger balance reflects the net financial position between the location and the customer:
+- A **positive** balance means the customer owes money (unpaid invoices).
+- A **negative** balance means the customer has credited payments that will be applied to future invoices.
+- A balance of **0** means the account is settled with no outstanding invoices or credits.
+
 CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
 | Command | Description |

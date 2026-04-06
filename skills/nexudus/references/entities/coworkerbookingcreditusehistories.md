@@ -2,6 +2,10 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerBookingCreditUseHistories -->
 
+A **CoworkerBookingCreditUseHistory** records each time a `CoworkerBookingCredit` was consumed. Each entry captures the amount of credit deducted and links back to the booking, event attendance, or invoice line that triggered the use.
+
+Use the read-only denormalised fields (`--booking-from-time`, `--booking-resource-name`, `--event-attendee-calendar-event-name`, etc.) to inspect what the credit was spent on without needing to fetch the related records separately.
+
 CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete via API).
 
 | Command | Description |
@@ -27,5 +31,9 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 #### CoworkerBookingCreditUseHistory update options
 
 `--description`, `--coworker-booking-credit-id`, `--booking-id`, `--coworker-invoice-line-id`, `--event-attendee-id`
+
+### CoworkerBookingCreditUseHistory (key fields)
+
+`Id`, `BookingResourceName`, `CoworkerInvoiceLineCoworkerInvoiceInvoiceNumber`, `EventAttendeeCalendarEventName`
 
 <!-- END:GENERATED entity=CoworkerBookingCreditUseHistories -->

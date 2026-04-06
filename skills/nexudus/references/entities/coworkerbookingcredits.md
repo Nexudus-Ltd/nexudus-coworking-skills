@@ -2,6 +2,17 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerBookingCredits -->
 
+A **CoworkerBookingCredit** is an amount of monetary credit assigned to a customer. Credits are typically created automatically when a customer's contract on a plan that includes a `TariffBookingCredit` renews, but can also be created manually.
+
+Credit can be configured for two primary uses:
+
+- **Bookings** — set `--cane-be-used-for-bookings` to allow the credit to pay for bookings. Use `--elegible-resource-types` to restrict the credit to specific resource types; if left empty the credit is valid for all resource types.
+- **Events** — set `--cane-be-used-for-events` to allow the credit to pay for event sign-ups. Use `--event-categories` to restrict to specific event categories; if left empty the credit is valid for all events.
+
+Setting `--is-universal-credit` enables the credit for products, time passes, and other charges. Use `--elegible-products`, `--elegible-passes`, and `--applies-to-charges` to restrict which products or passes the credit is valid for. If all restriction lists are empty the universal credit applies to all products, passes and charges.
+
+Use `--valid-from` and `--expire-date` to control the validity window of the credit.
+
 CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -28,6 +39,10 @@ CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 #### CoworkerBookingCredit update options
 
 `--coworker-id`, `--business-id`, `--description`, `--elegible-resource-types` (list, repeat flag), `--added-elegible-resource-types` (list, repeat flag), `--removed-elegible-resource-types` (list, repeat flag), `--elegible-products` (list, repeat flag), `--added-elegible-products` (list, repeat flag), `--removed-elegible-products` (list, repeat flag), `--elegible-tariffs` (list, repeat flag), `--added-elegible-tariffs` (list, repeat flag), `--removed-elegible-tariffs` (list, repeat flag), `--total-credit`, `--valid-from`, `--expire-date`, `--cane-be-used-for-bookings`, `--cane-be-used-for-events`, `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--is-universal-credit`, `--use-credit-price`, `--coworker-contract-unique-id`, `--elegible-passes` (list, repeat flag), `--added-elegible-passes` (list, repeat flag), `--removed-elegible-passes` (list, repeat flag), `--applies-to-charges`
+
+### CoworkerBookingCredit (key fields)
+
+`Id`, `BusinessName`, `TariffBookingCreditName`
 
 **List properties (only returned by `get`, not by `list`):** `ElegibleResourceTypes`, `AddedElegibleResourceTypes`, `RemovedElegibleResourceTypes`, `ElegibleProducts`, `AddedElegibleProducts`, `RemovedElegibleProducts`, `ElegibleTariffs`, `AddedElegibleTariffs`, `RemovedElegibleTariffs`, `EventCategories`, `AddedEventCategories`, `RemovedEventCategories`, `ElegiblePasses`, `AddedElegiblePasses`, `RemovedElegiblePasses`
 

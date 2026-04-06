@@ -13,7 +13,7 @@ FormPageQuestions support Search, Get, Create, Update, Delete.
 | `nexudus formpagequestions list --form-page-id <value> --text <value> --agent` | Filter formpagequestions by properties |
 | `nexudus formpagequestions list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus formpagequestions get <id> --agent` | Get single formpagequestion |
-| `nexudus formpagequestions create --form-page-id <value> --text <value> --description <value> --display-order <value> --agent` | Create formpagequestion |
+| `nexudus formpagequestions create --form-page-id <value> --text <value> --description <value> --display-order <value> --question-type <value> --agent` | Create formpagequestion |
 | `nexudus formpagequestions update <id> --name "New Name" --agent` | Update formpagequestion |
 | `nexudus formpagequestions delete <id> --yes --agent` | Delete formpagequestion (no prompt) |
 
@@ -23,7 +23,7 @@ FormPageQuestions support Search, Get, Create, Update, Delete.
 
 #### FormPageQuestion create options
 
-`--form-page-id` (required), `--text` (required), `--description` (required), `--available-options`, `--active`, `--display-order` (required), `--allow-multiple-options`, `--is-required`, `--question-type`
+`--form-page-id` (required), `--text` (required), `--description` (required), `--available-options`, `--active`, `--display-order` (required), `--allow-multiple-options`, `--is-required`, `--question-type` (required)
 
 #### FormPageQuestion update options
 

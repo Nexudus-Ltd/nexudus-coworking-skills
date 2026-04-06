@@ -13,7 +13,7 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `nexudus proposalproducts list --quantity <value> --price <value> --agent` | Filter proposalproducts by properties |
 | `nexudus proposalproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus proposalproducts get <id> --agent` | Get single proposalproduct |
-| `nexudus proposalproducts create --proposal-id <value> --product-id <value> --quantity <value> --agent` | Create proposalproduct |
+| `nexudus proposalproducts create --proposal-id <value> --product-id <value> --quantity <value> --repeat-cycle <value> --agent` | Create proposalproduct |
 | `nexudus proposalproducts update <id> --name "New Name" --agent` | Update proposalproduct |
 | `nexudus proposalproducts delete <id> --yes --agent` | Delete proposalproduct (no prompt) |
 
@@ -23,7 +23,7 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 
 #### ProposalProduct create options
 
-`--proposal-id` (required), `--product-id` (required), `--quantity` (required), `--price`, `--is-deposit`, `--is-contract-product`, `--regular-charge`, `--repeat-cycle`, `--invoice-on`, `--repeat-from`, `--repeat-until`, `--repeat-unit`, `--apply-pro-rating`, `--notes`
+`--proposal-id` (required), `--product-id` (required), `--quantity` (required), `--price`, `--is-deposit`, `--is-contract-product`, `--regular-charge`, `--repeat-cycle` (required), `--invoice-on`, `--repeat-from`, `--repeat-until`, `--repeat-unit`, `--apply-pro-rating`, `--notes`
 
 #### ProposalProduct update options
 

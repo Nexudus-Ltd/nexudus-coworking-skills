@@ -2,6 +2,27 @@
 
 <!-- BEGIN:GENERATED entity=CourseLessons -->
 
+A **CourseLesson** is an individual learning unit within a Course. Lessons are the building blocks that customers complete to work through a course's content. Each lesson belongs to a `Course` and optionally to a `CourseSection` that groups related lessons together.
+
+Lessons have two key behavioural settings:
+
+**`UnlockType`** — controls when a lesson becomes available to enrolled members:
+
+| Value      | Meaning |
+| ---------- | ------- |
+| Immediate  | Available as soon as the member enrols |
+| Sequential | Unlocked only after the previous lesson is completed |
+| Timed      | Unlocked after a number of days specified by `UnlockAfterDays` |
+
+**`CompletionType`** — defines what action marks the lesson as done:
+
+| Value   | Meaning |
+| ------- | ------- |
+| None    | No completion tracking |
+| Visited | Marked complete when the member opens the lesson |
+| Button  | Member must click a completion button |
+| Video   | Member must finish watching the embedded video (must be hosted on YouTube) |
+
 CourseLessons support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -13,7 +34,7 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | `nexudus courselessons list --course-id <value> --section-id <value> --agent` | Filter courselessons by properties |
 | `nexudus courselessons list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus courselessons get <id> --agent` | Get single courselesson |
-| `nexudus courselessons create --course-id <value> --title <value> --display-order <value> --unlock-after-days <value> --agent` | Create courselesson |
+| `nexudus courselessons create --course-id <value> --title <value> --display-order <value> --unlock-type <value> --unlock-after-days <value> --completion-type <value> --agent` | Create courselesson |
 | `nexudus courselessons update <id> --name "New Name" --agent` | Update courselesson |
 | `nexudus courselessons delete <id> --yes --agent` | Delete courselesson (no prompt) |
 
@@ -23,10 +44,17 @@ CourseLessons support Search, Get, Create, Update, Delete.
 
 #### CourseLesson create options
 
-`--course-id` (required), `--section-id`, `--instructor-id`, `--title` (required), `--summary-text`, `--lesson-contents`, `--active`, `--display-order` (required), `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days` (required), `--completion-type`
+`--course-id` (required), `--section-id`, `--instructor-id`, `--title` (required), `--summary-text`, `--lesson-contents`, `--active`, `--display-order` (required), `--unlock-type` (required), `--new-image-url`, `--clear-image-file`, `--unlock-after-days` (required), `--completion-type` (required)
 
 #### CourseLesson update options
 
 `--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--completion-type`
+
+#### CourseLesson enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--unlock-type` | `1` Immediate, `2` Sequential, `3` Timed |
+| `--completion-type` | `1` None, `2` Visited, `3` Button, `4` Video |
 
 <!-- END:GENERATED entity=CourseLessons -->

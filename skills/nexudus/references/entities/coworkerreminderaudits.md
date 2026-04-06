@@ -2,6 +2,10 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerReminderAudits -->
 
+A **CoworkerReminderAudit** records when a reminder was sent to a customer at a location. Each entry links the customer to the reminder that was triggered, forming an internal audit trail of automated communications that have been dispatched.
+
+Use these records to determine which reminders have already been sent to a specific customer, and to avoid sending duplicate communications.
+
 CoworkerReminderAudits support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -28,5 +32,9 @@ CoworkerReminderAudits support Search, Get, Create, Update, Delete.
 #### CoworkerReminderAudit update options
 
 `--coworker-id`, `--reminder-id`
+
+### CoworkerReminderAudit (key fields)
+
+`Id`, `CoworkerFullName`, `ReminderName`
 
 <!-- END:GENERATED entity=CoworkerReminderAudits -->

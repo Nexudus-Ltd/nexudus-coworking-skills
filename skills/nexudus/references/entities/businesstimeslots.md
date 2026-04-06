@@ -19,7 +19,7 @@ BusinessTimeSlots support Search, Get, Create, Update, Delete.
 | `nexudus businesstimeslots list --from-time <value> --to-time <value> --agent` | Filter businesstimeslots by properties |
 | `nexudus businesstimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus businesstimeslots get <id> --agent` | Get single businesstimeslot |
-| `nexudus businesstimeslots create --business-id <value> --from-time <value> --to-time <value> --agent` | Create businesstimeslot |
+| `nexudus businesstimeslots create --business-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create businesstimeslot |
 | `nexudus businesstimeslots update <id> --name "New Name" --agent` | Update businesstimeslot |
 | `nexudus businesstimeslots delete <id> --yes --agent` | Delete businesstimeslot (no prompt) |
 
@@ -29,7 +29,7 @@ BusinessTimeSlots support Search, Get, Create, Update, Delete.
 
 #### BusinessTimeSlot create options
 
-`--business-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week`
+`--business-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required)
 
 #### BusinessTimeSlot update options
 

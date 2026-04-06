@@ -17,7 +17,7 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 | `nexudus automationtileaudits list --description <value> --action <value> --agent` | Filter automationtileaudits by properties |
 | `nexudus automationtileaudits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus automationtileaudits get <id> --agent` | Get single automationtileaudit |
-| `nexudus automationtileaudits create --automation-tile-id <value> --description <value> --agent` | Create automationtileaudit |
+| `nexudus automationtileaudits create --automation-tile-id <value> --description <value> --action <value> --tile-audit-type <value> --agent` | Create automationtileaudit |
 | `nexudus automationtileaudits update <id> --name "New Name" --agent` | Update automationtileaudit |
 | `nexudus automationtileaudits delete <id> --yes --agent` | Delete automationtileaudit (no prompt) |
 
@@ -27,7 +27,7 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 #### AutomationTileAudit create options
 
-`--automation-tile-id` (required), `--description` (required), `--action-by`, `--action`, `--tile-audit-type`
+`--automation-tile-id` (required), `--description` (required), `--action-by`, `--action` (required), `--tile-audit-type` (required)
 
 #### AutomationTileAudit update options
 

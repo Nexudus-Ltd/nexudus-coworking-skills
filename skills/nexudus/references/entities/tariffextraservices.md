@@ -13,7 +13,7 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 | `nexudus tariffextraservices list --uses-included <value> --agent` | Filter tariffextraservices by properties |
 | `nexudus tariffextraservices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tariffextraservices get <id> --agent` | Get single tariffextraservice |
-| `nexudus tariffextraservices create --tariff-id <value> --extra-service-id <value> --uses-included <value> --agent` | Create tariffextraservice |
+| `nexudus tariffextraservices create --tariff-id <value> --extra-service-id <value> --uses-included <value> --service-renewal-time <value> --agent` | Create tariffextraservice |
 | `nexudus tariffextraservices update <id> --name "New Name" --agent` | Update tariffextraservice |
 | `nexudus tariffextraservices delete <id> --yes --agent` | Delete tariffextraservice (no prompt) |
 
@@ -23,7 +23,7 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 #### TariffExtraService create options
 
-`--tariff-id` (required), `--extra-service-id` (required), `--uses-included` (required), `--service-renewal-time`
+`--tariff-id` (required), `--extra-service-id` (required), `--uses-included` (required), `--service-renewal-time` (required)
 
 #### TariffExtraService update options
 

@@ -13,7 +13,7 @@ Surveys support Search, Get, Create, Update, Delete.
 | `nexudus surveys list --business-id <value> --name <value> --agent` | Filter surveys by properties |
 | `nexudus surveys list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus surveys get <id> --agent` | Get single survey |
-| `nexudus surveys create --business-id <value> --name <value> --description <value> --next-delivery-date <value> --delivery-rate <value> --delivery-rate-maximum <value> --agent` | Create survey |
+| `nexudus surveys create --business-id <value> --name <value> --description <value> --next-delivery-date <value> --delivery-rate <value> --delivery-frequency <value> --delivery-rate-maximum <value> --delivery-frequency-maximum <value> --agent` | Create survey |
 | `nexudus surveys update <id> --name "New Name" --agent` | Update survey |
 | `nexudus surveys delete <id> --yes --agent` | Delete survey (no prompt) |
 
@@ -23,7 +23,7 @@ Surveys support Search, Get, Create, Update, Delete.
 
 #### Survey create options
 
-`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--next-delivery-date` (required), `--delivery-rate` (required), `--delivery-frequency`, `--delivery-rate-maximum` (required), `--delivery-frequency-maximum`, `--start-date`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--next-delivery-date` (required), `--delivery-rate` (required), `--delivery-frequency` (required), `--delivery-rate-maximum` (required), `--delivery-frequency-maximum` (required), `--start-date`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
 
 #### Survey update options
 

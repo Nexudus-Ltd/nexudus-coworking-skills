@@ -13,7 +13,7 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | `nexudus crmopportunities list --name <value> --crm-board-column-id <value> --agent` | Filter crmopportunities by properties |
 | `nexudus crmopportunities list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus crmopportunities get <id> --agent` | Get single crmopportunity |
-| `nexudus crmopportunities create --crm-board-column-id <value> --coworker-id <value> --position <value> --agent` | Create crmopportunity |
+| `nexudus crmopportunities create --crm-board-column-id <value> --coworker-id <value> --status <value> --position <value> --agent` | Create crmopportunity |
 | `nexudus crmopportunities update <id> --name "New Name" --agent` | Update crmopportunity |
 | `nexudus crmopportunities delete <id> --yes --agent` | Delete crmopportunity (no prompt) |
 
@@ -23,7 +23,7 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 
 #### CrmOpportunity create options
 
-`--name`, `--crm-board-column-id` (required), `--coworker-id` (required), `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--value`, `--reminded`, `--lead-source`, `--loss-reason`, `--status`, `--won-on`, `--lost-on`, `--position` (required), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
+`--name`, `--crm-board-column-id` (required), `--coworker-id` (required), `--team-id`, `--opportunity-type-id`, `--responsible-id`, `--referrer-id`, `--agent-id`, `--notes`, `--completed`, `--due-date`, `--value`, `--reminded`, `--lead-source`, `--loss-reason`, `--status` (required), `--won-on`, `--lost-on`, `--position` (required), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
 
 #### CrmOpportunity update options
 

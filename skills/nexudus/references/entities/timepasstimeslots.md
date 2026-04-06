@@ -13,7 +13,7 @@ TimePassTimeSlots support Search, Get, Create, Update, Delete.
 | `nexudus timepasstimeslots list --from-time <value> --to-time <value> --agent` | Filter timepasstimeslots by properties |
 | `nexudus timepasstimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus timepasstimeslots get <id> --agent` | Get single timepasstimeslot |
-| `nexudus timepasstimeslots create --time-pass-id <value> --from-time <value> --to-time <value> --agent` | Create timepasstimeslot |
+| `nexudus timepasstimeslots create --time-pass-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create timepasstimeslot |
 | `nexudus timepasstimeslots update <id> --name "New Name" --agent` | Update timepasstimeslot |
 | `nexudus timepasstimeslots delete <id> --yes --agent` | Delete timepasstimeslot (no prompt) |
 
@@ -23,7 +23,7 @@ TimePassTimeSlots support Search, Get, Create, Update, Delete.
 
 #### TimePassTimeSlot create options
 
-`--time-pass-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week`
+`--time-pass-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required)
 
 #### TimePassTimeSlot update options
 

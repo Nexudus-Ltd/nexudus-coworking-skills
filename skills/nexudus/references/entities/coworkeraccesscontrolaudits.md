@@ -2,6 +2,10 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerAccessControlAudits -->
 
+A **CoworkerAccessControlAudit** records any issue encountered when connecting to an access control system, granting permissions to a customer, or updating their profile in those systems.
+
+Entries with `IsProblem = true` indicate that the operation failed or produced an error. Use `Description` to understand what went wrong.
+
 CoworkerAccessControlAudits support Search, Get, Create, Update, Delete.
 
 | Command | Description |

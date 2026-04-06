@@ -13,7 +13,7 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 | `nexudus surveyquestions list --survey-id <value> --text <value> --agent` | Filter surveyquestions by properties |
 | `nexudus surveyquestions list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus surveyquestions get <id> --agent` | Get single surveyquestion |
-| `nexudus surveyquestions create --survey-id <value> --text <value> --description <value> --display-order <value> --agent` | Create surveyquestion |
+| `nexudus surveyquestions create --survey-id <value> --text <value> --description <value> --display-order <value> --question-type <value> --agent` | Create surveyquestion |
 | `nexudus surveyquestions update <id> --name "New Name" --agent` | Update surveyquestion |
 | `nexudus surveyquestions delete <id> --yes --agent` | Delete surveyquestion (no prompt) |
 
@@ -23,7 +23,7 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 
 #### SurveyQuestion create options
 
-`--survey-id` (required), `--text` (required), `--description` (required), `--available-options`, `--active`, `--display-order` (required), `--allow-multiple-options`, `--question-type`
+`--survey-id` (required), `--text` (required), `--description` (required), `--available-options`, `--active`, `--display-order` (required), `--allow-multiple-options`, `--question-type` (required)
 
 #### SurveyQuestion update options
 

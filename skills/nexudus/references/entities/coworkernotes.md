@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerNotes -->
 
+A **CoworkerNote** is an internal note attached to a customer record. Notes are only visible to location staff and administrators — they are never shown to the customer.
+
 CoworkerNotes support Search, Get, Create, Update, Delete.
 
 | Command | Description |

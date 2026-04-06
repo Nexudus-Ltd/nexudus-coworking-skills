@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlans -->
 
+A **FloorPlan** is a visual diagram representing a single floor of a location. Floor plans are used by admins and customers to get an overview of the space layout, including rooms, desks, and other areas.
+
+Each floor plan belongs to a location (`Business`) and can optionally reference a `FloorPlanLayout` template. A background/tracing image can be uploaded to overlay the drawn areas, and its position and scale can be adjusted independently from the floor plan's own scale.
+
+Once created, floor plan units (FloorPlanDesks) are added to the floor plan to represent individual bookable or non-bookable areas such as offices, dedicated desks, hot desks, and meeting rooms.
+
 FloorPlans support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -10,7 +16,7 @@ FloorPlans support Search, Get, Create, Update, Delete.
 | `nexudus floorplans list --id <id> --agent` | Filter by single ID |
 | `nexudus floorplans list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus floorplans list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus floorplans list --business-id <value> --floor-plan-layout-id <value> --agent` | Filter floorplans by properties |
+| `nexudus floorplans list --name <value> --agent` | Filter floorplans by properties |
 | `nexudus floorplans list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus floorplans get <id> --agent` | Get single floorplan |
 | `nexudus floorplans create --business-id <value> --name <value> --background-scale <value> --position-x <value> --position-y <value> --floor-level <value> --scale <value> --agent` | Create floorplan |
@@ -28,5 +34,9 @@ FloorPlans support Search, Get, Create, Update, Delete.
 #### FloorPlan update options
 
 `--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale`, `--position-x`, `--position-y`, `--floor-level`, `--scale`, `--capacity`, `--archilogic-unique-id`
+
+### FloorPlan (key fields)
+
+`Id`, `BusinessName`, `FloorPlanLayoutName`, `Name`
 
 <!-- END:GENERATED entity=FloorPlans -->

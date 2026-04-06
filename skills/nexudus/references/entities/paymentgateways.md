@@ -19,7 +19,7 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 | `nexudus paymentgateways list --name <value> --payment-gateway-type <value> --agent` | Filter paymentgateways by properties |
 | `nexudus paymentgateways list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus paymentgateways get <id> --agent` | Get single paymentgateway |
-| `nexudus paymentgateways create --business-id <value> --name <value> --agent` | Create paymentgateway |
+| `nexudus paymentgateways create --business-id <value> --name <value> --payment-gateway-type <value> --agent` | Create paymentgateway |
 | `nexudus paymentgateways update <id> --name "New Name" --agent` | Update paymentgateway |
 | `nexudus paymentgateways delete <id> --yes --agent` | Delete paymentgateway (no prompt) |
 
@@ -29,7 +29,7 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 
 #### PaymentGateway create options
 
-`--business-id` (required), `--name` (required), `--payment-gateway-type`, `--attempt3d-secure`, `--configuration-xml`, `--transaction-fee`, `--financial-account-id`, `--tax-rate-id`
+`--business-id` (required), `--name` (required), `--payment-gateway-type` (required), `--attempt3d-secure`, `--configuration-xml`, `--transaction-fee`, `--financial-account-id`, `--tax-rate-id`
 
 #### PaymentGateway update options
 

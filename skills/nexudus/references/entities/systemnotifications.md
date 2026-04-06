@@ -13,7 +13,7 @@ SystemNotifications support Search, Get, Create, Update, Delete.
 | `nexudus systemnotifications list --title <value> --severity <value> --agent` | Filter systemnotifications by properties |
 | `nexudus systemnotifications list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus systemnotifications get <id> --agent` | Get single systemnotification |
-| `nexudus systemnotifications create --title <value> --start-time <value> --short-description <value> --description <value> --agent` | Create systemnotification |
+| `nexudus systemnotifications create --title <value> --severity <value> --start-time <value> --short-description <value> --description <value> --message-type <value> --agent` | Create systemnotification |
 | `nexudus systemnotifications update <id> --name "New Name" --agent` | Update systemnotification |
 | `nexudus systemnotifications delete <id> --yes --agent` | Delete systemnotification (no prompt) |
 
@@ -23,7 +23,7 @@ SystemNotifications support Search, Get, Create, Update, Delete.
 
 #### SystemNotification create options
 
-`--title` (required), `--severity`, `--start-time` (required), `--publish-on`, `--un-publish-on`, `--short-description` (required), `--description` (required), `--resolution-description`, `--resolved`, `--resolved-on`, `--display-to-admins`, `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type`, `--has-button`, `--button-label`, `--button-url`
+`--title` (required), `--severity` (required), `--start-time` (required), `--publish-on`, `--un-publish-on`, `--short-description` (required), `--description` (required), `--resolution-description`, `--resolved`, `--resolved-on`, `--display-to-admins`, `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type` (required), `--has-button`, `--button-label`, `--button-url`
 
 #### SystemNotification update options
 

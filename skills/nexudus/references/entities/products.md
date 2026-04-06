@@ -22,7 +22,7 @@ Products also support entity commands.
 | `nexudus products list --name <value> --description <value> --agent` | Filter products by properties |
 | `nexudus products list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus products get <id> --agent` | Get single product |
-| `nexudus products create --business-id <value> --name <value> --description <value> --display-order <value> --price <value> --currency-id <value> --agent` | Create product |
+| `nexudus products create --business-id <value> --name <value> --system-product-type <value> --description <value> --display-order <value> --price <value> --currency-id <value> --available-as <value> --agent` | Create product |
 | `nexudus products update <id> --name "New Name" --agent` | Update product |
 | `nexudus products delete <id> --yes --agent` | Delete product (no prompt) |
 | `nexudus products commands --agent` | List available entity commands |
@@ -34,7 +34,7 @@ Products also support entity commands.
 
 #### Product create options
 
-`--business-id` (required), `--name` (required), `--system-product-type`, `--description` (required), `--invoice-display`, `--sku`, `--tags`, `--display-order` (required), `--price` (required), `--visible`, `--sync-square`, `--currency-id` (required), `--tax-rate-id`, `--reduced-tax-rate-id`, `--exempt-tax-rate-id`, `--financial-account-id`, `--available-as`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived`, `--starred`, `--track-stock`, `--allow-negative-stock`, `--stock-alert-level`, `--apply-pro-rating`, `--new-image-url`, `--clear-image-file`, `--invoice-coworker`, `--sync-nex-kiosk`, `--create-delivery`
+`--business-id` (required), `--name` (required), `--system-product-type` (required), `--description` (required), `--invoice-display`, `--sku`, `--tags`, `--display-order` (required), `--price` (required), `--visible`, `--sync-square`, `--currency-id` (required), `--tax-rate-id`, `--reduced-tax-rate-id`, `--exempt-tax-rate-id`, `--financial-account-id`, `--available-as` (required), `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived`, `--starred`, `--track-stock`, `--allow-negative-stock`, `--stock-alert-level`, `--apply-pro-rating`, `--new-image-url`, `--clear-image-file`, `--invoice-coworker`, `--sync-nex-kiosk`, `--create-delivery`
 
 #### Product update options
 

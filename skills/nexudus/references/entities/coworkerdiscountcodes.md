@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerDiscountCodes -->
 
+A **CoworkerDiscountCode** assigns a `DiscountCode` to a specific customer, allowing the system to track per-customer redemption history and enforce individual validity windows.
+
+Use `ValidFrom` and `ExpiresOn` to set customer-specific validity dates. These are distinct from the discount code's own `ValidFrom`/`ValidTo` and `ExpirationType`/`ExpiresIn` fields — the system enforces whichever constraint is more restrictive.
+
+When the discount is part of the referral programme, `RefererGuid` identifies the referring customer. `BookingUniqueId` links the assignment to the specific booking where the code was originally applied.
+
 CoworkerDiscountCodes support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -28,5 +34,9 @@ CoworkerDiscountCodes support Search, Get, Create, Update, Delete.
 #### CoworkerDiscountCode update options
 
 `--coworker-id`, `--business-id`, `--discount-code-id`, `--notes`, `--valid-from`, `--expires-on`, `--referer-guid`, `--booking-unique-id`
+
+### CoworkerDiscountCode (key fields)
+
+`Id`, `CoworkerFullName`, `DiscountCodeCode`
 
 <!-- END:GENERATED entity=CoworkerDiscountCodes -->

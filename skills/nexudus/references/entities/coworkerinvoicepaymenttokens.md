@@ -2,6 +2,10 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerInvoicePaymentTokens -->
 
+A **CoworkerInvoicePaymentToken** is an internal record of the token used to process the payment for a customer invoice.
+
+Each token links a `CoworkerInvoice` to the payment provider and the provider-specific token string used to authorise or capture the payment. Use the `Notes` field to store any additional context about the token.
+
 CoworkerInvoicePaymentTokens support Search, Get, Create, Update, Delete.
 
 | Command | Description |

@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=CourseCompletedLessons -->
 
+A **CourseCompletedLesson** records that a specific `CourseMember` has completed a specific `CourseLesson`. Each record is the junction between a lesson and the enrolled member who finished it.
+
+These records are typically created automatically by the Members Portal when a member meets the lesson's completion criteria (e.g. visiting the lesson page, clicking a completion button, or finishing a video). They can also be created or deleted manually via the API to manage progress programmatically.
+
+Use this entity to query which lessons a member has completed, or to find all members who have completed a given lesson.
+
 CourseCompletedLessons support Search, Get, Create, Update, Delete.
 
 | Command | Description |

@@ -14,7 +14,7 @@ Visitors also support entity commands.
 | `nexudus visitors list --full-name <value> --email <value> --agent` | Filter visitors by properties |
 | `nexudus visitors list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus visitors get <id> --agent` | Get single visitor |
-| `nexudus visitors create --business-id <value> --full-name <value> --email <value> --expected-arrival <value> --agent` | Create visitor |
+| `nexudus visitors create --business-id <value> --full-name <value> --email <value> --visitor-source <value> --host-approval-status <value> --expected-arrival <value> --agent` | Create visitor |
 | `nexudus visitors update <id> --name "New Name" --agent` | Update visitor |
 | `nexudus visitors delete <id> --yes --agent` | Delete visitor (no prompt) |
 | `nexudus visitors run-command <key> <ids> --agent` | Run entity command |
@@ -25,7 +25,7 @@ Visitors also support entity commands.
 
 #### Visitor create options
 
-`--business-id` (required), `--full-name` (required), `--email` (required), `--coworker-id`, `--visitor-source`, `--host-approval-status`, `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (required), `--arrived`, `--arrival-date`, `--departure-date`, `--notified`, `--internal`, `--is-tour`, `--has-agreed-terms`, `--tour-confirmed`, `--access-control-scheduled-job-id`, `--check-in-now`
+`--business-id` (required), `--full-name` (required), `--email` (required), `--coworker-id`, `--visitor-source` (required), `--host-approval-status` (required), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (required), `--arrived`, `--arrival-date`, `--departure-date`, `--notified`, `--internal`, `--is-tour`, `--has-agreed-terms`, `--tour-confirmed`, `--access-control-scheduled-job-id`, `--check-in-now`
 
 #### Visitor update options
 

@@ -13,7 +13,7 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 | `nexudus openaichatmessages list --business-id <value> --user-id <value> --agent` | Filter openaichatmessages by properties |
 | `nexudus openaichatmessages list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus openaichatmessages get <id> --agent` | Get single openaichatmessage |
-| `nexudus openaichatmessages create --business-id <value> --content <value> --agent` | Create openaichatmessage |
+| `nexudus openaichatmessages create --business-id <value> --action <value> --content <value> --agent` | Create openaichatmessage |
 | `nexudus openaichatmessages update <id> --name "New Name" --agent` | Update openaichatmessage |
 | `nexudus openaichatmessages delete <id> --yes --agent` | Delete openaichatmessage (no prompt) |
 
@@ -23,7 +23,7 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 #### OpenAiChatMessage create options
 
-`--business-id` (required), `--user-id`, `--action`, `--content` (required)
+`--business-id` (required), `--user-id`, `--action` (required), `--content` (required)
 
 #### OpenAiChatMessage update options
 

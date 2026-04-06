@@ -14,7 +14,7 @@ ResourceTimeSlots also support entity commands.
 | `nexudus resourcetimeslots list --from-time <value> --to-time <value> --agent` | Filter resourcetimeslots by properties |
 | `nexudus resourcetimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus resourcetimeslots get <id> --agent` | Get single resourcetimeslot |
-| `nexudus resourcetimeslots create --resource-id <value> --from-time <value> --to-time <value> --agent` | Create resourcetimeslot |
+| `nexudus resourcetimeslots create --resource-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create resourcetimeslot |
 | `nexudus resourcetimeslots update <id> --name "New Name" --agent` | Update resourcetimeslot |
 | `nexudus resourcetimeslots delete <id> --yes --agent` | Delete resourcetimeslot (no prompt) |
 | `nexudus resourcetimeslots run-command <key> <ids> --agent` | Run entity command |
@@ -25,7 +25,7 @@ ResourceTimeSlots also support entity commands.
 
 #### ResourceTimeSlot create options
 
-`--resource-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week`
+`--resource-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required)
 
 #### ResourceTimeSlot update options
 

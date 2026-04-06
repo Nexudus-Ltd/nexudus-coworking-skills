@@ -33,7 +33,7 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 | `nexudus automationtiles list --name <value> --action <value> --agent` | Filter automationtiles by properties |
 | `nexudus automationtiles list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus automationtiles get <id> --agent` | Get single automationtile |
-| `nexudus automationtiles create --business-id <value> --name <value> --agent` | Create automationtile |
+| `nexudus automationtiles create --business-id <value> --name <value> --action <value> --geofence-precission <value> --agent` | Create automationtile |
 | `nexudus automationtiles update <id> --name "New Name" --agent` | Update automationtile |
 | `nexudus automationtiles delete <id> --yes --agent` | Delete automationtile (no prompt) |
 
@@ -43,7 +43,7 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 
 #### AutomationTile create options
 
-`--business-id` (required), `--name` (required), `--tile-number`, `--action`, `--action-parameters`, `--enable-geofence`, `--check-customer-in`, `--longitude`, `--latitude`, `--geofence-precission`, `--max-distance-meters`, `--success-message`, `--error-message`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--time-passes` (list, repeat flag), `--added-time-passes` (list, repeat flag), `--removed-time-passes` (list, repeat flag), `--floor-plan-desks` (list, repeat flag), `--added-floor-plan-desks` (list, repeat flag), `--removed-floor-plan-desks` (list, repeat flag)
+`--business-id` (required), `--name` (required), `--tile-number`, `--action` (required), `--action-parameters`, `--enable-geofence`, `--check-customer-in`, `--longitude`, `--latitude`, `--geofence-precission` (required), `--max-distance-meters`, `--success-message`, `--error-message`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--time-passes` (list, repeat flag), `--added-time-passes` (list, repeat flag), `--removed-time-passes` (list, repeat flag), `--floor-plan-desks` (list, repeat flag), `--added-floor-plan-desks` (list, repeat flag), `--removed-floor-plan-desks` (list, repeat flag)
 
 #### AutomationTile update options
 

@@ -13,7 +13,7 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 | `nexudus emailaccounts list --business-id <value> --display-name <value> --agent` | Filter emailaccounts by properties |
 | `nexudus emailaccounts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus emailaccounts get <id> --agent` | Get single emailaccount |
-| `nexudus emailaccounts create --business-id <value> --display-name <value> --email-address <value> --incoming-server <value> --incoming-server-port <value> --incoming-server-username <value> --outgoing-server <value> --outgoing-server-port <value> --outgoing-server-username <value> --last-message-id <value> --error-count <value> --agent` | Create emailaccount |
+| `nexudus emailaccounts create --business-id <value> --display-name <value> --email-address <value> --incoming-server <value> --incoming-server-type <value> --incoming-server-port <value> --incoming-server-username <value> --delete-message-settings <value> --outgoing-server <value> --outgoing-server-port <value> --outgoing-server-username <value> --last-message-id <value> --error-count <value> --agent` | Create emailaccount |
 | `nexudus emailaccounts update <id> --name "New Name" --agent` | Update emailaccount |
 | `nexudus emailaccounts delete <id> --yes --agent` | Delete emailaccount (no prompt) |
 
@@ -23,7 +23,7 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 
 #### EmailAccount create options
 
-`--business-id` (required), `--display-name` (required), `--email-address` (required), `--active`, `--send-notification-on-new-messages`, `--notification-email-address`, `--incoming-server` (required), `--incoming-server-type`, `--incoming-server-port` (required), `--incoming-server-s-s-l`, `--incoming-server-username` (required), `--delete-message-settings`, `--outgoing-server` (required), `--outgoing-server-port` (required), `--outgoing-server-s-s-l`, `--outgoing-server-username` (required), `--reply-to-email`, `--last-check-time`, `--last-message-id` (required), `--error-count` (required), `--google-access-token`, `--office365-access-token`
+`--business-id` (required), `--display-name` (required), `--email-address` (required), `--active`, `--send-notification-on-new-messages`, `--notification-email-address`, `--incoming-server` (required), `--incoming-server-type` (required), `--incoming-server-port` (required), `--incoming-server-s-s-l`, `--incoming-server-username` (required), `--delete-message-settings` (required), `--outgoing-server` (required), `--outgoing-server-port` (required), `--outgoing-server-s-s-l`, `--outgoing-server-username` (required), `--reply-to-email`, `--last-check-time`, `--last-message-id` (required), `--error-count` (required), `--google-access-token`, `--office365-access-token`
 
 #### EmailAccount update options
 

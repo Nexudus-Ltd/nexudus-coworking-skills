@@ -24,7 +24,7 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 | `nexudus tariffbookingcredits list --name <value> --credit <value> --agent` | Filter tariffbookingcredits by properties |
 | `nexudus tariffbookingcredits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tariffbookingcredits get <id> --agent` | Get single tariffbookingcredit |
-| `nexudus tariffbookingcredits create --name <value> --tariff-id <value> --credit <value> --agent` | Create tariffbookingcredit |
+| `nexudus tariffbookingcredits create --name <value> --tariff-id <value> --credit <value> --service-renewal-time <value> --agent` | Create tariffbookingcredit |
 | `nexudus tariffbookingcredits update <id> --name "New Name" --agent` | Update tariffbookingcredit |
 | `nexudus tariffbookingcredits delete <id> --yes --agent` | Delete tariffbookingcredit (no prompt) |
 
@@ -34,7 +34,7 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 
 #### TariffBookingCredit create options
 
-`--name` (required), `--tariff-id` (required), `--elegible-resource-types` (list, repeat flag), `--added-elegible-resource-types` (list, repeat flag), `--removed-elegible-resource-types` (list, repeat flag), `--elegible-products` (list, repeat flag), `--added-elegible-products` (list, repeat flag), `--removed-elegible-products` (list, repeat flag), `--elegible-tariffs` (list, repeat flag), `--added-elegible-tariffs` (list, repeat flag), `--removed-elegible-tariffs` (list, repeat flag), `--credit` (required), `--can-be-used-for-bookings`, `--can-be-used-for-events`, `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--service-renewal-time`, `--is-universal-credit`, `--elegible-passes` (list, repeat flag), `--added-elegible-passes` (list, repeat flag), `--removed-elegible-passes` (list, repeat flag), `--applies-to-charges`
+`--name` (required), `--tariff-id` (required), `--elegible-resource-types` (list, repeat flag), `--added-elegible-resource-types` (list, repeat flag), `--removed-elegible-resource-types` (list, repeat flag), `--elegible-products` (list, repeat flag), `--added-elegible-products` (list, repeat flag), `--removed-elegible-products` (list, repeat flag), `--elegible-tariffs` (list, repeat flag), `--added-elegible-tariffs` (list, repeat flag), `--removed-elegible-tariffs` (list, repeat flag), `--credit` (required), `--can-be-used-for-bookings`, `--can-be-used-for-events`, `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--service-renewal-time` (required), `--is-universal-credit`, `--elegible-passes` (list, repeat flag), `--added-elegible-passes` (list, repeat flag), `--removed-elegible-passes` (list, repeat flag), `--applies-to-charges`
 
 #### TariffBookingCredit update options
 

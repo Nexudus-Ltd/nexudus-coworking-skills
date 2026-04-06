@@ -25,7 +25,7 @@ Proposals support Search, Get, Create, Update, Delete.
 | `nexudus proposals list --reference <value> --proposal-status <value> --agent` | Filter proposals by properties |
 | `nexudus proposals list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus proposals get <id> --agent` | Get single proposal |
-| `nexudus proposals create --issued-by-id <value> --responsible-id <value> --coworker-id <value> --reference <value> --tariff-id <value> --billing-day <value> --quantity <value> --agent` | Create proposal |
+| `nexudus proposals create --issued-by-id <value> --responsible-id <value> --coworker-id <value> --reference <value> --proposal-status <value> --tariff-id <value> --billing-day <value> --quantity <value> --agent` | Create proposal |
 | `nexudus proposals update <id> --name "New Name" --agent` | Update proposal |
 | `nexudus proposals delete <id> --yes --agent` | Delete proposal (no prompt) |
 
@@ -35,7 +35,7 @@ Proposals support Search, Get, Create, Update, Delete.
 
 #### Proposal create options
 
-`--issued-by-id` (required), `--responsible-id` (required), `--coworker-id` (required), `--reference` (required), `--notes`, `--proposal-status`, `--document-to-send-id`, `--document-to-sign-id`, `--document-to-sign-html`, `--new-document-to-sign-binary-document-url`, `--clear-document-to-sign-binary-document-file`, `--document-to-send-html`, `--new-document-to-send-binary-document-url`, `--clear-document-to-send-binary-document-file`, `--new-proposal-file-url`, `--clear-proposal-file-file`, `--tariff-id` (required), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--price`, `--start-date`, `--cancellation-limit-days`, `--contract-term`, `--cancellation-date`, `--expiration-date`, `--billing-day` (required), `--quantity` (required), `--discount-code-id`, `--start-date-local`, `--sent-on-local`, `--do-not-issue-invoice`
+`--issued-by-id` (required), `--responsible-id` (required), `--coworker-id` (required), `--reference` (required), `--notes`, `--proposal-status` (required), `--document-to-send-id`, `--document-to-sign-id`, `--document-to-sign-html`, `--new-document-to-sign-binary-document-url`, `--clear-document-to-sign-binary-document-file`, `--document-to-send-html`, `--new-document-to-send-binary-document-url`, `--clear-document-to-send-binary-document-file`, `--new-proposal-file-url`, `--clear-proposal-file-file`, `--tariff-id` (required), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--price`, `--start-date`, `--cancellation-limit-days`, `--contract-term`, `--cancellation-date`, `--expiration-date`, `--billing-day` (required), `--quantity` (required), `--discount-code-id`, `--start-date-local`, `--sent-on-local`, `--do-not-issue-invoice`
 
 #### Proposal update options
 

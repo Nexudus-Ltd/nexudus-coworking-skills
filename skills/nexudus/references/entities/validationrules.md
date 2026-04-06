@@ -13,7 +13,7 @@ ValidationRules support Search, Get, Create, Update, Delete.
 | `nexudus validationrules list --business-id <value> --name <value> --agent` | Filter validationrules by properties |
 | `nexudus validationrules list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus validationrules get <id> --agent` | Get single validationrule |
-| `nexudus validationrules create --business-id <value> --name <value> --formula <value> --agent` | Create validationrule |
+| `nexudus validationrules create --business-id <value> --name <value> --record-type <value> --formula <value> --agent` | Create validationrule |
 | `nexudus validationrules update <id> --name "New Name" --agent` | Update validationrule |
 | `nexudus validationrules delete <id> --yes --agent` | Delete validationrule (no prompt) |
 
@@ -23,7 +23,7 @@ ValidationRules support Search, Get, Create, Update, Delete.
 
 #### ValidationRule create options
 
-`--business-id` (required), `--name` (required), `--record-type`, `--active`, `--formula` (required), `--description`, `--error-message`
+`--business-id` (required), `--name` (required), `--record-type` (required), `--active`, `--formula` (required), `--description`, `--error-message`
 
 #### ValidationRule update options
 

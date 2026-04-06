@@ -13,7 +13,7 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 | `nexudus tarifftimepasses list --passes-included <value> --agent` | Filter tarifftimepasses by properties |
 | `nexudus tarifftimepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tarifftimepasses get <id> --agent` | Get single tarifftimepass |
-| `nexudus tarifftimepasses create --tariff-id <value> --time-pass-id <value> --passes-included <value> --agent` | Create tarifftimepass |
+| `nexudus tarifftimepasses create --tariff-id <value> --time-pass-id <value> --passes-included <value> --pass-renewal-time <value> --agent` | Create tarifftimepass |
 | `nexudus tarifftimepasses update <id> --name "New Name" --agent` | Update tarifftimepass |
 | `nexudus tarifftimepasses delete <id> --yes --agent` | Delete tarifftimepass (no prompt) |
 
@@ -23,7 +23,7 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 #### TariffTimePass create options
 
-`--tariff-id` (required), `--time-pass-id` (required), `--passes-included` (required), `--pass-renewal-time`
+`--tariff-id` (required), `--time-pass-id` (required), `--passes-included` (required), `--pass-renewal-time` (required)
 
 #### TariffTimePass update options
 

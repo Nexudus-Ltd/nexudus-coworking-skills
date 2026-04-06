@@ -25,7 +25,7 @@ CommunityGroups support Search, Get, Create, Update, Delete.
 | `nexudus communitygroups list --name <value> --agent` | Filter communitygroups by properties |
 | `nexudus communitygroups list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus communitygroups get <id> --agent` | Get single communitygroup |
-| `nexudus communitygroups create --business-id <value> --user-id <value> --name <value> --agent` | Create communitygroup |
+| `nexudus communitygroups create --business-id <value> --user-id <value> --name <value> --group-access <value> --agent` | Create communitygroup |
 | `nexudus communitygroups update <id> --name "New Name" --agent` | Update communitygroup |
 | `nexudus communitygroups delete <id> --yes --agent` | Delete communitygroup (no prompt) |
 
@@ -35,7 +35,7 @@ CommunityGroups support Search, Get, Create, Update, Delete.
 
 #### CommunityGroup create options
 
-`--business-id` (required), `--user-id` (required), `--name` (required), `--description`, `--group-access`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
+`--business-id` (required), `--user-id` (required), `--name` (required), `--description`, `--group-access` (required), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
 
 #### CommunityGroup update options
 

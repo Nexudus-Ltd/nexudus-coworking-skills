@@ -25,7 +25,7 @@ ContractContacts support Search, Get, Create, Update, Delete.
 | `nexudus contractcontacts list --email <value> --full-name <value> --agent` | Filter contractcontacts by properties |
 | `nexudus contractcontacts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus contractcontacts get <id> --agent` | Get single contractcontact |
-| `nexudus contractcontacts create --coworker-contract-id <value> --full-name <value> --agent` | Create contractcontact |
+| `nexudus contractcontacts create --coworker-contract-id <value> --full-name <value> --contract-contact-type <value> --agent` | Create contractcontact |
 | `nexudus contractcontacts update <id> --name "New Name" --agent` | Update contractcontact |
 | `nexudus contractcontacts delete <id> --yes --agent` | Delete contractcontact (no prompt) |
 
@@ -35,7 +35,7 @@ ContractContacts support Search, Get, Create, Update, Delete.
 
 #### ContractContact create options
 
-`--coworker-contract-id` (required), `--coworker-id`, `--email`, `--full-name` (required), `--date-of-birth`, `--address`, `--post-code`, `--city-name`, `--state`, `--country-id`, `--phone-number`, `--notes`, `--contract-contact-type`
+`--coworker-contract-id` (required), `--coworker-id`, `--email`, `--full-name` (required), `--date-of-birth`, `--address`, `--post-code`, `--city-name`, `--state`, `--country-id`, `--phone-number`, `--notes`, `--contract-contact-type` (required)
 
 #### ContractContact update options
 

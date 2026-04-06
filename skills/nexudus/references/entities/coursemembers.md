@@ -2,6 +2,15 @@
 
 <!-- BEGIN:GENERATED entity=CourseMembers -->
 
+A **CourseMember** represents a customer's enrolment in a `Course`. When a customer signs up to a course through the Members Portal they are automatically added as a CourseMember. Members can also be added manually via the Admin Panel or the API.
+
+Each CourseMember record tracks the member's progress (`LastCompletedLessonId`, `LastAccess`) and their access status:
+
+- `Approved` — the member has been approved to access the course content. For public courses this is set automatically on sign-up; for private or paid courses an administrator may need to approve the enrolment.
+- `Blocked` — the member has been blocked from accessing the course.
+
+Use `CourseCompletedLesson` records to query which individual lessons a member has completed.
+
 CourseMembers support Search, Get, Create, Update, Delete.
 
 | Command | Description |

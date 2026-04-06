@@ -13,7 +13,7 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 | `nexudus newslettersubscribers list --business-id <value> --name <value> --agent` | Filter newslettersubscribers by properties |
 | `nexudus newslettersubscribers list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus newslettersubscribers get <id> --agent` | Get single newslettersubscriber |
-| `nexudus newslettersubscribers create --business-id <value> --name <value> --email <value> --agent` | Create newslettersubscriber |
+| `nexudus newslettersubscribers create --business-id <value> --name <value> --language <value> --email <value> --agent` | Create newslettersubscriber |
 | `nexudus newslettersubscribers update <id> --name "New Name" --agent` | Update newslettersubscriber |
 | `nexudus newslettersubscribers delete <id> --yes --agent` | Delete newslettersubscriber (no prompt) |
 
@@ -23,7 +23,7 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 
 #### NewsLetterSubscriber create options
 
-`--business-id` (required), `--name` (required), `--company-name`, `--language`, `--email` (required), `--visit-reason`, `--active`, `--groups` (list, repeat flag), `--added-groups` (list, repeat flag), `--removed-groups` (list, repeat flag)
+`--business-id` (required), `--name` (required), `--company-name`, `--language` (required), `--email` (required), `--visit-reason`, `--active`, `--groups` (list, repeat flag), `--added-groups` (list, repeat flag), `--removed-groups` (list, repeat flag)
 
 #### NewsLetterSubscriber update options
 

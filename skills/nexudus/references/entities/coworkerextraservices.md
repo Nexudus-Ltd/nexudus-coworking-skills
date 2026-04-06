@@ -21,7 +21,7 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | `nexudus coworkerextraservices list --price <value> --agent` | Filter coworkerextraservices by properties |
 | `nexudus coworkerextraservices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerextraservices get <id> --agent` | Get single coworkerextraservice |
-| `nexudus coworkerextraservices create --coworker-id <value> --business-id <value> --extra-service-id <value> --total-uses <value> --agent` | Create coworkerextraservice |
+| `nexudus coworkerextraservices create --coworker-id <value> --business-id <value> --extra-service-id <value> --total-uses <value> --charge-period <value> --agent` | Create coworkerextraservice |
 | `nexudus coworkerextraservices update <id> --name "New Name" --agent` | Update coworkerextraservice |
 | `nexudus coworkerextraservices delete <id> --yes --agent` | Delete coworkerextraservice (no prompt) |
 
@@ -31,7 +31,7 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
 #### CoworkerExtraService create options
 
-`--coworker-id` (required), `--business-id` (required), `--extra-service-id` (required), `--notes`, `--total-uses` (required), `--free`, `--price`, `--valid-from`, `--expire-date`, `--due-date`, `--purchase-order`, `--charge-period`, `--invoice-this-coworker`, `--booking-id`, `--booking-from-time`, `--booking-to-time`, `--booking-resource-name`, `--coworker-contract-unique-id`
+`--coworker-id` (required), `--business-id` (required), `--extra-service-id` (required), `--notes`, `--total-uses` (required), `--free`, `--price`, `--valid-from`, `--expire-date`, `--due-date`, `--purchase-order`, `--charge-period` (required), `--invoice-this-coworker`, `--booking-id`, `--booking-from-time`, `--booking-to-time`, `--booking-resource-name`, `--coworker-contract-unique-id`
 
 #### CoworkerExtraService update options
 

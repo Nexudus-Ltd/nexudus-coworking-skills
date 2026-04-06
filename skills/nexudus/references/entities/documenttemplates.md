@@ -13,7 +13,7 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 | `nexudus documenttemplates list --business-id <value> --name <value> --agent` | Filter documenttemplates by properties |
 | `nexudus documenttemplates list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus documenttemplates get <id> --agent` | Get single documenttemplate |
-| `nexudus documenttemplates create --business-id <value> --name <value> --agent` | Create documenttemplate |
+| `nexudus documenttemplates create --business-id <value> --name <value> --template-output-format <value> --agent` | Create documenttemplate |
 | `nexudus documenttemplates update <id> --name "New Name" --agent` | Update documenttemplate |
 | `nexudus documenttemplates delete <id> --yes --agent` | Delete documenttemplate (no prompt) |
 
@@ -23,7 +23,7 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 
 #### DocumentTemplate create options
 
-`--business-id` (required), `--name` (required), `--document`, `--new-binary-document-url`, `--clear-binary-document-file`, `--template-output-format`
+`--business-id` (required), `--name` (required), `--document`, `--new-binary-document-url`, `--clear-binary-document-file`, `--template-output-format` (required)
 
 #### DocumentTemplate update options
 

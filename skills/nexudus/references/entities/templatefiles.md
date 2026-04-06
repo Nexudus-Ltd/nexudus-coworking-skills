@@ -13,7 +13,7 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 | `nexudus templatefiles list --business-id <value> --template-version-id <value> --agent` | Filter templatefiles by properties |
 | `nexudus templatefiles list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus templatefiles get <id> --agent` | Get single templatefile |
-| `nexudus templatefiles create --business-id <value> --name <value> --permalink <value> --agent` | Create templatefile |
+| `nexudus templatefiles create --business-id <value> --name <value> --permalink <value> --visibility <value> --agent` | Create templatefile |
 | `nexudus templatefiles update <id> --name "New Name" --agent` | Update templatefile |
 | `nexudus templatefiles delete <id> --yes --agent` | Delete templatefile (no prompt) |
 
@@ -23,7 +23,7 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 
 #### TemplateFile create options
 
-`--business-id` (required), `--template-version-id`, `--name` (required), `--title`, `--description`, `--new-picture-url`, `--clear-picture-file`, `--permalink` (required), `--file-language-id`, `--published`, `--visibility`, `--password`, `--file-contents`
+`--business-id` (required), `--template-version-id`, `--name` (required), `--title`, `--description`, `--new-picture-url`, `--clear-picture-file`, `--permalink` (required), `--file-language-id`, `--published`, `--visibility` (required), `--password`, `--file-contents`
 
 #### TemplateFile update options
 

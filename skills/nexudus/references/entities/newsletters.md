@@ -13,7 +13,7 @@ NewsLetters support Search, Get, Create, Update, Delete.
 | `nexudus newsletters list --business-id <value> --name <value> --agent` | Filter newsletters by properties |
 | `nexudus newsletters list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus newsletters get <id> --agent` | Get single newsletter |
-| `nexudus newsletters create --business-id <value> --name <value> --agent` | Create newsletter |
+| `nexudus newsletters create --business-id <value> --name <value> --language <value> --agent` | Create newsletter |
 | `nexudus newsletters update <id> --name "New Name" --agent` | Update newsletter |
 | `nexudus newsletters delete <id> --yes --agent` | Delete newsletter (no prompt) |
 
@@ -23,7 +23,7 @@ NewsLetters support Search, Get, Create, Update, Delete.
 
 #### NewsLetter create options
 
-`--business-id` (required), `--name` (required), `--last-sent`, `--language`, `--news-letter-contents`, `--news-letter-design`
+`--business-id` (required), `--name` (required), `--last-sent`, `--language` (required), `--news-letter-contents`, `--news-letter-design`
 
 #### NewsLetter update options
 

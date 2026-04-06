@@ -2,6 +2,14 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerPaymentMethods -->
 
+A **CoworkerPaymentMethod** is a tokenised payment method stored against a customer and a location, used when charging invoices issued to that customer by that location.
+
+Currently supported providers are **Stripe** (card and ACH/BACS) and **GoCardless** (direct debit mandates). The `RegularPaymentProvider` field identifies the provider; valid values for this entity are `Stripe` (2), `StripeACH` (11), `StripeBACS` (13), and `GoCardless` (12).
+
+- For Stripe methods, `MethodId` holds the Stripe payment method ID and `CustomerId` holds the Stripe customer ID.
+- For GoCardless mandates, `MandateId` holds the GoCardless mandate ID and `CustomerId` holds the GoCardless customer ID.
+- `CardNumber` stores a masked card number for display purposes only.
+
 CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -28,5 +36,9 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 #### CoworkerPaymentMethod update options
 
 `--coworker-id`, `--business-id`, `--regular-payment-provider`, `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`
+
+### CoworkerPaymentMethod (key fields)
+
+`Id`, `BusinessName`
 
 <!-- END:GENERATED entity=CoworkerPaymentMethods -->

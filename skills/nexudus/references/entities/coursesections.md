@@ -2,6 +2,18 @@
 
 <!-- BEGIN:GENERATED entity=CourseSections -->
 
+A **CourseSection** is a structural grouping that organises lessons within a `Course`. Sections represent milestones or learning stages — each section should bring the member one step closer to the course's overall learning goal.
+
+Sections are ordered by `DisplayOrder` and can be set to unlock immediately or after a delay, using the same `UnlockType` / `UnlockAfterDays` mechanism as individual lessons:
+
+| UnlockType | Meaning |
+| ---------- | ------- |
+| Immediate  | Section is available as soon as the member enrols |
+| Sequential | Unlocked only after the previous section is completed |
+| Timed      | Unlocked after the number of days specified by `UnlockAfterDays` |
+
+Sections are optional — lessons can belong directly to a course without a section. However, using sections can help create a clearer learning path for members, and allows you to unlock groups of lessons at once.
+
 CourseSections support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -13,7 +25,7 @@ CourseSections support Search, Get, Create, Update, Delete.
 | `nexudus coursesections list --course-id <value> --title <value> --agent` | Filter coursesections by properties |
 | `nexudus coursesections list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coursesections get <id> --agent` | Get single coursesection |
-| `nexudus coursesections create --course-id <value> --title <value> --display-order <value> --unlock-after-days <value> --agent` | Create coursesection |
+| `nexudus coursesections create --course-id <value> --title <value> --display-order <value> --unlock-type <value> --unlock-after-days <value> --agent` | Create coursesection |
 | `nexudus coursesections update <id> --name "New Name" --agent` | Update coursesection |
 | `nexudus coursesections delete <id> --yes --agent` | Delete coursesection (no prompt) |
 
@@ -23,7 +35,7 @@ CourseSections support Search, Get, Create, Update, Delete.
 
 #### CourseSection create options
 
-`--course-id` (required), `--title` (required), `--section-contents`, `--active`, `--display-order` (required), `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days` (required)
+`--course-id` (required), `--title` (required), `--section-contents`, `--active`, `--display-order` (required), `--unlock-type` (required), `--new-image-url`, `--clear-image-file`, `--unlock-after-days` (required)
 
 #### CourseSection update options
 

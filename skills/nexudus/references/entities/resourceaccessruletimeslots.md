@@ -13,7 +13,7 @@ ResourceAccessRuleTimeSlots support Search, Get, Create, Update, Delete.
 | `nexudus resourceaccessruletimeslots list --from-time <value> --to-time <value> --agent` | Filter resourceaccessruletimeslots by properties |
 | `nexudus resourceaccessruletimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus resourceaccessruletimeslots get <id> --agent` | Get single resourceaccessruletimeslot |
-| `nexudus resourceaccessruletimeslots create --resource-access-rule-id <value> --from-time <value> --to-time <value> --agent` | Create resourceaccessruletimeslot |
+| `nexudus resourceaccessruletimeslots create --resource-access-rule-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create resourceaccessruletimeslot |
 | `nexudus resourceaccessruletimeslots update <id> --name "New Name" --agent` | Update resourceaccessruletimeslot |
 | `nexudus resourceaccessruletimeslots delete <id> --yes --agent` | Delete resourceaccessruletimeslot (no prompt) |
 
@@ -23,7 +23,7 @@ ResourceAccessRuleTimeSlots support Search, Get, Create, Update, Delete.
 
 #### ResourceAccessRuleTimeSlot create options
 
-`--resource-access-rule-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week`
+`--resource-access-rule-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required)
 
 #### ResourceAccessRuleTimeSlot update options
 

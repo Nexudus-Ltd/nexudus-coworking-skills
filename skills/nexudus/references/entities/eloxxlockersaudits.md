@@ -13,7 +13,7 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 | `nexudus eloxxlockersaudits list --business-id <value> --floor-plan-desk-id <value> --agent` | Filter eloxxlockersaudits by properties |
 | `nexudus eloxxlockersaudits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus eloxxlockersaudits get <id> --agent` | Get single eloxxlockersaudit |
-| `nexudus eloxxlockersaudits create --business-id <value> --floor-plan-desk-id <value> --coworker-id <value> --description <value> --agent` | Create eloxxlockersaudit |
+| `nexudus eloxxlockersaudits create --business-id <value> --floor-plan-desk-id <value> --coworker-id <value> --description <value> --action <value> --tile-audit-type <value> --agent` | Create eloxxlockersaudit |
 | `nexudus eloxxlockersaudits update <id> --name "New Name" --agent` | Update eloxxlockersaudit |
 | `nexudus eloxxlockersaudits delete <id> --yes --agent` | Delete eloxxlockersaudit (no prompt) |
 
@@ -23,7 +23,7 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 
 #### EloxxLockersAudit create options
 
-`--business-id` (required), `--floor-plan-desk-id` (required), `--coworker-id` (required), `--description` (required), `--action-by`, `--action`, `--tile-audit-type`
+`--business-id` (required), `--floor-plan-desk-id` (required), `--coworker-id` (required), `--description` (required), `--action-by`, `--action` (required), `--tile-audit-type` (required)
 
 #### EloxxLockersAudit update options
 

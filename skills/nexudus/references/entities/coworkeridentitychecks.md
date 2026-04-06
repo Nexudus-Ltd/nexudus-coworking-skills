@@ -29,7 +29,7 @@ CoworkerIdentityChecks also support entity commands.
 | `nexudus coworkeridentitychecks list --name <value> --agent` | Filter coworkeridentitychecks by properties |
 | `nexudus coworkeridentitychecks list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkeridentitychecks get <id> --agent` | Get single coworkeridentitycheck |
-| `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --agent` | Create coworkeridentitycheck |
+| `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --identity-check-provider <value> --identity-document-type <value> --address-document-type <value> --agent` | Create coworkeridentitycheck |
 | `nexudus coworkeridentitychecks update <id> --name "New Name" --agent` | Update coworkeridentitycheck |
 | `nexudus coworkeridentitychecks delete <id> --yes --agent` | Delete coworkeridentitycheck (no prompt) |
 | `nexudus coworkeridentitychecks run-command <key> <ids> --agent` | Run entity command |
@@ -40,7 +40,7 @@ CoworkerIdentityChecks also support entity commands.
 
 #### CoworkerIdentityCheck create options
 
-`--business-id` (required), `--coworker-id` (required), `--name` (required), `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`
+`--business-id` (required), `--coworker-id` (required), `--name` (required), `--identity-check-provider` (required), `--identity-document-type` (required), `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type` (required), `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`
 
 #### CoworkerIdentityCheck update options
 

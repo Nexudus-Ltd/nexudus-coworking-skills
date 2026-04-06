@@ -19,7 +19,7 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 | `nexudus extraservicetimeslots list --from-time <value> --to-time <value> --agent` | Filter extraservicetimeslots by properties |
 | `nexudus extraservicetimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus extraservicetimeslots get <id> --agent` | Get single extraservicetimeslot |
-| `nexudus extraservicetimeslots create --extra-service-id <value> --from-time <value> --to-time <value> --agent` | Create extraservicetimeslot |
+| `nexudus extraservicetimeslots create --extra-service-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create extraservicetimeslot |
 | `nexudus extraservicetimeslots update <id> --name "New Name" --agent` | Update extraservicetimeslot |
 | `nexudus extraservicetimeslots delete <id> --yes --agent` | Delete extraservicetimeslot (no prompt) |
 
@@ -29,7 +29,7 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 
 #### ExtraServiceTimeSlot create options
 
-`--extra-service-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week`, `--available`
+`--extra-service-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required), `--available`
 
 #### ExtraServiceTimeSlot update options
 

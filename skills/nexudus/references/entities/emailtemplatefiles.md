@@ -13,7 +13,7 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 | `nexudus emailtemplatefiles list --business-id <value> --language <value> --agent` | Filter emailtemplatefiles by properties |
 | `nexudus emailtemplatefiles list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus emailtemplatefiles get <id> --agent` | Get single emailtemplatefile |
-| `nexudus emailtemplatefiles create --business-id <value> --name <value> --subject <value> --agent` | Create emailtemplatefile |
+| `nexudus emailtemplatefiles create --business-id <value> --language <value> --name <value> --subject <value> --agent` | Create emailtemplatefile |
 | `nexudus emailtemplatefiles update <id> --name "New Name" --agent` | Update emailtemplatefile |
 | `nexudus emailtemplatefiles delete <id> --yes --agent` | Delete emailtemplatefile (no prompt) |
 
@@ -23,7 +23,7 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 
 #### EmailTemplateFile create options
 
-`--business-id` (required), `--language`, `--file-language-id`, `--name` (required), `--subject` (required), `--file-contents`, `--is-text-only`, `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
+`--business-id` (required), `--language` (required), `--file-language-id`, `--name` (required), `--subject` (required), `--file-contents`, `--is-text-only`, `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
 
 #### EmailTemplateFile update options
 

@@ -27,7 +27,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 | `nexudus financialaccounts list --name <value> --code <value> --agent` | Filter financialaccounts by properties |
 | `nexudus financialaccounts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus financialaccounts get <id> --agent` | Get single financialaccount |
-| `nexudus financialaccounts create --business-id <value> --name <value> --code <value> --agent` | Create financialaccount |
+| `nexudus financialaccounts create --business-id <value> --name <value> --code <value> --account-type <value> --agent` | Create financialaccount |
 | `nexudus financialaccounts update <id> --name "New Name" --agent` | Update financialaccount |
 | `nexudus financialaccounts delete <id> --yes --agent` | Delete financialaccount (no prompt) |
 
@@ -37,7 +37,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 #### FinancialAccount create options
 
-`--business-id` (required), `--name` (required), `--code` (required), `--description`, `--account-type`
+`--business-id` (required), `--name` (required), `--code` (required), `--description`, `--account-type` (required)
 
 #### FinancialAccount update options
 

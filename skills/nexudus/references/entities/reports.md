@@ -13,7 +13,7 @@ Reports support Search, Get, Create, Update, Delete.
 | `nexudus reports list --business-id <value> --name <value> --agent` | Filter reports by properties |
 | `nexudus reports list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus reports get <id> --agent` | Get single report |
-| `nexudus reports create --business-id <value> --name <value> --folder <value> --agent` | Create report |
+| `nexudus reports create --business-id <value> --name <value> --folder <value> --report-type <value> --agent` | Create report |
 | `nexudus reports update <id> --name "New Name" --agent` | Update report |
 | `nexudus reports delete <id> --yes --agent` | Delete report (no prompt) |
 
@@ -23,7 +23,7 @@ Reports support Search, Get, Create, Update, Delete.
 
 #### Report create options
 
-`--business-id` (required), `--name` (required), `--folder` (required), `--report-type`, `--report-xml`
+`--business-id` (required), `--name` (required), `--folder` (required), `--report-type` (required), `--report-xml`
 
 #### Report update options
 

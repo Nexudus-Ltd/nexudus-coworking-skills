@@ -33,7 +33,7 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `nexudus coworkerproducts list --price <value> --invoiced <value> --agent` | Filter coworkerproducts by properties |
 | `nexudus coworkerproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerproducts get <id> --agent` | Get single coworkerproduct |
-| `nexudus coworkerproducts create --coworker-id <value> --business-id <value> --product-id <value> --quantity <value> --credit-amount <value> --discount-amount <value> --agent` | Create coworkerproduct |
+| `nexudus coworkerproducts create --coworker-id <value> --business-id <value> --product-id <value> --quantity <value> --repeat-cycle <value> --credit-amount <value> --discount-amount <value> --agent` | Create coworkerproduct |
 | `nexudus coworkerproducts update <id> --name "New Name" --agent` | Update coworkerproduct |
 | `nexudus coworkerproducts delete <id> --yes --agent` | Delete coworkerproduct (no prompt) |
 
@@ -43,7 +43,7 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 
 #### CoworkerProduct create options
 
-`--coworker-id` (required), `--business-id` (required), `--product-id` (required), `--notes`, `--purchase-order`, `--activate-now`, `--invoice-this-coworker`, `--price`, `--quantity` (required), `--regular-charge`, `--repeat-cycle`, `--repeat-unit`, `--invoice-on`, `--repeat-from`, `--repeat-until`, `--sale-date`, `--due-date`, `--invoiced`, `--mrm-reminded`, `--apply-pro-rating`, `--proposal-unique-id`, `--coworker-invoice-id`, `--coworker-invoice-number`, `--coworker-invoice-paid`, `--credit-amount` (required), `--discount-amount` (required)
+`--coworker-id` (required), `--business-id` (required), `--product-id` (required), `--notes`, `--purchase-order`, `--activate-now`, `--invoice-this-coworker`, `--price`, `--quantity` (required), `--regular-charge`, `--repeat-cycle` (required), `--repeat-unit`, `--invoice-on`, `--repeat-from`, `--repeat-until`, `--sale-date`, `--due-date`, `--invoiced`, `--mrm-reminded`, `--apply-pro-rating`, `--proposal-unique-id`, `--coworker-invoice-id`, `--coworker-invoice-number`, `--coworker-invoice-paid`, `--credit-amount` (required), `--discount-amount` (required)
 
 #### CoworkerProduct update options
 

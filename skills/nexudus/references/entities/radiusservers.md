@@ -13,7 +13,7 @@ RadiusServers support Search, Get, Create, Update, Delete.
 | `nexudus radiusservers list --business-id <value> --name <value> --agent` | Filter radiusservers by properties |
 | `nexudus radiusservers list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus radiusservers get <id> --agent` | Get single radiusserver |
-| `nexudus radiusservers create --business-id <value> --name <value> --agent` | Create radiusserver |
+| `nexudus radiusservers create --business-id <value> --name <value> --vendor <value> --agent` | Create radiusserver |
 | `nexudus radiusservers update <id> --name "New Name" --agent` | Update radiusserver |
 | `nexudus radiusservers delete <id> --yes --agent` | Delete radiusserver (no prompt) |
 
@@ -23,7 +23,7 @@ RadiusServers support Search, Get, Create, Update, Delete.
 
 #### RadiusServer create options
 
-`--business-id` (required), `--name` (required), `--vendor`, `--active`, `--description`
+`--business-id` (required), `--name` (required), `--vendor` (required), `--active`, `--description`
 
 #### RadiusServer update options
 

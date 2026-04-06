@@ -13,7 +13,7 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 | `nexudus helpdeskmessages list --business-id <value> --coworker-id <value> --agent` | Filter helpdeskmessages by properties |
 | `nexudus helpdeskmessages list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus helpdeskmessages get <id> --agent` | Get single helpdeskmessage |
-| `nexudus helpdeskmessages create --business-id <value> --coworker-id <value> --subject <value> --message-text <value> --agent` | Create helpdeskmessage |
+| `nexudus helpdeskmessages create --business-id <value> --coworker-id <value> --subject <value> --message-text <value> --priority <value> --ai-processing-result <value> --agent` | Create helpdeskmessage |
 | `nexudus helpdeskmessages update <id> --name "New Name" --agent` | Update helpdeskmessage |
 | `nexudus helpdeskmessages delete <id> --yes --agent` | Delete helpdeskmessage (no prompt) |
 
@@ -23,7 +23,7 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 
 #### HelpDeskMessage create options
 
-`--business-id` (required), `--coworker-id` (required), `--help-desk-department-id`, `--subject` (required), `--message-text` (required), `--priority`, `--ai-processing-result`, `--closed`, `--owner-id`, `--new-image-url`, `--clear-image-file`
+`--business-id` (required), `--coworker-id` (required), `--help-desk-department-id`, `--subject` (required), `--message-text` (required), `--priority` (required), `--ai-processing-result` (required), `--closed`, `--owner-id`, `--new-image-url`, `--clear-image-file`
 
 #### HelpDeskMessage update options
 
