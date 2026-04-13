@@ -16,6 +16,6 @@ EmailQueueItems support Search, Get (no Create or Delete via API).
 
 #### EmailQueueItem list filter options
 
-`--business-id`, `--email-account-id`, `--from-user-id`, `--header`, `--body`, `--from-email`, `--to-emails`, `--c-c-emails`, `--c-c-o-emails`, `--sent`, `--sent-attempts`, `--from-sent-attempts` (range), `--to-sent-attempts` (range), `--delivered`, `--last-send-error`, `--send-date`, `--from-send-date` (range), `--to-send-date` (range), `--queued`, `--from-name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--email-account-id` (long), `--from-user-id` (long), `--header`, `--body`, `--from-email`, `--to-emails`, `--c-c-emails`, `--c-c-o-emails`, `--sent` (bool), `--sent-attempts` (int), `--from-sent-attempts` (range), `--to-sent-attempts` (range), `--delivered` (bool), `--last-send-error`, `--send-date` (DateTime), `--from-send-date` (range), `--to-send-date` (range), `--queued` (bool), `--from-name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 <!-- END:GENERATED entity=EmailQueueItems -->

@@ -19,14 +19,14 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 #### MarketPlaceApplication list filter options
 
-`--developer-id`, `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--developer-id` (long), `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published` (bool), `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### MarketPlaceApplication create options
 
-`--developer-id` (required), `--name` (required), `--terms-and-conditions`, `--support-email` (required), `--developer-name` (required), `--published`, `--secret-key`, `--short-description` (required), `--description`, `--notification-email` (required), `--notification-url` (required), `--new-logo-url`, `--clear-logo-file`
+`--developer-id` (long, required), `--name` (required), `--terms-and-conditions`, `--support-email` (required), `--developer-name` (required), `--published` (bool), `--secret-key`, `--short-description` (required), `--description`, `--notification-email` (required), `--notification-url` (required), `--new-logo-url`, `--clear-logo-file` (bool)
 
 #### MarketPlaceApplication update options
 
-`--developer-id`, `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file`
+`--developer-id` (long), `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published` (bool), `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file` (bool)
 
 <!-- END:GENERATED entity=MarketPlaceApplications -->

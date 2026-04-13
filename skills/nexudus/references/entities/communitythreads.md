@@ -25,15 +25,15 @@ CommunityThreads support Search, Get, Create, Update, Delete.
 
 #### CommunityThread list filter options
 
-`--business-id`, `--community-group-id`, `--user-id`, `--coworker-id`, `--subject`, `--message`, `--instant-delivery`, `--tags`, `--private`, `--include-zoom-invite`, `--zoom-event-data`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--community-group-id` (long), `--user-id` (long), `--coworker-id` (long), `--subject`, `--message`, `--instant-delivery` (bool), `--tags`, `--private` (bool), `--include-zoom-invite` (bool), `--zoom-event-data`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityThread create options
 
-`--business-id` (required), `--community-group-id`, `--user-id` (required), `--coworker-id`, `--subject` (required), `--message` (required), `--instant-delivery`, `--tags`, `--private`, `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite`, `--zoom-event-data`
+`--business-id` (long, required), `--community-group-id` (long), `--user-id` (long, required), `--coworker-id` (long), `--subject` (required), `--message` (required), `--instant-delivery` (bool), `--tags`, `--private` (bool), `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite` (bool), `--zoom-event-data`
 
 #### CommunityThread update options
 
-`--business-id`, `--community-group-id`, `--user-id`, `--coworker-id`, `--subject`, `--message`, `--instant-delivery`, `--tags`, `--private`, `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite`, `--zoom-event-data`
+`--business-id` (long), `--community-group-id` (long), `--user-id` (long), `--coworker-id` (long), `--subject`, `--message`, `--instant-delivery` (bool), `--tags`, `--private` (bool), `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite` (bool), `--zoom-event-data`
 
 **List properties (only returned by `get`, not by `list`):** `Guests`, `AddedGuests`, `RemovedGuests`
 

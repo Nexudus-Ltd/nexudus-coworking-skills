@@ -16,6 +16,6 @@ SubscriberActivities support Search, Get (no Create or Delete via API).
 
 #### SubscriberActivity list filter options
 
-`--news-letter-subscriber-id`, `--news-letter-id`, `--activiy-type`, `--data`, `--created-on-local`, `--from-created-on-local` (range), `--to-created-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--news-letter-subscriber-id` (long), `--news-letter-id` (long), `--activiy-type` (enum), `--data`, `--created-on-local` (DateTime), `--from-created-on-local` (range), `--to-created-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 <!-- END:GENERATED entity=SubscriberActivities -->

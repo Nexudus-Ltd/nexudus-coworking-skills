@@ -28,15 +28,15 @@ BusinessDomains support Search, Get, Create, Update, Delete.
 
 #### BusinessDomain list filter options
 
-`--business-id`, `--name`, `--domain-url`, `--active`, `--ssl-proxy`, `--active-from`, `--from-active-from` (range), `--to-active-from` (range), `--active-to`, `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--domain-url`, `--active` (bool), `--ssl-proxy` (bool), `--active-from` (DateTime), `--from-active-from` (range), `--to-active-from` (range), `--active-to` (DateTime), `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessDomain create options
 
-`--business-id` (required), `--name` (required), `--domain-url` (required), `--active`, `--ssl-proxy`, `--active-from`, `--active-to`
+`--business-id` (long, required), `--name` (required), `--domain-url` (required), `--active` (bool), `--ssl-proxy` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
 
 #### BusinessDomain update options
 
-`--business-id`, `--name`, `--domain-url`, `--active`, `--ssl-proxy`, `--active-from`, `--active-to`
+`--business-id` (long), `--name`, `--domain-url`, `--active` (bool), `--ssl-proxy` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
 
 ### BusinessDomain (key fields)
 

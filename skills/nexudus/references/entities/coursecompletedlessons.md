@@ -25,14 +25,14 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 
 #### CourseCompletedLesson list filter options
 
-`--course-lesson-id`, `--course-member-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--course-lesson-id` (long), `--course-member-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CourseCompletedLesson create options
 
-`--course-lesson-id` (required), `--course-member-id` (required)
+`--course-lesson-id` (long, required), `--course-member-id` (long, required)
 
 #### CourseCompletedLesson update options
 
-`--course-lesson-id`, `--course-member-id`
+`--course-lesson-id` (long), `--course-member-id` (long)
 
 <!-- END:GENERATED entity=CourseCompletedLessons -->

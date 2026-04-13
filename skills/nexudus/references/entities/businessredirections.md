@@ -23,15 +23,15 @@ BusinessRedirections support Search, Get, Create, Update, Delete.
 
 #### BusinessRedirection list filter options
 
-`--business-id`, `--source-url`, `--destination-url`, `--active`, `--active-from`, `--from-active-from` (range), `--to-active-from` (range), `--active-to`, `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--source-url`, `--destination-url`, `--active` (bool), `--active-from` (DateTime), `--from-active-from` (range), `--to-active-from` (range), `--active-to` (DateTime), `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessRedirection create options
 
-`--business-id` (required), `--source-url` (required), `--destination-url` (required), `--active`, `--active-from`, `--active-to`
+`--business-id` (long, required), `--source-url` (required), `--destination-url` (required), `--active` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
 
 #### BusinessRedirection update options
 
-`--business-id`, `--source-url`, `--destination-url`, `--active`, `--active-from`, `--active-to`
+`--business-id` (long), `--source-url`, `--destination-url`, `--active` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
 
 ### BusinessRedirection (key fields)
 

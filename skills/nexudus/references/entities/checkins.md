@@ -27,15 +27,15 @@ Checkins also support entity commands.
 
 #### Checkin list filter options
 
-`--coworker-id`, `--business-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--counts-towards-plan-limits`, `--coworker-time-pass-guid`, `--auto-checkout`, `--last-activity`, `--from-last-activity` (range), `--to-last-activity` (range), `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local`, `--from-from-time-local` (range), `--to-from-time-local` (range), `--to-time-local`, `--from-to-time-local` (range), `--to-to-time-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--business-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--counts-towards-plan-limits` (bool), `--coworker-time-pass-guid`, `--auto-checkout` (bool), `--last-activity` (DateTime), `--from-last-activity` (range), `--to-last-activity` (range), `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local` (DateTime), `--from-from-time-local` (range), `--to-from-time-local` (range), `--to-time-local` (DateTime), `--from-to-time-local` (range), `--to-to-time-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Checkin create options
 
-`--coworker-id`, `--business-id` (required), `--from-time` (required), `--to-time`, `--counts-towards-plan-limits`, `--coworker-time-pass-guid`, `--auto-checkout`, `--last-activity`, `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local`, `--to-time-local`
+`--coworker-id` (long), `--business-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime), `--counts-towards-plan-limits` (bool), `--coworker-time-pass-guid`, `--auto-checkout` (bool), `--last-activity` (DateTime), `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local` (DateTime), `--to-time-local` (DateTime)
 
 #### Checkin update options
 
-`--coworker-id`, `--business-id`, `--from-time`, `--to-time`, `--counts-towards-plan-limits`, `--coworker-time-pass-guid`, `--auto-checkout`, `--last-activity`, `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local`, `--to-time-local`
+`--coworker-id` (long), `--business-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--counts-towards-plan-limits` (bool), `--coworker-time-pass-guid`, `--auto-checkout` (bool), `--last-activity` (DateTime), `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local` (DateTime), `--to-time-local` (DateTime)
 
 ### Checkin (key fields)
 

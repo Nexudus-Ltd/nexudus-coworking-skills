@@ -23,15 +23,15 @@ CalendarEventCategories support Search, Get, Create, Update, Delete.
 
 #### CalendarEventCategory list filter options
 
-`--business-id`, `--title`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--title`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CalendarEventCategory create options
 
-`--business-id` (required), `--title` (required), `--calendar-events` (list, repeat flag), `--added-calendar-events` (list, repeat flag), `--removed-calendar-events` (list, repeat flag)
+`--business-id` (long, required), `--title` (required), `--calendar-events` (list, repeat flag), `--added-calendar-events` (list, repeat flag), `--removed-calendar-events` (list, repeat flag)
 
 #### CalendarEventCategory update options
 
-`--business-id`, `--title`, `--calendar-events` (list, repeat flag), `--added-calendar-events` (list, repeat flag), `--removed-calendar-events` (list, repeat flag)
+`--business-id` (long), `--title`, `--calendar-events` (list, repeat flag), `--added-calendar-events` (list, repeat flag), `--removed-calendar-events` (list, repeat flag)
 
 ### CalendarEventCategory (key fields)
 

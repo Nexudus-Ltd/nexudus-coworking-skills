@@ -19,15 +19,15 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 
 #### NewsLetterSubscriber list filter options
 
-`--business-id`, `--name`, `--company-name`, `--language`, `--email`, `--visit-reason`, `--active`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--company-name`, `--language` (enum), `--email`, `--visit-reason`, `--active` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### NewsLetterSubscriber create options
 
-`--business-id` (required), `--name` (required), `--company-name`, `--language` (required), `--email` (required), `--visit-reason`, `--active`, `--groups` (list, repeat flag), `--added-groups` (list, repeat flag), `--removed-groups` (list, repeat flag)
+`--business-id` (long, required), `--name` (required), `--company-name`, `--language` (enum, required), `--email` (required), `--visit-reason`, `--active` (bool), `--groups` (list, repeat flag), `--added-groups` (list, repeat flag), `--removed-groups` (list, repeat flag)
 
 #### NewsLetterSubscriber update options
 
-`--business-id`, `--name`, `--company-name`, `--language`, `--email`, `--visit-reason`, `--active`, `--groups` (list, repeat flag), `--added-groups` (list, repeat flag), `--removed-groups` (list, repeat flag)
+`--business-id` (long), `--name`, `--company-name`, `--language` (enum), `--email`, `--visit-reason`, `--active` (bool), `--groups` (list, repeat flag), `--added-groups` (list, repeat flag), `--removed-groups` (list, repeat flag)
 
 **List properties (only returned by `get`, not by `list`):** `Groups`, `AddedGroups`, `RemovedGroups`
 

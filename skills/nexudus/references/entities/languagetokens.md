@@ -19,14 +19,14 @@ LanguageTokens support Search, Get, Create, Update, Delete.
 
 #### LanguageToken list filter options
 
-`--language-id`, `--name`, `--value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--language-id` (long), `--name`, `--value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### LanguageToken create options
 
-`--language-id` (required), `--name` (required), `--value`
+`--language-id` (long, required), `--name` (required), `--value`
 
 #### LanguageToken update options
 
-`--language-id`, `--name`, `--value`
+`--language-id` (long), `--name`, `--value`
 
 <!-- END:GENERATED entity=LanguageTokens -->

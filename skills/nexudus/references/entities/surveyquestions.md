@@ -19,14 +19,14 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 
 #### SurveyQuestion list filter options
 
-`--survey-id`, `--text`, `--description`, `--available-options`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--allow-multiple-options`, `--question-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--survey-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--allow-multiple-options` (bool), `--question-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SurveyQuestion create options
 
-`--survey-id` (required), `--text` (required), `--description` (required), `--available-options`, `--active`, `--display-order` (required), `--allow-multiple-options`, `--question-type` (required)
+`--survey-id` (long, required), `--text` (required), `--description` (required), `--available-options`, `--active` (bool), `--display-order` (int, required), `--allow-multiple-options` (bool), `--question-type` (enum, required)
 
 #### SurveyQuestion update options
 
-`--survey-id`, `--text`, `--description`, `--available-options`, `--active`, `--display-order`, `--allow-multiple-options`, `--question-type`
+`--survey-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--allow-multiple-options` (bool), `--question-type` (enum)
 
 <!-- END:GENERATED entity=SurveyQuestions -->

@@ -29,15 +29,15 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 
 #### CommunityPerk list filter options
 
-`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page`, `--click-count`, `--from-click-count` (range), `--to-click-count` (range), `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page` (bool), `--click-count` (int), `--from-click-count` (range), `--to-click-count` (range), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityPerk create options
 
-`--business-id` (required), `--title` (required), `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--click-count` (required), `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+`--business-id` (long, required), `--title` (required), `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int, required), `--show-in-home-page` (bool), `--click-count` (int, required), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
 
 #### CommunityPerk update options
 
-`--business-id`, `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--click-count`, `--only-for-contacts`, `--only-for-members`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+`--business-id` (long), `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--show-in-home-page` (bool), `--click-count` (int), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
 
 ### CommunityPerk (key fields)
 

@@ -16,7 +16,7 @@ UserMessages support Search, Get (no Create or Delete via API).
 
 #### UserMessage list filter options
 
-`--business-id`, `--header`, `--body`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--header`, `--body`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 **List properties (only returned by `get`, not by `list`):** `ToUsers`, `AddedToUsers`, `RemovedToUsers`
 

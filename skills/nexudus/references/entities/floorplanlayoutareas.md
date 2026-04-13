@@ -19,14 +19,14 @@ FloorPlanLayoutAreas support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutArea list filter options
 
-`--floor-plan-layout-id`, `--name`, `--contained-areas`, `--nodes`, `--size`, `--from-size` (range), `--to-size` (range), `--color`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--floor-plan-layout-id` (long), `--name`, `--contained-areas`, `--nodes`, `--size` (decimal), `--from-size` (range), `--to-size` (range), `--color`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutArea create options
 
-`--floor-plan-layout-id` (required), `--name` (required), `--contained-areas`, `--nodes`, `--size` (required), `--color`
+`--floor-plan-layout-id` (long, required), `--name` (required), `--contained-areas`, `--nodes`, `--size` (decimal, required), `--color`
 
 #### FloorPlanLayoutArea update options
 
-`--floor-plan-layout-id`, `--name`, `--contained-areas`, `--nodes`, `--size`, `--color`
+`--floor-plan-layout-id` (long), `--name`, `--contained-areas`, `--nodes`, `--size` (decimal), `--color`
 
 <!-- END:GENERATED entity=FloorPlanLayoutAreas -->

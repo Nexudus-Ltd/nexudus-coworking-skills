@@ -31,15 +31,15 @@ CommunityGroups support Search, Get, Create, Update, Delete.
 
 #### CommunityGroup list filter options
 
-`--business-id`, `--user-id`, `--name`, `--description`, `--group-access`, `--team-guid`, `--course-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--user-id` (long), `--name`, `--description`, `--group-access` (enum), `--team-guid`, `--course-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityGroup create options
 
-`--business-id` (required), `--user-id` (required), `--name` (required), `--description`, `--group-access` (required), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
+`--business-id` (long, required), `--user-id` (long, required), `--name` (required), `--description`, `--group-access` (enum, required), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
 
 #### CommunityGroup update options
 
-`--business-id`, `--user-id`, `--name`, `--description`, `--group-access`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
+`--business-id` (long), `--user-id` (long), `--name`, `--description`, `--group-access` (enum), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
 
 ### CommunityGroup (key fields)
 

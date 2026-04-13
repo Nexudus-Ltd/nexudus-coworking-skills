@@ -25,15 +25,15 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 
 #### BusinessCharge list filter options
 
-`--business-id`, `--application-id`, `--description`, `--callback-url`, `--due-date`, `--from-due-date` (range), `--to-due-date` (range), `--percentage-discount`, `--from-percentage-discount` (range), `--to-percentage-discount` (range), `--total-amount`, `--from-total-amount` (range), `--to-total-amount` (range), `--tax-amount`, `--from-tax-amount` (range), `--to-tax-amount` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--application-id` (long), `--description`, `--callback-url`, `--due-date` (DateTime), `--from-due-date` (range), `--to-due-date` (range), `--percentage-discount` (decimal), `--from-percentage-discount` (range), `--to-percentage-discount` (range), `--total-amount` (decimal), `--from-total-amount` (range), `--to-total-amount` (range), `--tax-amount` (decimal), `--from-tax-amount` (range), `--to-tax-amount` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessCharge create options
 
-`--business-id` (required), `--application-id`, `--description` (required), `--callback-url` (required), `--due-date`, `--percentage-discount` (required), `--total-amount` (required), `--tax-amount` (required)
+`--business-id` (long, required), `--application-id` (long), `--description` (required), `--callback-url` (required), `--due-date` (DateTime), `--percentage-discount` (decimal, required), `--total-amount` (decimal, required), `--tax-amount` (decimal, required)
 
 #### BusinessCharge update options
 
-`--business-id`, `--application-id`, `--callback-url`
+`--business-id` (long), `--application-id` (long), `--callback-url`
 
 ### BusinessCharge (key fields)
 

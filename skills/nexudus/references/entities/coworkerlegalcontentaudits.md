@@ -23,15 +23,15 @@ CoworkerLegalContentAudits support Search, Get, Create, Update, Delete.
 
 #### CoworkerLegalContentAudit list filter options
 
-`--business-id`, `--name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerLegalContentAudit create options
 
-`--business-id` (required), `--name` (required)
+`--business-id` (long, required), `--name` (required)
 
 #### CoworkerLegalContentAudit update options
 
-`--business-id`, `--name`
+`--business-id` (long), `--name`
 
 ### CoworkerLegalContentAudit (key fields)
 

@@ -19,14 +19,14 @@ Languages support Search, Get, Create, Update, Delete.
 
 #### Language list filter options
 
-`--business-id`, `--name`, `--culture`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--culture`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Language create options
 
-`--business-id` (required), `--name` (required), `--culture` (required), `--active`, `--display-order` (required)
+`--business-id` (long, required), `--name` (required), `--culture` (required), `--active` (bool), `--display-order` (int, required)
 
 #### Language update options
 
-`--business-id`, `--name`, `--culture`, `--active`, `--display-order`
+`--business-id` (long), `--name`, `--culture`, `--active` (bool), `--display-order` (int)
 
 <!-- END:GENERATED entity=Languages -->

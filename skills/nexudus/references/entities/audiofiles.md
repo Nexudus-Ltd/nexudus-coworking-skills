@@ -21,15 +21,15 @@ AudioFiles support Search, Get, Create, Update, Delete.
 
 #### AudioFile list filter options
 
-`--business-id`, `--name`, `--description`, `--new-audio-url`, `--clear-audio-file`, `--file-size-bytes`, `--from-file-size-bytes` (range), `--to-file-size-bytes` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--description`, `--new-audio-url`, `--clear-audio-file` (bool), `--file-size-bytes` (int), `--from-file-size-bytes` (range), `--to-file-size-bytes` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### AudioFile create options
 
-`--business-id` (required), `--name` (required), `--description`, `--new-audio-url`, `--clear-audio-file`, `--file-size-bytes`
+`--business-id` (long, required), `--name` (required), `--description`, `--new-audio-url`, `--clear-audio-file` (bool), `--file-size-bytes` (int)
 
 #### AudioFile update options
 
-`--business-id`, `--name`, `--description`, `--new-audio-url`, `--clear-audio-file`, `--file-size-bytes`
+`--business-id` (long), `--name`, `--description`, `--new-audio-url`, `--clear-audio-file` (bool), `--file-size-bytes` (int)
 
 ### AudioFile (key fields)
 

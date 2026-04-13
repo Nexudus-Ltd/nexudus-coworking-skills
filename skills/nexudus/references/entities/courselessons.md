@@ -40,15 +40,15 @@ CourseLessons support Search, Get, Create, Update, Delete.
 
 #### CourseLesson list filter options
 
-`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--from-unlock-after-days` (range), `--to-unlock-after-days` (range), `--completion-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--course-id` (long), `--section-id` (long), `--instructor-id` (long), `--title`, `--summary-text`, `--lesson-contents`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--unlock-type` (enum), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int), `--from-unlock-after-days` (range), `--to-unlock-after-days` (range), `--completion-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CourseLesson create options
 
-`--course-id` (required), `--section-id`, `--instructor-id`, `--title` (required), `--summary-text`, `--lesson-contents`, `--active`, `--display-order` (required), `--unlock-type` (required), `--new-image-url`, `--clear-image-file`, `--unlock-after-days` (required), `--completion-type` (required)
+`--course-id` (long, required), `--section-id` (long), `--instructor-id` (long), `--title` (required), `--summary-text`, `--lesson-contents`, `--active` (bool), `--display-order` (int, required), `--unlock-type` (enum, required), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int, required), `--completion-type` (enum, required)
 
 #### CourseLesson update options
 
-`--course-id`, `--section-id`, `--instructor-id`, `--title`, `--summary-text`, `--lesson-contents`, `--active`, `--display-order`, `--unlock-type`, `--new-image-url`, `--clear-image-file`, `--unlock-after-days`, `--completion-type`
+`--course-id` (long), `--section-id` (long), `--instructor-id` (long), `--title`, `--summary-text`, `--lesson-contents`, `--active` (bool), `--display-order` (int), `--unlock-type` (enum), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int), `--completion-type` (enum)
 
 #### CourseLesson enum values
 

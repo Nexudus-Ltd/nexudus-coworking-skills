@@ -19,14 +19,14 @@ DataFiles support Search, Get, Create, Update, Delete.
 
 #### DataFile list filter options
 
-`--business-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`, `--file-size-bytes`, `--from-file-size-bytes` (range), `--to-file-size-bytes` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--file-size-bytes` (int), `--from-file-size-bytes` (range), `--to-file-size-bytes` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### DataFile create options
 
-`--business-id` (required), `--name` (required), `--description`, `--new-file-data-url`, `--clear-file-data-file`, `--file-size-bytes`
+`--business-id` (long, required), `--name` (required), `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--file-size-bytes` (int)
 
 #### DataFile update options
 
-`--business-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`, `--file-size-bytes`
+`--business-id` (long), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--file-size-bytes` (int)
 
 <!-- END:GENERATED entity=DataFiles -->

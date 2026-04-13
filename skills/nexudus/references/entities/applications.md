@@ -23,15 +23,15 @@ Applications support Search, Get, Create, Update, Delete.
 
 #### Application list filter options
 
-`--developer-id`, `--name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--install-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--developer-id` (long), `--name`, `--published` (bool), `--secret-key`, `--short-description`, `--description`, `--install-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Application create options
 
-`--developer-id` (required), `--name` (required), `--published`, `--secret-key`, `--short-description` (required), `--description`, `--install-url` (required), `--required-roles` (list, repeat flag), `--added-required-roles` (list, repeat flag), `--removed-required-roles` (list, repeat flag)
+`--developer-id` (long, required), `--name` (required), `--published` (bool), `--secret-key`, `--short-description` (required), `--description`, `--install-url` (required), `--required-roles` (list, repeat flag), `--added-required-roles` (list, repeat flag), `--removed-required-roles` (list, repeat flag)
 
 #### Application update options
 
-`--developer-id`, `--name`, `--published`, `--secret-key`, `--short-description`, `--description`, `--install-url`, `--required-roles` (list, repeat flag), `--added-required-roles` (list, repeat flag), `--removed-required-roles` (list, repeat flag)
+`--developer-id` (long), `--name`, `--published` (bool), `--secret-key`, `--short-description`, `--description`, `--install-url`, `--required-roles` (list, repeat flag), `--added-required-roles` (list, repeat flag), `--removed-required-roles` (list, repeat flag)
 
 **List properties (only returned by `get`, not by `list`):** `RequiredRoles`, `AddedRequiredRoles`, `RemovedRequiredRoles`
 

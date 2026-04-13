@@ -19,14 +19,14 @@ UiModules support Search, Get, Create, Update, Delete.
 
 #### UiModule list filter options
 
-`--business-id`, `--name`, `--access-url`, `--icon`, `--active`, `--shared-secret`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--access-url`, `--icon`, `--active` (bool), `--shared-secret`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### UiModule create options
 
-`--business-id` (required), `--name` (required), `--access-url` (required), `--icon` (required), `--active`, `--shared-secret`
+`--business-id` (long, required), `--name` (required), `--access-url` (required), `--icon` (required), `--active` (bool), `--shared-secret`
 
 #### UiModule update options
 
-`--business-id`, `--name`, `--access-url`, `--icon`, `--active`, `--shared-secret`
+`--business-id` (long), `--name`, `--access-url`, `--icon`, `--active` (bool), `--shared-secret`
 
 <!-- END:GENERATED entity=UiModules -->

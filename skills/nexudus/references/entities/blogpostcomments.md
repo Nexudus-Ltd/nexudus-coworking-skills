@@ -23,15 +23,15 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 
 #### BlogPostComment list filter options
 
-`--business-id`, `--blog-post-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`, `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--blog-post-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int), `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BlogPostComment create options
 
-`--business-id` (required), `--blog-post-id` (required), `--posted-by-id`, `--title` (required), `--text` (required), `--published`, `--rating`
+`--business-id` (long, required), `--blog-post-id` (long, required), `--posted-by-id` (long), `--title` (required), `--text` (required), `--published` (bool), `--rating` (int)
 
 #### BlogPostComment update options
 
-`--business-id`, `--blog-post-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`
+`--business-id` (long), `--blog-post-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int)
 
 ### BlogPostComment (key fields)
 

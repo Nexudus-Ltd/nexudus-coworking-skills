@@ -26,15 +26,15 @@ BookingAvailabilityExceptions also support entity commands.
 
 #### BookingAvailabilityException list filter options
 
-`--business-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--message`, `--active`, `--every-year`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--message`, `--active` (bool), `--every-year` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BookingAvailabilityException create options
 
-`--business-id` (required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time` (required), `--to-time` (required), `--message` (required), `--active`, `--every-year`
+`--business-id` (long, required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--message` (required), `--active` (bool), `--every-year` (bool)
 
 #### BookingAvailabilityException update options
 
-`--business-id`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time`, `--to-time`, `--message`, `--active`, `--every-year`
+`--business-id` (long), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time` (DateTime), `--to-time` (DateTime), `--message`, `--active` (bool), `--every-year` (bool)
 
 ### BookingAvailabilityException (key fields)
 

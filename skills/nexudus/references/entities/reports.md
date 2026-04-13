@@ -19,14 +19,14 @@ Reports support Search, Get, Create, Update, Delete.
 
 #### Report list filter options
 
-`--business-id`, `--name`, `--folder`, `--report-type`, `--report-xml`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--folder`, `--report-type` (enum), `--report-xml`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Report create options
 
-`--business-id` (required), `--name` (required), `--folder` (required), `--report-type` (required), `--report-xml`
+`--business-id` (long, required), `--name` (required), `--folder` (required), `--report-type` (enum, required), `--report-xml`
 
 #### Report update options
 
-`--business-id`, `--name`, `--folder`, `--report-type`, `--report-xml`
+`--business-id` (long), `--name`, `--folder`, `--report-type` (enum), `--report-xml`
 
 <!-- END:GENERATED entity=Reports -->

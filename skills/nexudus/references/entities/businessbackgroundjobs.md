@@ -20,6 +20,6 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 
 #### BusinessBackgroundJob list filter options
 
-`--business-id`, `--user-id`, `--job-id`, `--description`, `--files`, `--status`, `--result-data`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--user-id` (long), `--job-id`, `--description`, `--files`, `--status`, `--result-data`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 <!-- END:GENERATED entity=BusinessBackgroundJobs -->

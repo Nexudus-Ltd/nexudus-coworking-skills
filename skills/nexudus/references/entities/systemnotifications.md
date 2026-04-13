@@ -19,14 +19,14 @@ SystemNotifications support Search, Get, Create, Update, Delete.
 
 #### SystemNotification list filter options
 
-`--title`, `--severity`, `--start-time`, `--from-start-time` (range), `--to-start-time` (range), `--publish-on`, `--from-publish-on` (range), `--to-publish-on` (range), `--un-publish-on`, `--from-un-publish-on` (range), `--to-un-publish-on` (range), `--short-description`, `--description`, `--resolution-description`, `--resolved`, `--resolved-on`, `--from-resolved-on` (range), `--to-resolved-on` (range), `--display-to-admins`, `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type`, `--has-button`, `--button-label`, `--button-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--title`, `--severity` (enum), `--start-time` (DateTime), `--from-start-time` (range), `--to-start-time` (range), `--publish-on` (DateTime), `--from-publish-on` (range), `--to-publish-on` (range), `--un-publish-on` (DateTime), `--from-un-publish-on` (range), `--to-un-publish-on` (range), `--short-description`, `--description`, `--resolution-description`, `--resolved` (bool), `--resolved-on` (DateTime), `--from-resolved-on` (range), `--to-resolved-on` (range), `--display-to-admins` (bool), `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type` (enum), `--has-button` (bool), `--button-label`, `--button-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SystemNotification create options
 
-`--title` (required), `--severity` (required), `--start-time` (required), `--publish-on`, `--un-publish-on`, `--short-description` (required), `--description` (required), `--resolution-description`, `--resolved`, `--resolved-on`, `--display-to-admins`, `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type` (required), `--has-button`, `--button-label`, `--button-url`
+`--title` (required), `--severity` (enum, required), `--start-time` (DateTime, required), `--publish-on` (DateTime), `--un-publish-on` (DateTime), `--short-description` (required), `--description` (required), `--resolution-description`, `--resolved` (bool), `--resolved-on` (DateTime), `--display-to-admins` (bool), `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type` (enum, required), `--has-button` (bool), `--button-label`, `--button-url`
 
 #### SystemNotification update options
 
-`--title`, `--severity`, `--start-time`, `--publish-on`, `--un-publish-on`, `--short-description`, `--description`, `--resolution-description`, `--resolved`, `--resolved-on`, `--display-to-admins`, `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type`, `--has-button`, `--button-label`, `--button-url`
+`--title`, `--severity` (enum), `--start-time` (DateTime), `--publish-on` (DateTime), `--un-publish-on` (DateTime), `--short-description`, `--description`, `--resolution-description`, `--resolved` (bool), `--resolved-on` (DateTime), `--display-to-admins` (bool), `--display-to-setting-integrations`, `--display-to-setting-general`, `--display-to-portal-version`, `--message-type` (enum), `--has-button` (bool), `--button-label`, `--button-url`
 
 <!-- END:GENERATED entity=SystemNotifications -->

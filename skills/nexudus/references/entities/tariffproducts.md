@@ -19,15 +19,15 @@ TariffProducts support Search, Get, Create, Update, Delete.
 
 #### TariffProduct list filter options
 
-`--tariff-id`, `--product-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--tariff-id` (long), `--product-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffProduct create options
 
-`--tariff-id` (required), `--product-id` (required)
+`--tariff-id` (long, required), `--product-id` (long, required)
 
 #### TariffProduct update options
 
-`--tariff-id`, `--product-id`
+`--tariff-id` (long), `--product-id` (long)
 
 ### TariffProduct (key fields)
 

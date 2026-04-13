@@ -23,11 +23,11 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 
 #### Invoice list filter options
 
-`--business-id`, `--bill-to-name`, `--bill-to-address`, `--bill-to-city`, `--bill-to-tax-id-number`, `--bill-to-post-code`, `--bill-to-phone`, `--bill-to-fax`, `--bill-to-country-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--bill-to-name`, `--bill-to-address`, `--bill-to-city`, `--bill-to-tax-id-number`, `--bill-to-post-code`, `--bill-to-phone`, `--bill-to-fax`, `--bill-to-country-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Invoice update options
 
-`--business-id`, `--bill-to-name`, `--bill-to-address`, `--bill-to-city`, `--bill-to-tax-id-number`, `--bill-to-post-code`, `--bill-to-phone`, `--bill-to-fax`, `--bill-to-country-id`
+`--business-id` (long), `--bill-to-name`, `--bill-to-address`, `--bill-to-city`, `--bill-to-tax-id-number`, `--bill-to-post-code`, `--bill-to-phone`, `--bill-to-fax`, `--bill-to-country-id` (long)
 
 ### Invoice (key fields)
 

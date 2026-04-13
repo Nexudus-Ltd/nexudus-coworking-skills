@@ -27,15 +27,15 @@ CoworkerInventoryAssets also support entity commands.
 
 #### CoworkerInventoryAsset list filter options
 
-`--coworker-id`, `--business-id`, `--inventory-asset-id`, `--notes`, `--assigned-from`, `--from-assigned-from` (range), `--to-assigned-from` (range), `--assigned-to`, `--from-assigned-to` (range), `--to-assigned-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--business-id` (long), `--inventory-asset-id` (long), `--notes`, `--assigned-from` (DateTime), `--from-assigned-from` (range), `--to-assigned-from` (range), `--assigned-to` (DateTime), `--from-assigned-to` (range), `--to-assigned-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerInventoryAsset create options
 
-`--coworker-id` (required), `--business-id` (required), `--inventory-asset-id` (required), `--notes`, `--assigned-from` (required), `--assigned-to`
+`--coworker-id` (long, required), `--business-id` (long, required), `--inventory-asset-id` (long, required), `--notes`, `--assigned-from` (DateTime, required), `--assigned-to` (DateTime)
 
 #### CoworkerInventoryAsset update options
 
-`--coworker-id`, `--business-id`, `--inventory-asset-id`, `--notes`, `--assigned-from`, `--assigned-to`
+`--coworker-id` (long), `--business-id` (long), `--inventory-asset-id` (long), `--notes`, `--assigned-from` (DateTime), `--assigned-to` (DateTime)
 
 ### CoworkerInventoryAsset (key fields)
 

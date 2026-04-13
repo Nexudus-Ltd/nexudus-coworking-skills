@@ -19,14 +19,14 @@ FormPageQuestions support Search, Get, Create, Update, Delete.
 
 #### FormPageQuestion list filter options
 
-`--form-page-id`, `--text`, `--description`, `--available-options`, `--active`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--allow-multiple-options`, `--is-required`, `--question-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--form-page-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--allow-multiple-options` (bool), `--is-required` (bool), `--question-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FormPageQuestion create options
 
-`--form-page-id` (required), `--text` (required), `--description` (required), `--available-options`, `--active`, `--display-order` (required), `--allow-multiple-options`, `--is-required`, `--question-type` (required)
+`--form-page-id` (long, required), `--text` (required), `--description` (required), `--available-options`, `--active` (bool), `--display-order` (int, required), `--allow-multiple-options` (bool), `--is-required` (bool), `--question-type` (enum, required)
 
 #### FormPageQuestion update options
 
-`--form-page-id`, `--text`, `--description`, `--available-options`, `--active`, `--display-order`, `--allow-multiple-options`, `--is-required`, `--question-type`
+`--form-page-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--allow-multiple-options` (bool), `--is-required` (bool), `--question-type` (enum)
 
 <!-- END:GENERATED entity=FormPageQuestions -->

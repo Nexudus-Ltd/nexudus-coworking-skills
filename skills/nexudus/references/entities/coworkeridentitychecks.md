@@ -36,15 +36,15 @@ CoworkerIdentityChecks also support entity commands.
 
 #### CoworkerIdentityCheck list filter options
 
-`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--from-identity-document-expiration-date` (range), `--to-identity-document-expiration-date` (range), `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--coworker-id` (long), `--name`, `--identity-check-provider` (enum), `--identity-document-type` (enum), `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date` (DateTime), `--from-identity-document-expiration-date` (range), `--to-identity-document-expiration-date` (range), `--address-document-type` (enum), `--description`, `--billed` (bool), `--stripe-verification-session-id`, `--identity-check-provider1` (enum), `--verification-type1` (enum), `--description1`, `--identity-check-provider2` (enum), `--verification-type2` (enum), `--description2`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerIdentityCheck create options
 
-`--business-id` (required), `--coworker-id` (required), `--name` (required), `--identity-check-provider` (required), `--identity-document-type` (required), `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type` (required), `--description`, `--billed`, `--stripe-verification-session-id`, `--identity-check-provider1`, `--verification-type1`, `--description1`, `--identity-check-provider2`, `--verification-type2`, `--description2`
+`--business-id` (long, required), `--coworker-id` (long, required), `--name` (required), `--identity-check-provider` (enum, required), `--identity-document-type` (enum, required), `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date` (DateTime), `--address-document-type` (enum, required), `--description`, `--billed` (bool), `--stripe-verification-session-id`, `--identity-check-provider1` (enum), `--verification-type1` (enum), `--description1`, `--identity-check-provider2` (enum), `--verification-type2` (enum), `--description2`
 
 #### CoworkerIdentityCheck update options
 
-`--business-id`, `--coworker-id`, `--name`, `--identity-check-provider`, `--identity-document-type`, `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date`, `--address-document-type`, `--description`, `--billed`, `--stripe-verification-session-id`
+`--business-id` (long), `--coworker-id` (long), `--name`, `--identity-check-provider` (enum), `--identity-document-type` (enum), `--identity-document-number`, `--identity-document-issued-by`, `--identity-document-expiration-date` (DateTime), `--address-document-type` (enum), `--description`, `--billed` (bool), `--stripe-verification-session-id`
 
 ### CoworkerIdentityCheck (key fields)
 

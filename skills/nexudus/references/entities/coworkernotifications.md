@@ -43,15 +43,15 @@ CoworkerNotifications support Search, Get, Create, Update, Delete.
 
 #### CoworkerNotification list filter options
 
-`--coworker-id`, `--message`, `--notification-type`, `--entity-id`, `--from-entity-id` (range), `--to-entity-id` (range), `--is-dismissed`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--message`, `--notification-type`, `--entity-id` (int), `--from-entity-id` (range), `--to-entity-id` (range), `--is-dismissed` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerNotification create options
 
-`--coworker-id` (required), `--message` (required), `--notification-type` (required), `--entity-id` (required), `--is-dismissed`
+`--coworker-id` (long, required), `--message` (required), `--notification-type` (required), `--entity-id` (int, required), `--is-dismissed` (bool)
 
 #### CoworkerNotification update options
 
-`--coworker-id`, `--message`, `--notification-type`, `--entity-id`, `--is-dismissed`
+`--coworker-id` (long), `--message`, `--notification-type`, `--entity-id` (int), `--is-dismissed` (bool)
 
 ### CoworkerNotification (key fields)
 

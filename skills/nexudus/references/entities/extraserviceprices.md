@@ -25,15 +25,15 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 
 #### ExtraServicePrice list filter options
 
-`--extra-service-id`, `--tariff-id`, `--price`, `--from-price` (range), `--to-price` (range), `--maximum-price`, `--from-maximum-price` (range), `--to-maximum-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--extra-service-id` (long), `--tariff-id` (long), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--maximum-price` (decimal), `--from-maximum-price` (range), `--to-maximum-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ExtraServicePrice create options
 
-`--extra-service-id` (required), `--tariff-id` (required), `--price` (required), `--maximum-price`
+`--extra-service-id` (long, required), `--tariff-id` (long, required), `--price` (decimal, required), `--maximum-price` (decimal)
 
 #### ExtraServicePrice update options
 
-`--extra-service-id`, `--tariff-id`, `--price`, `--maximum-price`
+`--extra-service-id` (long), `--tariff-id` (long), `--price` (decimal), `--maximum-price` (decimal)
 
 ### ExtraServicePrice (key fields)
 

@@ -27,15 +27,15 @@ ContractProducts support Search, Get, Create, Update, Delete.
 
 #### ContractProduct list filter options
 
-`--coworker-contract-id`, `--product-id`, `--notes`, `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--price`, `--from-price` (range), `--to-price` (range), `--repeat-from`, `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until`, `--from-repeat-until` (range), `--to-repeat-until` (range), `--apply-pro-rating`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--repeat-from` (DateTime), `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until` (DateTime), `--from-repeat-until` (range), `--to-repeat-until` (range), `--apply-pro-rating` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractProduct create options
 
-`--coworker-contract-id` (required), `--product-id` (required), `--notes`, `--quantity` (required), `--price`, `--repeat-from`, `--repeat-until`, `--apply-pro-rating`
+`--coworker-contract-id` (long, required), `--product-id` (long, required), `--notes`, `--quantity` (int, required), `--price` (decimal), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--apply-pro-rating` (bool)
 
 #### ContractProduct update options
 
-`--coworker-contract-id`, `--product-id`, `--notes`, `--quantity`, `--price`, `--repeat-from`, `--repeat-until`, `--apply-pro-rating`
+`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--quantity` (int), `--price` (decimal), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--apply-pro-rating` (bool)
 
 ### ContractProduct (key fields)
 

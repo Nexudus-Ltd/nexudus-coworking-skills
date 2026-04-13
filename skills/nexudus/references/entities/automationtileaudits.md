@@ -23,15 +23,15 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 #### AutomationTileAudit list filter options
 
-`--automation-tile-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--automation-tile-id` (long), `--description`, `--action-by`, `--action` (enum), `--tile-audit-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### AutomationTileAudit create options
 
-`--automation-tile-id` (required), `--description` (required), `--action-by`, `--action` (required), `--tile-audit-type` (required)
+`--automation-tile-id` (long, required), `--description` (required), `--action-by`, `--action` (enum, required), `--tile-audit-type` (enum, required)
 
 #### AutomationTileAudit update options
 
-`--automation-tile-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`
+`--automation-tile-id` (long), `--description`, `--action-by`, `--action` (enum), `--tile-audit-type` (enum)
 
 ### AutomationTileAudit (key fields)
 

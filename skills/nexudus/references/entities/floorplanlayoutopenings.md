@@ -19,14 +19,14 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutOpening list filter options
 
-`--floor-plan-layout-edge-id`, `--opening-type`, `--floor-offset`, `--from-floor-offset` (range), `--to-floor-offset` (range), `--start`, `--from-start` (range), `--to-start` (range), `--height`, `--from-height` (range), `--to-height` (range), `--length`, `--from-length` (range), `--to-length` (range), `--hinge`, `--door-type`, `--door-arc-angle`, `--from-door-arc-angle` (range), `--to-door-arc-angle` (range), `--door-is-locked`, `--window-pane-count`, `--from-window-pane-count` (range), `--to-window-pane-count` (range), `--direction`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--floor-plan-layout-edge-id` (long), `--opening-type`, `--floor-offset` (int), `--from-floor-offset` (range), `--to-floor-offset` (range), `--start` (int), `--from-start` (range), `--to-start` (range), `--height` (int), `--from-height` (range), `--to-height` (range), `--length` (int), `--from-length` (range), `--to-length` (range), `--hinge`, `--door-type`, `--door-arc-angle` (int), `--from-door-arc-angle` (range), `--to-door-arc-angle` (range), `--door-is-locked` (bool), `--window-pane-count` (int), `--from-window-pane-count` (range), `--to-window-pane-count` (range), `--direction`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutOpening create options
 
-`--floor-plan-layout-edge-id` (required), `--opening-type` (required), `--floor-offset` (required), `--start` (required), `--height` (required), `--length` (required), `--hinge`, `--door-type`, `--door-arc-angle`, `--door-is-locked`, `--window-pane-count`, `--direction`
+`--floor-plan-layout-edge-id` (long, required), `--opening-type` (required), `--floor-offset` (int, required), `--start` (int, required), `--height` (int, required), `--length` (int, required), `--hinge`, `--door-type`, `--door-arc-angle` (int), `--door-is-locked` (bool), `--window-pane-count` (int), `--direction`
 
 #### FloorPlanLayoutOpening update options
 
-`--floor-plan-layout-edge-id`, `--opening-type`, `--floor-offset`, `--start`, `--height`, `--length`, `--hinge`, `--door-type`, `--door-arc-angle`, `--door-is-locked`, `--window-pane-count`, `--direction`
+`--floor-plan-layout-edge-id` (long), `--opening-type`, `--floor-offset` (int), `--start` (int), `--height` (int), `--length` (int), `--hinge`, `--door-type`, `--door-arc-angle` (int), `--door-is-locked` (bool), `--window-pane-count` (int), `--direction`
 
 <!-- END:GENERATED entity=FloorPlanLayoutOpenings -->

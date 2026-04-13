@@ -19,14 +19,14 @@ OpportunityTypes support Search, Get, Create, Update, Delete.
 
 #### OpportunityType list filter options
 
-`--business-id`, `--name`, `--notes-template`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--notes-template`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### OpportunityType create options
 
-`--business-id` (required), `--name` (required), `--notes-template`
+`--business-id` (long, required), `--name` (required), `--notes-template`
 
 #### OpportunityType update options
 
-`--business-id`, `--name`, `--notes-template`
+`--business-id` (long), `--name`, `--notes-template`
 
 <!-- END:GENERATED entity=OpportunityTypes -->

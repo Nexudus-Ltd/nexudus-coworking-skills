@@ -19,14 +19,14 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 
 #### EventWaitingAttendee list filter options
 
-`--business-id`, `--calendar-event-id`, `--coworker-id`, `--full-name`, `--email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--calendar-event-id` (long), `--coworker-id` (long), `--full-name`, `--email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EventWaitingAttendee create options
 
-`--business-id` (required), `--calendar-event-id` (required), `--coworker-id`, `--full-name` (required), `--email` (required)
+`--business-id` (long, required), `--calendar-event-id` (long, required), `--coworker-id` (long), `--full-name` (required), `--email` (required)
 
 #### EventWaitingAttendee update options
 
-`--business-id`, `--calendar-event-id`, `--coworker-id`, `--full-name`, `--email`
+`--business-id` (long), `--calendar-event-id` (long), `--coworker-id` (long), `--full-name`, `--email`
 
 <!-- END:GENERATED entity=EventWaitingAttendees -->

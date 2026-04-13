@@ -27,15 +27,15 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 
 #### CoworkerMsOfficeCalendar list filter options
 
-`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`, `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerMsOfficeCalendar create options
 
-`--resource-id` (required), `--coworker-id`, `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (required)
+`--resource-id` (long, required), `--coworker-id` (long), `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (DateTime, required)
 
 #### CoworkerMsOfficeCalendar update options
 
-`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`
+`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime)
 
 ### CoworkerMsOfficeCalendar (key fields)
 

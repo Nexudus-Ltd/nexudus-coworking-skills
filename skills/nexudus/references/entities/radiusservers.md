@@ -19,14 +19,14 @@ RadiusServers support Search, Get, Create, Update, Delete.
 
 #### RadiusServer list filter options
 
-`--business-id`, `--name`, `--vendor`, `--active`, `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--vendor` (enum), `--active` (bool), `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### RadiusServer create options
 
-`--business-id` (required), `--name` (required), `--vendor` (required), `--active`, `--description`
+`--business-id` (long, required), `--name` (required), `--vendor` (enum, required), `--active` (bool), `--description`
 
 #### RadiusServer update options
 
-`--business-id`, `--name`, `--vendor`, `--active`, `--description`
+`--business-id` (long), `--name`, `--vendor` (enum), `--active` (bool), `--description`
 
 <!-- END:GENERATED entity=RadiusServers -->

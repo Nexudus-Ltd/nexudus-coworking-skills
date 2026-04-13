@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=CrmBoards -->
 
+A **CrmBoard** represents a Customer Relationship Management board used to automate processes and communication with current and potential customers.
+
+Each board represents a common sales or operational scenario (e.g. onboarding new members, offboarding cancellations, or managing a sales pipeline). Boards contain CRM stages (`CrmBoardColumn` entity) that define the steps opportunities move through, and each stage can trigger actions such as sending message macros or creating task lists.
+
+Nexudus provides built-in templates (e.g. sales pipeline with or without digital signature) that can be used as-is or customised by adding, removing, or editing stages. Boards can also be built from scratch.
+
 CrmBoards support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -10,7 +16,7 @@ CrmBoards support Search, Get, Create, Update, Delete.
 | `nexudus crmboards list --id <id> --agent` | Filter by single ID |
 | `nexudus crmboards list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus crmboards list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus crmboards list --business-id <value> --name <value> --agent` | Filter crmboards by properties |
+| `nexudus crmboards list --name <value> --agent` | Filter crmboards by properties |
 | `nexudus crmboards list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus crmboards get <id> --agent` | Get single crmboard |
 | `nexudus crmboards create --business-id <value> --name <value> --agent` | Create crmboard |
@@ -19,14 +25,18 @@ CrmBoards support Search, Get, Create, Update, Delete.
 
 #### CrmBoard list filter options
 
-`--business-id`, `--name`, `--archived`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--archived` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CrmBoard create options
 
-`--business-id` (required), `--name` (required), `--archived`
+`--business-id` (long, required), `--name` (required), `--archived` (bool)
 
 #### CrmBoard update options
 
-`--business-id`, `--name`, `--archived`
+`--business-id` (long), `--name`, `--archived` (bool)
+
+### CrmBoard (key fields)
+
+`Id`, `Name`
 
 <!-- END:GENERATED entity=CrmBoards -->

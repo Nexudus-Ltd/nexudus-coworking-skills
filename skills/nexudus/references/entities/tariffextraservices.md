@@ -19,15 +19,15 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 #### TariffExtraService list filter options
 
-`--tariff-id`, `--extra-service-id`, `--uses-included`, `--from-uses-included` (range), `--to-uses-included` (range), `--service-renewal-time`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--tariff-id` (long), `--extra-service-id` (long), `--uses-included` (int), `--from-uses-included` (range), `--to-uses-included` (range), `--service-renewal-time` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffExtraService create options
 
-`--tariff-id` (required), `--extra-service-id` (required), `--uses-included` (required), `--service-renewal-time` (required)
+`--tariff-id` (long, required), `--extra-service-id` (long, required), `--uses-included` (int, required), `--service-renewal-time` (enum, required)
 
 #### TariffExtraService update options
 
-`--tariff-id`, `--extra-service-id`, `--uses-included`, `--service-renewal-time`
+`--tariff-id` (long), `--extra-service-id` (long), `--uses-included` (int), `--service-renewal-time` (enum)
 
 ### TariffExtraService (key fields)
 

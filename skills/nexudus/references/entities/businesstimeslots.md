@@ -25,15 +25,15 @@ BusinessTimeSlots support Search, Get, Create, Update, Delete.
 
 #### BusinessTimeSlot list filter options
 
-`--business-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--day-of-week`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--day-of-week` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessTimeSlot create options
 
-`--business-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required)
+`--business-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--day-of-week` (enum, required)
 
 #### BusinessTimeSlot update options
 
-`--business-id`, `--from-time`, `--to-time`, `--day-of-week`
+`--business-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--day-of-week` (enum)
 
 ### BusinessTimeSlot (key fields)
 

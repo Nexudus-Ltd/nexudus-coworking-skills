@@ -19,14 +19,14 @@ TaskItems support Search, Get, Create, Update, Delete.
 
 #### TaskItem list filter options
 
-`--task-list-id`, `--responsible-id`, `--name`, `--active`, `--notify-by-email`, `--display-to-everyone`, `--delay-in-hours`, `--from-delay-in-hours` (range), `--to-delay-in-hours` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--task-list-id` (long), `--responsible-id` (long), `--name`, `--active` (bool), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--delay-in-hours` (int), `--from-delay-in-hours` (range), `--to-delay-in-hours` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TaskItem create options
 
-`--task-list-id` (required), `--responsible-id` (required), `--name` (required), `--active`, `--notify-by-email`, `--display-to-everyone`, `--delay-in-hours` (required)
+`--task-list-id` (long, required), `--responsible-id` (long, required), `--name` (required), `--active` (bool), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--delay-in-hours` (int, required)
 
 #### TaskItem update options
 
-`--task-list-id`, `--responsible-id`, `--name`, `--active`, `--notify-by-email`, `--display-to-everyone`, `--delay-in-hours`
+`--task-list-id` (long), `--responsible-id` (long), `--name`, `--active` (bool), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--delay-in-hours` (int)
 
 <!-- END:GENERATED entity=TaskItems -->

@@ -21,15 +21,15 @@ CommunityThreadFiles support Search, Get, Create, Update, Delete.
 
 #### CommunityThreadFile list filter options
 
-`--community-thread-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--community-thread-id` (long), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityThreadFile create options
 
-`--community-thread-id` (required), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`
+`--community-thread-id` (long, required), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool)
 
 #### CommunityThreadFile update options
 
-`--community-thread-id`, `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file`
+`--community-thread-id` (long), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool)
 
 ### CommunityThreadFile (key fields)
 

@@ -19,15 +19,15 @@ ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
 #### ProposalContractSchedule list filter options
 
-`--proposal-contract-id`, `--notes`, `--price`, `--from-price` (range), `--to-price` (range), `--apply-on`, `--from-apply-on` (range), `--to-apply-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--proposal-contract-id` (long), `--notes`, `--price` (decimal), `--from-price` (range), `--to-price` (range), `--apply-on` (DateTime), `--from-apply-on` (range), `--to-apply-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProposalContractSchedule create options
 
-`--proposal-contract-id` (required), `--notes`, `--price`, `--apply-on` (required)
+`--proposal-contract-id` (long, required), `--notes`, `--price` (decimal), `--apply-on` (DateTime, required)
 
 #### ProposalContractSchedule update options
 
-`--proposal-contract-id`, `--notes`, `--price`, `--apply-on`
+`--proposal-contract-id` (long), `--notes`, `--price` (decimal), `--apply-on` (DateTime)
 
 ### ProposalContractSchedule (key fields)
 

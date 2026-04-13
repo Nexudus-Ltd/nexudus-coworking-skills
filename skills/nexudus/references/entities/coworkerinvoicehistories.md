@@ -23,15 +23,15 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 
 #### CoworkerInvoiceHistory list filter options
 
-`--coworker-invoice-id`, `--name`, `--description`, `--is-problem`, `--notify`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-invoice-id` (long), `--name`, `--description`, `--is-problem` (bool), `--notify` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerInvoiceHistory create options
 
-`--coworker-invoice-id` (required), `--name` (required), `--description` (required), `--is-problem`, `--notify`
+`--coworker-invoice-id` (long, required), `--name` (required), `--description` (required), `--is-problem` (bool), `--notify` (bool)
 
 #### CoworkerInvoiceHistory update options
 
-`--coworker-invoice-id`, `--name`, `--description`, `--is-problem`, `--notify`
+`--coworker-invoice-id` (long), `--name`, `--description`, `--is-problem` (bool), `--notify` (bool)
 
 ### CoworkerInvoiceHistory (key fields)
 

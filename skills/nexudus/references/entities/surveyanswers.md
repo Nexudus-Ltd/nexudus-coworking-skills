@@ -19,14 +19,14 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 
 #### SurveyAnswer list filter options
 
-`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--survey-run-id` (long), `--survey-question-id` (long), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SurveyAnswer create options
 
-`--survey-run-id`, `--survey-question-id` (required), `--value`, `--new-file-value-url`, `--clear-file-value-file`
+`--survey-run-id` (long), `--survey-question-id` (long, required), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool)
 
 #### SurveyAnswer update options
 
-`--survey-run-id`, `--survey-question-id`, `--value`, `--new-file-value-url`, `--clear-file-value-file`
+`--survey-run-id` (long), `--survey-question-id` (long), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool)
 
 <!-- END:GENERATED entity=SurveyAnswers -->

@@ -21,14 +21,14 @@ CommunityMessageLikes support Search, Get, Create, Update, Delete.
 
 #### CommunityMessageLike list filter options
 
-`--message-id`, `--user-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--message-id` (long), `--user-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityMessageLike create options
 
-`--message-id` (required), `--user-id` (required)
+`--message-id` (long, required), `--user-id` (long, required)
 
 #### CommunityMessageLike update options
 
-`--message-id`, `--user-id`
+`--message-id` (long), `--user-id` (long)
 
 <!-- END:GENERATED entity=CommunityMessageLikes -->

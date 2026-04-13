@@ -25,15 +25,15 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 
 #### PaymentGateway list filter options
 
-`--business-id`, `--name`, `--payment-gateway-type`, `--attempt3d-secure`, `--configuration-xml`, `--transaction-fee`, `--from-transaction-fee` (range), `--to-transaction-fee` (range), `--financial-account-id`, `--tax-rate-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--payment-gateway-type` (enum), `--attempt3d-secure` (bool), `--configuration-xml`, `--transaction-fee` (decimal), `--from-transaction-fee` (range), `--to-transaction-fee` (range), `--financial-account-id` (long), `--tax-rate-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### PaymentGateway create options
 
-`--business-id` (required), `--name` (required), `--payment-gateway-type` (required), `--attempt3d-secure`, `--configuration-xml`, `--transaction-fee`, `--financial-account-id`, `--tax-rate-id`
+`--business-id` (long, required), `--name` (required), `--payment-gateway-type` (enum, required), `--attempt3d-secure` (bool), `--configuration-xml`, `--transaction-fee` (decimal), `--financial-account-id` (long), `--tax-rate-id` (long)
 
 #### PaymentGateway update options
 
-`--business-id`, `--name`, `--attempt3d-secure`, `--configuration-xml`, `--transaction-fee`, `--financial-account-id`, `--tax-rate-id`
+`--business-id` (long), `--name`, `--attempt3d-secure` (bool), `--configuration-xml`, `--transaction-fee` (decimal), `--financial-account-id` (long), `--tax-rate-id` (long)
 
 ### PaymentGateway (key fields)
 

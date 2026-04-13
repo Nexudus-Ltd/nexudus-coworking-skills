@@ -746,15 +746,15 @@ BusinessSettings support Search, Get, Create, Update, Delete.
 
 #### BusinessSetting list filter options
 
-`--business-id`, `--name`, `--value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessSetting create options
 
-`--business-id` (required), `--name` (required), `--value`
+`--business-id` (long, required), `--name` (required), `--value`
 
 #### BusinessSetting update options
 
-`--business-id`, `--name`, `--value`
+`--business-id` (long), `--name`, `--value`
 
 ### BusinessSetting (key fields)
 

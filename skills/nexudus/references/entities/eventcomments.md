@@ -19,14 +19,14 @@ EventComments support Search, Get, Create, Update, Delete.
 
 #### EventComment list filter options
 
-`--business-id`, `--calendar-event-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`, `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--calendar-event-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int), `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EventComment create options
 
-`--business-id` (required), `--calendar-event-id` (required), `--posted-by-id`, `--title` (required), `--text` (required), `--published`, `--rating`
+`--business-id` (long, required), `--calendar-event-id` (long, required), `--posted-by-id` (long), `--title` (required), `--text` (required), `--published` (bool), `--rating` (int)
 
 #### EventComment update options
 
-`--business-id`, `--calendar-event-id`, `--posted-by-id`, `--title`, `--text`, `--published`, `--rating`
+`--business-id` (long), `--calendar-event-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int)
 
 <!-- END:GENERATED entity=EventComments -->

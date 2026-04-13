@@ -19,15 +19,15 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 
 #### TariffSignupProduct list filter options
 
-`--tariff-id`, `--product-id`, `--price`, `--from-price` (range), `--to-price` (range), `--refundable`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--tariff-id` (long), `--product-id` (long), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--refundable` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffSignupProduct create options
 
-`--tariff-id` (required), `--product-id` (required), `--price`, `--refundable`
+`--tariff-id` (long, required), `--product-id` (long, required), `--price` (decimal), `--refundable` (bool)
 
 #### TariffSignupProduct update options
 
-`--tariff-id`, `--product-id`, `--price`, `--refundable`
+`--tariff-id` (long), `--product-id` (long), `--price` (decimal), `--refundable` (bool)
 
 ### TariffSignupProduct (key fields)
 

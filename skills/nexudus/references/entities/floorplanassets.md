@@ -16,6 +16,6 @@ FloorPlanAssets support Search, Get (no Create or Delete via API).
 
 #### FloorPlanAsset list filter options
 
-`--name`, `--categories`, `--subcategories`, `--tags`, `--materials`, `--description`, `--images2-d`, `--images3-d`, `--images-preview`, `--published`, `--hit-box`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--name`, `--categories`, `--subcategories`, `--tags`, `--materials`, `--description`, `--images2-d`, `--images3-d`, `--images-preview`, `--published` (bool), `--hit-box`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 <!-- END:GENERATED entity=FloorPlanAssets -->

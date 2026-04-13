@@ -19,15 +19,15 @@ HelpDeskDepartments support Search, Get, Create, Update, Delete.
 
 #### HelpDeskDepartment list filter options
 
-`--business-id`, `--name`, `--description`, `--active`, `--task-list-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--description`, `--active` (bool), `--task-list-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### HelpDeskDepartment create options
 
-`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--managers` (list, repeat flag), `--added-managers` (list, repeat flag), `--removed-managers` (list, repeat flag), `--task-list-id`
+`--business-id` (long, required), `--name` (required), `--description` (required), `--active` (bool), `--managers` (list, repeat flag), `--added-managers` (list, repeat flag), `--removed-managers` (list, repeat flag), `--task-list-id` (long)
 
 #### HelpDeskDepartment update options
 
-`--business-id`, `--name`, `--description`, `--active`, `--managers` (list, repeat flag), `--added-managers` (list, repeat flag), `--removed-managers` (list, repeat flag), `--task-list-id`
+`--business-id` (long), `--name`, `--description`, `--active` (bool), `--managers` (list, repeat flag), `--added-managers` (list, repeat flag), `--removed-managers` (list, repeat flag), `--task-list-id` (long)
 
 **List properties (only returned by `get`, not by `list`):** `Managers`, `AddedManagers`, `RemovedManagers`
 

@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerTimePasses -->
 
+A **CoworkerTimePass** represents a time pass assigned to a customer. Time passes can be assigned directly, granted by a product purchase (`CoworkerProductUniqueId`), or included in a pricing plan (`TariffTimePassUniqueId`).
+
+Each time pass tracks its usage status (`Used`, `UsedDate`), remaining and total uses, and whether the customer is currently checked in. Time passes may have an expiration date and can be free or priced.
+
+Use `CreateMultiple` when creating to issue several time passes at once. The `IsFromTariff` and `IsPayAsYouGo` flags indicate the origin and billing model of the time pass.
+
 CoworkerTimePasses support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -19,14 +25,14 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 
 #### CoworkerTimePass list filter options
 
-`--coworker-id`, `--business-id`, `--time-pass-id`, `--notes`, `--purchase-order`, `--used`, `--free`, `--price`, `--from-price` (range), `--to-price` (range), `--create-multiple`, `--from-create-multiple` (range), `--to-create-multiple` (range), `--expire-date`, `--from-expire-date` (range), `--to-expire-date` (range), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--business-id` (long), `--time-pass-id` (long), `--notes`, `--purchase-order`, `--used` (bool), `--free` (bool), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--create-multiple` (int), `--from-create-multiple` (range), `--to-create-multiple` (range), `--expire-date` (DateTime), `--from-expire-date` (range), `--to-expire-date` (range), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerTimePass create options
 
-`--coworker-id` (required), `--business-id` (required), `--time-pass-id` (required), `--notes`, `--purchase-order`, `--used`, `--free`, `--price`, `--create-multiple` (required), `--expire-date`, `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`
+`--coworker-id` (long, required), `--business-id` (long, required), `--time-pass-id` (long, required), `--notes`, `--purchase-order`, `--used` (bool), `--free` (bool), `--price` (decimal), `--create-multiple` (int, required), `--expire-date` (DateTime), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`
 
 #### CoworkerTimePass update options
 
-`--coworker-id`, `--business-id`, `--time-pass-id`, `--notes`, `--purchase-order`, `--used`, `--free`, `--price`, `--expire-date`, `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`
+`--coworker-id` (long), `--business-id` (long), `--time-pass-id` (long), `--notes`, `--purchase-order`, `--used` (bool), `--free` (bool), `--price` (decimal), `--expire-date` (DateTime), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`
 
 <!-- END:GENERATED entity=CoworkerTimePasses -->

@@ -19,14 +19,14 @@ RefreshTokens support Search, Get, Create, Update, Delete.
 
 #### RefreshToken list filter options
 
-`--subject`, `--client-id`, `--expires-on`, `--from-expires-on` (range), `--to-expires-on` (range), `--protected-ticket`, `--ticket-hash`, `--ticket-salt`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--subject`, `--client-id`, `--expires-on` (DateTime), `--from-expires-on` (range), `--to-expires-on` (range), `--protected-ticket`, `--ticket-hash`, `--ticket-salt`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### RefreshToken create options
 
-`--subject` (required), `--client-id` (required), `--expires-on` (required), `--protected-ticket` (required), `--ticket-hash` (required), `--ticket-salt` (required)
+`--subject` (required), `--client-id` (required), `--expires-on` (DateTime, required), `--protected-ticket` (required), `--ticket-hash` (required), `--ticket-salt` (required)
 
 #### RefreshToken update options
 
-`--subject`, `--client-id`, `--expires-on`, `--protected-ticket`, `--ticket-hash`, `--ticket-salt`
+`--subject`, `--client-id`, `--expires-on` (DateTime), `--protected-ticket`, `--ticket-hash`, `--ticket-salt`
 
 <!-- END:GENERATED entity=RefreshTokens -->

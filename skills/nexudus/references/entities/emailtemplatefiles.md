@@ -19,14 +19,14 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 
 #### EmailTemplateFile list filter options
 
-`--business-id`, `--language`, `--file-language-id`, `--name`, `--subject`, `--file-contents`, `--is-text-only`, `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--language` (enum), `--file-language-id` (long), `--name`, `--subject`, `--file-contents`, `--is-text-only` (bool), `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EmailTemplateFile create options
 
-`--business-id` (required), `--language` (required), `--file-language-id`, `--name` (required), `--subject` (required), `--file-contents`, `--is-text-only`, `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
+`--business-id` (long, required), `--language` (enum, required), `--file-language-id` (long), `--name` (required), `--subject` (required), `--file-contents`, `--is-text-only` (bool), `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
 
 #### EmailTemplateFile update options
 
-`--business-id`, `--language`, `--file-language-id`, `--name`, `--subject`, `--file-contents`, `--is-text-only`, `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
+`--business-id` (long), `--language` (enum), `--file-language-id` (long), `--name`, `--subject`, `--file-contents`, `--is-text-only` (bool), `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
 
 <!-- END:GENERATED entity=EmailTemplateFiles -->

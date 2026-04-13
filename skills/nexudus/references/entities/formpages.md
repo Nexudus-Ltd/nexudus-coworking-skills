@@ -19,14 +19,14 @@ FormPages support Search, Get, Create, Update, Delete.
 
 #### FormPage list filter options
 
-`--business-id`, `--name`, `--description`, `--active`, `--crm-board-column-id`, `--responsible-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--description`, `--active` (bool), `--crm-board-column-id` (long), `--responsible-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FormPage create options
 
-`--business-id` (required), `--name` (required), `--description` (required), `--active`, `--crm-board-column-id`, `--responsible-id`
+`--business-id` (long, required), `--name` (required), `--description` (required), `--active` (bool), `--crm-board-column-id` (long), `--responsible-id` (long)
 
 #### FormPage update options
 
-`--business-id`, `--name`, `--description`, `--active`, `--crm-board-column-id`, `--responsible-id`
+`--business-id` (long), `--name`, `--description`, `--active` (bool), `--crm-board-column-id` (long), `--responsible-id` (long)
 
 <!-- END:GENERATED entity=FormPages -->

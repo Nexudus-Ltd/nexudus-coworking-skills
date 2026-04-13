@@ -19,15 +19,15 @@ TimePassTimeSlots support Search, Get, Create, Update, Delete.
 
 #### TimePassTimeSlot list filter options
 
-`--time-pass-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--day-of-week`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--time-pass-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--day-of-week` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TimePassTimeSlot create options
 
-`--time-pass-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required)
+`--time-pass-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--day-of-week` (enum, required)
 
 #### TimePassTimeSlot update options
 
-`--time-pass-id`, `--from-time`, `--to-time`, `--day-of-week`
+`--time-pass-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--day-of-week` (enum)
 
 ### TimePassTimeSlot (key fields)
 

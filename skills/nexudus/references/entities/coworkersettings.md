@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerSettings -->
 
+A **CoworkerSetting** is an internal name/value pair used to store arbitrary customer-related settings.
+
+Settings are scoped to a single customer (`CoworkerId`) and identified by a unique `Name` key. The value can be stored as plain text (`Value`) or in encrypted form (`EncryptedValue`) for sensitive data.
+
+CoworkerSettings can also be accessed and managed via the Members Portal and the App Public API in the context of the logged-in customer.
+
 CoworkerSettings support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -10,7 +16,7 @@ CoworkerSettings support Search, Get, Create, Update, Delete.
 | `nexudus coworkersettings list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkersettings list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkersettings list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkersettings list --coworker-id <value> --name <value> --agent` | Filter coworkersettings by properties |
+| `nexudus coworkersettings list --name <value> --agent` | Filter coworkersettings by properties |
 | `nexudus coworkersettings list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkersettings get <id> --agent` | Get single coworkersetting |
 | `nexudus coworkersettings create --coworker-id <value> --name <value> --agent` | Create coworkersetting |
@@ -19,14 +25,18 @@ CoworkerSettings support Search, Get, Create, Update, Delete.
 
 #### CoworkerSetting list filter options
 
-`--coworker-id`, `--name`, `--value`, `--encrypted-value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--name`, `--value`, `--encrypted-value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerSetting create options
 
-`--coworker-id` (required), `--name` (required), `--value`, `--encrypted-value`
+`--coworker-id` (long, required), `--name` (required), `--value`, `--encrypted-value`
 
 #### CoworkerSetting update options
 
-`--coworker-id`, `--name`, `--value`, `--encrypted-value`
+`--coworker-id` (long), `--name`, `--value`, `--encrypted-value`
+
+### CoworkerSetting (key fields)
+
+`Id`, `Name`
 
 <!-- END:GENERATED entity=CoworkerSettings -->

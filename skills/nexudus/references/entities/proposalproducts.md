@@ -19,15 +19,15 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 
 #### ProposalProduct list filter options
 
-`--proposal-id`, `--product-id`, `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--price`, `--from-price` (range), `--to-price` (range), `--is-deposit`, `--is-contract-product`, `--regular-charge`, `--repeat-cycle`, `--invoice-on`, `--from-invoice-on` (range), `--to-invoice-on` (range), `--repeat-from`, `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until`, `--from-repeat-until` (range), `--to-repeat-until` (range), `--repeat-unit`, `--from-repeat-unit` (range), `--to-repeat-unit` (range), `--apply-pro-rating`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--proposal-id` (long), `--product-id` (long), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--is-deposit` (bool), `--is-contract-product` (bool), `--regular-charge` (bool), `--repeat-cycle` (enum), `--invoice-on` (DateTime), `--from-invoice-on` (range), `--to-invoice-on` (range), `--repeat-from` (DateTime), `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until` (DateTime), `--from-repeat-until` (range), `--to-repeat-until` (range), `--repeat-unit` (int), `--from-repeat-unit` (range), `--to-repeat-unit` (range), `--apply-pro-rating` (bool), `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ProposalProduct create options
 
-`--proposal-id` (required), `--product-id` (required), `--quantity` (required), `--price`, `--is-deposit`, `--is-contract-product`, `--regular-charge`, `--repeat-cycle` (required), `--invoice-on`, `--repeat-from`, `--repeat-until`, `--repeat-unit`, `--apply-pro-rating`, `--notes`
+`--proposal-id` (long, required), `--product-id` (long, required), `--quantity` (int, required), `--price` (decimal), `--is-deposit` (bool), `--is-contract-product` (bool), `--regular-charge` (bool), `--repeat-cycle` (enum, required), `--invoice-on` (DateTime), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--repeat-unit` (int), `--apply-pro-rating` (bool), `--notes`
 
 #### ProposalProduct update options
 
-`--proposal-id`, `--product-id`, `--quantity`, `--price`, `--is-deposit`, `--is-contract-product`, `--regular-charge`, `--repeat-cycle`, `--invoice-on`, `--repeat-from`, `--repeat-until`, `--repeat-unit`, `--apply-pro-rating`, `--notes`
+`--proposal-id` (long), `--product-id` (long), `--quantity` (int), `--price` (decimal), `--is-deposit` (bool), `--is-contract-product` (bool), `--regular-charge` (bool), `--repeat-cycle` (enum), `--invoice-on` (DateTime), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--repeat-unit` (int), `--apply-pro-rating` (bool), `--notes`
 
 ### ProposalProduct (key fields)
 

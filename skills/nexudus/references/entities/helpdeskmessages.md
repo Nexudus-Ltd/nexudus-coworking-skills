@@ -19,14 +19,14 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 
 #### HelpDeskMessage list filter options
 
-`--business-id`, `--coworker-id`, `--help-desk-department-id`, `--subject`, `--message-text`, `--priority`, `--ai-processing-result`, `--closed`, `--owner-id`, `--new-image-url`, `--clear-image-file`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--coworker-id` (long), `--help-desk-department-id` (long), `--subject`, `--message-text`, `--priority` (enum), `--ai-processing-result` (enum), `--closed` (bool), `--owner-id` (long), `--new-image-url`, `--clear-image-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### HelpDeskMessage create options
 
-`--business-id` (required), `--coworker-id` (required), `--help-desk-department-id`, `--subject` (required), `--message-text` (required), `--priority` (required), `--ai-processing-result` (required), `--closed`, `--owner-id`, `--new-image-url`, `--clear-image-file`
+`--business-id` (long, required), `--coworker-id` (long, required), `--help-desk-department-id` (long), `--subject` (required), `--message-text` (required), `--priority` (enum, required), `--ai-processing-result` (enum, required), `--closed` (bool), `--owner-id` (long), `--new-image-url`, `--clear-image-file` (bool)
 
 #### HelpDeskMessage update options
 
-`--business-id`, `--coworker-id`, `--help-desk-department-id`, `--subject`, `--message-text`, `--priority`, `--ai-processing-result`, `--closed`, `--owner-id`, `--new-image-url`, `--clear-image-file`
+`--business-id` (long), `--coworker-id` (long), `--help-desk-department-id` (long), `--subject`, `--message-text`, `--priority` (enum), `--ai-processing-result` (enum), `--closed` (bool), `--owner-id` (long), `--new-image-url`, `--clear-image-file` (bool)
 
 <!-- END:GENERATED entity=HelpDeskMessages -->

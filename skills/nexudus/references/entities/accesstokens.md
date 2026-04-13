@@ -23,15 +23,15 @@ AccessTokens also support entity commands.
 
 #### AccessToken list filter options
 
-`--business-id`, `--access-code`, `--description`, `--minutes-included`, `--from-minutes-included` (range), `--to-minutes-included` (range), `--valid-from`, `--from-valid-from` (range), `--to-valid-from` (range), `--valid-to`, `--from-valid-to` (range), `--to-valid-to` (range), `--user-limit`, `--from-user-limit` (range), `--to-user-limit` (range), `--mac-address`, `--booking-guid`, `--visitor-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--access-code`, `--description`, `--minutes-included` (int), `--from-minutes-included` (range), `--to-minutes-included` (range), `--valid-from` (DateTime), `--from-valid-from` (range), `--to-valid-from` (range), `--valid-to` (DateTime), `--from-valid-to` (range), `--to-valid-to` (range), `--user-limit` (int), `--from-user-limit` (range), `--to-user-limit` (range), `--mac-address`, `--booking-guid`, `--visitor-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### AccessToken create options
 
-`--business-id` (required), `--access-code` (required), `--description`, `--minutes-included` (required), `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`, `--booking-guid`, `--visitor-guid`
+`--business-id` (long, required), `--access-code` (required), `--description`, `--minutes-included` (int, required), `--valid-from` (DateTime), `--valid-to` (DateTime), `--user-limit` (int), `--mac-address`, `--booking-guid`, `--visitor-guid`
 
 #### AccessToken update options
 
-`--business-id`, `--access-code`, `--description`, `--minutes-included`, `--valid-from`, `--valid-to`, `--user-limit`, `--mac-address`, `--booking-guid`, `--visitor-guid`
+`--business-id` (long), `--access-code`, `--description`, `--minutes-included` (int), `--valid-from` (DateTime), `--valid-to` (DateTime), `--user-limit` (int), `--mac-address`, `--booking-guid`, `--visitor-guid`
 
 ### AccessToken (key fields)
 

@@ -25,15 +25,15 @@ CoworkerExtraServiceUseHistories support Search, Get, Create, Update, Delete.
 
 #### CoworkerExtraServiceUseHistory list filter options
 
-`--coworker-extra-service-id`, `--booking-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-extra-service-id` (long), `--booking-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerExtraServiceUseHistory create options
 
-`--coworker-extra-service-id` (required), `--booking-id`
+`--coworker-extra-service-id` (long, required), `--booking-id` (long)
 
 #### CoworkerExtraServiceUseHistory update options
 
-`--coworker-extra-service-id`, `--booking-id`
+`--coworker-extra-service-id` (long), `--booking-id` (long)
 
 ### CoworkerExtraServiceUseHistory (key fields)
 

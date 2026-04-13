@@ -17,10 +17,10 @@ SimpleTimeZones support Search, Get, Update (no Create or Delete via API).
 
 #### SimpleTimeZone list filter options
 
-`--name`, `--description`, `--time-offset`, `--uses-summer-time`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--name`, `--description`, `--time-offset`, `--uses-summer-time` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SimpleTimeZone update options
 
-`--name`, `--description`, `--time-offset`, `--uses-summer-time`
+`--name`, `--description`, `--time-offset`, `--uses-summer-time` (bool)
 
 <!-- END:GENERATED entity=SimpleTimeZones -->

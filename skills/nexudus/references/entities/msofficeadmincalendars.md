@@ -21,15 +21,15 @@ MsOfficeAdminCalendars also support entity commands.
 
 #### MsOfficeAdminCalendar list filter options
 
-`--resource-id`, `--business-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`, `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--resource-id` (long), `--business-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### MsOfficeAdminCalendar create options
 
-`--resource-id` (required), `--business-id` (required), `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (required)
+`--resource-id` (long, required), `--business-id` (long, required), `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (DateTime, required)
 
 #### MsOfficeAdminCalendar update options
 
-`--resource-id`, `--business-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`
+`--resource-id` (long), `--business-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime)
 
 ### MsOfficeAdminCalendar (key fields)
 

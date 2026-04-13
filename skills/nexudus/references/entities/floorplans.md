@@ -25,15 +25,15 @@ FloorPlans support Search, Get, Create, Update, Delete.
 
 #### FloorPlan list filter options
 
-`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale`, `--from-background-scale` (range), `--to-background-scale` (range), `--position-x`, `--from-position-x` (range), `--to-position-x` (range), `--position-y`, `--from-position-y` (range), `--to-position-y` (range), `--floor-level`, `--from-floor-level` (range), `--to-floor-level` (range), `--scale`, `--from-scale` (range), `--to-scale` (range), `--capacity`, `--from-capacity` (range), `--to-capacity` (range), `--archilogic-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--floor-plan-layout-id` (long), `--name`, `--new-background-image-url`, `--clear-background-image-file` (bool), `--display-background` (bool), `--background-scale` (int), `--from-background-scale` (range), `--to-background-scale` (range), `--position-x` (int), `--from-position-x` (range), `--to-position-x` (range), `--position-y` (int), `--from-position-y` (range), `--to-position-y` (range), `--floor-level` (int), `--from-floor-level` (range), `--to-floor-level` (range), `--scale` (decimal), `--from-scale` (range), `--to-scale` (range), `--capacity` (int), `--from-capacity` (range), `--to-capacity` (range), `--archilogic-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlan create options
 
-`--business-id` (required), `--floor-plan-layout-id`, `--name` (required), `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale` (required), `--position-x` (required), `--position-y` (required), `--floor-level` (required), `--scale` (required), `--capacity`, `--archilogic-unique-id`
+`--business-id` (long, required), `--floor-plan-layout-id` (long), `--name` (required), `--new-background-image-url`, `--clear-background-image-file` (bool), `--display-background` (bool), `--background-scale` (int, required), `--position-x` (int, required), `--position-y` (int, required), `--floor-level` (int, required), `--scale` (decimal, required), `--capacity` (int), `--archilogic-unique-id`
 
 #### FloorPlan update options
 
-`--business-id`, `--floor-plan-layout-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--display-background`, `--background-scale`, `--position-x`, `--position-y`, `--floor-level`, `--scale`, `--capacity`, `--archilogic-unique-id`
+`--business-id` (long), `--floor-plan-layout-id` (long), `--name`, `--new-background-image-url`, `--clear-background-image-file` (bool), `--display-background` (bool), `--background-scale` (int), `--position-x` (int), `--position-y` (int), `--floor-level` (int), `--scale` (decimal), `--capacity` (int), `--archilogic-unique-id`
 
 ### FloorPlan (key fields)
 

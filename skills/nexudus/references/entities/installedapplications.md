@@ -19,14 +19,14 @@ InstalledApplications support Search, Get, Create, Update, Delete.
 
 #### InstalledApplication list filter options
 
-`--application-id`, `--business-id`, `--requires-approval`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--application-id` (long), `--business-id` (long), `--requires-approval` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### InstalledApplication create options
 
-`--application-id` (required), `--business-id` (required), `--requires-approval`
+`--application-id` (long, required), `--business-id` (long, required), `--requires-approval` (bool)
 
 #### InstalledApplication update options
 
-`--application-id`, `--business-id`, `--requires-approval`
+`--application-id` (long), `--business-id` (long), `--requires-approval` (bool)
 
 <!-- END:GENERATED entity=InstalledApplications -->

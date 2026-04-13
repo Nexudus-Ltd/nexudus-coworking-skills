@@ -25,15 +25,15 @@ BookingProducts also support entity commands.
 
 #### BookingProduct list filter options
 
-`--booking-id`, `--product-id`, `--invoice-in-minutes`, `--quantity`, `--from-quantity` (range), `--to-quantity` (range), `--mrm-reminded`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--booking-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--mrm-reminded` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BookingProduct create options
 
-`--booking-id` (required), `--product-id` (required), `--invoice-in-minutes`, `--quantity` (required), `--mrm-reminded`
+`--booking-id` (long, required), `--product-id` (long, required), `--invoice-in-minutes` (bool), `--quantity` (int, required), `--mrm-reminded` (bool)
 
 #### BookingProduct update options
 
-`--booking-id`, `--product-id`, `--invoice-in-minutes`, `--quantity`, `--mrm-reminded`
+`--booking-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--quantity` (int), `--mrm-reminded` (bool)
 
 ### BookingProduct (key fields)
 

@@ -19,14 +19,14 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 
 #### EloxxLockersAudit list filter options
 
-`--business-id`, `--floor-plan-desk-id`, `--coworker-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--floor-plan-desk-id` (long), `--coworker-id` (long), `--description`, `--action-by`, `--action` (enum), `--tile-audit-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### EloxxLockersAudit create options
 
-`--business-id` (required), `--floor-plan-desk-id` (required), `--coworker-id` (required), `--description` (required), `--action-by`, `--action` (required), `--tile-audit-type` (required)
+`--business-id` (long, required), `--floor-plan-desk-id` (long, required), `--coworker-id` (long, required), `--description` (required), `--action-by`, `--action` (enum, required), `--tile-audit-type` (enum, required)
 
 #### EloxxLockersAudit update options
 
-`--business-id`, `--floor-plan-desk-id`, `--coworker-id`, `--description`, `--action-by`, `--action`, `--tile-audit-type`
+`--business-id` (long), `--floor-plan-desk-id` (long), `--coworker-id` (long), `--description`, `--action-by`, `--action` (enum), `--tile-audit-type` (enum)
 
 <!-- END:GENERATED entity=EloxxLockersAudits -->

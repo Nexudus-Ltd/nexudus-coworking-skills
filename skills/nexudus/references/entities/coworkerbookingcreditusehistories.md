@@ -22,15 +22,15 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 
 #### CoworkerBookingCreditUseHistory list filter options
 
-`--description`, `--coworker-booking-credit-id`, `--booking-id`, `--coworker-invoice-line-id`, `--event-attendee-id`, `--credit-used`, `--from-credit-used` (range), `--to-credit-used` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--description`, `--coworker-booking-credit-id` (long), `--booking-id` (long), `--coworker-invoice-line-id` (long), `--event-attendee-id` (long), `--credit-used` (decimal), `--from-credit-used` (range), `--to-credit-used` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerBookingCreditUseHistory create options
 
-`--description`, `--coworker-booking-credit-id` (required), `--booking-id`, `--coworker-invoice-line-id`, `--event-attendee-id`, `--credit-used` (required)
+`--description`, `--coworker-booking-credit-id` (long, required), `--booking-id` (long), `--coworker-invoice-line-id` (long), `--event-attendee-id` (long), `--credit-used` (decimal, required)
 
 #### CoworkerBookingCreditUseHistory update options
 
-`--description`, `--coworker-booking-credit-id`, `--booking-id`, `--coworker-invoice-line-id`, `--event-attendee-id`
+`--description`, `--coworker-booking-credit-id` (long), `--booking-id` (long), `--coworker-invoice-line-id` (long), `--event-attendee-id` (long)
 
 ### CoworkerBookingCreditUseHistory (key fields)
 

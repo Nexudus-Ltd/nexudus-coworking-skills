@@ -31,15 +31,15 @@ ContractContacts support Search, Get, Create, Update, Delete.
 
 #### ContractContact list filter options
 
-`--coworker-contract-id`, `--coworker-id`, `--email`, `--full-name`, `--date-of-birth`, `--from-date-of-birth` (range), `--to-date-of-birth` (range), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id`, `--phone-number`, `--notes`, `--contract-contact-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-contract-id` (long), `--coworker-id` (long), `--email`, `--full-name`, `--date-of-birth` (DateTime), `--from-date-of-birth` (range), `--to-date-of-birth` (range), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id` (long), `--phone-number`, `--notes`, `--contract-contact-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractContact create options
 
-`--coworker-contract-id` (required), `--coworker-id`, `--email`, `--full-name` (required), `--date-of-birth`, `--address`, `--post-code`, `--city-name`, `--state`, `--country-id`, `--phone-number`, `--notes`, `--contract-contact-type` (required)
+`--coworker-contract-id` (long, required), `--coworker-id` (long), `--email`, `--full-name` (required), `--date-of-birth` (DateTime), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id` (long), `--phone-number`, `--notes`, `--contract-contact-type` (enum, required)
 
 #### ContractContact update options
 
-`--coworker-contract-id`, `--coworker-id`, `--email`, `--full-name`, `--date-of-birth`, `--address`, `--post-code`, `--city-name`, `--state`, `--country-id`, `--phone-number`, `--notes`, `--contract-contact-type`
+`--coworker-contract-id` (long), `--coworker-id` (long), `--email`, `--full-name`, `--date-of-birth` (DateTime), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id` (long), `--phone-number`, `--notes`, `--contract-contact-type` (enum)
 
 ### ContractContact (key fields)
 

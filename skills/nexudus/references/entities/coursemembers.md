@@ -28,14 +28,14 @@ CourseMembers support Search, Get, Create, Update, Delete.
 
 #### CourseMember list filter options
 
-`--course-id`, `--coworker-id`, `--approved`, `--blocked`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--course-id` (long), `--coworker-id` (long), `--approved` (bool), `--blocked` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CourseMember create options
 
-`--course-id` (required), `--coworker-id` (required), `--approved`, `--blocked`
+`--course-id` (long, required), `--coworker-id` (long, required), `--approved` (bool), `--blocked` (bool)
 
 #### CourseMember update options
 
-`--course-id`, `--coworker-id`, `--approved`, `--blocked`
+`--course-id` (long), `--coworker-id` (long), `--approved` (bool), `--blocked` (bool)
 
 <!-- END:GENERATED entity=CourseMembers -->

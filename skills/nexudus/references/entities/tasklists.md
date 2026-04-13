@@ -19,15 +19,15 @@ TaskLists support Search, Get, Create, Update, Delete.
 
 #### TaskList list filter options
 
-`--business-id`, `--name`, `--active`, `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--active` (bool), `--assign-to-new-contacts` (bool), `--assign-to-new-members` (bool), `--assign-to-cancellations` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TaskList create options
 
-`--business-id` (required), `--name` (required), `--active`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`
+`--business-id` (long, required), `--name` (required), `--active` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts` (bool), `--assign-to-new-members` (bool), `--assign-to-cancellations` (bool)
 
 #### TaskList update options
 
-`--business-id`, `--name`, `--active`, `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts`, `--assign-to-new-members`, `--assign-to-cancellations`
+`--business-id` (long), `--name`, `--active` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts` (bool), `--assign-to-new-members` (bool), `--assign-to-cancellations` (bool)
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

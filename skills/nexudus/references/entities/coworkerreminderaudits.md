@@ -23,15 +23,15 @@ CoworkerReminderAudits support Search, Get, Create, Update, Delete.
 
 #### CoworkerReminderAudit list filter options
 
-`--coworker-id`, `--reminder-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--reminder-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerReminderAudit create options
 
-`--coworker-id` (required), `--reminder-id` (required)
+`--coworker-id` (long, required), `--reminder-id` (long, required)
 
 #### CoworkerReminderAudit update options
 
-`--coworker-id`, `--reminder-id`
+`--coworker-id` (long), `--reminder-id` (long)
 
 ### CoworkerReminderAudit (key fields)
 

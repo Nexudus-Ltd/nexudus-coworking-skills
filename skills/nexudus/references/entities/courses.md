@@ -32,15 +32,15 @@ Courses support Search, Get, Create, Update, Delete.
 
 #### Course list filter options
 
-`--business-id`, `--host-id`, `--title`, `--summary-text`, `--full-description`, `--show-overview`, `--has-community-group`, `--overview-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page`, `--visibility`, `--tariff-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--host-id` (long), `--title`, `--summary-text`, `--full-description`, `--show-overview` (bool), `--has-community-group` (bool), `--overview-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page` (bool), `--visibility` (enum), `--tariff-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Course create options
 
-`--business-id` (required), `--host-id` (required), `--title` (required), `--summary-text`, `--full-description`, `--show-overview`, `--has-community-group`, `--overview-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--visibility` (required), `--tariff-id`
+`--business-id` (long, required), `--host-id` (long, required), `--title` (required), `--summary-text`, `--full-description`, `--show-overview` (bool), `--has-community-group` (bool), `--overview-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int, required), `--show-in-home-page` (bool), `--visibility` (enum, required), `--tariff-id` (long)
 
 #### Course update options
 
-`--business-id`, `--host-id`, `--title`, `--summary-text`, `--full-description`, `--show-overview`, `--has-community-group`, `--overview-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--visibility`, `--tariff-id`
+`--business-id` (long), `--host-id` (long), `--title`, `--summary-text`, `--full-description`, `--show-overview` (bool), `--has-community-group` (bool), `--overview-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--show-in-home-page` (bool), `--visibility` (enum), `--tariff-id` (long)
 
 #### Course enum values
 

@@ -25,15 +25,15 @@ CoworkerDiscountCodes support Search, Get, Create, Update, Delete.
 
 #### CoworkerDiscountCode list filter options
 
-`--coworker-id`, `--business-id`, `--discount-code-id`, `--notes`, `--valid-from`, `--from-valid-from` (range), `--to-valid-from` (range), `--expires-on`, `--from-expires-on` (range), `--to-expires-on` (range), `--referer-guid`, `--booking-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--business-id` (long), `--discount-code-id` (long), `--notes`, `--valid-from` (DateTime), `--from-valid-from` (range), `--to-valid-from` (range), `--expires-on` (DateTime), `--from-expires-on` (range), `--to-expires-on` (range), `--referer-guid`, `--booking-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerDiscountCode create options
 
-`--coworker-id` (required), `--business-id` (required), `--discount-code-id` (required), `--notes`, `--valid-from`, `--expires-on`, `--referer-guid`, `--booking-unique-id`
+`--coworker-id` (long, required), `--business-id` (long, required), `--discount-code-id` (long, required), `--notes`, `--valid-from` (DateTime), `--expires-on` (DateTime), `--referer-guid`, `--booking-unique-id`
 
 #### CoworkerDiscountCode update options
 
-`--coworker-id`, `--business-id`, `--discount-code-id`, `--notes`, `--valid-from`, `--expires-on`, `--referer-guid`, `--booking-unique-id`
+`--coworker-id` (long), `--business-id` (long), `--discount-code-id` (long), `--notes`, `--valid-from` (DateTime), `--expires-on` (DateTime), `--referer-guid`, `--booking-unique-id`
 
 ### CoworkerDiscountCode (key fields)
 

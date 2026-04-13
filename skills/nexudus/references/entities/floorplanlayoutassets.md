@@ -19,14 +19,14 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutAsset list filter options
 
-`--floor-plan-layout-id`, `--area-unique-id`, `--asset-type`, `--angle`, `--from-angle` (range), `--to-angle` (range), `--height`, `--from-height` (range), `--to-height` (range), `--length`, `--from-length` (range), `--to-length` (range), `--width`, `--from-width` (range), `--to-width` (range), `--pos-x`, `--from-pos-x` (range), `--to-pos-x` (range), `--pos-y`, `--from-pos-y` (range), `--to-pos-y` (range), `--floor-offset`, `--from-floor-offset` (range), `--to-floor-offset` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--floor-plan-layout-id` (long), `--area-unique-id`, `--asset-type`, `--angle` (decimal), `--from-angle` (range), `--to-angle` (range), `--height` (int), `--from-height` (range), `--to-height` (range), `--length` (int), `--from-length` (range), `--to-length` (range), `--width` (int), `--from-width` (range), `--to-width` (range), `--pos-x` (int), `--from-pos-x` (range), `--to-pos-x` (range), `--pos-y` (int), `--from-pos-y` (range), `--to-pos-y` (range), `--floor-offset` (int), `--from-floor-offset` (range), `--to-floor-offset` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutAsset create options
 
-`--floor-plan-layout-id` (required), `--area-unique-id`, `--asset-type`, `--angle` (required), `--height` (required), `--length` (required), `--width` (required), `--pos-x` (required), `--pos-y` (required), `--floor-offset` (required)
+`--floor-plan-layout-id` (long, required), `--area-unique-id`, `--asset-type`, `--angle` (decimal, required), `--height` (int, required), `--length` (int, required), `--width` (int, required), `--pos-x` (int, required), `--pos-y` (int, required), `--floor-offset` (int, required)
 
 #### FloorPlanLayoutAsset update options
 
-`--floor-plan-layout-id`, `--area-unique-id`, `--asset-type`, `--angle`, `--height`, `--length`, `--width`, `--pos-x`, `--pos-y`, `--floor-offset`
+`--floor-plan-layout-id` (long), `--area-unique-id`, `--asset-type`, `--angle` (decimal), `--height` (int), `--length` (int), `--width` (int), `--pos-x` (int), `--pos-y` (int), `--floor-offset` (int)
 
 <!-- END:GENERATED entity=FloorPlanLayoutAssets -->

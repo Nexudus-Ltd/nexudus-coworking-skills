@@ -21,14 +21,14 @@ CommunityThreadMutes support Search, Get, Create, Update, Delete.
 
 #### CommunityThreadMute list filter options
 
-`--thread-id`, `--user-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--thread-id` (long), `--user-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityThreadMute create options
 
-`--thread-id` (required), `--user-id` (required)
+`--thread-id` (long, required), `--user-id` (long, required)
 
 #### CommunityThreadMute update options
 
-`--thread-id`, `--user-id`
+`--thread-id` (long), `--user-id` (long)
 
 <!-- END:GENERATED entity=CommunityThreadMutes -->

@@ -27,15 +27,15 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 
 #### CoworkerPaymentMethod list filter options
 
-`--coworker-id`, `--business-id`, `--regular-payment-provider`, `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--business-id` (long), `--regular-payment-provider` (enum), `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerPaymentMethod create options
 
-`--coworker-id` (required), `--business-id` (required), `--regular-payment-provider`, `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`
+`--coworker-id` (long, required), `--business-id` (long, required), `--regular-payment-provider` (enum), `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`
 
 #### CoworkerPaymentMethod update options
 
-`--coworker-id`, `--business-id`, `--regular-payment-provider`, `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`
+`--coworker-id` (long), `--business-id` (long), `--regular-payment-provider` (enum), `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`
 
 ### CoworkerPaymentMethod (key fields)
 

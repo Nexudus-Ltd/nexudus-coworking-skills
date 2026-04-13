@@ -19,14 +19,14 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutEdge list filter options
 
-`--floor-plan-layout-id`, `--edge-key`, `--source`, `--target`, `--angle`, `--from-angle` (range), `--to-angle` (range), `--width`, `--from-width` (range), `--to-width` (range), `--height`, `--from-height` (range), `--to-height` (range), `--length`, `--from-length` (range), `--to-length` (range), `--is-partition`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--floor-plan-layout-id` (long), `--edge-key`, `--source`, `--target`, `--angle` (decimal), `--from-angle` (range), `--to-angle` (range), `--width` (int), `--from-width` (range), `--to-width` (range), `--height` (int), `--from-height` (range), `--to-height` (range), `--length` (int), `--from-length` (range), `--to-length` (range), `--is-partition` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayoutEdge create options
 
-`--floor-plan-layout-id` (required), `--edge-key`, `--source`, `--target`, `--angle` (required), `--width` (required), `--height` (required), `--length` (required), `--is-partition`
+`--floor-plan-layout-id` (long, required), `--edge-key`, `--source`, `--target`, `--angle` (decimal, required), `--width` (int, required), `--height` (int, required), `--length` (int, required), `--is-partition` (bool)
 
 #### FloorPlanLayoutEdge update options
 
-`--floor-plan-layout-id`, `--edge-key`, `--source`, `--target`, `--angle`, `--width`, `--height`, `--length`, `--is-partition`
+`--floor-plan-layout-id` (long), `--edge-key`, `--source`, `--target`, `--angle` (decimal), `--width` (int), `--height` (int), `--length` (int), `--is-partition` (bool)
 
 <!-- END:GENERATED entity=FloorPlanLayoutEdges -->

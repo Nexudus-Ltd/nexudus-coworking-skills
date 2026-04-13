@@ -25,15 +25,15 @@ ContractSchedules support Search, Get, Create, Update, Delete.
 
 #### ContractSchedule list filter options
 
-`--coworker-contract-id`, `--notes`, `--price`, `--from-price` (range), `--to-price` (range), `--apply-on`, `--from-apply-on` (range), `--to-apply-on` (range), `--apply-on-local`, `--from-apply-on-local` (range), `--to-apply-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-contract-id` (long), `--notes`, `--price` (decimal), `--from-price` (range), `--to-price` (range), `--apply-on` (DateTime), `--from-apply-on` (range), `--to-apply-on` (range), `--apply-on-local` (DateTime), `--from-apply-on-local` (range), `--to-apply-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractSchedule create options
 
-`--coworker-contract-id` (required), `--notes`, `--price`, `--apply-on` (required), `--apply-on-local`
+`--coworker-contract-id` (long, required), `--notes`, `--price` (decimal), `--apply-on` (DateTime, required), `--apply-on-local` (DateTime)
 
 #### ContractSchedule update options
 
-`--coworker-contract-id`, `--notes`, `--price`, `--apply-on`, `--apply-on-local`
+`--coworker-contract-id` (long), `--notes`, `--price` (decimal), `--apply-on` (DateTime), `--apply-on-local` (DateTime)
 
 ### ContractSchedule (key fields)
 

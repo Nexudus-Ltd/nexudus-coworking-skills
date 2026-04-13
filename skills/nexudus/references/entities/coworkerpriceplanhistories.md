@@ -20,7 +20,7 @@ CoworkerPricePlanHistories support Search, Get (no Create or Delete via API).
 
 #### CoworkerPricePlanHistory list filter options
 
-`--coworker-id`, `--old-tariff-name`, `--new-tariff-name`, `--old-tariff-unique-id`, `--new-tariff-unique-id`, `--old-contract-unique-id`, `--new-contract-unique-id`, `--is-upgrade`, `--notes`, `--old-value`, `--from-old-value` (range), `--to-old-value` (range), `--new-value`, `--from-new-value` (range), `--to-new-value` (range), `--old-quantity`, `--from-old-quantity` (range), `--to-old-quantity` (range), `--new-quantity`, `--from-new-quantity` (range), `--to-new-quantity` (range), `--created-on-local`, `--from-created-on-local` (range), `--to-created-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--old-tariff-name`, `--new-tariff-name`, `--old-tariff-unique-id`, `--new-tariff-unique-id`, `--old-contract-unique-id`, `--new-contract-unique-id`, `--is-upgrade` (bool), `--notes`, `--old-value` (decimal), `--from-old-value` (range), `--to-old-value` (range), `--new-value` (decimal), `--from-new-value` (range), `--to-new-value` (range), `--old-quantity` (int), `--from-old-quantity` (range), `--to-old-quantity` (range), `--new-quantity` (int), `--from-new-quantity` (range), `--to-new-quantity` (range), `--created-on-local` (DateTime), `--from-created-on-local` (range), `--to-created-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 ### CoworkerPricePlanHistory (key fields)
 

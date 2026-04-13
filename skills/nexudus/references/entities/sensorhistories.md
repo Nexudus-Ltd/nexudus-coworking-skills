@@ -19,14 +19,14 @@ SensorHistories support Search, Get, Create, Update, Delete.
 
 #### SensorHistory list filter options
 
-`--sensor-id`, `--value`, `--observed-on`, `--from-observed-on` (range), `--to-observed-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--sensor-id` (long), `--value`, `--observed-on` (DateTime), `--from-observed-on` (range), `--to-observed-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SensorHistory create options
 
-`--sensor-id` (required), `--value`, `--observed-on` (required)
+`--sensor-id` (long, required), `--value`, `--observed-on` (DateTime, required)
 
 #### SensorHistory update options
 
-`--sensor-id`, `--value`, `--observed-on`
+`--sensor-id` (long), `--value`, `--observed-on` (DateTime)
 
 <!-- END:GENERATED entity=SensorHistories -->

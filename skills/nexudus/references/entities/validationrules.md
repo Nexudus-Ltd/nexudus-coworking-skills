@@ -19,14 +19,14 @@ ValidationRules support Search, Get, Create, Update, Delete.
 
 #### ValidationRule list filter options
 
-`--business-id`, `--name`, `--record-type`, `--active`, `--formula`, `--description`, `--error-message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--record-type` (enum), `--active` (bool), `--formula`, `--description`, `--error-message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ValidationRule create options
 
-`--business-id` (required), `--name` (required), `--record-type` (required), `--active`, `--formula` (required), `--description`, `--error-message`
+`--business-id` (long, required), `--name` (required), `--record-type` (enum, required), `--active` (bool), `--formula` (required), `--description`, `--error-message`
 
 #### ValidationRule update options
 
-`--business-id`, `--name`, `--record-type`, `--active`, `--formula`, `--description`, `--error-message`
+`--business-id` (long), `--name`, `--record-type` (enum), `--active` (bool), `--formula`, `--description`, `--error-message`
 
 <!-- END:GENERATED entity=ValidationRules -->

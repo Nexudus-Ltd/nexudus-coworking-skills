@@ -19,15 +19,15 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 
 #### ResourceProduct list filter options
 
-`--resource-id`, `--product-id`, `--invoice-in-minutes`, `--request-quantity`, `--visible`, `--price`, `--from-price` (range), `--to-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--resource-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--request-quantity` (bool), `--visible` (bool), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ResourceProduct create options
 
-`--resource-id` (required), `--product-id` (required), `--invoice-in-minutes`, `--request-quantity`, `--visible`, `--price`
+`--resource-id` (long, required), `--product-id` (long, required), `--invoice-in-minutes` (bool), `--request-quantity` (bool), `--visible` (bool), `--price` (decimal)
 
 #### ResourceProduct update options
 
-`--resource-id`, `--product-id`, `--invoice-in-minutes`, `--request-quantity`, `--visible`, `--price`
+`--resource-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--request-quantity` (bool), `--visible` (bool), `--price` (decimal)
 
 ### ResourceProduct (key fields)
 

@@ -16,6 +16,6 @@ LogEntries support Search, Get (no Create or Delete via API).
 
 #### LogEntry list filter options
 
-`--business-id`, `--log-entry-type`, `--description`, `--action-by`, `--entity-name`, `--entity-id`, `--from-entity-id` (range), `--to-entity-id` (range), `--obsolete`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--log-entry-type` (enum), `--description`, `--action-by`, `--entity-name`, `--entity-id` (int), `--from-entity-id` (range), `--to-entity-id` (range), `--obsolete` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 <!-- END:GENERATED entity=LogEntries -->

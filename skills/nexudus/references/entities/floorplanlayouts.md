@@ -19,14 +19,14 @@ FloorPlanLayouts support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayout list filter options
 
-`--business-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--size`, `--from-size` (range), `--to-size` (range), `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale`, `--from-background-image-scale` (range), `--to-background-image-scale` (range), `--tracing-image-scale`, `--from-tracing-image-scale` (range), `--to-tracing-image-scale` (range), `--floor-level`, `--from-floor-level` (range), `--to-floor-level` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--new-background-image-url`, `--clear-background-image-file` (bool), `--size` (decimal), `--from-size` (range), `--to-size` (range), `--new-tracing-image-url`, `--clear-tracing-image-file` (bool), `--new-preview-image-url`, `--clear-preview-image-file` (bool), `--background-image-scale` (int), `--from-background-image-scale` (range), `--to-background-image-scale` (range), `--tracing-image-scale` (int), `--from-tracing-image-scale` (range), `--to-tracing-image-scale` (range), `--floor-level` (int), `--from-floor-level` (range), `--to-floor-level` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorPlanLayout create options
 
-`--business-id` (required), `--name` (required), `--new-background-image-url`, `--clear-background-image-file`, `--size` (required), `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale` (required), `--tracing-image-scale` (required), `--floor-level` (required)
+`--business-id` (long, required), `--name` (required), `--new-background-image-url`, `--clear-background-image-file` (bool), `--size` (decimal, required), `--new-tracing-image-url`, `--clear-tracing-image-file` (bool), `--new-preview-image-url`, `--clear-preview-image-file` (bool), `--background-image-scale` (int, required), `--tracing-image-scale` (int, required), `--floor-level` (int, required)
 
 #### FloorPlanLayout update options
 
-`--business-id`, `--name`, `--new-background-image-url`, `--clear-background-image-file`, `--size`, `--new-tracing-image-url`, `--clear-tracing-image-file`, `--new-preview-image-url`, `--clear-preview-image-file`, `--background-image-scale`, `--tracing-image-scale`, `--floor-level`
+`--business-id` (long), `--name`, `--new-background-image-url`, `--clear-background-image-file` (bool), `--size` (decimal), `--new-tracing-image-url`, `--clear-tracing-image-file` (bool), `--new-preview-image-url`, `--clear-preview-image-file` (bool), `--background-image-scale` (int), `--tracing-image-scale` (int), `--floor-level` (int)
 
 <!-- END:GENERATED entity=FloorPlanLayouts -->

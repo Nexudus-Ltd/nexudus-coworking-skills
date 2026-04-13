@@ -33,15 +33,15 @@ InventoryAssets also support entity commands.
 
 #### InventoryAsset list filter options
 
-`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--from-value` (range), `--to-value` (range), `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file` (bool), `--value` (decimal), `--from-value` (range), `--to-value` (range), `--floor-plan-desk-id` (long), `--resource-id` (long), `--assign-to-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### InventoryAsset create options
 
-`--business-id` (required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type` (required)
+`--business-id` (long, required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file` (bool), `--value` (decimal), `--floor-plan-desk-id` (long), `--resource-id` (long), `--assign-to-type` (enum, required)
 
 #### InventoryAsset update options
 
-`--business-id`, `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file`, `--value`, `--floor-plan-desk-id`, `--resource-id`, `--assign-to-type`
+`--business-id` (long), `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file` (bool), `--value` (decimal), `--floor-plan-desk-id` (long), `--resource-id` (long), `--assign-to-type` (enum)
 
 ### InventoryAsset (key fields)
 

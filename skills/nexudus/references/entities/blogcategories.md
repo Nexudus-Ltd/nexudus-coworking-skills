@@ -23,15 +23,15 @@ BlogCategories support Search, Get, Create, Update, Delete.
 
 #### BlogCategory list filter options
 
-`--business-id`, `--language-id`, `--title`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--language-id` (long), `--title`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BlogCategory create options
 
-`--business-id` (required), `--language-id`, `--title` (required), `--blog-posts` (list, repeat flag), `--added-blog-posts` (list, repeat flag), `--removed-blog-posts` (list, repeat flag)
+`--business-id` (long, required), `--language-id` (long), `--title` (required), `--blog-posts` (list, repeat flag), `--added-blog-posts` (list, repeat flag), `--removed-blog-posts` (list, repeat flag)
 
 #### BlogCategory update options
 
-`--business-id`, `--language-id`, `--title`, `--blog-posts` (list, repeat flag), `--added-blog-posts` (list, repeat flag), `--removed-blog-posts` (list, repeat flag)
+`--business-id` (long), `--language-id` (long), `--title`, `--blog-posts` (list, repeat flag), `--added-blog-posts` (list, repeat flag), `--removed-blog-posts` (list, repeat flag)
 
 ### BlogCategory (key fields)
 

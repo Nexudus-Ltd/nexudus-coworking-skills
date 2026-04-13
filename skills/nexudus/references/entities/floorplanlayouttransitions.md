@@ -19,14 +19,14 @@ FloorplanLayoutTransitions support Search, Get, Create, Update, Delete.
 
 #### FloorplanLayoutTransition list filter options
 
-`--floor-plan-layout-id`, `--area-unique-id`, `--name`, `--transition-type`, `--transition-to`, `--angle`, `--from-angle` (range), `--to-angle` (range), `--height`, `--from-height` (range), `--to-height` (range), `--length`, `--from-length` (range), `--to-length` (range), `--width`, `--from-width` (range), `--to-width` (range), `--pos-x`, `--from-pos-x` (range), `--to-pos-x` (range), `--pos-y`, `--from-pos-y` (range), `--to-pos-y` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--floor-plan-layout-id` (long), `--area-unique-id`, `--name`, `--transition-type`, `--transition-to`, `--angle` (decimal), `--from-angle` (range), `--to-angle` (range), `--height` (int), `--from-height` (range), `--to-height` (range), `--length` (int), `--from-length` (range), `--to-length` (range), `--width` (int), `--from-width` (range), `--to-width` (range), `--pos-x` (int), `--from-pos-x` (range), `--to-pos-x` (range), `--pos-y` (int), `--from-pos-y` (range), `--to-pos-y` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FloorplanLayoutTransition create options
 
-`--floor-plan-layout-id` (required), `--area-unique-id`, `--name`, `--transition-type` (required), `--transition-to`, `--angle` (required), `--height` (required), `--length` (required), `--width` (required), `--pos-x` (required), `--pos-y` (required)
+`--floor-plan-layout-id` (long, required), `--area-unique-id`, `--name`, `--transition-type` (required), `--transition-to`, `--angle` (decimal, required), `--height` (int, required), `--length` (int, required), `--width` (int, required), `--pos-x` (int, required), `--pos-y` (int, required)
 
 #### FloorplanLayoutTransition update options
 
-`--floor-plan-layout-id`, `--area-unique-id`, `--name`, `--transition-type`, `--transition-to`, `--angle`, `--height`, `--length`, `--width`, `--pos-x`, `--pos-y`
+`--floor-plan-layout-id` (long), `--area-unique-id`, `--name`, `--transition-type`, `--transition-to`, `--angle` (decimal), `--height` (int), `--length` (int), `--width` (int), `--pos-x` (int), `--pos-y` (int)
 
 <!-- END:GENERATED entity=FloorplanLayoutTransitions -->

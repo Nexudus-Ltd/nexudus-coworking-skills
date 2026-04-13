@@ -31,15 +31,15 @@ ContractPausedPeriods support Search, Get, Create, Update, Delete.
 
 #### ContractPausedPeriod list filter options
 
-`--coworker-contract-id`, `--notes`, `--pause-from`, `--from-pause-from` (range), `--to-pause-from` (range), `--pause-until`, `--from-pause-until` (range), `--to-pause-until` (range), `--pause-from-local`, `--from-pause-from-local` (range), `--to-pause-from-local` (range), `--pause-until-local`, `--from-pause-until-local` (range), `--to-pause-until-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-contract-id` (long), `--notes`, `--pause-from` (DateTime), `--from-pause-from` (range), `--to-pause-from` (range), `--pause-until` (DateTime), `--from-pause-until` (range), `--to-pause-until` (range), `--pause-from-local` (DateTime), `--from-pause-from-local` (range), `--to-pause-from-local` (range), `--pause-until-local` (DateTime), `--from-pause-until-local` (range), `--to-pause-until-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractPausedPeriod create options
 
-`--coworker-contract-id` (required), `--notes`, `--pause-from` (required), `--pause-until` (required), `--pause-from-local`, `--pause-until-local`
+`--coworker-contract-id` (long, required), `--notes`, `--pause-from` (DateTime, required), `--pause-until` (DateTime, required), `--pause-from-local` (DateTime), `--pause-until-local` (DateTime)
 
 #### ContractPausedPeriod update options
 
-`--coworker-contract-id`, `--notes`, `--pause-from`, `--pause-until`, `--pause-from-local`, `--pause-until-local`
+`--coworker-contract-id` (long), `--notes`, `--pause-from` (DateTime), `--pause-until` (DateTime), `--pause-from-local` (DateTime), `--pause-until-local` (DateTime)
 
 ### ContractPausedPeriod (key fields)
 

@@ -21,14 +21,14 @@ CoworkerNotes support Search, Get, Create, Update, Delete.
 
 #### CoworkerNote list filter options
 
-`--coworker-id`, `--notes`, `--added-by`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--notes`, `--added-by`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerNote create options
 
-`--coworker-id` (required), `--notes` (required), `--added-by`
+`--coworker-id` (long, required), `--notes` (required), `--added-by`
 
 #### CoworkerNote update options
 
-`--coworker-id`, `--notes`, `--added-by`
+`--coworker-id` (long), `--notes`, `--added-by`
 
 <!-- END:GENERATED entity=CoworkerNotes -->

@@ -33,15 +33,15 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 #### FinancialAccount list filter options
 
-`--business-id`, `--name`, `--code`, `--description`, `--account-type`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--code`, `--description`, `--account-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FinancialAccount create options
 
-`--business-id` (required), `--name` (required), `--code` (required), `--description`, `--account-type` (required)
+`--business-id` (long, required), `--name` (required), `--code` (required), `--description`, `--account-type` (enum, required)
 
 #### FinancialAccount update options
 
-`--business-id`, `--name`, `--code`, `--description`, `--account-type`
+`--business-id` (long), `--name`, `--code`, `--description`, `--account-type` (enum)
 
 ### FinancialAccount (key fields)
 

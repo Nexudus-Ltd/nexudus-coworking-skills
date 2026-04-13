@@ -19,14 +19,14 @@ PassportCards support Search, Get, Create, Update, Delete.
 
 #### PassportCard list filter options
 
-`--code`, `--active`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--code`, `--active` (bool), `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### PassportCard create options
 
-`--code` (required), `--active`, `--notes`
+`--code` (required), `--active` (bool), `--notes`
 
 #### PassportCard update options
 
-`--code`, `--active`, `--notes`
+`--code`, `--active` (bool), `--notes`
 
 <!-- END:GENERATED entity=PassportCards -->

@@ -21,15 +21,15 @@ ChatRooms support Search, Get, Create, Update, Delete.
 
 #### ChatRoom list filter options
 
-`--business-id`, `--name`, `--active`, `--last-agent-visit`, `--from-last-agent-visit` (range), `--to-last-agent-visit` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--active` (bool), `--last-agent-visit` (DateTime), `--from-last-agent-visit` (range), `--to-last-agent-visit` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ChatRoom create options
 
-`--business-id` (required), `--name`, `--active`, `--last-agent-visit`, `--users` (list, repeat flag), `--added-users` (list, repeat flag), `--removed-users` (list, repeat flag)
+`--business-id` (long, required), `--name`, `--active` (bool), `--last-agent-visit` (DateTime), `--users` (list, repeat flag), `--added-users` (list, repeat flag), `--removed-users` (list, repeat flag)
 
 #### ChatRoom update options
 
-`--business-id`, `--name`, `--active`, `--last-agent-visit`, `--users` (list, repeat flag), `--added-users` (list, repeat flag), `--removed-users` (list, repeat flag)
+`--business-id` (long), `--name`, `--active` (bool), `--last-agent-visit` (DateTime), `--users` (list, repeat flag), `--added-users` (list, repeat flag), `--removed-users` (list, repeat flag)
 
 **List properties (only returned by `get`, not by `list`):** `Users`, `AddedUsers`, `RemovedUsers`
 

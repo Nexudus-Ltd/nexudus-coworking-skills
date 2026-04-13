@@ -193,15 +193,15 @@ CannedResponses support Search, Get, Create, Update, Delete.
 
 #### CannedResponse list filter options
 
-`--business-id`, `--name`, `--subject`, `--message-text`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--subject`, `--message-text`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CannedResponse create options
 
-`--business-id` (required), `--name` (required), `--subject`, `--message-text`
+`--business-id` (long, required), `--name` (required), `--subject`, `--message-text`
 
 #### CannedResponse update options
 
-`--business-id`, `--name`, `--subject`, `--message-text`
+`--business-id` (long), `--name`, `--subject`, `--message-text`
 
 ### CannedResponse (key fields)
 

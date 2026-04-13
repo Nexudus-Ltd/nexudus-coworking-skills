@@ -25,15 +25,15 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 
 #### FailedCheckin list filter options
 
-`--coworker-id`, `--business-id`, `--checkin-attempt-time`, `--from-checkin-attempt-time` (range), `--to-checkin-attempt-time` (range), `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local`, `--from-checkin-attempt-time-local` (range), `--to-checkin-attempt-time-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--business-id` (long), `--checkin-attempt-time` (DateTime), `--from-checkin-attempt-time` (range), `--to-checkin-attempt-time` (range), `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local` (DateTime), `--from-checkin-attempt-time-local` (range), `--to-checkin-attempt-time-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FailedCheckin create options
 
-`--coworker-id`, `--business-id` (required), `--checkin-attempt-time` (required), `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local`
+`--coworker-id` (long), `--business-id` (long, required), `--checkin-attempt-time` (DateTime, required), `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local` (DateTime)
 
 #### FailedCheckin update options
 
-`--coworker-id`, `--business-id`, `--checkin-attempt-time`, `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local`
+`--coworker-id` (long), `--business-id` (long), `--checkin-attempt-time` (DateTime), `--mac-addresses`, `--teams-at-the-time-of-checkin`, `--tariff-at-the-time-of-checkin`, `--description`, `--checkin-attempt-time-local` (DateTime)
 
 ### FailedCheckin (key fields)
 

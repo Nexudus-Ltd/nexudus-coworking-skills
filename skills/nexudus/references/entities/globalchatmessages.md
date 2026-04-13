@@ -19,14 +19,14 @@ GlobalChatMessages support Search, Get, Create, Update, Delete.
 
 #### GlobalChatMessage list filter options
 
-`--business-id`, `--from-user-id`, `--message-text`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--from-user-id` (long), `--message-text`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### GlobalChatMessage create options
 
-`--business-id` (required), `--from-user-id` (required), `--message-text` (required)
+`--business-id` (long, required), `--from-user-id` (long, required), `--message-text` (required)
 
 #### GlobalChatMessage update options
 
-`--business-id`, `--from-user-id`, `--message-text`
+`--business-id` (long), `--from-user-id` (long), `--message-text`
 
 <!-- END:GENERATED entity=GlobalChatMessages -->

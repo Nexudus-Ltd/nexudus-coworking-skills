@@ -21,15 +21,15 @@ ResourceTimeSlots also support entity commands.
 
 #### ResourceTimeSlot list filter options
 
-`--resource-id`, `--from-time`, `--from-from-time` (range), `--to-from-time` (range), `--to-time`, `--from-to-time` (range), `--to-to-time` (range), `--day-of-week`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--resource-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--day-of-week` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ResourceTimeSlot create options
 
-`--resource-id` (required), `--from-time` (required), `--to-time` (required), `--day-of-week` (required)
+`--resource-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--day-of-week` (enum, required)
 
 #### ResourceTimeSlot update options
 
-`--resource-id`, `--from-time`, `--to-time`, `--day-of-week`
+`--resource-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--day-of-week` (enum)
 
 ### ResourceTimeSlot (key fields)
 

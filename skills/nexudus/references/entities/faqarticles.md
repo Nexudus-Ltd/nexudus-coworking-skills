@@ -19,14 +19,14 @@ FaqArticles support Search, Get, Create, Update, Delete.
 
 #### FaqArticle list filter options
 
-`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### FaqArticle create options
 
-`--business-id` (required), `--title` (required), `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order` (required), `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
+`--business-id` (long, required), `--title` (required), `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int, required), `--show-in-home-page` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool)
 
 #### FaqArticle update options
 
-`--business-id`, `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file`, `--new-large-image-url`, `--clear-large-image-file`, `--active`, `--group-name`, `--display-order`, `--show-in-home-page`, `--only-for-contacts`, `--only-for-members`
+`--business-id` (long), `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--show-in-home-page` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool)
 
 <!-- END:GENERATED entity=FaqArticles -->

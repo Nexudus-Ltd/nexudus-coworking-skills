@@ -25,15 +25,15 @@ BookingNotes also support entity commands.
 
 #### BookingNote list filter options
 
-`--booking-id`, `--added-by`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--booking-id` (long), `--added-by`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BookingNote create options
 
-`--booking-id` (required), `--added-by`, `--notes` (required)
+`--booking-id` (long, required), `--added-by`, `--notes` (required)
 
 #### BookingNote update options
 
-`--booking-id`, `--added-by`, `--notes`
+`--booking-id` (long), `--added-by`, `--notes`
 
 ### BookingNote (key fields)
 

@@ -23,15 +23,15 @@ CommunityMessages support Search, Get, Create, Update, Delete.
 
 #### CommunityMessage list filter options
 
-`--community-thread-id`, `--user-id`, `--coworker-id`, `--message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--community-thread-id` (long), `--user-id` (long), `--coworker-id` (long), `--message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CommunityMessage create options
 
-`--community-thread-id` (required), `--user-id` (required), `--coworker-id`, `--message`
+`--community-thread-id` (long, required), `--user-id` (long, required), `--coworker-id` (long), `--message`
 
 #### CommunityMessage update options
 
-`--community-thread-id`, `--user-id`, `--coworker-id`, `--message`
+`--community-thread-id` (long), `--user-id` (long), `--coworker-id` (long), `--message`
 
 ### CommunityMessage (key fields)
 

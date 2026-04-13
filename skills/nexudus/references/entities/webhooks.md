@@ -27,15 +27,15 @@ WebHooks support Search, Get, Create, Update, Delete.
 
 #### WebHook list filter options
 
-`--business-id`, `--name`, `--action`, `--description`, `--u-r-l`, `--active`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--action` (enum), `--description`, `--u-r-l`, `--active` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### WebHook create options
 
-`--business-id` (required), `--name` (required), `--action` (required), `--description`, `--u-r-l` (required), `--active`
+`--business-id` (long, required), `--name` (required), `--action` (enum, required), `--description`, `--u-r-l` (required), `--active` (bool)
 
 #### WebHook update options
 
-`--business-id`, `--name`, `--action`, `--description`, `--u-r-l`, `--active`
+`--business-id` (long), `--name`, `--action` (enum), `--description`, `--u-r-l`, `--active` (bool)
 
 ### WebHook (key fields)
 

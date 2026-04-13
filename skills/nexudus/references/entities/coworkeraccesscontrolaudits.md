@@ -23,14 +23,14 @@ CoworkerAccessControlAudits support Search, Get, Create, Update, Delete.
 
 #### CoworkerAccessControlAudit list filter options
 
-`--coworker-id`, `--description`, `--is-problem`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--description`, `--is-problem` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerAccessControlAudit create options
 
-`--coworker-id` (required), `--description`, `--is-problem`
+`--coworker-id` (long, required), `--description`, `--is-problem` (bool)
 
 #### CoworkerAccessControlAudit update options
 
-`--coworker-id`, `--description`, `--is-problem`
+`--coworker-id` (long), `--description`, `--is-problem` (bool)
 
 <!-- END:GENERATED entity=CoworkerAccessControlAudits -->

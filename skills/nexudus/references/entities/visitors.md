@@ -21,15 +21,15 @@ Visitors also support entity commands.
 
 #### Visitor list filter options
 
-`--business-id`, `--full-name`, `--email`, `--coworker-id`, `--visitor-source`, `--host-approval-status`, `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival`, `--from-expected-arrival` (range), `--to-expected-arrival` (range), `--arrived`, `--arrival-date`, `--from-arrival-date` (range), `--to-arrival-date` (range), `--departure-date`, `--from-departure-date` (range), `--to-departure-date` (range), `--notified`, `--internal`, `--is-tour`, `--has-agreed-terms`, `--tour-confirmed`, `--access-control-scheduled-job-id`, `--check-in-now`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--full-name`, `--email`, `--coworker-id` (long), `--visitor-source` (enum), `--host-approval-status` (enum), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (DateTime), `--from-expected-arrival` (range), `--to-expected-arrival` (range), `--arrived` (bool), `--arrival-date` (DateTime), `--from-arrival-date` (range), `--to-arrival-date` (range), `--departure-date` (DateTime), `--from-departure-date` (range), `--to-departure-date` (range), `--notified` (bool), `--internal` (bool), `--is-tour` (bool), `--has-agreed-terms` (bool), `--tour-confirmed` (bool), `--access-control-scheduled-job-id`, `--check-in-now` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Visitor create options
 
-`--business-id` (required), `--full-name` (required), `--email` (required), `--coworker-id`, `--visitor-source` (required), `--host-approval-status` (required), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (required), `--arrived`, `--arrival-date`, `--departure-date`, `--notified`, `--internal`, `--is-tour`, `--has-agreed-terms`, `--tour-confirmed`, `--access-control-scheduled-job-id`, `--check-in-now`
+`--business-id` (long, required), `--full-name` (required), `--email` (required), `--coworker-id` (long), `--visitor-source` (enum, required), `--host-approval-status` (enum, required), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (DateTime, required), `--arrived` (bool), `--arrival-date` (DateTime), `--departure-date` (DateTime), `--notified` (bool), `--internal` (bool), `--is-tour` (bool), `--has-agreed-terms` (bool), `--tour-confirmed` (bool), `--access-control-scheduled-job-id`, `--check-in-now` (bool)
 
 #### Visitor update options
 
-`--business-id`, `--full-name`, `--email`, `--coworker-id`, `--visitor-source`, `--host-approval-status`, `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival`, `--arrived`, `--arrival-date`, `--departure-date`, `--notified`, `--internal`, `--is-tour`, `--has-agreed-terms`, `--tour-confirmed`, `--access-control-scheduled-job-id`
+`--business-id` (long), `--full-name`, `--email`, `--coworker-id` (long), `--visitor-source` (enum), `--host-approval-status` (enum), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (DateTime), `--arrived` (bool), `--arrival-date` (DateTime), `--departure-date` (DateTime), `--notified` (bool), `--internal` (bool), `--is-tour` (bool), `--has-agreed-terms` (bool), `--tour-confirmed` (bool), `--access-control-scheduled-job-id`
 
 ### Visitor (key fields)
 

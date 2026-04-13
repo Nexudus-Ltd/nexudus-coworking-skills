@@ -19,14 +19,14 @@ UserBookmarks support Search, Get, Create, Update, Delete.
 
 #### UserBookmark list filter options
 
-`--user-id`, `--entity-id`, `--from-entity-id` (range), `--to-entity-id` (range), `--name`, `--entity-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--user-id` (long), `--entity-id` (int), `--from-entity-id` (range), `--to-entity-id` (range), `--name`, `--entity-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### UserBookmark create options
 
-`--user-id` (required), `--entity-id` (required), `--name` (required), `--entity-url` (required)
+`--user-id` (long, required), `--entity-id` (int, required), `--name` (required), `--entity-url` (required)
 
 #### UserBookmark update options
 
-`--user-id`, `--entity-id`, `--name`, `--entity-url`
+`--user-id` (long), `--entity-id` (int), `--name`, `--entity-url`
 
 <!-- END:GENERATED entity=UserBookmarks -->

@@ -19,15 +19,15 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 #### TariffTimePass list filter options
 
-`--tariff-id`, `--time-pass-id`, `--passes-included`, `--from-passes-included` (range), `--to-passes-included` (range), `--pass-renewal-time`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--tariff-id` (long), `--time-pass-id` (long), `--passes-included` (int), `--from-passes-included` (range), `--to-passes-included` (range), `--pass-renewal-time` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### TariffTimePass create options
 
-`--tariff-id` (required), `--time-pass-id` (required), `--passes-included` (required), `--pass-renewal-time` (required)
+`--tariff-id` (long, required), `--time-pass-id` (long, required), `--passes-included` (int, required), `--pass-renewal-time` (enum, required)
 
 #### TariffTimePass update options
 
-`--tariff-id`, `--time-pass-id`, `--passes-included`, `--pass-renewal-time`
+`--tariff-id` (long), `--time-pass-id` (long), `--passes-included` (int), `--pass-renewal-time` (enum)
 
 ### TariffTimePass (key fields)
 

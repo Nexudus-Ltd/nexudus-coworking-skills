@@ -25,15 +25,15 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 
 #### ContractDeposit list filter options
 
-`--coworker-contract-id`, `--product-id`, `--notes`, `--price`, `--from-price` (range), `--to-price` (range), `--refundable`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--price` (decimal), `--from-price` (range), `--to-price` (range), `--refundable` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ContractDeposit create options
 
-`--coworker-contract-id` (required), `--product-id` (required), `--notes`, `--price`, `--refundable`
+`--coworker-contract-id` (long, required), `--product-id` (long, required), `--notes`, `--price` (decimal), `--refundable` (bool)
 
 #### ContractDeposit update options
 
-`--coworker-contract-id`, `--product-id`, `--notes`, `--price`, `--refundable`
+`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--price` (decimal), `--refundable` (bool)
 
 ### ContractDeposit (key fields)
 

@@ -31,15 +31,15 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 #### BusinessAnnouncement list filter options
 
-`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--from-active-from` (range), `--to-active-from` (range), `--active-to`, `--from-active-to` (range), `--to-active-to` (range), `--only-for-contacts`, `--only-for-members`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--name`, `--active` (bool), `--new-image-url`, `--clear-image-file` (bool), `--body`, `--show-button` (bool), `--button-label`, `--button-url`, `--send-push-notification` (bool), `--push-notification-text`, `--active-from` (DateTime), `--from-active-from` (range), `--to-active-from` (range), `--active-to` (DateTime), `--from-active-to` (range), `--to-active-to` (range), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### BusinessAnnouncement create options
 
-`--business-id` (required), `--name` (required), `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
+`--business-id` (long, required), `--name` (required), `--active` (bool), `--new-image-url`, `--clear-image-file` (bool), `--body`, `--show-button` (bool), `--button-label`, `--button-url`, `--send-push-notification` (bool), `--push-notification-text`, `--active-from` (DateTime), `--active-to` (DateTime), `--only-for-contacts` (bool), `--only-for-members` (bool)
 
 #### BusinessAnnouncement update options
 
-`--business-id`, `--name`, `--active`, `--new-image-url`, `--clear-image-file`, `--body`, `--show-button`, `--button-label`, `--button-url`, `--send-push-notification`, `--push-notification-text`, `--active-from`, `--active-to`, `--only-for-contacts`, `--only-for-members`
+`--business-id` (long), `--name`, `--active` (bool), `--new-image-url`, `--clear-image-file` (bool), `--body`, `--show-button` (bool), `--button-label`, `--button-url`, `--send-push-notification` (bool), `--push-notification-text`, `--active-from` (DateTime), `--active-to` (DateTime), `--only-for-contacts` (bool), `--only-for-members` (bool)
 
 ### BusinessAnnouncement (key fields)
 

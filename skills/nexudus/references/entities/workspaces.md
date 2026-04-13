@@ -19,15 +19,15 @@ Workspaces support Search, Get, Create, Update, Delete.
 
 #### Workspace list filter options
 
-`--business-id`, `--administrator-id`, `--name`, `--visible-in-my-spaces`, `--visible-by-everyone`, `--archived`, `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--administrator-id` (long), `--name`, `--visible-in-my-spaces` (bool), `--visible-by-everyone` (bool), `--archived` (bool), `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### Workspace create options
 
-`--business-id` (required), `--administrator-id` (required), `--name` (required), `--visible-in-my-spaces`, `--visible-by-everyone`, `--archived`, `--description`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag)
+`--business-id` (long, required), `--administrator-id` (long, required), `--name` (required), `--visible-in-my-spaces` (bool), `--visible-by-everyone` (bool), `--archived` (bool), `--description`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag)
 
 #### Workspace update options
 
-`--business-id`, `--administrator-id`, `--name`, `--visible-in-my-spaces`, `--visible-by-everyone`, `--archived`, `--description`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag)
+`--business-id` (long), `--administrator-id` (long), `--name`, `--visible-in-my-spaces` (bool), `--visible-by-everyone` (bool), `--archived` (bool), `--description`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag)
 
 **List properties (only returned by `get`, not by `list`):** `Members`, `AddedMembers`, `RemovedMembers`
 

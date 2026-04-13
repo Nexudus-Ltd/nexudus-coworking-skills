@@ -27,15 +27,15 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 
 #### CoworkerGoogleCalendar list filter options
 
-`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`, `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--watch-resource-id`, `--event-sync-token`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--watch-resource-id`, `--event-sync-token`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### CoworkerGoogleCalendar create options
 
-`--resource-id` (required), `--coworker-id`, `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (required), `--watch-resource-id` (required), `--event-sync-token`
+`--resource-id` (long, required), `--coworker-id` (long), `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (DateTime, required), `--watch-resource-id` (required), `--event-sync-token`
 
 #### CoworkerGoogleCalendar update options
 
-`--resource-id`, `--coworker-id`, `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date`, `--watch-resource-id`, `--event-sync-token`
+`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--watch-resource-id`, `--event-sync-token`
 
 ### CoworkerGoogleCalendar (key fields)
 

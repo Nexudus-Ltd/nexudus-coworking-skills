@@ -21,15 +21,15 @@ ChatUserMessages support Search, Get, Create, Update, Delete.
 
 #### ChatUserMessage list filter options
 
-`--from-user-id`, `--chat-text`, `--delievered`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--from-user-id` (long), `--chat-text`, `--delievered` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### ChatUserMessage create options
 
-`--from-user-id` (required), `--to-users` (list, repeat flag), `--added-to-users` (list, repeat flag), `--removed-to-users` (list, repeat flag), `--chat-text`, `--delievered`
+`--from-user-id` (long, required), `--to-users` (list, repeat flag), `--added-to-users` (list, repeat flag), `--removed-to-users` (list, repeat flag), `--chat-text`, `--delievered` (bool)
 
 #### ChatUserMessage update options
 
-`--from-user-id`, `--to-users` (list, repeat flag), `--added-to-users` (list, repeat flag), `--removed-to-users` (list, repeat flag), `--chat-text`, `--delievered`
+`--from-user-id` (long), `--to-users` (list, repeat flag), `--added-to-users` (list, repeat flag), `--removed-to-users` (list, repeat flag), `--chat-text`, `--delievered` (bool)
 
 **List properties (only returned by `get`, not by `list`):** `ToUsers`, `AddedToUsers`, `RemovedToUsers`
 

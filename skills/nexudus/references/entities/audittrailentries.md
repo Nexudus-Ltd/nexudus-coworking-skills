@@ -28,7 +28,7 @@ AuditTrailEntries support Search, Get (no Create or Delete via API).
 
 #### AuditTrailEntry list filter options
 
-`--business-id`, `--entity-short-name`, `--description`, `--property-name`, `--audit-type`, `--old-value`, `--new-value`, `--action-by`, `--entity-id`, `--from-entity-id` (range), `--to-entity-id` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--entity-short-name`, `--description`, `--property-name`, `--audit-type` (enum), `--old-value`, `--new-value`, `--action-by`, `--entity-id` (int), `--from-entity-id` (range), `--to-entity-id` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### AuditTrailEntry enum values
 

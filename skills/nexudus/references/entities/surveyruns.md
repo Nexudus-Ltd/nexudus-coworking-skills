@@ -19,14 +19,14 @@ SurveyRuns support Search, Get, Create, Update, Delete.
 
 #### SurveyRun list filter options
 
-`--coworker-id`, `--survey-id`, `--mailing-date`, `--from-mailing-date` (range), `--to-mailing-date` (range), `--submitted`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--coworker-id` (long), `--survey-id` (long), `--mailing-date` (DateTime), `--from-mailing-date` (range), `--to-mailing-date` (range), `--submitted` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### SurveyRun create options
 
-`--coworker-id` (required), `--survey-id` (required), `--mailing-date`, `--submitted`
+`--coworker-id` (long, required), `--survey-id` (long, required), `--mailing-date` (DateTime), `--submitted` (bool)
 
 #### SurveyRun update options
 
-`--coworker-id`, `--survey-id`, `--mailing-date`, `--submitted`
+`--coworker-id` (long), `--survey-id` (long), `--mailing-date` (DateTime), `--submitted` (bool)
 
 <!-- END:GENERATED entity=SurveyRuns -->

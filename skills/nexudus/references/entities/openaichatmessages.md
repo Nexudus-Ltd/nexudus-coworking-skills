@@ -19,14 +19,14 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 #### OpenAiChatMessage list filter options
 
-`--business-id`, `--user-id`, `--action`, `--content`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+`--business-id` (long), `--user-id` (long), `--action` (enum), `--content`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
 
 #### OpenAiChatMessage create options
 
-`--business-id` (required), `--user-id`, `--action` (required), `--content` (required)
+`--business-id` (long, required), `--user-id` (long), `--action` (enum, required), `--content` (required)
 
 #### OpenAiChatMessage update options
 
-`--business-id`, `--user-id`, `--action`, `--content`
+`--business-id` (long), `--user-id` (long), `--action` (enum), `--content`
 
 <!-- END:GENERATED entity=OpenAiChatMessages -->
