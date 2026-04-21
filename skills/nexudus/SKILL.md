@@ -45,6 +45,7 @@ You can manage Nexudus coworking spaces through the `nexudus` CLI tool. This ski
 9. **Prefer `--{list}` over `--added-{list}` / `--removed-{list}` for list properties.** When setting a list field (e.g., `--tariffs`, `--resource-types`, `--teams`, `--linked-resources`), use the plain `--{list}` flag to replace the entire list with the supplied values. Only use `--added-{list}` or `--removed-{list}` when you specifically need to add or remove individual items from the existing list without touching the rest of its contents. Passing `--added-{list}` when you mean to set the full list is a common mistake that leaves stale entries in place.
 10. **When unsure about a field, run `--help` first.** If the entity or option is not fully documented in this skill file, run `nexudus <entity> <command> --help` to discover available options and their descriptions before constructing the command.
 11. **DateTime values must use ISO 8601 format.** All DateTime fields must be passed as `YYYY-MM-DDTHH:MM:SSZ` (UTC) — for example `2025-06-15T09:00:00Z`. Never use locale-specific formats like `June 15, 2025`, `15/06/2025`, or Unix timestamps. Entity reference files annotate DateTime options with `(DateTime)` so you can identify them.
+12. **Always pass telemetry context flags** on every CLI call. See the [Telemetry Context](#telemetry-context) section below for the required flags and how to generate values.
 
 ## Bootstrapping
 
@@ -105,12 +106,41 @@ nexudus doctor --agent
 
 ### Global Flags
 
-| Flag               | Description                           |
-| ------------------ | ------------------------------------- |
-| `--agent`          | JSON envelope with summary (use this) |
-| `--json`           | Raw JSON envelope                     |
-| `--md`             | Markdown output                       |
-| `--base-url <url>` | Override API base URL                 |
+| Flag                | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| `--agent`           | JSON envelope with summary (use this)                  |
+| `--json`            | Raw JSON envelope                                      |
+| `--md`              | Markdown output                                        |
+| `--base-url <url>`  | Override API base URL                                  |
+| `--trace-id <uuid>` | Trace ID to correlate commands within a single task    |
+| `--caller <name>`   | Name of the invoking agent (e.g., `copilot`, `claude`) |
+| `--intent <text>`   | One-line summary of the user's request                 |
+| `--attempt <n>`     | Attempt number for this command (1 = first try)        |
+
+## Telemetry Context
+
+Every CLI call from an agent **must** include the four telemetry flags so command usage can be tracked, correlated, and debugged.
+
+| Flag         | How to set                                                                                                      | Example                                                |
+| ------------ | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `--trace-id` | Generate **one UUID per user task** and reuse it for every CLI call in that task.                               | `--trace-id a1b2c3d4-e5f6-7890-abcd-ef1234567890`      |
+| `--caller`   | A fixed string identifying your agent. Use your agent name in lowercase.                                        | `--caller copilot`                                     |
+| `--intent`   | A short (≤120 char) summary of **what the user asked for**. Same for all calls in the task. Quote spaces.       | `--intent "list all products for the London business"` |
+| `--attempt`  | Start at `1`. Increment if you retry the **same command** after a failure. Reset to `1` for different commands. | `--attempt 1`                                          |
+
+### Example: full call with telemetry
+
+```shell
+nexudus products list --agent --trace-id a1b2c3d4-e5f6-7890-abcd-ef1234567890 --caller copilot --intent "list all products" --attempt 1
+```
+
+### Rules
+
+- **Same `--trace-id`** for every call within the same user task / conversation turn.
+- **Increment `--attempt`** only when retrying the exact same command after a failure.
+- **`--caller`** must stay constant for the agent's lifetime (e.g., `copilot`, `claude`, `custom-bot`).
+- **`--intent`** should be the user's original request, not the CLI command description.
+- When `--agent` is set and telemetry flags are present, the response envelope includes a `telemetry` object with `traceId`, `durationMs`, and `attempt` for your reference.
 
 ## Output Envelope
 
@@ -209,8 +239,9 @@ All commands produce a JSON envelope when `--agent` or `--json` is used:
 Before working with an entity, load its reference file for full details (commands, options, key fields, enum values, and entity-specific workflows).
 
 <!-- BEGIN:GENERATED-INDEX -->
-| Entity | CLI command | Operations | Reference |
-| ------ | ----------- | ---------- | --------- |
+
+| Entity                             | CLI command                           | Operations                                  | Reference                                                                                              |
+| ---------------------------------- | ------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | AccessToken                        | `accesstokens`                        | list, get, create, update, delete           | [accesstokens.md](./references/entities/accesstokens.md)                                               |
 | Application                        | `applications`                        | list, get, create, update, delete           | [applications.md](./references/entities/applications.md)                                               |
 | AudioFile                          | `audiofiles`                          | list, get, create, update, delete           | [audiofiles.md](./references/entities/audiofiles.md)                                                   |
@@ -295,7 +326,7 @@ Before working with an entity, load its reference file for full details (command
 | CoworkerTimePass                   | `coworkertimepasses`                  | list, get, create, update, delete           | [coworkertimepasses.md](./references/entities/coworkertimepasses.md)                                   |
 | CrmBoard                           | `crmboards`                           | list, get, create, update, delete           | [crmboards.md](./references/entities/crmboards.md)                                                     |
 | CrmBoardColumn                     | `crmboardcolumns`                     | list, get, create, update, delete           | [crmboardcolumns.md](./references/entities/crmboardcolumns.md)                                         |
-| CrmOpportunity | `crmopportunities` | list, get, create, update, delete | [crmopportunities.md](./references/entities/crmopportunities.md) |
+| CrmOpportunity                     | `crmopportunities`                    | list, get, create, update, delete           | [crmopportunities.md](./references/entities/crmopportunities.md)                                       |
 | CrmOpportunityHistory              | `crmopportunityhistories`             | list, get, create, update, delete           | [crmopportunityhistories.md](./references/entities/crmopportunityhistories.md)                         |
 | CrmOpportunityImportFile           | `crmopportunityimportfiles`           | list, get, create, update, delete           | [crmopportunityimportfiles.md](./references/entities/crmopportunityimportfiles.md)                     |
 | Currency                           | `currencies`                          | list, get                                   | [currencies.md](./references/entities/currencies.md)                                                   |
@@ -420,6 +451,7 @@ Before working with an entity, load its reference file for full details (command
 | Visitor                            | `visitors`                            | list, get, create, update, delete           | [visitors.md](./references/entities/visitors.md)                                                       |
 | WebHook                            | `webhooks`                            | list, get, create, update, delete           | [webhooks.md](./references/entities/webhooks.md)                                                       |
 | Workspace                          | `workspaces`                          | list, get, create, update, delete           | [workspaces.md](./references/entities/workspaces.md)                                                   |
+
 <!-- END:GENERATED-INDEX -->
 
 ## Image Uploads

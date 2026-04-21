@@ -2,6 +2,12 @@
 
 <!-- BEGIN:GENERATED entity=Currencies -->
 
+A **Currency** represents an ISO 4217 currency available in the system. Currencies are system-managed and read-only — they cannot be created, updated, or deleted via the API.
+
+Each business has a primary currency (`CurrencyId` on the `Business` entity) used for all invoices. A secondary currency can also be configured for payment processing in a different currency.
+
+Products, charges, and other billing entities reference a currency to determine the pricing denomination. Use the `Code` property (e.g. `USD`, `EUR`, `GBP`) to identify currencies programmatically, and `Format` to display monetary values in the correct locale format.
+
 Currencies support Search, Get (no Create or Delete via API).
 
 | Command | Description |
