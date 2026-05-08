@@ -2,11 +2,11 @@
 
 <!-- BEGIN:GENERATED entity=ResourceAccessRules -->
 
-A **ResourceAccessRule** defines additional booking policies and restrictions for one or more `Resource` entities, scoped by date/time, customer, team, plan, or other criteria. Rules are evaluated in `EvaluationOrder` and can optionally stop further evaluation when matched (`StopEvaluationIfRuleIsMet`).
-
-If `Resources` is empty, the rule applies to all resources in the location (`Business`) the rule is attached to and all its children.
+A **ResourceAccessRule** defines additional booking policies and restrictions for one or more `Resource`(s) or for all resources in a location (`Business`), scoped by date/time, customer, team, plan, or other criteria. Rules are evaluated in `EvaluationOrder` and can optionally stop further evaluation when matched (`StopEvaluationIfRuleIsMet`).
 
 The booking-policy fields (`BookInAdvanceLimit`, `LateBookingLimit`, `LateCancellationLimit`, `IntervalLimit`, `MaxBookingLength`, `MinBookingLength`, `NoReturnPolicy*`, cancellation-fee fields, and repeat-booking limits) mirror those on `Resource` and carry the same semantics — they override the resource-level defaults when the rule matches.
+
+When `BusinessId` is set and `Resources` is empty, the rule applies to all resources in the business and its children (if any). When specific `Resources` are listed, the rule applies only to those resources.
 
 ### Scope: who the rule applies to
 
@@ -28,19 +28,19 @@ For each list field (`Tariffs`, `AllowedTariffs`, `Teams`, `AllowedTeams`, `Memb
 ResourceAccessRules support Search, Get, Create, Update, Delete.
 ResourceAccessRules also support entity commands.
 
-| Command                                                                                                                                                                        | Description                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
-| `nexudus resourceaccessrules list --agent`                                                                                                                                     | List all resourceaccessrules             |
-| `nexudus resourceaccessrules list --id <id> --agent`                                                                                                                           | Filter by single ID                      |
-| `nexudus resourceaccessrules list --id <id1> --id <id2> --agent`                                                                                                               | Filter by multiple IDs                   |
-| `nexudus resourceaccessrules list --unique-id <guid> --agent`                                                                                                                  | Filter by UniqueId (GUID)                |
-| `nexudus resourceaccessrules list --name <value> --active <value> --agent`                                                                                                     | Filter resourceaccessrules by properties |
-| `nexudus resourceaccessrules list --page-number 2 --page-size 10 --agent`                                                                                                      | Paginated list                           |
-| `nexudus resourceaccessrules get <id> --agent`                                                                                                                                 | Get single resourceaccessrule            |
-| `nexudus resourceaccessrules create --business-id <value> --name <value> --applied-resources-count <value> --evaluation-order <value> --cancellation-fee-type <value> --agent` | Create resourceaccessrule                |
-| `nexudus resourceaccessrules update <id> --name "New Name" --agent`                                                                                                            | Update resourceaccessrule                |
-| `nexudus resourceaccessrules delete <id> --yes --agent`                                                                                                                        | Delete resourceaccessrule (no prompt)    |
-| `nexudus resourceaccessrules run-command <key> <ids> --agent`                                                                                                                  | Run entity command                       |
+| Command | Description |
+| --- | --- |
+| `nexudus resourceaccessrules list --agent` | List all resourceaccessrules |
+| `nexudus resourceaccessrules list --id <id> --agent` | Filter by single ID |
+| `nexudus resourceaccessrules list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
+| `nexudus resourceaccessrules list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus resourceaccessrules list --name <value> --active <value> --agent` | Filter resourceaccessrules by properties |
+| `nexudus resourceaccessrules list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus resourceaccessrules get <id> --agent` | Get single resourceaccessrule |
+| `nexudus resourceaccessrules create --business-id <value> --name <value> --applied-resources-count <value> --evaluation-order <value> --cancellation-fee-type <value> --agent` | Create resourceaccessrule |
+| `nexudus resourceaccessrules update <id> --name "New Name" --agent` | Update resourceaccessrule |
+| `nexudus resourceaccessrules delete <id> --yes --agent` | Delete resourceaccessrule (no prompt) |
+| `nexudus resourceaccessrules run-command <key> <ids> --agent` | Run entity command |
 
 #### ResourceAccessRule list filter options
 
