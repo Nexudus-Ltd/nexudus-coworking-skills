@@ -30,15 +30,94 @@ CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 
 #### CoworkerBookingCredit list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--description`, `--total-credit` (decimal), `--from-total-credit` (range), `--to-total-credit` (range), `--valid-from` (DateTime), `--from-valid-from` (range), `--to-valid-from` (range), `--expire-date` (DateTime), `--from-expire-date` (range), `--to-expire-date` (range), `--cane-be-used-for-bookings` (bool), `--cane-be-used-for-events` (bool), `--is-universal-credit` (bool), `--use-credit-price` (bool), `--coworker-contract-unique-id`, `--applies-to-charges` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer this credit is assigned to |
+| `--business-id` | long | ID of the location issuing the credit |
+| `--description` | string | Optional description or label for this credit |
+| `--total-credit` | decimal | Total credit amount originally assigned |
+| `--from-total-credit` | range | |
+| `--to-total-credit` | range | |
+| `--valid-from` | DateTime | Date from which this credit is valid |
+| `--from-valid-from` | range | |
+| `--to-valid-from` | range | |
+| `--expire-date` | DateTime | Date on which this credit expires |
+| `--from-expire-date` | range | |
+| `--to-expire-date` | range | |
+| `--cane-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
+| `--cane-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
+| `--use-credit-price` | bool | Whether to use the credit price instead of the standard booking price when this credit is applied |
+| `--coworker-contract-unique-id` | string | Unique ID of the contract that originated this credit |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerBookingCredit create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--description`, `--elegible-resource-types` (list, repeat flag), `--added-elegible-resource-types` (list, repeat flag), `--removed-elegible-resource-types` (list, repeat flag), `--elegible-products` (list, repeat flag), `--added-elegible-products` (list, repeat flag), `--removed-elegible-products` (list, repeat flag), `--elegible-tariffs` (list, repeat flag), `--added-elegible-tariffs` (list, repeat flag), `--removed-elegible-tariffs` (list, repeat flag), `--total-credit` (decimal, required), `--valid-from` (DateTime), `--expire-date` (DateTime), `--cane-be-used-for-bookings` (bool), `--cane-be-used-for-events` (bool), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--is-universal-credit` (bool), `--use-credit-price` (bool), `--coworker-contract-unique-id`, `--elegible-passes` (list, repeat flag), `--added-elegible-passes` (list, repeat flag), `--removed-elegible-passes` (list, repeat flag), `--applies-to-charges` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | ID of the customer this credit is assigned to |
+| `--business-id` | long, required | ID of the location issuing the credit |
+| `--description` | string | Optional description or label for this credit |
+| `--elegible-resource-types` | list, repeat flag | Resource types this credit can be used for. If empty, the credit is valid for all resource types |
+| `--added-elegible-resource-types` | list, repeat flag | Resource type IDs to add to ElegibleResourceTypes |
+| `--removed-elegible-resource-types` | list, repeat flag | Resource type IDs to remove from ElegibleResourceTypes |
+| `--elegible-products` | list, repeat flag | Products this credit can be used for. If empty, applies to all products |
+| `--added-elegible-products` | list, repeat flag | Product IDs to add to ElegibleProducts |
+| `--removed-elegible-products` | list, repeat flag | Product IDs to remove from ElegibleProducts |
+| `--elegible-tariffs` | list, repeat flag | Plans (tariffs) this credit is restricted to. If empty, applies to customers on any plan |
+| `--added-elegible-tariffs` | list, repeat flag | Plan IDs to add to ElegibleTariffs |
+| `--removed-elegible-tariffs` | list, repeat flag | Plan IDs to remove from ElegibleTariffs |
+| `--total-credit` | decimal, required | Total credit amount originally assigned |
+| `--valid-from` | DateTime | Date from which this credit is valid |
+| `--expire-date` | DateTime | Date on which this credit expires |
+| `--cane-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
+| `--cane-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
+| `--event-categories` | list, repeat flag | Event categories this credit can be used for. If empty, applies to all event categories |
+| `--added-event-categories` | list, repeat flag | Event category IDs to add to EventCategories |
+| `--removed-event-categories` | list, repeat flag | Event category IDs to remove from EventCategories |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
+| `--use-credit-price` | bool | Whether to use the credit price instead of the standard booking price when this credit is applied |
+| `--coworker-contract-unique-id` | string | Unique ID of the contract that originated this credit |
+| `--elegible-passes` | list, repeat flag | Time passes this credit can be used for. If empty, applies to all passes |
+| `--added-elegible-passes` | list, repeat flag | Pass IDs to add to ElegiblePasses |
+| `--removed-elegible-passes` | list, repeat flag | Pass IDs to remove from ElegiblePasses |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 #### CoworkerBookingCredit update options
 
-`--coworker-id` (long), `--business-id` (long), `--description`, `--elegible-resource-types` (list, repeat flag), `--added-elegible-resource-types` (list, repeat flag), `--removed-elegible-resource-types` (list, repeat flag), `--elegible-products` (list, repeat flag), `--added-elegible-products` (list, repeat flag), `--removed-elegible-products` (list, repeat flag), `--elegible-tariffs` (list, repeat flag), `--added-elegible-tariffs` (list, repeat flag), `--removed-elegible-tariffs` (list, repeat flag), `--total-credit` (decimal), `--valid-from` (DateTime), `--expire-date` (DateTime), `--cane-be-used-for-bookings` (bool), `--cane-be-used-for-events` (bool), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--is-universal-credit` (bool), `--use-credit-price` (bool), `--coworker-contract-unique-id`, `--elegible-passes` (list, repeat flag), `--added-elegible-passes` (list, repeat flag), `--removed-elegible-passes` (list, repeat flag), `--applies-to-charges` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer this credit is assigned to |
+| `--business-id` | long | ID of the location issuing the credit |
+| `--description` | string | Optional description or label for this credit |
+| `--elegible-resource-types` | list, repeat flag | Resource types this credit can be used for. If empty, the credit is valid for all resource types |
+| `--added-elegible-resource-types` | list, repeat flag | Resource type IDs to add to ElegibleResourceTypes |
+| `--removed-elegible-resource-types` | list, repeat flag | Resource type IDs to remove from ElegibleResourceTypes |
+| `--elegible-products` | list, repeat flag | Products this credit can be used for. If empty, applies to all products |
+| `--added-elegible-products` | list, repeat flag | Product IDs to add to ElegibleProducts |
+| `--removed-elegible-products` | list, repeat flag | Product IDs to remove from ElegibleProducts |
+| `--elegible-tariffs` | list, repeat flag | Plans (tariffs) this credit is restricted to. If empty, applies to customers on any plan |
+| `--added-elegible-tariffs` | list, repeat flag | Plan IDs to add to ElegibleTariffs |
+| `--removed-elegible-tariffs` | list, repeat flag | Plan IDs to remove from ElegibleTariffs |
+| `--total-credit` | decimal | Total credit amount originally assigned |
+| `--valid-from` | DateTime | Date from which this credit is valid |
+| `--expire-date` | DateTime | Date on which this credit expires |
+| `--cane-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
+| `--cane-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
+| `--event-categories` | list, repeat flag | Event categories this credit can be used for. If empty, applies to all event categories |
+| `--added-event-categories` | list, repeat flag | Event category IDs to add to EventCategories |
+| `--removed-event-categories` | list, repeat flag | Event category IDs to remove from EventCategories |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
+| `--use-credit-price` | bool | Whether to use the credit price instead of the standard booking price when this credit is applied |
+| `--coworker-contract-unique-id` | string | Unique ID of the contract that originated this credit |
+| `--elegible-passes` | list, repeat flag | Time passes this credit can be used for. If empty, applies to all passes |
+| `--added-elegible-passes` | list, repeat flag | Pass IDs to add to ElegiblePasses |
+| `--removed-elegible-passes` | list, repeat flag | Pass IDs to remove from ElegiblePasses |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 ### CoworkerBookingCredit (key fields)
 

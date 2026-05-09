@@ -42,15 +42,176 @@ CoworkerDeliveries also support entity commands.
 
 #### CoworkerDelivery list filter options
 
-`--business-id` (long), `--coworker-id` (long), `--contract-contact-id` (long), `--name`, `--location`, `--received-by`, `--notes`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--new-signature-url`, `--clear-signature-file` (bool), `--new-scanned-file-data-url`, `--clear-scanned-file-data-file` (bool), `--new-forwarded-file-data-url`, `--clear-forwarded-file-data-file` (bool), `--collected` (bool), `--requires-signature` (bool), `--signed` (bool), `--notified` (bool), `--collected-on` (DateTime), `--from-collected-on` (range), `--to-collected-on` (range), `--billed` (bool), `--delivery-type` (enum), `--handling-preference` (enum), `--check-deposited` (bool), `--forwarded` (bool), `--scanned` (bool), `--recycled` (bool), `--shredded` (bool), `--stored-for-collection` (bool), `--returned-to-sender` (bool), `--check-deposited-on` (DateTime), `--from-check-deposited-on` (range), `--to-check-deposited-on` (range), `--forwarded-on` (DateTime), `--from-forwarded-on` (range), `--to-forwarded-on` (range), `--scanned-on` (DateTime), `--from-scanned-on` (range), `--to-scanned-on` (range), `--recycled-on` (DateTime), `--from-recycled-on` (range), `--to-recycled-on` (range), `--shredded-on` (DateTime), `--from-shredded-on` (range), `--to-shredded-on` (range), `--stored-for-collection-on` (DateTime), `--from-stored-for-collection-on` (range), `--to-stored-for-collection-on` (range), `--returned-to-sender-on` (DateTime), `--from-returned-to-sender-on` (range), `--to-returned-to-sender-on` (range), `--forwarding-address-unique-id`, `--check-deposited-product-unique-id`, `--forwarded-product-unique-id`, `--scanned-product-unique-id`, `--recycled-product-unique-id`, `--shredded-product-unique-id`, `--stored-for-collection-product-unique-id`, `--returned-to-sender-product-unique-id`, `--collected-product-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--contract-contact-id` | long |  |
+| `--name` | string | Short label or description identifying the delivery item |
+| `--location` | string | Physical location where the delivery is being stored (e.g. mailroom shelf) |
+| `--received-by` | string | Name of the staff member who received the delivery |
+| `--notes` | string | Free-text notes about the delivery |
+| `--new-file-data-url` | string |  |
+| `--clear-file-data-file` | bool |  |
+| `--new-signature-url` | string |  |
+| `--clear-signature-file` | bool |  |
+| `--new-scanned-file-data-url` | string |  |
+| `--clear-scanned-file-data-file` | bool |  |
+| `--new-forwarded-file-data-url` | string |  |
+| `--clear-forwarded-file-data-file` | bool |  |
+| `--collected` | bool | Whether the customer has collected the delivery |
+| `--requires-signature` | bool | Whether the customer must sign upon collection |
+| `--signed` | bool | Whether the customer has signed for the delivery |
+| `--notified` | bool |  |
+| `--collected-on` | DateTime | Date and time the customer collected the delivery |
+| `--from-collected-on` | range | |
+| `--to-collected-on` | range | |
+| `--billed` | bool |  |
+| `--delivery-type` | enum | Type of delivery item (Mail, Parcel, Check, Publicity, or Other) |
+| `--handling-preference` | enum | How the customer wants this delivery handled (e.g. StoreForCollection, Forward, Shred) |
+| `--check-deposited` | bool | Whether the enclosed check has been deposited |
+| `--forwarded` | bool | Whether the delivery has been forwarded to the customer |
+| `--scanned` | bool | Whether the delivery contents have been scanned |
+| `--recycled` | bool | Whether the delivery has been recycled |
+| `--shredded` | bool | Whether the delivery has been shredded |
+| `--stored-for-collection` | bool | Whether the delivery is being held for customer collection |
+| `--returned-to-sender` | bool | Whether the delivery has been returned to sender |
+| `--check-deposited-on` | DateTime | Date and time the check was deposited |
+| `--from-check-deposited-on` | range | |
+| `--to-check-deposited-on` | range | |
+| `--forwarded-on` | DateTime | Date and time the delivery was forwarded |
+| `--from-forwarded-on` | range | |
+| `--to-forwarded-on` | range | |
+| `--scanned-on` | DateTime | Date and time the delivery contents were scanned |
+| `--from-scanned-on` | range | |
+| `--to-scanned-on` | range | |
+| `--recycled-on` | DateTime | Date and time the delivery was recycled |
+| `--from-recycled-on` | range | |
+| `--to-recycled-on` | range | |
+| `--shredded-on` | DateTime | Date and time the delivery was shredded |
+| `--from-shredded-on` | range | |
+| `--to-shredded-on` | range | |
+| `--stored-for-collection-on` | DateTime | Date and time the delivery was placed in storage for collection |
+| `--from-stored-for-collection-on` | range | |
+| `--to-stored-for-collection-on` | range | |
+| `--returned-to-sender-on` | DateTime | Date and time the delivery was returned to sender |
+| `--from-returned-to-sender-on` | range | |
+| `--to-returned-to-sender-on` | range | |
+| `--forwarding-address-unique-id` | string |  |
+| `--check-deposited-product-unique-id` | string |  |
+| `--forwarded-product-unique-id` | string |  |
+| `--scanned-product-unique-id` | string |  |
+| `--recycled-product-unique-id` | string |  |
+| `--shredded-product-unique-id` | string |  |
+| `--stored-for-collection-product-unique-id` | string |  |
+| `--returned-to-sender-product-unique-id` | string |  |
+| `--collected-product-unique-id` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerDelivery create options
 
-`--business-id` (long, required), `--coworker-id` (long), `--contract-contact-id` (long), `--name` (required), `--location` (required), `--received-by`, `--notes`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--new-signature-url`, `--clear-signature-file` (bool), `--new-scanned-file-data-url`, `--clear-scanned-file-data-file` (bool), `--new-forwarded-file-data-url`, `--clear-forwarded-file-data-file` (bool), `--collected` (bool), `--requires-signature` (bool), `--signed` (bool), `--notified` (bool), `--collected-on` (DateTime), `--billed` (bool), `--delivery-type` (enum, required), `--handling-preference` (enum), `--check-deposited` (bool), `--forwarded` (bool), `--scanned` (bool), `--recycled` (bool), `--shredded` (bool), `--stored-for-collection` (bool), `--returned-to-sender` (bool), `--check-deposited-on` (DateTime), `--forwarded-on` (DateTime), `--scanned-on` (DateTime), `--recycled-on` (DateTime), `--shredded-on` (DateTime), `--stored-for-collection-on` (DateTime), `--returned-to-sender-on` (DateTime), `--forwarding-address-unique-id`, `--check-deposited-product-unique-id`, `--forwarded-product-unique-id`, `--scanned-product-unique-id`, `--recycled-product-unique-id`, `--shredded-product-unique-id`, `--stored-for-collection-product-unique-id`, `--returned-to-sender-product-unique-id`, `--collected-product-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--coworker-id` | long |  |
+| `--contract-contact-id` | long |  |
+| `--name` | string, required | Short label or description identifying the delivery item |
+| `--location` | string, required | Physical location where the delivery is being stored (e.g. mailroom shelf) |
+| `--received-by` | string | Name of the staff member who received the delivery |
+| `--notes` | string | Free-text notes about the delivery |
+| `--new-file-data-url` | string |  |
+| `--clear-file-data-file` | bool |  |
+| `--new-signature-url` | string |  |
+| `--clear-signature-file` | bool |  |
+| `--new-scanned-file-data-url` | string |  |
+| `--clear-scanned-file-data-file` | bool |  |
+| `--new-forwarded-file-data-url` | string |  |
+| `--clear-forwarded-file-data-file` | bool |  |
+| `--collected` | bool | Whether the customer has collected the delivery |
+| `--requires-signature` | bool | Whether the customer must sign upon collection |
+| `--signed` | bool | Whether the customer has signed for the delivery |
+| `--notified` | bool |  |
+| `--collected-on` | DateTime | Date and time the customer collected the delivery |
+| `--billed` | bool |  |
+| `--delivery-type` | enum, required | Type of delivery item (Mail, Parcel, Check, Publicity, or Other) |
+| `--handling-preference` | enum | How the customer wants this delivery handled (e.g. StoreForCollection, Forward, Shred) |
+| `--check-deposited` | bool | Whether the enclosed check has been deposited |
+| `--forwarded` | bool | Whether the delivery has been forwarded to the customer |
+| `--scanned` | bool | Whether the delivery contents have been scanned |
+| `--recycled` | bool | Whether the delivery has been recycled |
+| `--shredded` | bool | Whether the delivery has been shredded |
+| `--stored-for-collection` | bool | Whether the delivery is being held for customer collection |
+| `--returned-to-sender` | bool | Whether the delivery has been returned to sender |
+| `--check-deposited-on` | DateTime | Date and time the check was deposited |
+| `--forwarded-on` | DateTime | Date and time the delivery was forwarded |
+| `--scanned-on` | DateTime | Date and time the delivery contents were scanned |
+| `--recycled-on` | DateTime | Date and time the delivery was recycled |
+| `--shredded-on` | DateTime | Date and time the delivery was shredded |
+| `--stored-for-collection-on` | DateTime | Date and time the delivery was placed in storage for collection |
+| `--returned-to-sender-on` | DateTime | Date and time the delivery was returned to sender |
+| `--forwarding-address-unique-id` | string |  |
+| `--check-deposited-product-unique-id` | string |  |
+| `--forwarded-product-unique-id` | string |  |
+| `--scanned-product-unique-id` | string |  |
+| `--recycled-product-unique-id` | string |  |
+| `--shredded-product-unique-id` | string |  |
+| `--stored-for-collection-product-unique-id` | string |  |
+| `--returned-to-sender-product-unique-id` | string |  |
+| `--collected-product-unique-id` | string |  |
 
 #### CoworkerDelivery update options
 
-`--business-id` (long), `--coworker-id` (long), `--contract-contact-id` (long), `--name`, `--location`, `--received-by`, `--notes`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--new-signature-url`, `--clear-signature-file` (bool), `--new-scanned-file-data-url`, `--clear-scanned-file-data-file` (bool), `--new-forwarded-file-data-url`, `--clear-forwarded-file-data-file` (bool), `--collected` (bool), `--requires-signature` (bool), `--signed` (bool), `--notified` (bool), `--collected-on` (DateTime), `--billed` (bool), `--delivery-type` (enum), `--handling-preference` (enum), `--check-deposited` (bool), `--forwarded` (bool), `--scanned` (bool), `--recycled` (bool), `--shredded` (bool), `--stored-for-collection` (bool), `--returned-to-sender` (bool), `--check-deposited-on` (DateTime), `--forwarded-on` (DateTime), `--scanned-on` (DateTime), `--recycled-on` (DateTime), `--shredded-on` (DateTime), `--stored-for-collection-on` (DateTime), `--returned-to-sender-on` (DateTime), `--forwarding-address-unique-id`, `--check-deposited-product-unique-id`, `--forwarded-product-unique-id`, `--scanned-product-unique-id`, `--recycled-product-unique-id`, `--shredded-product-unique-id`, `--stored-for-collection-product-unique-id`, `--returned-to-sender-product-unique-id`, `--collected-product-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--contract-contact-id` | long |  |
+| `--name` | string | Short label or description identifying the delivery item |
+| `--location` | string | Physical location where the delivery is being stored (e.g. mailroom shelf) |
+| `--received-by` | string | Name of the staff member who received the delivery |
+| `--notes` | string | Free-text notes about the delivery |
+| `--new-file-data-url` | string |  |
+| `--clear-file-data-file` | bool |  |
+| `--new-signature-url` | string |  |
+| `--clear-signature-file` | bool |  |
+| `--new-scanned-file-data-url` | string |  |
+| `--clear-scanned-file-data-file` | bool |  |
+| `--new-forwarded-file-data-url` | string |  |
+| `--clear-forwarded-file-data-file` | bool |  |
+| `--collected` | bool | Whether the customer has collected the delivery |
+| `--requires-signature` | bool | Whether the customer must sign upon collection |
+| `--signed` | bool | Whether the customer has signed for the delivery |
+| `--notified` | bool |  |
+| `--collected-on` | DateTime | Date and time the customer collected the delivery |
+| `--billed` | bool |  |
+| `--delivery-type` | enum | Type of delivery item (Mail, Parcel, Check, Publicity, or Other) |
+| `--handling-preference` | enum | How the customer wants this delivery handled (e.g. StoreForCollection, Forward, Shred) |
+| `--check-deposited` | bool | Whether the enclosed check has been deposited |
+| `--forwarded` | bool | Whether the delivery has been forwarded to the customer |
+| `--scanned` | bool | Whether the delivery contents have been scanned |
+| `--recycled` | bool | Whether the delivery has been recycled |
+| `--shredded` | bool | Whether the delivery has been shredded |
+| `--stored-for-collection` | bool | Whether the delivery is being held for customer collection |
+| `--returned-to-sender` | bool | Whether the delivery has been returned to sender |
+| `--check-deposited-on` | DateTime | Date and time the check was deposited |
+| `--forwarded-on` | DateTime | Date and time the delivery was forwarded |
+| `--scanned-on` | DateTime | Date and time the delivery contents were scanned |
+| `--recycled-on` | DateTime | Date and time the delivery was recycled |
+| `--shredded-on` | DateTime | Date and time the delivery was shredded |
+| `--stored-for-collection-on` | DateTime | Date and time the delivery was placed in storage for collection |
+| `--returned-to-sender-on` | DateTime | Date and time the delivery was returned to sender |
+| `--forwarding-address-unique-id` | string |  |
+| `--check-deposited-product-unique-id` | string |  |
+| `--forwarded-product-unique-id` | string |  |
+| `--scanned-product-unique-id` | string |  |
+| `--recycled-product-unique-id` | string |  |
+| `--shredded-product-unique-id` | string |  |
+| `--stored-for-collection-product-unique-id` | string |  |
+| `--returned-to-sender-product-unique-id` | string |  |
+| `--collected-product-unique-id` | string |  |
 
 ### CoworkerDelivery (key fields)
 

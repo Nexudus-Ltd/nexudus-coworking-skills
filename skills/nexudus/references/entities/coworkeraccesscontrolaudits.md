@@ -23,14 +23,30 @@ CoworkerAccessControlAudits support Search, Get, Create, Update, Delete.
 
 #### CoworkerAccessControlAudit list filter options
 
-`--coworker-id` (long), `--description`, `--is-problem` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer affected by the access control operation |
+| `--description` | string | Human-readable description of the issue encountered in the access control system |
+| `--is-problem` | bool | Whether this entry represents a failed or problematic operation in the access control system |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerAccessControlAudit create options
 
-`--coworker-id` (long, required), `--description`, `--is-problem` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | ID of the customer affected by the access control operation |
+| `--description` | string | Human-readable description of the issue encountered in the access control system |
+| `--is-problem` | bool | Whether this entry represents a failed or problematic operation in the access control system |
 
 #### CoworkerAccessControlAudit update options
 
-`--coworker-id` (long), `--description`, `--is-problem` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer affected by the access control operation |
+| `--description` | string | Human-readable description of the issue encountered in the access control system |
+| `--is-problem` | bool | Whether this entry represents a failed or problematic operation in the access control system |
 
 <!-- END:GENERATED entity=CoworkerAccessControlAudits -->

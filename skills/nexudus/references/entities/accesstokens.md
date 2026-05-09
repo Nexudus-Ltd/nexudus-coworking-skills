@@ -23,15 +23,60 @@ AccessTokens also support entity commands.
 
 #### AccessToken list filter options
 
-`--business-id` (long), `--access-code`, `--description`, `--minutes-included` (int), `--from-minutes-included` (range), `--to-minutes-included` (range), `--valid-from` (DateTime), `--from-valid-from` (range), `--to-valid-from` (range), `--valid-to` (DateTime), `--from-valid-to` (range), `--to-valid-to` (range), `--user-limit` (int), `--from-user-limit` (range), `--to-user-limit` (range), `--mac-address`, `--booking-guid`, `--visitor-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--access-code` | string | Unique network access code used to connect to WiFi |
+| `--description` | string | Free-text description of this access token |
+| `--minutes-included` | int | Total minutes of WiFi access included in this token |
+| `--from-minutes-included` | range | |
+| `--to-minutes-included` | range | |
+| `--valid-from` | DateTime | Start date from which this token can be used |
+| `--from-valid-from` | range | |
+| `--to-valid-from` | range | |
+| `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
+| `--from-valid-to` | range | |
+| `--to-valid-to` | range | |
+| `--user-limit` | int | Maximum number of users that can use this token simultaneously |
+| `--from-user-limit` | range | |
+| `--to-user-limit` | range | |
+| `--mac-address` | string | MAC address of the device associated with this token |
+| `--booking-guid` | string |  |
+| `--visitor-guid` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### AccessToken create options
 
-`--business-id` (long, required), `--access-code` (required), `--description`, `--minutes-included` (int, required), `--valid-from` (DateTime), `--valid-to` (DateTime), `--user-limit` (int), `--mac-address`, `--booking-guid`, `--visitor-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--access-code` | string, required | Unique network access code used to connect to WiFi |
+| `--description` | string | Free-text description of this access token |
+| `--minutes-included` | int, required | Total minutes of WiFi access included in this token |
+| `--valid-from` | DateTime | Start date from which this token can be used |
+| `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
+| `--user-limit` | int | Maximum number of users that can use this token simultaneously |
+| `--mac-address` | string | MAC address of the device associated with this token |
+| `--booking-guid` | string |  |
+| `--visitor-guid` | string |  |
 
 #### AccessToken update options
 
-`--business-id` (long), `--access-code`, `--description`, `--minutes-included` (int), `--valid-from` (DateTime), `--valid-to` (DateTime), `--user-limit` (int), `--mac-address`, `--booking-guid`, `--visitor-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--access-code` | string | Unique network access code used to connect to WiFi |
+| `--description` | string | Free-text description of this access token |
+| `--minutes-included` | int | Total minutes of WiFi access included in this token |
+| `--valid-from` | DateTime | Start date from which this token can be used |
+| `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
+| `--user-limit` | int | Maximum number of users that can use this token simultaneously |
+| `--mac-address` | string | MAC address of the device associated with this token |
+| `--booking-guid` | string |  |
+| `--visitor-guid` | string |  |
 
 ### AccessToken (key fields)
 

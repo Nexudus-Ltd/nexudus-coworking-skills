@@ -19,15 +19,36 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 #### TariffTimePass list filter options
 
-`--tariff-id` (long), `--time-pass-id` (long), `--passes-included` (int), `--from-passes-included` (range), `--to-passes-included` (range), `--pass-renewal-time` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long |  |
+| `--time-pass-id` | long |  |
+| `--passes-included` | int | Number of passes included |
+| `--from-passes-included` | range | |
+| `--to-passes-included` | range | |
+| `--pass-renewal-time` | enum | Pass renewal time period |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TariffTimePass create options
 
-`--tariff-id` (long, required), `--time-pass-id` (long, required), `--passes-included` (int, required), `--pass-renewal-time` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long, required |  |
+| `--time-pass-id` | long, required |  |
+| `--passes-included` | int, required | Number of passes included |
+| `--pass-renewal-time` | enum, required | Pass renewal time period |
 
 #### TariffTimePass update options
 
-`--tariff-id` (long), `--time-pass-id` (long), `--passes-included` (int), `--pass-renewal-time` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long |  |
+| `--time-pass-id` | long |  |
+| `--passes-included` | int | Number of passes included |
+| `--pass-renewal-time` | enum | Pass renewal time period |
 
 ### TariffTimePass (key fields)
 

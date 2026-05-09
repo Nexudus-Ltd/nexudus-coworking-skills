@@ -18,14 +18,36 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 
 #### FormPageAnswer list filter options
 
-`--form-page-request-id` (long), `--form-page-question-id` (long), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--form-page-request-id` | long |  |
+| `--form-page-question-id` | long |  |
+| `--value` | string |  |
+| `--new-file-value-url` | string |  |
+| `--clear-file-value-file` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FormPageAnswer create options
 
-`--form-page-request-id` (long), `--form-page-question-id` (long, required), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--form-page-request-id` | long |  |
+| `--form-page-question-id` | long, required |  |
+| `--value` | string |  |
+| `--new-file-value-url` | string |  |
+| `--clear-file-value-file` | bool |  |
 
 #### FormPageAnswer update options
 
-`--form-page-request-id` (long), `--form-page-question-id` (long), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--form-page-request-id` | long |  |
+| `--form-page-question-id` | long |  |
+| `--value` | string |  |
+| `--new-file-value-url` | string |  |
+| `--clear-file-value-file` | bool |  |
 
 <!-- END:GENERATED entity=FormPageAnswers -->

@@ -19,14 +19,27 @@ ResellerPayouts support Search, Get, Create, Update, Delete.
 
 #### ResellerPayout list filter options
 
-`--new-reseller-invoice-data-url`, `--clear-reseller-invoice-data-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--new-reseller-invoice-data-url` | string |  |
+| `--clear-reseller-invoice-data-file` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ResellerPayout create options
 
-`--new-reseller-invoice-data-url`, `--clear-reseller-invoice-data-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--new-reseller-invoice-data-url` | string |  |
+| `--clear-reseller-invoice-data-file` | bool |  |
 
 #### ResellerPayout update options
 
-`--new-reseller-invoice-data-url`, `--clear-reseller-invoice-data-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--new-reseller-invoice-data-url` | string |  |
+| `--clear-reseller-invoice-data-file` | bool |  |
 
 <!-- END:GENERATED entity=ResellerPayouts -->

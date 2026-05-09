@@ -19,15 +19,49 @@ Workspaces support Search, Get, Create, Update, Delete.
 
 #### Workspace list filter options
 
-`--business-id` (long), `--administrator-id` (long), `--name`, `--visible-in-my-spaces` (bool), `--visible-by-everyone` (bool), `--archived` (bool), `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--administrator-id` | long |  |
+| `--name` | string |  |
+| `--visible-in-my-spaces` | bool |  |
+| `--visible-by-everyone` | bool |  |
+| `--archived` | bool |  |
+| `--description` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Workspace create options
 
-`--business-id` (long, required), `--administrator-id` (long, required), `--name` (required), `--visible-in-my-spaces` (bool), `--visible-by-everyone` (bool), `--archived` (bool), `--description`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--administrator-id` | long, required |  |
+| `--name` | string, required |  |
+| `--visible-in-my-spaces` | bool |  |
+| `--visible-by-everyone` | bool |  |
+| `--archived` | bool |  |
+| `--description` | string |  |
+| `--members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag |  |
+| `--removed-members` | list, repeat flag |  |
 
 #### Workspace update options
 
-`--business-id` (long), `--administrator-id` (long), `--name`, `--visible-in-my-spaces` (bool), `--visible-by-everyone` (bool), `--archived` (bool), `--description`, `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--administrator-id` | long |  |
+| `--name` | string |  |
+| `--visible-in-my-spaces` | bool |  |
+| `--visible-by-everyone` | bool |  |
+| `--archived` | bool |  |
+| `--description` | string |  |
+| `--members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag |  |
+| `--removed-members` | list, repeat flag |  |
 
 **List properties (only returned by `get`, not by `list`):** `Members`, `AddedMembers`, `RemovedMembers`
 

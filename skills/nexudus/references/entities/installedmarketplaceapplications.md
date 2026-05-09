@@ -19,14 +19,54 @@ InstalledMarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 #### InstalledMarketPlaceApplication list filter options
 
-`--market-place-application-id` (long), `--business-id` (long), `--provide-products` (bool), `--provide-resources` (bool), `--provide-events` (bool), `--provide-tariffs` (bool), `--provide-resource-availability` (bool), `--provide-resource-prices` (bool), `--accept-bookings` (bool), `--accept-event-signups` (bool), `--accept-payment-requests` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--market-place-application-id` | long |  |
+| `--business-id` | long |  |
+| `--provide-products` | bool |  |
+| `--provide-resources` | bool |  |
+| `--provide-events` | bool |  |
+| `--provide-tariffs` | bool |  |
+| `--provide-resource-availability` | bool |  |
+| `--provide-resource-prices` | bool |  |
+| `--accept-bookings` | bool |  |
+| `--accept-event-signups` | bool |  |
+| `--accept-payment-requests` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### InstalledMarketPlaceApplication create options
 
-`--market-place-application-id` (long, required), `--business-id` (long, required), `--provide-products` (bool), `--provide-resources` (bool), `--provide-events` (bool), `--provide-tariffs` (bool), `--provide-resource-availability` (bool), `--provide-resource-prices` (bool), `--accept-bookings` (bool), `--accept-event-signups` (bool), `--accept-payment-requests` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--market-place-application-id` | long, required |  |
+| `--business-id` | long, required |  |
+| `--provide-products` | bool |  |
+| `--provide-resources` | bool |  |
+| `--provide-events` | bool |  |
+| `--provide-tariffs` | bool |  |
+| `--provide-resource-availability` | bool |  |
+| `--provide-resource-prices` | bool |  |
+| `--accept-bookings` | bool |  |
+| `--accept-event-signups` | bool |  |
+| `--accept-payment-requests` | bool |  |
 
 #### InstalledMarketPlaceApplication update options
 
-`--market-place-application-id` (long), `--business-id` (long), `--provide-products` (bool), `--provide-resources` (bool), `--provide-events` (bool), `--provide-tariffs` (bool), `--provide-resource-availability` (bool), `--provide-resource-prices` (bool), `--accept-bookings` (bool), `--accept-event-signups` (bool), `--accept-payment-requests` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--market-place-application-id` | long |  |
+| `--business-id` | long |  |
+| `--provide-products` | bool |  |
+| `--provide-resources` | bool |  |
+| `--provide-events` | bool |  |
+| `--provide-tariffs` | bool |  |
+| `--provide-resource-availability` | bool |  |
+| `--provide-resource-prices` | bool |  |
+| `--accept-bookings` | bool |  |
+| `--accept-event-signups` | bool |  |
+| `--accept-payment-requests` | bool |  |
 
 <!-- END:GENERATED entity=InstalledMarketPlaceApplications -->

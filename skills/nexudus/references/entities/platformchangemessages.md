@@ -19,14 +19,30 @@ PlatformChangeMessages support Search, Get, Create, Update, Delete.
 
 #### PlatformChangeMessage list filter options
 
-`--title`, `--description-english`, `--description-spanish`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--title` | string |  |
+| `--description-english` | string |  |
+| `--description-spanish` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### PlatformChangeMessage create options
 
-`--title` (required), `--description-english`, `--description-spanish`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--title` | string, required |  |
+| `--description-english` | string |  |
+| `--description-spanish` | string |  |
 
 #### PlatformChangeMessage update options
 
-`--title`, `--description-english`, `--description-spanish`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--title` | string |  |
+| `--description-english` | string |  |
+| `--description-spanish` | string |  |
 
 <!-- END:GENERATED entity=PlatformChangeMessages -->

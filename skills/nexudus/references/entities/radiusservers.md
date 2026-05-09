@@ -19,14 +19,36 @@ RadiusServers support Search, Get, Create, Update, Delete.
 
 #### RadiusServer list filter options
 
-`--business-id` (long), `--name`, `--vendor` (enum), `--active` (bool), `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--vendor` | enum |  |
+| `--active` | bool |  |
+| `--description` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### RadiusServer create options
 
-`--business-id` (long, required), `--name` (required), `--vendor` (enum, required), `--active` (bool), `--description`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--vendor` | enum, required |  |
+| `--active` | bool |  |
+| `--description` | string |  |
 
 #### RadiusServer update options
 
-`--business-id` (long), `--name`, `--vendor` (enum), `--active` (bool), `--description`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--vendor` | enum |  |
+| `--active` | bool |  |
+| `--description` | string |  |
 
 <!-- END:GENERATED entity=RadiusServers -->

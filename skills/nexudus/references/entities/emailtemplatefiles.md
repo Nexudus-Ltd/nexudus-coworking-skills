@@ -19,14 +19,54 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 
 #### EmailTemplateFile list filter options
 
-`--business-id` (long), `--language` (enum), `--file-language-id` (long), `--name`, `--subject`, `--file-contents`, `--is-text-only` (bool), `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--language` | enum |  |
+| `--file-language-id` | long |  |
+| `--name` | string |  |
+| `--subject` | string |  |
+| `--file-contents` | string |  |
+| `--is-text-only` | bool |  |
+| `--from-name` | string |  |
+| `--from-email` | string |  |
+| `--c-c-email` | string |  |
+| `--c-c-o-email` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### EmailTemplateFile create options
 
-`--business-id` (long, required), `--language` (enum, required), `--file-language-id` (long), `--name` (required), `--subject` (required), `--file-contents`, `--is-text-only` (bool), `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--language` | enum, required |  |
+| `--file-language-id` | long |  |
+| `--name` | string, required |  |
+| `--subject` | string, required |  |
+| `--file-contents` | string |  |
+| `--is-text-only` | bool |  |
+| `--from-name` | string |  |
+| `--from-email` | string |  |
+| `--c-c-email` | string |  |
+| `--c-c-o-email` | string |  |
 
 #### EmailTemplateFile update options
 
-`--business-id` (long), `--language` (enum), `--file-language-id` (long), `--name`, `--subject`, `--file-contents`, `--is-text-only` (bool), `--from-name`, `--from-email`, `--c-c-email`, `--c-c-o-email`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--language` | enum |  |
+| `--file-language-id` | long |  |
+| `--name` | string |  |
+| `--subject` | string |  |
+| `--file-contents` | string |  |
+| `--is-text-only` | bool |  |
+| `--from-name` | string |  |
+| `--from-email` | string |  |
+| `--c-c-email` | string |  |
+| `--c-c-o-email` | string |  |
 
 <!-- END:GENERATED entity=EmailTemplateFiles -->

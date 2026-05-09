@@ -193,15 +193,34 @@ CannedResponses support Search, Get, Create, Update, Delete.
 
 #### CannedResponse list filter options
 
-`--business-id` (long), `--name`, `--subject`, `--message-text`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Name of the message macro |
+| `--subject` | string | Subject line shown in the customer's inbox when the message macro is delivered |
+| `--message-text` | string | Body of the message macro; supports dynamic tokens (e.g. {salutations}) that Nexudus replaces with live data when the message is sent |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CannedResponse create options
 
-`--business-id` (long, required), `--name` (required), `--subject`, `--message-text`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Name of the message macro |
+| `--subject` | string | Subject line shown in the customer's inbox when the message macro is delivered |
+| `--message-text` | string | Body of the message macro; supports dynamic tokens (e.g. {salutations}) that Nexudus replaces with live data when the message is sent |
 
 #### CannedResponse update options
 
-`--business-id` (long), `--name`, `--subject`, `--message-text`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Name of the message macro |
+| `--subject` | string | Subject line shown in the customer's inbox when the message macro is delivered |
+| `--message-text` | string | Body of the message macro; supports dynamic tokens (e.g. {salutations}) that Nexudus replaces with live data when the message is sent |
 
 ### CannedResponse (key fields)
 

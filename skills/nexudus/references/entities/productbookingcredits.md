@@ -30,15 +30,93 @@ ProductBookingCredits support Search, Get, Create, Update, Delete.
 
 #### ProductBookingCredit list filter options
 
-`--name`, `--product-id` (long), `--credit` (decimal), `--from-credit` (range), `--to-credit` (range), `--expire-time-in-months` (int), `--from-expire-time-in-months` (range), `--to-expire-time-in-months` (range), `--expire-time-in-weeks` (int), `--from-expire-time-in-weeks` (range), `--to-expire-time-in-weeks` (range), `--can-be-used-for-bookings` (bool), `--can-be-used-for-events` (bool), `--expiration-type` (enum), `--expires-in` (int), `--from-expires-in` (range), `--to-expires-in` (range), `--is-universal-credit` (bool), `--applies-to-charges` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string | Credit name |
+| `--product-id` | long |  |
+| `--credit` | decimal | Credit amount |
+| `--from-credit` | range | |
+| `--to-credit` | range | |
+| `--expire-time-in-months` | int |  |
+| `--from-expire-time-in-months` | range | |
+| `--to-expire-time-in-months` | range | |
+| `--expire-time-in-weeks` | int |  |
+| `--from-expire-time-in-weeks` | range | |
+| `--to-expire-time-in-weeks` | range | |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
+| `--expiration-type` | enum | Expiration type |
+| `--expires-in` | int | Number of periods (of --expiration-type) until the released credit expires |
+| `--from-expires-in` | range | |
+| `--to-expires-in` | range | |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ProductBookingCredit create options
 
-`--name` (required), `--product-id` (long, required), `--elegible-resource-types` (list, repeat flag), `--added-elegible-resource-types` (list, repeat flag), `--removed-elegible-resource-types` (list, repeat flag), `--elegible-products` (list, repeat flag), `--added-elegible-products` (list, repeat flag), `--removed-elegible-products` (list, repeat flag), `--elegible-tariffs` (list, repeat flag), `--added-elegible-tariffs` (list, repeat flag), `--removed-elegible-tariffs` (list, repeat flag), `--credit` (decimal, required), `--expire-time-in-months` (int), `--expire-time-in-weeks` (int), `--can-be-used-for-bookings` (bool), `--can-be-used-for-events` (bool), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--expiration-type` (enum), `--expires-in` (int), `--is-universal-credit` (bool), `--elegible-passes` (list, repeat flag), `--added-elegible-passes` (list, repeat flag), `--removed-elegible-passes` (list, repeat flag), `--applies-to-charges` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string, required | Credit name |
+| `--product-id` | long, required |  |
+| `--elegible-resource-types` | list, repeat flag |  |
+| `--added-elegible-resource-types` | list, repeat flag |  |
+| `--removed-elegible-resource-types` | list, repeat flag |  |
+| `--elegible-products` | list, repeat flag |  |
+| `--added-elegible-products` | list, repeat flag |  |
+| `--removed-elegible-products` | list, repeat flag |  |
+| `--elegible-tariffs` | list, repeat flag |  |
+| `--added-elegible-tariffs` | list, repeat flag |  |
+| `--removed-elegible-tariffs` | list, repeat flag |  |
+| `--credit` | decimal, required | Credit amount |
+| `--expire-time-in-months` | int |  |
+| `--expire-time-in-weeks` | int |  |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
+| `--event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag |  |
+| `--removed-event-categories` | list, repeat flag |  |
+| `--expiration-type` | enum | Expiration type |
+| `--expires-in` | int | Number of periods (of --expiration-type) until the released credit expires |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
+| `--elegible-passes` | list, repeat flag |  |
+| `--added-elegible-passes` | list, repeat flag |  |
+| `--removed-elegible-passes` | list, repeat flag |  |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 #### ProductBookingCredit update options
 
-`--name`, `--product-id` (long), `--elegible-resource-types` (list, repeat flag), `--added-elegible-resource-types` (list, repeat flag), `--removed-elegible-resource-types` (list, repeat flag), `--elegible-products` (list, repeat flag), `--added-elegible-products` (list, repeat flag), `--removed-elegible-products` (list, repeat flag), `--elegible-tariffs` (list, repeat flag), `--added-elegible-tariffs` (list, repeat flag), `--removed-elegible-tariffs` (list, repeat flag), `--credit` (decimal), `--expire-time-in-months` (int), `--expire-time-in-weeks` (int), `--can-be-used-for-bookings` (bool), `--can-be-used-for-events` (bool), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--expiration-type` (enum), `--expires-in` (int), `--is-universal-credit` (bool), `--elegible-passes` (list, repeat flag), `--added-elegible-passes` (list, repeat flag), `--removed-elegible-passes` (list, repeat flag), `--applies-to-charges` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string | Credit name |
+| `--product-id` | long |  |
+| `--elegible-resource-types` | list, repeat flag |  |
+| `--added-elegible-resource-types` | list, repeat flag |  |
+| `--removed-elegible-resource-types` | list, repeat flag |  |
+| `--elegible-products` | list, repeat flag |  |
+| `--added-elegible-products` | list, repeat flag |  |
+| `--removed-elegible-products` | list, repeat flag |  |
+| `--elegible-tariffs` | list, repeat flag |  |
+| `--added-elegible-tariffs` | list, repeat flag |  |
+| `--removed-elegible-tariffs` | list, repeat flag |  |
+| `--credit` | decimal | Credit amount |
+| `--expire-time-in-months` | int |  |
+| `--expire-time-in-weeks` | int |  |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
+| `--event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag |  |
+| `--removed-event-categories` | list, repeat flag |  |
+| `--expiration-type` | enum | Expiration type |
+| `--expires-in` | int | Number of periods (of --expiration-type) until the released credit expires |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
+| `--elegible-passes` | list, repeat flag |  |
+| `--added-elegible-passes` | list, repeat flag |  |
+| `--removed-elegible-passes` | list, repeat flag |  |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 ### ProductBookingCredit (key fields)
 

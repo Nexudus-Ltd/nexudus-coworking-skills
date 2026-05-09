@@ -19,14 +19,30 @@ TemplateVersions support Search, Get, Create, Update, Delete.
 
 #### TemplateVersion list filter options
 
-`--business-id` (long), `--name`, `--description`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TemplateVersion create options
 
-`--business-id` (long, required), `--name` (required), `--description`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--description` | string |  |
 
 #### TemplateVersion update options
 
-`--business-id` (long), `--name`, `--description`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
 
 <!-- END:GENERATED entity=TemplateVersions -->

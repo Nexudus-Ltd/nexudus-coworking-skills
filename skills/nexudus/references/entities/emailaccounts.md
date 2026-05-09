@@ -19,14 +19,97 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 
 #### EmailAccount list filter options
 
-`--business-id` (long), `--display-name`, `--email-address`, `--active` (bool), `--send-notification-on-new-messages` (bool), `--notification-email-address`, `--incoming-server`, `--incoming-server-type` (enum), `--incoming-server-port` (int), `--from-incoming-server-port` (range), `--to-incoming-server-port` (range), `--incoming-server-s-s-l` (bool), `--incoming-server-username`, `--delete-message-settings` (enum), `--outgoing-server`, `--outgoing-server-port` (int), `--from-outgoing-server-port` (range), `--to-outgoing-server-port` (range), `--outgoing-server-s-s-l` (bool), `--outgoing-server-username`, `--reply-to-email`, `--last-check-time` (DateTime), `--from-last-check-time` (range), `--to-last-check-time` (range), `--last-message-id` (int), `--from-last-message-id` (range), `--to-last-message-id` (range), `--error-count` (int), `--from-error-count` (range), `--to-error-count` (range), `--google-access-token`, `--office365-access-token`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--display-name` | string |  |
+| `--email-address` | string |  |
+| `--active` | bool |  |
+| `--send-notification-on-new-messages` | bool |  |
+| `--notification-email-address` | string |  |
+| `--incoming-server` | string |  |
+| `--incoming-server-type` | enum |  |
+| `--incoming-server-port` | int |  |
+| `--from-incoming-server-port` | range | |
+| `--to-incoming-server-port` | range | |
+| `--incoming-server-s-s-l` | bool |  |
+| `--incoming-server-username` | string |  |
+| `--delete-message-settings` | enum |  |
+| `--outgoing-server` | string |  |
+| `--outgoing-server-port` | int |  |
+| `--from-outgoing-server-port` | range | |
+| `--to-outgoing-server-port` | range | |
+| `--outgoing-server-s-s-l` | bool |  |
+| `--outgoing-server-username` | string |  |
+| `--reply-to-email` | string |  |
+| `--last-check-time` | DateTime |  |
+| `--from-last-check-time` | range | |
+| `--to-last-check-time` | range | |
+| `--last-message-id` | int |  |
+| `--from-last-message-id` | range | |
+| `--to-last-message-id` | range | |
+| `--error-count` | int |  |
+| `--from-error-count` | range | |
+| `--to-error-count` | range | |
+| `--google-access-token` | string |  |
+| `--office365-access-token` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### EmailAccount create options
 
-`--business-id` (long, required), `--display-name` (required), `--email-address` (required), `--active` (bool), `--send-notification-on-new-messages` (bool), `--notification-email-address`, `--incoming-server` (required), `--incoming-server-type` (enum, required), `--incoming-server-port` (int, required), `--incoming-server-s-s-l` (bool), `--incoming-server-username` (required), `--delete-message-settings` (enum, required), `--outgoing-server` (required), `--outgoing-server-port` (int, required), `--outgoing-server-s-s-l` (bool), `--outgoing-server-username` (required), `--reply-to-email`, `--last-check-time` (DateTime), `--last-message-id` (int, required), `--error-count` (int, required), `--google-access-token`, `--office365-access-token`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--display-name` | string, required |  |
+| `--email-address` | string, required |  |
+| `--active` | bool |  |
+| `--send-notification-on-new-messages` | bool |  |
+| `--notification-email-address` | string |  |
+| `--incoming-server` | string, required |  |
+| `--incoming-server-type` | enum, required |  |
+| `--incoming-server-port` | int, required |  |
+| `--incoming-server-s-s-l` | bool |  |
+| `--incoming-server-username` | string, required |  |
+| `--delete-message-settings` | enum, required |  |
+| `--outgoing-server` | string, required |  |
+| `--outgoing-server-port` | int, required |  |
+| `--outgoing-server-s-s-l` | bool |  |
+| `--outgoing-server-username` | string, required |  |
+| `--reply-to-email` | string |  |
+| `--last-check-time` | DateTime |  |
+| `--last-message-id` | int, required |  |
+| `--error-count` | int, required |  |
+| `--google-access-token` | string |  |
+| `--office365-access-token` | string |  |
 
 #### EmailAccount update options
 
-`--business-id` (long), `--display-name`, `--email-address`, `--active` (bool), `--send-notification-on-new-messages` (bool), `--notification-email-address`, `--incoming-server`, `--incoming-server-type` (enum), `--incoming-server-port` (int), `--incoming-server-s-s-l` (bool), `--incoming-server-username`, `--delete-message-settings` (enum), `--outgoing-server`, `--outgoing-server-port` (int), `--outgoing-server-s-s-l` (bool), `--outgoing-server-username`, `--reply-to-email`, `--last-check-time` (DateTime), `--last-message-id` (int), `--error-count` (int), `--google-access-token`, `--office365-access-token`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--display-name` | string |  |
+| `--email-address` | string |  |
+| `--active` | bool |  |
+| `--send-notification-on-new-messages` | bool |  |
+| `--notification-email-address` | string |  |
+| `--incoming-server` | string |  |
+| `--incoming-server-type` | enum |  |
+| `--incoming-server-port` | int |  |
+| `--incoming-server-s-s-l` | bool |  |
+| `--incoming-server-username` | string |  |
+| `--delete-message-settings` | enum |  |
+| `--outgoing-server` | string |  |
+| `--outgoing-server-port` | int |  |
+| `--outgoing-server-s-s-l` | bool |  |
+| `--outgoing-server-username` | string |  |
+| `--reply-to-email` | string |  |
+| `--last-check-time` | DateTime |  |
+| `--last-message-id` | int |  |
+| `--error-count` | int |  |
+| `--google-access-token` | string |  |
+| `--office365-access-token` | string |  |
 
 <!-- END:GENERATED entity=EmailAccounts -->

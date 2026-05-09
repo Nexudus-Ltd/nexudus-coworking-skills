@@ -19,15 +19,38 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 
 #### ProposalSchedule list filter options
 
-`--proposal-id` (long), `--notes`, `--price` (decimal), `--from-price` (range), `--to-price` (range), `--apply-on` (DateTime), `--from-apply-on` (range), `--to-apply-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--proposal-id` | long |  |
+| `--notes` | string | Notes |
+| `--price` | decimal | Scheduled price |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--apply-on` | DateTime | Date to apply |
+| `--from-apply-on` | range | |
+| `--to-apply-on` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ProposalSchedule create options
 
-`--proposal-id` (long, required), `--notes`, `--price` (decimal), `--apply-on` (DateTime, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--proposal-id` | long, required |  |
+| `--notes` | string | Notes |
+| `--price` | decimal | Scheduled price |
+| `--apply-on` | DateTime, required | Date to apply |
 
 #### ProposalSchedule update options
 
-`--proposal-id` (long), `--notes`, `--price` (decimal), `--apply-on` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--proposal-id` | long |  |
+| `--notes` | string | Notes |
+| `--price` | decimal | Scheduled price |
+| `--apply-on` | DateTime | Date to apply |
 
 ### ProposalSchedule (key fields)
 

@@ -25,15 +25,38 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 
 #### ExtraServicePrice list filter options
 
-`--extra-service-id` (long), `--tariff-id` (long), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--maximum-price` (decimal), `--from-maximum-price` (range), `--to-maximum-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--extra-service-id` | long |  |
+| `--tariff-id` | long |  |
+| `--price` | decimal | Overriding price charged to members on the specified tariff |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--maximum-price` | decimal | Optional maximum price cap for time-based extra services on the specified tariff |
+| `--from-maximum-price` | range | |
+| `--to-maximum-price` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ExtraServicePrice create options
 
-`--extra-service-id` (long, required), `--tariff-id` (long, required), `--price` (decimal, required), `--maximum-price` (decimal)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--extra-service-id` | long, required |  |
+| `--tariff-id` | long, required |  |
+| `--price` | decimal, required | Overriding price charged to members on the specified tariff |
+| `--maximum-price` | decimal | Optional maximum price cap for time-based extra services on the specified tariff |
 
 #### ExtraServicePrice update options
 
-`--extra-service-id` (long), `--tariff-id` (long), `--price` (decimal), `--maximum-price` (decimal)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--extra-service-id` | long |  |
+| `--tariff-id` | long |  |
+| `--price` | decimal | Overriding price charged to members on the specified tariff |
+| `--maximum-price` | decimal | Optional maximum price cap for time-based extra services on the specified tariff |
 
 ### ExtraServicePrice (key fields)
 

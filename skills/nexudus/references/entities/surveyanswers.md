@@ -19,14 +19,36 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 
 #### SurveyAnswer list filter options
 
-`--survey-run-id` (long), `--survey-question-id` (long), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--survey-run-id` | long |  |
+| `--survey-question-id` | long |  |
+| `--value` | string |  |
+| `--new-file-value-url` | string |  |
+| `--clear-file-value-file` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### SurveyAnswer create options
 
-`--survey-run-id` (long), `--survey-question-id` (long, required), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--survey-run-id` | long |  |
+| `--survey-question-id` | long, required |  |
+| `--value` | string |  |
+| `--new-file-value-url` | string |  |
+| `--clear-file-value-file` | bool |  |
 
 #### SurveyAnswer update options
 
-`--survey-run-id` (long), `--survey-question-id` (long), `--value`, `--new-file-value-url`, `--clear-file-value-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--survey-run-id` | long |  |
+| `--survey-question-id` | long |  |
+| `--value` | string |  |
+| `--new-file-value-url` | string |  |
+| `--clear-file-value-file` | bool |  |
 
 <!-- END:GENERATED entity=SurveyAnswers -->

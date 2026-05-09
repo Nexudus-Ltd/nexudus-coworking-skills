@@ -25,14 +25,65 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 
 #### CoworkerTimePass list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--time-pass-id` (long), `--notes`, `--purchase-order`, `--used` (bool), `--free` (bool), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--create-multiple` (int), `--from-create-multiple` (range), `--to-create-multiple` (range), `--expire-date` (DateTime), `--from-expire-date` (range), `--to-expire-date` (range), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | The customer who owns this time pass |
+| `--business-id` | long | The business (location) this time pass belongs to |
+| `--time-pass-id` | long | The time pass definition this is an instance of |
+| `--notes` | string | Optional notes for this time pass |
+| `--purchase-order` | string | Purchase order reference |
+| `--used` | bool | Whether this time pass has been used |
+| `--free` | bool | Whether this time pass is free of charge |
+| `--price` | decimal | Custom price for this time pass |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--create-multiple` | int | Number of time passes to create at once |
+| `--from-create-multiple` | range | |
+| `--to-create-multiple` | range | |
+| `--expire-date` | DateTime | Expiration date for this time pass |
+| `--from-expire-date` | range | |
+| `--to-expire-date` | range | |
+| `--tariff-time-pass-unique-id` | string | Unique identifier linking this time pass to a tariff time pass allocation |
+| `--coworker-product-unique-id` | string | Unique identifier linking this time pass to a customer product purchase |
+| `--coworker-contract-unique-id` | string | Unique identifier linking this time pass to a customer contract |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerTimePass create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--time-pass-id` (long, required), `--notes`, `--purchase-order`, `--used` (bool), `--free` (bool), `--price` (decimal), `--create-multiple` (int, required), `--expire-date` (DateTime), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | The customer who owns this time pass |
+| `--business-id` | long, required | The business (location) this time pass belongs to |
+| `--time-pass-id` | long, required | The time pass definition this is an instance of |
+| `--notes` | string | Optional notes for this time pass |
+| `--purchase-order` | string | Purchase order reference |
+| `--used` | bool | Whether this time pass has been used |
+| `--free` | bool | Whether this time pass is free of charge |
+| `--price` | decimal | Custom price for this time pass |
+| `--create-multiple` | int, required | Number of time passes to create at once |
+| `--expire-date` | DateTime | Expiration date for this time pass |
+| `--tariff-time-pass-unique-id` | string | Unique identifier linking this time pass to a tariff time pass allocation |
+| `--coworker-product-unique-id` | string | Unique identifier linking this time pass to a customer product purchase |
+| `--coworker-contract-unique-id` | string | Unique identifier linking this time pass to a customer contract |
 
 #### CoworkerTimePass update options
 
-`--coworker-id` (long), `--business-id` (long), `--time-pass-id` (long), `--notes`, `--purchase-order`, `--used` (bool), `--free` (bool), `--price` (decimal), `--expire-date` (DateTime), `--tariff-time-pass-unique-id`, `--coworker-product-unique-id`, `--coworker-contract-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | The customer who owns this time pass |
+| `--business-id` | long | The business (location) this time pass belongs to |
+| `--time-pass-id` | long | The time pass definition this is an instance of |
+| `--notes` | string | Optional notes for this time pass |
+| `--purchase-order` | string | Purchase order reference |
+| `--used` | bool | Whether this time pass has been used |
+| `--free` | bool | Whether this time pass is free of charge |
+| `--price` | decimal | Custom price for this time pass |
+| `--expire-date` | DateTime | Expiration date for this time pass |
+| `--tariff-time-pass-unique-id` | string | Unique identifier linking this time pass to a tariff time pass allocation |
+| `--coworker-product-unique-id` | string | Unique identifier linking this time pass to a customer product purchase |
+| `--coworker-contract-unique-id` | string | Unique identifier linking this time pass to a customer contract |
 
 <!-- END:GENERATED entity=CoworkerTimePasses -->

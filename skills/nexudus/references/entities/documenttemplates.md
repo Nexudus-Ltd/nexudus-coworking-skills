@@ -19,14 +19,39 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 
 #### DocumentTemplate list filter options
 
-`--business-id` (long), `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document-file` (bool), `--template-output-format` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--document` | string |  |
+| `--new-binary-document-url` | string |  |
+| `--clear-binary-document-file` | bool |  |
+| `--template-output-format` | enum |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### DocumentTemplate create options
 
-`--business-id` (long, required), `--name` (required), `--document`, `--new-binary-document-url`, `--clear-binary-document-file` (bool), `--template-output-format` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--document` | string |  |
+| `--new-binary-document-url` | string |  |
+| `--clear-binary-document-file` | bool |  |
+| `--template-output-format` | enum, required |  |
 
 #### DocumentTemplate update options
 
-`--business-id` (long), `--name`, `--document`, `--new-binary-document-url`, `--clear-binary-document-file` (bool), `--template-output-format` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--document` | string |  |
+| `--new-binary-document-url` | string |  |
+| `--clear-binary-document-file` | bool |  |
+| `--template-output-format` | enum |  |
 
 <!-- END:GENERATED entity=DocumentTemplates -->

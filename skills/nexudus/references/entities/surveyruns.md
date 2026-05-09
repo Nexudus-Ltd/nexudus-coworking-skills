@@ -19,14 +19,35 @@ SurveyRuns support Search, Get, Create, Update, Delete.
 
 #### SurveyRun list filter options
 
-`--coworker-id` (long), `--survey-id` (long), `--mailing-date` (DateTime), `--from-mailing-date` (range), `--to-mailing-date` (range), `--submitted` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--survey-id` | long |  |
+| `--mailing-date` | DateTime |  |
+| `--from-mailing-date` | range | |
+| `--to-mailing-date` | range | |
+| `--submitted` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### SurveyRun create options
 
-`--coworker-id` (long, required), `--survey-id` (long, required), `--mailing-date` (DateTime), `--submitted` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--survey-id` | long, required |  |
+| `--mailing-date` | DateTime |  |
+| `--submitted` | bool |  |
 
 #### SurveyRun update options
 
-`--coworker-id` (long), `--survey-id` (long), `--mailing-date` (DateTime), `--submitted` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--survey-id` | long |  |
+| `--mailing-date` | DateTime |  |
+| `--submitted` | bool |  |
 
 <!-- END:GENERATED entity=SurveyRuns -->

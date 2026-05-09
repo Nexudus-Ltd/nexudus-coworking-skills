@@ -27,15 +27,127 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 
 #### DiscountCode list filter options
 
-`--business-id` (long), `--code`, `--description`, `--active` (bool), `--publish-from` (DateTime), `--from-publish-from` (range), `--to-publish-from` (range), `--publish-to` (DateTime), `--from-publish-to` (range), `--to-publish-to` (range), `--discount-percentage` (decimal), `--from-discount-percentage` (range), `--to-discount-percentage` (range), `--discount-amount` (decimal), `--from-discount-amount` (range), `--to-discount-amount` (range), `--referral-discount` (bool), `--discount-price-plans` (bool), `--discount-bookings` (bool), `--discount-products` (bool), `--discount-events` (bool), `--max-uses-per-user` (int), `--from-max-uses-per-user` (range), `--to-max-uses-per-user` (range), `--max-uses` (int), `--from-max-uses` (range), `--to-max-uses` (range), `--only-for-contacts` (bool), `--only-for-members` (bool), `--valid-from` (DateTime), `--from-valid-from` (range), `--to-valid-from` (range), `--valid-to` (DateTime), `--from-valid-to` (range), `--to-valid-to` (range), `--expiration-type` (enum), `--expires-in` (int), `--from-expires-in` (range), `--to-expires-in` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--code` | string | The unique alphanumeric code customers enter to apply the discount |
+| `--description` | string | Human-readable description of what this discount code is for |
+| `--active` | bool | Whether this discount code is currently active and can be redeemed |
+| `--publish-from` | DateTime | Date from which this discount code is visible/published to customers |
+| `--from-publish-from` | range | |
+| `--to-publish-from` | range | |
+| `--publish-to` | DateTime | Date until which this discount code is visible/published to customers |
+| `--from-publish-to` | range | |
+| `--to-publish-to` | range | |
+| `--discount-percentage` | decimal | Percentage discount to apply (e.g. 10 for 10% off). Mutually exclusive with DiscountAmount |
+| `--from-discount-percentage` | range | |
+| `--to-discount-percentage` | range | |
+| `--discount-amount` | decimal | Fixed monetary amount to discount. Mutually exclusive with DiscountPercentage |
+| `--from-discount-amount` | range | |
+| `--to-discount-amount` | range | |
+| `--referral-discount` | bool | Whether this discount code is used as part of the referral program |
+| `--discount-price-plans` | bool | Whether this discount can be applied to price plans (tariffs). When true, use Tariffs to restrict to specific plans |
+| `--discount-bookings` | bool | Whether this discount can be applied to resource bookings. When true, use ResourceTypes to restrict to specific resource types |
+| `--discount-products` | bool | Whether this discount can be applied to products. When true, use Products to restrict to specific products |
+| `--discount-events` | bool | Whether this discount can be applied to events. When true, use EventCategories to restrict to specific event categories |
+| `--max-uses-per-user` | int | Maximum number of times a single customer can redeem this discount code |
+| `--from-max-uses-per-user` | range | |
+| `--to-max-uses-per-user` | range | |
+| `--max-uses` | int | Maximum total number of times this discount code can be redeemed across all customers |
+| `--from-max-uses` | range | |
+| `--to-max-uses` | range | |
+| `--only-for-contacts` | bool | When true, only contacts (non-member customers) can use this discount code |
+| `--only-for-members` | bool | When true, only members (customers with an active plan) can use this discount code |
+| `--valid-from` | DateTime | Start date from which this discount code can be redeemed |
+| `--from-valid-from` | range | |
+| `--to-valid-from` | range | |
+| `--valid-to` | DateTime | End date after which this discount code can no longer be redeemed |
+| `--from-valid-to` | range | |
+| `--to-valid-to` | range | |
+| `--expiration-type` | enum | Unit of the expiration period (Day, Week, Month, Year). Used with ExpiresIn to determine when the discount expires after being assigned to a customer |
+| `--expires-in` | int | Number of ExpirationType periods after assignment until the discount expires for a customer |
+| `--from-expires-in` | range | |
+| `--to-expires-in` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### DiscountCode create options
 
-`--business-id` (long, required), `--code` (required), `--description` (required), `--active` (bool), `--publish-from` (DateTime), `--publish-to` (DateTime), `--discount-percentage` (decimal), `--discount-amount` (decimal), `--referral-discount` (bool), `--discount-price-plans` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--discount-bookings` (bool), `--resource-types` (list, repeat flag), `--added-resource-types` (list, repeat flag), `--removed-resource-types` (list, repeat flag), `--discount-products` (bool), `--products` (list, repeat flag), `--added-products` (list, repeat flag), `--removed-products` (list, repeat flag), `--discount-events` (bool), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--max-uses-per-user` (int), `--max-uses` (int), `--only-for-contacts` (bool), `--only-for-members` (bool), `--valid-from` (DateTime), `--valid-to` (DateTime), `--expiration-type` (enum), `--expires-in` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--code` | string, required | The unique alphanumeric code customers enter to apply the discount |
+| `--description` | string, required | Human-readable description of what this discount code is for |
+| `--active` | bool | Whether this discount code is currently active and can be redeemed |
+| `--publish-from` | DateTime | Date from which this discount code is visible/published to customers |
+| `--publish-to` | DateTime | Date until which this discount code is visible/published to customers |
+| `--discount-percentage` | decimal | Percentage discount to apply (e.g. 10 for 10% off). Mutually exclusive with DiscountAmount |
+| `--discount-amount` | decimal | Fixed monetary amount to discount. Mutually exclusive with DiscountPercentage |
+| `--referral-discount` | bool | Whether this discount code is used as part of the referral program |
+| `--discount-price-plans` | bool | Whether this discount can be applied to price plans (tariffs). When true, use Tariffs to restrict to specific plans |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--discount-bookings` | bool | Whether this discount can be applied to resource bookings. When true, use ResourceTypes to restrict to specific resource types |
+| `--resource-types` | list, repeat flag |  |
+| `--added-resource-types` | list, repeat flag |  |
+| `--removed-resource-types` | list, repeat flag |  |
+| `--discount-products` | bool | Whether this discount can be applied to products. When true, use Products to restrict to specific products |
+| `--products` | list, repeat flag |  |
+| `--added-products` | list, repeat flag |  |
+| `--removed-products` | list, repeat flag |  |
+| `--discount-events` | bool | Whether this discount can be applied to events. When true, use EventCategories to restrict to specific event categories |
+| `--event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag |  |
+| `--removed-event-categories` | list, repeat flag |  |
+| `--max-uses-per-user` | int | Maximum number of times a single customer can redeem this discount code |
+| `--max-uses` | int | Maximum total number of times this discount code can be redeemed across all customers |
+| `--only-for-contacts` | bool | When true, only contacts (non-member customers) can use this discount code |
+| `--only-for-members` | bool | When true, only members (customers with an active plan) can use this discount code |
+| `--valid-from` | DateTime | Start date from which this discount code can be redeemed |
+| `--valid-to` | DateTime | End date after which this discount code can no longer be redeemed |
+| `--expiration-type` | enum | Unit of the expiration period (Day, Week, Month, Year). Used with ExpiresIn to determine when the discount expires after being assigned to a customer |
+| `--expires-in` | int | Number of ExpirationType periods after assignment until the discount expires for a customer |
 
 #### DiscountCode update options
 
-`--business-id` (long), `--code`, `--description`, `--active` (bool), `--publish-from` (DateTime), `--publish-to` (DateTime), `--discount-percentage` (decimal), `--discount-amount` (decimal), `--referral-discount` (bool), `--discount-price-plans` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--discount-bookings` (bool), `--resource-types` (list, repeat flag), `--added-resource-types` (list, repeat flag), `--removed-resource-types` (list, repeat flag), `--discount-products` (bool), `--products` (list, repeat flag), `--added-products` (list, repeat flag), `--removed-products` (list, repeat flag), `--discount-events` (bool), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--max-uses-per-user` (int), `--max-uses` (int), `--only-for-contacts` (bool), `--only-for-members` (bool), `--valid-from` (DateTime), `--valid-to` (DateTime), `--expiration-type` (enum), `--expires-in` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--code` | string | The unique alphanumeric code customers enter to apply the discount |
+| `--description` | string | Human-readable description of what this discount code is for |
+| `--active` | bool | Whether this discount code is currently active and can be redeemed |
+| `--publish-from` | DateTime | Date from which this discount code is visible/published to customers |
+| `--publish-to` | DateTime | Date until which this discount code is visible/published to customers |
+| `--discount-percentage` | decimal | Percentage discount to apply (e.g. 10 for 10% off). Mutually exclusive with DiscountAmount |
+| `--discount-amount` | decimal | Fixed monetary amount to discount. Mutually exclusive with DiscountPercentage |
+| `--referral-discount` | bool | Whether this discount code is used as part of the referral program |
+| `--discount-price-plans` | bool | Whether this discount can be applied to price plans (tariffs). When true, use Tariffs to restrict to specific plans |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--discount-bookings` | bool | Whether this discount can be applied to resource bookings. When true, use ResourceTypes to restrict to specific resource types |
+| `--resource-types` | list, repeat flag |  |
+| `--added-resource-types` | list, repeat flag |  |
+| `--removed-resource-types` | list, repeat flag |  |
+| `--discount-products` | bool | Whether this discount can be applied to products. When true, use Products to restrict to specific products |
+| `--products` | list, repeat flag |  |
+| `--added-products` | list, repeat flag |  |
+| `--removed-products` | list, repeat flag |  |
+| `--discount-events` | bool | Whether this discount can be applied to events. When true, use EventCategories to restrict to specific event categories |
+| `--event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag |  |
+| `--removed-event-categories` | list, repeat flag |  |
+| `--max-uses-per-user` | int | Maximum number of times a single customer can redeem this discount code |
+| `--max-uses` | int | Maximum total number of times this discount code can be redeemed across all customers |
+| `--only-for-contacts` | bool | When true, only contacts (non-member customers) can use this discount code |
+| `--only-for-members` | bool | When true, only members (customers with an active plan) can use this discount code |
+| `--valid-from` | DateTime | Start date from which this discount code can be redeemed |
+| `--valid-to` | DateTime | End date after which this discount code can no longer be redeemed |
+| `--expiration-type` | enum | Unit of the expiration period (Day, Week, Month, Year). Used with ExpiresIn to determine when the discount expires after being assigned to a customer |
+| `--expires-in` | int | Number of ExpirationType periods after assignment until the discount expires for a customer |
 
 ### DiscountCode (key fields)
 

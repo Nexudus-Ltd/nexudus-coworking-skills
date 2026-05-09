@@ -19,14 +19,44 @@ EventComments support Search, Get, Create, Update, Delete.
 
 #### EventComment list filter options
 
-`--business-id` (long), `--calendar-event-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int), `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--calendar-event-id` | long |  |
+| `--posted-by-id` | long |  |
+| `--title` | string |  |
+| `--text` | string |  |
+| `--published` | bool |  |
+| `--rating` | int |  |
+| `--from-rating` | range | |
+| `--to-rating` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### EventComment create options
 
-`--business-id` (long, required), `--calendar-event-id` (long, required), `--posted-by-id` (long), `--title` (required), `--text` (required), `--published` (bool), `--rating` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--calendar-event-id` | long, required |  |
+| `--posted-by-id` | long |  |
+| `--title` | string, required |  |
+| `--text` | string, required |  |
+| `--published` | bool |  |
+| `--rating` | int |  |
 
 #### EventComment update options
 
-`--business-id` (long), `--calendar-event-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--calendar-event-id` | long |  |
+| `--posted-by-id` | long |  |
+| `--title` | string |  |
+| `--text` | string |  |
+| `--published` | bool |  |
+| `--rating` | int |  |
 
 <!-- END:GENERATED entity=EventComments -->

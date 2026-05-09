@@ -19,14 +19,47 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 
 #### SurveyQuestion list filter options
 
-`--survey-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--allow-multiple-options` (bool), `--question-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--survey-id` | long |  |
+| `--text` | string |  |
+| `--description` | string |  |
+| `--available-options` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int |  |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--allow-multiple-options` | bool |  |
+| `--question-type` | enum |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### SurveyQuestion create options
 
-`--survey-id` (long, required), `--text` (required), `--description` (required), `--available-options`, `--active` (bool), `--display-order` (int, required), `--allow-multiple-options` (bool), `--question-type` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--survey-id` | long, required |  |
+| `--text` | string, required |  |
+| `--description` | string, required |  |
+| `--available-options` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int, required |  |
+| `--allow-multiple-options` | bool |  |
+| `--question-type` | enum, required |  |
 
 #### SurveyQuestion update options
 
-`--survey-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--allow-multiple-options` (bool), `--question-type` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--survey-id` | long |  |
+| `--text` | string |  |
+| `--description` | string |  |
+| `--available-options` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int |  |
+| `--allow-multiple-options` | bool |  |
+| `--question-type` | enum |  |
 
 <!-- END:GENERATED entity=SurveyQuestions -->

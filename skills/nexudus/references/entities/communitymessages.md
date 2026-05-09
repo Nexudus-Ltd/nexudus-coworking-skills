@@ -23,15 +23,34 @@ CommunityMessages support Search, Get, Create, Update, Delete.
 
 #### CommunityMessage list filter options
 
-`--community-thread-id` (long), `--user-id` (long), `--coworker-id` (long), `--message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--community-thread-id` | long | ID of the conversation this message belongs to |
+| `--user-id` | long | ID of the user account that posted this message |
+| `--coworker-id` | long | ID of the customer profile that posted this message |
+| `--message` | string | Body text of the message |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CommunityMessage create options
 
-`--community-thread-id` (long, required), `--user-id` (long, required), `--coworker-id` (long), `--message`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--community-thread-id` | long, required | ID of the conversation this message belongs to |
+| `--user-id` | long, required | ID of the user account that posted this message |
+| `--coworker-id` | long | ID of the customer profile that posted this message |
+| `--message` | string | Body text of the message |
 
 #### CommunityMessage update options
 
-`--community-thread-id` (long), `--user-id` (long), `--coworker-id` (long), `--message`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--community-thread-id` | long | ID of the conversation this message belongs to |
+| `--user-id` | long | ID of the user account that posted this message |
+| `--coworker-id` | long | ID of the customer profile that posted this message |
+| `--message` | string | Body text of the message |
 
 ### CommunityMessage (key fields)
 

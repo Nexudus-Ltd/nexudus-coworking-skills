@@ -19,14 +19,69 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutOpening list filter options
 
-`--floor-plan-layout-edge-id` (long), `--opening-type`, `--floor-offset` (int), `--from-floor-offset` (range), `--to-floor-offset` (range), `--start` (int), `--from-start` (range), `--to-start` (range), `--height` (int), `--from-height` (range), `--to-height` (range), `--length` (int), `--from-length` (range), `--to-length` (range), `--hinge`, `--door-type`, `--door-arc-angle` (int), `--from-door-arc-angle` (range), `--to-door-arc-angle` (range), `--door-is-locked` (bool), `--window-pane-count` (int), `--from-window-pane-count` (range), `--to-window-pane-count` (range), `--direction`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-edge-id` | long |  |
+| `--opening-type` | string |  |
+| `--floor-offset` | int |  |
+| `--from-floor-offset` | range | |
+| `--to-floor-offset` | range | |
+| `--start` | int |  |
+| `--from-start` | range | |
+| `--to-start` | range | |
+| `--height` | int |  |
+| `--from-height` | range | |
+| `--to-height` | range | |
+| `--length` | int |  |
+| `--from-length` | range | |
+| `--to-length` | range | |
+| `--hinge` | string |  |
+| `--door-type` | string |  |
+| `--door-arc-angle` | int |  |
+| `--from-door-arc-angle` | range | |
+| `--to-door-arc-angle` | range | |
+| `--door-is-locked` | bool |  |
+| `--window-pane-count` | int |  |
+| `--from-window-pane-count` | range | |
+| `--to-window-pane-count` | range | |
+| `--direction` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FloorPlanLayoutOpening create options
 
-`--floor-plan-layout-edge-id` (long, required), `--opening-type` (required), `--floor-offset` (int, required), `--start` (int, required), `--height` (int, required), `--length` (int, required), `--hinge`, `--door-type`, `--door-arc-angle` (int), `--door-is-locked` (bool), `--window-pane-count` (int), `--direction`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-edge-id` | long, required |  |
+| `--opening-type` | string, required |  |
+| `--floor-offset` | int, required |  |
+| `--start` | int, required |  |
+| `--height` | int, required |  |
+| `--length` | int, required |  |
+| `--hinge` | string |  |
+| `--door-type` | string |  |
+| `--door-arc-angle` | int |  |
+| `--door-is-locked` | bool |  |
+| `--window-pane-count` | int |  |
+| `--direction` | string |  |
 
 #### FloorPlanLayoutOpening update options
 
-`--floor-plan-layout-edge-id` (long), `--opening-type`, `--floor-offset` (int), `--start` (int), `--height` (int), `--length` (int), `--hinge`, `--door-type`, `--door-arc-angle` (int), `--door-is-locked` (bool), `--window-pane-count` (int), `--direction`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-edge-id` | long |  |
+| `--opening-type` | string |  |
+| `--floor-offset` | int |  |
+| `--start` | int |  |
+| `--height` | int |  |
+| `--length` | int |  |
+| `--hinge` | string |  |
+| `--door-type` | string |  |
+| `--door-arc-angle` | int |  |
+| `--door-is-locked` | bool |  |
+| `--window-pane-count` | int |  |
+| `--direction` | string |  |
 
 <!-- END:GENERATED entity=FloorPlanLayoutOpenings -->

@@ -25,15 +25,61 @@ CommunityThreads support Search, Get, Create, Update, Delete.
 
 #### CommunityThread list filter options
 
-`--business-id` (long), `--community-group-id` (long), `--user-id` (long), `--coworker-id` (long), `--subject`, `--message`, `--instant-delivery` (bool), `--tags`, `--private` (bool), `--include-zoom-invite` (bool), `--zoom-event-data`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this conversation belongs to |
+| `--community-group-id` | long | ID of the group this conversation is assigned to; the group's access level (Public, Restricted, or Private) determines who can see and contribute to it |
+| `--user-id` | long | ID of the user account that posted this conversation |
+| `--coworker-id` | long | ID of the customer profile that posted this conversation |
+| `--subject` | string | Title or topic of the conversation |
+| `--message` | string | Body text of the opening message in this conversation |
+| `--instant-delivery` | bool | When true, sends notifications to followers immediately after posting instead of waiting for the daily digest |
+| `--tags` | string | Comma-separated tags to help customers find this conversation |
+| `--private` | bool | When true, the conversation is visible only to customers explicitly mentioned in the message |
+| `--include-zoom-invite` | bool | When true, attaches a Zoom meeting invite to this conversation |
+| `--zoom-event-data` | string | JSON payload containing Zoom meeting details attached to this conversation |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CommunityThread create options
 
-`--business-id` (long, required), `--community-group-id` (long), `--user-id` (long, required), `--coworker-id` (long), `--subject` (required), `--message` (required), `--instant-delivery` (bool), `--tags`, `--private` (bool), `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite` (bool), `--zoom-event-data`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | ID of the location this conversation belongs to |
+| `--community-group-id` | long | ID of the group this conversation is assigned to; the group's access level (Public, Restricted, or Private) determines who can see and contribute to it |
+| `--user-id` | long, required | ID of the user account that posted this conversation |
+| `--coworker-id` | long | ID of the customer profile that posted this conversation |
+| `--subject` | string, required | Title or topic of the conversation |
+| `--message` | string, required | Body text of the opening message in this conversation |
+| `--instant-delivery` | bool | When true, sends notifications to followers immediately after posting instead of waiting for the daily digest |
+| `--tags` | string | Comma-separated tags to help customers find this conversation |
+| `--private` | bool | When true, the conversation is visible only to customers explicitly mentioned in the message |
+| `--guests` | list, repeat flag | IDs of users mentioned or invited as guests in this conversation |
+| `--added-guests` | list, repeat flag | User IDs to add as guests (used in partial updates) |
+| `--removed-guests` | list, repeat flag | User IDs to remove as guests (used in partial updates) |
+| `--include-zoom-invite` | bool | When true, attaches a Zoom meeting invite to this conversation |
+| `--zoom-event-data` | string | JSON payload containing Zoom meeting details attached to this conversation |
 
 #### CommunityThread update options
 
-`--business-id` (long), `--community-group-id` (long), `--user-id` (long), `--coworker-id` (long), `--subject`, `--message`, `--instant-delivery` (bool), `--tags`, `--private` (bool), `--guests` (list, repeat flag), `--added-guests` (list, repeat flag), `--removed-guests` (list, repeat flag), `--include-zoom-invite` (bool), `--zoom-event-data`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this conversation belongs to |
+| `--community-group-id` | long | ID of the group this conversation is assigned to; the group's access level (Public, Restricted, or Private) determines who can see and contribute to it |
+| `--user-id` | long | ID of the user account that posted this conversation |
+| `--coworker-id` | long | ID of the customer profile that posted this conversation |
+| `--subject` | string | Title or topic of the conversation |
+| `--message` | string | Body text of the opening message in this conversation |
+| `--instant-delivery` | bool | When true, sends notifications to followers immediately after posting instead of waiting for the daily digest |
+| `--tags` | string | Comma-separated tags to help customers find this conversation |
+| `--private` | bool | When true, the conversation is visible only to customers explicitly mentioned in the message |
+| `--guests` | list, repeat flag | IDs of users mentioned or invited as guests in this conversation |
+| `--added-guests` | list, repeat flag | User IDs to add as guests (used in partial updates) |
+| `--removed-guests` | list, repeat flag | User IDs to remove as guests (used in partial updates) |
+| `--include-zoom-invite` | bool | When true, attaches a Zoom meeting invite to this conversation |
+| `--zoom-event-data` | string | JSON payload containing Zoom meeting details attached to this conversation |
 
 **List properties (only returned by `get`, not by `list`):** `Guests`, `AddedGuests`, `RemovedGuests`
 

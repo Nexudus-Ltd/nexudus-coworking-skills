@@ -23,15 +23,37 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 #### AutomationTileAudit list filter options
 
-`--automation-tile-id` (long), `--description`, `--action-by`, `--action` (enum), `--tile-audit-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--automation-tile-id` | long |  |
+| `--description` | string | Human-readable description of what happened when the tile was scanned |
+| `--action-by` | string | Name or identifier of the customer who scanned the tile |
+| `--action` | enum | The action that was triggered when the tile was scanned (matches the tile's configured action) |
+| `--tile-audit-type` | enum | Outcome of the scan: Success or Failure |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### AutomationTileAudit create options
 
-`--automation-tile-id` (long, required), `--description` (required), `--action-by`, `--action` (enum, required), `--tile-audit-type` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--automation-tile-id` | long, required |  |
+| `--description` | string, required | Human-readable description of what happened when the tile was scanned |
+| `--action-by` | string | Name or identifier of the customer who scanned the tile |
+| `--action` | enum, required | The action that was triggered when the tile was scanned (matches the tile's configured action) |
+| `--tile-audit-type` | enum, required | Outcome of the scan: Success or Failure |
 
 #### AutomationTileAudit update options
 
-`--automation-tile-id` (long), `--description`, `--action-by`, `--action` (enum), `--tile-audit-type` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--automation-tile-id` | long |  |
+| `--description` | string | Human-readable description of what happened when the tile was scanned |
+| `--action-by` | string | Name or identifier of the customer who scanned the tile |
+| `--action` | enum | The action that was triggered when the tile was scanned (matches the tile's configured action) |
+| `--tile-audit-type` | enum | Outcome of the scan: Success or Failure |
 
 ### AutomationTileAudit (key fields)
 

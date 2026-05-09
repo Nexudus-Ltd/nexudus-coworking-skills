@@ -20,7 +20,36 @@ CoworkerPricePlanHistories support Search, Get (no Create or Delete via API).
 
 #### CoworkerPricePlanHistory list filter options
 
-`--coworker-id` (long), `--old-tariff-name`, `--new-tariff-name`, `--old-tariff-unique-id`, `--new-tariff-unique-id`, `--old-contract-unique-id`, `--new-contract-unique-id`, `--is-upgrade` (bool), `--notes`, `--old-value` (decimal), `--from-old-value` (range), `--to-old-value` (range), `--new-value` (decimal), `--from-new-value` (range), `--to-new-value` (range), `--old-quantity` (int), `--from-old-quantity` (range), `--to-old-quantity` (range), `--new-quantity` (int), `--from-new-quantity` (range), `--to-new-quantity` (range), `--created-on-local` (DateTime), `--from-created-on-local` (range), `--to-created-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--old-tariff-name` | string | Name of the previous plan before the change |
+| `--new-tariff-name` | string | Name of the new plan after the change |
+| `--old-tariff-unique-id` | string |  |
+| `--new-tariff-unique-id` | string |  |
+| `--old-contract-unique-id` | string |  |
+| `--new-contract-unique-id` | string |  |
+| `--is-upgrade` | bool | Whether the plan change was an upgrade (new plan value is higher) |
+| `--notes` | string | Notes recorded at the time of the plan change |
+| `--old-value` | decimal | Price of the previous plan |
+| `--from-old-value` | range | |
+| `--to-old-value` | range | |
+| `--new-value` | decimal | Price of the new plan |
+| `--from-new-value` | range | |
+| `--to-new-value` | range | |
+| `--old-quantity` | int | Quantity of the previous plan contract |
+| `--from-old-quantity` | range | |
+| `--to-old-quantity` | range | |
+| `--new-quantity` | int | Quantity of the new plan contract |
+| `--from-new-quantity` | range | |
+| `--to-new-quantity` | range | |
+| `--created-on-local` | DateTime |  |
+| `--from-created-on-local` | range | |
+| `--to-created-on-local` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 ### CoworkerPricePlanHistory (key fields)
 

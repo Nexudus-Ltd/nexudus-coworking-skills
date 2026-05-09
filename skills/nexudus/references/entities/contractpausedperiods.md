@@ -31,15 +31,48 @@ ContractPausedPeriods support Search, Get, Create, Update, Delete.
 
 #### ContractPausedPeriod list filter options
 
-`--coworker-contract-id` (long), `--notes`, `--pause-from` (DateTime), `--from-pause-from` (range), `--to-pause-from` (range), `--pause-until` (DateTime), `--from-pause-until` (range), `--to-pause-until` (range), `--pause-from-local` (DateTime), `--from-pause-from-local` (range), `--to-pause-from-local` (range), `--pause-until-local` (DateTime), `--from-pause-until-local` (range), `--to-pause-until-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long | ID of the customer contract being frozen |
+| `--notes` | string | Optional notes or reason for this freeze period |
+| `--pause-from` | DateTime | UTC date when the freeze starts. Always falls on the first day of a billing cycle |
+| `--from-pause-from` | range | |
+| `--to-pause-from` | range | |
+| `--pause-until` | DateTime | UTC date when the freeze ends. Always falls on the first day of the billing cycle when the plan is due to restart |
+| `--from-pause-until` | range | |
+| `--to-pause-until` | range | |
+| `--pause-from-local` | DateTime | Location-timezone equivalent of PauseFrom |
+| `--from-pause-from-local` | range | |
+| `--to-pause-from-local` | range | |
+| `--pause-until-local` | DateTime | Location-timezone equivalent of PauseUntil |
+| `--from-pause-until-local` | range | |
+| `--to-pause-until-local` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ContractPausedPeriod create options
 
-`--coworker-contract-id` (long, required), `--notes`, `--pause-from` (DateTime, required), `--pause-until` (DateTime, required), `--pause-from-local` (DateTime), `--pause-until-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long, required | ID of the customer contract being frozen |
+| `--notes` | string | Optional notes or reason for this freeze period |
+| `--pause-from` | DateTime, required | UTC date when the freeze starts. Always falls on the first day of a billing cycle |
+| `--pause-until` | DateTime, required | UTC date when the freeze ends. Always falls on the first day of the billing cycle when the plan is due to restart |
+| `--pause-from-local` | DateTime | Location-timezone equivalent of PauseFrom |
+| `--pause-until-local` | DateTime | Location-timezone equivalent of PauseUntil |
 
 #### ContractPausedPeriod update options
 
-`--coworker-contract-id` (long), `--notes`, `--pause-from` (DateTime), `--pause-until` (DateTime), `--pause-from-local` (DateTime), `--pause-until-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long | ID of the customer contract being frozen |
+| `--notes` | string | Optional notes or reason for this freeze period |
+| `--pause-from` | DateTime | UTC date when the freeze starts. Always falls on the first day of a billing cycle |
+| `--pause-until` | DateTime | UTC date when the freeze ends. Always falls on the first day of the billing cycle when the plan is due to restart |
+| `--pause-from-local` | DateTime | Location-timezone equivalent of PauseFrom |
+| `--pause-until-local` | DateTime | Location-timezone equivalent of PauseUntil |
 
 ### ContractPausedPeriod (key fields)
 

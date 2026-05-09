@@ -41,15 +41,51 @@ ProductExtraServices also support entity commands.
 
 #### ProductExtraService list filter options
 
-`--product-id` (long), `--extra-service-id` (long), `--uses-included` (int), `--from-uses-included` (range), `--to-uses-included` (range), `--expire-time-in-months` (int), `--from-expire-time-in-months` (range), `--to-expire-time-in-months` (range), `--expire-time-in-weeks` (int), `--from-expire-time-in-weeks` (range), `--to-expire-time-in-weeks` (range), `--expiration-type` (enum), `--expires-in` (int), `--from-expires-in` (range), `--to-expires-in` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--product-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--uses-included` | int | Uses included |
+| `--from-uses-included` | range | |
+| `--to-uses-included` | range | |
+| `--expire-time-in-months` | int |  |
+| `--from-expire-time-in-months` | range | |
+| `--to-expire-time-in-months` | range | |
+| `--expire-time-in-weeks` | int |  |
+| `--from-expire-time-in-weeks` | range | |
+| `--to-expire-time-in-weeks` | range | |
+| `--expiration-type` | enum | Expiration type |
+| `--expires-in` | int | Expires in |
+| `--from-expires-in` | range | |
+| `--to-expires-in` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ProductExtraService create options
 
-`--product-id` (long, required), `--extra-service-id` (long, required), `--uses-included` (int, required), `--expire-time-in-months` (int), `--expire-time-in-weeks` (int), `--expiration-type` (enum), `--expires-in` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--product-id` | long, required |  |
+| `--extra-service-id` | long, required |  |
+| `--uses-included` | int, required | Uses included |
+| `--expire-time-in-months` | int |  |
+| `--expire-time-in-weeks` | int |  |
+| `--expiration-type` | enum | Expiration type |
+| `--expires-in` | int | Expires in |
 
 #### ProductExtraService update options
 
-`--product-id` (long), `--extra-service-id` (long), `--uses-included` (int), `--expire-time-in-months` (int), `--expire-time-in-weeks` (int), `--expiration-type` (enum), `--expires-in` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--product-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--uses-included` | int | Uses included |
+| `--expire-time-in-months` | int |  |
+| `--expire-time-in-weeks` | int |  |
+| `--expiration-type` | enum | Expiration type |
+| `--expires-in` | int | Expires in |
 
 ### ProductExtraService (key fields)
 

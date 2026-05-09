@@ -20,6 +20,18 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 
 #### BusinessBackgroundJob list filter options
 
-`--business-id` (long), `--user-id` (long), `--job-id`, `--description`, `--files`, `--status`, `--result-data`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--user-id` | long |  |
+| `--job-id` | string | Unique identifier (GUID) of the background job |
+| `--description` | string | Human-readable description of what the job does |
+| `--files` | string | Files associated with the job (e.g. import files) |
+| `--status` | string | Current status of the background job |
+| `--result-data` | string | Result data produced when the job completes |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 <!-- END:GENERATED entity=BusinessBackgroundJobs -->

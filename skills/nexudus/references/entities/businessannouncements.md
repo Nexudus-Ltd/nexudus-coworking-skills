@@ -31,15 +31,71 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 #### BusinessAnnouncement list filter options
 
-`--business-id` (long), `--name`, `--active` (bool), `--new-image-url`, `--clear-image-file` (bool), `--body`, `--show-button` (bool), `--button-label`, `--button-url`, `--send-push-notification` (bool), `--push-notification-text`, `--active-from` (DateTime), `--from-active-from` (range), `--to-active-from` (range), `--active-to` (DateTime), `--from-active-to` (range), `--to-active-to` (range), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Announcement title |
+| `--active` | bool | Whether the announcement is active and visible to customers |
+| `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
+| `--clear-image-file` | bool |  |
+| `--body` | string | Announcement body text (plain text only, no formatting) |
+| `--show-button` | bool | Whether to display a call-to-action button in the announcement |
+| `--button-label` | string | Text displayed on the call-to-action button |
+| `--button-url` | string | URL the call-to-action button redirects to (must start with https://) |
+| `--send-push-notification` | bool | Whether to send a push notification to customers when the announcement is published |
+| `--push-notification-text` | string | Text of the push notification sent to customers |
+| `--active-from` | DateTime | Date from which the announcement is visible to customers (publish from) |
+| `--from-active-from` | range | |
+| `--to-active-from` | range | |
+| `--active-to` | DateTime | Date until which the announcement is visible to customers (publish to) |
+| `--from-active-to` | range | |
+| `--to-active-to` | range | |
+| `--only-for-contacts` | bool | Restrict announcement visibility to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict announcement visibility to members (customers with an active contract) |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BusinessAnnouncement create options
 
-`--business-id` (long, required), `--name` (required), `--active` (bool), `--new-image-url`, `--clear-image-file` (bool), `--body`, `--show-button` (bool), `--button-label`, `--button-url`, `--send-push-notification` (bool), `--push-notification-text`, `--active-from` (DateTime), `--active-to` (DateTime), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Announcement title |
+| `--active` | bool | Whether the announcement is active and visible to customers |
+| `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
+| `--clear-image-file` | bool |  |
+| `--body` | string | Announcement body text (plain text only, no formatting) |
+| `--show-button` | bool | Whether to display a call-to-action button in the announcement |
+| `--button-label` | string | Text displayed on the call-to-action button |
+| `--button-url` | string | URL the call-to-action button redirects to (must start with https://) |
+| `--send-push-notification` | bool | Whether to send a push notification to customers when the announcement is published |
+| `--push-notification-text` | string | Text of the push notification sent to customers |
+| `--active-from` | DateTime | Date from which the announcement is visible to customers (publish from) |
+| `--active-to` | DateTime | Date until which the announcement is visible to customers (publish to) |
+| `--only-for-contacts` | bool | Restrict announcement visibility to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict announcement visibility to members (customers with an active contract) |
 
 #### BusinessAnnouncement update options
 
-`--business-id` (long), `--name`, `--active` (bool), `--new-image-url`, `--clear-image-file` (bool), `--body`, `--show-button` (bool), `--button-label`, `--button-url`, `--send-push-notification` (bool), `--push-notification-text`, `--active-from` (DateTime), `--active-to` (DateTime), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Announcement title |
+| `--active` | bool | Whether the announcement is active and visible to customers |
+| `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
+| `--clear-image-file` | bool |  |
+| `--body` | string | Announcement body text (plain text only, no formatting) |
+| `--show-button` | bool | Whether to display a call-to-action button in the announcement |
+| `--button-label` | string | Text displayed on the call-to-action button |
+| `--button-url` | string | URL the call-to-action button redirects to (must start with https://) |
+| `--send-push-notification` | bool | Whether to send a push notification to customers when the announcement is published |
+| `--push-notification-text` | string | Text of the push notification sent to customers |
+| `--active-from` | DateTime | Date from which the announcement is visible to customers (publish from) |
+| `--active-to` | DateTime | Date until which the announcement is visible to customers (publish to) |
+| `--only-for-contacts` | bool | Restrict announcement visibility to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict announcement visibility to members (customers with an active contract) |
 
 ### BusinessAnnouncement (key fields)
 

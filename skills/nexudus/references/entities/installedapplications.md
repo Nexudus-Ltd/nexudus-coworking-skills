@@ -19,14 +19,30 @@ InstalledApplications support Search, Get, Create, Update, Delete.
 
 #### InstalledApplication list filter options
 
-`--application-id` (long), `--business-id` (long), `--requires-approval` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--application-id` | long |  |
+| `--business-id` | long |  |
+| `--requires-approval` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### InstalledApplication create options
 
-`--application-id` (long, required), `--business-id` (long, required), `--requires-approval` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--application-id` | long, required |  |
+| `--business-id` | long, required |  |
+| `--requires-approval` | bool |  |
 
 #### InstalledApplication update options
 
-`--application-id` (long), `--business-id` (long), `--requires-approval` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--application-id` | long |  |
+| `--business-id` | long |  |
+| `--requires-approval` | bool |  |
 
 <!-- END:GENERATED entity=InstalledApplications -->

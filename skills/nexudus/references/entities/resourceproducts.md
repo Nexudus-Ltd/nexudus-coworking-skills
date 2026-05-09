@@ -19,15 +19,42 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 
 #### ResourceProduct list filter options
 
-`--resource-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--request-quantity` (bool), `--visible` (bool), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--product-id` | long |  |
+| `--invoice-in-minutes` | bool | Whether to invoice in minutes |
+| `--request-quantity` | bool | Whether to request quantity |
+| `--visible` | bool | Whether the resource product is visible |
+| `--price` | decimal | Price override |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ResourceProduct create options
 
-`--resource-id` (long, required), `--product-id` (long, required), `--invoice-in-minutes` (bool), `--request-quantity` (bool), `--visible` (bool), `--price` (decimal)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long, required |  |
+| `--product-id` | long, required |  |
+| `--invoice-in-minutes` | bool | Whether to invoice in minutes |
+| `--request-quantity` | bool | Whether to request quantity |
+| `--visible` | bool | Whether the resource product is visible |
+| `--price` | decimal | Price override |
 
 #### ResourceProduct update options
 
-`--resource-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--request-quantity` (bool), `--visible` (bool), `--price` (decimal)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--product-id` | long |  |
+| `--invoice-in-minutes` | bool | Whether to invoice in minutes |
+| `--request-quantity` | bool | Whether to request quantity |
+| `--visible` | bool | Whether the resource product is visible |
+| `--price` | decimal | Price override |
 
 ### ResourceProduct (key fields)
 

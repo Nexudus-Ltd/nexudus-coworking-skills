@@ -43,15 +43,39 @@ CoworkerNotifications support Search, Get, Create, Update, Delete.
 
 #### CoworkerNotification list filter options
 
-`--coworker-id` (long), `--message`, `--notification-type`, `--entity-id` (int), `--from-entity-id` (range), `--to-entity-id` (range), `--is-dismissed` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--message` | string | The notification message body displayed to the coworker |
+| `--notification-type` | string | The type of event that triggered this notification (e.g. blog, community-event, coworkerinvoice, push-notification) |
+| `--entity-id` | int | The ID of the entity related to this notification (e.g. the blog post, invoice, or thread that triggered it) |
+| `--from-entity-id` | range | |
+| `--to-entity-id` | range | |
+| `--is-dismissed` | bool | Whether the coworker has dismissed this notification |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerNotification create options
 
-`--coworker-id` (long, required), `--message` (required), `--notification-type` (required), `--entity-id` (int, required), `--is-dismissed` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--message` | string, required | The notification message body displayed to the coworker |
+| `--notification-type` | string, required | The type of event that triggered this notification (e.g. blog, community-event, coworkerinvoice, push-notification) |
+| `--entity-id` | int, required | The ID of the entity related to this notification (e.g. the blog post, invoice, or thread that triggered it) |
+| `--is-dismissed` | bool | Whether the coworker has dismissed this notification |
 
 #### CoworkerNotification update options
 
-`--coworker-id` (long), `--message`, `--notification-type`, `--entity-id` (int), `--is-dismissed` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--message` | string | The notification message body displayed to the coworker |
+| `--notification-type` | string | The type of event that triggered this notification (e.g. blog, community-event, coworkerinvoice, push-notification) |
+| `--entity-id` | int | The ID of the entity related to this notification (e.g. the blog post, invoice, or thread that triggered it) |
+| `--is-dismissed` | bool | Whether the coworker has dismissed this notification |
 
 ### CoworkerNotification (key fields)
 

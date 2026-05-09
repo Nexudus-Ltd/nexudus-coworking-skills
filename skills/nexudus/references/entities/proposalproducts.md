@@ -19,15 +19,76 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 
 #### ProposalProduct list filter options
 
-`--proposal-id` (long), `--product-id` (long), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--is-deposit` (bool), `--is-contract-product` (bool), `--regular-charge` (bool), `--repeat-cycle` (enum), `--invoice-on` (DateTime), `--from-invoice-on` (range), `--to-invoice-on` (range), `--repeat-from` (DateTime), `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until` (DateTime), `--from-repeat-until` (range), `--to-repeat-until` (range), `--repeat-unit` (int), `--from-repeat-unit` (range), `--to-repeat-unit` (range), `--apply-pro-rating` (bool), `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--proposal-id` | long |  |
+| `--product-id` | long |  |
+| `--quantity` | int | Quantity |
+| `--from-quantity` | range | |
+| `--to-quantity` | range | |
+| `--price` | decimal | Price override |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--is-deposit` | bool | Whether this is a deposit |
+| `--is-contract-product` | bool | Whether this is a contract product |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--repeat-cycle` | enum | Repeat cycle pattern |
+| `--invoice-on` | DateTime | Invoice on date |
+| `--from-invoice-on` | range | |
+| `--to-invoice-on` | range | |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--from-repeat-from` | range | |
+| `--to-repeat-from` | range | |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--from-repeat-until` | range | |
+| `--to-repeat-until` | range | |
+| `--repeat-unit` | int | Number of repeat units |
+| `--from-repeat-unit` | range | |
+| `--to-repeat-unit` | range | |
+| `--apply-pro-rating` | bool | Apply pro-rating |
+| `--notes` | string | Notes |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ProposalProduct create options
 
-`--proposal-id` (long, required), `--product-id` (long, required), `--quantity` (int, required), `--price` (decimal), `--is-deposit` (bool), `--is-contract-product` (bool), `--regular-charge` (bool), `--repeat-cycle` (enum, required), `--invoice-on` (DateTime), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--repeat-unit` (int), `--apply-pro-rating` (bool), `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--proposal-id` | long, required |  |
+| `--product-id` | long, required |  |
+| `--quantity` | int, required | Quantity |
+| `--price` | decimal | Price override |
+| `--is-deposit` | bool | Whether this is a deposit |
+| `--is-contract-product` | bool | Whether this is a contract product |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--repeat-cycle` | enum, required | Repeat cycle pattern |
+| `--invoice-on` | DateTime | Invoice on date |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--repeat-unit` | int | Number of repeat units |
+| `--apply-pro-rating` | bool | Apply pro-rating |
+| `--notes` | string | Notes |
 
 #### ProposalProduct update options
 
-`--proposal-id` (long), `--product-id` (long), `--quantity` (int), `--price` (decimal), `--is-deposit` (bool), `--is-contract-product` (bool), `--regular-charge` (bool), `--repeat-cycle` (enum), `--invoice-on` (DateTime), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--repeat-unit` (int), `--apply-pro-rating` (bool), `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--proposal-id` | long |  |
+| `--product-id` | long |  |
+| `--quantity` | int | Quantity |
+| `--price` | decimal | Price override |
+| `--is-deposit` | bool | Whether this is a deposit |
+| `--is-contract-product` | bool | Whether this is a contract product |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--repeat-cycle` | enum | Repeat cycle pattern |
+| `--invoice-on` | DateTime | Invoice on date |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--repeat-unit` | int | Number of repeat units |
+| `--apply-pro-rating` | bool | Apply pro-rating |
+| `--notes` | string | Notes |
 
 ### ProposalProduct (key fields)
 

@@ -31,15 +31,63 @@ ContractContacts support Search, Get, Create, Update, Delete.
 
 #### ContractContact list filter options
 
-`--coworker-contract-id` (long), `--coworker-id` (long), `--email`, `--full-name`, `--date-of-birth` (DateTime), `--from-date-of-birth` (range), `--to-date-of-birth` (range), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id` (long), `--phone-number`, `--notes`, `--contract-contact-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long |  |
+| `--coworker-id` | long |  |
+| `--email` | string | Email address of the contact. Used when the contact is not linked to a coworker record |
+| `--full-name` | string | Full name of the contact. Used when the contact is not linked to a coworker record |
+| `--date-of-birth` | DateTime | Date of birth. Used for identity verification purposes |
+| `--from-date-of-birth` | range | |
+| `--to-date-of-birth` | range | |
+| `--address` | string | Address |
+| `--post-code` | string | Post code |
+| `--city-name` | string | City name |
+| `--state` | string | State |
+| `--country-id` | long |  |
+| `--phone-number` | string | Phone number |
+| `--notes` | string | Notes |
+| `--contract-contact-type` | enum | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ContractContact create options
 
-`--coworker-contract-id` (long, required), `--coworker-id` (long), `--email`, `--full-name` (required), `--date-of-birth` (DateTime), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id` (long), `--phone-number`, `--notes`, `--contract-contact-type` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long, required |  |
+| `--coworker-id` | long |  |
+| `--email` | string | Email address of the contact. Used when the contact is not linked to a coworker record |
+| `--full-name` | string, required | Full name of the contact. Used when the contact is not linked to a coworker record |
+| `--date-of-birth` | DateTime | Date of birth. Used for identity verification purposes |
+| `--address` | string | Address |
+| `--post-code` | string | Post code |
+| `--city-name` | string | City name |
+| `--state` | string | State |
+| `--country-id` | long |  |
+| `--phone-number` | string | Phone number |
+| `--notes` | string | Notes |
+| `--contract-contact-type` | enum, required | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |
 
 #### ContractContact update options
 
-`--coworker-contract-id` (long), `--coworker-id` (long), `--email`, `--full-name`, `--date-of-birth` (DateTime), `--address`, `--post-code`, `--city-name`, `--state`, `--country-id` (long), `--phone-number`, `--notes`, `--contract-contact-type` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long |  |
+| `--coworker-id` | long |  |
+| `--email` | string | Email address of the contact. Used when the contact is not linked to a coworker record |
+| `--full-name` | string | Full name of the contact. Used when the contact is not linked to a coworker record |
+| `--date-of-birth` | DateTime | Date of birth. Used for identity verification purposes |
+| `--address` | string | Address |
+| `--post-code` | string | Post code |
+| `--city-name` | string | City name |
+| `--state` | string | State |
+| `--country-id` | long |  |
+| `--phone-number` | string | Phone number |
+| `--notes` | string | Notes |
+| `--contract-contact-type` | enum | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |
 
 ### ContractContact (key fields)
 

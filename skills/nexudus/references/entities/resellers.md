@@ -19,14 +19,69 @@ Resellers support Search, Get, Create, Update, Delete.
 
 #### Reseller list filter options
 
-`--name`, `--profile-is-public` (bool), `--new-avatar-url`, `--clear-avatar-file` (bool), `--new-logo-url`, `--clear-logo-file` (bool), `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string |  |
+| `--profile-is-public` | bool |  |
+| `--new-avatar-url` | string |  |
+| `--clear-avatar-file` | bool |  |
+| `--new-logo-url` | string |  |
+| `--clear-logo-file` | bool |  |
+| `--area` | string |  |
+| `--operates-in` | string |  |
+| `--web-address` | string |  |
+| `--email` | string |  |
+| `--profile-summary` | string |  |
+| `--phone-number` | string |  |
+| `--testimonial1` | string |  |
+| `--testimonial1-author` | string |  |
+| `--testimonial2` | string |  |
+| `--testimonial2-author` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Reseller create options
 
-`--name` (required), `--profile-is-public` (bool), `--new-avatar-url`, `--clear-avatar-file` (bool), `--new-logo-url`, `--clear-logo-file` (bool), `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string, required |  |
+| `--profile-is-public` | bool |  |
+| `--new-avatar-url` | string |  |
+| `--clear-avatar-file` | bool |  |
+| `--new-logo-url` | string |  |
+| `--clear-logo-file` | bool |  |
+| `--area` | string |  |
+| `--operates-in` | string |  |
+| `--web-address` | string |  |
+| `--email` | string |  |
+| `--profile-summary` | string |  |
+| `--phone-number` | string |  |
+| `--testimonial1` | string |  |
+| `--testimonial1-author` | string |  |
+| `--testimonial2` | string |  |
+| `--testimonial2-author` | string |  |
 
 #### Reseller update options
 
-`--name`, `--profile-is-public` (bool), `--new-avatar-url`, `--clear-avatar-file` (bool), `--new-logo-url`, `--clear-logo-file` (bool), `--area`, `--operates-in`, `--web-address`, `--email`, `--profile-summary`, `--phone-number`, `--testimonial1`, `--testimonial1-author`, `--testimonial2`, `--testimonial2-author`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string |  |
+| `--profile-is-public` | bool |  |
+| `--new-avatar-url` | string |  |
+| `--clear-avatar-file` | bool |  |
+| `--new-logo-url` | string |  |
+| `--clear-logo-file` | bool |  |
+| `--area` | string |  |
+| `--operates-in` | string |  |
+| `--web-address` | string |  |
+| `--email` | string |  |
+| `--profile-summary` | string |  |
+| `--phone-number` | string |  |
+| `--testimonial1` | string |  |
+| `--testimonial1-author` | string |  |
+| `--testimonial2` | string |  |
+| `--testimonial2-author` | string |  |
 
 <!-- END:GENERATED entity=Resellers -->

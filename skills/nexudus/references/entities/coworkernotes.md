@@ -21,14 +21,30 @@ CoworkerNotes support Search, Get, Create, Update, Delete.
 
 #### CoworkerNote list filter options
 
-`--coworker-id` (long), `--notes`, `--added-by`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | Customer this note belongs to |
+| `--notes` | string | Note content. Not visible to customers. |
+| `--added-by` | string | Name or identifier of the staff member who added this note |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerNote create options
 
-`--coworker-id` (long, required), `--notes` (required), `--added-by`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | Customer this note belongs to |
+| `--notes` | string, required | Note content. Not visible to customers. |
+| `--added-by` | string | Name or identifier of the staff member who added this note |
 
 #### CoworkerNote update options
 
-`--coworker-id` (long), `--notes`, `--added-by`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | Customer this note belongs to |
+| `--notes` | string | Note content. Not visible to customers. |
+| `--added-by` | string | Name or identifier of the staff member who added this note |
 
 <!-- END:GENERATED entity=CoworkerNotes -->

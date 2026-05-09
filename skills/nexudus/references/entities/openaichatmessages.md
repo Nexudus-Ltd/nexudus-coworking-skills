@@ -19,14 +19,33 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 #### OpenAiChatMessage list filter options
 
-`--business-id` (long), `--user-id` (long), `--action` (enum), `--content`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--user-id` | long |  |
+| `--action` | enum |  |
+| `--content` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### OpenAiChatMessage create options
 
-`--business-id` (long, required), `--user-id` (long), `--action` (enum, required), `--content` (required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--user-id` | long |  |
+| `--action` | enum, required |  |
+| `--content` | string, required |  |
 
 #### OpenAiChatMessage update options
 
-`--business-id` (long), `--user-id` (long), `--action` (enum), `--content`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--user-id` | long |  |
+| `--action` | enum |  |
+| `--content` | string |  |
 
 <!-- END:GENERATED entity=OpenAiChatMessages -->

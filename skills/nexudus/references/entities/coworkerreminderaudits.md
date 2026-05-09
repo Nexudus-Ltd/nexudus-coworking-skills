@@ -23,15 +23,28 @@ CoworkerReminderAudits support Search, Get, Create, Update, Delete.
 
 #### CoworkerReminderAudit list filter options
 
-`--coworker-id` (long), `--reminder-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer the reminder was sent to |
+| `--reminder-id` | long | ID of the reminder that was sent |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerReminderAudit create options
 
-`--coworker-id` (long, required), `--reminder-id` (long, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | ID of the customer the reminder was sent to |
+| `--reminder-id` | long, required | ID of the reminder that was sent |
 
 #### CoworkerReminderAudit update options
 
-`--coworker-id` (long), `--reminder-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer the reminder was sent to |
+| `--reminder-id` | long | ID of the reminder that was sent |
 
 ### CoworkerReminderAudit (key fields)
 

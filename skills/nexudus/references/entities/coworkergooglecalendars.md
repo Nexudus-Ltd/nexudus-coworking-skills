@@ -27,15 +27,48 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 
 #### CoworkerGoogleCalendar list filter options
 
-`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--watch-resource-id`, `--event-sync-token`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Google Calendar push-notification watch target for this connection |
+| `--coworker-id` | long | ID of the customer who connected their Google Calendar |
+| `--name` | string | Display name of the connected Google Calendar |
+| `--subscription-id` | string | Google push-notification channel ID used to receive calendar change notifications |
+| `--calendar-id` | string | Google Calendar ID of the customer's connected calendar (e.g. user@gmail.com or a secondary calendar ID) |
+| `--subscription-expire-date` | DateTime | Date and time when the Google push-notification channel subscription expires and must be renewed |
+| `--from-subscription-expire-date` | range | |
+| `--to-subscription-expire-date` | range | |
+| `--watch-resource-id` | string | Google-assigned resource ID for the active push-notification watch channel |
+| `--event-sync-token` | string | Incremental sync token returned by the Google Calendar API, used to fetch only events changed since the last sync |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerGoogleCalendar create options
 
-`--resource-id` (long, required), `--coworker-id` (long), `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (DateTime, required), `--watch-resource-id` (required), `--event-sync-token`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long, required | ID of the Nexudus resource (room or desk) used as the Google Calendar push-notification watch target for this connection |
+| `--coworker-id` | long | ID of the customer who connected their Google Calendar |
+| `--name` | string, required | Display name of the connected Google Calendar |
+| `--subscription-id` | string, required | Google push-notification channel ID used to receive calendar change notifications |
+| `--calendar-id` | string, required | Google Calendar ID of the customer's connected calendar (e.g. user@gmail.com or a secondary calendar ID) |
+| `--subscription-expire-date` | DateTime, required | Date and time when the Google push-notification channel subscription expires and must be renewed |
+| `--watch-resource-id` | string, required | Google-assigned resource ID for the active push-notification watch channel |
+| `--event-sync-token` | string | Incremental sync token returned by the Google Calendar API, used to fetch only events changed since the last sync |
 
 #### CoworkerGoogleCalendar update options
 
-`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--watch-resource-id`, `--event-sync-token`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Google Calendar push-notification watch target for this connection |
+| `--coworker-id` | long | ID of the customer who connected their Google Calendar |
+| `--name` | string | Display name of the connected Google Calendar |
+| `--subscription-id` | string | Google push-notification channel ID used to receive calendar change notifications |
+| `--calendar-id` | string | Google Calendar ID of the customer's connected calendar (e.g. user@gmail.com or a secondary calendar ID) |
+| `--subscription-expire-date` | DateTime | Date and time when the Google push-notification channel subscription expires and must be renewed |
+| `--watch-resource-id` | string | Google-assigned resource ID for the active push-notification watch channel |
+| `--event-sync-token` | string | Incremental sync token returned by the Google Calendar API, used to fetch only events changed since the last sync |
 
 ### CoworkerGoogleCalendar (key fields)
 

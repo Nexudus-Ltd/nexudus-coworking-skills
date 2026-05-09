@@ -27,15 +27,46 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 
 #### CoworkerPaymentMethod list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--regular-payment-provider` (enum), `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | Customer this payment method belongs to |
+| `--business-id` | long | Location that issued or will charge invoices using this payment method |
+| `--regular-payment-provider` | enum | Payment provider for this method. For this entity, valid values are Stripe (2), StripeACH (11), StripeBACS (13), and GoCardless (12). |
+| `--method-id` | string | Provider payment method ID (e.g. Stripe payment method ID) |
+| `--customer-id` | string | Provider customer ID (e.g. Stripe or GoCardless customer ID) |
+| `--mandate-id` | string | GoCardless mandate ID. Only populated for GoCardless payment methods. |
+| `--card-number` | string | Masked card number for display purposes only |
+| `--notes` | string | Optional notes about this payment method |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerPaymentMethod create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--regular-payment-provider` (enum), `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | Customer this payment method belongs to |
+| `--business-id` | long, required | Location that issued or will charge invoices using this payment method |
+| `--regular-payment-provider` | enum | Payment provider for this method. For this entity, valid values are Stripe (2), StripeACH (11), StripeBACS (13), and GoCardless (12). |
+| `--method-id` | string | Provider payment method ID (e.g. Stripe payment method ID) |
+| `--customer-id` | string | Provider customer ID (e.g. Stripe or GoCardless customer ID) |
+| `--mandate-id` | string | GoCardless mandate ID. Only populated for GoCardless payment methods. |
+| `--card-number` | string | Masked card number for display purposes only |
+| `--notes` | string | Optional notes about this payment method |
 
 #### CoworkerPaymentMethod update options
 
-`--coworker-id` (long), `--business-id` (long), `--regular-payment-provider` (enum), `--method-id`, `--customer-id`, `--mandate-id`, `--card-number`, `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | Customer this payment method belongs to |
+| `--business-id` | long | Location that issued or will charge invoices using this payment method |
+| `--regular-payment-provider` | enum | Payment provider for this method. For this entity, valid values are Stripe (2), StripeACH (11), StripeBACS (13), and GoCardless (12). |
+| `--method-id` | string | Provider payment method ID (e.g. Stripe payment method ID) |
+| `--customer-id` | string | Provider customer ID (e.g. Stripe or GoCardless customer ID) |
+| `--mandate-id` | string | GoCardless mandate ID. Only populated for GoCardless payment methods. |
+| `--card-number` | string | Masked card number for display purposes only |
+| `--notes` | string | Optional notes about this payment method |
 
 ### CoworkerPaymentMethod (key fields)
 

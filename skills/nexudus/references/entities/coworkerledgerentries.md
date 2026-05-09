@@ -28,15 +28,73 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
 #### CoworkerLedgerEntry list filter options
 
-`--business-id` (long), `--coworker-id` (long), `--coworker-invoice-id` (long), `--description`, `--code`, `--debit` (decimal), `--from-debit` (range), `--to-debit` (range), `--credit` (decimal), `--from-credit` (range), `--to-credit` (range), `--payment-gateway-name` (enum), `--payment-method-number`, `--transaction-date` (DateTime), `--from-transaction-date` (range), `--to-transaction-date` (range), `--balance` (decimal), `--from-balance` (range), `--to-balance` (range), `--billed` (bool), `--transaction-date-local` (DateTime), `--from-transaction-date-local` (range), `--to-transaction-date-local` (range), `--connected-transaction-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--coworker-invoice-id` | long |  |
+| `--description` | string | Description |
+| `--code` | string | Ledger entry code |
+| `--debit` | decimal | Debit amount |
+| `--from-debit` | range | |
+| `--to-debit` | range | |
+| `--credit` | decimal | Credit amount |
+| `--from-credit` | range | |
+| `--to-credit` | range | |
+| `--payment-gateway-name` | enum | Payment gateway name |
+| `--payment-method-number` | string | Payment method number |
+| `--transaction-date` | DateTime | Transaction date |
+| `--from-transaction-date` | range | |
+| `--to-transaction-date` | range | |
+| `--balance` | decimal | Balance |
+| `--from-balance` | range | |
+| `--to-balance` | range | |
+| `--billed` | bool | Whether this entry has been billed |
+| `--transaction-date-local` | DateTime | Transaction date in the location's local time |
+| `--from-transaction-date-local` | range | |
+| `--to-transaction-date-local` | range | |
+| `--connected-transaction-guid` | string | Connected transaction GUID |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerLedgerEntry create options
 
-`--business-id` (long, required), `--coworker-id` (long, required), `--coworker-invoice-id` (long), `--description` (required), `--code` (required), `--debit` (decimal, required), `--credit` (decimal, required), `--payment-gateway-name` (enum), `--payment-method-number`, `--transaction-date` (DateTime), `--balance` (decimal, required), `--billed` (bool), `--transaction-date-local` (DateTime), `--connected-transaction-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--coworker-id` | long, required |  |
+| `--coworker-invoice-id` | long |  |
+| `--description` | string, required | Description |
+| `--code` | string, required | Ledger entry code |
+| `--debit` | decimal, required | Debit amount |
+| `--credit` | decimal, required | Credit amount |
+| `--payment-gateway-name` | enum | Payment gateway name |
+| `--payment-method-number` | string | Payment method number |
+| `--transaction-date` | DateTime | Transaction date |
+| `--balance` | decimal, required | Balance |
+| `--billed` | bool | Whether this entry has been billed |
+| `--transaction-date-local` | DateTime | Transaction date in the location's local time |
+| `--connected-transaction-guid` | string | Connected transaction GUID |
 
 #### CoworkerLedgerEntry update options
 
-`--business-id` (long), `--coworker-id` (long), `--coworker-invoice-id` (long), `--description`, `--code`, `--debit` (decimal), `--credit` (decimal), `--payment-method-number`, `--transaction-date` (DateTime), `--balance` (decimal), `--billed` (bool), `--transaction-date-local` (DateTime), `--connected-transaction-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--coworker-invoice-id` | long |  |
+| `--description` | string | Description |
+| `--code` | string | Ledger entry code |
+| `--debit` | decimal | Debit amount |
+| `--credit` | decimal | Credit amount |
+| `--payment-method-number` | string | Payment method number |
+| `--transaction-date` | DateTime | Transaction date |
+| `--balance` | decimal | Balance |
+| `--billed` | bool | Whether this entry has been billed |
+| `--transaction-date-local` | DateTime | Transaction date in the location's local time |
+| `--connected-transaction-guid` | string | Connected transaction GUID |
 
 ### CoworkerLedgerEntry (key fields)
 

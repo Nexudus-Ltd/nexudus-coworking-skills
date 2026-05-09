@@ -40,15 +40,65 @@ CourseLessons support Search, Get, Create, Update, Delete.
 
 #### CourseLesson list filter options
 
-`--course-id` (long), `--section-id` (long), `--instructor-id` (long), `--title`, `--summary-text`, `--lesson-contents`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--unlock-type` (enum), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int), `--from-unlock-after-days` (range), `--to-unlock-after-days` (range), `--completion-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long | ID of the course this lesson belongs to |
+| `--section-id` | long | ID of the course section this lesson belongs to (optional; lessons without a section appear ungrouped) |
+| `--instructor-id` | long | ID of the coworker attributed as instructor for this lesson (optional; overrides the course-level host for this lesson) |
+| `--title` | string | Lesson title displayed to members |
+| `--summary-text` | string | Short summary shown in the lesson listing |
+| `--lesson-contents` | string | Full HTML or rich-text body of the lesson displayed to members when they open it |
+| `--active` | bool | Whether the lesson is active and visible to enrolled members |
+| `--display-order` | int | Position of the lesson within its section (or the course if unsectioned); lower numbers appear first |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--unlock-type` | enum | When the lesson becomes available: Immediate (1), after the previous lesson is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--unlock-after-days` | int | Number of days after enrolment before the lesson unlocks; only used when UnlockType is Timed (3) |
+| `--from-unlock-after-days` | range | |
+| `--to-unlock-after-days` | range | |
+| `--completion-type` | enum | How completion is tracked: None (1), Visited (2), completion Button (3), or Video watched (4). Video completion requires the lesson to embed a YouTube-hosted video. |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CourseLesson create options
 
-`--course-id` (long, required), `--section-id` (long), `--instructor-id` (long), `--title` (required), `--summary-text`, `--lesson-contents`, `--active` (bool), `--display-order` (int, required), `--unlock-type` (enum, required), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int, required), `--completion-type` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long, required | ID of the course this lesson belongs to |
+| `--section-id` | long | ID of the course section this lesson belongs to (optional; lessons without a section appear ungrouped) |
+| `--instructor-id` | long | ID of the coworker attributed as instructor for this lesson (optional; overrides the course-level host for this lesson) |
+| `--title` | string, required | Lesson title displayed to members |
+| `--summary-text` | string | Short summary shown in the lesson listing |
+| `--lesson-contents` | string | Full HTML or rich-text body of the lesson displayed to members when they open it |
+| `--active` | bool | Whether the lesson is active and visible to enrolled members |
+| `--display-order` | int, required | Position of the lesson within its section (or the course if unsectioned); lower numbers appear first |
+| `--unlock-type` | enum, required | When the lesson becomes available: Immediate (1), after the previous lesson is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--unlock-after-days` | int, required | Number of days after enrolment before the lesson unlocks; only used when UnlockType is Timed (3) |
+| `--completion-type` | enum, required | How completion is tracked: None (1), Visited (2), completion Button (3), or Video watched (4). Video completion requires the lesson to embed a YouTube-hosted video. |
 
 #### CourseLesson update options
 
-`--course-id` (long), `--section-id` (long), `--instructor-id` (long), `--title`, `--summary-text`, `--lesson-contents`, `--active` (bool), `--display-order` (int), `--unlock-type` (enum), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int), `--completion-type` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long | ID of the course this lesson belongs to |
+| `--section-id` | long | ID of the course section this lesson belongs to (optional; lessons without a section appear ungrouped) |
+| `--instructor-id` | long | ID of the coworker attributed as instructor for this lesson (optional; overrides the course-level host for this lesson) |
+| `--title` | string | Lesson title displayed to members |
+| `--summary-text` | string | Short summary shown in the lesson listing |
+| `--lesson-contents` | string | Full HTML or rich-text body of the lesson displayed to members when they open it |
+| `--active` | bool | Whether the lesson is active and visible to enrolled members |
+| `--display-order` | int | Position of the lesson within its section (or the course if unsectioned); lower numbers appear first |
+| `--unlock-type` | enum | When the lesson becomes available: Immediate (1), after the previous lesson is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--unlock-after-days` | int | Number of days after enrolment before the lesson unlocks; only used when UnlockType is Timed (3) |
+| `--completion-type` | enum | How completion is tracked: None (1), Visited (2), completion Button (3), or Video watched (4). Video completion requires the lesson to embed a YouTube-hosted video. |
 
 #### CourseLesson enum values
 

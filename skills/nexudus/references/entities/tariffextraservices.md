@@ -19,15 +19,36 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 #### TariffExtraService list filter options
 
-`--tariff-id` (long), `--extra-service-id` (long), `--uses-included` (int), `--from-uses-included` (range), `--to-uses-included` (range), `--service-renewal-time` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--uses-included` | int | Number of uses included |
+| `--from-uses-included` | range | |
+| `--to-uses-included` | range | |
+| `--service-renewal-time` | enum | Service renewal time period |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TariffExtraService create options
 
-`--tariff-id` (long, required), `--extra-service-id` (long, required), `--uses-included` (int, required), `--service-renewal-time` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long, required |  |
+| `--extra-service-id` | long, required |  |
+| `--uses-included` | int, required | Number of uses included |
+| `--service-renewal-time` | enum, required | Service renewal time period |
 
 #### TariffExtraService update options
 
-`--tariff-id` (long), `--extra-service-id` (long), `--uses-included` (int), `--service-renewal-time` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--uses-included` | int | Number of uses included |
+| `--service-renewal-time` | enum | Service renewal time period |
 
 ### TariffExtraService (key fields)
 

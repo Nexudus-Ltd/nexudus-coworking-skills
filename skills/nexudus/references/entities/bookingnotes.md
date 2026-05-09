@@ -25,15 +25,31 @@ BookingNotes also support entity commands.
 
 #### BookingNote list filter options
 
-`--booking-id` (long), `--added-by`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long |  |
+| `--added-by` | string | The name of the user who added the note |
+| `--notes` | string | The text content of the note, visible to customers in booking confirmations |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BookingNote create options
 
-`--booking-id` (long, required), `--added-by`, `--notes` (required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long, required |  |
+| `--added-by` | string | The name of the user who added the note |
+| `--notes` | string, required | The text content of the note, visible to customers in booking confirmations |
 
 #### BookingNote update options
 
-`--booking-id` (long), `--added-by`, `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long |  |
+| `--added-by` | string | The name of the user who added the note |
+| `--notes` | string | The text content of the note, visible to customers in booking confirmations |
 
 ### BookingNote (key fields)
 

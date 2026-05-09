@@ -34,15 +34,104 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 
 #### CrmOpportunity list filter options
 
-`--name`, `--crm-board-column-id` (long), `--coworker-id` (long), `--team-id` (long), `--opportunity-type-id` (long), `--responsible-id` (long), `--referrer-id` (long), `--agent-id` (long), `--notes`, `--completed` (bool), `--due-date` (DateTime), `--from-due-date` (range), `--to-due-date` (range), `--value` (decimal), `--from-value` (range), `--to-value` (range), `--reminded` (bool), `--lead-source` (enum), `--loss-reason` (enum), `--status` (enum), `--won-on` (DateTime), `--from-won-on` (range), `--to-won-on` (range), `--lost-on` (DateTime), `--from-lost-on` (range), `--to-lost-on` (range), `--position` (int), `--from-position` (range), `--to-position` (range), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string | Optional tag to identify this opportunity, useful when the same customer appears in multiple boards |
+| `--crm-board-column-id` | long |  |
+| `--coworker-id` | long |  |
+| `--team-id` | long |  |
+| `--opportunity-type-id` | long | Opportunity type used to categorise and auto-populate general notes from a template |
+| `--responsible-id` | long | Admin user responsible for managing this opportunity |
+| `--referrer-id` | long | Customer who referred this opportunity |
+| `--agent-id` | long | External agent or broker who brought this opportunity |
+| `--notes` | string | General notes visible to admins when viewing the opportunity. Auto-populated from the opportunity type template if a type is assigned |
+| `--completed` | bool | Whether the opportunity has been completed (won or lost) |
+| `--due-date` | DateTime | Follow-up date for the opportunity |
+| `--from-due-date` | range | |
+| `--to-due-date` | range | |
+| `--value` | decimal | Expected revenue if the opportunity is won |
+| `--from-value` | range | |
+| `--to-value` | range | |
+| `--reminded` | bool | Whether a follow-up reminder has been sent for this opportunity |
+| `--lead-source` | enum | How the opportunity was acquired (e.g. Web, Phone, Referral, Broker, GoogleSearch) |
+| `--loss-reason` | enum | Why the opportunity was lost (e.g. Price, Competition, Location). Only relevant when Status is Lost |
+| `--status` | enum | Opportunity status: InProgress (still active), Won (led to a sale), or Lost (did not lead to a sale) |
+| `--won-on` | DateTime | Date when the opportunity was marked as won |
+| `--from-won-on` | range | |
+| `--to-won-on` | range | |
+| `--lost-on` | DateTime | Date when the opportunity was marked as lost |
+| `--from-lost-on` | range | |
+| `--to-lost-on` | range | |
+| `--position` | int | Display order of the opportunity within its current stage |
+| `--from-position` | range | |
+| `--to-position` | range | |
+| `--utm-source` | string | UTM source parameter captured from the URL the opportunity used |
+| `--utm-medium` | string | UTM medium parameter captured from the URL the opportunity used |
+| `--utm-campaign` | string | UTM campaign parameter captured from the URL the opportunity used |
+| `--utm-content` | string | UTM content parameter captured from the URL the opportunity used |
+| `--utm-term` | string | UTM term parameter captured from the URL the opportunity used |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CrmOpportunity create options
 
-`--name`, `--crm-board-column-id` (long, required), `--coworker-id` (long, required), `--team-id` (long), `--opportunity-type-id` (long), `--responsible-id` (long), `--referrer-id` (long), `--agent-id` (long), `--notes`, `--completed` (bool), `--due-date` (DateTime), `--value` (decimal), `--reminded` (bool), `--lead-source` (enum), `--loss-reason` (enum), `--status` (enum, required), `--won-on` (DateTime), `--lost-on` (DateTime), `--position` (int, required), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string | Optional tag to identify this opportunity, useful when the same customer appears in multiple boards |
+| `--crm-board-column-id` | long, required |  |
+| `--coworker-id` | long, required |  |
+| `--team-id` | long |  |
+| `--opportunity-type-id` | long | Opportunity type used to categorise and auto-populate general notes from a template |
+| `--responsible-id` | long | Admin user responsible for managing this opportunity |
+| `--referrer-id` | long | Customer who referred this opportunity |
+| `--agent-id` | long | External agent or broker who brought this opportunity |
+| `--notes` | string | General notes visible to admins when viewing the opportunity. Auto-populated from the opportunity type template if a type is assigned |
+| `--completed` | bool | Whether the opportunity has been completed (won or lost) |
+| `--due-date` | DateTime | Follow-up date for the opportunity |
+| `--value` | decimal | Expected revenue if the opportunity is won |
+| `--reminded` | bool | Whether a follow-up reminder has been sent for this opportunity |
+| `--lead-source` | enum | How the opportunity was acquired (e.g. Web, Phone, Referral, Broker, GoogleSearch) |
+| `--loss-reason` | enum | Why the opportunity was lost (e.g. Price, Competition, Location). Only relevant when Status is Lost |
+| `--status` | enum, required | Opportunity status: InProgress (still active), Won (led to a sale), or Lost (did not lead to a sale) |
+| `--won-on` | DateTime | Date when the opportunity was marked as won |
+| `--lost-on` | DateTime | Date when the opportunity was marked as lost |
+| `--position` | int, required | Display order of the opportunity within its current stage |
+| `--utm-source` | string | UTM source parameter captured from the URL the opportunity used |
+| `--utm-medium` | string | UTM medium parameter captured from the URL the opportunity used |
+| `--utm-campaign` | string | UTM campaign parameter captured from the URL the opportunity used |
+| `--utm-content` | string | UTM content parameter captured from the URL the opportunity used |
+| `--utm-term` | string | UTM term parameter captured from the URL the opportunity used |
 
 #### CrmOpportunity update options
 
-`--name`, `--crm-board-column-id` (long), `--coworker-id` (long), `--team-id` (long), `--opportunity-type-id` (long), `--responsible-id` (long), `--referrer-id` (long), `--agent-id` (long), `--notes`, `--completed` (bool), `--due-date` (DateTime), `--value` (decimal), `--reminded` (bool), `--lead-source` (enum), `--loss-reason` (enum), `--status` (enum), `--won-on` (DateTime), `--lost-on` (DateTime), `--position` (int), `--utm-source`, `--utm-medium`, `--utm-campaign`, `--utm-content`, `--utm-term`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string | Optional tag to identify this opportunity, useful when the same customer appears in multiple boards |
+| `--crm-board-column-id` | long |  |
+| `--coworker-id` | long |  |
+| `--team-id` | long |  |
+| `--opportunity-type-id` | long | Opportunity type used to categorise and auto-populate general notes from a template |
+| `--responsible-id` | long | Admin user responsible for managing this opportunity |
+| `--referrer-id` | long | Customer who referred this opportunity |
+| `--agent-id` | long | External agent or broker who brought this opportunity |
+| `--notes` | string | General notes visible to admins when viewing the opportunity. Auto-populated from the opportunity type template if a type is assigned |
+| `--completed` | bool | Whether the opportunity has been completed (won or lost) |
+| `--due-date` | DateTime | Follow-up date for the opportunity |
+| `--value` | decimal | Expected revenue if the opportunity is won |
+| `--reminded` | bool | Whether a follow-up reminder has been sent for this opportunity |
+| `--lead-source` | enum | How the opportunity was acquired (e.g. Web, Phone, Referral, Broker, GoogleSearch) |
+| `--loss-reason` | enum | Why the opportunity was lost (e.g. Price, Competition, Location). Only relevant when Status is Lost |
+| `--status` | enum | Opportunity status: InProgress (still active), Won (led to a sale), or Lost (did not lead to a sale) |
+| `--won-on` | DateTime | Date when the opportunity was marked as won |
+| `--lost-on` | DateTime | Date when the opportunity was marked as lost |
+| `--position` | int | Display order of the opportunity within its current stage |
+| `--utm-source` | string | UTM source parameter captured from the URL the opportunity used |
+| `--utm-medium` | string | UTM medium parameter captured from the URL the opportunity used |
+| `--utm-campaign` | string | UTM campaign parameter captured from the URL the opportunity used |
+| `--utm-content` | string | UTM content parameter captured from the URL the opportunity used |
+| `--utm-term` | string | UTM term parameter captured from the URL the opportunity used |
 
 ### CrmOpportunity (key fields)
 

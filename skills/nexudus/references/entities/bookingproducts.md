@@ -25,15 +25,39 @@ BookingProducts also support entity commands.
 
 #### BookingProduct list filter options
 
-`--booking-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--mrm-reminded` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long |  |
+| `--product-id` | long |  |
+| `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
+| `--quantity` | int | The number of units of this product to include in the booking |
+| `--from-quantity` | range | |
+| `--to-quantity` | range | |
+| `--mrm-reminded` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BookingProduct create options
 
-`--booking-id` (long, required), `--product-id` (long, required), `--invoice-in-minutes` (bool), `--quantity` (int, required), `--mrm-reminded` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long, required |  |
+| `--product-id` | long, required |  |
+| `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
+| `--quantity` | int, required | The number of units of this product to include in the booking |
+| `--mrm-reminded` | bool |  |
 
 #### BookingProduct update options
 
-`--booking-id` (long), `--product-id` (long), `--invoice-in-minutes` (bool), `--quantity` (int), `--mrm-reminded` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long |  |
+| `--product-id` | long |  |
+| `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
+| `--quantity` | int | The number of units of this product to include in the booking |
+| `--mrm-reminded` | bool |  |
 
 ### BookingProduct (key fields)
 

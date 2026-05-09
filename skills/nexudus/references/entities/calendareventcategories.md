@@ -23,15 +23,34 @@ CalendarEventCategories support Search, Get, Create, Update, Delete.
 
 #### CalendarEventCategory list filter options
 
-`--business-id` (long), `--title`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | The location this event category belongs to |
+| `--title` | string | Category name shown as a filter on the Members Portal |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CalendarEventCategory create options
 
-`--business-id` (long, required), `--title` (required), `--calendar-events` (list, repeat flag), `--added-calendar-events` (list, repeat flag), `--removed-calendar-events` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | The location this event category belongs to |
+| `--title` | string, required | Category name shown as a filter on the Members Portal |
+| `--calendar-events` | list, repeat flag | IDs of events assigned to this category |
+| `--added-calendar-events` | list, repeat flag |  |
+| `--removed-calendar-events` | list, repeat flag |  |
 
 #### CalendarEventCategory update options
 
-`--business-id` (long), `--title`, `--calendar-events` (list, repeat flag), `--added-calendar-events` (list, repeat flag), `--removed-calendar-events` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | The location this event category belongs to |
+| `--title` | string | Category name shown as a filter on the Members Portal |
+| `--calendar-events` | list, repeat flag | IDs of events assigned to this category |
+| `--added-calendar-events` | list, repeat flag |  |
+| `--removed-calendar-events` | list, repeat flag |  |
 
 ### CalendarEventCategory (key fields)
 

@@ -27,15 +27,40 @@ WebHooks support Search, Get, Create, Update, Delete.
 
 #### WebHook list filter options
 
-`--business-id` (long), `--name`, `--action` (enum), `--description`, `--u-r-l`, `--active` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this webhook belongs to |
+| `--name` | string | Display name for the webhook |
+| `--action` | enum | The event that triggers this webhook (e.g. CoworkerCreate, BookingCreate, CoworkerInvoicePaid) |
+| `--description` | string | Optional description of the webhook's purpose |
+| `--u-r-l` | string | The endpoint URL that receives the HTTP POST payload when the webhook fires |
+| `--active` | bool | Whether the webhook is enabled and will fire when the configured action occurs |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### WebHook create options
 
-`--business-id` (long, required), `--name` (required), `--action` (enum, required), `--description`, `--u-r-l` (required), `--active` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | ID of the location this webhook belongs to |
+| `--name` | string, required | Display name for the webhook |
+| `--action` | enum, required | The event that triggers this webhook (e.g. CoworkerCreate, BookingCreate, CoworkerInvoicePaid) |
+| `--description` | string | Optional description of the webhook's purpose |
+| `--u-r-l` | string, required | The endpoint URL that receives the HTTP POST payload when the webhook fires |
+| `--active` | bool | Whether the webhook is enabled and will fire when the configured action occurs |
 
 #### WebHook update options
 
-`--business-id` (long), `--name`, `--action` (enum), `--description`, `--u-r-l`, `--active` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this webhook belongs to |
+| `--name` | string | Display name for the webhook |
+| `--action` | enum | The event that triggers this webhook (e.g. CoworkerCreate, BookingCreate, CoworkerInvoicePaid) |
+| `--description` | string | Optional description of the webhook's purpose |
+| `--u-r-l` | string | The endpoint URL that receives the HTTP POST payload when the webhook fires |
+| `--active` | bool | Whether the webhook is enabled and will fire when the configured action occurs |
 
 ### WebHook (key fields)
 

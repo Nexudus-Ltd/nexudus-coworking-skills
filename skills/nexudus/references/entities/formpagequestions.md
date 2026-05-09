@@ -19,14 +19,50 @@ FormPageQuestions support Search, Get, Create, Update, Delete.
 
 #### FormPageQuestion list filter options
 
-`--form-page-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--allow-multiple-options` (bool), `--is-required` (bool), `--question-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--form-page-id` | long |  |
+| `--text` | string |  |
+| `--description` | string |  |
+| `--available-options` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int |  |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--allow-multiple-options` | bool |  |
+| `--is-required` | bool |  |
+| `--question-type` | enum |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FormPageQuestion create options
 
-`--form-page-id` (long, required), `--text` (required), `--description` (required), `--available-options`, `--active` (bool), `--display-order` (int, required), `--allow-multiple-options` (bool), `--is-required` (bool), `--question-type` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--form-page-id` | long, required |  |
+| `--text` | string, required |  |
+| `--description` | string, required |  |
+| `--available-options` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int, required |  |
+| `--allow-multiple-options` | bool |  |
+| `--is-required` | bool |  |
+| `--question-type` | enum, required |  |
 
 #### FormPageQuestion update options
 
-`--form-page-id` (long), `--text`, `--description`, `--available-options`, `--active` (bool), `--display-order` (int), `--allow-multiple-options` (bool), `--is-required` (bool), `--question-type` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--form-page-id` | long |  |
+| `--text` | string |  |
+| `--description` | string |  |
+| `--available-options` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int |  |
+| `--allow-multiple-options` | bool |  |
+| `--is-required` | bool |  |
+| `--question-type` | enum |  |
 
 <!-- END:GENERATED entity=FormPageQuestions -->

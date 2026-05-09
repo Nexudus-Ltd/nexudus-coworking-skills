@@ -28,7 +28,23 @@ AuditTrailEntries support Search, Get (no Create or Delete via API).
 
 #### AuditTrailEntry list filter options
 
-`--business-id` (long), `--entity-short-name`, `--description`, `--property-name`, `--audit-type` (enum), `--old-value`, `--new-value`, `--action-by`, `--entity-id` (int), `--from-entity-id` (range), `--to-entity-id` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--entity-short-name` | string | Short name of the audited entity type (e.g. Coworker, Booking, Charge) |
+| `--description` | string | Human-readable description of the audit trail entry |
+| `--property-name` | string | Name of the property that was changed |
+| `--audit-type` | enum | Type of audit action: 1 = Create, 2 = Update, 3 = Delete |
+| `--old-value` | string | Previous value of the property before the change |
+| `--new-value` | string | New value of the property after the change |
+| `--action-by` | string | User or system account that performed the action |
+| `--entity-id` | int | Integer ID of the audited record |
+| `--from-entity-id` | range | |
+| `--to-entity-id` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### AuditTrailEntry enum values
 

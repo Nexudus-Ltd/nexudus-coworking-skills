@@ -28,14 +28,33 @@ CourseMembers support Search, Get, Create, Update, Delete.
 
 #### CourseMember list filter options
 
-`--course-id` (long), `--coworker-id` (long), `--approved` (bool), `--blocked` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long | ID of the course the member is enrolled in |
+| `--coworker-id` | long | ID of the customer enrolled in the course |
+| `--approved` | bool | Whether the member has been approved to access the course content |
+| `--blocked` | bool | Whether the member has been blocked from accessing the course |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CourseMember create options
 
-`--course-id` (long, required), `--coworker-id` (long, required), `--approved` (bool), `--blocked` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long, required | ID of the course the member is enrolled in |
+| `--coworker-id` | long, required | ID of the customer enrolled in the course |
+| `--approved` | bool | Whether the member has been approved to access the course content |
+| `--blocked` | bool | Whether the member has been blocked from accessing the course |
 
 #### CourseMember update options
 
-`--course-id` (long), `--coworker-id` (long), `--approved` (bool), `--blocked` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long | ID of the course the member is enrolled in |
+| `--coworker-id` | long | ID of the customer enrolled in the course |
+| `--approved` | bool | Whether the member has been approved to access the course content |
+| `--blocked` | bool | Whether the member has been blocked from accessing the course |
 
 <!-- END:GENERATED entity=CourseMembers -->

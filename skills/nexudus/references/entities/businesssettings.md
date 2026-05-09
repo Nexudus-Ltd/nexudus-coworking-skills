@@ -746,15 +746,31 @@ BusinessSettings support Search, Get, Create, Update, Delete.
 
 #### BusinessSetting list filter options
 
-`--business-id` (long), `--name`, `--value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Dotted setting key that identifies this configuration entry (e.g. Billing.AddTaxToInvoices, Bookings.SendConfirmationEmail) |
+| `--value` | string | Setting value stored as a string. Boolean settings use True/False, numeric settings use the number as text, dates use ISO 8601 format |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BusinessSetting create options
 
-`--business-id` (long, required), `--name` (required), `--value`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Dotted setting key that identifies this configuration entry (e.g. Billing.AddTaxToInvoices, Bookings.SendConfirmationEmail) |
+| `--value` | string | Setting value stored as a string. Boolean settings use True/False, numeric settings use the number as text, dates use ISO 8601 format |
 
 #### BusinessSetting update options
 
-`--business-id` (long), `--name`, `--value`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Dotted setting key that identifies this configuration entry (e.g. Billing.AddTaxToInvoices, Bookings.SendConfirmationEmail) |
+| `--value` | string | Setting value stored as a string. Boolean settings use True/False, numeric settings use the number as text, dates use ISO 8601 format |
 
 ### BusinessSetting (key fields)
 

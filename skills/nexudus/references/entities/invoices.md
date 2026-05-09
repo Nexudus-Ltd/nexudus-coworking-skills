@@ -23,11 +23,35 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 
 #### Invoice list filter options
 
-`--business-id` (long), `--bill-to-name`, `--bill-to-address`, `--bill-to-city`, `--bill-to-tax-id-number`, `--bill-to-post-code`, `--bill-to-phone`, `--bill-to-fax`, `--bill-to-country-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--bill-to-name` | string | Name of the person or organisation being billed, captured at invoice time |
+| `--bill-to-address` | string | Billing street address, captured at invoice time |
+| `--bill-to-city` | string | Billing city, captured at invoice time |
+| `--bill-to-tax-id-number` | string | Tax identification number (VAT/GST/EIN) of the billed party, captured at invoice time |
+| `--bill-to-post-code` | string | Billing postal/ZIP code, captured at invoice time |
+| `--bill-to-phone` | string | Billing phone number, captured at invoice time |
+| `--bill-to-fax` | string | Billing fax number, captured at invoice time |
+| `--bill-to-country-id` | long |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Invoice update options
 
-`--business-id` (long), `--bill-to-name`, `--bill-to-address`, `--bill-to-city`, `--bill-to-tax-id-number`, `--bill-to-post-code`, `--bill-to-phone`, `--bill-to-fax`, `--bill-to-country-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--bill-to-name` | string | Name of the person or organisation being billed, captured at invoice time |
+| `--bill-to-address` | string | Billing street address, captured at invoice time |
+| `--bill-to-city` | string | Billing city, captured at invoice time |
+| `--bill-to-tax-id-number` | string | Tax identification number (VAT/GST/EIN) of the billed party, captured at invoice time |
+| `--bill-to-post-code` | string | Billing postal/ZIP code, captured at invoice time |
+| `--bill-to-phone` | string | Billing phone number, captured at invoice time |
+| `--bill-to-fax` | string | Billing fax number, captured at invoice time |
+| `--bill-to-country-id` | long |  |
 
 ### Invoice (key fields)
 

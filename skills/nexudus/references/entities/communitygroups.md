@@ -31,15 +31,49 @@ CommunityGroups support Search, Get, Create, Update, Delete.
 
 #### CommunityGroup list filter options
 
-`--business-id` (long), `--user-id` (long), `--name`, `--description`, `--group-access` (enum), `--team-guid`, `--course-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this group belongs to |
+| `--user-id` | long | ID of the user account designated as the group administrator |
+| `--name` | string | Display name of the group |
+| `--description` | string | Short description of the group's purpose shown to customers |
+| `--group-access` | enum | Access level controlling who can see and post in this group's conversations: Restricted (1) = all customers can see but only members post; Public (2) = all customers can see and post; Private (3) = members only |
+| `--team-guid` | string | GUID of the Team this group was created for. Set when the group was auto-generated because `Team.HasCommunityGroup` is true |
+| `--course-guid` | string | GUID of the Course this group was created for. Set when the group was auto-generated because `Course.HasCommunityGroup` is true |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CommunityGroup create options
 
-`--business-id` (long, required), `--user-id` (long, required), `--name` (required), `--description`, `--group-access` (enum, required), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | ID of the location this group belongs to |
+| `--user-id` | long, required | ID of the user account designated as the group administrator |
+| `--name` | string, required | Display name of the group |
+| `--description` | string | Short description of the group's purpose shown to customers |
+| `--group-access` | enum, required | Access level controlling who can see and post in this group's conversations: Restricted (1) = all customers can see but only members post; Public (2) = all customers can see and post; Private (3) = members only |
+| `--members` | list, repeat flag | IDs of customers who are members of this group |
+| `--added-members` | list, repeat flag | Customer IDs to add as members (used in partial updates) |
+| `--removed-members` | list, repeat flag | Customer IDs to remove as members (used in partial updates) |
+| `--team-guid` | string | GUID of the Team this group was created for. Set when the group was auto-generated because `Team.HasCommunityGroup` is true |
+| `--course-guid` | string | GUID of the Course this group was created for. Set when the group was auto-generated because `Course.HasCommunityGroup` is true |
 
 #### CommunityGroup update options
 
-`--business-id` (long), `--user-id` (long), `--name`, `--description`, `--group-access` (enum), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--team-guid`, `--course-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this group belongs to |
+| `--user-id` | long | ID of the user account designated as the group administrator |
+| `--name` | string | Display name of the group |
+| `--description` | string | Short description of the group's purpose shown to customers |
+| `--group-access` | enum | Access level controlling who can see and post in this group's conversations: Restricted (1) = all customers can see but only members post; Public (2) = all customers can see and post; Private (3) = members only |
+| `--members` | list, repeat flag | IDs of customers who are members of this group |
+| `--added-members` | list, repeat flag | Customer IDs to add as members (used in partial updates) |
+| `--removed-members` | list, repeat flag | Customer IDs to remove as members (used in partial updates) |
+| `--team-guid` | string | GUID of the Team this group was created for. Set when the group was auto-generated because `Team.HasCommunityGroup` is true |
+| `--course-guid` | string | GUID of the Course this group was created for. Set when the group was auto-generated because `Course.HasCommunityGroup` is true |
 
 ### CommunityGroup (key fields)
 

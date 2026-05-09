@@ -19,14 +19,42 @@ ValidationRules support Search, Get, Create, Update, Delete.
 
 #### ValidationRule list filter options
 
-`--business-id` (long), `--name`, `--record-type` (enum), `--active` (bool), `--formula`, `--description`, `--error-message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--record-type` | enum |  |
+| `--active` | bool |  |
+| `--formula` | string |  |
+| `--description` | string |  |
+| `--error-message` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ValidationRule create options
 
-`--business-id` (long, required), `--name` (required), `--record-type` (enum, required), `--active` (bool), `--formula` (required), `--description`, `--error-message`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--record-type` | enum, required |  |
+| `--active` | bool |  |
+| `--formula` | string, required |  |
+| `--description` | string |  |
+| `--error-message` | string |  |
 
 #### ValidationRule update options
 
-`--business-id` (long), `--name`, `--record-type` (enum), `--active` (bool), `--formula`, `--description`, `--error-message`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--record-type` | enum |  |
+| `--active` | bool |  |
+| `--formula` | string |  |
+| `--description` | string |  |
+| `--error-message` | string |  |
 
 <!-- END:GENERATED entity=ValidationRules -->

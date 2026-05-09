@@ -25,15 +25,38 @@ BusinessTimeSlots support Search, Get, Create, Update, Delete.
 
 #### BusinessTimeSlot list filter options
 
-`--business-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--day-of-week` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--from-time` | DateTime | Start time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | DateTime | End time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--day-of-week` | enum |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BusinessTimeSlot create options
 
-`--business-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--day-of-week` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--from-time` | DateTime, required | Start time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--to-time` | DateTime, required | End time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--day-of-week` | enum, required |  |
 
 #### BusinessTimeSlot update options
 
-`--business-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--day-of-week` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--from-time` | DateTime | Start time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--to-time` | DateTime | End time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--day-of-week` | enum |  |
 
 ### BusinessTimeSlot (key fields)
 

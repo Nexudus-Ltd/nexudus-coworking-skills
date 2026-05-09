@@ -33,15 +33,52 @@ CoworkerIdentityCheckDocuments also support entity commands.
 
 #### CoworkerIdentityCheckDocument list filter options
 
-`--coworker-id` (long), `--coworker-identity-check-id` (long), `--name`, `--new-photo-url`, `--clear-photo-file` (bool), `--new-document-url`, `--clear-document-file` (bool), `--new-additional-document-url`, `--clear-additional-document-file` (bool), `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--coworker-identity-check-id` | long |  |
+| `--name` | string | Display name for this document record |
+| `--new-photo-url` | string |  |
+| `--clear-photo-file` | bool |  |
+| `--new-document-url` | string |  |
+| `--clear-document-file` | bool |  |
+| `--new-additional-document-url` | string |  |
+| `--clear-additional-document-file` | bool |  |
+| `--notes` | string | Free-text notes or reviewer comments about this document |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerIdentityCheckDocument create options
 
-`--coworker-id` (long, required), `--coworker-identity-check-id` (long, required), `--name` (required), `--new-photo-url`, `--clear-photo-file` (bool), `--new-document-url`, `--clear-document-file` (bool), `--new-additional-document-url`, `--clear-additional-document-file` (bool), `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--coworker-identity-check-id` | long, required |  |
+| `--name` | string, required | Display name for this document record |
+| `--new-photo-url` | string |  |
+| `--clear-photo-file` | bool |  |
+| `--new-document-url` | string |  |
+| `--clear-document-file` | bool |  |
+| `--new-additional-document-url` | string |  |
+| `--clear-additional-document-file` | bool |  |
+| `--notes` | string | Free-text notes or reviewer comments about this document |
 
 #### CoworkerIdentityCheckDocument update options
 
-`--coworker-id` (long), `--coworker-identity-check-id` (long), `--name`, `--new-photo-url`, `--clear-photo-file` (bool), `--new-document-url`, `--clear-document-file` (bool), `--new-additional-document-url`, `--clear-additional-document-file` (bool), `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--coworker-identity-check-id` | long |  |
+| `--name` | string | Display name for this document record |
+| `--new-photo-url` | string |  |
+| `--clear-photo-file` | bool |  |
+| `--new-document-url` | string |  |
+| `--clear-document-file` | bool |  |
+| `--new-additional-document-url` | string |  |
+| `--clear-additional-document-file` | bool |  |
+| `--notes` | string | Free-text notes or reviewer comments about this document |
 
 ### CoworkerIdentityCheckDocument (key fields)
 

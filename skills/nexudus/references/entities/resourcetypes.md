@@ -21,15 +21,28 @@ ResourceTypes support Search, Get, Create, Update, Delete.
 
 #### ResourceType list filter options
 
-`--business-id` (long), `--name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Resource type name |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ResourceType create options
 
-`--business-id` (long, required), `--name` (required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Resource type name |
 
 #### ResourceType update options
 
-`--business-id` (long), `--name`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Resource type name |
 
 ### ResourceType (key fields)
 

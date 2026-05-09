@@ -22,15 +22,41 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 
 #### CoworkerBookingCreditUseHistory list filter options
 
-`--description`, `--coworker-booking-credit-id` (long), `--booking-id` (long), `--coworker-invoice-line-id` (long), `--event-attendee-id` (long), `--credit-used` (decimal), `--from-credit-used` (range), `--to-credit-used` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--description` | string | Optional description or note for this credit use entry |
+| `--coworker-booking-credit-id` | long | ID of the booking credit that was consumed |
+| `--booking-id` | long | ID of the booking this credit was applied to, if the credit was used for a booking |
+| `--coworker-invoice-line-id` | long | ID of the invoice line this credit was applied to, if the credit was used against an invoice |
+| `--event-attendee-id` | long | ID of the event attendance record this credit was applied to, if the credit was used for an event |
+| `--credit-used` | decimal | Amount of credit consumed by this entry |
+| `--from-credit-used` | range | |
+| `--to-credit-used` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerBookingCreditUseHistory create options
 
-`--description`, `--coworker-booking-credit-id` (long, required), `--booking-id` (long), `--coworker-invoice-line-id` (long), `--event-attendee-id` (long), `--credit-used` (decimal, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--description` | string | Optional description or note for this credit use entry |
+| `--coworker-booking-credit-id` | long, required | ID of the booking credit that was consumed |
+| `--booking-id` | long | ID of the booking this credit was applied to, if the credit was used for a booking |
+| `--coworker-invoice-line-id` | long | ID of the invoice line this credit was applied to, if the credit was used against an invoice |
+| `--event-attendee-id` | long | ID of the event attendance record this credit was applied to, if the credit was used for an event |
+| `--credit-used` | decimal, required | Amount of credit consumed by this entry |
 
 #### CoworkerBookingCreditUseHistory update options
 
-`--description`, `--coworker-booking-credit-id` (long), `--booking-id` (long), `--coworker-invoice-line-id` (long), `--event-attendee-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--description` | string | Optional description or note for this credit use entry |
+| `--coworker-booking-credit-id` | long | ID of the booking credit that was consumed |
+| `--booking-id` | long | ID of the booking this credit was applied to, if the credit was used for a booking |
+| `--coworker-invoice-line-id` | long | ID of the invoice line this credit was applied to, if the credit was used against an invoice |
+| `--event-attendee-id` | long | ID of the event attendance record this credit was applied to, if the credit was used for an event |
 
 ### CoworkerBookingCreditUseHistory (key fields)
 

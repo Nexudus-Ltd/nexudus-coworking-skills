@@ -21,15 +21,42 @@ MsOfficeAdminCalendars also support entity commands.
 
 #### MsOfficeAdminCalendar list filter options
 
-`--resource-id` (long), `--business-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--business-id` | long |  |
+| `--name` | string | Calendar name |
+| `--subscription-id` | string | Subscription ID |
+| `--calendar-id` | string | Calendar ID |
+| `--subscription-expire-date` | DateTime | Subscription expiration date |
+| `--from-subscription-expire-date` | range | |
+| `--to-subscription-expire-date` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### MsOfficeAdminCalendar create options
 
-`--resource-id` (long, required), `--business-id` (long, required), `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (DateTime, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long, required |  |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Calendar name |
+| `--subscription-id` | string, required | Subscription ID |
+| `--calendar-id` | string, required | Calendar ID |
+| `--subscription-expire-date` | DateTime, required | Subscription expiration date |
 
 #### MsOfficeAdminCalendar update options
 
-`--resource-id` (long), `--business-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--business-id` | long |  |
+| `--name` | string | Calendar name |
+| `--subscription-id` | string | Subscription ID |
+| `--calendar-id` | string | Calendar ID |
+| `--subscription-expire-date` | DateTime | Subscription expiration date |
 
 ### MsOfficeAdminCalendar (key fields)
 

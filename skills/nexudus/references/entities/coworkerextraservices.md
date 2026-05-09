@@ -27,15 +27,92 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
 #### CoworkerExtraService list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--extra-service-id` (long), `--notes`, `--total-uses` (int), `--from-total-uses` (range), `--to-total-uses` (range), `--free` (bool), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--valid-from` (DateTime), `--from-valid-from` (range), `--to-valid-from` (range), `--expire-date` (DateTime), `--from-expire-date` (range), `--to-expire-date` (range), `--due-date` (DateTime), `--from-due-date` (range), `--to-due-date` (range), `--purchase-order`, `--charge-period` (enum), `--invoice-this-coworker` (bool), `--booking-id` (int), `--from-booking-id` (range), `--to-booking-id` (range), `--booking-from-time` (DateTime), `--from-booking-from-time` (range), `--to-booking-from-time` (range), `--booking-to-time` (DateTime), `--from-booking-to-time` (range), `--to-booking-to-time` (range), `--booking-resource-name`, `--coworker-contract-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--notes` | string | Internal notes |
+| `--total-uses` | int | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
+| `--from-total-uses` | range | |
+| `--to-total-uses` | range | |
+| `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
+| `--price` | decimal | Price charged for this extra service |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--valid-from` | DateTime | Date from which this credit becomes usable |
+| `--from-valid-from` | range | |
+| `--to-valid-from` | range | |
+| `--expire-date` | DateTime | Date when this credit expires and can no longer be used |
+| `--from-expire-date` | range | |
+| `--to-expire-date` | range | |
+| `--due-date` | DateTime | Payment due date for the charge |
+| `--from-due-date` | range | |
+| `--to-due-date` | range | |
+| `--purchase-order` | string | Purchase order |
+| `--charge-period` | enum | Unit of measurement for time credit (Minutes, Days, Weeks, Months, Uses, FourWeekMonths) |
+| `--invoice-this-coworker` | bool | Invoice the customer directly instead of the team or company paying member |
+| `--booking-id` | int | ID of the booking that generated this charge |
+| `--from-booking-id` | range | |
+| `--to-booking-id` | range | |
+| `--booking-from-time` | DateTime | Start time of the booking that generated this charge |
+| `--from-booking-from-time` | range | |
+| `--to-booking-from-time` | range | |
+| `--booking-to-time` | DateTime | End time of the booking that generated this charge |
+| `--from-booking-to-time` | range | |
+| `--to-booking-to-time` | range | |
+| `--booking-resource-name` | string | Name of the resource booked (e.g., meeting room name) |
+| `--coworker-contract-unique-id` | string | Links this credit back to the customer contract that provisioned it |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerExtraService create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--extra-service-id` (long, required), `--notes`, `--total-uses` (int, required), `--free` (bool), `--price` (decimal), `--valid-from` (DateTime), `--expire-date` (DateTime), `--due-date` (DateTime), `--purchase-order`, `--charge-period` (enum, required), `--invoice-this-coworker` (bool), `--booking-id` (int), `--booking-from-time` (DateTime), `--booking-to-time` (DateTime), `--booking-resource-name`, `--coworker-contract-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--business-id` | long, required |  |
+| `--extra-service-id` | long, required |  |
+| `--notes` | string | Internal notes |
+| `--total-uses` | int, required | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
+| `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
+| `--price` | decimal | Price charged for this extra service |
+| `--valid-from` | DateTime | Date from which this credit becomes usable |
+| `--expire-date` | DateTime | Date when this credit expires and can no longer be used |
+| `--due-date` | DateTime | Payment due date for the charge |
+| `--purchase-order` | string | Purchase order |
+| `--charge-period` | enum, required | Unit of measurement for time credit (Minutes, Days, Weeks, Months, Uses, FourWeekMonths) |
+| `--invoice-this-coworker` | bool | Invoice the customer directly instead of the team or company paying member |
+| `--booking-id` | int | ID of the booking that generated this charge |
+| `--booking-from-time` | DateTime | Start time of the booking that generated this charge |
+| `--booking-to-time` | DateTime | End time of the booking that generated this charge |
+| `--booking-resource-name` | string | Name of the resource booked (e.g., meeting room name) |
+| `--coworker-contract-unique-id` | string | Links this credit back to the customer contract that provisioned it |
 
 #### CoworkerExtraService update options
 
-`--coworker-id` (long), `--business-id` (long), `--extra-service-id` (long), `--notes`, `--total-uses` (int), `--free` (bool), `--price` (decimal), `--valid-from` (DateTime), `--expire-date` (DateTime), `--due-date` (DateTime), `--purchase-order`, `--charge-period` (enum), `--invoice-this-coworker` (bool), `--booking-id` (int), `--booking-from-time` (DateTime), `--booking-to-time` (DateTime), `--booking-resource-name`, `--coworker-contract-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--notes` | string | Internal notes |
+| `--total-uses` | int | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
+| `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
+| `--price` | decimal | Price charged for this extra service |
+| `--valid-from` | DateTime | Date from which this credit becomes usable |
+| `--expire-date` | DateTime | Date when this credit expires and can no longer be used |
+| `--due-date` | DateTime | Payment due date for the charge |
+| `--purchase-order` | string | Purchase order |
+| `--charge-period` | enum | Unit of measurement for time credit (Minutes, Days, Weeks, Months, Uses, FourWeekMonths) |
+| `--invoice-this-coworker` | bool | Invoice the customer directly instead of the team or company paying member |
+| `--booking-id` | int | ID of the booking that generated this charge |
+| `--booking-from-time` | DateTime | Start time of the booking that generated this charge |
+| `--booking-to-time` | DateTime | End time of the booking that generated this charge |
+| `--booking-resource-name` | string | Name of the resource booked (e.g., meeting room name) |
+| `--coworker-contract-unique-id` | string | Links this credit back to the customer contract that provisioned it |
 
 ### CoworkerExtraService (key fields)
 

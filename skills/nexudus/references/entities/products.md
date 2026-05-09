@@ -30,15 +30,124 @@ Products also support entity commands.
 
 #### Product list filter options
 
-`--business-id` (long), `--name`, `--system-product-type` (enum), `--description`, `--invoice-display`, `--sku`, `--tags`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--visible` (bool), `--sync-square` (bool), `--currency-id` (long), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--available-as` (enum), `--only-for-contacts` (bool), `--only-for-members` (bool), `--archived` (bool), `--starred` (bool), `--track-stock` (bool), `--allow-negative-stock` (bool), `--stock-alert-level` (int), `--from-stock-alert-level` (range), `--to-stock-alert-level` (range), `--apply-pro-rating` (bool), `--new-image-url`, `--clear-image-file` (bool), `--invoice-coworker` (bool), `--sync-nex-kiosk` (bool), `--create-delivery` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Product name |
+| `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
+| `--description` | string | Product description |
+| `--invoice-display` | string | Custom text shown on the invoice line instead of the product name |
+| `--sku` | string | SKU code |
+| `--tags` | string | Tags |
+| `--display-order` | int | Display order |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--price` | decimal | Product price |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
+| `--sync-square` | bool | Sync to Square |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
+| `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
+| `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
+| `--starred` | bool | Mark the product as featured or highlighted |
+| `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |
+| `--allow-negative-stock` | bool | Allow sales to continue even when stock reaches zero |
+| `--stock-alert-level` | int | Stock level at which a low-stock alert is triggered |
+| `--from-stock-alert-level` | range | |
+| `--to-stock-alert-level` | range | |
+| `--apply-pro-rating` | bool | Whether to pro-rate the price when the product is added or removed part-way through a billing period |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--invoice-coworker` | bool | Whether to invoice the customer directly rather than their company or team |
+| `--sync-nex-kiosk` | bool | Sync to NexKiosk |
+| `--create-delivery` | bool | Automatically create a delivery record for the customer when this product is purchased |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Product create options
 
-`--business-id` (long, required), `--name` (required), `--system-product-type` (enum, required), `--description` (required), `--invoice-display`, `--sku`, `--tags`, `--display-order` (int, required), `--price` (decimal, required), `--visible` (bool), `--sync-square` (bool), `--currency-id` (long, required), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--available-as` (enum, required), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived` (bool), `--starred` (bool), `--track-stock` (bool), `--allow-negative-stock` (bool), `--stock-alert-level` (int), `--apply-pro-rating` (bool), `--new-image-url`, `--clear-image-file` (bool), `--invoice-coworker` (bool), `--sync-nex-kiosk` (bool), `--create-delivery` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Product name |
+| `--system-product-type` | enum, required | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
+| `--description` | string, required | Product description |
+| `--invoice-display` | string | Custom text shown on the invoice line instead of the product name |
+| `--sku` | string | SKU code |
+| `--tags` | string | Tags |
+| `--display-order` | int, required | Display order |
+| `--price` | decimal, required | Product price |
+| `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
+| `--sync-square` | bool | Sync to Square |
+| `--currency-id` | long, required |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--available-as` | enum, required | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
+| `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
+| `--starred` | bool | Mark the product as featured or highlighted |
+| `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |
+| `--allow-negative-stock` | bool | Allow sales to continue even when stock reaches zero |
+| `--stock-alert-level` | int | Stock level at which a low-stock alert is triggered |
+| `--apply-pro-rating` | bool | Whether to pro-rate the price when the product is added or removed part-way through a billing period |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--invoice-coworker` | bool | Whether to invoice the customer directly rather than their company or team |
+| `--sync-nex-kiosk` | bool | Sync to NexKiosk |
+| `--create-delivery` | bool | Automatically create a delivery record for the customer when this product is purchased |
 
 #### Product update options
 
-`--business-id` (long), `--name`, `--system-product-type` (enum), `--description`, `--invoice-display`, `--sku`, `--tags`, `--display-order` (int), `--price` (decimal), `--visible` (bool), `--sync-square` (bool), `--currency-id` (long), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--available-as` (enum), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived` (bool), `--starred` (bool), `--track-stock` (bool), `--allow-negative-stock` (bool), `--stock-alert-level` (int), `--apply-pro-rating` (bool), `--new-image-url`, `--clear-image-file` (bool), `--invoice-coworker` (bool), `--sync-nex-kiosk` (bool), `--create-delivery` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Product name |
+| `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
+| `--description` | string | Product description |
+| `--invoice-display` | string | Custom text shown on the invoice line instead of the product name |
+| `--sku` | string | SKU code |
+| `--tags` | string | Tags |
+| `--display-order` | int | Display order |
+| `--price` | decimal | Product price |
+| `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
+| `--sync-square` | bool | Sync to Square |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
+| `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
+| `--starred` | bool | Mark the product as featured or highlighted |
+| `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |
+| `--allow-negative-stock` | bool | Allow sales to continue even when stock reaches zero |
+| `--stock-alert-level` | int | Stock level at which a low-stock alert is triggered |
+| `--apply-pro-rating` | bool | Whether to pro-rate the price when the product is added or removed part-way through a billing period |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--invoice-coworker` | bool | Whether to invoice the customer directly rather than their company or team |
+| `--sync-nex-kiosk` | bool | Sync to NexKiosk |
+| `--create-delivery` | bool | Automatically create a delivery record for the customer when this product is purchased |
 
 ### Product (key fields)
 

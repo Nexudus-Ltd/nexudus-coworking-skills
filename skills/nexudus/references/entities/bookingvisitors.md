@@ -27,15 +27,28 @@ BookingVisitors also support entity commands.
 
 #### BookingVisitor list filter options
 
-`--booking-id` (long), `--visitor-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long |  |
+| `--visitor-id` | long |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BookingVisitor create options
 
-`--booking-id` (long, required), `--visitor-id` (long, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long, required |  |
+| `--visitor-id` | long, required |  |
 
 #### BookingVisitor update options
 
-`--booking-id` (long), `--visitor-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--booking-id` | long |  |
+| `--visitor-id` | long |  |
 
 ### BookingVisitor (key fields)
 

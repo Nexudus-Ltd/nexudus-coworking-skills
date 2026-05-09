@@ -25,15 +25,42 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 
 #### ContractDeposit list filter options
 
-`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--price` (decimal), `--from-price` (range), `--to-price` (range), `--refundable` (bool), `--invoice-during-online-checkout` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long |  |
+| `--product-id` | long |  |
+| `--notes` | string | Optional notes or internal comments about this deposit |
+| `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
+| `--invoice-during-online-checkout` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ContractDeposit create options
 
-`--coworker-contract-id` (long, required), `--product-id` (long, required), `--notes`, `--price` (decimal), `--refundable` (bool), `--invoice-during-online-checkout` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long, required |  |
+| `--product-id` | long, required |  |
+| `--notes` | string | Optional notes or internal comments about this deposit |
+| `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
+| `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
+| `--invoice-during-online-checkout` | bool |  |
 
 #### ContractDeposit update options
 
-`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--price` (decimal), `--refundable` (bool), `--invoice-during-online-checkout` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long |  |
+| `--product-id` | long |  |
+| `--notes` | string | Optional notes or internal comments about this deposit |
+| `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
+| `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
+| `--invoice-during-online-checkout` | bool |  |
 
 ### ContractDeposit (key fields)
 

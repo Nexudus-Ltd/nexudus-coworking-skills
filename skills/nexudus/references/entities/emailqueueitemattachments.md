@@ -17,10 +17,26 @@ EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via A
 
 #### EmailQueueItemAttachment list filter options
 
-`--email-queue-item-id` (long), `--name`, `--extension`, `--new-binary-url`, `--clear-binary-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--email-queue-item-id` | long |  |
+| `--name` | string |  |
+| `--extension` | string |  |
+| `--new-binary-url` | string |  |
+| `--clear-binary-file` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### EmailQueueItemAttachment update options
 
-`--email-queue-item-id` (long), `--name`, `--extension`, `--new-binary-url`, `--clear-binary-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--email-queue-item-id` | long |  |
+| `--name` | string |  |
+| `--extension` | string |  |
+| `--new-binary-url` | string |  |
+| `--clear-binary-file` | bool |  |
 
 <!-- END:GENERATED entity=EmailQueueItemAttachments -->

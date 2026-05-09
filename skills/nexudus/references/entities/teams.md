@@ -21,15 +21,182 @@ Teams also support entity commands.
 
 #### Team list filter options
 
-`--business-id` (long), `--name`, `--description`, `--tunnel-private-group-id`, `--create-single-invoice-for-team` (bool), `--use-special-prices` (bool), `--paying-member-id` (long), `--default-member-tariff-id` (long), `--max-team-member-count` (decimal), `--from-max-team-member-count` (range), `--to-max-team-member-count` (range), `--transfer-credits-to-paying-member` (bool), `--share-time-passes` (bool), `--share-extra-services` (bool), `--share-booking-credit` (bool), `--discount-extra-services` (decimal), `--from-discount-extra-services` (range), `--to-discount-extra-services` (range), `--discount-time-passes` (decimal), `--from-discount-time-passes` (range), `--to-discount-time-passes` (range), `--discount-charges` (decimal), `--from-discount-charges` (range), `--to-discount-charges` (range), `--discount-tariffs` (decimal), `--from-discount-tariffs` (range), `--to-discount-tariffs` (range), `--profile-summary`, `--profile-tags`, `--profile-website`, `--google-maps-link`, `--profile-is-public` (bool), `--has-community-group` (bool), `--new-team-logo-url`, `--clear-team-logo-file` (bool), `--new-team-image1-url`, `--clear-team-image1-file` (bool), `--new-team-image2-url`, `--clear-team-image2-file` (bool), `--new-team-image3-url`, `--clear-team-image3-file` (bool), `--twitter`, `--facebook`, `--linkedin`, `--skype`, `--telegram`, `--github`, `--pinterest`, `--flickr`, `--instagram`, `--vimeo`, `--tumblr`, `--blogger`, `--disable-attendance-dashboard` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Team name |
+| `--description` | string | Team description |
+| `--tunnel-private-group-id` | string | Tunnel private group ID |
+| `--create-single-invoice-for-team` | bool | Create a single invoice for the team |
+| `--use-special-prices` | bool | Use special prices |
+| `--paying-member-id` | long |  |
+| `--default-member-tariff-id` | long |  |
+| `--max-team-member-count` | decimal | Maximum team member count |
+| `--from-max-team-member-count` | range | |
+| `--to-max-team-member-count` | range | |
+| `--transfer-credits-to-paying-member` | bool | Transfer credits to paying member |
+| `--share-time-passes` | bool | Share time passes |
+| `--share-extra-services` | bool | Share extra services |
+| `--share-booking-credit` | bool | Share booking credit |
+| `--discount-extra-services` | decimal | Discount for extra services |
+| `--from-discount-extra-services` | range | |
+| `--to-discount-extra-services` | range | |
+| `--discount-time-passes` | decimal | Discount for time passes |
+| `--from-discount-time-passes` | range | |
+| `--to-discount-time-passes` | range | |
+| `--discount-charges` | decimal | Discount for charges |
+| `--from-discount-charges` | range | |
+| `--to-discount-charges` | range | |
+| `--discount-tariffs` | decimal | Discount for tariffs |
+| `--from-discount-tariffs` | range | |
+| `--to-discount-tariffs` | range | |
+| `--profile-summary` | string | Profile summary |
+| `--profile-tags` | string | Profile tags |
+| `--profile-website` | string | Profile website |
+| `--google-maps-link` | string | Google Maps link |
+| `--profile-is-public` | bool | Whether the profile is public |
+| `--has-community-group` | bool | Whether the team has a community group |
+| `--new-team-logo-url` | string |  |
+| `--clear-team-logo-file` | bool |  |
+| `--new-team-image1-url` | string |  |
+| `--clear-team-image1-file` | bool |  |
+| `--new-team-image2-url` | string |  |
+| `--clear-team-image2-file` | bool |  |
+| `--new-team-image3-url` | string |  |
+| `--clear-team-image3-file` | bool |  |
+| `--twitter` | string | Twitter handle |
+| `--facebook` | string | Facebook URL |
+| `--linkedin` | string | LinkedIn URL |
+| `--skype` | string | Skype handle |
+| `--telegram` | string | Telegram handle |
+| `--github` | string | GitHub URL |
+| `--pinterest` | string | Pinterest URL |
+| `--flickr` | string | Flickr URL |
+| `--instagram` | string | Instagram URL |
+| `--vimeo` | string | Vimeo URL |
+| `--tumblr` | string | Tumblr URL |
+| `--blogger` | string | Blogger URL |
+| `--disable-attendance-dashboard` | bool | Disable attendance dashboard |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Team create options
 
-`--business-id` (long, required), `--name` (required), `--description`, `--tunnel-private-group-id`, `--team-members` (list, repeat flag), `--added-team-members` (list, repeat flag), `--removed-team-members` (list, repeat flag), `--team-administrators` (list, repeat flag), `--added-team-administrators` (list, repeat flag), `--removed-team-administrators` (list, repeat flag), `--create-single-invoice-for-team` (bool), `--use-special-prices` (bool), `--paying-member-id` (long), `--default-member-tariff-id` (long), `--max-team-member-count` (decimal), `--transfer-credits-to-paying-member` (bool), `--share-time-passes` (bool), `--share-extra-services` (bool), `--share-booking-credit` (bool), `--discount-extra-services` (decimal), `--discount-time-passes` (decimal), `--discount-charges` (decimal), `--discount-tariffs` (decimal), `--profile-summary`, `--profile-tags`, `--profile-website`, `--google-maps-link`, `--profile-is-public` (bool), `--has-community-group` (bool), `--new-team-logo-url`, `--clear-team-logo-file` (bool), `--new-team-image1-url`, `--clear-team-image1-file` (bool), `--new-team-image2-url`, `--clear-team-image2-file` (bool), `--new-team-image3-url`, `--clear-team-image3-file` (bool), `--twitter`, `--facebook`, `--linkedin`, `--skype`, `--telegram`, `--github`, `--pinterest`, `--flickr`, `--instagram`, `--vimeo`, `--tumblr`, `--blogger`, `--disable-attendance-dashboard` (bool), `--extra-services` (list, repeat flag), `--added-extra-services` (list, repeat flag), `--removed-extra-services` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Team name |
+| `--description` | string | Team description |
+| `--tunnel-private-group-id` | string | Tunnel private group ID |
+| `--team-members` | list, repeat flag |  |
+| `--added-team-members` | list, repeat flag |  |
+| `--removed-team-members` | list, repeat flag |  |
+| `--team-administrators` | list, repeat flag |  |
+| `--added-team-administrators` | list, repeat flag |  |
+| `--removed-team-administrators` | list, repeat flag |  |
+| `--create-single-invoice-for-team` | bool | Create a single invoice for the team |
+| `--use-special-prices` | bool | Use special prices |
+| `--paying-member-id` | long |  |
+| `--default-member-tariff-id` | long |  |
+| `--max-team-member-count` | decimal | Maximum team member count |
+| `--transfer-credits-to-paying-member` | bool | Transfer credits to paying member |
+| `--share-time-passes` | bool | Share time passes |
+| `--share-extra-services` | bool | Share extra services |
+| `--share-booking-credit` | bool | Share booking credit |
+| `--discount-extra-services` | decimal | Discount for extra services |
+| `--discount-time-passes` | decimal | Discount for time passes |
+| `--discount-charges` | decimal | Discount for charges |
+| `--discount-tariffs` | decimal | Discount for tariffs |
+| `--profile-summary` | string | Profile summary |
+| `--profile-tags` | string | Profile tags |
+| `--profile-website` | string | Profile website |
+| `--google-maps-link` | string | Google Maps link |
+| `--profile-is-public` | bool | Whether the profile is public |
+| `--has-community-group` | bool | Whether the team has a community group |
+| `--new-team-logo-url` | string |  |
+| `--clear-team-logo-file` | bool |  |
+| `--new-team-image1-url` | string |  |
+| `--clear-team-image1-file` | bool |  |
+| `--new-team-image2-url` | string |  |
+| `--clear-team-image2-file` | bool |  |
+| `--new-team-image3-url` | string |  |
+| `--clear-team-image3-file` | bool |  |
+| `--twitter` | string | Twitter handle |
+| `--facebook` | string | Facebook URL |
+| `--linkedin` | string | LinkedIn URL |
+| `--skype` | string | Skype handle |
+| `--telegram` | string | Telegram handle |
+| `--github` | string | GitHub URL |
+| `--pinterest` | string | Pinterest URL |
+| `--flickr` | string | Flickr URL |
+| `--instagram` | string | Instagram URL |
+| `--vimeo` | string | Vimeo URL |
+| `--tumblr` | string | Tumblr URL |
+| `--blogger` | string | Blogger URL |
+| `--disable-attendance-dashboard` | bool | Disable attendance dashboard |
+| `--extra-services` | list, repeat flag |  |
+| `--added-extra-services` | list, repeat flag |  |
+| `--removed-extra-services` | list, repeat flag |  |
 
 #### Team update options
 
-`--business-id` (long), `--name`, `--description`, `--tunnel-private-group-id`, `--team-members` (list, repeat flag), `--added-team-members` (list, repeat flag), `--removed-team-members` (list, repeat flag), `--team-administrators` (list, repeat flag), `--added-team-administrators` (list, repeat flag), `--removed-team-administrators` (list, repeat flag), `--create-single-invoice-for-team` (bool), `--use-special-prices` (bool), `--paying-member-id` (long), `--default-member-tariff-id` (long), `--max-team-member-count` (decimal), `--transfer-credits-to-paying-member` (bool), `--share-time-passes` (bool), `--share-extra-services` (bool), `--share-booking-credit` (bool), `--discount-extra-services` (decimal), `--discount-time-passes` (decimal), `--discount-charges` (decimal), `--discount-tariffs` (decimal), `--profile-summary`, `--profile-tags`, `--profile-website`, `--google-maps-link`, `--profile-is-public` (bool), `--has-community-group` (bool), `--new-team-logo-url`, `--clear-team-logo-file` (bool), `--new-team-image1-url`, `--clear-team-image1-file` (bool), `--new-team-image2-url`, `--clear-team-image2-file` (bool), `--new-team-image3-url`, `--clear-team-image3-file` (bool), `--twitter`, `--facebook`, `--linkedin`, `--skype`, `--telegram`, `--github`, `--pinterest`, `--flickr`, `--instagram`, `--vimeo`, `--tumblr`, `--blogger`, `--disable-attendance-dashboard` (bool), `--extra-services` (list, repeat flag), `--added-extra-services` (list, repeat flag), `--removed-extra-services` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Team name |
+| `--description` | string | Team description |
+| `--tunnel-private-group-id` | string | Tunnel private group ID |
+| `--team-members` | list, repeat flag |  |
+| `--added-team-members` | list, repeat flag |  |
+| `--removed-team-members` | list, repeat flag |  |
+| `--team-administrators` | list, repeat flag |  |
+| `--added-team-administrators` | list, repeat flag |  |
+| `--removed-team-administrators` | list, repeat flag |  |
+| `--create-single-invoice-for-team` | bool | Create a single invoice for the team |
+| `--use-special-prices` | bool | Use special prices |
+| `--paying-member-id` | long |  |
+| `--default-member-tariff-id` | long |  |
+| `--max-team-member-count` | decimal | Maximum team member count |
+| `--transfer-credits-to-paying-member` | bool | Transfer credits to paying member |
+| `--share-time-passes` | bool | Share time passes |
+| `--share-extra-services` | bool | Share extra services |
+| `--share-booking-credit` | bool | Share booking credit |
+| `--discount-extra-services` | decimal | Discount for extra services |
+| `--discount-time-passes` | decimal | Discount for time passes |
+| `--discount-charges` | decimal | Discount for charges |
+| `--discount-tariffs` | decimal | Discount for tariffs |
+| `--profile-summary` | string | Profile summary |
+| `--profile-tags` | string | Profile tags |
+| `--profile-website` | string | Profile website |
+| `--google-maps-link` | string | Google Maps link |
+| `--profile-is-public` | bool | Whether the profile is public |
+| `--has-community-group` | bool | Whether the team has a community group |
+| `--new-team-logo-url` | string |  |
+| `--clear-team-logo-file` | bool |  |
+| `--new-team-image1-url` | string |  |
+| `--clear-team-image1-file` | bool |  |
+| `--new-team-image2-url` | string |  |
+| `--clear-team-image2-file` | bool |  |
+| `--new-team-image3-url` | string |  |
+| `--clear-team-image3-file` | bool |  |
+| `--twitter` | string | Twitter handle |
+| `--facebook` | string | Facebook URL |
+| `--linkedin` | string | LinkedIn URL |
+| `--skype` | string | Skype handle |
+| `--telegram` | string | Telegram handle |
+| `--github` | string | GitHub URL |
+| `--pinterest` | string | Pinterest URL |
+| `--flickr` | string | Flickr URL |
+| `--instagram` | string | Instagram URL |
+| `--vimeo` | string | Vimeo URL |
+| `--tumblr` | string | Tumblr URL |
+| `--blogger` | string | Blogger URL |
+| `--disable-attendance-dashboard` | bool | Disable attendance dashboard |
+| `--extra-services` | list, repeat flag |  |
+| `--added-extra-services` | list, repeat flag |  |
+| `--removed-extra-services` | list, repeat flag |  |
 
 ### Team (key fields)
 

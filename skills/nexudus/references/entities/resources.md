@@ -51,15 +51,315 @@ Resources also support entity commands.
 
 #### Resource list filter options
 
-`--business-id` (long), `--name`, `--system-resource-type` (enum), `--resource-type-id` (long), `--description`, `--new-picture-url`, `--clear-picture-file` (bool), `--email-confirmation-content`, `--visible` (bool), `--requires-confirmation` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--group-name`, `--projector` (bool), `--internet` (bool), `--conference-phone` (bool), `--standard-phone` (bool), `--white-board` (bool), `--large-display` (bool), `--catering` (bool), `--tea-and-coffee` (bool), `--drinks` (bool), `--security-lock` (bool), `--cctv` (bool), `--voice-recorder` (bool), `--air-conditioning` (bool), `--heating` (bool), `--natural-light` (bool), `--standing-desk` (bool), `--quiet-zone` (bool), `--wireless-charger` (bool), `--privacy-screen` (bool), `--soundproof` (bool), `--video-conferencing` (bool), `--dual-display-screen` (bool), `--display-screen` (bool), `--wireless-presentation` (bool), `--pa-system` (bool), `--desktop-monitor` (bool), `--flip-chart` (bool), `--secure-storage` (bool), `--allow-multiple-bookings` (bool), `--allocation` (int), `--from-allocation` (range), `--to-allocation` (range), `--limit-visitors-to-allocation` (bool), `--book-in-advance-limit` (decimal), `--from-book-in-advance-limit` (range), `--to-book-in-advance-limit` (range), `--late-booking-limit` (decimal), `--from-late-booking-limit` (range), `--to-late-booking-limit` (range), `--late-cancellation-limit` (int), `--from-late-cancellation-limit` (range), `--to-late-cancellation-limit` (range), `--interval-limit` (int), `--from-interval-limit` (range), `--to-interval-limit` (range), `--no-return-policy` (int), `--from-no-return-policy` (range), `--to-no-return-policy` (range), `--no-return-policy-all-resources` (int), `--from-no-return-policy-all-resources` (range), `--to-no-return-policy-all-resources` (range), `--no-return-policy-all-users` (int), `--from-no-return-policy-all-users` (range), `--to-no-return-policy-all-users` (range), `--max-booking-length` (int), `--from-max-booking-length` (range), `--to-max-booking-length` (range), `--min-booking-length` (int), `--from-min-booking-length` (range), `--to-min-booking-length` (range), `--shifts`, `--google-calendar-id`, `--kisi-group-id`, `--access-control-group-id`, `--longitude` (decimal), `--from-longitude` (range), `--to-longitude` (range), `--latitude` (decimal), `--from-latitude` (range), `--to-latitude` (range), `--hide-in-calendar` (bool), `--archived` (bool), `--use-shared-zoom-account` (bool), `--zoom-access-token`, `--zoom-refresh-token`, `--zoom-user-id`, `--last-cleaned-at` (DateTime), `--from-last-cleaned-at` (range), `--to-last-cleaned-at` (range), `--office365-calendar-id`, `--linked-resource-ids`, `--only-for-contacts` (bool), `--only-for-members` (bool), `--only-for-invoicing-business` (bool), `--cancellation-fee-product-id` (long), `--charge-cancellation-fee` (bool), `--cancellation-fee-type` (enum), `--cancellation-fee-amount` (decimal), `--from-cancellation-fee-amount` (range), `--to-cancellation-fee-amount` (range), `--cancellation-fee-percentage` (decimal), `--from-cancellation-fee-percentage` (range), `--to-cancellation-fee-percentage` (range), `--repeat-booking-quantity-limit` (int), `--from-repeat-booking-quantity-limit` (range), `--to-repeat-booking-quantity-limit` (range), `--repeat-booking-period-limit-in-months` (int), `--from-repeat-booking-period-limit-in-months` (range), `--to-repeat-booking-period-limit-in-months` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
+| `--system-resource-type` | enum | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). Distinct from the custom ResourceType. |
+| `--resource-type-id` | long |  |
+| `--description` | string | Free-text description shown to users when viewing the resource details. |
+| `--new-picture-url` | string |  |
+| `--clear-picture-file` | bool |  |
+| `--email-confirmation-content` | string | Custom HTML or text included in booking confirmation emails for this resource. |
+| `--visible` | bool | Whether the resource is visible and bookable by end users. Hidden resources can still be booked by admins. |
+| `--requires-confirmation` | bool | When true, bookings for this resource are held as pending until an admin approves them. |
+| `--display-order` | int | Sort position when listing resources. Lower values appear first. |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--group-name` | string | Optional grouping label used to cluster related resources together in the UI (e.g., 'Floor 2'). |
+| `--projector` | bool | Amenity flag: resource has a projector. |
+| `--internet` | bool | Amenity flag: resource has internet access. |
+| `--conference-phone` | bool | Amenity flag: resource has a conference phone. |
+| `--standard-phone` | bool | Amenity flag: resource has a standard phone. |
+| `--white-board` | bool | Amenity flag: resource has a whiteboard. |
+| `--large-display` | bool | Amenity flag: resource has a large display. |
+| `--catering` | bool | Amenity flag: catering is available for this resource. |
+| `--tea-and-coffee` | bool | Amenity flag: tea and coffee are available. |
+| `--drinks` | bool | Amenity flag: drinks are available. |
+| `--security-lock` | bool | Amenity flag: resource has a security lock. |
+| `--cctv` | bool | Amenity flag: resource has CCTV coverage. |
+| `--voice-recorder` | bool | Amenity flag: resource has a voice recorder. |
+| `--air-conditioning` | bool | Amenity flag: resource has air conditioning. |
+| `--heating` | bool | Amenity flag: resource has heating. |
+| `--natural-light` | bool | Amenity flag: resource has natural light. |
+| `--standing-desk` | bool | Amenity flag: resource has a standing desk. |
+| `--quiet-zone` | bool | Amenity flag: resource is located in a quiet zone. |
+| `--wireless-charger` | bool | Amenity flag: resource has a wireless charger. |
+| `--privacy-screen` | bool | Amenity flag: resource has a privacy screen. |
+| `--soundproof` | bool | Amenity flag: resource is soundproof. |
+| `--video-conferencing` | bool | Amenity flag: resource has video conferencing equipment. |
+| `--dual-display-screen` | bool | Amenity flag: resource has a dual display screen. |
+| `--display-screen` | bool | Amenity flag: resource has a display screen. |
+| `--wireless-presentation` | bool | Amenity flag: resource has wireless presentation capabilities. |
+| `--pa-system` | bool | Amenity flag: resource has a PA system. |
+| `--desktop-monitor` | bool | Amenity flag: resource has a desktop monitor. |
+| `--flip-chart` | bool | Amenity flag: resource has a flip chart. |
+| `--secure-storage` | bool | Amenity flag: resource has secure storage. |
+| `--allow-multiple-bookings` | bool | When true, overlapping bookings are permitted up to the Allocation capacity. |
+| `--allocation` | int | Maximum number of attendees or concurrent bookings allowed. Used with AllowMultipleBookings to control capacity. |
+| `--from-allocation` | range | |
+| `--to-allocation` | range | |
+| `--limit-visitors-to-allocation` | bool | When true, the total number of visitors added to a booking cannot exceed the Allocation capacity. |
+| `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made for this resource. Null means no limit. |
+| `--from-book-in-advance-limit` | range | |
+| `--to-book-in-advance-limit` | range | |
+| `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
+| `--from-late-booking-limit` | range | |
+| `--to-late-booking-limit` | range | |
+| `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |
+| `--from-late-cancellation-limit` | range | |
+| `--to-late-cancellation-limit` | range | |
+| `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
+| `--from-interval-limit` | range | |
+| `--to-interval-limit` | range | |
+| `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
+| `--from-no-return-policy` | range | |
+| `--to-no-return-policy` | range | |
+| `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
+| `--from-no-return-policy-all-resources` | range | |
+| `--to-no-return-policy-all-resources` | range | |
+| `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
+| `--from-no-return-policy-all-users` | range | |
+| `--to-no-return-policy-all-users` | range | |
+| `--max-booking-length` | int | Maximum allowed duration for a single booking on this resource, in minutes. |
+| `--from-max-booking-length` | range | |
+| `--to-max-booking-length` | range | |
+| `--min-booking-length` | int | Minimum allowed duration for a single booking on this resource, in minutes. |
+| `--from-min-booking-length` | range | |
+| `--to-min-booking-length` | range | |
+| `--shifts` | string | JSON-encoded shifts configuration defining the resource's availability schedule. |
+| `--google-calendar-id` | string |  |
+| `--kisi-group-id` | string |  |
+| `--access-control-group-id` | string |  |
+| `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
+| `--from-longitude` | range | |
+| `--to-longitude` | range | |
+| `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
+| `--from-latitude` | range | |
+| `--to-latitude` | range | |
+| `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view. |
+| `--archived` | bool | When true, the resource is archived and hidden from all views. It cannot be booked. |
+| `--use-shared-zoom-account` | bool | When true, bookings for this resource use the location's shared Zoom account to create virtual meetings. |
+| `--zoom-access-token` | string |  |
+| `--zoom-refresh-token` | string |  |
+| `--zoom-user-id` | string | Zoom user ID used to host virtual meetings when UseSharedZoomAccount is false. |
+| `--last-cleaned-at` | DateTime | Timestamp of the last cleaning event for this resource. |
+| `--from-last-cleaned-at` | range | |
+| `--to-last-cleaned-at` | range | |
+| `--office365-calendar-id` | string |  |
+| `--linked-resource-ids` | string | Comma-separated string of linked resource IDs (read-only alternative view of LinkedResources). |
+| `--only-for-contacts` | bool | When true, only contacts (non-member customers) can book this resource. |
+| `--only-for-members` | bool | When true, only active members (coworkers with a plan) can book this resource. |
+| `--only-for-invoicing-business` | bool | When true, only coworkers invoiced by this specific location can book this resource. |
+| `--cancellation-fee-product-id` | long |  |
+| `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
+| `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
+| `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
+| `--from-cancellation-fee-amount` | range | |
+| `--to-cancellation-fee-amount` | range | |
+| `--cancellation-fee-percentage` | decimal | Cancellation fee as a percentage of the booking cost. Used when CancellationFeeType is Percentage. |
+| `--from-cancellation-fee-percentage` | range | |
+| `--to-cancellation-fee-percentage` | range | |
+| `--repeat-booking-quantity-limit` | int | Maximum number of occurrences allowed when creating a recurring booking for this resource. |
+| `--from-repeat-booking-quantity-limit` | range | |
+| `--to-repeat-booking-quantity-limit` | range | |
+| `--repeat-booking-period-limit-in-months` | int | Maximum time span (in months) over which a recurring booking series can extend. |
+| `--from-repeat-booking-period-limit-in-months` | range | |
+| `--to-repeat-booking-period-limit-in-months` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Resource create options
 
-`--business-id` (long, required), `--name` (required), `--system-resource-type` (enum, required), `--resource-type-id` (long, required), `--description`, `--new-picture-url`, `--clear-picture-file` (bool), `--email-confirmation-content`, `--visible` (bool), `--requires-confirmation` (bool), `--display-order` (int, required), `--group-name`, `--projector` (bool), `--internet` (bool), `--conference-phone` (bool), `--standard-phone` (bool), `--white-board` (bool), `--large-display` (bool), `--catering` (bool), `--tea-and-coffee` (bool), `--drinks` (bool), `--security-lock` (bool), `--cctv` (bool), `--voice-recorder` (bool), `--air-conditioning` (bool), `--heating` (bool), `--natural-light` (bool), `--standing-desk` (bool), `--quiet-zone` (bool), `--wireless-charger` (bool), `--privacy-screen` (bool), `--soundproof` (bool), `--video-conferencing` (bool), `--dual-display-screen` (bool), `--display-screen` (bool), `--wireless-presentation` (bool), `--pa-system` (bool), `--desktop-monitor` (bool), `--flip-chart` (bool), `--secure-storage` (bool), `--allow-multiple-bookings` (bool), `--allocation` (int), `--limit-visitors-to-allocation` (bool), `--book-in-advance-limit` (decimal), `--late-booking-limit` (decimal), `--late-cancellation-limit` (int), `--interval-limit` (int), `--no-return-policy` (int), `--no-return-policy-all-resources` (int), `--no-return-policy-all-users` (int), `--max-booking-length` (int), `--min-booking-length` (int), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--shifts`, `--linked-resources` (list, repeat flag), `--added-linked-resources` (list, repeat flag), `--removed-linked-resources` (list, repeat flag), `--google-calendar-id`, `--kisi-group-id`, `--access-control-group-id`, `--longitude` (decimal), `--latitude` (decimal), `--hide-in-calendar` (bool), `--archived` (bool), `--use-shared-zoom-account` (bool), `--zoom-access-token`, `--zoom-refresh-token`, `--zoom-user-id`, `--last-cleaned-at` (DateTime), `--office365-calendar-id`, `--linked-resource-ids`, `--only-for-contacts` (bool), `--only-for-members` (bool), `--only-for-invoicing-business` (bool), `--booking-availability-exceptions` (list, repeat flag), `--added-booking-availability-exceptions` (list, repeat flag), `--removed-booking-availability-exceptions` (list, repeat flag), `--cancellation-fee-product-id` (long), `--charge-cancellation-fee` (bool), `--cancellation-fee-type` (enum, required), `--cancellation-fee-amount` (decimal), `--cancellation-fee-percentage` (decimal), `--repeat-booking-quantity-limit` (int), `--repeat-booking-period-limit-in-months` (int), `--time-slots` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
+| `--system-resource-type` | enum, required | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). Distinct from the custom ResourceType. |
+| `--resource-type-id` | long, required |  |
+| `--description` | string | Free-text description shown to users when viewing the resource details. |
+| `--new-picture-url` | string |  |
+| `--clear-picture-file` | bool |  |
+| `--email-confirmation-content` | string | Custom HTML or text included in booking confirmation emails for this resource. |
+| `--visible` | bool | Whether the resource is visible and bookable by end users. Hidden resources can still be booked by admins. |
+| `--requires-confirmation` | bool | When true, bookings for this resource are held as pending until an admin approves them. |
+| `--display-order` | int, required | Sort position when listing resources. Lower values appear first. |
+| `--group-name` | string | Optional grouping label used to cluster related resources together in the UI (e.g., 'Floor 2'). |
+| `--projector` | bool | Amenity flag: resource has a projector. |
+| `--internet` | bool | Amenity flag: resource has internet access. |
+| `--conference-phone` | bool | Amenity flag: resource has a conference phone. |
+| `--standard-phone` | bool | Amenity flag: resource has a standard phone. |
+| `--white-board` | bool | Amenity flag: resource has a whiteboard. |
+| `--large-display` | bool | Amenity flag: resource has a large display. |
+| `--catering` | bool | Amenity flag: catering is available for this resource. |
+| `--tea-and-coffee` | bool | Amenity flag: tea and coffee are available. |
+| `--drinks` | bool | Amenity flag: drinks are available. |
+| `--security-lock` | bool | Amenity flag: resource has a security lock. |
+| `--cctv` | bool | Amenity flag: resource has CCTV coverage. |
+| `--voice-recorder` | bool | Amenity flag: resource has a voice recorder. |
+| `--air-conditioning` | bool | Amenity flag: resource has air conditioning. |
+| `--heating` | bool | Amenity flag: resource has heating. |
+| `--natural-light` | bool | Amenity flag: resource has natural light. |
+| `--standing-desk` | bool | Amenity flag: resource has a standing desk. |
+| `--quiet-zone` | bool | Amenity flag: resource is located in a quiet zone. |
+| `--wireless-charger` | bool | Amenity flag: resource has a wireless charger. |
+| `--privacy-screen` | bool | Amenity flag: resource has a privacy screen. |
+| `--soundproof` | bool | Amenity flag: resource is soundproof. |
+| `--video-conferencing` | bool | Amenity flag: resource has video conferencing equipment. |
+| `--dual-display-screen` | bool | Amenity flag: resource has a dual display screen. |
+| `--display-screen` | bool | Amenity flag: resource has a display screen. |
+| `--wireless-presentation` | bool | Amenity flag: resource has wireless presentation capabilities. |
+| `--pa-system` | bool | Amenity flag: resource has a PA system. |
+| `--desktop-monitor` | bool | Amenity flag: resource has a desktop monitor. |
+| `--flip-chart` | bool | Amenity flag: resource has a flip chart. |
+| `--secure-storage` | bool | Amenity flag: resource has secure storage. |
+| `--allow-multiple-bookings` | bool | When true, overlapping bookings are permitted up to the Allocation capacity. |
+| `--allocation` | int | Maximum number of attendees or concurrent bookings allowed. Used with AllowMultipleBookings to control capacity. |
+| `--limit-visitors-to-allocation` | bool | When true, the total number of visitors added to a booking cannot exceed the Allocation capacity. |
+| `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made for this resource. Null means no limit. |
+| `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
+| `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |
+| `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
+| `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
+| `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
+| `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
+| `--max-booking-length` | int | Maximum allowed duration for a single booking on this resource, in minutes. |
+| `--min-booking-length` | int | Minimum allowed duration for a single booking on this resource, in minutes. |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
+| `--shifts` | string | JSON-encoded shifts configuration defining the resource's availability schedule. |
+| `--linked-resources` | list, repeat flag |  |
+| `--added-linked-resources` | list, repeat flag |  |
+| `--removed-linked-resources` | list, repeat flag |  |
+| `--google-calendar-id` | string |  |
+| `--kisi-group-id` | string |  |
+| `--access-control-group-id` | string |  |
+| `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
+| `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
+| `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view. |
+| `--archived` | bool | When true, the resource is archived and hidden from all views. It cannot be booked. |
+| `--use-shared-zoom-account` | bool | When true, bookings for this resource use the location's shared Zoom account to create virtual meetings. |
+| `--zoom-access-token` | string |  |
+| `--zoom-refresh-token` | string |  |
+| `--zoom-user-id` | string | Zoom user ID used to host virtual meetings when UseSharedZoomAccount is false. |
+| `--last-cleaned-at` | DateTime | Timestamp of the last cleaning event for this resource. |
+| `--office365-calendar-id` | string |  |
+| `--linked-resource-ids` | string | Comma-separated string of linked resource IDs (read-only alternative view of LinkedResources). |
+| `--only-for-contacts` | bool | When true, only contacts (non-member customers) can book this resource. |
+| `--only-for-members` | bool | When true, only active members (coworkers with a plan) can book this resource. |
+| `--only-for-invoicing-business` | bool | When true, only coworkers invoiced by this specific location can book this resource. |
+| `--booking-availability-exceptions` | list, repeat flag |  |
+| `--added-booking-availability-exceptions` | list, repeat flag |  |
+| `--removed-booking-availability-exceptions` | list, repeat flag |  |
+| `--cancellation-fee-product-id` | long |  |
+| `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
+| `--cancellation-fee-type` | enum, required | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
+| `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
+| `--cancellation-fee-percentage` | decimal | Cancellation fee as a percentage of the booking cost. Used when CancellationFeeType is Percentage. |
+| `--repeat-booking-quantity-limit` | int | Maximum number of occurrences allowed when creating a recurring booking for this resource. |
+| `--repeat-booking-period-limit-in-months` | int | Maximum time span (in months) over which a recurring booking series can extend. |
+| `--time-slots` | JSON array or @filepath | The days and times this resource is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 #### Resource update options
 
-`--business-id` (long), `--name`, `--system-resource-type` (enum), `--resource-type-id` (long), `--description`, `--new-picture-url`, `--clear-picture-file` (bool), `--email-confirmation-content`, `--visible` (bool), `--requires-confirmation` (bool), `--display-order` (int), `--group-name`, `--projector` (bool), `--internet` (bool), `--conference-phone` (bool), `--standard-phone` (bool), `--white-board` (bool), `--large-display` (bool), `--catering` (bool), `--tea-and-coffee` (bool), `--drinks` (bool), `--security-lock` (bool), `--cctv` (bool), `--voice-recorder` (bool), `--air-conditioning` (bool), `--heating` (bool), `--natural-light` (bool), `--standing-desk` (bool), `--quiet-zone` (bool), `--wireless-charger` (bool), `--privacy-screen` (bool), `--soundproof` (bool), `--video-conferencing` (bool), `--dual-display-screen` (bool), `--display-screen` (bool), `--wireless-presentation` (bool), `--pa-system` (bool), `--desktop-monitor` (bool), `--flip-chart` (bool), `--secure-storage` (bool), `--allow-multiple-bookings` (bool), `--allocation` (int), `--limit-visitors-to-allocation` (bool), `--book-in-advance-limit` (decimal), `--late-booking-limit` (decimal), `--late-cancellation-limit` (int), `--interval-limit` (int), `--no-return-policy` (int), `--no-return-policy-all-resources` (int), `--no-return-policy-all-users` (int), `--max-booking-length` (int), `--min-booking-length` (int), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--shifts`, `--linked-resources` (list, repeat flag), `--added-linked-resources` (list, repeat flag), `--removed-linked-resources` (list, repeat flag), `--google-calendar-id`, `--kisi-group-id`, `--access-control-group-id`, `--longitude` (decimal), `--latitude` (decimal), `--hide-in-calendar` (bool), `--archived` (bool), `--use-shared-zoom-account` (bool), `--zoom-access-token`, `--zoom-refresh-token`, `--zoom-user-id`, `--last-cleaned-at` (DateTime), `--office365-calendar-id`, `--linked-resource-ids`, `--only-for-contacts` (bool), `--only-for-members` (bool), `--only-for-invoicing-business` (bool), `--booking-availability-exceptions` (list, repeat flag), `--added-booking-availability-exceptions` (list, repeat flag), `--removed-booking-availability-exceptions` (list, repeat flag), `--cancellation-fee-product-id` (long), `--charge-cancellation-fee` (bool), `--cancellation-fee-type` (enum), `--cancellation-fee-amount` (decimal), `--cancellation-fee-percentage` (decimal), `--repeat-booking-quantity-limit` (int), `--repeat-booking-period-limit-in-months` (int), `--time-slots` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
+| `--system-resource-type` | enum | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). Distinct from the custom ResourceType. |
+| `--resource-type-id` | long |  |
+| `--description` | string | Free-text description shown to users when viewing the resource details. |
+| `--new-picture-url` | string |  |
+| `--clear-picture-file` | bool |  |
+| `--email-confirmation-content` | string | Custom HTML or text included in booking confirmation emails for this resource. |
+| `--visible` | bool | Whether the resource is visible and bookable by end users. Hidden resources can still be booked by admins. |
+| `--requires-confirmation` | bool | When true, bookings for this resource are held as pending until an admin approves them. |
+| `--display-order` | int | Sort position when listing resources. Lower values appear first. |
+| `--group-name` | string | Optional grouping label used to cluster related resources together in the UI (e.g., 'Floor 2'). |
+| `--projector` | bool | Amenity flag: resource has a projector. |
+| `--internet` | bool | Amenity flag: resource has internet access. |
+| `--conference-phone` | bool | Amenity flag: resource has a conference phone. |
+| `--standard-phone` | bool | Amenity flag: resource has a standard phone. |
+| `--white-board` | bool | Amenity flag: resource has a whiteboard. |
+| `--large-display` | bool | Amenity flag: resource has a large display. |
+| `--catering` | bool | Amenity flag: catering is available for this resource. |
+| `--tea-and-coffee` | bool | Amenity flag: tea and coffee are available. |
+| `--drinks` | bool | Amenity flag: drinks are available. |
+| `--security-lock` | bool | Amenity flag: resource has a security lock. |
+| `--cctv` | bool | Amenity flag: resource has CCTV coverage. |
+| `--voice-recorder` | bool | Amenity flag: resource has a voice recorder. |
+| `--air-conditioning` | bool | Amenity flag: resource has air conditioning. |
+| `--heating` | bool | Amenity flag: resource has heating. |
+| `--natural-light` | bool | Amenity flag: resource has natural light. |
+| `--standing-desk` | bool | Amenity flag: resource has a standing desk. |
+| `--quiet-zone` | bool | Amenity flag: resource is located in a quiet zone. |
+| `--wireless-charger` | bool | Amenity flag: resource has a wireless charger. |
+| `--privacy-screen` | bool | Amenity flag: resource has a privacy screen. |
+| `--soundproof` | bool | Amenity flag: resource is soundproof. |
+| `--video-conferencing` | bool | Amenity flag: resource has video conferencing equipment. |
+| `--dual-display-screen` | bool | Amenity flag: resource has a dual display screen. |
+| `--display-screen` | bool | Amenity flag: resource has a display screen. |
+| `--wireless-presentation` | bool | Amenity flag: resource has wireless presentation capabilities. |
+| `--pa-system` | bool | Amenity flag: resource has a PA system. |
+| `--desktop-monitor` | bool | Amenity flag: resource has a desktop monitor. |
+| `--flip-chart` | bool | Amenity flag: resource has a flip chart. |
+| `--secure-storage` | bool | Amenity flag: resource has secure storage. |
+| `--allow-multiple-bookings` | bool | When true, overlapping bookings are permitted up to the Allocation capacity. |
+| `--allocation` | int | Maximum number of attendees or concurrent bookings allowed. Used with AllowMultipleBookings to control capacity. |
+| `--limit-visitors-to-allocation` | bool | When true, the total number of visitors added to a booking cannot exceed the Allocation capacity. |
+| `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made for this resource. Null means no limit. |
+| `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
+| `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |
+| `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
+| `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
+| `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
+| `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
+| `--max-booking-length` | int | Maximum allowed duration for a single booking on this resource, in minutes. |
+| `--min-booking-length` | int | Minimum allowed duration for a single booking on this resource, in minutes. |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
+| `--shifts` | string | JSON-encoded shifts configuration defining the resource's availability schedule. |
+| `--linked-resources` | list, repeat flag |  |
+| `--added-linked-resources` | list, repeat flag |  |
+| `--removed-linked-resources` | list, repeat flag |  |
+| `--google-calendar-id` | string |  |
+| `--kisi-group-id` | string |  |
+| `--access-control-group-id` | string |  |
+| `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
+| `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
+| `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view. |
+| `--archived` | bool | When true, the resource is archived and hidden from all views. It cannot be booked. |
+| `--use-shared-zoom-account` | bool | When true, bookings for this resource use the location's shared Zoom account to create virtual meetings. |
+| `--zoom-access-token` | string |  |
+| `--zoom-refresh-token` | string |  |
+| `--zoom-user-id` | string | Zoom user ID used to host virtual meetings when UseSharedZoomAccount is false. |
+| `--last-cleaned-at` | DateTime | Timestamp of the last cleaning event for this resource. |
+| `--office365-calendar-id` | string |  |
+| `--linked-resource-ids` | string | Comma-separated string of linked resource IDs (read-only alternative view of LinkedResources). |
+| `--only-for-contacts` | bool | When true, only contacts (non-member customers) can book this resource. |
+| `--only-for-members` | bool | When true, only active members (coworkers with a plan) can book this resource. |
+| `--only-for-invoicing-business` | bool | When true, only coworkers invoiced by this specific location can book this resource. |
+| `--booking-availability-exceptions` | list, repeat flag |  |
+| `--added-booking-availability-exceptions` | list, repeat flag |  |
+| `--removed-booking-availability-exceptions` | list, repeat flag |  |
+| `--cancellation-fee-product-id` | long |  |
+| `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
+| `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
+| `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
+| `--cancellation-fee-percentage` | decimal | Cancellation fee as a percentage of the booking cost. Used when CancellationFeeType is Percentage. |
+| `--repeat-booking-quantity-limit` | int | Maximum number of occurrences allowed when creating a recurring booking for this resource. |
+| `--repeat-booking-period-limit-in-months` | int | Maximum time span (in months) over which a recurring booking series can extend. |
+| `--time-slots` | JSON array or @filepath | The days and times this resource is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 ### Resource (key fields)
 

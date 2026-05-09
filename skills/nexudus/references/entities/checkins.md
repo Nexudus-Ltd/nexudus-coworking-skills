@@ -27,15 +27,74 @@ Checkins also support entity commands.
 
 #### Checkin list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--counts-towards-plan-limits` (bool), `--coworker-time-pass-guid`, `--auto-checkout` (bool), `--last-activity` (DateTime), `--from-last-activity` (range), `--to-last-activity` (range), `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local` (DateTime), `--from-from-time-local` (range), `--to-from-time-local` (range), `--to-time-local` (DateTime), `--from-to-time-local` (range), `--to-to-time-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--from-time` | DateTime | Date and time the customer checked in |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--counts-towards-plan-limits` | bool |  |
+| `--coworker-time-pass-guid` | string |  |
+| `--auto-checkout` | bool |  |
+| `--last-activity` | DateTime |  |
+| `--from-last-activity` | range | |
+| `--to-last-activity` | range | |
+| `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
+| `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
+| `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
+| `--validate-checkin-job-id` | string |  |
+| `--from-time-local` | DateTime |  |
+| `--from-from-time-local` | range | |
+| `--to-from-time-local` | range | |
+| `--to-time-local` | DateTime |  |
+| `--from-to-time-local` | range | |
+| `--to-to-time-local` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Checkin create options
 
-`--coworker-id` (long), `--business-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime), `--counts-towards-plan-limits` (bool), `--coworker-time-pass-guid`, `--auto-checkout` (bool), `--last-activity` (DateTime), `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local` (DateTime), `--to-time-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long, required |  |
+| `--from-time` | DateTime, required | Date and time the customer checked in |
+| `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
+| `--counts-towards-plan-limits` | bool |  |
+| `--coworker-time-pass-guid` | string |  |
+| `--auto-checkout` | bool |  |
+| `--last-activity` | DateTime |  |
+| `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
+| `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
+| `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
+| `--validate-checkin-job-id` | string |  |
+| `--from-time-local` | DateTime |  |
+| `--to-time-local` | DateTime |  |
 
 #### Checkin update options
 
-`--coworker-id` (long), `--business-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--counts-towards-plan-limits` (bool), `--coworker-time-pass-guid`, `--auto-checkout` (bool), `--last-activity` (DateTime), `--mac-addresses`, `--teams-at-checkin`, `--tariff-at-checkin`, `--validate-checkin-job-id`, `--from-time-local` (DateTime), `--to-time-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--from-time` | DateTime | Date and time the customer checked in |
+| `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
+| `--counts-towards-plan-limits` | bool |  |
+| `--coworker-time-pass-guid` | string |  |
+| `--auto-checkout` | bool |  |
+| `--last-activity` | DateTime |  |
+| `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
+| `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
+| `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
+| `--validate-checkin-job-id` | string |  |
+| `--from-time-local` | DateTime |  |
+| `--to-time-local` | DateTime |  |
 
 ### Checkin (key fields)
 

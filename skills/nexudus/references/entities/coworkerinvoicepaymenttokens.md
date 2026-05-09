@@ -23,15 +23,34 @@ CoworkerInvoicePaymentTokens support Search, Get, Create, Update, Delete.
 
 #### CoworkerInvoicePaymentToken list filter options
 
-`--coworker-invoice-id` (long), `--regular-payment-provider` (enum), `--token`, `--notes`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-invoice-id` | long |  |
+| `--regular-payment-provider` | enum | Payment provider used to process the invoice |
+| `--token` | string | Provider-specific token used to authorise or capture the payment |
+| `--notes` | string | Additional notes about the payment token |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerInvoicePaymentToken create options
 
-`--coworker-invoice-id` (long, required), `--regular-payment-provider` (enum), `--token`, `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-invoice-id` | long, required |  |
+| `--regular-payment-provider` | enum | Payment provider used to process the invoice |
+| `--token` | string | Provider-specific token used to authorise or capture the payment |
+| `--notes` | string | Additional notes about the payment token |
 
 #### CoworkerInvoicePaymentToken update options
 
-`--coworker-invoice-id` (long), `--regular-payment-provider` (enum), `--token`, `--notes`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-invoice-id` | long |  |
+| `--regular-payment-provider` | enum | Payment provider used to process the invoice |
+| `--token` | string | Provider-specific token used to authorise or capture the payment |
+| `--notes` | string | Additional notes about the payment token |
 
 ### CoworkerInvoicePaymentToken (key fields)
 

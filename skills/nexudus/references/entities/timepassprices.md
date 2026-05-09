@@ -19,15 +19,33 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 
 #### TimePassPrice list filter options
 
-`--time-pass-id` (long), `--tariff-id` (long), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--time-pass-id` | long |  |
+| `--tariff-id` | long |  |
+| `--price` | decimal | Price |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TimePassPrice create options
 
-`--time-pass-id` (long, required), `--tariff-id` (long, required), `--price` (decimal, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--time-pass-id` | long, required |  |
+| `--tariff-id` | long, required |  |
+| `--price` | decimal, required | Price |
 
 #### TimePassPrice update options
 
-`--time-pass-id` (long), `--tariff-id` (long), `--price` (decimal)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--time-pass-id` | long |  |
+| `--tariff-id` | long |  |
+| `--price` | decimal | Price |
 
 ### TimePassPrice (key fields)
 

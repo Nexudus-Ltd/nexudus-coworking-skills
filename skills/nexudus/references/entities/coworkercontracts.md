@@ -33,15 +33,196 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 
 #### CoworkerContract list filter options
 
-`--issued-by-id` (long), `--coworker-id` (long), `--tariff-id` (long), `--next-tariff-id` (long), `--notes`, `--start-date` (DateTime), `--from-start-date` (range), `--to-start-date` (range), `--billing-day` (int), `--from-billing-day` (range), `--to-billing-day` (range), `--renewal-date` (DateTime), `--from-renewal-date` (range), `--to-renewal-date` (range), `--invoiced-period` (DateTime), `--from-invoiced-period` (range), `--to-invoiced-period` (range), `--contract-term` (DateTime), `--from-contract-term` (range), `--to-contract-term` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--value` (decimal), `--from-value` (range), `--to-value` (range), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--purchase-order`, `--include-signup-fee` (bool), `--invoice-advanced-cycles` (bool), `--apply-pro-rating` (bool), `--next-auto-invoice` (DateTime), `--from-next-auto-invoice` (range), `--to-next-auto-invoice` (range), `--price-plan-terms-accepted` (bool), `--cancellation-date` (DateTime), `--from-cancellation-date` (range), `--to-cancellation-date` (range), `--cancellation-limit-days` (int), `--from-cancellation-limit-days` (range), `--to-cancellation-limit-days` (range), `--pro-rate-cancellation` (bool), `--cancel-team-contracts` (bool), `--cancellation-reason` (enum), `--cancellation-notes`, `--delivery-preference-checks` (enum), `--delivery-preference-mail` (enum), `--delivery-preference-parcels` (enum), `--delivery-preference-publicity` (enum), `--delivery-instructions`, `--identity-checks-due-on` (DateTime), `--from-identity-checks-due-on` (range), `--to-identity-checks-due-on` (range), `--address-checks-due-on` (DateTime), `--from-address-checks-due-on` (range), `--to-address-checks-due-on` (range), `--start-date-local` (DateTime), `--from-start-date-local` (range), `--to-start-date-local` (range), `--renewal-date-local` (DateTime), `--from-renewal-date-local` (range), `--to-renewal-date-local` (range), `--next-auto-invoice-local` (DateTime), `--from-next-auto-invoice-local` (range), `--to-next-auto-invoice-local` (range), `--price-plan-terms-accepted-on-local` (DateTime), `--from-price-plan-terms-accepted-on-local` (range), `--to-price-plan-terms-accepted-on-local` (range), `--cancellation-date-local` (DateTime), `--from-cancellation-date-local` (range), `--to-cancellation-date-local` (range), `--contract-term-local` (DateTime), `--from-contract-term-local` (range), `--to-contract-term-local` (range), `--invoiced-period-local` (DateTime), `--from-invoiced-period-local` (range), `--to-invoiced-period-local` (range), `--po-box-number`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--issued-by-id` | long |  |
+| `--coworker-id` | long |  |
+| `--tariff-id` | long |  |
+| `--next-tariff-id` | long |  |
+| `--notes` | string | Free-text notes for this contract |
+| `--start-date` | DateTime | Contract start date |
+| `--from-start-date` | range | |
+| `--to-start-date` | range | |
+| `--billing-day` | int | Day of month on which billing occurs |
+| `--from-billing-day` | range | |
+| `--to-billing-day` | range | |
+| `--renewal-date` | DateTime | Date on which the contract will next be automatically invoiced. Updated automatically every time the contract is invoiced, advancing by the plan's renewal period |
+| `--from-renewal-date` | range | |
+| `--to-renewal-date` | range | |
+| `--invoiced-period` | DateTime | Period the next invoice will cover. For new contracts this equals RenewalDate. If Tariff.AdvanceInvoiceCycles > 1, Nexudus invoices several periods at once on the first invoice, pushing InvoicedPeriod ahead of RenewalDate. Nexudus stops invoicing when InvoicedPeriod reaches the cancellation date |
+| `--from-invoiced-period` | range | |
+| `--to-invoiced-period` | range | |
+| `--contract-term` | DateTime | Minimum contract length end date. Defines the earliest date at which the contract can be cancelled without penalty |
+| `--from-contract-term` | range | |
+| `--to-contract-term` | range | |
+| `--price` | decimal | Fixed price override for this contract. If null, the contract uses the plan's default price (TariffPrice) |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--value` | decimal | Contract value used in reporting to compare against the actual invoiced price |
+| `--from-value` | range | |
+| `--to-value` | range | |
+| `--quantity` | int | Quantity |
+| `--from-quantity` | range | |
+| `--to-quantity` | range | |
+| `--purchase-order` | string | Purchase order |
+| `--include-signup-fee` | bool | Whether to include the plan's signup fee when creating this contract |
+| `--invoice-advanced-cycles` | bool | Whether to invoice multiple billing cycles in advance on the first invoice, as configured by Tariff.AdvanceInvoiceCycles |
+| `--apply-pro-rating` | bool | Whether to pro-rate the first invoice based on the contract start date relative to the billing cycle |
+| `--next-auto-invoice` | DateTime | Date of the next automatic invoice generation for this contract |
+| `--from-next-auto-invoice` | range | |
+| `--to-next-auto-invoice` | range | |
+| `--price-plan-terms-accepted` | bool | Whether the customer has accepted the plan's terms and conditions |
+| `--cancellation-date` | DateTime | Date on which the contract will be cancelled. Nexudus stops invoicing when InvoicedPeriod reaches this date |
+| `--from-cancellation-date` | range | |
+| `--to-cancellation-date` | range | |
+| `--cancellation-limit-days` | int | Minimum number of days' notice required before cancellation takes effect |
+| `--from-cancellation-limit-days` | range | |
+| `--to-cancellation-limit-days` | range | |
+| `--pro-rate-cancellation` | bool | Whether to pro-rate the final invoice when the contract is cancelled mid-cycle |
+| `--cancel-team-contracts` | bool | Whether to cascade cancellation to contracts of team members under this customer |
+| `--cancellation-reason` | enum | Reason for cancellation |
+| `--cancellation-notes` | string | Free-text notes about the cancellation |
+| `--delivery-preference-checks` | enum | Delivery handling preference for checks |
+| `--delivery-preference-mail` | enum | Delivery handling preference for mail |
+| `--delivery-preference-parcels` | enum | Delivery handling preference for parcels |
+| `--delivery-preference-publicity` | enum | Delivery handling preference for publicity |
+| `--delivery-instructions` | string | Free-text delivery instructions for this contract's mail handling |
+| `--identity-checks-due-on` | DateTime | Date by which identity verification checks must be completed for this contract |
+| `--from-identity-checks-due-on` | range | |
+| `--to-identity-checks-due-on` | range | |
+| `--address-checks-due-on` | DateTime | Date by which address verification checks must be completed for this contract |
+| `--from-address-checks-due-on` | range | |
+| `--to-address-checks-due-on` | range | |
+| `--start-date-local` | DateTime |  |
+| `--from-start-date-local` | range | |
+| `--to-start-date-local` | range | |
+| `--renewal-date-local` | DateTime |  |
+| `--from-renewal-date-local` | range | |
+| `--to-renewal-date-local` | range | |
+| `--next-auto-invoice-local` | DateTime |  |
+| `--from-next-auto-invoice-local` | range | |
+| `--to-next-auto-invoice-local` | range | |
+| `--price-plan-terms-accepted-on-local` | DateTime |  |
+| `--from-price-plan-terms-accepted-on-local` | range | |
+| `--to-price-plan-terms-accepted-on-local` | range | |
+| `--cancellation-date-local` | DateTime |  |
+| `--from-cancellation-date-local` | range | |
+| `--to-cancellation-date-local` | range | |
+| `--contract-term-local` | DateTime |  |
+| `--from-contract-term-local` | range | |
+| `--to-contract-term-local` | range | |
+| `--invoiced-period-local` | DateTime |  |
+| `--from-invoiced-period-local` | range | |
+| `--to-invoiced-period-local` | range | |
+| `--po-box-number` | string | PO box number |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerContract create options
 
-`--issued-by-id` (long, required), `--coworker-id` (long, required), `--tariff-id` (long, required), `--next-tariff-id` (long), `--notes`, `--start-date` (DateTime), `--billing-day` (int, required), `--renewal-date` (DateTime), `--invoiced-period` (DateTime), `--contract-term` (DateTime), `--price` (decimal), `--value` (decimal), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--quantity` (int, required), `--purchase-order`, `--include-signup-fee` (bool), `--invoice-advanced-cycles` (bool), `--apply-pro-rating` (bool), `--next-auto-invoice` (DateTime), `--price-plan-terms-accepted` (bool), `--cancellation-date` (DateTime), `--cancellation-limit-days` (int), `--pro-rate-cancellation` (bool), `--cancel-team-contracts` (bool), `--cancellation-reason` (enum), `--cancellation-notes`, `--delivery-preference-checks` (enum), `--delivery-preference-mail` (enum), `--delivery-preference-parcels` (enum), `--delivery-preference-publicity` (enum), `--delivery-instructions`, `--identity-checks-due-on` (DateTime), `--address-checks-due-on` (DateTime), `--start-date-local` (DateTime), `--renewal-date-local` (DateTime), `--next-auto-invoice-local` (DateTime), `--price-plan-terms-accepted-on-local` (DateTime), `--cancellation-date-local` (DateTime), `--contract-term-local` (DateTime), `--invoiced-period-local` (DateTime), `--po-box-number`, `--contract-schedules` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--issued-by-id` | long, required |  |
+| `--coworker-id` | long, required |  |
+| `--tariff-id` | long, required |  |
+| `--next-tariff-id` | long |  |
+| `--notes` | string | Free-text notes for this contract |
+| `--start-date` | DateTime | Contract start date |
+| `--billing-day` | int, required | Day of month on which billing occurs |
+| `--renewal-date` | DateTime | Date on which the contract will next be automatically invoiced. Updated automatically every time the contract is invoiced, advancing by the plan's renewal period |
+| `--invoiced-period` | DateTime | Period the next invoice will cover. For new contracts this equals RenewalDate. If Tariff.AdvanceInvoiceCycles > 1, Nexudus invoices several periods at once on the first invoice, pushing InvoicedPeriod ahead of RenewalDate. Nexudus stops invoicing when InvoicedPeriod reaches the cancellation date |
+| `--contract-term` | DateTime | Minimum contract length end date. Defines the earliest date at which the contract can be cancelled without penalty |
+| `--price` | decimal | Fixed price override for this contract. If null, the contract uses the plan's default price (TariffPrice) |
+| `--value` | decimal | Contract value used in reporting to compare against the actual invoiced price |
+| `--desks` | list, repeat flag |  |
+| `--added-desks` | list, repeat flag |  |
+| `--removed-desks` | list, repeat flag |  |
+| `--variants` | list, repeat flag |  |
+| `--added-variants` | list, repeat flag |  |
+| `--removed-variants` | list, repeat flag |  |
+| `--quantity` | int, required | Quantity |
+| `--purchase-order` | string | Purchase order |
+| `--include-signup-fee` | bool | Whether to include the plan's signup fee when creating this contract |
+| `--invoice-advanced-cycles` | bool | Whether to invoice multiple billing cycles in advance on the first invoice, as configured by Tariff.AdvanceInvoiceCycles |
+| `--apply-pro-rating` | bool | Whether to pro-rate the first invoice based on the contract start date relative to the billing cycle |
+| `--next-auto-invoice` | DateTime | Date of the next automatic invoice generation for this contract |
+| `--price-plan-terms-accepted` | bool | Whether the customer has accepted the plan's terms and conditions |
+| `--cancellation-date` | DateTime | Date on which the contract will be cancelled. Nexudus stops invoicing when InvoicedPeriod reaches this date |
+| `--cancellation-limit-days` | int | Minimum number of days' notice required before cancellation takes effect |
+| `--pro-rate-cancellation` | bool | Whether to pro-rate the final invoice when the contract is cancelled mid-cycle |
+| `--cancel-team-contracts` | bool | Whether to cascade cancellation to contracts of team members under this customer |
+| `--cancellation-reason` | enum | Reason for cancellation |
+| `--cancellation-notes` | string | Free-text notes about the cancellation |
+| `--delivery-preference-checks` | enum | Delivery handling preference for checks |
+| `--delivery-preference-mail` | enum | Delivery handling preference for mail |
+| `--delivery-preference-parcels` | enum | Delivery handling preference for parcels |
+| `--delivery-preference-publicity` | enum | Delivery handling preference for publicity |
+| `--delivery-instructions` | string | Free-text delivery instructions for this contract's mail handling |
+| `--identity-checks-due-on` | DateTime | Date by which identity verification checks must be completed for this contract |
+| `--address-checks-due-on` | DateTime | Date by which address verification checks must be completed for this contract |
+| `--start-date-local` | DateTime |  |
+| `--renewal-date-local` | DateTime |  |
+| `--next-auto-invoice-local` | DateTime |  |
+| `--price-plan-terms-accepted-on-local` | DateTime |  |
+| `--cancellation-date-local` | DateTime |  |
+| `--contract-term-local` | DateTime |  |
+| `--invoiced-period-local` | DateTime |  |
+| `--po-box-number` | string | PO box number |
+| `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 
 #### CoworkerContract update options
 
-`--issued-by-id` (long), `--coworker-id` (long), `--tariff-id` (long), `--next-tariff-id` (long), `--notes`, `--start-date` (DateTime), `--billing-day` (int), `--renewal-date` (DateTime), `--invoiced-period` (DateTime), `--contract-term` (DateTime), `--price` (decimal), `--value` (decimal), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--quantity` (int), `--purchase-order`, `--include-signup-fee` (bool), `--invoice-advanced-cycles` (bool), `--apply-pro-rating` (bool), `--next-auto-invoice` (DateTime), `--price-plan-terms-accepted` (bool), `--cancellation-date` (DateTime), `--cancellation-limit-days` (int), `--pro-rate-cancellation` (bool), `--cancel-team-contracts` (bool), `--cancellation-reason` (enum), `--cancellation-notes`, `--delivery-preference-checks` (enum), `--delivery-preference-mail` (enum), `--delivery-preference-parcels` (enum), `--delivery-preference-publicity` (enum), `--delivery-instructions`, `--identity-checks-due-on` (DateTime), `--address-checks-due-on` (DateTime), `--start-date-local` (DateTime), `--renewal-date-local` (DateTime), `--next-auto-invoice-local` (DateTime), `--price-plan-terms-accepted-on-local` (DateTime), `--cancellation-date-local` (DateTime), `--contract-term-local` (DateTime), `--invoiced-period-local` (DateTime), `--po-box-number`, `--contract-schedules` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--issued-by-id` | long |  |
+| `--coworker-id` | long |  |
+| `--tariff-id` | long |  |
+| `--next-tariff-id` | long |  |
+| `--notes` | string | Free-text notes for this contract |
+| `--start-date` | DateTime | Contract start date |
+| `--billing-day` | int | Day of month on which billing occurs |
+| `--renewal-date` | DateTime | Date on which the contract will next be automatically invoiced. Updated automatically every time the contract is invoiced, advancing by the plan's renewal period |
+| `--invoiced-period` | DateTime | Period the next invoice will cover. For new contracts this equals RenewalDate. If Tariff.AdvanceInvoiceCycles > 1, Nexudus invoices several periods at once on the first invoice, pushing InvoicedPeriod ahead of RenewalDate. Nexudus stops invoicing when InvoicedPeriod reaches the cancellation date |
+| `--contract-term` | DateTime | Minimum contract length end date. Defines the earliest date at which the contract can be cancelled without penalty |
+| `--price` | decimal | Fixed price override for this contract. If null, the contract uses the plan's default price (TariffPrice) |
+| `--value` | decimal | Contract value used in reporting to compare against the actual invoiced price |
+| `--desks` | list, repeat flag |  |
+| `--added-desks` | list, repeat flag |  |
+| `--removed-desks` | list, repeat flag |  |
+| `--variants` | list, repeat flag |  |
+| `--added-variants` | list, repeat flag |  |
+| `--removed-variants` | list, repeat flag |  |
+| `--quantity` | int | Quantity |
+| `--purchase-order` | string | Purchase order |
+| `--include-signup-fee` | bool | Whether to include the plan's signup fee when creating this contract |
+| `--invoice-advanced-cycles` | bool | Whether to invoice multiple billing cycles in advance on the first invoice, as configured by Tariff.AdvanceInvoiceCycles |
+| `--apply-pro-rating` | bool | Whether to pro-rate the first invoice based on the contract start date relative to the billing cycle |
+| `--next-auto-invoice` | DateTime | Date of the next automatic invoice generation for this contract |
+| `--price-plan-terms-accepted` | bool | Whether the customer has accepted the plan's terms and conditions |
+| `--cancellation-date` | DateTime | Date on which the contract will be cancelled. Nexudus stops invoicing when InvoicedPeriod reaches this date |
+| `--cancellation-limit-days` | int | Minimum number of days' notice required before cancellation takes effect |
+| `--pro-rate-cancellation` | bool | Whether to pro-rate the final invoice when the contract is cancelled mid-cycle |
+| `--cancel-team-contracts` | bool | Whether to cascade cancellation to contracts of team members under this customer |
+| `--cancellation-reason` | enum | Reason for cancellation |
+| `--cancellation-notes` | string | Free-text notes about the cancellation |
+| `--delivery-preference-checks` | enum | Delivery handling preference for checks |
+| `--delivery-preference-mail` | enum | Delivery handling preference for mail |
+| `--delivery-preference-parcels` | enum | Delivery handling preference for parcels |
+| `--delivery-preference-publicity` | enum | Delivery handling preference for publicity |
+| `--delivery-instructions` | string | Free-text delivery instructions for this contract's mail handling |
+| `--identity-checks-due-on` | DateTime | Date by which identity verification checks must be completed for this contract |
+| `--address-checks-due-on` | DateTime | Date by which address verification checks must be completed for this contract |
+| `--start-date-local` | DateTime |  |
+| `--renewal-date-local` | DateTime |  |
+| `--next-auto-invoice-local` | DateTime |  |
+| `--price-plan-terms-accepted-on-local` | DateTime |  |
+| `--cancellation-date-local` | DateTime |  |
+| `--contract-term-local` | DateTime |  |
+| `--invoiced-period-local` | DateTime |  |
+| `--po-box-number` | string | PO box number |
+| `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 
 ### CoworkerContract (key fields)
 

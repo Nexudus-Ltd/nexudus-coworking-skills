@@ -19,15 +19,40 @@ UserRoles support Search, Get, Create, Update, Delete.
 
 #### UserRole list filter options
 
-`--business-id` (long), `--name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### UserRole create options
 
-`--business-id` (long, required), `--name` (required), `--roles` (list, repeat flag), `--added-roles` (list, repeat flag), `--removed-roles` (list, repeat flag), `--users` (list, repeat flag), `--added-users` (list, repeat flag), `--removed-users` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--roles` | list, repeat flag |  |
+| `--added-roles` | list, repeat flag |  |
+| `--removed-roles` | list, repeat flag |  |
+| `--users` | list, repeat flag |  |
+| `--added-users` | list, repeat flag |  |
+| `--removed-users` | list, repeat flag |  |
 
 #### UserRole update options
 
-`--business-id` (long), `--name`, `--roles` (list, repeat flag), `--added-roles` (list, repeat flag), `--removed-roles` (list, repeat flag), `--users` (list, repeat flag), `--added-users` (list, repeat flag), `--removed-users` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--roles` | list, repeat flag |  |
+| `--added-roles` | list, repeat flag |  |
+| `--removed-roles` | list, repeat flag |  |
+| `--users` | list, repeat flag |  |
+| `--added-users` | list, repeat flag |  |
+| `--removed-users` | list, repeat flag |  |
 
 **List properties (only returned by `get`, not by `list`):** `Roles`, `AddedRoles`, `RemovedRoles`, `Users`, `AddedUsers`, `RemovedUsers`
 

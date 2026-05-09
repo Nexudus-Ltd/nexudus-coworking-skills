@@ -33,15 +33,37 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 #### FinancialAccount list filter options
 
-`--business-id` (long), `--name`, `--code`, `--description`, `--account-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name for this financial account |
+| `--code` | string | Short reference code, typically matching the account code in an external accounting system |
+| `--description` | string | Optional free-text description of the account's purpose |
+| `--account-type` | enum | Category of the account: Sales (1), Payments (2) or Deposits (3) |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FinancialAccount create options
 
-`--business-id` (long, required), `--name` (required), `--code` (required), `--description`, `--account-type` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Display name for this financial account |
+| `--code` | string, required | Short reference code, typically matching the account code in an external accounting system |
+| `--description` | string | Optional free-text description of the account's purpose |
+| `--account-type` | enum, required | Category of the account: Sales (1), Payments (2) or Deposits (3) |
 
 #### FinancialAccount update options
 
-`--business-id` (long), `--name`, `--code`, `--description`, `--account-type` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name for this financial account |
+| `--code` | string | Short reference code, typically matching the account code in an external accounting system |
+| `--description` | string | Optional free-text description of the account's purpose |
+| `--account-type` | enum | Category of the account: Sales (1), Payments (2) or Deposits (3) |
 
 ### FinancialAccount (key fields)
 

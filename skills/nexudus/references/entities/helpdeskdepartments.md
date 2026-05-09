@@ -19,15 +19,43 @@ HelpDeskDepartments support Search, Get, Create, Update, Delete.
 
 #### HelpDeskDepartment list filter options
 
-`--business-id` (long), `--name`, `--description`, `--active` (bool), `--task-list-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
+| `--active` | bool |  |
+| `--task-list-id` | long |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### HelpDeskDepartment create options
 
-`--business-id` (long, required), `--name` (required), `--description` (required), `--active` (bool), `--managers` (list, repeat flag), `--added-managers` (list, repeat flag), `--removed-managers` (list, repeat flag), `--task-list-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--description` | string, required |  |
+| `--active` | bool |  |
+| `--managers` | list, repeat flag |  |
+| `--added-managers` | list, repeat flag |  |
+| `--removed-managers` | list, repeat flag |  |
+| `--task-list-id` | long |  |
 
 #### HelpDeskDepartment update options
 
-`--business-id` (long), `--name`, `--description`, `--active` (bool), `--managers` (list, repeat flag), `--added-managers` (list, repeat flag), `--removed-managers` (list, repeat flag), `--task-list-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
+| `--active` | bool |  |
+| `--managers` | list, repeat flag |  |
+| `--added-managers` | list, repeat flag |  |
+| `--removed-managers` | list, repeat flag |  |
+| `--task-list-id` | long |  |
 
 **List properties (only returned by `get`, not by `list`):** `Managers`, `AddedManagers`, `RemovedManagers`
 

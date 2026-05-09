@@ -19,14 +19,35 @@ UserBookmarks support Search, Get, Create, Update, Delete.
 
 #### UserBookmark list filter options
 
-`--user-id` (long), `--entity-id` (int), `--from-entity-id` (range), `--to-entity-id` (range), `--name`, `--entity-url`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--user-id` | long |  |
+| `--entity-id` | int |  |
+| `--from-entity-id` | range | |
+| `--to-entity-id` | range | |
+| `--name` | string |  |
+| `--entity-url` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### UserBookmark create options
 
-`--user-id` (long, required), `--entity-id` (int, required), `--name` (required), `--entity-url` (required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--user-id` | long, required |  |
+| `--entity-id` | int, required |  |
+| `--name` | string, required |  |
+| `--entity-url` | string, required |  |
 
 #### UserBookmark update options
 
-`--user-id` (long), `--entity-id` (int), `--name`, `--entity-url`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--user-id` | long |  |
+| `--entity-id` | int |  |
+| `--name` | string |  |
+| `--entity-url` | string |  |
 
 <!-- END:GENERATED entity=UserBookmarks -->

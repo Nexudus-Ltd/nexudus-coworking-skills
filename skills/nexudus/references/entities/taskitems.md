@@ -19,14 +19,44 @@ TaskItems support Search, Get, Create, Update, Delete.
 
 #### TaskItem list filter options
 
-`--task-list-id` (long), `--responsible-id` (long), `--name`, `--active` (bool), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--delay-in-hours` (int), `--from-delay-in-hours` (range), `--to-delay-in-hours` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--task-list-id` | long |  |
+| `--responsible-id` | long |  |
+| `--name` | string |  |
+| `--active` | bool |  |
+| `--notify-by-email` | bool |  |
+| `--display-to-everyone` | bool |  |
+| `--delay-in-hours` | int |  |
+| `--from-delay-in-hours` | range | |
+| `--to-delay-in-hours` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TaskItem create options
 
-`--task-list-id` (long, required), `--responsible-id` (long, required), `--name` (required), `--active` (bool), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--delay-in-hours` (int, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--task-list-id` | long, required |  |
+| `--responsible-id` | long, required |  |
+| `--name` | string, required |  |
+| `--active` | bool |  |
+| `--notify-by-email` | bool |  |
+| `--display-to-everyone` | bool |  |
+| `--delay-in-hours` | int, required |  |
 
 #### TaskItem update options
 
-`--task-list-id` (long), `--responsible-id` (long), `--name`, `--active` (bool), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--delay-in-hours` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--task-list-id` | long |  |
+| `--responsible-id` | long |  |
+| `--name` | string |  |
+| `--active` | bool |  |
+| `--notify-by-email` | bool |  |
+| `--display-to-everyone` | bool |  |
+| `--delay-in-hours` | int |  |
 
 <!-- END:GENERATED entity=TaskItems -->

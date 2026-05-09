@@ -19,15 +19,41 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
 #### TariffDefaultDueDate list filter options
 
-`--business-id` (long), `--auto-collect-on` (int), `--from-auto-collect-on` (range), `--to-auto-collect-on` (range), `--auto-collect-after` (int), `--from-auto-collect-after` (range), `--to-auto-collect-after` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--auto-collect-on` | int | Day of month to auto collect |
+| `--from-auto-collect-on` | range | |
+| `--to-auto-collect-on` | range | |
+| `--auto-collect-after` | int | Days after invoice to auto collect |
+| `--from-auto-collect-after` | range | |
+| `--to-auto-collect-after` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TariffDefaultDueDate create options
 
-`--business-id` (long, required), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--auto-collect-on` (int), `--auto-collect-after` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--auto-collect-on` | int | Day of month to auto collect |
+| `--auto-collect-after` | int | Days after invoice to auto collect |
 
 #### TariffDefaultDueDate update options
 
-`--business-id` (long), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--auto-collect-on` (int), `--auto-collect-after` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--auto-collect-on` | int | Day of month to auto collect |
+| `--auto-collect-after` | int | Days after invoice to auto collect |
 
 ### TariffDefaultDueDate (key fields)
 

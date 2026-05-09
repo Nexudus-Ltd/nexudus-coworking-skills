@@ -23,15 +23,45 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 
 #### BlogPostComment list filter options
 
-`--business-id` (long), `--blog-post-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int), `--from-rating` (range), `--to-rating` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--blog-post-id` | long |  |
+| `--posted-by-id` | long |  |
+| `--title` | string | Comment title |
+| `--text` | string | Comment body text |
+| `--published` | bool | Whether the comment is published and visible to readers |
+| `--rating` | int | Optional rating given by the commenter |
+| `--from-rating` | range | |
+| `--to-rating` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BlogPostComment create options
 
-`--business-id` (long, required), `--blog-post-id` (long, required), `--posted-by-id` (long), `--title` (required), `--text` (required), `--published` (bool), `--rating` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--blog-post-id` | long, required |  |
+| `--posted-by-id` | long |  |
+| `--title` | string, required | Comment title |
+| `--text` | string, required | Comment body text |
+| `--published` | bool | Whether the comment is published and visible to readers |
+| `--rating` | int | Optional rating given by the commenter |
 
 #### BlogPostComment update options
 
-`--business-id` (long), `--blog-post-id` (long), `--posted-by-id` (long), `--title`, `--text`, `--published` (bool), `--rating` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--blog-post-id` | long |  |
+| `--posted-by-id` | long |  |
+| `--title` | string | Comment title |
+| `--text` | string | Comment body text |
+| `--published` | bool | Whether the comment is published and visible to readers |
+| `--rating` | int | Optional rating given by the commenter |
 
 ### BlogPostComment (key fields)
 

@@ -28,15 +28,47 @@ BusinessDomains support Search, Get, Create, Update, Delete.
 
 #### BusinessDomain list filter options
 
-`--business-id` (long), `--name`, `--domain-url`, `--active` (bool), `--ssl-proxy` (bool), `--active-from` (DateTime), `--from-active-from` (range), `--to-active-from` (range), `--active-to` (DateTime), `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name for this domain mapping |
+| `--domain-url` | string | The custom domain or subdomain hostname — despite the name, this is just the bare domain (e.g. coworking.com or london.coworking.com), without https:// or any path |
+| `--active` | bool | Whether this domain mapping is active |
+| `--ssl-proxy` | bool | Must always be set to true |
+| `--active-from` | DateTime | Date from which this domain mapping becomes active |
+| `--from-active-from` | range | |
+| `--to-active-from` | range | |
+| `--active-to` | DateTime | Date after which this domain mapping is no longer active |
+| `--from-active-to` | range | |
+| `--to-active-to` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BusinessDomain create options
 
-`--business-id` (long, required), `--name` (required), `--domain-url` (required), `--active` (bool), `--ssl-proxy` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Display name for this domain mapping |
+| `--domain-url` | string, required | The custom domain or subdomain hostname — despite the name, this is just the bare domain (e.g. coworking.com or london.coworking.com), without https:// or any path |
+| `--active` | bool | Whether this domain mapping is active |
+| `--ssl-proxy` | bool | Must always be set to true |
+| `--active-from` | DateTime | Date from which this domain mapping becomes active |
+| `--active-to` | DateTime | Date after which this domain mapping is no longer active |
 
 #### BusinessDomain update options
 
-`--business-id` (long), `--name`, `--domain-url`, `--active` (bool), `--ssl-proxy` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name for this domain mapping |
+| `--domain-url` | string | The custom domain or subdomain hostname — despite the name, this is just the bare domain (e.g. coworking.com or london.coworking.com), without https:// or any path |
+| `--active` | bool | Whether this domain mapping is active |
+| `--ssl-proxy` | bool | Must always be set to true |
+| `--active-from` | DateTime | Date from which this domain mapping becomes active |
+| `--active-to` | DateTime | Date after which this domain mapping is no longer active |
 
 ### BusinessDomain (key fields)
 

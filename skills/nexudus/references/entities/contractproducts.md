@@ -27,15 +27,54 @@ ContractProducts support Search, Get, Create, Update, Delete.
 
 #### ContractProduct list filter options
 
-`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--repeat-from` (DateTime), `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until` (DateTime), `--from-repeat-until` (range), `--to-repeat-until` (range), `--apply-pro-rating` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long | Contract to add this product to |
+| `--product-id` | long | Product to bill on each contract invoice |
+| `--notes` | string | Notes |
+| `--quantity` | int | Quantity |
+| `--from-quantity` | range | |
+| `--to-quantity` | range | |
+| `--price` | decimal | Price override |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--from-repeat-from` | range | |
+| `--to-repeat-from` | range | |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--from-repeat-until` | range | |
+| `--to-repeat-until` | range | |
+| `--apply-pro-rating` | bool | Apply pro-rating to this product charge. Only takes effect when the location plan has prorating enabled (Tariff.ProrateDaysBefore > 0). |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ContractProduct create options
 
-`--coworker-contract-id` (long, required), `--product-id` (long, required), `--notes`, `--quantity` (int, required), `--price` (decimal), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--apply-pro-rating` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long, required | Contract to add this product to |
+| `--product-id` | long, required | Product to bill on each contract invoice |
+| `--notes` | string | Notes |
+| `--quantity` | int, required | Quantity |
+| `--price` | decimal | Price override |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--apply-pro-rating` | bool | Apply pro-rating to this product charge. Only takes effect when the location plan has prorating enabled (Tariff.ProrateDaysBefore > 0). |
 
 #### ContractProduct update options
 
-`--coworker-contract-id` (long), `--product-id` (long), `--notes`, `--quantity` (int), `--price` (decimal), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--apply-pro-rating` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long | Contract to add this product to |
+| `--product-id` | long | Product to bill on each contract invoice |
+| `--notes` | string | Notes |
+| `--quantity` | int | Quantity |
+| `--price` | decimal | Price override |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--apply-pro-rating` | bool | Apply pro-rating to this product charge. Only takes effect when the location plan has prorating enabled (Tariff.ProrateDaysBefore > 0). |
 
 ### ContractProduct (key fields)
 

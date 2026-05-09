@@ -25,15 +25,50 @@ CoworkerDiscountCodes support Search, Get, Create, Update, Delete.
 
 #### CoworkerDiscountCode list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--discount-code-id` (long), `--notes`, `--valid-from` (DateTime), `--from-valid-from` (range), `--to-valid-from` (range), `--expires-on` (DateTime), `--from-expires-on` (range), `--to-expires-on` (range), `--referer-guid`, `--booking-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer this discount code is assigned to |
+| `--business-id` | long | ID of the location this assignment belongs to |
+| `--discount-code-id` | long | ID of the discount code assigned to this customer |
+| `--notes` | string | Optional notes about this discount code assignment |
+| `--valid-from` | DateTime | Customer-specific date from which this discount code assignment becomes valid |
+| `--from-valid-from` | range | |
+| `--to-valid-from` | range | |
+| `--expires-on` | DateTime | Customer-specific date after which this discount code assignment expires |
+| `--from-expires-on` | range | |
+| `--to-expires-on` | range | |
+| `--referer-guid` | string | Unique identifier of the customer who referred this customer, when the discount is part of the referral programme |
+| `--booking-unique-id` | string | Unique identifier of the booking to which this discount code was applied |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerDiscountCode create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--discount-code-id` (long, required), `--notes`, `--valid-from` (DateTime), `--expires-on` (DateTime), `--referer-guid`, `--booking-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | ID of the customer this discount code is assigned to |
+| `--business-id` | long, required | ID of the location this assignment belongs to |
+| `--discount-code-id` | long, required | ID of the discount code assigned to this customer |
+| `--notes` | string | Optional notes about this discount code assignment |
+| `--valid-from` | DateTime | Customer-specific date from which this discount code assignment becomes valid |
+| `--expires-on` | DateTime | Customer-specific date after which this discount code assignment expires |
+| `--referer-guid` | string | Unique identifier of the customer who referred this customer, when the discount is part of the referral programme |
+| `--booking-unique-id` | string | Unique identifier of the booking to which this discount code was applied |
 
 #### CoworkerDiscountCode update options
 
-`--coworker-id` (long), `--business-id` (long), `--discount-code-id` (long), `--notes`, `--valid-from` (DateTime), `--expires-on` (DateTime), `--referer-guid`, `--booking-unique-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | ID of the customer this discount code is assigned to |
+| `--business-id` | long | ID of the location this assignment belongs to |
+| `--discount-code-id` | long | ID of the discount code assigned to this customer |
+| `--notes` | string | Optional notes about this discount code assignment |
+| `--valid-from` | DateTime | Customer-specific date from which this discount code assignment becomes valid |
+| `--expires-on` | DateTime | Customer-specific date after which this discount code assignment expires |
+| `--referer-guid` | string | Unique identifier of the customer who referred this customer, when the discount is part of the referral programme |
+| `--booking-unique-id` | string | Unique identifier of the booking to which this discount code was applied |
 
 ### CoworkerDiscountCode (key fields)
 

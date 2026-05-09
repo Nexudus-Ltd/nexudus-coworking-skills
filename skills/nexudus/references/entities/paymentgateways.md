@@ -25,15 +25,47 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 
 #### PaymentGateway list filter options
 
-`--business-id` (long), `--name`, `--payment-gateway-type` (enum), `--attempt3d-secure` (bool), `--configuration-xml`, `--transaction-fee` (decimal), `--from-transaction-fee` (range), `--to-transaction-fee` (range), `--financial-account-id` (long), `--tax-rate-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name for this payment gateway configuration |
+| `--payment-gateway-type` | enum | The payment provider to use (e.g. stripe, braintree, adyen). Determines which credentials are required |
+| `--attempt3d-secure` | bool |  |
+| `--configuration-xml` | string | Provider-specific configuration in XML format (e.g. merchant ID, additional keys) |
+| `--transaction-fee` | decimal | Fee charged per transaction processed through this gateway |
+| `--from-transaction-fee` | range | |
+| `--to-transaction-fee` | range | |
+| `--financial-account-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### PaymentGateway create options
 
-`--business-id` (long, required), `--name` (required), `--payment-gateway-type` (enum, required), `--attempt3d-secure` (bool), `--configuration-xml`, `--transaction-fee` (decimal), `--financial-account-id` (long), `--tax-rate-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Display name for this payment gateway configuration |
+| `--payment-gateway-type` | enum, required | The payment provider to use (e.g. stripe, braintree, adyen). Determines which credentials are required |
+| `--attempt3d-secure` | bool |  |
+| `--configuration-xml` | string | Provider-specific configuration in XML format (e.g. merchant ID, additional keys) |
+| `--transaction-fee` | decimal | Fee charged per transaction processed through this gateway |
+| `--financial-account-id` | long |  |
+| `--tax-rate-id` | long |  |
 
 #### PaymentGateway update options
 
-`--business-id` (long), `--name`, `--attempt3d-secure` (bool), `--configuration-xml`, `--transaction-fee` (decimal), `--financial-account-id` (long), `--tax-rate-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name for this payment gateway configuration |
+| `--attempt3d-secure` | bool |  |
+| `--configuration-xml` | string | Provider-specific configuration in XML format (e.g. merchant ID, additional keys) |
+| `--transaction-fee` | decimal | Fee charged per transaction processed through this gateway |
+| `--financial-account-id` | long |  |
+| `--tax-rate-id` | long |  |
 
 ### PaymentGateway (key fields)
 

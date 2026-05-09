@@ -19,14 +19,65 @@ FaqArticles support Search, Get, Create, Update, Delete.
 
 #### FaqArticle list filter options
 
-`--business-id` (long), `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--title` | string |  |
+| `--summary-text` | string |  |
+| `--full-text` | string |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--new-large-image-url` | string |  |
+| `--clear-large-image-file` | bool |  |
+| `--active` | bool |  |
+| `--group-name` | string |  |
+| `--display-order` | int |  |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--show-in-home-page` | bool |  |
+| `--only-for-contacts` | bool |  |
+| `--only-for-members` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FaqArticle create options
 
-`--business-id` (long, required), `--title` (required), `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int, required), `--show-in-home-page` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--title` | string, required |  |
+| `--summary-text` | string |  |
+| `--full-text` | string |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--new-large-image-url` | string |  |
+| `--clear-large-image-file` | bool |  |
+| `--active` | bool |  |
+| `--group-name` | string |  |
+| `--display-order` | int, required |  |
+| `--show-in-home-page` | bool |  |
+| `--only-for-contacts` | bool |  |
+| `--only-for-members` | bool |  |
 
 #### FaqArticle update options
 
-`--business-id` (long), `--title`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--show-in-home-page` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--title` | string |  |
+| `--summary-text` | string |  |
+| `--full-text` | string |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--new-large-image-url` | string |  |
+| `--clear-large-image-file` | bool |  |
+| `--active` | bool |  |
+| `--group-name` | string |  |
+| `--display-order` | int |  |
+| `--show-in-home-page` | bool |  |
+| `--only-for-contacts` | bool |  |
+| `--only-for-members` | bool |  |
 
 <!-- END:GENERATED entity=FaqArticles -->

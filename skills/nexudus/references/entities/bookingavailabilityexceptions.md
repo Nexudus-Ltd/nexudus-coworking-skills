@@ -26,15 +26,50 @@ BookingAvailabilityExceptions also support entity commands.
 
 #### BookingAvailabilityException list filter options
 
-`--business-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--message`, `--active` (bool), `--every-year` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--from-time` | DateTime | Start date/time of the blocked period |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | DateTime | End date/time of the blocked period |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--message` | string | Message shown to users who attempt to book a blocked resource |
+| `--active` | bool | Whether this exception is currently enforced |
+| `--every-year` | bool | Whether this exception recurs annually on the same dates |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BookingAvailabilityException create options
 
-`--business-id` (long, required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--message` (required), `--active` (bool), `--every-year` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--from-time` | DateTime, required | Start date/time of the blocked period |
+| `--to-time` | DateTime, required | End date/time of the blocked period |
+| `--message` | string, required | Message shown to users who attempt to book a blocked resource |
+| `--active` | bool | Whether this exception is currently enforced |
+| `--every-year` | bool | Whether this exception recurs annually on the same dates |
 
 #### BookingAvailabilityException update options
 
-`--business-id` (long), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--from-time` (DateTime), `--to-time` (DateTime), `--message`, `--active` (bool), `--every-year` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--from-time` | DateTime | Start date/time of the blocked period |
+| `--to-time` | DateTime | End date/time of the blocked period |
+| `--message` | string | Message shown to users who attempt to book a blocked resource |
+| `--active` | bool | Whether this exception is currently enforced |
+| `--every-year` | bool | Whether this exception recurs annually on the same dates |
 
 ### BookingAvailabilityException (key fields)
 

@@ -21,15 +21,96 @@ Visitors also support entity commands.
 
 #### Visitor list filter options
 
-`--business-id` (long), `--full-name`, `--email`, `--coworker-id` (long), `--visitor-source` (enum), `--host-approval-status` (enum), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (DateTime), `--from-expected-arrival` (range), `--to-expected-arrival` (range), `--arrived` (bool), `--arrival-date` (DateTime), `--from-arrival-date` (range), `--to-arrival-date` (range), `--departure-date` (DateTime), `--from-departure-date` (range), `--to-departure-date` (range), `--notified` (bool), `--internal` (bool), `--is-tour` (bool), `--has-agreed-terms` (bool), `--tour-confirmed` (bool), `--access-control-scheduled-job-id`, `--check-in-now` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--full-name` | string | Visitor full name |
+| `--email` | string | Visitor email |
+| `--coworker-id` | long |  |
+| `--visitor-source` | enum | Visitor source |
+| `--host-approval-status` | enum | Host approval status |
+| `--checked-in-at` | string | Location checked in at |
+| `--notes` | string | Notes |
+| `--customer-notes` | string | Customer notes |
+| `--visit-reason` | string | Reason for visit |
+| `--company-name` | string | Visitor company name |
+| `--phone-number` | string | Visitor phone number |
+| `--expected-arrival` | DateTime | Expected arrival date and time |
+| `--from-expected-arrival` | range | |
+| `--to-expected-arrival` | range | |
+| `--arrived` | bool | Whether the visitor has arrived |
+| `--arrival-date` | DateTime | Actual arrival date |
+| `--from-arrival-date` | range | |
+| `--to-arrival-date` | range | |
+| `--departure-date` | DateTime | Departure date |
+| `--from-departure-date` | range | |
+| `--to-departure-date` | range | |
+| `--notified` | bool |  |
+| `--internal` | bool |  |
+| `--is-tour` | bool | Whether this is a tour visit |
+| `--has-agreed-terms` | bool | Whether the visitor has agreed to terms |
+| `--tour-confirmed` | bool | Whether the tour is confirmed |
+| `--access-control-scheduled-job-id` | string |  |
+| `--check-in-now` | bool | Check in the visitor now |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Visitor create options
 
-`--business-id` (long, required), `--full-name` (required), `--email` (required), `--coworker-id` (long), `--visitor-source` (enum, required), `--host-approval-status` (enum, required), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (DateTime, required), `--arrived` (bool), `--arrival-date` (DateTime), `--departure-date` (DateTime), `--notified` (bool), `--internal` (bool), `--is-tour` (bool), `--has-agreed-terms` (bool), `--tour-confirmed` (bool), `--access-control-scheduled-job-id`, `--check-in-now` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--full-name` | string, required | Visitor full name |
+| `--email` | string, required | Visitor email |
+| `--coworker-id` | long |  |
+| `--visitor-source` | enum, required | Visitor source |
+| `--host-approval-status` | enum, required | Host approval status |
+| `--checked-in-at` | string | Location checked in at |
+| `--notes` | string | Notes |
+| `--customer-notes` | string | Customer notes |
+| `--visit-reason` | string | Reason for visit |
+| `--company-name` | string | Visitor company name |
+| `--phone-number` | string | Visitor phone number |
+| `--expected-arrival` | DateTime, required | Expected arrival date and time |
+| `--arrived` | bool | Whether the visitor has arrived |
+| `--arrival-date` | DateTime | Actual arrival date |
+| `--departure-date` | DateTime | Departure date |
+| `--notified` | bool |  |
+| `--internal` | bool |  |
+| `--is-tour` | bool | Whether this is a tour visit |
+| `--has-agreed-terms` | bool | Whether the visitor has agreed to terms |
+| `--tour-confirmed` | bool | Whether the tour is confirmed |
+| `--access-control-scheduled-job-id` | string |  |
+| `--check-in-now` | bool | Check in the visitor now |
 
 #### Visitor update options
 
-`--business-id` (long), `--full-name`, `--email`, `--coworker-id` (long), `--visitor-source` (enum), `--host-approval-status` (enum), `--checked-in-at`, `--notes`, `--customer-notes`, `--visit-reason`, `--company-name`, `--phone-number`, `--expected-arrival` (DateTime), `--arrived` (bool), `--arrival-date` (DateTime), `--departure-date` (DateTime), `--notified` (bool), `--internal` (bool), `--is-tour` (bool), `--has-agreed-terms` (bool), `--tour-confirmed` (bool), `--access-control-scheduled-job-id`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--full-name` | string | Visitor full name |
+| `--email` | string | Visitor email |
+| `--coworker-id` | long |  |
+| `--visitor-source` | enum | Visitor source |
+| `--host-approval-status` | enum | Host approval status |
+| `--checked-in-at` | string | Location checked in at |
+| `--notes` | string | Notes |
+| `--customer-notes` | string | Customer notes |
+| `--visit-reason` | string | Reason for visit |
+| `--company-name` | string | Visitor company name |
+| `--phone-number` | string | Visitor phone number |
+| `--expected-arrival` | DateTime | Expected arrival date and time |
+| `--arrived` | bool | Whether the visitor has arrived |
+| `--arrival-date` | DateTime | Actual arrival date |
+| `--departure-date` | DateTime | Departure date |
+| `--notified` | bool |  |
+| `--internal` | bool |  |
+| `--is-tour` | bool | Whether this is a tour visit |
+| `--has-agreed-terms` | bool | Whether the visitor has agreed to terms |
+| `--tour-confirmed` | bool | Whether the tour is confirmed |
+| `--access-control-scheduled-job-id` | string |  |
 
 ### Visitor (key fields)
 

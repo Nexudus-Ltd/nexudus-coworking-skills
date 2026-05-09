@@ -33,15 +33,110 @@ CustomFields support Search, Get, Create, Update, Delete.
 
 #### CustomField list filter options
 
-`--business-id` (long), `--name`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--record-type` (enum), `--field-type` (enum), `--coworker-field-position` (enum), `--available-options`, `--allow-multiple-options` (bool), `--custom-field-index` (int), `--from-custom-field-index` (range), `--to-custom-field-index` (range), `--required` (bool), `--group-name`, `--display-in-public-profile` (bool), `--display-in-directory-search` (bool), `--name-in-search`, `--visibility` (enum), `--display-in-sign-up-form` (bool), `--display-in-profile-form` (bool), `--display-in-tour-form` (bool), `--display-in-event-sign-up-form` (bool), `--show-in-booking-form` (bool), `--display-in-product-sign-up-form` (bool), `--display-in-team-sign-up-form` (bool), `--display-in-course-sign-up-form` (bool), `--display-in-tariff-sign-up-form` (bool), `--display-in-booking-sign-up-form` (bool), `--display-in-resource-search` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | Business this custom field belongs to |
+| `--name` | string | Field label displayed to users |
+| `--display-order` | int | Sort order when multiple custom fields are shown together |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--record-type` | enum | Entity type this field applies to: Coworker, Team, Booking, Product, Resource, etc. |
+| `--field-type` | enum | Data type of the field: Text, LongText, Boolean, Dropdown, Date, Integer, or Decimal |
+| `--coworker-field-position` | enum | Tab where this field appears on the coworker record: General, Contact, Profile, Billing, Access, or Notes |
+| `--available-options` | string | Comma-separated list of choices for Dropdown fields |
+| `--allow-multiple-options` | bool | Whether multiple options can be selected for Dropdown fields |
+| `--custom-field-index` | int | Unique index identifying this field within its record type and business |
+| `--from-custom-field-index` | range | |
+| `--to-custom-field-index` | range | |
+| `--required` | bool | Whether a value must be provided when saving the parent entity |
+| `--group-name` | string | Optional group name used to visually group related custom fields together |
+| `--display-in-public-profile` | bool | Show this field on the coworker's public profile page |
+| `--display-in-directory-search` | bool | Show this field as a filter in the member directory search |
+| `--name-in-search` | string | Alternative label shown when this field appears in directory search filters |
+| `--visibility` | enum | Visibility level: Visible (editable by customer), ReadOnly (shown but not editable), or Internal (admin only) |
+| `--display-in-sign-up-form` | bool | Show this field on the member sign-up form |
+| `--display-in-profile-form` | bool | Show this field on the member profile edit form |
+| `--display-in-tour-form` | bool | Show this field on the tour booking form |
+| `--display-in-event-sign-up-form` | bool | Show this field on the event sign-up form |
+| `--show-in-booking-form` | bool | Show this field on the resource booking form |
+| `--display-in-product-sign-up-form` | bool | Show this field on the product purchase form |
+| `--display-in-team-sign-up-form` | bool | Show this field on the team sign-up form |
+| `--display-in-course-sign-up-form` | bool | Show this field on the course sign-up form |
+| `--display-in-tariff-sign-up-form` | bool | Show this field on the pricing plan (tariff) sign-up form |
+| `--display-in-booking-sign-up-form` | bool | Show this field on the booking sign-up form |
+| `--display-in-resource-search` | bool | Show this field as a filter in resource search |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CustomField create options
 
-`--business-id` (long, required), `--name` (required), `--display-order` (int, required), `--record-type` (enum, required), `--field-type` (enum, required), `--coworker-field-position` (enum, required), `--available-options`, `--allow-multiple-options` (bool), `--custom-field-index` (int, required), `--required` (bool), `--group-name`, `--display-in-public-profile` (bool), `--display-in-directory-search` (bool), `--name-in-search`, `--visibility` (enum, required), `--display-in-sign-up-form` (bool), `--display-in-profile-form` (bool), `--display-in-tour-form` (bool), `--display-in-event-sign-up-form` (bool), `--show-in-booking-form` (bool), `--display-in-product-sign-up-form` (bool), `--display-in-team-sign-up-form` (bool), `--display-in-course-sign-up-form` (bool), `--display-in-tariff-sign-up-form` (bool), `--display-in-booking-sign-up-form` (bool), `--display-in-resource-search` (bool), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | Business this custom field belongs to |
+| `--name` | string, required | Field label displayed to users |
+| `--display-order` | int, required | Sort order when multiple custom fields are shown together |
+| `--record-type` | enum, required | Entity type this field applies to: Coworker, Team, Booking, Product, Resource, etc. |
+| `--field-type` | enum, required | Data type of the field: Text, LongText, Boolean, Dropdown, Date, Integer, or Decimal |
+| `--coworker-field-position` | enum, required | Tab where this field appears on the coworker record: General, Contact, Profile, Billing, Access, or Notes |
+| `--available-options` | string | Comma-separated list of choices for Dropdown fields |
+| `--allow-multiple-options` | bool | Whether multiple options can be selected for Dropdown fields |
+| `--custom-field-index` | int, required | Unique index identifying this field within its record type and business |
+| `--required` | bool | Whether a value must be provided when saving the parent entity |
+| `--group-name` | string | Optional group name used to visually group related custom fields together |
+| `--display-in-public-profile` | bool | Show this field on the coworker's public profile page |
+| `--display-in-directory-search` | bool | Show this field as a filter in the member directory search |
+| `--name-in-search` | string | Alternative label shown when this field appears in directory search filters |
+| `--visibility` | enum, required | Visibility level: Visible (editable by customer), ReadOnly (shown but not editable), or Internal (admin only) |
+| `--display-in-sign-up-form` | bool | Show this field on the member sign-up form |
+| `--display-in-profile-form` | bool | Show this field on the member profile edit form |
+| `--display-in-tour-form` | bool | Show this field on the tour booking form |
+| `--display-in-event-sign-up-form` | bool | Show this field on the event sign-up form |
+| `--show-in-booking-form` | bool | Show this field on the resource booking form |
+| `--display-in-product-sign-up-form` | bool | Show this field on the product purchase form |
+| `--display-in-team-sign-up-form` | bool | Show this field on the team sign-up form |
+| `--display-in-course-sign-up-form` | bool | Show this field on the course sign-up form |
+| `--display-in-tariff-sign-up-form` | bool | Show this field on the pricing plan (tariff) sign-up form |
+| `--display-in-booking-sign-up-form` | bool | Show this field on the booking sign-up form |
+| `--display-in-resource-search` | bool | Show this field as a filter in resource search |
+| `--resources` | list, repeat flag | Resources this custom field is linked to (for FloorPlanDesk or Resource record types) |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
 
 #### CustomField update options
 
-`--business-id` (long), `--name`, `--display-order` (int), `--record-type` (enum), `--field-type` (enum), `--coworker-field-position` (enum), `--available-options`, `--allow-multiple-options` (bool), `--custom-field-index` (int), `--required` (bool), `--group-name`, `--display-in-public-profile` (bool), `--display-in-directory-search` (bool), `--name-in-search`, `--visibility` (enum), `--display-in-sign-up-form` (bool), `--display-in-profile-form` (bool), `--display-in-tour-form` (bool), `--display-in-event-sign-up-form` (bool), `--show-in-booking-form` (bool), `--display-in-product-sign-up-form` (bool), `--display-in-team-sign-up-form` (bool), `--display-in-course-sign-up-form` (bool), `--display-in-tariff-sign-up-form` (bool), `--display-in-booking-sign-up-form` (bool), `--display-in-resource-search` (bool), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | Business this custom field belongs to |
+| `--name` | string | Field label displayed to users |
+| `--display-order` | int | Sort order when multiple custom fields are shown together |
+| `--record-type` | enum | Entity type this field applies to: Coworker, Team, Booking, Product, Resource, etc. |
+| `--field-type` | enum | Data type of the field: Text, LongText, Boolean, Dropdown, Date, Integer, or Decimal |
+| `--coworker-field-position` | enum | Tab where this field appears on the coworker record: General, Contact, Profile, Billing, Access, or Notes |
+| `--available-options` | string | Comma-separated list of choices for Dropdown fields |
+| `--allow-multiple-options` | bool | Whether multiple options can be selected for Dropdown fields |
+| `--custom-field-index` | int | Unique index identifying this field within its record type and business |
+| `--required` | bool | Whether a value must be provided when saving the parent entity |
+| `--group-name` | string | Optional group name used to visually group related custom fields together |
+| `--display-in-public-profile` | bool | Show this field on the coworker's public profile page |
+| `--display-in-directory-search` | bool | Show this field as a filter in the member directory search |
+| `--name-in-search` | string | Alternative label shown when this field appears in directory search filters |
+| `--visibility` | enum | Visibility level: Visible (editable by customer), ReadOnly (shown but not editable), or Internal (admin only) |
+| `--display-in-sign-up-form` | bool | Show this field on the member sign-up form |
+| `--display-in-profile-form` | bool | Show this field on the member profile edit form |
+| `--display-in-tour-form` | bool | Show this field on the tour booking form |
+| `--display-in-event-sign-up-form` | bool | Show this field on the event sign-up form |
+| `--show-in-booking-form` | bool | Show this field on the resource booking form |
+| `--display-in-product-sign-up-form` | bool | Show this field on the product purchase form |
+| `--display-in-team-sign-up-form` | bool | Show this field on the team sign-up form |
+| `--display-in-course-sign-up-form` | bool | Show this field on the course sign-up form |
+| `--display-in-tariff-sign-up-form` | bool | Show this field on the pricing plan (tariff) sign-up form |
+| `--display-in-booking-sign-up-form` | bool | Show this field on the booking sign-up form |
+| `--display-in-resource-search` | bool | Show this field as a filter in resource search |
+| `--resources` | list, repeat flag | Resources this custom field is linked to (for FloorPlanDesk or Resource record types) |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
 
 ### CustomField (key fields)
 

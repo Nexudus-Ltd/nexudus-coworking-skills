@@ -19,14 +19,32 @@ SensorHistories support Search, Get, Create, Update, Delete.
 
 #### SensorHistory list filter options
 
-`--sensor-id` (long), `--value`, `--observed-on` (DateTime), `--from-observed-on` (range), `--to-observed-on` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--sensor-id` | long |  |
+| `--value` | string |  |
+| `--observed-on` | DateTime |  |
+| `--from-observed-on` | range | |
+| `--to-observed-on` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### SensorHistory create options
 
-`--sensor-id` (long, required), `--value`, `--observed-on` (DateTime, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--sensor-id` | long, required |  |
+| `--value` | string |  |
+| `--observed-on` | DateTime, required |  |
 
 #### SensorHistory update options
 
-`--sensor-id` (long), `--value`, `--observed-on` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--sensor-id` | long |  |
+| `--value` | string |  |
+| `--observed-on` | DateTime |  |
 
 <!-- END:GENERATED entity=SensorHistories -->

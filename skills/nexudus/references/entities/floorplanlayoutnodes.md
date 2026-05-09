@@ -19,14 +19,37 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutNode list filter options
 
-`--floor-plan-layout-id` (long), `--node-key`, `--pos-x` (int), `--from-pos-x` (range), `--to-pos-x` (range), `--pos-y` (int), `--from-pos-y` (range), `--to-pos-y` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-id` | long |  |
+| `--node-key` | string |  |
+| `--pos-x` | int |  |
+| `--from-pos-x` | range | |
+| `--to-pos-x` | range | |
+| `--pos-y` | int |  |
+| `--from-pos-y` | range | |
+| `--to-pos-y` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FloorPlanLayoutNode create options
 
-`--floor-plan-layout-id` (long, required), `--node-key`, `--pos-x` (int, required), `--pos-y` (int, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-id` | long, required |  |
+| `--node-key` | string |  |
+| `--pos-x` | int, required |  |
+| `--pos-y` | int, required |  |
 
 #### FloorPlanLayoutNode update options
 
-`--floor-plan-layout-id` (long), `--node-key`, `--pos-x` (int), `--pos-y` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-id` | long |  |
+| `--node-key` | string |  |
+| `--pos-x` | int |  |
+| `--pos-y` | int |  |
 
 <!-- END:GENERATED entity=FloorPlanLayoutNodes -->

@@ -21,15 +21,37 @@ CommunityThreadFiles support Search, Get, Create, Update, Delete.
 
 #### CommunityThreadFile list filter options
 
-`--community-thread-id` (long), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--community-thread-id` | long | ID of the conversation this file is attached to |
+| `--name` | string | Display name of the attached file |
+| `--description` | string | Optional description of the attached file |
+| `--new-file-data-url` | string | URL of a new file to upload and attach to this record |
+| `--clear-file-data-file` | bool | When true, removes the currently attached file |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CommunityThreadFile create options
 
-`--community-thread-id` (long, required), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--community-thread-id` | long, required | ID of the conversation this file is attached to |
+| `--name` | string | Display name of the attached file |
+| `--description` | string | Optional description of the attached file |
+| `--new-file-data-url` | string | URL of a new file to upload and attach to this record |
+| `--clear-file-data-file` | bool | When true, removes the currently attached file |
 
 #### CommunityThreadFile update options
 
-`--community-thread-id` (long), `--name`, `--description`, `--new-file-data-url`, `--clear-file-data-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--community-thread-id` | long | ID of the conversation this file is attached to |
+| `--name` | string | Display name of the attached file |
+| `--description` | string | Optional description of the attached file |
+| `--new-file-data-url` | string | URL of a new file to upload and attach to this record |
+| `--clear-file-data-file` | bool | When true, removes the currently attached file |
 
 ### CommunityThreadFile (key fields)
 

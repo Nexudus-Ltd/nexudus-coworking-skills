@@ -32,15 +32,78 @@ Courses support Search, Get, Create, Update, Delete.
 
 #### Course list filter options
 
-`--business-id` (long), `--host-id` (long), `--title`, `--summary-text`, `--full-description`, `--show-overview` (bool), `--has-community-group` (bool), `--overview-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page` (bool), `--visibility` (enum), `--tariff-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the Location this course belongs to |
+| `--host-id` | long | ID of the coworker or administrator who hosts this course |
+| `--title` | string | Course title displayed on the Members Portal |
+| `--summary-text` | string | Short summary displayed under the course title on the Members Portal (up to ~400 characters) |
+| `--full-description` | string | Full course description shown in the 'What's this course about?' section when customers open the course |
+| `--show-overview` | bool | Whether to display the overview section on the course page |
+| `--has-community-group` | bool | Whether the course has an associated community discussion group on the Members Portal |
+| `--overview-text` | string | Overview text displayed below the full description on the course page |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--new-large-image-url` | string | URL of a new banner/large image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-large-image-file` | bool | Set to true to remove the existing banner/large image |
+| `--active` | bool | Whether the course is active and available to customers |
+| `--group-name` | string | Optional group label used to cluster related courses together on the Members Portal |
+| `--display-order` | int | Position of the course in listing pages; lower numbers appear first |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--show-in-home-page` | bool | Whether the course is featured on the Members Portal home page |
+| `--visibility` | enum | Access control for the course: Public (1), Hidden from listing but accessible via link (2), Private/invite-only (3), or Paid via TariffId (4) |
+| `--tariff-id` | long | ID of the pricing plan (tariff) required to access this course when Visibility is Paid |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Course create options
 
-`--business-id` (long, required), `--host-id` (long, required), `--title` (required), `--summary-text`, `--full-description`, `--show-overview` (bool), `--has-community-group` (bool), `--overview-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int, required), `--show-in-home-page` (bool), `--visibility` (enum, required), `--tariff-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | ID of the Location this course belongs to |
+| `--host-id` | long, required | ID of the coworker or administrator who hosts this course |
+| `--title` | string, required | Course title displayed on the Members Portal |
+| `--summary-text` | string | Short summary displayed under the course title on the Members Portal (up to ~400 characters) |
+| `--full-description` | string | Full course description shown in the 'What's this course about?' section when customers open the course |
+| `--show-overview` | bool | Whether to display the overview section on the course page |
+| `--has-community-group` | bool | Whether the course has an associated community discussion group on the Members Portal |
+| `--overview-text` | string | Overview text displayed below the full description on the course page |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--new-large-image-url` | string | URL of a new banner/large image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-large-image-file` | bool | Set to true to remove the existing banner/large image |
+| `--active` | bool | Whether the course is active and available to customers |
+| `--group-name` | string | Optional group label used to cluster related courses together on the Members Portal |
+| `--display-order` | int, required | Position of the course in listing pages; lower numbers appear first |
+| `--show-in-home-page` | bool | Whether the course is featured on the Members Portal home page |
+| `--visibility` | enum, required | Access control for the course: Public (1), Hidden from listing but accessible via link (2), Private/invite-only (3), or Paid via TariffId (4) |
+| `--tariff-id` | long | ID of the pricing plan (tariff) required to access this course when Visibility is Paid |
 
 #### Course update options
 
-`--business-id` (long), `--host-id` (long), `--title`, `--summary-text`, `--full-description`, `--show-overview` (bool), `--has-community-group` (bool), `--overview-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--show-in-home-page` (bool), `--visibility` (enum), `--tariff-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the Location this course belongs to |
+| `--host-id` | long | ID of the coworker or administrator who hosts this course |
+| `--title` | string | Course title displayed on the Members Portal |
+| `--summary-text` | string | Short summary displayed under the course title on the Members Portal (up to ~400 characters) |
+| `--full-description` | string | Full course description shown in the 'What's this course about?' section when customers open the course |
+| `--show-overview` | bool | Whether to display the overview section on the course page |
+| `--has-community-group` | bool | Whether the course has an associated community discussion group on the Members Portal |
+| `--overview-text` | string | Overview text displayed below the full description on the course page |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--new-large-image-url` | string | URL of a new banner/large image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-large-image-file` | bool | Set to true to remove the existing banner/large image |
+| `--active` | bool | Whether the course is active and available to customers |
+| `--group-name` | string | Optional group label used to cluster related courses together on the Members Portal |
+| `--display-order` | int | Position of the course in listing pages; lower numbers appear first |
+| `--show-in-home-page` | bool | Whether the course is featured on the Members Portal home page |
+| `--visibility` | enum | Access control for the course: Public (1), Hidden from listing but accessible via link (2), Private/invite-only (3), or Paid via TariffId (4) |
+| `--tariff-id` | long | ID of the pricing plan (tariff) required to access this course when Visibility is Paid |
 
 #### Course enum values
 

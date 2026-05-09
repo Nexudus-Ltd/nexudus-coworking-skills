@@ -18,14 +18,21 @@ LegalContentAudits support Search, Get, Create, Update, Delete.
 
 #### LegalContentAudit list filter options
 
-`--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### LegalContentAudit create options
 
-
+| Option | Type | Description |
+| --- | --- | --- |
 
 #### LegalContentAudit update options
 
-
+| Option | Type | Description |
+| --- | --- | --- |
 
 <!-- END:GENERATED entity=LegalContentAudits -->

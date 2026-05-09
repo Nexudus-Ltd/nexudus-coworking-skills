@@ -21,15 +21,38 @@ ResourceTimeSlots also support entity commands.
 
 #### ResourceTimeSlot list filter options
 
-`--resource-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--day-of-week` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--from-time` | DateTime | Start time |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | DateTime | End time |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--day-of-week` | enum |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ResourceTimeSlot create options
 
-`--resource-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--day-of-week` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long, required |  |
+| `--from-time` | DateTime, required | Start time |
+| `--to-time` | DateTime, required | End time |
+| `--day-of-week` | enum, required |  |
 
 #### ResourceTimeSlot update options
 
-`--resource-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--day-of-week` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--from-time` | DateTime | Start time |
+| `--to-time` | DateTime | End time |
+| `--day-of-week` | enum |  |
 
 ### ResourceTimeSlot (key fields)
 

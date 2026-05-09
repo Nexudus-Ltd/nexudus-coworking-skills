@@ -23,15 +23,37 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 
 #### CoworkerInvoiceHistory list filter options
 
-`--coworker-invoice-id` (long), `--name`, `--description`, `--is-problem` (bool), `--notify` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-invoice-id` | long |  |
+| `--name` | string | Short title of the history entry (e.g. 'Invoice sent', 'Payment received') |
+| `--description` | string | Detailed description of the activity or event recorded by this history entry |
+| `--is-problem` | bool | Flags this history entry as an error or issue (e.g. a failed payment attempt or e-invoicing error) |
+| `--notify` | bool | Whether to send a notification when this history entry is created |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerInvoiceHistory create options
 
-`--coworker-invoice-id` (long, required), `--name` (required), `--description` (required), `--is-problem` (bool), `--notify` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-invoice-id` | long, required |  |
+| `--name` | string, required | Short title of the history entry (e.g. 'Invoice sent', 'Payment received') |
+| `--description` | string, required | Detailed description of the activity or event recorded by this history entry |
+| `--is-problem` | bool | Flags this history entry as an error or issue (e.g. a failed payment attempt or e-invoicing error) |
+| `--notify` | bool | Whether to send a notification when this history entry is created |
 
 #### CoworkerInvoiceHistory update options
 
-`--coworker-invoice-id` (long), `--name`, `--description`, `--is-problem` (bool), `--notify` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-invoice-id` | long |  |
+| `--name` | string | Short title of the history entry (e.g. 'Invoice sent', 'Payment received') |
+| `--description` | string | Detailed description of the activity or event recorded by this history entry |
+| `--is-problem` | bool | Flags this history entry as an error or issue (e.g. a failed payment attempt or e-invoicing error) |
+| `--notify` | bool | Whether to send a notification when this history entry is created |
 
 ### CoworkerInvoiceHistory (key fields)
 

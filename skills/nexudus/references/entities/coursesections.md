@@ -31,14 +31,52 @@ CourseSections support Search, Get, Create, Update, Delete.
 
 #### CourseSection list filter options
 
-`--course-id` (long), `--title`, `--section-contents`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--unlock-type` (enum), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int), `--from-unlock-after-days` (range), `--to-unlock-after-days` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long | ID of the course this section belongs to |
+| `--title` | string | Section title displayed to members |
+| `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
+| `--active` | bool | Whether the section is active and visible to enrolled members |
+| `--display-order` | int | Position of the section within the course; lower numbers appear first |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--unlock-type` | enum | When the section becomes available: Immediate (1), after the previous section is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--unlock-after-days` | int | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |
+| `--from-unlock-after-days` | range | |
+| `--to-unlock-after-days` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CourseSection create options
 
-`--course-id` (long, required), `--title` (required), `--section-contents`, `--active` (bool), `--display-order` (int, required), `--unlock-type` (enum, required), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long, required | ID of the course this section belongs to |
+| `--title` | string, required | Section title displayed to members |
+| `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
+| `--active` | bool | Whether the section is active and visible to enrolled members |
+| `--display-order` | int, required | Position of the section within the course; lower numbers appear first |
+| `--unlock-type` | enum, required | When the section becomes available: Immediate (1), after the previous section is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--unlock-after-days` | int, required | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |
 
 #### CourseSection update options
 
-`--course-id` (long), `--title`, `--section-contents`, `--active` (bool), `--display-order` (int), `--unlock-type` (enum), `--new-image-url`, `--clear-image-file` (bool), `--unlock-after-days` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-id` | long | ID of the course this section belongs to |
+| `--title` | string | Section title displayed to members |
+| `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
+| `--active` | bool | Whether the section is active and visible to enrolled members |
+| `--display-order` | int | Position of the section within the course; lower numbers appear first |
+| `--unlock-type` | enum | When the section becomes available: Immediate (1), after the previous section is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
+| `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
+| `--unlock-after-days` | int | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |
 
 <!-- END:GENERATED entity=CourseSections -->

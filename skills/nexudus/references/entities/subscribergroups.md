@@ -19,15 +19,58 @@ SubscriberGroups support Search, Get, Create, Update, Delete.
 
 #### SubscriberGroup list filter options
 
-`--business-id` (long), `--name`, `--auto-add-members` (bool), `--auto-add-contacts` (bool), `--auto-add-bookings` (bool), `--auto-add-events` (bool), `--auto-add-visitors` (bool), `--auto-add-paying-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--auto-add-members` | bool |  |
+| `--auto-add-contacts` | bool |  |
+| `--auto-add-bookings` | bool |  |
+| `--auto-add-events` | bool |  |
+| `--auto-add-visitors` | bool |  |
+| `--auto-add-paying-members` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### SubscriberGroup create options
 
-`--business-id` (long, required), `--name` (required), `--news-letter-subscribers` (list, repeat flag), `--added-news-letter-subscribers` (list, repeat flag), `--removed-news-letter-subscribers` (list, repeat flag), `--auto-add-members` (bool), `--auto-add-contacts` (bool), `--auto-add-bookings` (bool), `--auto-add-events` (bool), `--auto-add-visitors` (bool), `--auto-add-paying-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--news-letter-subscribers` | list, repeat flag |  |
+| `--added-news-letter-subscribers` | list, repeat flag |  |
+| `--removed-news-letter-subscribers` | list, repeat flag |  |
+| `--auto-add-members` | bool |  |
+| `--auto-add-contacts` | bool |  |
+| `--auto-add-bookings` | bool |  |
+| `--auto-add-events` | bool |  |
+| `--auto-add-visitors` | bool |  |
+| `--auto-add-paying-members` | bool |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
 
 #### SubscriberGroup update options
 
-`--business-id` (long), `--name`, `--news-letter-subscribers` (list, repeat flag), `--added-news-letter-subscribers` (list, repeat flag), `--removed-news-letter-subscribers` (list, repeat flag), `--auto-add-members` (bool), `--auto-add-contacts` (bool), `--auto-add-bookings` (bool), `--auto-add-events` (bool), `--auto-add-visitors` (bool), `--auto-add-paying-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--news-letter-subscribers` | list, repeat flag |  |
+| `--added-news-letter-subscribers` | list, repeat flag |  |
+| `--removed-news-letter-subscribers` | list, repeat flag |  |
+| `--auto-add-members` | bool |  |
+| `--auto-add-contacts` | bool |  |
+| `--auto-add-bookings` | bool |  |
+| `--auto-add-events` | bool |  |
+| `--auto-add-visitors` | bool |  |
+| `--auto-add-paying-members` | bool |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
 
 **List properties (only returned by `get`, not by `list`):** `NewsLetterSubscribers`, `AddedNewsLetterSubscribers`, `RemovedNewsLetterSubscribers`, `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

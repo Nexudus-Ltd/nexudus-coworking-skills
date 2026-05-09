@@ -27,15 +27,76 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 
 #### CoworkerDataFile list filter options
 
-`--business-id` (long), `--coworker-id` (long), `--name`, `--description`, `--available-to-user` (bool), `--request-digital-signature` (bool), `--new-file-data-url`, `--clear-file-data-file` (bool), `--new-signed-file-data-url`, `--clear-signed-file-data-file` (bool), `--extension`, `--billed` (bool), `--signed` (bool), `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | Location ID |
+| `--coworker-id` | long | ID of the customer this file belongs to |
+| `--name` | string | Name of the file or document |
+| `--description` | string | Notes included in the email notification sent to the customer when the file is shared |
+| `--available-to-user` | bool | Whether the file is shared with the customer and visible on the Members Portal |
+| `--request-digital-signature` | bool | Whether to request a digital signature from the customer |
+| `--new-file-data-url` | string | URL of a new file to upload (replaces the existing file) |
+| `--clear-file-data-file` | bool | Set to true to remove the existing uploaded file |
+| `--new-signed-file-data-url` | string | URL of a new signed file to upload (replaces the existing signed copy) |
+| `--clear-signed-file-data-file` | bool | Set to true to remove the existing signed copy |
+| `--extension` | string | File extension (e.g. pdf, docx, jpg) |
+| `--billed` | bool | Whether the customer has been billed for this file |
+| `--signed` | bool | Whether the customer has signed this document |
+| `--esign-identifier` | string | Identifier used by the digital signature provider to track this document |
+| `--document-template-guid` | string | GUID of the document template used to generate this file |
+| `--notify-when-signed-email` | string | Email address to notify when the customer signs the document |
+| `--proposal-guid` | string | GUID of the proposal linked to this file |
+| `--coworker-contract-guid` | string | GUID of the coworker contract linked to this file |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerDataFile create options
 
-`--business-id` (long, required), `--coworker-id` (long, required), `--name` (required), `--description`, `--available-to-user` (bool), `--request-digital-signature` (bool), `--new-file-data-url`, `--clear-file-data-file` (bool), `--new-signed-file-data-url`, `--clear-signed-file-data-file` (bool), `--extension`, `--billed` (bool), `--signed` (bool), `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | Location ID |
+| `--coworker-id` | long, required | ID of the customer this file belongs to |
+| `--name` | string, required | Name of the file or document |
+| `--description` | string | Notes included in the email notification sent to the customer when the file is shared |
+| `--available-to-user` | bool | Whether the file is shared with the customer and visible on the Members Portal |
+| `--request-digital-signature` | bool | Whether to request a digital signature from the customer |
+| `--new-file-data-url` | string | URL of a new file to upload (replaces the existing file) |
+| `--clear-file-data-file` | bool | Set to true to remove the existing uploaded file |
+| `--new-signed-file-data-url` | string | URL of a new signed file to upload (replaces the existing signed copy) |
+| `--clear-signed-file-data-file` | bool | Set to true to remove the existing signed copy |
+| `--extension` | string | File extension (e.g. pdf, docx, jpg) |
+| `--billed` | bool | Whether the customer has been billed for this file |
+| `--signed` | bool | Whether the customer has signed this document |
+| `--esign-identifier` | string | Identifier used by the digital signature provider to track this document |
+| `--document-template-guid` | string | GUID of the document template used to generate this file |
+| `--notify-when-signed-email` | string | Email address to notify when the customer signs the document |
+| `--proposal-guid` | string | GUID of the proposal linked to this file |
+| `--coworker-contract-guid` | string | GUID of the coworker contract linked to this file |
 
 #### CoworkerDataFile update options
 
-`--business-id` (long), `--coworker-id` (long), `--name`, `--description`, `--available-to-user` (bool), `--request-digital-signature` (bool), `--new-file-data-url`, `--clear-file-data-file` (bool), `--new-signed-file-data-url`, `--clear-signed-file-data-file` (bool), `--extension`, `--billed` (bool), `--signed` (bool), `--esign-identifier`, `--document-template-guid`, `--notify-when-signed-email`, `--proposal-guid`, `--coworker-contract-guid`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | Location ID |
+| `--coworker-id` | long | ID of the customer this file belongs to |
+| `--name` | string | Name of the file or document |
+| `--description` | string | Notes included in the email notification sent to the customer when the file is shared |
+| `--available-to-user` | bool | Whether the file is shared with the customer and visible on the Members Portal |
+| `--request-digital-signature` | bool | Whether to request a digital signature from the customer |
+| `--new-file-data-url` | string | URL of a new file to upload (replaces the existing file) |
+| `--clear-file-data-file` | bool | Set to true to remove the existing uploaded file |
+| `--new-signed-file-data-url` | string | URL of a new signed file to upload (replaces the existing signed copy) |
+| `--clear-signed-file-data-file` | bool | Set to true to remove the existing signed copy |
+| `--extension` | string | File extension (e.g. pdf, docx, jpg) |
+| `--billed` | bool | Whether the customer has been billed for this file |
+| `--signed` | bool | Whether the customer has signed this document |
+| `--esign-identifier` | string | Identifier used by the digital signature provider to track this document |
+| `--document-template-guid` | string | GUID of the document template used to generate this file |
+| `--notify-when-signed-email` | string | Email address to notify when the customer signs the document |
+| `--proposal-guid` | string | GUID of the proposal linked to this file |
+| `--coworker-contract-guid` | string | GUID of the coworker contract linked to this file |
 
 ### CoworkerDataFile (key fields)
 

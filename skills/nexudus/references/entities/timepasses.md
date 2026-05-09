@@ -26,15 +26,103 @@ TimePasses also support entity commands.
 
 #### TimePass list filter options
 
-`--business-id` (long), `--name`, `--invoice-display`, `--price` (decimal), `--from-price` (range), `--to-price` (range), `--minutes-included` (int), `--from-minutes-included` (range), `--to-minutes-included` (range), `--counts-towards-plan` (bool), `--payg-members` (bool), `--payg-contacts` (bool), `--use-priority` (int), `--from-use-priority` (range), `--to-use-priority` (range), `--currency-id` (long), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--kisi-group-id`, `--door-guard-group-id`, `--access-control-group-id`, `--allow-network-checkin` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool), `--archived` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Time pass name |
+| `--invoice-display` | string | Invoice line display text |
+| `--price` | decimal | Price |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--minutes-included` | int | Minutes included |
+| `--from-minutes-included` | range | |
+| `--to-minutes-included` | range | |
+| `--counts-towards-plan` | bool | Counts towards plan limits |
+| `--payg-members` | bool | Use as pay-as-you-go for members |
+| `--payg-contacts` | bool | Use as pay-as-you-go for contacts |
+| `--use-priority` | int | Use priority |
+| `--from-use-priority` | range | |
+| `--to-use-priority` | range | |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--kisi-group-id` | string | Kisi group ID |
+| `--door-guard-group-id` | string | DoorGuard group ID |
+| `--access-control-group-id` | string |  |
+| `--allow-network-checkin` | bool | Allow network check-in |
+| `--only-for-contacts` | bool | Only available for contacts |
+| `--only-for-members` | bool | Only available for members |
+| `--archived` | bool | Archived |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TimePass create options
 
-`--business-id` (long, required), `--name` (required), `--invoice-display`, `--price` (decimal, required), `--minutes-included` (int), `--counts-towards-plan` (bool), `--payg-members` (bool), `--payg-contacts` (bool), `--use-priority` (int), `--currency-id` (long, required), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--businesses` (list, repeat flag), `--added-businesses` (list, repeat flag), `--removed-businesses` (list, repeat flag), `--kisi-group-id`, `--door-guard-group-id`, `--access-control-group-id`, `--allow-network-checkin` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Time pass name |
+| `--invoice-display` | string | Invoice line display text |
+| `--price` | decimal, required | Price |
+| `--minutes-included` | int | Minutes included |
+| `--counts-towards-plan` | bool | Counts towards plan limits |
+| `--payg-members` | bool | Use as pay-as-you-go for members |
+| `--payg-contacts` | bool | Use as pay-as-you-go for contacts |
+| `--use-priority` | int | Use priority |
+| `--currency-id` | long, required |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--businesses` | list, repeat flag |  |
+| `--added-businesses` | list, repeat flag |  |
+| `--removed-businesses` | list, repeat flag |  |
+| `--kisi-group-id` | string | Kisi group ID |
+| `--door-guard-group-id` | string | DoorGuard group ID |
+| `--access-control-group-id` | string |  |
+| `--allow-network-checkin` | bool | Allow network check-in |
+| `--only-for-contacts` | bool | Only available for contacts |
+| `--only-for-members` | bool | Only available for members |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--archived` | bool | Archived |
 
 #### TimePass update options
 
-`--business-id` (long), `--name`, `--invoice-display`, `--price` (decimal), `--minutes-included` (int), `--counts-towards-plan` (bool), `--payg-members` (bool), `--payg-contacts` (bool), `--use-priority` (int), `--currency-id` (long), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--businesses` (list, repeat flag), `--added-businesses` (list, repeat flag), `--removed-businesses` (list, repeat flag), `--kisi-group-id`, `--door-guard-group-id`, `--access-control-group-id`, `--allow-network-checkin` (bool), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--archived` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Time pass name |
+| `--invoice-display` | string | Invoice line display text |
+| `--price` | decimal | Price |
+| `--minutes-included` | int | Minutes included |
+| `--counts-towards-plan` | bool | Counts towards plan limits |
+| `--payg-members` | bool | Use as pay-as-you-go for members |
+| `--payg-contacts` | bool | Use as pay-as-you-go for contacts |
+| `--use-priority` | int | Use priority |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--businesses` | list, repeat flag |  |
+| `--added-businesses` | list, repeat flag |  |
+| `--removed-businesses` | list, repeat flag |  |
+| `--kisi-group-id` | string | Kisi group ID |
+| `--door-guard-group-id` | string | DoorGuard group ID |
+| `--access-control-group-id` | string |  |
+| `--allow-network-checkin` | bool | Allow network check-in |
+| `--only-for-contacts` | bool | Only available for contacts |
+| `--only-for-members` | bool | Only available for members |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--archived` | bool | Archived |
 
 ### TimePass (key fields)
 

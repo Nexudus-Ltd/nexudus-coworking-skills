@@ -19,14 +19,60 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 #### MarketPlaceApplication list filter options
 
-`--developer-id` (long), `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published` (bool), `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--developer-id` | long |  |
+| `--name` | string |  |
+| `--terms-and-conditions` | string |  |
+| `--support-email` | string |  |
+| `--developer-name` | string |  |
+| `--published` | bool |  |
+| `--secret-key` | string |  |
+| `--short-description` | string |  |
+| `--description` | string |  |
+| `--notification-email` | string |  |
+| `--notification-url` | string |  |
+| `--new-logo-url` | string |  |
+| `--clear-logo-file` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### MarketPlaceApplication create options
 
-`--developer-id` (long, required), `--name` (required), `--terms-and-conditions`, `--support-email` (required), `--developer-name` (required), `--published` (bool), `--secret-key`, `--short-description` (required), `--description`, `--notification-email` (required), `--notification-url` (required), `--new-logo-url`, `--clear-logo-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--developer-id` | long, required |  |
+| `--name` | string, required |  |
+| `--terms-and-conditions` | string |  |
+| `--support-email` | string, required |  |
+| `--developer-name` | string, required |  |
+| `--published` | bool |  |
+| `--secret-key` | string |  |
+| `--short-description` | string, required |  |
+| `--description` | string |  |
+| `--notification-email` | string, required |  |
+| `--notification-url` | string, required |  |
+| `--new-logo-url` | string |  |
+| `--clear-logo-file` | bool |  |
 
 #### MarketPlaceApplication update options
 
-`--developer-id` (long), `--name`, `--terms-and-conditions`, `--support-email`, `--developer-name`, `--published` (bool), `--secret-key`, `--short-description`, `--description`, `--notification-email`, `--notification-url`, `--new-logo-url`, `--clear-logo-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--developer-id` | long |  |
+| `--name` | string |  |
+| `--terms-and-conditions` | string |  |
+| `--support-email` | string |  |
+| `--developer-name` | string |  |
+| `--published` | bool |  |
+| `--secret-key` | string |  |
+| `--short-description` | string |  |
+| `--description` | string |  |
+| `--notification-email` | string |  |
+| `--notification-url` | string |  |
+| `--new-logo-url` | string |  |
+| `--clear-logo-file` | bool |  |
 
 <!-- END:GENERATED entity=MarketPlaceApplications -->

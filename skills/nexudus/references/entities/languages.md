@@ -19,14 +19,38 @@ Languages support Search, Get, Create, Update, Delete.
 
 #### Language list filter options
 
-`--business-id` (long), `--name`, `--culture`, `--active` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--culture` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int |  |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Language create options
 
-`--business-id` (long, required), `--name` (required), `--culture` (required), `--active` (bool), `--display-order` (int, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--culture` | string, required |  |
+| `--active` | bool |  |
+| `--display-order` | int, required |  |
 
 #### Language update options
 
-`--business-id` (long), `--name`, `--culture`, `--active` (bool), `--display-order` (int)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--culture` | string |  |
+| `--active` | bool |  |
+| `--display-order` | int |  |
 
 <!-- END:GENERATED entity=Languages -->

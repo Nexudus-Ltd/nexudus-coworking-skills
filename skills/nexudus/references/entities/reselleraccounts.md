@@ -19,14 +19,27 @@ ResellerAccounts support Search, Get, Create, Update, Delete.
 
 #### ResellerAccount list filter options
 
-`--notes`, `--scope-of-work`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--notes` | string |  |
+| `--scope-of-work` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ResellerAccount create options
 
-`--notes`, `--scope-of-work`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--notes` | string |  |
+| `--scope-of-work` | string |  |
 
 #### ResellerAccount update options
 
-`--notes`, `--scope-of-work`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--notes` | string |  |
+| `--scope-of-work` | string |  |
 
 <!-- END:GENERATED entity=ResellerAccounts -->

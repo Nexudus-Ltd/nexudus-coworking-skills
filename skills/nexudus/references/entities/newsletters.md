@@ -19,14 +19,41 @@ NewsLetters support Search, Get, Create, Update, Delete.
 
 #### NewsLetter list filter options
 
-`--business-id` (long), `--name`, `--last-sent` (DateTime), `--from-last-sent` (range), `--to-last-sent` (range), `--language` (enum), `--news-letter-contents`, `--news-letter-design`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--last-sent` | DateTime |  |
+| `--from-last-sent` | range | |
+| `--to-last-sent` | range | |
+| `--language` | enum |  |
+| `--news-letter-contents` | string |  |
+| `--news-letter-design` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### NewsLetter create options
 
-`--business-id` (long, required), `--name` (required), `--last-sent` (DateTime), `--language` (enum, required), `--news-letter-contents`, `--news-letter-design`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--last-sent` | DateTime |  |
+| `--language` | enum, required |  |
+| `--news-letter-contents` | string |  |
+| `--news-letter-design` | string |  |
 
 #### NewsLetter update options
 
-`--business-id` (long), `--name`, `--last-sent` (DateTime), `--language` (enum), `--news-letter-contents`, `--news-letter-design`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--last-sent` | DateTime |  |
+| `--language` | enum |  |
+| `--news-letter-contents` | string |  |
+| `--news-letter-design` | string |  |
 
 <!-- END:GENERATED entity=NewsLetters -->

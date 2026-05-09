@@ -19,15 +19,117 @@ Sensors support Search, Get, Create, Update, Delete.
 
 #### Sensor list filter options
 
-`--business-id` (long), `--canned-response-id` (long), `--name`, `--reference`, `--unit`, `--active` (bool), `--sensor-type` (enum), `--data-strategy` (enum), `--payload-data-path`, `--action-trigger-function`, `--value-function`, `--action-send-email-alert` (bool), `--alert-email-address`, `--webhook-url`, `--action-update-desk-availability` (bool), `--action-update-resource-availability` (bool), `--action-update-booking-occupancy` (bool), `--action-send-customer-email-alert` (bool), `--action-booking-start` (bool), `--action-booking-terminate` (bool), `--action-check-in-or-out` (bool), `--action-make-http-request` (bool), `--show-in-now-dashboard` (bool), `--show-in-portal` (bool), `--shared-secret`, `--api-key`, `--username`, `--password`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--canned-response-id` | long |  |
+| `--name` | string |  |
+| `--reference` | string |  |
+| `--unit` | string |  |
+| `--active` | bool |  |
+| `--sensor-type` | enum |  |
+| `--data-strategy` | enum |  |
+| `--payload-data-path` | string |  |
+| `--action-trigger-function` | string |  |
+| `--value-function` | string |  |
+| `--action-send-email-alert` | bool |  |
+| `--alert-email-address` | string |  |
+| `--webhook-url` | string |  |
+| `--action-update-desk-availability` | bool |  |
+| `--action-update-resource-availability` | bool |  |
+| `--action-update-booking-occupancy` | bool |  |
+| `--action-send-customer-email-alert` | bool |  |
+| `--action-booking-start` | bool |  |
+| `--action-booking-terminate` | bool |  |
+| `--action-check-in-or-out` | bool |  |
+| `--action-make-http-request` | bool |  |
+| `--show-in-now-dashboard` | bool |  |
+| `--show-in-portal` | bool |  |
+| `--shared-secret` | string |  |
+| `--api-key` | string |  |
+| `--username` | string |  |
+| `--password` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Sensor create options
 
-`--business-id` (long, required), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--canned-response-id` (long), `--name` (required), `--reference` (required), `--unit`, `--active` (bool), `--sensor-type` (enum, required), `--data-strategy` (enum, required), `--payload-data-path`, `--action-trigger-function`, `--value-function`, `--action-send-email-alert` (bool), `--alert-email-address`, `--webhook-url`, `--action-update-desk-availability` (bool), `--action-update-resource-availability` (bool), `--action-update-booking-occupancy` (bool), `--action-send-customer-email-alert` (bool), `--action-booking-start` (bool), `--action-booking-terminate` (bool), `--action-check-in-or-out` (bool), `--action-make-http-request` (bool), `--show-in-now-dashboard` (bool), `--show-in-portal` (bool), `--shared-secret`, `--api-key`, `--username`, `--password`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--desks` | list, repeat flag |  |
+| `--added-desks` | list, repeat flag |  |
+| `--removed-desks` | list, repeat flag |  |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--canned-response-id` | long |  |
+| `--name` | string, required |  |
+| `--reference` | string, required |  |
+| `--unit` | string |  |
+| `--active` | bool |  |
+| `--sensor-type` | enum, required |  |
+| `--data-strategy` | enum, required |  |
+| `--payload-data-path` | string |  |
+| `--action-trigger-function` | string |  |
+| `--value-function` | string |  |
+| `--action-send-email-alert` | bool |  |
+| `--alert-email-address` | string |  |
+| `--webhook-url` | string |  |
+| `--action-update-desk-availability` | bool |  |
+| `--action-update-resource-availability` | bool |  |
+| `--action-update-booking-occupancy` | bool |  |
+| `--action-send-customer-email-alert` | bool |  |
+| `--action-booking-start` | bool |  |
+| `--action-booking-terminate` | bool |  |
+| `--action-check-in-or-out` | bool |  |
+| `--action-make-http-request` | bool |  |
+| `--show-in-now-dashboard` | bool |  |
+| `--show-in-portal` | bool |  |
+| `--shared-secret` | string |  |
+| `--api-key` | string |  |
+| `--username` | string |  |
+| `--password` | string |  |
 
 #### Sensor update options
 
-`--business-id` (long), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--canned-response-id` (long), `--name`, `--unit`, `--active` (bool), `--sensor-type` (enum), `--data-strategy` (enum), `--payload-data-path`, `--action-trigger-function`, `--value-function`, `--action-send-email-alert` (bool), `--alert-email-address`, `--webhook-url`, `--action-update-desk-availability` (bool), `--action-update-resource-availability` (bool), `--action-update-booking-occupancy` (bool), `--action-send-customer-email-alert` (bool), `--action-booking-start` (bool), `--action-booking-terminate` (bool), `--action-check-in-or-out` (bool), `--action-make-http-request` (bool), `--show-in-now-dashboard` (bool), `--show-in-portal` (bool), `--shared-secret`, `--api-key`, `--username`, `--password`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--desks` | list, repeat flag |  |
+| `--added-desks` | list, repeat flag |  |
+| `--removed-desks` | list, repeat flag |  |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--canned-response-id` | long |  |
+| `--name` | string |  |
+| `--unit` | string |  |
+| `--active` | bool |  |
+| `--sensor-type` | enum |  |
+| `--data-strategy` | enum |  |
+| `--payload-data-path` | string |  |
+| `--action-trigger-function` | string |  |
+| `--value-function` | string |  |
+| `--action-send-email-alert` | bool |  |
+| `--alert-email-address` | string |  |
+| `--webhook-url` | string |  |
+| `--action-update-desk-availability` | bool |  |
+| `--action-update-resource-availability` | bool |  |
+| `--action-update-booking-occupancy` | bool |  |
+| `--action-send-customer-email-alert` | bool |  |
+| `--action-booking-start` | bool |  |
+| `--action-booking-terminate` | bool |  |
+| `--action-check-in-or-out` | bool |  |
+| `--action-make-http-request` | bool |  |
+| `--show-in-now-dashboard` | bool |  |
+| `--show-in-portal` | bool |  |
+| `--shared-secret` | string |  |
+| `--api-key` | string |  |
+| `--username` | string |  |
+| `--password` | string |  |
 
 **List properties (only returned by `get`, not by `list`):** `Desks`, `AddedDesks`, `RemovedDesks`, `Resources`, `AddedResources`, `RemovedResources`
 

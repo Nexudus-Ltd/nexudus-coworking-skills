@@ -33,15 +33,54 @@ InventoryAssets also support entity commands.
 
 #### InventoryAsset list filter options
 
-`--business-id` (long), `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file` (bool), `--value` (decimal), `--from-value` (range), `--to-value` (range), `--floor-plan-desk-id` (long), `--resource-id` (long), `--assign-to-type` (enum), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name of the asset (e.g. 'Standing Desk #3', 'HP LaserJet') |
+| `--description` | string | Free-text description of the asset |
+| `--sku` | string | Stock-keeping unit code for the asset |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--value` | decimal | Monetary value of the asset |
+| `--from-value` | range | |
+| `--to-value` | range | |
+| `--floor-plan-desk-id` | long |  |
+| `--resource-id` | long |  |
+| `--assign-to-type` | enum | Determines what this asset is assigned to: Location (1), Resource (2), or FloorPlanItem (3) |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### InventoryAsset create options
 
-`--business-id` (long, required), `--name` (required), `--description`, `--sku`, `--new-image-url`, `--clear-image-file` (bool), `--value` (decimal), `--floor-plan-desk-id` (long), `--resource-id` (long), `--assign-to-type` (enum, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Display name of the asset (e.g. 'Standing Desk #3', 'HP LaserJet') |
+| `--description` | string | Free-text description of the asset |
+| `--sku` | string | Stock-keeping unit code for the asset |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--value` | decimal | Monetary value of the asset |
+| `--floor-plan-desk-id` | long |  |
+| `--resource-id` | long |  |
+| `--assign-to-type` | enum, required | Determines what this asset is assigned to: Location (1), Resource (2), or FloorPlanItem (3) |
 
 #### InventoryAsset update options
 
-`--business-id` (long), `--name`, `--description`, `--sku`, `--new-image-url`, `--clear-image-file` (bool), `--value` (decimal), `--floor-plan-desk-id` (long), `--resource-id` (long), `--assign-to-type` (enum)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Display name of the asset (e.g. 'Standing Desk #3', 'HP LaserJet') |
+| `--description` | string | Free-text description of the asset |
+| `--sku` | string | Stock-keeping unit code for the asset |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--value` | decimal | Monetary value of the asset |
+| `--floor-plan-desk-id` | long |  |
+| `--resource-id` | long |  |
+| `--assign-to-type` | enum | Determines what this asset is assigned to: Location (1), Resource (2), or FloorPlanItem (3) |
 
 ### InventoryAsset (key fields)
 

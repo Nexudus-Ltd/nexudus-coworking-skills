@@ -20,7 +20,24 @@ LedgerEntries support Search, Get (no Create or Delete via API).
 
 #### LedgerEntry list filter options
 
-`--business-id` (long), `--code`, `--description`, `--debit` (decimal), `--from-debit` (range), `--to-debit` (range), `--credit` (decimal), `--from-credit` (range), `--to-credit` (range), `--balance` (decimal), `--from-balance` (range), `--to-balance` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--code` | string | Short reference code for grouping or reconciliation (e.g. an external accounting reference) |
+| `--description` | string | Free-text description explaining the purpose of this ledger entry |
+| `--debit` | decimal | Debit amount in the location's default currency. Use 0 if this entry is a credit-only record |
+| `--from-debit` | range | |
+| `--to-debit` | range | |
+| `--credit` | decimal | Credit amount in the location's default currency. Use 0 if this entry is a debit-only record |
+| `--from-credit` | range | |
+| `--to-credit` | range | |
+| `--balance` | decimal |  |
+| `--from-balance` | range | |
+| `--to-balance` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 ### LedgerEntry (key fields)
 

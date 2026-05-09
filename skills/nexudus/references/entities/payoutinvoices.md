@@ -18,14 +18,21 @@ PayoutInvoices support Search, Get, Create, Update, Delete.
 
 #### PayoutInvoice list filter options
 
-`--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### PayoutInvoice create options
 
-
+| Option | Type | Description |
+| --- | --- | --- |
 
 #### PayoutInvoice update options
 
-
+| Option | Type | Description |
+| --- | --- | --- |
 
 <!-- END:GENERATED entity=PayoutInvoices -->

@@ -19,14 +19,35 @@ FormPageRequests support Search, Get, Create, Update, Delete.
 
 #### FormPageRequest list filter options
 
-`--coworker-id` (long), `--form-page-id` (long), `--sent-on` (DateTime), `--from-sent-on` (range), `--to-sent-on` (range), `--submitted` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--form-page-id` | long |  |
+| `--sent-on` | DateTime |  |
+| `--from-sent-on` | range | |
+| `--to-sent-on` | range | |
+| `--submitted` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FormPageRequest create options
 
-`--coworker-id` (long, required), `--form-page-id` (long, required), `--sent-on` (DateTime), `--submitted` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--form-page-id` | long, required |  |
+| `--sent-on` | DateTime |  |
+| `--submitted` | bool |  |
 
 #### FormPageRequest update options
 
-`--coworker-id` (long), `--form-page-id` (long), `--sent-on` (DateTime), `--submitted` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--form-page-id` | long |  |
+| `--sent-on` | DateTime |  |
+| `--submitted` | bool |  |
 
 <!-- END:GENERATED entity=FormPageRequests -->

@@ -21,15 +21,31 @@ BasketSessions support Search, Get, Create, Update, Delete.
 
 #### BasketSession list filter options
 
-`--business-id` (long), `--session-id`, `--json-contents`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--session-id` | string | Unique session identifier linking the basket to the customer's browser session |
+| `--json-contents` | string | JSON-serialised basket contents including selected products, quantities, and pricing |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BasketSession create options
 
-`--business-id` (long, required), `--session-id` (required), `--json-contents`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--session-id` | string, required | Unique session identifier linking the basket to the customer's browser session |
+| `--json-contents` | string | JSON-serialised basket contents including selected products, quantities, and pricing |
 
 #### BasketSession update options
 
-`--business-id` (long), `--session-id`, `--json-contents`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--session-id` | string | Unique session identifier linking the basket to the customer's browser session |
+| `--json-contents` | string | JSON-serialised basket contents including selected products, quantities, and pricing |
 
 ### BasketSession (key fields)
 

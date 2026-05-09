@@ -25,15 +25,31 @@ CrmBoards support Search, Get, Create, Update, Delete.
 
 #### CrmBoard list filter options
 
-`--business-id` (long), `--name`, `--archived` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
+| `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CrmBoard create options
 
-`--business-id` (long, required), `--name` (required), `--archived` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
+| `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
 
 #### CrmBoard update options
 
-`--business-id` (long), `--name`, `--archived` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
+| `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
 
 ### CrmBoard (key fields)
 

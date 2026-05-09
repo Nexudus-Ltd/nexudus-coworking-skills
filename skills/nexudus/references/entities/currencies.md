@@ -22,7 +22,15 @@ Currencies support Search, Get (no Create or Delete via API).
 
 #### Currency list filter options
 
-`--name`, `--code`, `--format`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--name` | string | Full display name of the currency (e.g. 'US Dollar', 'Euro', 'Pound sterling') |
+| `--code` | string | ISO 4217 three-letter currency code (e.g. 'USD', 'EUR', 'GBP') |
+| `--format` | string | Display format string used to render monetary amounts in this currency |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 ### Currency (key fields)
 

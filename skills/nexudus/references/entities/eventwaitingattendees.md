@@ -19,14 +19,36 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 
 #### EventWaitingAttendee list filter options
 
-`--business-id` (long), `--calendar-event-id` (long), `--coworker-id` (long), `--full-name`, `--email`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--calendar-event-id` | long |  |
+| `--coworker-id` | long |  |
+| `--full-name` | string |  |
+| `--email` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### EventWaitingAttendee create options
 
-`--business-id` (long, required), `--calendar-event-id` (long, required), `--coworker-id` (long), `--full-name` (required), `--email` (required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--calendar-event-id` | long, required |  |
+| `--coworker-id` | long |  |
+| `--full-name` | string, required |  |
+| `--email` | string, required |  |
 
 #### EventWaitingAttendee update options
 
-`--business-id` (long), `--calendar-event-id` (long), `--coworker-id` (long), `--full-name`, `--email`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--calendar-event-id` | long |  |
+| `--coworker-id` | long |  |
+| `--full-name` | string |  |
+| `--email` | string |  |
 
 <!-- END:GENERATED entity=EventWaitingAttendees -->

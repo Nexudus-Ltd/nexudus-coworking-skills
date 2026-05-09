@@ -19,14 +19,60 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 
 #### TemplateFile list filter options
 
-`--business-id` (long), `--template-version-id` (long), `--name`, `--title`, `--description`, `--new-picture-url`, `--clear-picture-file` (bool), `--permalink`, `--file-language-id` (long), `--published` (bool), `--visibility` (enum), `--password`, `--file-contents`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--template-version-id` | long |  |
+| `--name` | string |  |
+| `--title` | string |  |
+| `--description` | string |  |
+| `--new-picture-url` | string |  |
+| `--clear-picture-file` | bool |  |
+| `--permalink` | string |  |
+| `--file-language-id` | long |  |
+| `--published` | bool |  |
+| `--visibility` | enum |  |
+| `--password` | string |  |
+| `--file-contents` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TemplateFile create options
 
-`--business-id` (long, required), `--template-version-id` (long), `--name` (required), `--title`, `--description`, `--new-picture-url`, `--clear-picture-file` (bool), `--permalink` (required), `--file-language-id` (long), `--published` (bool), `--visibility` (enum, required), `--password`, `--file-contents`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--template-version-id` | long |  |
+| `--name` | string, required |  |
+| `--title` | string |  |
+| `--description` | string |  |
+| `--new-picture-url` | string |  |
+| `--clear-picture-file` | bool |  |
+| `--permalink` | string, required |  |
+| `--file-language-id` | long |  |
+| `--published` | bool |  |
+| `--visibility` | enum, required |  |
+| `--password` | string |  |
+| `--file-contents` | string |  |
 
 #### TemplateFile update options
 
-`--business-id` (long), `--template-version-id` (long), `--name`, `--title`, `--description`, `--new-picture-url`, `--clear-picture-file` (bool), `--permalink`, `--file-language-id` (long), `--published` (bool), `--visibility` (enum), `--password`, `--file-contents`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--template-version-id` | long |  |
+| `--name` | string |  |
+| `--title` | string |  |
+| `--description` | string |  |
+| `--new-picture-url` | string |  |
+| `--clear-picture-file` | bool |  |
+| `--permalink` | string |  |
+| `--file-language-id` | long |  |
+| `--published` | bool |  |
+| `--visibility` | enum |  |
+| `--password` | string |  |
+| `--file-contents` | string |  |
 
 <!-- END:GENERATED entity=TemplateFiles -->

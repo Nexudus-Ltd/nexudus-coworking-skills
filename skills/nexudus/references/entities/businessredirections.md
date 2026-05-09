@@ -23,15 +23,44 @@ BusinessRedirections support Search, Get, Create, Update, Delete.
 
 #### BusinessRedirection list filter options
 
-`--business-id` (long), `--source-url`, `--destination-url`, `--active` (bool), `--active-from` (DateTime), `--from-active-from` (range), `--to-active-from` (range), `--active-to` (DateTime), `--from-active-to` (range), `--to-active-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--source-url` | string | Source URL path to redirect from |
+| `--destination-url` | string | Destination URL to redirect to |
+| `--active` | bool | Whether the redirect is currently active |
+| `--active-from` | DateTime | Date and time from which the redirect becomes active |
+| `--from-active-from` | range | |
+| `--to-active-from` | range | |
+| `--active-to` | DateTime | Date and time after which the redirect is no longer active |
+| `--from-active-to` | range | |
+| `--to-active-to` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BusinessRedirection create options
 
-`--business-id` (long, required), `--source-url` (required), `--destination-url` (required), `--active` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--source-url` | string, required | Source URL path to redirect from |
+| `--destination-url` | string, required | Destination URL to redirect to |
+| `--active` | bool | Whether the redirect is currently active |
+| `--active-from` | DateTime | Date and time from which the redirect becomes active |
+| `--active-to` | DateTime | Date and time after which the redirect is no longer active |
 
 #### BusinessRedirection update options
 
-`--business-id` (long), `--source-url`, `--destination-url`, `--active` (bool), `--active-from` (DateTime), `--active-to` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--source-url` | string | Source URL path to redirect from |
+| `--destination-url` | string | Destination URL to redirect to |
+| `--active` | bool | Whether the redirect is currently active |
+| `--active-from` | DateTime | Date and time from which the redirect becomes active |
+| `--active-to` | DateTime | Date and time after which the redirect is no longer active |
 
 ### BusinessRedirection (key fields)
 

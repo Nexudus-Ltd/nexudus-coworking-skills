@@ -19,14 +19,56 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 
 #### FloorPlanLayoutEdge list filter options
 
-`--floor-plan-layout-id` (long), `--edge-key`, `--source`, `--target`, `--angle` (decimal), `--from-angle` (range), `--to-angle` (range), `--width` (int), `--from-width` (range), `--to-width` (range), `--height` (int), `--from-height` (range), `--to-height` (range), `--length` (int), `--from-length` (range), `--to-length` (range), `--is-partition` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-id` | long |  |
+| `--edge-key` | string |  |
+| `--source` | string |  |
+| `--target` | string |  |
+| `--angle` | decimal |  |
+| `--from-angle` | range | |
+| `--to-angle` | range | |
+| `--width` | int |  |
+| `--from-width` | range | |
+| `--to-width` | range | |
+| `--height` | int |  |
+| `--from-height` | range | |
+| `--to-height` | range | |
+| `--length` | int |  |
+| `--from-length` | range | |
+| `--to-length` | range | |
+| `--is-partition` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FloorPlanLayoutEdge create options
 
-`--floor-plan-layout-id` (long, required), `--edge-key`, `--source`, `--target`, `--angle` (decimal, required), `--width` (int, required), `--height` (int, required), `--length` (int, required), `--is-partition` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-id` | long, required |  |
+| `--edge-key` | string |  |
+| `--source` | string |  |
+| `--target` | string |  |
+| `--angle` | decimal, required |  |
+| `--width` | int, required |  |
+| `--height` | int, required |  |
+| `--length` | int, required |  |
+| `--is-partition` | bool |  |
 
 #### FloorPlanLayoutEdge update options
 
-`--floor-plan-layout-id` (long), `--edge-key`, `--source`, `--target`, `--angle` (decimal), `--width` (int), `--height` (int), `--length` (int), `--is-partition` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--floor-plan-layout-id` | long |  |
+| `--edge-key` | string |  |
+| `--source` | string |  |
+| `--target` | string |  |
+| `--angle` | decimal |  |
+| `--width` | int |  |
+| `--height` | int |  |
+| `--length` | int |  |
+| `--is-partition` | bool |  |
 
 <!-- END:GENERATED entity=FloorPlanLayoutEdges -->

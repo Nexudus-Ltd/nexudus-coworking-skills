@@ -25,15 +25,41 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 
 #### ExtraServiceTimeSlot list filter options
 
-`--extra-service-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--day-of-week` (enum), `--available` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--extra-service-id` | long |  |
+| `--from-time` | DateTime | Start time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | DateTime | End time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--day-of-week` | enum |  |
+| `--available` | bool | Whether the extra service is available for booking during this time slot. When false, the slot acts as an explicit block. |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ExtraServiceTimeSlot create options
 
-`--extra-service-id` (long, required), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--day-of-week` (enum, required), `--available` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--extra-service-id` | long, required |  |
+| `--from-time` | DateTime, required | Start time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--to-time` | DateTime, required | End time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--day-of-week` | enum, required |  |
+| `--available` | bool | Whether the extra service is available for booking during this time slot. When false, the slot acts as an explicit block. |
 
 #### ExtraServiceTimeSlot update options
 
-`--extra-service-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--day-of-week` (enum), `--available` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--extra-service-id` | long |  |
+| `--from-time` | DateTime | Start time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--to-time` | DateTime | End time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
+| `--day-of-week` | enum |  |
+| `--available` | bool | Whether the extra service is available for booking during this time slot. When false, the slot acts as an explicit block. |
 
 ### ExtraServiceTimeSlot (key fields)
 

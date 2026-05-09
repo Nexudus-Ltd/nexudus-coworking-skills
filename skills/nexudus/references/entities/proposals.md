@@ -31,15 +31,131 @@ Proposals support Search, Get, Create, Update, Delete.
 
 #### Proposal list filter options
 
-`--issued-by-id` (long), `--responsible-id` (long), `--coworker-id` (long), `--reference`, `--notes`, `--proposal-status` (enum), `--document-to-send-id` (long), `--document-to-sign-id` (long), `--document-to-sign-html`, `--new-document-to-sign-binary-document-url`, `--clear-document-to-sign-binary-document-file` (bool), `--document-to-send-html`, `--new-document-to-send-binary-document-url`, `--clear-document-to-send-binary-document-file` (bool), `--new-proposal-file-url`, `--clear-proposal-file-file` (bool), `--tariff-id` (long), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--start-date` (DateTime), `--from-start-date` (range), `--to-start-date` (range), `--cancellation-limit-days` (int), `--from-cancellation-limit-days` (range), `--to-cancellation-limit-days` (range), `--contract-term` (DateTime), `--from-contract-term` (range), `--to-contract-term` (range), `--cancellation-date` (DateTime), `--from-cancellation-date` (range), `--to-cancellation-date` (range), `--expiration-date` (DateTime), `--from-expiration-date` (range), `--to-expiration-date` (range), `--billing-day` (int), `--from-billing-day` (range), `--to-billing-day` (range), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--discount-code-id` (long), `--start-date-local` (DateTime), `--from-start-date-local` (range), `--to-start-date-local` (range), `--sent-on-local` (DateTime), `--from-sent-on-local` (range), `--to-sent-on-local` (range), `--do-not-issue-invoice` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--issued-by-id` | long |  |
+| `--responsible-id` | long |  |
+| `--coworker-id` | long |  |
+| `--reference` | string | Proposal reference |
+| `--notes` | string | Notes |
+| `--proposal-status` | enum | Proposal status |
+| `--document-to-send-id` | long |  |
+| `--document-to-sign-id` | long |  |
+| `--document-to-sign-html` | string |  |
+| `--new-document-to-sign-binary-document-url` | string |  |
+| `--clear-document-to-sign-binary-document-file` | bool |  |
+| `--document-to-send-html` | string |  |
+| `--new-document-to-send-binary-document-url` | string |  |
+| `--clear-document-to-send-binary-document-file` | bool |  |
+| `--new-proposal-file-url` | string |  |
+| `--clear-proposal-file-file` | bool |  |
+| `--tariff-id` | long |  |
+| `--price` | decimal | Price override for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--start-date` | DateTime | Start date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--from-start-date` | range | |
+| `--to-start-date` | range | |
+| `--cancellation-limit-days` | int | Cancellation limit in days for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--from-cancellation-limit-days` | range | |
+| `--to-cancellation-limit-days` | range | |
+| `--contract-term` | DateTime | Contract term end date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--from-contract-term` | range | |
+| `--to-contract-term` | range | |
+| `--cancellation-date` | DateTime | Cancellation date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--from-cancellation-date` | range | |
+| `--to-cancellation-date` | range | |
+| `--expiration-date` | DateTime | Proposal expiration date. Becomes read-only after creation; edit via ProposalContract |
+| `--from-expiration-date` | range | |
+| `--to-expiration-date` | range | |
+| `--billing-day` | int | Billing day of month for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--from-billing-day` | range | |
+| `--to-billing-day` | range | |
+| `--quantity` | int | Quantity for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--from-quantity` | range | |
+| `--to-quantity` | range | |
+| `--discount-code-id` | long |  |
+| `--start-date-local` | DateTime |  |
+| `--from-start-date-local` | range | |
+| `--to-start-date-local` | range | |
+| `--sent-on-local` | DateTime |  |
+| `--from-sent-on-local` | range | |
+| `--to-sent-on-local` | range | |
+| `--do-not-issue-invoice` | bool | If true, the first invoice is not issued automatically when the proposal is accepted |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Proposal create options
 
-`--issued-by-id` (long, required), `--responsible-id` (long, required), `--coworker-id` (long, required), `--reference` (required), `--notes`, `--proposal-status` (enum, required), `--document-to-send-id` (long), `--document-to-sign-id` (long), `--document-to-sign-html`, `--new-document-to-sign-binary-document-url`, `--clear-document-to-sign-binary-document-file` (bool), `--document-to-send-html`, `--new-document-to-send-binary-document-url`, `--clear-document-to-send-binary-document-file` (bool), `--new-proposal-file-url`, `--clear-proposal-file-file` (bool), `--tariff-id` (long, required), `--desks` (list, repeat flag), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--variants` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--price` (decimal), `--start-date` (DateTime), `--cancellation-limit-days` (int), `--contract-term` (DateTime), `--cancellation-date` (DateTime), `--expiration-date` (DateTime), `--billing-day` (int, required), `--quantity` (int, required), `--discount-code-id` (long), `--start-date-local` (DateTime), `--sent-on-local` (DateTime), `--do-not-issue-invoice` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--issued-by-id` | long, required |  |
+| `--responsible-id` | long, required |  |
+| `--coworker-id` | long, required |  |
+| `--reference` | string, required | Proposal reference |
+| `--notes` | string | Notes |
+| `--proposal-status` | enum, required | Proposal status |
+| `--document-to-send-id` | long |  |
+| `--document-to-sign-id` | long |  |
+| `--document-to-sign-html` | string |  |
+| `--new-document-to-sign-binary-document-url` | string |  |
+| `--clear-document-to-sign-binary-document-file` | bool |  |
+| `--document-to-send-html` | string |  |
+| `--new-document-to-send-binary-document-url` | string |  |
+| `--clear-document-to-send-binary-document-file` | bool |  |
+| `--new-proposal-file-url` | string |  |
+| `--clear-proposal-file-file` | bool |  |
+| `--tariff-id` | long, required |  |
+| `--desks` | list, repeat flag |  |
+| `--added-desks` | list, repeat flag |  |
+| `--removed-desks` | list, repeat flag |  |
+| `--variants` | list, repeat flag |  |
+| `--added-variants` | list, repeat flag |  |
+| `--removed-variants` | list, repeat flag |  |
+| `--price` | decimal | Price override for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--start-date` | DateTime | Start date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--cancellation-limit-days` | int | Cancellation limit in days for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--contract-term` | DateTime | Contract term end date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--cancellation-date` | DateTime | Cancellation date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--expiration-date` | DateTime | Proposal expiration date. Becomes read-only after creation; edit via ProposalContract |
+| `--billing-day` | int, required | Billing day of month for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--quantity` | int, required | Quantity for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--discount-code-id` | long |  |
+| `--start-date-local` | DateTime |  |
+| `--sent-on-local` | DateTime |  |
+| `--do-not-issue-invoice` | bool | If true, the first invoice is not issued automatically when the proposal is accepted |
 
 #### Proposal update options
 
-`--issued-by-id` (long), `--responsible-id` (long), `--coworker-id` (long), `--reference`, `--notes`, `--proposal-status` (enum), `--document-to-send-id` (long), `--document-to-sign-id` (long), `--document-to-sign-html`, `--new-document-to-sign-binary-document-url`, `--clear-document-to-sign-binary-document-file` (bool), `--document-to-send-html`, `--new-document-to-send-binary-document-url`, `--clear-document-to-send-binary-document-file` (bool), `--new-proposal-file-url`, `--clear-proposal-file-file` (bool), `--added-desks` (list, repeat flag), `--removed-desks` (list, repeat flag), `--added-variants` (list, repeat flag), `--removed-variants` (list, repeat flag), `--cancellation-limit-days` (int), `--contract-term` (DateTime), `--expiration-date` (DateTime), `--start-date-local` (DateTime), `--sent-on-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--issued-by-id` | long |  |
+| `--responsible-id` | long |  |
+| `--coworker-id` | long |  |
+| `--reference` | string | Proposal reference |
+| `--notes` | string | Notes |
+| `--proposal-status` | enum | Proposal status |
+| `--document-to-send-id` | long |  |
+| `--document-to-sign-id` | long |  |
+| `--document-to-sign-html` | string |  |
+| `--new-document-to-sign-binary-document-url` | string |  |
+| `--clear-document-to-sign-binary-document-file` | bool |  |
+| `--document-to-send-html` | string |  |
+| `--new-document-to-send-binary-document-url` | string |  |
+| `--clear-document-to-send-binary-document-file` | bool |  |
+| `--new-proposal-file-url` | string |  |
+| `--clear-proposal-file-file` | bool |  |
+| `--added-desks` | list, repeat flag |  |
+| `--removed-desks` | list, repeat flag |  |
+| `--added-variants` | list, repeat flag |  |
+| `--removed-variants` | list, repeat flag |  |
+| `--cancellation-limit-days` | int | Cancellation limit in days for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--contract-term` | DateTime | Contract term end date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
+| `--expiration-date` | DateTime | Proposal expiration date. Becomes read-only after creation; edit via ProposalContract |
+| `--start-date-local` | DateTime |  |
+| `--sent-on-local` | DateTime |  |
 
 ### Proposal (key fields)
 

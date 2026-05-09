@@ -19,15 +19,39 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 
 #### TariffSignupProduct list filter options
 
-`--tariff-id` (long), `--product-id` (long), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--refundable` (bool), `--invoice-during-online-checkout` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long |  |
+| `--product-id` | long |  |
+| `--price` | decimal | Signup product price override |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--refundable` | bool | Whether the signup product is refundable |
+| `--invoice-during-online-checkout` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TariffSignupProduct create options
 
-`--tariff-id` (long, required), `--product-id` (long, required), `--price` (decimal), `--refundable` (bool), `--invoice-during-online-checkout` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long, required |  |
+| `--product-id` | long, required |  |
+| `--price` | decimal | Signup product price override |
+| `--refundable` | bool | Whether the signup product is refundable |
+| `--invoice-during-online-checkout` | bool |  |
 
 #### TariffSignupProduct update options
 
-`--tariff-id` (long), `--product-id` (long), `--price` (decimal), `--refundable` (bool), `--invoice-during-online-checkout` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--tariff-id` | long |  |
+| `--product-id` | long |  |
+| `--price` | decimal | Signup product price override |
+| `--refundable` | bool | Whether the signup product is refundable |
+| `--invoice-during-online-checkout` | bool |  |
 
 ### TariffSignupProduct (key fields)
 

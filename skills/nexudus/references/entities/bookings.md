@@ -33,15 +33,182 @@ Bookings also support entity commands.
 
 #### Booking list filter options
 
-`--resource-id` (long), `--floor-plan-desk-id` (long), `--coworker-id` (long), `--extra-service-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--notes`, `--internal-notes`, `--charge-now` (bool), `--invoice-now` (bool), `--invoice-this-coworker` (bool), `--do-not-use-booking-credit` (bool), `--purchase-order`, `--discount-code`, `--last-notification-time` (DateTime), `--from-last-notification-time` (range), `--to-last-notification-time` (range), `--google-calendar-id`, `--google-event-id`, `--office365-event-id`, `--public-google-event-id`, `--tentative` (bool), `--teams-at-booking`, `--tariff-at-booking`, `--repeat-series-unique-id`, `--repeat-booking` (bool), `--repeats` (enum), `--which-bookings-to-update` (enum), `--repeat-every` (int), `--from-repeat-every` (range), `--to-repeat-every` (range), `--repeat-until` (DateTime), `--from-repeat-until` (range), `--to-repeat-until` (range), `--repeat-on-mondays` (bool), `--repeat-on-tuesdays` (bool), `--repeat-on-wednesdays` (bool), `--repeat-on-thursdays` (bool), `--repeat-on-fridays` (bool), `--repeat-on-saturdays` (bool), `--repeat-on-sundays` (bool), `--reminded` (bool), `--mrm-reminded` (bool), `--override-price` (decimal), `--from-override-price` (range), `--to-override-price` (range), `--kisi-key-id` (int), `--from-kisi-key-id` (range), `--to-kisi-key-id` (range), `--start-scheduled-job-id`, `--end-scheduled-job-id`, `--billed` (bool), `--from-time-local` (DateTime), `--from-from-time-local` (range), `--to-from-time-local` (range), `--to-time-local` (DateTime), `--from-to-time-local` (range), `--to-to-time-local` (range), `--invoice-date-local` (DateTime), `--from-invoice-date-local` (range), `--to-invoice-date-local` (range), `--coworker-extra-service-price` (decimal), `--from-coworker-extra-service-price` (range), `--to-coworker-extra-service-price` (range), `--include-zoom-invite` (bool), `--zoom-event-data`, `--office365-admin-event-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--floor-plan-desk-id` | long |  |
+| `--coworker-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--from-time` | DateTime | Booking start time |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | DateTime | Booking end time |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--notes` | string | Notes |
+| `--internal-notes` | string | Internal notes |
+| `--charge-now` | bool | Charge immediately |
+| `--invoice-now` | bool | Invoice immediately |
+| `--invoice-this-coworker` | bool | Charge the booking to the customer making it rather than their paying member (if any) |
+| `--do-not-use-booking-credit` | bool | Do not use booking credit |
+| `--purchase-order` | string | Purchase order |
+| `--discount-code` | string | Discount code |
+| `--last-notification-time` | DateTime |  |
+| `--from-last-notification-time` | range | |
+| `--to-last-notification-time` | range | |
+| `--google-calendar-id` | string |  |
+| `--google-event-id` | string |  |
+| `--office365-event-id` | string |  |
+| `--public-google-event-id` | string |  |
+| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
+| `--teams-at-booking` | string | Teams at the time of booking |
+| `--tariff-at-booking` | string | Tariff at the time of booking |
+| `--repeat-series-unique-id` | string |  |
+| `--repeat-booking` | bool | Create a repeating booking series. Create-only: once created, only WhichBookingsToUpdate can be used to update the series. No new bookings can be added to the series |
+| `--repeats` | enum | Repeat cycle. Create-only |
+| `--which-bookings-to-update` | enum | Action to apply when updating or deleting bookings in a repeated series. This is the only field that can modify a series after creation |
+| `--repeat-every` | int | Repeat every N periods. Create-only |
+| `--from-repeat-every` | range | |
+| `--to-repeat-every` | range | |
+| `--repeat-until` | DateTime | Repeat until date. Create-only |
+| `--from-repeat-until` | range | |
+| `--to-repeat-until` | range | |
+| `--repeat-on-mondays` | bool | Repeat on Mondays. Create-only |
+| `--repeat-on-tuesdays` | bool | Repeat on Tuesdays. Create-only |
+| `--repeat-on-wednesdays` | bool | Repeat on Wednesdays. Create-only |
+| `--repeat-on-thursdays` | bool | Repeat on Thursdays. Create-only |
+| `--repeat-on-fridays` | bool | Repeat on Fridays. Create-only |
+| `--repeat-on-saturdays` | bool | Repeat on Saturdays. Create-only |
+| `--repeat-on-sundays` | bool | Repeat on Sundays. Create-only |
+| `--reminded` | bool |  |
+| `--mrm-reminded` | bool |  |
+| `--override-price` | decimal | Admin-set fixed price for the booking, regardless of what extra service (rate) is associated with it |
+| `--from-override-price` | range | |
+| `--to-override-price` | range | |
+| `--kisi-key-id` | int |  |
+| `--from-kisi-key-id` | range | |
+| `--to-kisi-key-id` | range | |
+| `--start-scheduled-job-id` | string |  |
+| `--end-scheduled-job-id` | string |  |
+| `--billed` | bool |  |
+| `--from-time-local` | DateTime |  |
+| `--from-from-time-local` | range | |
+| `--to-from-time-local` | range | |
+| `--to-time-local` | DateTime |  |
+| `--from-to-time-local` | range | |
+| `--to-to-time-local` | range | |
+| `--invoice-date-local` | DateTime |  |
+| `--from-invoice-date-local` | range | |
+| `--to-invoice-date-local` | range | |
+| `--coworker-extra-service-price` | decimal |  |
+| `--from-coworker-extra-service-price` | range | |
+| `--to-coworker-extra-service-price` | range | |
+| `--include-zoom-invite` | bool | Include Zoom invite |
+| `--zoom-event-data` | string |  |
+| `--office365-admin-event-id` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Booking create options
 
-`--resource-id` (long, required), `--floor-plan-desk-id` (long), `--coworker-id` (long), `--extra-service-id` (long), `--from-time` (DateTime, required), `--to-time` (DateTime, required), `--notes`, `--internal-notes`, `--charge-now` (bool), `--invoice-now` (bool), `--invoice-this-coworker` (bool), `--do-not-use-booking-credit` (bool), `--purchase-order`, `--discount-code`, `--last-notification-time` (DateTime), `--google-calendar-id`, `--google-event-id`, `--office365-event-id`, `--public-google-event-id`, `--tentative` (bool), `--teams-at-booking`, `--tariff-at-booking`, `--repeat-series-unique-id`, `--repeat-booking` (bool), `--repeats` (enum, required), `--which-bookings-to-update` (enum, required), `--repeat-every` (int), `--repeat-until` (DateTime), `--repeat-on-mondays` (bool), `--repeat-on-tuesdays` (bool), `--repeat-on-wednesdays` (bool), `--repeat-on-thursdays` (bool), `--repeat-on-fridays` (bool), `--repeat-on-saturdays` (bool), `--repeat-on-sundays` (bool), `--reminded` (bool), `--mrm-reminded` (bool), `--override-price` (decimal), `--kisi-key-id` (int), `--start-scheduled-job-id`, `--end-scheduled-job-id`, `--billed` (bool), `--from-time-local` (DateTime), `--to-time-local` (DateTime), `--invoice-date-local` (DateTime), `--coworker-extra-service-price` (decimal), `--include-zoom-invite` (bool), `--zoom-event-data`, `--office365-admin-event-id`, `--booking-products` (JSON array or @filepath), `--booking-visitors` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long, required |  |
+| `--floor-plan-desk-id` | long |  |
+| `--coworker-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--from-time` | DateTime, required | Booking start time |
+| `--to-time` | DateTime, required | Booking end time |
+| `--notes` | string | Notes |
+| `--internal-notes` | string | Internal notes |
+| `--charge-now` | bool | Charge immediately |
+| `--invoice-now` | bool | Invoice immediately |
+| `--invoice-this-coworker` | bool | Charge the booking to the customer making it rather than their paying member (if any) |
+| `--do-not-use-booking-credit` | bool | Do not use booking credit |
+| `--purchase-order` | string | Purchase order |
+| `--discount-code` | string | Discount code |
+| `--last-notification-time` | DateTime |  |
+| `--google-calendar-id` | string |  |
+| `--google-event-id` | string |  |
+| `--office365-event-id` | string |  |
+| `--public-google-event-id` | string |  |
+| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
+| `--teams-at-booking` | string | Teams at the time of booking |
+| `--tariff-at-booking` | string | Tariff at the time of booking |
+| `--repeat-series-unique-id` | string |  |
+| `--repeat-booking` | bool | Create a repeating booking series. Create-only: once created, only WhichBookingsToUpdate can be used to update the series. No new bookings can be added to the series |
+| `--repeats` | enum, required | Repeat cycle. Create-only |
+| `--which-bookings-to-update` | enum, required | Action to apply when updating or deleting bookings in a repeated series. This is the only field that can modify a series after creation |
+| `--repeat-every` | int | Repeat every N periods. Create-only |
+| `--repeat-until` | DateTime | Repeat until date. Create-only |
+| `--repeat-on-mondays` | bool | Repeat on Mondays. Create-only |
+| `--repeat-on-tuesdays` | bool | Repeat on Tuesdays. Create-only |
+| `--repeat-on-wednesdays` | bool | Repeat on Wednesdays. Create-only |
+| `--repeat-on-thursdays` | bool | Repeat on Thursdays. Create-only |
+| `--repeat-on-fridays` | bool | Repeat on Fridays. Create-only |
+| `--repeat-on-saturdays` | bool | Repeat on Saturdays. Create-only |
+| `--repeat-on-sundays` | bool | Repeat on Sundays. Create-only |
+| `--reminded` | bool |  |
+| `--mrm-reminded` | bool |  |
+| `--override-price` | decimal | Admin-set fixed price for the booking, regardless of what extra service (rate) is associated with it |
+| `--kisi-key-id` | int |  |
+| `--start-scheduled-job-id` | string |  |
+| `--end-scheduled-job-id` | string |  |
+| `--billed` | bool |  |
+| `--from-time-local` | DateTime |  |
+| `--to-time-local` | DateTime |  |
+| `--invoice-date-local` | DateTime |  |
+| `--coworker-extra-service-price` | decimal |  |
+| `--include-zoom-invite` | bool | Include Zoom invite |
+| `--zoom-event-data` | string |  |
+| `--office365-admin-event-id` | string |  |
+| `--booking-products` | JSON array or @filepath | Products to include with this booking |
+| `--booking-visitors` | JSON array or @filepath | Visitors to add to this booking |
 
 #### Booking update options
 
-`--resource-id` (long), `--floor-plan-desk-id` (long), `--coworker-id` (long), `--extra-service-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--notes`, `--charge-now` (bool), `--invoice-now` (bool), `--invoice-this-coworker` (bool), `--do-not-use-booking-credit` (bool), `--purchase-order`, `--discount-code`, `--last-notification-time` (DateTime), `--google-calendar-id`, `--google-event-id`, `--office365-event-id`, `--public-google-event-id`, `--tentative` (bool), `--teams-at-booking`, `--tariff-at-booking`, `--which-bookings-to-update` (enum), `--reminded` (bool), `--mrm-reminded` (bool), `--override-price` (decimal), `--kisi-key-id` (int), `--start-scheduled-job-id`, `--end-scheduled-job-id`, `--billed` (bool), `--from-time-local` (DateTime), `--to-time-local` (DateTime), `--invoice-date-local` (DateTime), `--coworker-extra-service-price` (decimal), `--include-zoom-invite` (bool), `--zoom-event-data`, `--office365-admin-event-id`, `--booking-products` (JSON array or @filepath), `--booking-visitors` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long |  |
+| `--floor-plan-desk-id` | long |  |
+| `--coworker-id` | long |  |
+| `--extra-service-id` | long |  |
+| `--from-time` | DateTime | Booking start time |
+| `--to-time` | DateTime | Booking end time |
+| `--notes` | string | Notes |
+| `--charge-now` | bool | Charge immediately |
+| `--invoice-now` | bool | Invoice immediately |
+| `--invoice-this-coworker` | bool | Charge the booking to the customer making it rather than their paying member (if any) |
+| `--do-not-use-booking-credit` | bool | Do not use booking credit |
+| `--purchase-order` | string | Purchase order |
+| `--discount-code` | string | Discount code |
+| `--last-notification-time` | DateTime |  |
+| `--google-calendar-id` | string |  |
+| `--google-event-id` | string |  |
+| `--office365-event-id` | string |  |
+| `--public-google-event-id` | string |  |
+| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
+| `--teams-at-booking` | string | Teams at the time of booking |
+| `--tariff-at-booking` | string | Tariff at the time of booking |
+| `--which-bookings-to-update` | enum | Action to apply when updating or deleting bookings in a repeated series. This is the only field that can modify a series after creation |
+| `--reminded` | bool |  |
+| `--mrm-reminded` | bool |  |
+| `--override-price` | decimal | Admin-set fixed price for the booking, regardless of what extra service (rate) is associated with it |
+| `--kisi-key-id` | int |  |
+| `--start-scheduled-job-id` | string |  |
+| `--end-scheduled-job-id` | string |  |
+| `--billed` | bool |  |
+| `--from-time-local` | DateTime |  |
+| `--to-time-local` | DateTime |  |
+| `--invoice-date-local` | DateTime |  |
+| `--coworker-extra-service-price` | decimal |  |
+| `--include-zoom-invite` | bool | Include Zoom invite |
+| `--zoom-event-data` | string |  |
+| `--office365-admin-event-id` | string |  |
+| `--booking-products` | JSON array or @filepath | Products to include with this booking |
+| `--booking-visitors` | JSON array or @filepath | Visitors to add to this booking |
 
 ### Booking (key fields)
 

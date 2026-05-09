@@ -19,14 +19,41 @@ RefreshTokens support Search, Get, Create, Update, Delete.
 
 #### RefreshToken list filter options
 
-`--subject`, `--client-id`, `--expires-on` (DateTime), `--from-expires-on` (range), `--to-expires-on` (range), `--protected-ticket`, `--ticket-hash`, `--ticket-salt`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--subject` | string |  |
+| `--client-id` | string |  |
+| `--expires-on` | DateTime |  |
+| `--from-expires-on` | range | |
+| `--to-expires-on` | range | |
+| `--protected-ticket` | string |  |
+| `--ticket-hash` | string |  |
+| `--ticket-salt` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### RefreshToken create options
 
-`--subject` (required), `--client-id` (required), `--expires-on` (DateTime, required), `--protected-ticket` (required), `--ticket-hash` (required), `--ticket-salt` (required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--subject` | string, required |  |
+| `--client-id` | string, required |  |
+| `--expires-on` | DateTime, required |  |
+| `--protected-ticket` | string, required |  |
+| `--ticket-hash` | string, required |  |
+| `--ticket-salt` | string, required |  |
 
 #### RefreshToken update options
 
-`--subject`, `--client-id`, `--expires-on` (DateTime), `--protected-ticket`, `--ticket-hash`, `--ticket-salt`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--subject` | string |  |
+| `--client-id` | string |  |
+| `--expires-on` | DateTime |  |
+| `--protected-ticket` | string |  |
+| `--ticket-hash` | string |  |
+| `--ticket-salt` | string |  |
 
 <!-- END:GENERATED entity=RefreshTokens -->

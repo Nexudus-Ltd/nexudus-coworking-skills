@@ -25,15 +25,43 @@ ContractSchedules support Search, Get, Create, Update, Delete.
 
 #### ContractSchedule list filter options
 
-`--coworker-contract-id` (long), `--notes`, `--price` (decimal), `--from-price` (range), `--to-price` (range), `--apply-on` (DateTime), `--from-apply-on` (range), `--to-apply-on` (range), `--apply-on-local` (DateTime), `--from-apply-on-local` (range), `--to-apply-on-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long |  |
+| `--notes` | string | Optional notes or internal comments about this scheduled price change |
+| `--price` | decimal | The new contract price to apply on the scheduled date |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--apply-on` | DateTime | Date on which the system will automatically update the contract price to the value in Price |
+| `--from-apply-on` | range | |
+| `--to-apply-on` | range | |
+| `--apply-on-local` | DateTime |  |
+| `--from-apply-on-local` | range | |
+| `--to-apply-on-local` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ContractSchedule create options
 
-`--coworker-contract-id` (long, required), `--notes`, `--price` (decimal), `--apply-on` (DateTime, required), `--apply-on-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long, required |  |
+| `--notes` | string | Optional notes or internal comments about this scheduled price change |
+| `--price` | decimal | The new contract price to apply on the scheduled date |
+| `--apply-on` | DateTime, required | Date on which the system will automatically update the contract price to the value in Price |
+| `--apply-on-local` | DateTime |  |
 
 #### ContractSchedule update options
 
-`--coworker-contract-id` (long), `--notes`, `--price` (decimal), `--apply-on` (DateTime), `--apply-on-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-contract-id` | long |  |
+| `--notes` | string | Optional notes or internal comments about this scheduled price change |
+| `--price` | decimal | The new contract price to apply on the scheduled date |
+| `--apply-on` | DateTime | Date on which the system will automatically update the contract price to the value in Price |
+| `--apply-on-local` | DateTime |  |
 
 ### ContractSchedule (key fields)
 

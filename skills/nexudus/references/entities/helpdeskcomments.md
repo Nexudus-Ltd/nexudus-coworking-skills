@@ -19,14 +19,39 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 
 #### HelpDeskComment list filter options
 
-`--help-desk-message-id` (long), `--coworker-id` (long), `--message-text`, `--internal` (bool), `--new-image-url`, `--clear-image-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--help-desk-message-id` | long |  |
+| `--coworker-id` | long |  |
+| `--message-text` | string |  |
+| `--internal` | bool |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### HelpDeskComment create options
 
-`--help-desk-message-id` (long, required), `--coworker-id` (long, required), `--message-text` (required), `--internal` (bool), `--new-image-url`, `--clear-image-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--help-desk-message-id` | long, required |  |
+| `--coworker-id` | long, required |  |
+| `--message-text` | string, required |  |
+| `--internal` | bool |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
 
 #### HelpDeskComment update options
 
-`--help-desk-message-id` (long), `--coworker-id` (long), `--message-text`, `--internal` (bool), `--new-image-url`, `--clear-image-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--help-desk-message-id` | long |  |
+| `--coworker-id` | long |  |
+| `--message-text` | string |  |
+| `--internal` | bool |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
 
 <!-- END:GENERATED entity=HelpDeskComments -->

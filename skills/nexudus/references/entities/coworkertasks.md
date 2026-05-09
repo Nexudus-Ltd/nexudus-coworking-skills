@@ -27,15 +27,62 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 
 #### CoworkerTask list filter options
 
-`--business-id` (long), `--coworker-id` (long), `--name`, `--notes`, `--task-item-unique-id`, `--completed` (bool), `--due-date` (DateTime), `--from-due-date` (range), `--to-due-date` (range), `--reminded` (bool), `--responsible-id` (long), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--due-date-local` (DateTime), `--from-due-date-local` (range), `--to-due-date-local` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--name` | string | Task name |
+| `--notes` | string | Additional details or instructions for the task |
+| `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
+| `--completed` | bool | Whether the task has been marked as completed |
+| `--due-date` | DateTime | Due date for the task (UTC) |
+| `--from-due-date` | range | |
+| `--to-due-date` | range | |
+| `--reminded` | bool | Whether a reminder has been sent for this task |
+| `--responsible-id` | long |  |
+| `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
+| `--display-to-everyone` | bool | Whether the task is visible to all admin users |
+| `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
+| `--from-due-date-local` | range | |
+| `--to-due-date-local` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerTask create options
 
-`--business-id` (long, required), `--coworker-id` (long, required), `--name` (required), `--notes`, `--task-item-unique-id`, `--completed` (bool), `--due-date` (DateTime), `--reminded` (bool), `--responsible-id` (long, required), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--due-date-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--coworker-id` | long, required |  |
+| `--name` | string, required | Task name |
+| `--notes` | string | Additional details or instructions for the task |
+| `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
+| `--completed` | bool | Whether the task has been marked as completed |
+| `--due-date` | DateTime | Due date for the task (UTC) |
+| `--reminded` | bool | Whether a reminder has been sent for this task |
+| `--responsible-id` | long, required |  |
+| `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
+| `--display-to-everyone` | bool | Whether the task is visible to all admin users |
+| `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
 
 #### CoworkerTask update options
 
-`--business-id` (long), `--coworker-id` (long), `--name`, `--notes`, `--task-item-unique-id`, `--completed` (bool), `--due-date` (DateTime), `--reminded` (bool), `--responsible-id` (long), `--notify-by-email` (bool), `--display-to-everyone` (bool), `--due-date-local` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--name` | string | Task name |
+| `--notes` | string | Additional details or instructions for the task |
+| `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
+| `--completed` | bool | Whether the task has been marked as completed |
+| `--due-date` | DateTime | Due date for the task (UTC) |
+| `--reminded` | bool | Whether a reminder has been sent for this task |
+| `--responsible-id` | long |  |
+| `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
+| `--display-to-everyone` | bool | Whether the task is visible to all admin users |
+| `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
 
 ### CoworkerTask (key fields)
 

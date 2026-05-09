@@ -25,15 +25,110 @@ Charges support Search, Get, Create, Update, Delete.
 
 #### Charge list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--description`, `--invoice-line-display-as`, `--regular-charge` (bool), `--discount-amount` (decimal), `--from-discount-amount` (range), `--to-discount-amount` (range), `--credit-amount` (decimal), `--from-credit-amount` (range), `--to-credit-amount` (range), `--due-date` (DateTime), `--from-due-date` (range), `--to-due-date` (range), `--total-amount` (decimal), `--from-total-amount` (range), `--to-total-amount` (range), `--purchase-order`, `--tax-rate-id` (long), `--financial-account-id` (long), `--invoiced` (bool), `--sale-date` (DateTime), `--from-sale-date` (range), `--to-sale-date` (range), `--from-team-member` (bool), `--coworker-extra-service-name`, `--coworker-time-pass-name`, `--coworker-product-name`, `--tariff-name`, `--coworker-product-unique-id`, `--booking-unique-id`, `--repeat-from` (DateTime), `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until` (DateTime), `--from-repeat-until` (range), `--to-repeat-until` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--quantity` | int | Quantity |
+| `--from-quantity` | range | |
+| `--to-quantity` | range | |
+| `--description` | string | Description |
+| `--invoice-line-display-as` | string | Display text on invoice line |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--discount-amount` | decimal | Discount amount |
+| `--from-discount-amount` | range | |
+| `--to-discount-amount` | range | |
+| `--credit-amount` | decimal | Credit amount |
+| `--from-credit-amount` | range | |
+| `--to-credit-amount` | range | |
+| `--due-date` | DateTime | Due date |
+| `--from-due-date` | range | |
+| `--to-due-date` | range | |
+| `--total-amount` | decimal | Total amount |
+| `--from-total-amount` | range | |
+| `--to-total-amount` | range | |
+| `--purchase-order` | string | Purchase order |
+| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--invoiced` | bool | Whether the charge has been invoiced |
+| `--sale-date` | DateTime | Sale date |
+| `--from-sale-date` | range | |
+| `--to-sale-date` | range | |
+| `--from-team-member` | bool |  |
+| `--coworker-extra-service-name` | string |  |
+| `--coworker-time-pass-name` | string |  |
+| `--coworker-product-name` | string |  |
+| `--tariff-name` | string |  |
+| `--coworker-product-unique-id` | string |  |
+| `--booking-unique-id` | string |  |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--from-repeat-from` | range | |
+| `--to-repeat-from` | range | |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--from-repeat-until` | range | |
+| `--to-repeat-until` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Charge create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--quantity` (int, required), `--description`, `--invoice-line-display-as`, `--regular-charge` (bool), `--discount-amount` (decimal, required), `--credit-amount` (decimal, required), `--due-date` (DateTime), `--total-amount` (decimal, required), `--purchase-order`, `--tax-rate-id` (long), `--financial-account-id` (long), `--invoiced` (bool), `--sale-date` (DateTime), `--from-team-member` (bool), `--coworker-extra-service-name`, `--coworker-time-pass-name`, `--coworker-product-name`, `--tariff-name`, `--coworker-product-unique-id`, `--booking-unique-id`, `--repeat-from` (DateTime), `--repeat-until` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--business-id` | long, required |  |
+| `--quantity` | int, required | Quantity |
+| `--description` | string | Description |
+| `--invoice-line-display-as` | string | Display text on invoice line |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--discount-amount` | decimal, required | Discount amount |
+| `--credit-amount` | decimal, required | Credit amount |
+| `--due-date` | DateTime | Due date |
+| `--total-amount` | decimal, required | Total amount |
+| `--purchase-order` | string | Purchase order |
+| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--invoiced` | bool | Whether the charge has been invoiced |
+| `--sale-date` | DateTime | Sale date |
+| `--from-team-member` | bool |  |
+| `--coworker-extra-service-name` | string |  |
+| `--coworker-time-pass-name` | string |  |
+| `--coworker-product-name` | string |  |
+| `--tariff-name` | string |  |
+| `--coworker-product-unique-id` | string |  |
+| `--booking-unique-id` | string |  |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
 
 #### Charge update options
 
-`--coworker-id` (long), `--business-id` (long), `--quantity` (int), `--description`, `--invoice-line-display-as`, `--regular-charge` (bool), `--discount-amount` (decimal), `--credit-amount` (decimal), `--due-date` (DateTime), `--total-amount` (decimal), `--purchase-order`, `--tax-rate-id` (long), `--financial-account-id` (long), `--invoiced` (bool), `--sale-date` (DateTime), `--from-team-member` (bool), `--coworker-extra-service-name`, `--coworker-time-pass-name`, `--coworker-product-name`, `--tariff-name`, `--coworker-product-unique-id`, `--booking-unique-id`, `--repeat-from` (DateTime), `--repeat-until` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--quantity` | int | Quantity |
+| `--description` | string | Description |
+| `--invoice-line-display-as` | string | Display text on invoice line |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--discount-amount` | decimal | Discount amount |
+| `--credit-amount` | decimal | Credit amount |
+| `--due-date` | DateTime | Due date |
+| `--total-amount` | decimal | Total amount |
+| `--purchase-order` | string | Purchase order |
+| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--invoiced` | bool | Whether the charge has been invoiced |
+| `--sale-date` | DateTime | Sale date |
+| `--from-team-member` | bool |  |
+| `--coworker-extra-service-name` | string |  |
+| `--coworker-time-pass-name` | string |  |
+| `--coworker-product-name` | string |  |
+| `--tariff-name` | string |  |
+| `--coworker-product-unique-id` | string |  |
+| `--booking-unique-id` | string |  |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
 
 ### Charge (key fields)
 

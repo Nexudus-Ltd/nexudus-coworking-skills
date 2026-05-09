@@ -19,14 +19,36 @@ Reports support Search, Get, Create, Update, Delete.
 
 #### Report list filter options
 
-`--business-id` (long), `--name`, `--folder`, `--report-type` (enum), `--report-xml`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--folder` | string |  |
+| `--report-type` | enum |  |
+| `--report-xml` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### Report create options
 
-`--business-id` (long, required), `--name` (required), `--folder` (required), `--report-type` (enum, required), `--report-xml`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--folder` | string, required |  |
+| `--report-type` | enum, required |  |
+| `--report-xml` | string |  |
 
 #### Report update options
 
-`--business-id` (long), `--name`, `--folder`, `--report-type` (enum), `--report-xml`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--folder` | string |  |
+| `--report-type` | enum |  |
+| `--report-xml` | string |  |
 
 <!-- END:GENERATED entity=Reports -->

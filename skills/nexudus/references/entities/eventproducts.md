@@ -19,15 +19,88 @@ EventProducts support Search, Get, Create, Update, Delete.
 
 #### EventProduct list filter options
 
-`--calendar-event-id` (long), `--name`, `--description`, `--ticket-notes`, `--visible` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--start-date` (DateTime), `--from-start-date` (range), `--to-start-date` (range), `--end-date` (DateTime), `--from-end-date` (range), `--to-end-date` (range), `--allocation` (int), `--from-allocation` (range), `--to-allocation` (range), `--max-tickets-per-attendee` (int), `--from-max-tickets-per-attendee` (range), `--to-max-tickets-per-attendee` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--currency-id` (long), `--tax-rate-id` (long), `--financial-account-id` (long), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--calendar-event-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
+| `--ticket-notes` | string |  |
+| `--visible` | bool |  |
+| `--display-order` | int |  |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--start-date` | DateTime |  |
+| `--from-start-date` | range | |
+| `--to-start-date` | range | |
+| `--end-date` | DateTime |  |
+| `--from-end-date` | range | |
+| `--to-end-date` | range | |
+| `--allocation` | int |  |
+| `--from-allocation` | range | |
+| `--to-allocation` | range | |
+| `--max-tickets-per-attendee` | int |  |
+| `--from-max-tickets-per-attendee` | range | |
+| `--to-max-tickets-per-attendee` | range | |
+| `--price` | decimal |  |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--only-for-contacts` | bool |  |
+| `--only-for-members` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### EventProduct create options
 
-`--calendar-event-id` (long, required), `--name` (required), `--description`, `--ticket-notes`, `--visible` (bool), `--display-order` (int, required), `--start-date` (DateTime, required), `--end-date` (DateTime, required), `--allocation` (int), `--max-tickets-per-attendee` (int), `--price` (decimal, required), `--currency-id` (long, required), `--tax-rate-id` (long), `--financial-account-id` (long), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--calendar-event-id` | long, required |  |
+| `--name` | string, required |  |
+| `--description` | string |  |
+| `--ticket-notes` | string |  |
+| `--visible` | bool |  |
+| `--display-order` | int, required |  |
+| `--start-date` | DateTime, required |  |
+| `--end-date` | DateTime, required |  |
+| `--allocation` | int |  |
+| `--max-tickets-per-attendee` | int |  |
+| `--price` | decimal, required |  |
+| `--currency-id` | long, required |  |
+| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--only-for-contacts` | bool |  |
+| `--only-for-members` | bool |  |
 
 #### EventProduct update options
 
-`--calendar-event-id` (long), `--name`, `--description`, `--ticket-notes`, `--visible` (bool), `--display-order` (int), `--start-date` (DateTime), `--end-date` (DateTime), `--allocation` (int), `--max-tickets-per-attendee` (int), `--price` (decimal), `--currency-id` (long), `--tax-rate-id` (long), `--financial-account-id` (long), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--calendar-event-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
+| `--ticket-notes` | string |  |
+| `--visible` | bool |  |
+| `--display-order` | int |  |
+| `--start-date` | DateTime |  |
+| `--end-date` | DateTime |  |
+| `--allocation` | int |  |
+| `--max-tickets-per-attendee` | int |  |
+| `--price` | decimal |  |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--only-for-contacts` | bool |  |
+| `--only-for-members` | bool |  |
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

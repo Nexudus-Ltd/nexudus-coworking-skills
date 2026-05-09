@@ -23,15 +23,44 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 
 #### CrmOpportunityHistory list filter options
 
-`--crm-opportunity-id` (long), `--old-crm-board-column-id` (long), `--from-time` (DateTime), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (DateTime), `--from-to-time` (range), `--to-to-time` (range), `--new-crm-board-column-id` (long), `--user-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--crm-opportunity-id` | long | The opportunity this history entry belongs to |
+| `--old-crm-board-column-id` | long | CRM stage the opportunity moved from (null for the initial placement) |
+| `--from-time` | DateTime | When the opportunity entered the previous stage |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | DateTime | When the opportunity left the previous stage and entered the new one |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--new-crm-board-column-id` | long | CRM stage the opportunity moved to |
+| `--user-id` | long | Admin user who triggered the stage transition (null if moved automatically) |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CrmOpportunityHistory create options
 
-`--crm-opportunity-id` (long), `--old-crm-board-column-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--new-crm-board-column-id` (long, required), `--user-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--crm-opportunity-id` | long | The opportunity this history entry belongs to |
+| `--old-crm-board-column-id` | long | CRM stage the opportunity moved from (null for the initial placement) |
+| `--from-time` | DateTime | When the opportunity entered the previous stage |
+| `--to-time` | DateTime | When the opportunity left the previous stage and entered the new one |
+| `--new-crm-board-column-id` | long, required | CRM stage the opportunity moved to |
+| `--user-id` | long | Admin user who triggered the stage transition (null if moved automatically) |
 
 #### CrmOpportunityHistory update options
 
-`--crm-opportunity-id` (long), `--old-crm-board-column-id` (long), `--from-time` (DateTime), `--to-time` (DateTime), `--new-crm-board-column-id` (long), `--user-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--crm-opportunity-id` | long | The opportunity this history entry belongs to |
+| `--old-crm-board-column-id` | long | CRM stage the opportunity moved from (null for the initial placement) |
+| `--from-time` | DateTime | When the opportunity entered the previous stage |
+| `--to-time` | DateTime | When the opportunity left the previous stage and entered the new one |
+| `--new-crm-board-column-id` | long | CRM stage the opportunity moved to |
+| `--user-id` | long | Admin user who triggered the stage transition (null if moved automatically) |
 
 ### CrmOpportunityHistory (key fields)
 

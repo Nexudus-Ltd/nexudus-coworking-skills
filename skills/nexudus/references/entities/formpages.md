@@ -19,14 +19,39 @@ FormPages support Search, Get, Create, Update, Delete.
 
 #### FormPage list filter options
 
-`--business-id` (long), `--name`, `--description`, `--active` (bool), `--crm-board-column-id` (long), `--responsible-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
+| `--active` | bool |  |
+| `--crm-board-column-id` | long |  |
+| `--responsible-id` | long |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### FormPage create options
 
-`--business-id` (long, required), `--name` (required), `--description` (required), `--active` (bool), `--crm-board-column-id` (long), `--responsible-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--description` | string, required |  |
+| `--active` | bool |  |
+| `--crm-board-column-id` | long |  |
+| `--responsible-id` | long |  |
 
 #### FormPage update options
 
-`--business-id` (long), `--name`, `--description`, `--active` (bool), `--crm-board-column-id` (long), `--responsible-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--description` | string |  |
+| `--active` | bool |  |
+| `--crm-board-column-id` | long |  |
+| `--responsible-id` | long |  |
 
 <!-- END:GENERATED entity=FormPages -->

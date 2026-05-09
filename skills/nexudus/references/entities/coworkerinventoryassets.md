@@ -27,15 +27,44 @@ CoworkerInventoryAssets also support entity commands.
 
 #### CoworkerInventoryAsset list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--inventory-asset-id` (long), `--notes`, `--assigned-from` (DateTime), `--from-assigned-from` (range), `--to-assigned-from` (range), `--assigned-to` (DateTime), `--from-assigned-to` (range), `--to-assigned-to` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--inventory-asset-id` | long |  |
+| `--notes` | string | Free-text notes about this asset assignment |
+| `--assigned-from` | DateTime | Date the asset was assigned to the customer |
+| `--from-assigned-from` | range | |
+| `--to-assigned-from` | range | |
+| `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
+| `--from-assigned-to` | range | |
+| `--to-assigned-to` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerInventoryAsset create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--inventory-asset-id` (long, required), `--notes`, `--assigned-from` (DateTime, required), `--assigned-to` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--business-id` | long, required |  |
+| `--inventory-asset-id` | long, required |  |
+| `--notes` | string | Free-text notes about this asset assignment |
+| `--assigned-from` | DateTime, required | Date the asset was assigned to the customer |
+| `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
 
 #### CoworkerInventoryAsset update options
 
-`--coworker-id` (long), `--business-id` (long), `--inventory-asset-id` (long), `--notes`, `--assigned-from` (DateTime), `--assigned-to` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--inventory-asset-id` | long |  |
+| `--notes` | string | Free-text notes about this asset assignment |
+| `--assigned-from` | DateTime | Date the asset was assigned to the customer |
+| `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
 
 ### CoworkerInventoryAsset (key fields)
 

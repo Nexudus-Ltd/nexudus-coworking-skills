@@ -19,14 +19,88 @@ EventAttendees support Search, Get, Create, Update, Delete.
 
 #### EventAttendee list filter options
 
-`--business-id` (long), `--calendar-event-id` (long), `--event-product-id` (long), `--coworker-id` (long), `--full-name`, `--email`, `--purchase-order`, `--checked-in` (bool), `--checked-in-date` (DateTime), `--from-checked-in-date` (range), `--to-checked-in-date` (range), `--invoiced` (bool), `--billed` (bool), `--created-on-local` (DateTime), `--from-created-on-local` (range), `--to-created-on-local` (range), `--checked-in-date-local` (DateTime), `--from-checked-in-date-local` (range), `--to-checked-in-date-local` (range), `--coworker-invoice-id` (int), `--from-coworker-invoice-id` (range), `--to-coworker-invoice-id` (range), `--coworker-invoice-number`, `--coworker-invoice-paid` (bool), `--reminded` (bool), `--zoom-event-data`, `--zoom-participant-id`, `--is-sent` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--calendar-event-id` | long |  |
+| `--event-product-id` | long |  |
+| `--coworker-id` | long |  |
+| `--full-name` | string |  |
+| `--email` | string |  |
+| `--purchase-order` | string |  |
+| `--checked-in` | bool |  |
+| `--checked-in-date` | DateTime |  |
+| `--from-checked-in-date` | range | |
+| `--to-checked-in-date` | range | |
+| `--invoiced` | bool |  |
+| `--billed` | bool |  |
+| `--created-on-local` | DateTime |  |
+| `--from-created-on-local` | range | |
+| `--to-created-on-local` | range | |
+| `--checked-in-date-local` | DateTime |  |
+| `--from-checked-in-date-local` | range | |
+| `--to-checked-in-date-local` | range | |
+| `--coworker-invoice-id` | int |  |
+| `--from-coworker-invoice-id` | range | |
+| `--to-coworker-invoice-id` | range | |
+| `--coworker-invoice-number` | string |  |
+| `--coworker-invoice-paid` | bool |  |
+| `--reminded` | bool |  |
+| `--zoom-event-data` | string |  |
+| `--zoom-participant-id` | string |  |
+| `--is-sent` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### EventAttendee create options
 
-`--business-id` (long, required), `--calendar-event-id` (long, required), `--event-product-id` (long, required), `--coworker-id` (long), `--full-name` (required), `--email` (required), `--purchase-order`, `--checked-in` (bool), `--checked-in-date` (DateTime), `--invoiced` (bool), `--billed` (bool), `--created-on-local` (DateTime), `--checked-in-date-local` (DateTime), `--coworker-invoice-id` (int), `--coworker-invoice-number`, `--coworker-invoice-paid` (bool), `--reminded` (bool), `--zoom-event-data`, `--zoom-participant-id`, `--is-sent` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--calendar-event-id` | long, required |  |
+| `--event-product-id` | long, required |  |
+| `--coworker-id` | long |  |
+| `--full-name` | string, required |  |
+| `--email` | string, required |  |
+| `--purchase-order` | string |  |
+| `--checked-in` | bool |  |
+| `--checked-in-date` | DateTime |  |
+| `--invoiced` | bool |  |
+| `--billed` | bool |  |
+| `--created-on-local` | DateTime |  |
+| `--checked-in-date-local` | DateTime |  |
+| `--coworker-invoice-id` | int |  |
+| `--coworker-invoice-number` | string |  |
+| `--coworker-invoice-paid` | bool |  |
+| `--reminded` | bool |  |
+| `--zoom-event-data` | string |  |
+| `--zoom-participant-id` | string |  |
+| `--is-sent` | bool |  |
 
 #### EventAttendee update options
 
-`--business-id` (long), `--calendar-event-id` (long), `--event-product-id` (long), `--coworker-id` (long), `--full-name`, `--email`, `--purchase-order`, `--checked-in` (bool), `--checked-in-date` (DateTime), `--billed` (bool), `--created-on-local` (DateTime), `--checked-in-date-local` (DateTime), `--coworker-invoice-id` (int), `--coworker-invoice-number`, `--coworker-invoice-paid` (bool), `--reminded` (bool), `--zoom-event-data`, `--zoom-participant-id`, `--is-sent` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--calendar-event-id` | long |  |
+| `--event-product-id` | long |  |
+| `--coworker-id` | long |  |
+| `--full-name` | string |  |
+| `--email` | string |  |
+| `--purchase-order` | string |  |
+| `--checked-in` | bool |  |
+| `--checked-in-date` | DateTime |  |
+| `--billed` | bool |  |
+| `--created-on-local` | DateTime |  |
+| `--checked-in-date-local` | DateTime |  |
+| `--coworker-invoice-id` | int |  |
+| `--coworker-invoice-number` | string |  |
+| `--coworker-invoice-paid` | bool |  |
+| `--reminded` | bool |  |
+| `--zoom-event-data` | string |  |
+| `--zoom-participant-id` | string |  |
+| `--is-sent` | bool |  |
 
 <!-- END:GENERATED entity=EventAttendees -->

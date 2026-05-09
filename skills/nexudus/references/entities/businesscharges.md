@@ -25,15 +25,49 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 
 #### BusinessCharge list filter options
 
-`--business-id` (long), `--application-id` (long), `--description`, `--callback-url`, `--due-date` (DateTime), `--from-due-date` (range), `--to-due-date` (range), `--percentage-discount` (decimal), `--from-percentage-discount` (range), `--to-percentage-discount` (range), `--total-amount` (decimal), `--from-total-amount` (range), `--to-total-amount` (range), `--tax-amount` (decimal), `--from-tax-amount` (range), `--to-tax-amount` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--application-id` | long |  |
+| `--description` | string | Human-readable description of what this charge is for |
+| `--callback-url` | string | URL that Nexudus will call back once the charge is processed or its status changes |
+| `--due-date` | DateTime | Date by which the charge must be paid |
+| `--from-due-date` | range | |
+| `--to-due-date` | range | |
+| `--percentage-discount` | decimal | Percentage discount to apply to the charge amount (0–100) |
+| `--from-percentage-discount` | range | |
+| `--to-percentage-discount` | range | |
+| `--total-amount` | decimal | Total amount of the charge before tax |
+| `--from-total-amount` | range | |
+| `--to-total-amount` | range | |
+| `--tax-amount` | decimal | Tax amount applied to this charge |
+| `--from-tax-amount` | range | |
+| `--to-tax-amount` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BusinessCharge create options
 
-`--business-id` (long, required), `--application-id` (long), `--description` (required), `--callback-url` (required), `--due-date` (DateTime), `--percentage-discount` (decimal, required), `--total-amount` (decimal, required), `--tax-amount` (decimal, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--application-id` | long |  |
+| `--description` | string, required | Human-readable description of what this charge is for |
+| `--callback-url` | string, required | URL that Nexudus will call back once the charge is processed or its status changes |
+| `--due-date` | DateTime | Date by which the charge must be paid |
+| `--percentage-discount` | decimal, required | Percentage discount to apply to the charge amount (0–100) |
+| `--total-amount` | decimal, required | Total amount of the charge before tax |
+| `--tax-amount` | decimal, required | Tax amount applied to this charge |
 
 #### BusinessCharge update options
 
-`--business-id` (long), `--application-id` (long), `--callback-url`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--application-id` | long |  |
+| `--callback-url` | string | URL that Nexudus will call back once the charge is processed or its status changes |
 
 ### BusinessCharge (key fields)
 

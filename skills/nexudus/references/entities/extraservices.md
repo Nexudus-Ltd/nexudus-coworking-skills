@@ -49,15 +49,190 @@ ExtraServices also support entity commands.
 
 #### ExtraService list filter options
 
-`--business-id` (long), `--name`, `--description`, `--invoice-display`, `--visible` (bool), `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--credit-price` (decimal), `--from-credit-price` (range), `--to-credit-price` (range), `--charge-period` (enum), `--maximum-price` (decimal), `--from-maximum-price` (range), `--to-maximum-price` (range), `--default-price` (bool), `--per-night-pricing` (bool), `--currency-id` (long), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--from-time` (int), `--from-from-time` (range), `--to-from-time` (range), `--to-time` (int), `--from-to-time` (range), `--to-to-time` (range), `--min-length` (int), `--from-min-length` (range), `--to-min-length` (range), `--max-length` (int), `--from-max-length` (range), `--to-max-length` (range), `--only-within-available-times` (bool), `--fixed-cost-length` (int), `--from-fixed-cost-length` (range), `--to-fixed-cost-length` (range), `--fixed-cost-price` (decimal), `--from-fixed-cost-price` (range), `--to-fixed-cost-price` (range), `--only-for-contacts` (bool), `--only-for-members` (bool), `--booking-credit` (bool), `--printing-credit` (bool), `--apply-to-visitors` (bool), `--price-factor-low-demand` (decimal), `--from-price-factor-low-demand` (range), `--to-price-factor-low-demand` (range), `--price-factor-average-demand` (decimal), `--from-price-factor-average-demand` (range), `--to-price-factor-average-demand` (range), `--price-factor-high-demand` (decimal), `--from-price-factor-high-demand` (range), `--to-price-factor-high-demand` (range), `--price-factor-last-minute` (decimal), `--from-price-factor-last-minute` (range), `--to-price-factor-last-minute` (range), `--last-minute-period` (int), `--from-last-minute-period` (range), `--to-last-minute-period` (range), `--last-minute-adjustment-type` (enum), `--apply-from` (DateTime), `--from-apply-from` (range), `--to-apply-from` (range), `--apply-to` (DateTime), `--from-apply-to` (range), `--to-apply-to` (range), `--resource-type-names`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Extra service name |
+| `--description` | string | Description |
+| `--invoice-display` | string | Invoice line display text |
+| `--visible` | bool | Whether the price is visible on the portal and app |
+| `--display-order` | int | Display order |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--price` | decimal | Price |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--credit-price` | decimal | Credit price |
+| `--from-credit-price` | range | |
+| `--to-credit-price` | range | |
+| `--charge-period` | enum | Charge period |
+| `--maximum-price` | decimal | Maximum price cap |
+| `--from-maximum-price` | range | |
+| `--to-maximum-price` | range | |
+| `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
+| `--per-night-pricing` | bool | Use per-night pricing |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--from-time` | int | Start time restriction (minutes from midnight) |
+| `--from-from-time` | range | |
+| `--to-from-time` | range | |
+| `--to-time` | int | End time restriction (minutes from midnight) |
+| `--from-to-time` | range | |
+| `--to-to-time` | range | |
+| `--min-length` | int | Minimum booking length (minutes) |
+| `--from-min-length` | range | |
+| `--to-min-length` | range | |
+| `--max-length` | int | Maximum booking length (minutes) |
+| `--from-max-length` | range | |
+| `--to-max-length` | range | |
+| `--only-within-available-times` | bool | Only apply within the resource's available times |
+| `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
+| `--from-fixed-cost-length` | range | |
+| `--to-fixed-cost-length` | range | |
+| `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
+| `--from-fixed-cost-price` | range | |
+| `--to-fixed-cost-price` | range | |
+| `--only-for-contacts` | bool | Only available for contacts |
+| `--only-for-members` | bool | Only available for members |
+| `--booking-credit` | bool | Price uses booking credits |
+| `--printing-credit` | bool | Price uses printing credits |
+| `--apply-to-visitors` | bool | Apply charge to visitors |
+| `--price-factor-low-demand` | decimal | Price factor for low demand periods |
+| `--from-price-factor-low-demand` | range | |
+| `--to-price-factor-low-demand` | range | |
+| `--price-factor-average-demand` | decimal | Price factor for average demand periods |
+| `--from-price-factor-average-demand` | range | |
+| `--to-price-factor-average-demand` | range | |
+| `--price-factor-high-demand` | decimal | Price factor for high demand periods |
+| `--from-price-factor-high-demand` | range | |
+| `--to-price-factor-high-demand` | range | |
+| `--price-factor-last-minute` | decimal | Price factor for last-minute bookings |
+| `--from-price-factor-last-minute` | range | |
+| `--to-price-factor-last-minute` | range | |
+| `--last-minute-period` | int | Last-minute period threshold (minutes before booking) |
+| `--from-last-minute-period` | range | |
+| `--to-last-minute-period` | range | |
+| `--last-minute-adjustment-type` | enum | Last-minute discount type |
+| `--apply-from` | DateTime | Date from which this price applies |
+| `--from-apply-from` | range | |
+| `--to-apply-from` | range | |
+| `--apply-to` | DateTime | Date until which this price applies |
+| `--from-apply-to` | range | |
+| `--to-apply-to` | range | |
+| `--resource-type-names` | string | Comma-separated names of associated resource types |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ExtraService create options
 
-`--business-id` (long, required), `--name` (required), `--description`, `--invoice-display`, `--visible` (bool), `--display-order` (int, required), `--resource-types` (list, repeat flag), `--added-resource-types` (list, repeat flag), `--removed-resource-types` (list, repeat flag), `--price` (decimal, required), `--credit-price` (decimal), `--charge-period` (enum, required), `--maximum-price` (decimal), `--default-price` (bool), `--per-night-pricing` (bool), `--currency-id` (long, required), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--from-time` (int), `--to-time` (int), `--min-length` (int), `--max-length` (int), `--only-within-available-times` (bool), `--fixed-cost-length` (int), `--fixed-cost-price` (decimal), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--only-for-contacts` (bool), `--only-for-members` (bool), `--booking-credit` (bool), `--printing-credit` (bool), `--apply-to-visitors` (bool), `--price-factor-low-demand` (decimal), `--price-factor-average-demand` (decimal), `--price-factor-high-demand` (decimal), `--price-factor-last-minute` (decimal), `--last-minute-period` (int), `--last-minute-adjustment-type` (enum, required), `--apply-from` (DateTime), `--apply-to` (DateTime), `--resource-type-names`, `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--time-slots` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Extra service name |
+| `--description` | string | Description |
+| `--invoice-display` | string | Invoice line display text |
+| `--visible` | bool | Whether the price is visible on the portal and app |
+| `--display-order` | int, required | Display order |
+| `--resource-types` | list, repeat flag |  |
+| `--added-resource-types` | list, repeat flag |  |
+| `--removed-resource-types` | list, repeat flag |  |
+| `--price` | decimal, required | Price |
+| `--credit-price` | decimal | Credit price |
+| `--charge-period` | enum, required | Charge period |
+| `--maximum-price` | decimal | Maximum price cap |
+| `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
+| `--per-night-pricing` | bool | Use per-night pricing |
+| `--currency-id` | long, required |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--from-time` | int | Start time restriction (minutes from midnight) |
+| `--to-time` | int | End time restriction (minutes from midnight) |
+| `--min-length` | int | Minimum booking length (minutes) |
+| `--max-length` | int | Maximum booking length (minutes) |
+| `--only-within-available-times` | bool | Only apply within the resource's available times |
+| `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
+| `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--only-for-contacts` | bool | Only available for contacts |
+| `--only-for-members` | bool | Only available for members |
+| `--booking-credit` | bool | Price uses booking credits |
+| `--printing-credit` | bool | Price uses printing credits |
+| `--apply-to-visitors` | bool | Apply charge to visitors |
+| `--price-factor-low-demand` | decimal | Price factor for low demand periods |
+| `--price-factor-average-demand` | decimal | Price factor for average demand periods |
+| `--price-factor-high-demand` | decimal | Price factor for high demand periods |
+| `--price-factor-last-minute` | decimal | Price factor for last-minute bookings |
+| `--last-minute-period` | int | Last-minute period threshold (minutes before booking) |
+| `--last-minute-adjustment-type` | enum, required | Last-minute discount type |
+| `--apply-from` | DateTime | Date from which this price applies |
+| `--apply-to` | DateTime | Date until which this price applies |
+| `--resource-type-names` | string | Comma-separated names of associated resource types |
+| `--teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
+| `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 #### ExtraService update options
 
-`--business-id` (long), `--name`, `--description`, `--invoice-display`, `--visible` (bool), `--display-order` (int), `--resource-types` (list, repeat flag), `--added-resource-types` (list, repeat flag), `--removed-resource-types` (list, repeat flag), `--price` (decimal), `--credit-price` (decimal), `--charge-period` (enum), `--maximum-price` (decimal), `--default-price` (bool), `--per-night-pricing` (bool), `--currency-id` (long), `--tax-rate-id` (long), `--reduced-tax-rate-id` (long), `--exempt-tax-rate-id` (long), `--financial-account-id` (long), `--from-time` (int), `--to-time` (int), `--min-length` (int), `--max-length` (int), `--only-within-available-times` (bool), `--fixed-cost-length` (int), `--fixed-cost-price` (decimal), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--only-for-contacts` (bool), `--only-for-members` (bool), `--booking-credit` (bool), `--printing-credit` (bool), `--apply-to-visitors` (bool), `--price-factor-low-demand` (decimal), `--price-factor-average-demand` (decimal), `--price-factor-high-demand` (decimal), `--price-factor-last-minute` (decimal), `--last-minute-period` (int), `--last-minute-adjustment-type` (enum), `--apply-from` (DateTime), `--apply-to` (DateTime), `--resource-type-names`, `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--time-slots` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Extra service name |
+| `--description` | string | Description |
+| `--invoice-display` | string | Invoice line display text |
+| `--visible` | bool | Whether the price is visible on the portal and app |
+| `--display-order` | int | Display order |
+| `--resource-types` | list, repeat flag |  |
+| `--added-resource-types` | list, repeat flag |  |
+| `--removed-resource-types` | list, repeat flag |  |
+| `--price` | decimal | Price |
+| `--credit-price` | decimal | Credit price |
+| `--charge-period` | enum | Charge period |
+| `--maximum-price` | decimal | Maximum price cap |
+| `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
+| `--per-night-pricing` | bool | Use per-night pricing |
+| `--currency-id` | long |  |
+| `--tax-rate-id` | long |  |
+| `--reduced-tax-rate-id` | long |  |
+| `--exempt-tax-rate-id` | long |  |
+| `--financial-account-id` | long |  |
+| `--from-time` | int | Start time restriction (minutes from midnight) |
+| `--to-time` | int | End time restriction (minutes from midnight) |
+| `--min-length` | int | Minimum booking length (minutes) |
+| `--max-length` | int | Maximum booking length (minutes) |
+| `--only-within-available-times` | bool | Only apply within the resource's available times |
+| `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
+| `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--only-for-contacts` | bool | Only available for contacts |
+| `--only-for-members` | bool | Only available for members |
+| `--booking-credit` | bool | Price uses booking credits |
+| `--printing-credit` | bool | Price uses printing credits |
+| `--apply-to-visitors` | bool | Apply charge to visitors |
+| `--price-factor-low-demand` | decimal | Price factor for low demand periods |
+| `--price-factor-average-demand` | decimal | Price factor for average demand periods |
+| `--price-factor-high-demand` | decimal | Price factor for high demand periods |
+| `--price-factor-last-minute` | decimal | Price factor for last-minute bookings |
+| `--last-minute-period` | int | Last-minute period threshold (minutes before booking) |
+| `--last-minute-adjustment-type` | enum | Last-minute discount type |
+| `--apply-from` | DateTime | Date from which this price applies |
+| `--apply-to` | DateTime | Date until which this price applies |
+| `--resource-type-names` | string | Comma-separated names of associated resource types |
+| `--teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
+| `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 ### ExtraService (key fields)
 

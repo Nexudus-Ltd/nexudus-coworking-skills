@@ -25,15 +25,34 @@ CoworkerSettings support Search, Get, Create, Update, Delete.
 
 #### CoworkerSetting list filter options
 
-`--coworker-id` (long), `--name`, `--value`, `--encrypted-value`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | The customer this setting belongs to |
+| `--name` | string | The setting key name |
+| `--value` | string | The plain-text value for this setting |
+| `--encrypted-value` | string | An encrypted version of the setting value, used for sensitive data |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerSetting create options
 
-`--coworker-id` (long, required), `--name` (required), `--value`, `--encrypted-value`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required | The customer this setting belongs to |
+| `--name` | string, required | The setting key name |
+| `--value` | string | The plain-text value for this setting |
+| `--encrypted-value` | string | An encrypted version of the setting value, used for sensitive data |
 
 #### CoworkerSetting update options
 
-`--coworker-id` (long), `--name`, `--value`, `--encrypted-value`
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | The customer this setting belongs to |
+| `--name` | string | The setting key name |
+| `--value` | string | The plain-text value for this setting |
+| `--encrypted-value` | string | An encrypted version of the setting value, used for sensitive data |
 
 ### CoworkerSetting (key fields)
 

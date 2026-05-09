@@ -16,6 +16,31 @@ EmailQueueItems support Search, Get (no Create or Delete via API).
 
 #### EmailQueueItem list filter options
 
-`--business-id` (long), `--email-account-id` (long), `--from-user-id` (long), `--header`, `--body`, `--from-email`, `--to-emails`, `--c-c-emails`, `--c-c-o-emails`, `--sent` (bool), `--sent-attempts` (int), `--from-sent-attempts` (range), `--to-sent-attempts` (range), `--delivered` (bool), `--last-send-error`, `--send-date` (DateTime), `--from-send-date` (range), `--to-send-date` (range), `--queued` (bool), `--from-name`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--email-account-id` | long |  |
+| `--from-user-id` | long |  |
+| `--header` | string |  |
+| `--body` | string |  |
+| `--from-email` | string |  |
+| `--to-emails` | string |  |
+| `--c-c-emails` | string |  |
+| `--c-c-o-emails` | string |  |
+| `--sent` | bool |  |
+| `--sent-attempts` | int |  |
+| `--from-sent-attempts` | range | |
+| `--to-sent-attempts` | range | |
+| `--delivered` | bool |  |
+| `--last-send-error` | string |  |
+| `--send-date` | DateTime |  |
+| `--from-send-date` | range | |
+| `--to-send-date` | range | |
+| `--queued` | bool |  |
+| `--from-name` | string |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 <!-- END:GENERATED entity=EmailQueueItems -->

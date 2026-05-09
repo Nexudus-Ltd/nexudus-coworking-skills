@@ -27,15 +27,42 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 
 #### CoworkerMsOfficeCalendar list filter options
 
-`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime), `--from-subscription-expire-date` (range), `--to-subscription-expire-date` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Microsoft Graph push-notification watch target for this connection |
+| `--coworker-id` | long | ID of the customer who connected their Office 365 Calendar |
+| `--name` | string | Display name of the connected Office 365 Calendar |
+| `--subscription-id` | string | Microsoft Graph push-notification subscription ID used to receive calendar change notifications |
+| `--calendar-id` | string | Microsoft Graph calendar ID of the customer's connected Office 365 calendar |
+| `--subscription-expire-date` | DateTime | Date and time when the Microsoft Graph push-notification subscription expires and must be renewed |
+| `--from-subscription-expire-date` | range | |
+| `--to-subscription-expire-date` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerMsOfficeCalendar create options
 
-`--resource-id` (long, required), `--coworker-id` (long), `--name` (required), `--subscription-id` (required), `--calendar-id` (required), `--subscription-expire-date` (DateTime, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long, required | ID of the Nexudus resource (room or desk) used as the Microsoft Graph push-notification watch target for this connection |
+| `--coworker-id` | long | ID of the customer who connected their Office 365 Calendar |
+| `--name` | string, required | Display name of the connected Office 365 Calendar |
+| `--subscription-id` | string, required | Microsoft Graph push-notification subscription ID used to receive calendar change notifications |
+| `--calendar-id` | string, required | Microsoft Graph calendar ID of the customer's connected Office 365 calendar |
+| `--subscription-expire-date` | DateTime, required | Date and time when the Microsoft Graph push-notification subscription expires and must be renewed |
 
 #### CoworkerMsOfficeCalendar update options
 
-`--resource-id` (long), `--coworker-id` (long), `--name`, `--subscription-id`, `--calendar-id`, `--subscription-expire-date` (DateTime)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Microsoft Graph push-notification watch target for this connection |
+| `--coworker-id` | long | ID of the customer who connected their Office 365 Calendar |
+| `--name` | string | Display name of the connected Office 365 Calendar |
+| `--subscription-id` | string | Microsoft Graph push-notification subscription ID used to receive calendar change notifications |
+| `--calendar-id` | string | Microsoft Graph calendar ID of the customer's connected Office 365 calendar |
+| `--subscription-expire-date` | DateTime | Date and time when the Microsoft Graph push-notification subscription expires and must be renewed |
 
 ### CoworkerMsOfficeCalendar (key fields)
 

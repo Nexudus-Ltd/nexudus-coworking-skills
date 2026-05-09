@@ -20,7 +20,20 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 
 #### CoworkerMessage list filter options
 
-`--coworker-id` (long), `--email-account-id` (long), `--subject`, `--body`, `--message-id` (int), `--from-message-id` (range), `--to-message-id` (range), `--reminder-unique-id`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long | Customer sending or receiving the message |
+| `--email-account-id` | long | Email account used to send or receive the message. If not set, the default email settings configured for the location are used |
+| `--subject` | string | Message subject |
+| `--body` | string | Message body |
+| `--message-id` | int | Automated message template that triggered this message, if sent by the system |
+| `--from-message-id` | range | |
+| `--to-message-id` | range | |
+| `--reminder-unique-id` | string | Unique identifier of the reminder that triggered this message, if any |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 ### CoworkerMessage (key fields)
 

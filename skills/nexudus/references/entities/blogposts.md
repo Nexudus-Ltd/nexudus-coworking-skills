@@ -27,15 +27,88 @@ BlogPosts support Search, Get, Create, Update, Delete.
 
 #### BlogPost list filter options
 
-`--business-id` (long), `--language-id` (long), `--posted-by-id` (long), `--title`, `--summary`, `--body`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--publish-date` (DateTime), `--from-publish-date` (range), `--to-publish-date` (range), `--show-in-home-banner` (bool), `--show-in-home-page` (bool), `--unpublish-date` (DateTime), `--from-unpublish-date` (range), `--to-unpublish-date` (range), `--allow-comments` (bool), `--comments-count` (int), `--from-comments-count` (range), `--to-comments-count` (range), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--language-id` | long |  |
+| `--posted-by-id` | long |  |
+| `--title` | string | Article title |
+| `--summary` | string | Short overview displayed at the top of the article |
+| `--body` | string | Main body content of the article |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--new-large-image-url` | string |  |
+| `--clear-large-image-file` | bool |  |
+| `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
+| `--from-publish-date` | range | |
+| `--to-publish-date` | range | |
+| `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
+| `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
+| `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
+| `--from-unpublish-date` | range | |
+| `--to-unpublish-date` | range | |
+| `--allow-comments` | bool | Whether customers can post comments on this article |
+| `--comments-count` | int | Number of comments on this article |
+| `--from-comments-count` | range | |
+| `--to-comments-count` | range | |
+| `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### BlogPost create options
 
-`--business-id` (long, required), `--language-id` (long), `--posted-by-id` (long), `--title` (required), `--summary`, `--body`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--publish-date` (DateTime), `--show-in-home-banner` (bool), `--show-in-home-page` (bool), `--unpublish-date` (DateTime), `--allow-comments` (bool), `--blog-categories` (list, repeat flag), `--added-blog-categories` (list, repeat flag), `--removed-blog-categories` (list, repeat flag), `--comments-count` (int, required), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--language-id` | long |  |
+| `--posted-by-id` | long |  |
+| `--title` | string, required | Article title |
+| `--summary` | string | Short overview displayed at the top of the article |
+| `--body` | string | Main body content of the article |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--new-large-image-url` | string |  |
+| `--clear-large-image-file` | bool |  |
+| `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
+| `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
+| `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
+| `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
+| `--allow-comments` | bool | Whether customers can post comments on this article |
+| `--blog-categories` | list, repeat flag |  |
+| `--added-blog-categories` | list, repeat flag |  |
+| `--removed-blog-categories` | list, repeat flag |  |
+| `--comments-count` | int, required | Number of comments on this article |
+| `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
 
 #### BlogPost update options
 
-`--business-id` (long), `--language-id` (long), `--posted-by-id` (long), `--title`, `--summary`, `--body`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--publish-date` (DateTime), `--show-in-home-banner` (bool), `--show-in-home-page` (bool), `--unpublish-date` (DateTime), `--allow-comments` (bool), `--blog-categories` (list, repeat flag), `--added-blog-categories` (list, repeat flag), `--removed-blog-categories` (list, repeat flag), `--comments-count` (int), `--only-for-contacts` (bool), `--only-for-members` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--language-id` | long |  |
+| `--posted-by-id` | long |  |
+| `--title` | string | Article title |
+| `--summary` | string | Short overview displayed at the top of the article |
+| `--body` | string | Main body content of the article |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--new-large-image-url` | string |  |
+| `--clear-large-image-file` | bool |  |
+| `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
+| `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
+| `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
+| `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
+| `--allow-comments` | bool | Whether customers can post comments on this article |
+| `--blog-categories` | list, repeat flag |  |
+| `--added-blog-categories` | list, repeat flag |  |
+| `--removed-blog-categories` | list, repeat flag |  |
+| `--comments-count` | int | Number of comments on this article |
+| `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
+| `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
 
 ### BlogPost (key fields)
 

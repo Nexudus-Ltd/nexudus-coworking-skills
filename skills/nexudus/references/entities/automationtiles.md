@@ -39,15 +39,91 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 
 #### AutomationTile list filter options
 
-`--business-id` (long), `--name`, `--tile-number`, `--action` (enum), `--action-parameters`, `--enable-geofence` (bool), `--check-customer-in` (bool), `--longitude` (decimal), `--from-longitude` (range), `--to-longitude` (range), `--latitude` (decimal), `--from-latitude` (range), `--to-latitude` (range), `--geofence-precission` (enum), `--max-distance-meters` (int), `--from-max-distance-meters` (range), `--to-max-distance-meters` (range), `--success-message`, `--error-message`, `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Tile name used to identify it in the admin panel |
+| `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
+| `--action` | enum | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
+| `--action-parameters` | string | Parameters for the selected action. Format depends on the action type — e.g. a resource ID, a URL, or a resource ID|duration pair |
+| `--enable-geofence` | bool | Whether to restrict the tile to a geographic area. When enabled, the tile only works if the user is within the configured radius of the tile's coordinates |
+| `--check-customer-in` | bool | Whether to also check the customer into the space when they scan the tile, regardless of the primary action |
+| `--longitude` | decimal | Longitude of the tile's installed location. Used for geofencing |
+| `--from-longitude` | range | |
+| `--to-longitude` | range | |
+| `--latitude` | decimal | Latitude of the tile's installed location. Used for geofencing |
+| `--from-latitude` | range | |
+| `--to-latitude` | range | |
+| `--geofence-precission` | enum | Geofence precision level: Low, Medium, High, or VeryHigh. Higher precision requires the user to be closer to the tile coordinates |
+| `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
+| `--from-max-distance-meters` | range | |
+| `--to-max-distance-meters` | range | |
+| `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
+| `--error-message` | string | Custom error message shown to the user when the tile action fails |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### AutomationTile create options
 
-`--business-id` (long, required), `--name` (required), `--tile-number`, `--action` (enum, required), `--action-parameters`, `--enable-geofence` (bool), `--check-customer-in` (bool), `--longitude` (decimal), `--latitude` (decimal), `--geofence-precission` (enum, required), `--max-distance-meters` (int), `--success-message`, `--error-message`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--time-passes` (list, repeat flag), `--added-time-passes` (list, repeat flag), `--removed-time-passes` (list, repeat flag), `--floor-plan-desks` (list, repeat flag), `--added-floor-plan-desks` (list, repeat flag), `--removed-floor-plan-desks` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required | Tile name used to identify it in the admin panel |
+| `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
+| `--action` | enum, required | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
+| `--action-parameters` | string | Parameters for the selected action. Format depends on the action type — e.g. a resource ID, a URL, or a resource ID|duration pair |
+| `--enable-geofence` | bool | Whether to restrict the tile to a geographic area. When enabled, the tile only works if the user is within the configured radius of the tile's coordinates |
+| `--check-customer-in` | bool | Whether to also check the customer into the space when they scan the tile, regardless of the primary action |
+| `--longitude` | decimal | Longitude of the tile's installed location. Used for geofencing |
+| `--latitude` | decimal | Latitude of the tile's installed location. Used for geofencing |
+| `--geofence-precission` | enum, required | Geofence precision level: Low, Medium, High, or VeryHigh. Higher precision requires the user to be closer to the tile coordinates |
+| `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
+| `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
+| `--error-message` | string | Custom error message shown to the user when the tile action fails |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--time-passes` | list, repeat flag |  |
+| `--added-time-passes` | list, repeat flag |  |
+| `--removed-time-passes` | list, repeat flag |  |
+| `--floor-plan-desks` | list, repeat flag |  |
+| `--added-floor-plan-desks` | list, repeat flag |  |
+| `--removed-floor-plan-desks` | list, repeat flag |  |
 
 #### AutomationTile update options
 
-`--business-id` (long), `--name`, `--tile-number`, `--action` (enum), `--action-parameters`, `--enable-geofence` (bool), `--check-customer-in` (bool), `--longitude` (decimal), `--latitude` (decimal), `--geofence-precission` (enum), `--max-distance-meters` (int), `--success-message`, `--error-message`, `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--time-passes` (list, repeat flag), `--added-time-passes` (list, repeat flag), `--removed-time-passes` (list, repeat flag), `--floor-plan-desks` (list, repeat flag), `--added-floor-plan-desks` (list, repeat flag), `--removed-floor-plan-desks` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Tile name used to identify it in the admin panel |
+| `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
+| `--action` | enum | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
+| `--action-parameters` | string | Parameters for the selected action. Format depends on the action type — e.g. a resource ID, a URL, or a resource ID|duration pair |
+| `--enable-geofence` | bool | Whether to restrict the tile to a geographic area. When enabled, the tile only works if the user is within the configured radius of the tile's coordinates |
+| `--check-customer-in` | bool | Whether to also check the customer into the space when they scan the tile, regardless of the primary action |
+| `--longitude` | decimal | Longitude of the tile's installed location. Used for geofencing |
+| `--latitude` | decimal | Latitude of the tile's installed location. Used for geofencing |
+| `--geofence-precission` | enum | Geofence precision level: Low, Medium, High, or VeryHigh. Higher precision requires the user to be closer to the tile coordinates |
+| `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
+| `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
+| `--error-message` | string | Custom error message shown to the user when the tile action fails |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--time-passes` | list, repeat flag |  |
+| `--added-time-passes` | list, repeat flag |  |
+| `--removed-time-passes` | list, repeat flag |  |
+| `--floor-plan-desks` | list, repeat flag |  |
+| `--added-floor-plan-desks` | list, repeat flag |  |
+| `--removed-floor-plan-desks` | list, repeat flag |  |
 
 ### AutomationTile (key fields)
 

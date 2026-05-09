@@ -19,15 +19,46 @@ TaskLists support Search, Get, Create, Update, Delete.
 
 #### TaskList list filter options
 
-`--business-id` (long), `--name`, `--active` (bool), `--assign-to-new-contacts` (bool), `--assign-to-new-members` (bool), `--assign-to-cancellations` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--active` | bool |  |
+| `--assign-to-new-contacts` | bool |  |
+| `--assign-to-new-members` | bool |  |
+| `--assign-to-cancellations` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### TaskList create options
 
-`--business-id` (long, required), `--name` (required), `--active` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts` (bool), `--assign-to-new-members` (bool), `--assign-to-cancellations` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--name` | string, required |  |
+| `--active` | bool |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--assign-to-new-contacts` | bool |  |
+| `--assign-to-new-members` | bool |  |
+| `--assign-to-cancellations` | bool |  |
 
 #### TaskList update options
 
-`--business-id` (long), `--name`, `--active` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--assign-to-new-contacts` (bool), `--assign-to-new-members` (bool), `--assign-to-cancellations` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string |  |
+| `--active` | bool |  |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--assign-to-new-contacts` | bool |  |
+| `--assign-to-new-members` | bool |  |
+| `--assign-to-cancellations` | bool |  |
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

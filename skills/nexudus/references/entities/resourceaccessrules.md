@@ -44,15 +44,189 @@ ResourceAccessRules also support entity commands.
 
 #### ResourceAccessRule list filter options
 
-`--business-id` (long), `--name`, `--active` (bool), `--only-for-contacts` (bool), `--apply-rule-from` (DateTime), `--from-apply-rule-from` (range), `--to-apply-rule-from` (range), `--apply-rule-to` (DateTime), `--from-apply-rule-to` (range), `--to-apply-rule-to` (range), `--book-in-advance-limit` (decimal), `--from-book-in-advance-limit` (range), `--to-book-in-advance-limit` (range), `--late-booking-limit` (decimal), `--from-late-booking-limit` (range), `--to-late-booking-limit` (range), `--late-cancellation-limit` (int), `--from-late-cancellation-limit` (range), `--to-late-cancellation-limit` (range), `--interval-limit` (int), `--from-interval-limit` (range), `--to-interval-limit` (range), `--max-booking-length` (int), `--from-max-booking-length` (range), `--to-max-booking-length` (range), `--min-booking-length` (int), `--from-min-booking-length` (range), `--to-min-booking-length` (range), `--applied-resources-count` (int), `--from-applied-resources-count` (range), `--to-applied-resources-count` (range), `--no-return-policy` (int), `--from-no-return-policy` (range), `--to-no-return-policy` (range), `--no-return-policy-all-resources` (int), `--from-no-return-policy-all-resources` (range), `--to-no-return-policy-all-resources` (range), `--no-return-policy-all-users` (int), `--from-no-return-policy-all-users` (range), `--to-no-return-policy-all-users` (range), `--reject-with-message`, `--only-for-members` (bool), `--evaluation-order` (int), `--from-evaluation-order` (range), `--to-evaluation-order` (range), `--stop-evaluation-if-rule-is-met` (bool), `--cancellation-fee-product-id` (long), `--charge-cancellation-fee` (bool), `--cancellation-fee-type` (enum), `--cancellation-fee-amount` (decimal), `--from-cancellation-fee-amount` (range), `--to-cancellation-fee-amount` (range), `--cancellation-fee-percentage` (decimal), `--from-cancellation-fee-percentage` (range), `--to-cancellation-fee-percentage` (range), `--repeat-booking-quantity-limit` (int), `--from-repeat-booking-quantity-limit` (range), `--to-repeat-booking-quantity-limit` (range), `--repeat-booking-period-limit-in-months` (int), `--from-repeat-booking-period-limit-in-months` (range), `--to-repeat-booking-period-limit-in-months` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--name` | string | Rule name |
+| `--active` | bool | Whether this rule is currently active and evaluated during booking. |
+| `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
+| `--apply-rule-from` | DateTime | Date from which this rule starts being evaluated. Null means no start-date restriction. |
+| `--from-apply-rule-from` | range | |
+| `--to-apply-rule-from` | range | |
+| `--apply-rule-to` | DateTime | Date after which this rule stops being evaluated. Null means no end-date restriction. |
+| `--from-apply-rule-to` | range | |
+| `--to-apply-rule-to` | range | |
+| `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made. Null means no limit. |
+| `--from-book-in-advance-limit` | range | |
+| `--to-book-in-advance-limit` | range | |
+| `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
+| `--from-late-booking-limit` | range | |
+| `--to-late-booking-limit` | range | |
+| `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |
+| `--from-late-cancellation-limit` | range | |
+| `--to-late-cancellation-limit` | range | |
+| `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
+| `--from-interval-limit` | range | |
+| `--to-interval-limit` | range | |
+| `--max-booking-length` | int | Maximum allowed duration for a single booking, in minutes. |
+| `--from-max-booking-length` | range | |
+| `--to-max-booking-length` | range | |
+| `--min-booking-length` | int | Minimum allowed duration for a single booking, in minutes. |
+| `--from-min-booking-length` | range | |
+| `--to-min-booking-length` | range | |
+| `--applied-resources-count` | int |  |
+| `--from-applied-resources-count` | range | |
+| `--to-applied-resources-count` | range | |
+| `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
+| `--from-no-return-policy` | range | |
+| `--to-no-return-policy` | range | |
+| `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
+| `--from-no-return-policy-all-resources` | range | |
+| `--to-no-return-policy-all-resources` | range | |
+| `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
+| `--from-no-return-policy-all-users` | range | |
+| `--to-no-return-policy-all-users` | range | |
+| `--reject-with-message` | string | Message shown to the user when their booking is rejected by this rule. |
+| `--only-for-members` | bool | When true, this rule applies only to active members (coworkers with a plan). |
+| `--evaluation-order` | int | Order in which this rule is evaluated relative to other rules on the same resource. Lower values are evaluated first. |
+| `--from-evaluation-order` | range | |
+| `--to-evaluation-order` | range | |
+| `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches. |
+| `--cancellation-fee-product-id` | long |  |
+| `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
+| `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
+| `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
+| `--from-cancellation-fee-amount` | range | |
+| `--to-cancellation-fee-amount` | range | |
+| `--cancellation-fee-percentage` | decimal | Cancellation fee as a percentage of the booking cost. Used when CancellationFeeType is Percentage. |
+| `--from-cancellation-fee-percentage` | range | |
+| `--to-cancellation-fee-percentage` | range | |
+| `--repeat-booking-quantity-limit` | int | Maximum number of occurrences allowed when creating a recurring booking under this rule. |
+| `--from-repeat-booking-quantity-limit` | range | |
+| `--to-repeat-booking-quantity-limit` | range | |
+| `--repeat-booking-period-limit-in-months` | int | Maximum time span (in months) over which a recurring booking series can extend under this rule. |
+| `--from-repeat-booking-period-limit-in-months` | range | |
+| `--to-repeat-booking-period-limit-in-months` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### ResourceAccessRule create options
 
-`--business-id` (long, required), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--name` (required), `--active` (bool), `--only-for-contacts` (bool), `--apply-rule-from` (DateTime), `--apply-rule-to` (DateTime), `--book-in-advance-limit` (decimal), `--late-booking-limit` (decimal), `--late-cancellation-limit` (int), `--interval-limit` (int), `--max-booking-length` (int), `--min-booking-length` (int), `--applied-resources-count` (int, required), `--no-return-policy` (int), `--no-return-policy-all-resources` (int), `--no-return-policy-all-users` (int), `--reject-with-message`, `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--allowed-tariffs` (list, repeat flag), `--added-allowed-tariffs` (list, repeat flag), `--removed-allowed-tariffs` (list, repeat flag), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--allowed-teams` (list, repeat flag), `--added-allowed-teams` (list, repeat flag), `--removed-allowed-teams` (list, repeat flag), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--courses` (list, repeat flag), `--added-courses` (list, repeat flag), `--removed-courses` (list, repeat flag), `--evaluation-order` (int, required), `--stop-evaluation-if-rule-is-met` (bool), `--cancellation-fee-product-id` (long), `--charge-cancellation-fee` (bool), `--cancellation-fee-type` (enum, required), `--cancellation-fee-amount` (decimal), `--cancellation-fee-percentage` (decimal), `--repeat-booking-quantity-limit` (int), `--repeat-booking-period-limit-in-months` (int), `--eligible-time-slots` (JSON array or @filepath), `--time-slots` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--name` | string, required | Rule name |
+| `--active` | bool | Whether this rule is currently active and evaluated during booking. |
+| `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
+| `--apply-rule-from` | DateTime | Date from which this rule starts being evaluated. Null means no start-date restriction. |
+| `--apply-rule-to` | DateTime | Date after which this rule stops being evaluated. Null means no end-date restriction. |
+| `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made. Null means no limit. |
+| `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
+| `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |
+| `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
+| `--max-booking-length` | int | Maximum allowed duration for a single booking, in minutes. |
+| `--min-booking-length` | int | Minimum allowed duration for a single booking, in minutes. |
+| `--applied-resources-count` | int, required |  |
+| `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
+| `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
+| `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
+| `--reject-with-message` | string | Message shown to the user when their booking is rejected by this rule. |
+| `--only-for-members` | bool | When true, this rule applies only to active members (coworkers with a plan). |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--allowed-tariffs` | list, repeat flag |  |
+| `--added-allowed-tariffs` | list, repeat flag |  |
+| `--removed-allowed-tariffs` | list, repeat flag |  |
+| `--members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag |  |
+| `--removed-members` | list, repeat flag |  |
+| `--teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
+| `--allowed-teams` | list, repeat flag |  |
+| `--added-allowed-teams` | list, repeat flag |  |
+| `--removed-allowed-teams` | list, repeat flag |  |
+| `--event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag |  |
+| `--removed-event-categories` | list, repeat flag |  |
+| `--courses` | list, repeat flag |  |
+| `--added-courses` | list, repeat flag |  |
+| `--removed-courses` | list, repeat flag |  |
+| `--evaluation-order` | int, required | Order in which this rule is evaluated relative to other rules on the same resource. Lower values are evaluated first. |
+| `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches. |
+| `--cancellation-fee-product-id` | long |  |
+| `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
+| `--cancellation-fee-type` | enum, required | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
+| `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
+| `--cancellation-fee-percentage` | decimal | Cancellation fee as a percentage of the booking cost. Used when CancellationFeeType is Percentage. |
+| `--repeat-booking-quantity-limit` | int | Maximum number of occurrences allowed when creating a recurring booking under this rule. |
+| `--repeat-booking-period-limit-in-months` | int | Maximum time span (in months) over which a recurring booking series can extend under this rule. |
+| `--eligible-time-slots` | JSON array or @filepath | Time slots defining when this rule applies (eligibility windows). The year, month and day component of FromTime/ToTime is always 1976-01-01. |
+| `--time-slots` | JSON array or @filepath | The days and times the resources can be booked when this rule applies. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 #### ResourceAccessRule update options
 
-`--business-id` (long), `--resources` (list, repeat flag), `--added-resources` (list, repeat flag), `--removed-resources` (list, repeat flag), `--name`, `--active` (bool), `--only-for-contacts` (bool), `--apply-rule-from` (DateTime), `--apply-rule-to` (DateTime), `--book-in-advance-limit` (decimal), `--late-booking-limit` (decimal), `--late-cancellation-limit` (int), `--interval-limit` (int), `--max-booking-length` (int), `--min-booking-length` (int), `--applied-resources-count` (int), `--no-return-policy` (int), `--no-return-policy-all-resources` (int), `--no-return-policy-all-users` (int), `--reject-with-message`, `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag), `--allowed-tariffs` (list, repeat flag), `--added-allowed-tariffs` (list, repeat flag), `--removed-allowed-tariffs` (list, repeat flag), `--members` (list, repeat flag), `--added-members` (list, repeat flag), `--removed-members` (list, repeat flag), `--teams` (list, repeat flag), `--added-teams` (list, repeat flag), `--removed-teams` (list, repeat flag), `--allowed-teams` (list, repeat flag), `--added-allowed-teams` (list, repeat flag), `--removed-allowed-teams` (list, repeat flag), `--event-categories` (list, repeat flag), `--added-event-categories` (list, repeat flag), `--removed-event-categories` (list, repeat flag), `--courses` (list, repeat flag), `--added-courses` (list, repeat flag), `--removed-courses` (list, repeat flag), `--evaluation-order` (int), `--stop-evaluation-if-rule-is-met` (bool), `--cancellation-fee-product-id` (long), `--charge-cancellation-fee` (bool), `--cancellation-fee-type` (enum), `--cancellation-fee-amount` (decimal), `--cancellation-fee-percentage` (decimal), `--repeat-booking-quantity-limit` (int), `--repeat-booking-period-limit-in-months` (int), `--eligible-time-slots` (JSON array or @filepath), `--time-slots` (JSON array or @filepath)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag |  |
+| `--removed-resources` | list, repeat flag |  |
+| `--name` | string | Rule name |
+| `--active` | bool | Whether this rule is currently active and evaluated during booking. |
+| `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
+| `--apply-rule-from` | DateTime | Date from which this rule starts being evaluated. Null means no start-date restriction. |
+| `--apply-rule-to` | DateTime | Date after which this rule stops being evaluated. Null means no end-date restriction. |
+| `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made. Null means no limit. |
+| `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
+| `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |
+| `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
+| `--max-booking-length` | int | Maximum allowed duration for a single booking, in minutes. |
+| `--min-booking-length` | int | Minimum allowed duration for a single booking, in minutes. |
+| `--applied-resources-count` | int |  |
+| `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
+| `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
+| `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
+| `--reject-with-message` | string | Message shown to the user when their booking is rejected by this rule. |
+| `--only-for-members` | bool | When true, this rule applies only to active members (coworkers with a plan). |
+| `--tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag |  |
+| `--removed-tariffs` | list, repeat flag |  |
+| `--allowed-tariffs` | list, repeat flag |  |
+| `--added-allowed-tariffs` | list, repeat flag |  |
+| `--removed-allowed-tariffs` | list, repeat flag |  |
+| `--members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag |  |
+| `--removed-members` | list, repeat flag |  |
+| `--teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
+| `--allowed-teams` | list, repeat flag |  |
+| `--added-allowed-teams` | list, repeat flag |  |
+| `--removed-allowed-teams` | list, repeat flag |  |
+| `--event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag |  |
+| `--removed-event-categories` | list, repeat flag |  |
+| `--courses` | list, repeat flag |  |
+| `--added-courses` | list, repeat flag |  |
+| `--removed-courses` | list, repeat flag |  |
+| `--evaluation-order` | int | Order in which this rule is evaluated relative to other rules on the same resource. Lower values are evaluated first. |
+| `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches. |
+| `--cancellation-fee-product-id` | long |  |
+| `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
+| `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
+| `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
+| `--cancellation-fee-percentage` | decimal | Cancellation fee as a percentage of the booking cost. Used when CancellationFeeType is Percentage. |
+| `--repeat-booking-quantity-limit` | int | Maximum number of occurrences allowed when creating a recurring booking under this rule. |
+| `--repeat-booking-period-limit-in-months` | int | Maximum time span (in months) over which a recurring booking series can extend under this rule. |
+| `--eligible-time-slots` | JSON array or @filepath | Time slots defining when this rule applies (eligibility windows). The year, month and day component of FromTime/ToTime is always 1976-01-01. |
+| `--time-slots` | JSON array or @filepath | The days and times the resources can be booked when this rule applies. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 ### ResourceAccessRule (key fields)
 

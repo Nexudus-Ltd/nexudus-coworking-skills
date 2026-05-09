@@ -25,14 +25,27 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 
 #### CourseCompletedLesson list filter options
 
-`--course-lesson-id` (long), `--course-member-id` (long), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-lesson-id` | long | ID of the course lesson that was completed |
+| `--course-member-id` | long | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CourseCompletedLesson create options
 
-`--course-lesson-id` (long, required), `--course-member-id` (long, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-lesson-id` | long, required | ID of the course lesson that was completed |
+| `--course-member-id` | long, required | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
 
 #### CourseCompletedLesson update options
 
-`--course-lesson-id` (long), `--course-member-id` (long)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--course-lesson-id` | long | ID of the course lesson that was completed |
+| `--course-member-id` | long | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
 
 <!-- END:GENERATED entity=CourseCompletedLessons -->

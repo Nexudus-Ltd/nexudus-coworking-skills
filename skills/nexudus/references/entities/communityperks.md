@@ -29,15 +29,80 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 
 #### CommunityPerk list filter options
 
-`--business-id` (long), `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--from-display-order` (range), `--to-display-order` (range), `--show-in-home-page` (bool), `--click-count` (int), `--from-click-count` (range), `--to-click-count` (range), `--only-for-contacts` (bool), `--only-for-members` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this perk belongs to |
+| `--title` | string | Name of the perk as displayed on the Members Portal and the Admin Panel |
+| `--perk-url` | string | URL where customers are redirected when clicking the Claim button. If blank, no Claim button is shown. Must start with https:// |
+| `--summary-text` | string | Short description shown under the perk title on the Perks listing page of the Members Portal |
+| `--full-text` | string | Full description of the perk, displayed when a customer clicks on it from the Perks listing page |
+| `--new-image-url` | string | URL of a new small image to upload for this perk |
+| `--clear-image-file` | bool | Set to true to remove the current small image from this perk |
+| `--new-large-image-url` | string | URL of a new large image to upload for this perk |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image from this perk |
+| `--active` | bool | Whether this perk is published and visible to customers on the Members Portal. When false, the perk is only visible on the Admin Panel |
+| `--group-name` | string | Group or category this perk belongs to, used to organise perks on the Members Portal |
+| `--display-order` | int | Position of this perk in the list relative to other perks. Lower values appear first |
+| `--from-display-order` | range | |
+| `--to-display-order` | range | |
+| `--show-in-home-page` | bool | Whether to feature this perk on the Members Portal home page after users log in |
+| `--click-count` | int | Number of times customers have clicked on this perk |
+| `--from-click-count` | range | |
+| `--to-click-count` | range | |
+| `--only-for-contacts` | bool | Whether this perk is only available to contacts. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
+| `--only-for-members` | bool | Whether this perk is only available to members. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CommunityPerk create options
 
-`--business-id` (long, required), `--title` (required), `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int, required), `--show-in-home-page` (bool), `--click-count` (int, required), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required | ID of the location this perk belongs to |
+| `--title` | string, required | Name of the perk as displayed on the Members Portal and the Admin Panel |
+| `--perk-url` | string | URL where customers are redirected when clicking the Claim button. If blank, no Claim button is shown. Must start with https:// |
+| `--summary-text` | string | Short description shown under the perk title on the Perks listing page of the Members Portal |
+| `--full-text` | string | Full description of the perk, displayed when a customer clicks on it from the Perks listing page |
+| `--new-image-url` | string | URL of a new small image to upload for this perk |
+| `--clear-image-file` | bool | Set to true to remove the current small image from this perk |
+| `--new-large-image-url` | string | URL of a new large image to upload for this perk |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image from this perk |
+| `--active` | bool | Whether this perk is published and visible to customers on the Members Portal. When false, the perk is only visible on the Admin Panel |
+| `--group-name` | string | Group or category this perk belongs to, used to organise perks on the Members Portal |
+| `--display-order` | int, required | Position of this perk in the list relative to other perks. Lower values appear first |
+| `--show-in-home-page` | bool | Whether to feature this perk on the Members Portal home page after users log in |
+| `--click-count` | int, required | Number of times customers have clicked on this perk |
+| `--only-for-contacts` | bool | Whether this perk is only available to contacts. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
+| `--only-for-members` | bool | Whether this perk is only available to members. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
+| `--tariffs` | list, repeat flag | IDs of the pricing plans (tariffs) whose members can see and claim this perk. Leave empty to make the perk available regardless of pricing plan |
+| `--added-tariffs` | list, repeat flag | IDs of pricing plans to add to this perk's allowed tariffs |
+| `--removed-tariffs` | list, repeat flag | IDs of pricing plans to remove from this perk's allowed tariffs |
 
 #### CommunityPerk update options
 
-`--business-id` (long), `--title`, `--perk-url`, `--summary-text`, `--full-text`, `--new-image-url`, `--clear-image-file` (bool), `--new-large-image-url`, `--clear-large-image-file` (bool), `--active` (bool), `--group-name`, `--display-order` (int), `--show-in-home-page` (bool), `--click-count` (int), `--only-for-contacts` (bool), `--only-for-members` (bool), `--tariffs` (list, repeat flag), `--added-tariffs` (list, repeat flag), `--removed-tariffs` (list, repeat flag)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long | ID of the location this perk belongs to |
+| `--title` | string | Name of the perk as displayed on the Members Portal and the Admin Panel |
+| `--perk-url` | string | URL where customers are redirected when clicking the Claim button. If blank, no Claim button is shown. Must start with https:// |
+| `--summary-text` | string | Short description shown under the perk title on the Perks listing page of the Members Portal |
+| `--full-text` | string | Full description of the perk, displayed when a customer clicks on it from the Perks listing page |
+| `--new-image-url` | string | URL of a new small image to upload for this perk |
+| `--clear-image-file` | bool | Set to true to remove the current small image from this perk |
+| `--new-large-image-url` | string | URL of a new large image to upload for this perk |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image from this perk |
+| `--active` | bool | Whether this perk is published and visible to customers on the Members Portal. When false, the perk is only visible on the Admin Panel |
+| `--group-name` | string | Group or category this perk belongs to, used to organise perks on the Members Portal |
+| `--display-order` | int | Position of this perk in the list relative to other perks. Lower values appear first |
+| `--show-in-home-page` | bool | Whether to feature this perk on the Members Portal home page after users log in |
+| `--click-count` | int | Number of times customers have clicked on this perk |
+| `--only-for-contacts` | bool | Whether this perk is only available to contacts. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
+| `--only-for-members` | bool | Whether this perk is only available to members. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
+| `--tariffs` | list, repeat flag | IDs of the pricing plans (tariffs) whose members can see and claim this perk. Leave empty to make the perk available regardless of pricing plan |
+| `--added-tariffs` | list, repeat flag | IDs of pricing plans to add to this perk's allowed tariffs |
+| `--removed-tariffs` | list, repeat flag | IDs of pricing plans to remove from this perk's allowed tariffs |
 
 ### CommunityPerk (key fields)
 

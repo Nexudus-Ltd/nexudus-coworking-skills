@@ -39,15 +39,121 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 
 #### CoworkerProduct list filter options
 
-`--coworker-id` (long), `--business-id` (long), `--product-id` (long), `--notes`, `--purchase-order`, `--activate-now` (bool), `--invoice-this-coworker` (bool), `--price` (decimal), `--from-price` (range), `--to-price` (range), `--quantity` (int), `--from-quantity` (range), `--to-quantity` (range), `--regular-charge` (bool), `--repeat-cycle` (enum), `--repeat-unit` (int), `--from-repeat-unit` (range), `--to-repeat-unit` (range), `--invoice-on` (DateTime), `--from-invoice-on` (range), `--to-invoice-on` (range), `--repeat-from` (DateTime), `--from-repeat-from` (range), `--to-repeat-from` (range), `--repeat-until` (DateTime), `--from-repeat-until` (range), `--to-repeat-until` (range), `--sale-date` (DateTime), `--from-sale-date` (range), `--to-sale-date` (range), `--due-date` (DateTime), `--from-due-date` (range), `--to-due-date` (range), `--invoiced` (bool), `--mrm-reminded` (bool), `--apply-pro-rating` (bool), `--proposal-unique-id`, `--coworker-invoice-id` (int), `--from-coworker-invoice-id` (range), `--to-coworker-invoice-id` (range), `--coworker-invoice-number`, `--coworker-invoice-paid` (bool), `--credit-amount` (decimal), `--from-credit-amount` (range), `--to-credit-amount` (range), `--discount-amount` (decimal), `--from-discount-amount` (range), `--to-discount-amount` (range), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--product-id` | long |  |
+| `--notes` | string | Notes |
+| `--purchase-order` | string | Purchase order |
+| `--activate-now` | bool | Activate immediately, releasing any benefits (credits or passes) even before the product is invoiced and paid |
+| `--invoice-this-coworker` | bool | Invoice this customer for this product instead of the paying member of their team |
+| `--price` | decimal | Price override |
+| `--from-price` | range | |
+| `--to-price` | range | |
+| `--quantity` | int | Quantity |
+| `--from-quantity` | range | |
+| `--to-quantity` | range | |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--repeat-cycle` | enum | Repeat cycle pattern. PricePlan can only be used if the customer has a main contract; prefer ContractProduct instead of CoworkerProducts repeating on PricePlan |
+| `--repeat-unit` | int | Number of repeat units |
+| `--from-repeat-unit` | range | |
+| `--to-repeat-unit` | range | |
+| `--invoice-on` | DateTime | Invoice on date |
+| `--from-invoice-on` | range | |
+| `--to-invoice-on` | range | |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--from-repeat-from` | range | |
+| `--to-repeat-from` | range | |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--from-repeat-until` | range | |
+| `--to-repeat-until` | range | |
+| `--sale-date` | DateTime | Sale date |
+| `--from-sale-date` | range | |
+| `--to-sale-date` | range | |
+| `--due-date` | DateTime | Due date |
+| `--from-due-date` | range | |
+| `--to-due-date` | range | |
+| `--invoiced` | bool | Whether it has been invoiced |
+| `--mrm-reminded` | bool |  |
+| `--apply-pro-rating` | bool | Apply pro-rating |
+| `--proposal-unique-id` | string |  |
+| `--coworker-invoice-id` | int | Coworker invoice ID |
+| `--from-coworker-invoice-id` | range | |
+| `--to-coworker-invoice-id` | range | |
+| `--coworker-invoice-number` | string | Coworker invoice number |
+| `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
+| `--credit-amount` | decimal | Credit amount |
+| `--from-credit-amount` | range | |
+| `--to-credit-amount` | range | |
+| `--discount-amount` | decimal | Discount amount |
+| `--from-discount-amount` | range | |
+| `--to-discount-amount` | range | |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### CoworkerProduct create options
 
-`--coworker-id` (long, required), `--business-id` (long, required), `--product-id` (long, required), `--notes`, `--purchase-order`, `--activate-now` (bool), `--invoice-this-coworker` (bool), `--price` (decimal), `--quantity` (int, required), `--regular-charge` (bool), `--repeat-cycle` (enum, required), `--repeat-unit` (int), `--invoice-on` (DateTime), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--sale-date` (DateTime), `--due-date` (DateTime), `--invoiced` (bool), `--mrm-reminded` (bool), `--apply-pro-rating` (bool), `--proposal-unique-id`, `--coworker-invoice-id` (int), `--coworker-invoice-number`, `--coworker-invoice-paid` (bool), `--credit-amount` (decimal, required), `--discount-amount` (decimal, required)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long, required |  |
+| `--business-id` | long, required |  |
+| `--product-id` | long, required |  |
+| `--notes` | string | Notes |
+| `--purchase-order` | string | Purchase order |
+| `--activate-now` | bool | Activate immediately, releasing any benefits (credits or passes) even before the product is invoiced and paid |
+| `--invoice-this-coworker` | bool | Invoice this customer for this product instead of the paying member of their team |
+| `--price` | decimal | Price override |
+| `--quantity` | int, required | Quantity |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--repeat-cycle` | enum, required | Repeat cycle pattern. PricePlan can only be used if the customer has a main contract; prefer ContractProduct instead of CoworkerProducts repeating on PricePlan |
+| `--repeat-unit` | int | Number of repeat units |
+| `--invoice-on` | DateTime | Invoice on date |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--sale-date` | DateTime | Sale date |
+| `--due-date` | DateTime | Due date |
+| `--invoiced` | bool | Whether it has been invoiced |
+| `--mrm-reminded` | bool |  |
+| `--apply-pro-rating` | bool | Apply pro-rating |
+| `--proposal-unique-id` | string |  |
+| `--coworker-invoice-id` | int | Coworker invoice ID |
+| `--coworker-invoice-number` | string | Coworker invoice number |
+| `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
+| `--credit-amount` | decimal, required | Credit amount |
+| `--discount-amount` | decimal, required | Discount amount |
 
 #### CoworkerProduct update options
 
-`--coworker-id` (long), `--business-id` (long), `--product-id` (long), `--notes`, `--purchase-order`, `--invoice-this-coworker` (bool), `--price` (decimal), `--quantity` (int), `--regular-charge` (bool), `--repeat-cycle` (enum), `--repeat-unit` (int), `--invoice-on` (DateTime), `--repeat-from` (DateTime), `--repeat-until` (DateTime), `--sale-date` (DateTime), `--due-date` (DateTime), `--invoiced` (bool), `--mrm-reminded` (bool), `--apply-pro-rating` (bool), `--proposal-unique-id`, `--coworker-invoice-id` (int), `--coworker-invoice-number`, `--coworker-invoice-paid` (bool), `--credit-amount` (decimal), `--discount-amount` (decimal)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--coworker-id` | long |  |
+| `--business-id` | long |  |
+| `--product-id` | long |  |
+| `--notes` | string | Notes |
+| `--purchase-order` | string | Purchase order |
+| `--invoice-this-coworker` | bool | Invoice this customer for this product instead of the paying member of their team |
+| `--price` | decimal | Price override |
+| `--quantity` | int | Quantity |
+| `--regular-charge` | bool | Whether this is a regular charge |
+| `--repeat-cycle` | enum | Repeat cycle pattern. PricePlan can only be used if the customer has a main contract; prefer ContractProduct instead of CoworkerProducts repeating on PricePlan |
+| `--repeat-unit` | int | Number of repeat units |
+| `--invoice-on` | DateTime | Invoice on date |
+| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-until` | DateTime | Repeat until date |
+| `--sale-date` | DateTime | Sale date |
+| `--due-date` | DateTime | Due date |
+| `--invoiced` | bool | Whether it has been invoiced |
+| `--mrm-reminded` | bool |  |
+| `--apply-pro-rating` | bool | Apply pro-rating |
+| `--proposal-unique-id` | string |  |
+| `--coworker-invoice-id` | int | Coworker invoice ID |
+| `--coworker-invoice-number` | string | Coworker invoice number |
+| `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
+| `--credit-amount` | decimal | Credit amount |
+| `--discount-amount` | decimal | Discount amount |
 
 ### CoworkerProduct (key fields)
 

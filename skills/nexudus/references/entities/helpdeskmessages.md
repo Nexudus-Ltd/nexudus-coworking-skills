@@ -19,14 +19,54 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 
 #### HelpDeskMessage list filter options
 
-`--business-id` (long), `--coworker-id` (long), `--help-desk-department-id` (long), `--subject`, `--message-text`, `--priority` (enum), `--ai-processing-result` (enum), `--closed` (bool), `--owner-id` (long), `--new-image-url`, `--clear-image-file` (bool), `--from-created-on` (range), `--to-created-on` (range), `--from-updated-on` (range), `--to-updated-on` (range)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--help-desk-department-id` | long |  |
+| `--subject` | string |  |
+| `--message-text` | string |  |
+| `--priority` | enum |  |
+| `--ai-processing-result` | enum |  |
+| `--closed` | bool |  |
+| `--owner-id` | long |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
+| `--from-created-on` | range | |
+| `--to-created-on` | range | |
+| `--from-updated-on` | range | |
+| `--to-updated-on` | range | |
 
 #### HelpDeskMessage create options
 
-`--business-id` (long, required), `--coworker-id` (long, required), `--help-desk-department-id` (long), `--subject` (required), `--message-text` (required), `--priority` (enum, required), `--ai-processing-result` (enum, required), `--closed` (bool), `--owner-id` (long), `--new-image-url`, `--clear-image-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long, required |  |
+| `--coworker-id` | long, required |  |
+| `--help-desk-department-id` | long |  |
+| `--subject` | string, required |  |
+| `--message-text` | string, required |  |
+| `--priority` | enum, required |  |
+| `--ai-processing-result` | enum, required |  |
+| `--closed` | bool |  |
+| `--owner-id` | long |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
 
 #### HelpDeskMessage update options
 
-`--business-id` (long), `--coworker-id` (long), `--help-desk-department-id` (long), `--subject`, `--message-text`, `--priority` (enum), `--ai-processing-result` (enum), `--closed` (bool), `--owner-id` (long), `--new-image-url`, `--clear-image-file` (bool)
+| Option | Type | Description |
+| --- | --- | --- |
+| `--business-id` | long |  |
+| `--coworker-id` | long |  |
+| `--help-desk-department-id` | long |  |
+| `--subject` | string |  |
+| `--message-text` | string |  |
+| `--priority` | enum |  |
+| `--ai-processing-result` | enum |  |
+| `--closed` | bool |  |
+| `--owner-id` | long |  |
+| `--new-image-url` | string |  |
+| `--clear-image-file` | bool |  |
 
 <!-- END:GENERATED entity=HelpDeskMessages -->
