@@ -51,6 +51,17 @@ CoworkerPricePlanHistories support Search, Get (no Create or Delete via API).
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
 
+#### CoworkerPricePlanHistory PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+
 ### CoworkerPricePlanHistory (key fields)
 
 `Id`, `OldTariffName`, `NewTariffName`

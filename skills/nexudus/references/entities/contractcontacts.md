@@ -89,6 +89,29 @@ ContractContacts support Search, Get, Create, Update, Delete.
 | `--notes` | string | Notes |
 | `--contract-contact-type` | enum | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |
 
+#### ContractContact PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--date-of-birth` | `DOB` | `«PII:DOB:a3f2b1c9»` |
+| `--address` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--post-code` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--city-name` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--state` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus contractcontacts update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### ContractContact (key fields)
 
 `Id`, `CoworkerFullName`, `Email`, `FullName`, `ContractContactType`

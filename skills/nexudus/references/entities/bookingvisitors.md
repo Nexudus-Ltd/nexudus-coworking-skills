@@ -50,6 +50,21 @@ BookingVisitors also support entity commands.
 | `--booking-id` | long |  |
 | `--visitor-id` | long |  |
 
+#### BookingVisitor PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--visitor-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--visitor-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--visitor-phone-number` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--visitor-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus bookingvisitors update <id> --visitor-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### BookingVisitor (key fields)
 
 `Id`, `VisitorFullName`

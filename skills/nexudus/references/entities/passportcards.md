@@ -45,4 +45,16 @@ PassportCards support Search, Get, Create, Update, Delete.
 | `--active` | bool |  |
 | `--notes` | string |  |
 
+#### PassportCard PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus passportcards update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=PassportCards -->

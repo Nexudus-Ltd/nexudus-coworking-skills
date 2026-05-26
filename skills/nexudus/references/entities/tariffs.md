@@ -447,6 +447,18 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--maximum-addresses` | int | Maximum number of forwarding addresses allowed (virtual office) |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
 
+#### Tariff PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--send-onboarding-form-by-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus tariffs update <id> --send-onboarding-form-by-email "«PII:EMAIL:a3f2b1c9»" --agent`
+
 ### Tariff (key fields)
 
 `Id`, `Name`, `SystemTariffType`, `Price`, `Visible`, `Archived`

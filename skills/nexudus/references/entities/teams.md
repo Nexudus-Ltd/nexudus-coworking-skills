@@ -198,6 +198,36 @@ Teams also support entity commands.
 | `--added-extra-services` | list, repeat flag |  |
 | `--removed-extra-services` | list, repeat flag |  |
 
+#### Team PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--paying-member-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--paying-member-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--paying-member-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--profile-summary` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+| `--profile-website` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--twitter` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--facebook` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--linkedin` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--skype` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--telegram` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--github` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--pinterest` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--flickr` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--instagram` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--vimeo` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--tumblr` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--blogger` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--coworker-full-names` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-names` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus teams update <id> --paying-member-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### Team (key fields)
 
 `Id`, `BusinessName`, `Name`

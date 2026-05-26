@@ -74,6 +74,20 @@ ContractPausedPeriods support Search, Get, Create, Update, Delete.
 | `--pause-from-local` | DateTime | Location-timezone equivalent of PauseFrom |
 | `--pause-until-local` | DateTime | Location-timezone equivalent of PauseUntil |
 
+#### ContractPausedPeriod PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-contract-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-contract-coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus contractpausedperiods update <id> --coworker-contract-coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### ContractPausedPeriod (key fields)
 
 `Id`, `CoworkerContractTariffName`, `CoworkerContractCoworkerFullName`, `PauseFrom`, `PauseUntil`

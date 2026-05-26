@@ -96,6 +96,18 @@ Checkins also support entity commands.
 | `--from-time-local` | DateTime |  |
 | `--to-time-local` | DateTime |  |
 
+#### Checkin PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus checkins update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### Checkin (key fields)
 
 `Id`, `CoworkerFullName`, `BusinessName`, `Source`, `FromTime`, `ToTime`

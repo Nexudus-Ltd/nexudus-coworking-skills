@@ -112,6 +112,25 @@ Visitors also support entity commands.
 | `--tour-confirmed` | bool | Whether the tour is confirmed |
 | `--access-control-scheduled-job-id` | string |  |
 
+#### Visitor PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+| `--company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus visitors update <id> --full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### Visitor (key fields)
 
 `Id`, `FullName`, `Email`, `CoworkerFullName`, `HostApprovalStatus`, `Arrived`

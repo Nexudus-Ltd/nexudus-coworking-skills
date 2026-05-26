@@ -69,4 +69,17 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 | `--new-image-url` | string |  |
 | `--clear-image-file` | bool |  |
 
+#### HelpDeskMessage PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--owner-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus helpdeskmessages update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=HelpDeskMessages -->

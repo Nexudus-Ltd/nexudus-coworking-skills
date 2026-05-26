@@ -84,4 +84,19 @@ Resellers support Search, Get, Create, Update, Delete.
 | `--testimonial2` | string |  |
 | `--testimonial2-author` | string |  |
 
+#### Reseller PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--user-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--user-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--profile-summary` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus resellers update <id> --user-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=Resellers -->

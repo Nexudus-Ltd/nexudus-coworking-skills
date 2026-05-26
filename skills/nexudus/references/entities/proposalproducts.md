@@ -90,6 +90,20 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `--apply-pro-rating` | bool | Apply pro-rating |
 | `--notes` | string | Notes |
 
+#### ProposalProduct PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--proposal-coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--proposal-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus proposalproducts update <id> --proposal-coworker-email "«PII:EMAIL:a3f2b1c9»" --agent`
+
 ### ProposalProduct (key fields)
 
 `Id`, `ProposalCoworkerFullName`, `ProductName`, `Quantity`, `Price`

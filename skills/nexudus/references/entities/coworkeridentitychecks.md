@@ -103,6 +103,20 @@ CoworkerIdentityChecks also support entity commands.
 | `--billed` | bool |  |
 | `--stripe-verification-session-id` | string |  |
 
+#### CoworkerIdentityCheck PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkeridentitychecks update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CoworkerIdentityCheck (key fields)
 
 `Id`, `BusinessName`, `CoworkerFullName`, `Name`, `VerificationType`, `VerificationStatus`

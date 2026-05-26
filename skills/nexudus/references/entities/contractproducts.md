@@ -76,6 +76,20 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | `--repeat-until` | DateTime | Repeat until date |
 | `--apply-pro-rating` | bool | Apply pro-rating to this product charge. Only takes effect when the location plan has prorating enabled (Tariff.ProrateDaysBefore > 0). |
 
+#### ContractProduct PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-contract-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-contract-coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus contractproducts update <id> --coworker-contract-coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### ContractProduct (key fields)
 
 `Id`, `CoworkerContractCoworkerFullName`, `ProductName`, `Quantity`, `Price`

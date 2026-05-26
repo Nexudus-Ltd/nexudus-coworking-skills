@@ -53,6 +53,21 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 | `--bill-to-fax` | string | Billing fax number, captured at invoice time |
 | `--bill-to-country-id` | long |  |
 
+#### Invoice PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--bill-to-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--bill-to-address` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--bill-to-city` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--bill-to-post-code` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+
+Example:
+
+`nexudus invoices update <id> --bill-to-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### Invoice (key fields)
 
 `Id`, `InvoiceNumber`, `BillToName`, `DueDate`, `TotalAmount`, `Paid`

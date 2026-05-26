@@ -62,6 +62,18 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | `--new-crm-board-column-id` | long | CRM stage the opportunity moved to |
 | `--user-id` | long | Admin user who triggered the stage transition (null if moved automatically) |
 
+#### CrmOpportunityHistory PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--user-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus crmopportunityhistories update <id> --user-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CrmOpportunityHistory (key fields)
 
 `Id`, `OldCrmBoardColumnName`, `FromTime`, `ToTime`, `NewCrmBoardColumnName`, `UserFullName`

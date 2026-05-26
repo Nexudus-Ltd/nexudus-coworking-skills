@@ -295,6 +295,26 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--created-by` | string |  |
 | `--default-payment-term` | int |  |
 
+#### Business PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--welcome-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--address` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--phone` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--fax` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--last-welcome-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--state` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--contact-phone` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--contact-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus businesses update <id> --welcome-email "«PII:EMAIL:a3f2b1c9»" --agent`
+
 ### Business (key fields)
 
 `Id`, `Name`, `WebAddress`, `Address`, `Phone`, `EmailContact`, `CountryName`, `CurrencyCode`, `PassportPublished`, `VenueType`, `Tags`, `TownCity`, `State`, `PostalCode`

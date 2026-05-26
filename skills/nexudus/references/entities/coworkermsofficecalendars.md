@@ -64,6 +64,18 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 | `--calendar-id` | string | Microsoft Graph calendar ID of the customer's connected Office 365 calendar |
 | `--subscription-expire-date` | DateTime | Date and time when the Microsoft Graph push-notification subscription expires and must be renewed |
 
+#### CoworkerMsOfficeCalendar PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkermsofficecalendars update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CoworkerMsOfficeCalendar (key fields)
 
 `Id`, `CoworkerFullName`, `Name`

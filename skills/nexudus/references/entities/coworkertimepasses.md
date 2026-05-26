@@ -86,4 +86,16 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 | `--coworker-product-unique-id` | string | Unique identifier linking this time pass to a customer product purchase |
 | `--coworker-contract-unique-id` | string | Unique identifier linking this time pass to a customer contract |
 
+#### CoworkerTimePass PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkertimepasses update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=CoworkerTimePasses -->

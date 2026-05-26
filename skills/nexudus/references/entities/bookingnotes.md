@@ -51,6 +51,18 @@ BookingNotes also support entity commands.
 | `--added-by` | string | The name of the user who added the note |
 | `--notes` | string | The text content of the note, visible to customers in booking confirmations |
 
+#### BookingNote PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus bookingnotes update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+
 ### BookingNote (key fields)
 
 `Id`, `AddedBy`, `Notes`

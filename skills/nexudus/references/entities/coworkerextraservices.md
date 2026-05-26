@@ -114,6 +114,18 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | `--booking-resource-name` | string | Name of the resource booked (e.g., meeting room name) |
 | `--coworker-contract-unique-id` | string | Links this credit back to the customer contract that provisioned it |
 
+#### CoworkerExtraService PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkerextraservices update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+
 ### CoworkerExtraService (key fields)
 
 `Id`, `ExtraServiceName`, `Description`, `RemainingUses`, `Price`, `Invoiced`

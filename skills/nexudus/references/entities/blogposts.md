@@ -110,6 +110,18 @@ BlogPosts support Search, Get, Create, Update, Delete.
 | `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
 
+#### BlogPost PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--posted-by-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus blogposts update <id> --posted-by-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### BlogPost (key fields)
 
 `Id`, `Title`

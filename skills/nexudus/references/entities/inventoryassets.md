@@ -82,6 +82,18 @@ InventoryAssets also support entity commands.
 | `--resource-id` | long |  |
 | `--assign-to-type` | enum | Determines what this asset is assigned to: Location (1), Resource (2), or FloorPlanItem (3) |
 
+#### InventoryAsset PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-names` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus inventoryassets update <id> --coworker-full-names "«PII:NAME:a3f2b1c9»" --agent`
+
 ### InventoryAsset (key fields)
 
 `Id`, `BusinessName`, `Name`

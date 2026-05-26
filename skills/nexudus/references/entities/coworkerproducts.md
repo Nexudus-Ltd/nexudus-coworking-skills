@@ -155,6 +155,22 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `--credit-amount` | decimal | Credit amount |
 | `--discount-amount` | decimal | Discount amount |
 
+#### CoworkerProduct PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkerproducts update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CoworkerProduct (key fields)
 
 `Id`, `CoworkerFullName`, `ProductName`, `Activated`, `Price`, `Invoiced`

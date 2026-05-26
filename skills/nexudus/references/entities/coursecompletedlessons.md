@@ -48,4 +48,17 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 | `--course-lesson-id` | long | ID of the course lesson that was completed |
 | `--course-member-id` | long | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
 
+#### CourseCompletedLesson PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--course-member-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--course-member-coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus coursecompletedlessons update <id> --course-member-coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=CourseCompletedLessons -->

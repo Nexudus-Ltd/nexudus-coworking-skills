@@ -100,6 +100,19 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | `--unlock-after-days` | int | Number of days after enrolment before the lesson unlocks; only used when UnlockType is Timed (3) |
 | `--completion-type` | enum | How completion is tracked: None (1), Visited (2), completion Button (3), or Video watched (4). Video completion requires the lesson to embed a YouTube-hosted video. |
 
+#### CourseLesson PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--instructor-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--instructor-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus courselessons update <id> --instructor-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 #### CourseLesson enum values
 
 | Option | Valid values |

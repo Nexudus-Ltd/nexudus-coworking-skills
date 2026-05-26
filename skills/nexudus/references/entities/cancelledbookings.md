@@ -248,6 +248,21 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `--cancelled-on` | DateTime | Date and time when the booking was cancelled |
 | `--cancelled-by` | string | Name or identifier of the user who cancelled the booking |
 
+#### CancelledBooking PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus cancelledbookings update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CancelledBooking (key fields)
 
 `Id`, `ResourceName`, `CoworkerFullName`, `FromTime`, `ToTime`, `CancellationReason`, `CancelledOn`

@@ -70,6 +70,18 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 | `--watch-resource-id` | string | Google-assigned resource ID for the active push-notification watch channel |
 | `--event-sync-token` | string | Incremental sync token returned by the Google Calendar API, used to fetch only events changed since the last sync |
 
+#### CoworkerGoogleCalendar PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkergooglecalendars update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CoworkerGoogleCalendar (key fields)
 
 `Id`, `CoworkerFullName`, `Name`

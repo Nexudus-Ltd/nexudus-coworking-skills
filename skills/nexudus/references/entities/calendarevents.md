@@ -233,6 +233,19 @@ CalendarEvents support Search, Get, Create, Update, Delete.
 | `--send-event-form-by-email` | bool | Send the linked event form to attendees by email |
 | `--form-page-id` | long | ID of the form page linked to this event |
 
+#### CalendarEvent PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--host-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--send-event-form-by-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus calendarevents update <id> --host-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 **List properties (only returned by `get`, not by `list`):** `EventCategories`, `AddedEventCategories`, `RemovedEventCategories`
 
 #### CalendarEvent enum values

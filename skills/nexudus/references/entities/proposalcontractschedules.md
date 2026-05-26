@@ -52,6 +52,20 @@ ProposalContractSchedules support Search, Get, Create, Update, Delete.
 | `--price` | decimal | Scheduled price |
 | `--apply-on` | DateTime | Date to apply |
 
+#### ProposalContractSchedule PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--proposal-contract-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--proposal-contract-coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus proposalcontractschedules update <id> --proposal-contract-coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### ProposalContractSchedule (key fields)
 
 `Id`, `ProposalContractTariffName`, `ProposalContractProposalCoworkerFullName`, `Price`, `ApplyOn`

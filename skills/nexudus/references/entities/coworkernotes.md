@@ -47,4 +47,16 @@ CoworkerNotes support Search, Get, Create, Update, Delete.
 | `--notes` | string | Note content. Not visible to customers. |
 | `--added-by` | string | Name or identifier of the staff member who added this note |
 
+#### CoworkerNote PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkernotes update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=CoworkerNotes -->

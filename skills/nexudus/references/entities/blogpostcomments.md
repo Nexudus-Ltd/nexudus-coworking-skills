@@ -63,6 +63,18 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 | `--published` | bool | Whether the comment is published and visible to readers |
 | `--rating` | int | Optional rating given by the commenter |
 
+#### BlogPostComment PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--posted-by-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus blogpostcomments update <id> --posted-by-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### BlogPostComment (key fields)
 
 `Id`, `PostedByFullName`, `Title`

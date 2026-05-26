@@ -59,4 +59,17 @@ TaskItems support Search, Get, Create, Update, Delete.
 | `--display-to-everyone` | bool |  |
 | `--delay-in-hours` | int |  |
 
+#### TaskItem PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--responsible-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notify-by-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus taskitems update <id> --responsible-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=TaskItems -->

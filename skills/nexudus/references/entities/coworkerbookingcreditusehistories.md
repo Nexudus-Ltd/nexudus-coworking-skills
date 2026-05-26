@@ -58,6 +58,19 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 | `--coworker-invoice-line-id` | long | ID of the invoice line this credit was applied to, if the credit was used against an invoice |
 | `--event-attendee-id` | long | ID of the event attendance record this credit was applied to, if the credit was used for an event |
 
+#### CoworkerBookingCreditUseHistory PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--event-attendee-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--event-attendee-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkerbookingcreditusehistories update <id> --event-attendee-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CoworkerBookingCreditUseHistory (key fields)
 
 `Id`, `BookingResourceName`, `CoworkerInvoiceLineCoworkerInvoiceInvoiceNumber`, `EventAttendeeCalendarEventName`

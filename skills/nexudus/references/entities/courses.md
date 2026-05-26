@@ -105,6 +105,19 @@ Courses support Search, Get, Create, Update, Delete.
 | `--visibility` | enum | Access control for the course: Public (1), Hidden from listing but accessible via link (2), Private/invite-only (3), or Paid via TariffId (4) |
 | `--tariff-id` | long | ID of the pricing plan (tariff) required to access this course when Visibility is Paid |
 
+#### Course PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--host-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--host-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus courses update <id> --host-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 #### Course enum values
 
 | Option | Valid values |

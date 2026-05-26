@@ -96,6 +96,18 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 | `--transaction-date-local` | DateTime | Transaction date in the location's local time |
 | `--connected-transaction-guid` | string | Connected transaction GUID |
 
+#### CoworkerLedgerEntry PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkerledgerentries update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CoworkerLedgerEntry (key fields)
 
 `Id`, `CoworkerFullName`, `Description`, `Code`, `Debit`, `Credit`

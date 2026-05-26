@@ -66,6 +66,21 @@ CoworkerInventoryAssets also support entity commands.
 | `--assigned-from` | DateTime | Date the asset was assigned to the customer |
 | `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
 
+#### CoworkerInventoryAsset PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkerinventoryassets update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CoworkerInventoryAsset (key fields)
 
 `Id`, `CoworkerFullName`, `InventoryAssetName`

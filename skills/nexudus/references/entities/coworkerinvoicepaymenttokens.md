@@ -52,6 +52,18 @@ CoworkerInvoicePaymentTokens support Search, Get, Create, Update, Delete.
 | `--token` | string | Provider-specific token used to authorise or capture the payment |
 | `--notes` | string | Additional notes about the payment token |
 
+#### CoworkerInvoicePaymentToken PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkerinvoicepaymenttokens update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+
 ### CoworkerInvoicePaymentToken (key fields)
 
 `Id`, `RegularPaymentProvider`, `Token`

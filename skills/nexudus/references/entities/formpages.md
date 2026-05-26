@@ -54,4 +54,16 @@ FormPages support Search, Get, Create, Update, Delete.
 | `--crm-board-column-id` | long |  |
 | `--responsible-id` | long |  |
 
+#### FormPage PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--responsible-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus formpages update <id> --responsible-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=FormPages -->

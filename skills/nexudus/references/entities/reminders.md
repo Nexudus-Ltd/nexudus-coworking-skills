@@ -120,6 +120,18 @@ Reminders support Search, Get, Create, Update, Delete.
 | `--only-send-to-active-coworkers` | bool |  |
 | `--blocking-period-minutes` | int |  |
 
+#### Reminder PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus reminders update <id> --email "«PII:EMAIL:a3f2b1c9»" --agent`
+
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`, `Resources`, `AddedResources`, `RemovedResources`
 
 <!-- END:GENERATED entity=Reminders -->

@@ -62,6 +62,20 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 | `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
 | `--invoice-during-online-checkout` | bool |  |
 
+#### ContractDeposit PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-contract-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-contract-coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus contractdeposits update <id> --coworker-contract-coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### ContractDeposit (key fields)
 
 `Id`, `ProductName`, `Price`, `Refundable`, `Invoiced`

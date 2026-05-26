@@ -75,4 +75,17 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 | `--new-logo-url` | string |  |
 | `--clear-logo-file` | bool |  |
 
+#### MarketPlaceApplication PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--support-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--notification-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus marketplaceapplications update <id> --support-email "«PII:EMAIL:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=MarketPlaceApplications -->

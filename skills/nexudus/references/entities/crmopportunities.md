@@ -133,6 +133,22 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | `--utm-content` | string | UTM content parameter captured from the URL the opportunity used |
 | `--utm-term` | string | UTM term parameter captured from the URL the opportunity used |
 
+#### CrmOpportunity PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--responsible-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus crmopportunities update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### CrmOpportunity (key fields)
 
 `Id`, `Name`, `CrmBoardColumnName`, `CrmBoardColumnCrmBoardName`, `CrmBoardColumnCrmBoardBusinessName`, `CrmBoardColumnCrmBoardBusinessCurrencyCode`, `CoworkerFullName`, `CoworkerCompanyName`, `CoworkerEmail`, `TeamName`, `OpportunityTypeName`, `ResponsibleFullName`, `Notes`, `DueDate`, `Value`

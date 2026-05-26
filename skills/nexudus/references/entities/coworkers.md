@@ -636,6 +636,60 @@ Coworkers also support entity commands.
 | `--billing-latitude` | decimal | Billing latitude |
 | `--archived` | bool | Archived |
 
+#### Coworker PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--salutation` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--gender` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+| `--email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--address` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--post-code` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--city` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--state` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--mobile-phone` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--land-line` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--date-of-birth` | `DOB` | `«PII:DOB:a3f2b1c9»` |
+| `--nick-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--profile-website` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--profile-summary` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+| `--twitter` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--facebook` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--google` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--telegram` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--linkedin` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--skype` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--github` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--pinterest` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--flickr` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--instagram` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--vimeo` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--tumblr` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--blogger` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--invoicing-business-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--billing-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--billing-address` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--billing-post-code` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--billing-city` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--billing-state` | `ADDRESS` | `«PII:ADDRESS:a3f2b1c9»` |
+| `--tax-id-number` | `FINANCIAL` | `«PII:FINANCIAL:a3f2b1c9»` |
+| `--bank-name` | `FINANCIAL` | `«PII:FINANCIAL:a3f2b1c9»` |
+| `--bank-account` | `FINANCIAL` | `«PII:FINANCIAL:a3f2b1c9»` |
+| `--bank-branch` | `FINANCIAL` | `«PII:FINANCIAL:a3f2b1c9»` |
+| `--card-number` | `FINANCIAL` | `«PII:FINANCIAL:a3f2b1c9»` |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+| `--user-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--notify-on-deliveries-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkers update <id> --full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 ### Coworker (key fields)
 
 `Id`, `CoworkerType`, `FullName`, `Email`, `CompanyName`, `Active`, `RegistrationDate`, `TeamNames`, `Archived`

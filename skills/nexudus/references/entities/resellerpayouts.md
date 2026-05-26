@@ -42,4 +42,16 @@ ResellerPayouts support Search, Get, Create, Update, Delete.
 | `--new-reseller-invoice-data-url` | string |  |
 | `--clear-reseller-invoice-data-file` | bool |  |
 
+#### ResellerPayout PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--reseller-user-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus resellerpayouts update <id> --reseller-user-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=ResellerPayouts -->

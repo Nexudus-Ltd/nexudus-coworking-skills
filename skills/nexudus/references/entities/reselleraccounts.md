@@ -42,4 +42,16 @@ ResellerAccounts support Search, Get, Create, Update, Delete.
 | `--notes` | string |  |
 | `--scope-of-work` | string |  |
 
+#### ResellerAccount PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
+
+Example:
+
+`nexudus reselleraccounts update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=ResellerAccounts -->

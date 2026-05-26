@@ -59,4 +59,16 @@ EventComments support Search, Get, Create, Update, Delete.
 | `--published` | bool |  |
 | `--rating` | int |  |
 
+#### EventComment PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--posted-by-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus eventcomments update <id> --posted-by-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=EventComments -->

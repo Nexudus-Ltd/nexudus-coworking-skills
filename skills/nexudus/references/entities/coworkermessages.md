@@ -35,6 +35,20 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
 
+#### CoworkerMessage PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+
 ### CoworkerMessage (key fields)
 
 `Id`, `CoworkerFullName`, `EmailAccountDisplayName`

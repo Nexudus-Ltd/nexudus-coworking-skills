@@ -214,6 +214,21 @@ Users support Search, Get, Create, Update, Delete.
 | `--on-virtual-office-delivery-preference-update` | bool |  |
 | `--on-identity-check-update` | bool |  |
 
+#### User PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--on-new-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--support-team-user-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus users update <id> --full-name "«PII:NAME:a3f2b1c9»" --agent`
+
 **List properties (only returned by `get`, not by `list`):** `Businesses`, `AddedBusinesses`, `RemovedBusinesses`, `UserRoles`, `AddedUserRoles`, `RemovedUserRoles`, `ChatRooms`, `AddedChatRooms`, `RemovedChatRooms`
 
 <!-- END:GENERATED entity=Users -->

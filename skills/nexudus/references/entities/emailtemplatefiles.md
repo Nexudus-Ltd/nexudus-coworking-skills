@@ -69,4 +69,18 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 | `--c-c-email` | string |  |
 | `--c-c-o-email` | string |  |
 
+#### EmailTemplateFile PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--from-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--c-c-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--c-c-o-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+
+Example:
+
+`nexudus emailtemplatefiles update <id> --from-email "«PII:EMAIL:a3f2b1c9»" --agent`
+
 <!-- END:GENERATED entity=EmailTemplateFiles -->
