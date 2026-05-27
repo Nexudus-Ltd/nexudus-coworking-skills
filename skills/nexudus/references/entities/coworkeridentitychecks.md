@@ -38,8 +38,8 @@ CoworkerIdentityChecks also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--name` | string | Display name for this verification check |
 | `--identity-check-provider` | enum | How the check is performed: Manual (operator review) or StripeIdentity (Stripe-delegated) |
 | `--identity-document-type` | enum | Type of identity document used when VerificationType is IdDocument |
@@ -50,14 +50,14 @@ CoworkerIdentityChecks also support entity commands.
 | `--to-identity-document-expiration-date` | range | |
 | `--address-document-type` | enum | Type of address document used when VerificationType is Address |
 | `--description` | string | Free-text notes or details about this check |
-| `--billed` | bool |  |
-| `--stripe-verification-session-id` | string |  |
-| `--identity-check-provider1` | enum |  |
-| `--verification-type1` | enum |  |
-| `--description1` | string |  |
-| `--identity-check-provider2` | enum |  |
-| `--verification-type2` | enum |  |
-| `--description2` | string |  |
+| `--billed` | bool | Whether billed is enabled |
+| `--stripe-verification-session-id` | string | ID of the stripe verification session associated with this record |
+| `--identity-check-provider1` | enum | The identity check provider1 value for this coworker identity check |
+| `--verification-type1` | enum | The verification type1 value for this coworker identity check |
+| `--description1` | string | The description1 value for this coworker identity check |
+| `--identity-check-provider2` | enum | The identity check provider2 value for this coworker identity check |
+| `--verification-type2` | enum | The verification type2 value for this coworker identity check |
+| `--description2` | string | The description2 value for this coworker identity check |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -67,8 +67,8 @@ CoworkerIdentityChecks also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--coworker-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
 | `--name` | string, required | Display name for this verification check |
 | `--identity-check-provider` | enum, required | How the check is performed: Manual (operator review) or StripeIdentity (Stripe-delegated) |
 | `--identity-document-type` | enum, required | Type of identity document used when VerificationType is IdDocument |
@@ -77,21 +77,21 @@ CoworkerIdentityChecks also support entity commands.
 | `--identity-document-expiration-date` | DateTime | Expiration date of the identity document |
 | `--address-document-type` | enum, required | Type of address document used when VerificationType is Address |
 | `--description` | string | Free-text notes or details about this check |
-| `--billed` | bool |  |
-| `--stripe-verification-session-id` | string |  |
-| `--identity-check-provider1` | enum |  |
-| `--verification-type1` | enum |  |
-| `--description1` | string |  |
-| `--identity-check-provider2` | enum |  |
-| `--verification-type2` | enum |  |
-| `--description2` | string |  |
+| `--billed` | bool | Whether billed is enabled |
+| `--stripe-verification-session-id` | string | ID of the stripe verification session associated with this record |
+| `--identity-check-provider1` | enum | The identity check provider1 value for this coworker identity check |
+| `--verification-type1` | enum | The verification type1 value for this coworker identity check |
+| `--description1` | string | The description1 value for this coworker identity check |
+| `--identity-check-provider2` | enum | The identity check provider2 value for this coworker identity check |
+| `--verification-type2` | enum | The verification type2 value for this coworker identity check |
+| `--description2` | string | The description2 value for this coworker identity check |
 
 #### CoworkerIdentityCheck update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--name` | string | Display name for this verification check |
 | `--identity-check-provider` | enum | How the check is performed: Manual (operator review) or StripeIdentity (Stripe-delegated) |
 | `--identity-document-type` | enum | Type of identity document used when VerificationType is IdDocument |
@@ -100,8 +100,8 @@ CoworkerIdentityChecks also support entity commands.
 | `--identity-document-expiration-date` | DateTime | Expiration date of the identity document |
 | `--address-document-type` | enum | Type of address document used when VerificationType is Address |
 | `--description` | string | Free-text notes or details about this check |
-| `--billed` | bool |  |
-| `--stripe-verification-session-id` | string |  |
+| `--billed` | bool | Whether billed is enabled |
+| `--stripe-verification-session-id` | string | ID of the stripe verification session associated with this record |
 
 #### CoworkerIdentityCheck PII fields
 

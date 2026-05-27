@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=CrmOpportunityImportFiles -->
 
+A **CrmOpportunityImportFile** represents a file uploaded to bulk-import CRM opportunities into the system. Each record tracks the import file metadata and processing status.
+
 CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,11 +23,11 @@ CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--new-file-data-url` | string |  |
-| `--clear-file-data-file` | bool |  |
-| `--name` | string |  |
-| `--imported` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--new-file-data-url` | string | URL of a new file to upload as the file data |
+| `--clear-file-data-file` | bool | Set to true to remove the current file data file |
+| `--name` | string | The name value for this crm opportunity import file |
+| `--imported` | bool | Whether imported is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -35,20 +37,20 @@ CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--new-file-data-url` | string |  |
-| `--clear-file-data-file` | bool |  |
-| `--name` | string, required |  |
-| `--imported` | bool |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--new-file-data-url` | string | URL of a new file to upload as the file data |
+| `--clear-file-data-file` | bool | Set to true to remove the current file data file |
+| `--name` | string, required | The name value for this crm opportunity import file |
+| `--imported` | bool | Whether imported is enabled |
 
 #### CrmOpportunityImportFile update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--new-file-data-url` | string |  |
-| `--clear-file-data-file` | bool |  |
-| `--name` | string |  |
-| `--imported` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--new-file-data-url` | string | URL of a new file to upload as the file data |
+| `--clear-file-data-file` | bool | Set to true to remove the current file data file |
+| `--name` | string | The name value for this crm opportunity import file |
+| `--imported` | bool | Whether imported is enabled |
 
 <!-- END:GENERATED entity=CrmOpportunityImportFiles -->

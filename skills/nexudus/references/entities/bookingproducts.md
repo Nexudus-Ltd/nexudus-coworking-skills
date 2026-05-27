@@ -27,13 +27,13 @@ BookingProducts also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long |  |
-| `--product-id` | long |  |
+| `--booking-id` | long | ID of the booking linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
 | `--quantity` | int | The number of units of this product to include in the booking |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--mrm-reminded` | bool |  |
+| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -43,21 +43,21 @@ BookingProducts also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long, required |  |
-| `--product-id` | long, required |  |
+| `--booking-id` | long, required | ID of the booking linked to this record |
+| `--product-id` | long, required | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
 | `--quantity` | int, required | The number of units of this product to include in the booking |
-| `--mrm-reminded` | bool |  |
+| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
 
 #### BookingProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long |  |
-| `--product-id` | long |  |
+| `--booking-id` | long | ID of the booking linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
 | `--quantity` | int | The number of units of this product to include in the booking |
-| `--mrm-reminded` | bool |  |
+| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
 
 ### BookingProduct (key fields)
 

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TimePassPrices -->
 
+A **TimePassPrice** defines a pricing tier for a time pass, allowing different prices based on quantity purchased or customer segment.
+
 TimePassPrices support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--time-pass-id` | long |  |
-| `--tariff-id` | long |  |
-| `--price` | decimal | Price |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--price` | decimal | Unit price amount |
 | `--from-price` | range | |
 | `--to-price` | range | |
 | `--from-created-on` | range | |
@@ -35,17 +37,17 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--time-pass-id` | long, required |  |
-| `--tariff-id` | long, required |  |
-| `--price` | decimal, required | Price |
+| `--time-pass-id` | long, required | ID of the time pass linked to this record |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--price` | decimal, required | Unit price amount |
 
 #### TimePassPrice update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--time-pass-id` | long |  |
-| `--tariff-id` | long |  |
-| `--price` | decimal | Price |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--price` | decimal | Unit price amount |
 
 ### TimePassPrice (key fields)
 

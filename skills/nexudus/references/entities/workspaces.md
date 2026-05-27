@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Workspaces -->
 
+A **Workspace** represents a collaborative workspace or project area where team members can share files, communicate, and coordinate work within the platform.
+
 Workspaces support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,13 +23,13 @@ Workspaces support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--administrator-id` | long |  |
-| `--name` | string |  |
-| `--visible-in-my-spaces` | bool |  |
-| `--visible-by-everyone` | bool |  |
-| `--archived` | bool |  |
-| `--description` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--administrator-id` | long | ID of the administrator linked to this record |
+| `--name` | string | The name value for this workspace |
+| `--visible-in-my-spaces` | bool | Whether visible in my spaces is enabled |
+| `--visible-by-everyone` | bool | Whether visible by everyone is enabled |
+| `--archived` | bool | Whether this workspace is archived and hidden from active lists |
+| `--description` | string | Free-text description of this workspace |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -37,31 +39,31 @@ Workspaces support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--administrator-id` | long, required |  |
-| `--name` | string, required |  |
-| `--visible-in-my-spaces` | bool |  |
-| `--visible-by-everyone` | bool |  |
-| `--archived` | bool |  |
-| `--description` | string |  |
-| `--members` | list, repeat flag |  |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--administrator-id` | long, required | ID of the administrator linked to this record |
+| `--name` | string, required | The name value for this workspace |
+| `--visible-in-my-spaces` | bool | Whether visible in my spaces is enabled |
+| `--visible-by-everyone` | bool | Whether visible by everyone is enabled |
+| `--archived` | bool | Whether this workspace is archived and hidden from active lists |
+| `--description` | string | Free-text description of this workspace |
+| `--members` | list, repeat flag | List of members linked to this record |
+| `--added-members` | list, repeat flag | The added members value for this workspace |
+| `--removed-members` | list, repeat flag | The removed members value for this workspace |
 
 #### Workspace update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--administrator-id` | long |  |
-| `--name` | string |  |
-| `--visible-in-my-spaces` | bool |  |
-| `--visible-by-everyone` | bool |  |
-| `--archived` | bool |  |
-| `--description` | string |  |
-| `--members` | list, repeat flag |  |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--administrator-id` | long | ID of the administrator linked to this record |
+| `--name` | string | The name value for this workspace |
+| `--visible-in-my-spaces` | bool | Whether visible in my spaces is enabled |
+| `--visible-by-everyone` | bool | Whether visible by everyone is enabled |
+| `--archived` | bool | Whether this workspace is archived and hidden from active lists |
+| `--description` | string | Free-text description of this workspace |
+| `--members` | list, repeat flag | List of members linked to this record |
+| `--added-members` | list, repeat flag | The added members value for this workspace |
+| `--removed-members` | list, repeat flag | The removed members value for this workspace |
 
 **List properties (only returned by `get`, not by `list`):** `Members`, `AddedMembers`, `RemovedMembers`
 

@@ -46,7 +46,7 @@ ResourceAccessRules also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Rule name |
 | `--active` | bool | Whether this rule is currently active and evaluated during booking. |
 | `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
@@ -74,7 +74,7 @@ ResourceAccessRules also support entity commands.
 | `--min-booking-length` | int | Minimum allowed duration for a single booking, in minutes. |
 | `--from-min-booking-length` | range | |
 | `--to-min-booking-length` | range | |
-| `--applied-resources-count` | int |  |
+| `--applied-resources-count` | int | The applied resources count value for this resource access rule |
 | `--from-applied-resources-count` | range | |
 | `--to-applied-resources-count` | range | |
 | `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
@@ -92,7 +92,7 @@ ResourceAccessRules also support entity commands.
 | `--from-evaluation-order` | range | |
 | `--to-evaluation-order` | range | |
 | `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches. |
-| `--cancellation-fee-product-id` | long |  |
+| `--cancellation-fee-product-id` | long | ID of the cancellation fee product linked to this record |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
@@ -116,10 +116,10 @@ ResourceAccessRules also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this resource access rule |
+| `--removed-resources` | list, repeat flag | The removed resources value for this resource access rule |
 | `--name` | string, required | Rule name |
 | `--active` | bool | Whether this rule is currently active and evaluated during booking. |
 | `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
@@ -131,36 +131,36 @@ ResourceAccessRules also support entity commands.
 | `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
 | `--max-booking-length` | int | Maximum allowed duration for a single booking, in minutes. |
 | `--min-booking-length` | int | Minimum allowed duration for a single booking, in minutes. |
-| `--applied-resources-count` | int, required |  |
+| `--applied-resources-count` | int, required | The applied resources count value for this resource access rule |
 | `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
 | `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
 | `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
 | `--reject-with-message` | string | Message shown to the user when their booking is rejected by this rule. |
 | `--only-for-members` | bool | When true, this rule applies only to active members (coworkers with a plan). |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--allowed-tariffs` | list, repeat flag |  |
-| `--added-allowed-tariffs` | list, repeat flag |  |
-| `--removed-allowed-tariffs` | list, repeat flag |  |
-| `--members` | list, repeat flag |  |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
-| `--allowed-teams` | list, repeat flag |  |
-| `--added-allowed-teams` | list, repeat flag |  |
-| `--removed-allowed-teams` | list, repeat flag |  |
-| `--event-categories` | list, repeat flag |  |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
-| `--courses` | list, repeat flag |  |
-| `--added-courses` | list, repeat flag |  |
-| `--removed-courses` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource access rule |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource access rule |
+| `--allowed-tariffs` | list, repeat flag | List of allowed tariffs linked to this record |
+| `--added-allowed-tariffs` | list, repeat flag | The added allowed tariffs value for this resource access rule |
+| `--removed-allowed-tariffs` | list, repeat flag | The removed allowed tariffs value for this resource access rule |
+| `--members` | list, repeat flag | List of members linked to this record |
+| `--added-members` | list, repeat flag | The added members value for this resource access rule |
+| `--removed-members` | list, repeat flag | The removed members value for this resource access rule |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this resource access rule |
+| `--removed-teams` | list, repeat flag | The removed teams value for this resource access rule |
+| `--allowed-teams` | list, repeat flag | List of allowed teams linked to this record |
+| `--added-allowed-teams` | list, repeat flag | The added allowed teams value for this resource access rule |
+| `--removed-allowed-teams` | list, repeat flag | The removed allowed teams value for this resource access rule |
+| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this resource access rule |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this resource access rule |
+| `--courses` | list, repeat flag | List of courses linked to this record |
+| `--added-courses` | list, repeat flag | The added courses value for this resource access rule |
+| `--removed-courses` | list, repeat flag | The removed courses value for this resource access rule |
 | `--evaluation-order` | int, required | Order in which this rule is evaluated relative to other rules on the same resource. Lower values are evaluated first. |
 | `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches. |
-| `--cancellation-fee-product-id` | long |  |
+| `--cancellation-fee-product-id` | long | ID of the cancellation fee product linked to this record |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum, required | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
@@ -174,10 +174,10 @@ ResourceAccessRules also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this resource access rule |
+| `--removed-resources` | list, repeat flag | The removed resources value for this resource access rule |
 | `--name` | string | Rule name |
 | `--active` | bool | Whether this rule is currently active and evaluated during booking. |
 | `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
@@ -189,36 +189,36 @@ ResourceAccessRules also support entity commands.
 | `--interval-limit` | int | Minimum interval (in minutes) between consecutive bookings on this resource, used as a buffer for setup or cleaning. |
 | `--max-booking-length` | int | Maximum allowed duration for a single booking, in minutes. |
 | `--min-booking-length` | int | Minimum allowed duration for a single booking, in minutes. |
-| `--applied-resources-count` | int |  |
+| `--applied-resources-count` | int | The applied resources count value for this resource access rule |
 | `--no-return-policy` | int | Cooldown in minutes: prevents the same user from booking this specific resource again within this window after their last booking ends. |
 | `--no-return-policy-all-resources` | int | Cooldown in minutes: prevents the same user from booking any resource after booking this one, for the specified window. |
 | `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
 | `--reject-with-message` | string | Message shown to the user when their booking is rejected by this rule. |
 | `--only-for-members` | bool | When true, this rule applies only to active members (coworkers with a plan). |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--allowed-tariffs` | list, repeat flag |  |
-| `--added-allowed-tariffs` | list, repeat flag |  |
-| `--removed-allowed-tariffs` | list, repeat flag |  |
-| `--members` | list, repeat flag |  |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
-| `--allowed-teams` | list, repeat flag |  |
-| `--added-allowed-teams` | list, repeat flag |  |
-| `--removed-allowed-teams` | list, repeat flag |  |
-| `--event-categories` | list, repeat flag |  |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
-| `--courses` | list, repeat flag |  |
-| `--added-courses` | list, repeat flag |  |
-| `--removed-courses` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource access rule |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource access rule |
+| `--allowed-tariffs` | list, repeat flag | List of allowed tariffs linked to this record |
+| `--added-allowed-tariffs` | list, repeat flag | The added allowed tariffs value for this resource access rule |
+| `--removed-allowed-tariffs` | list, repeat flag | The removed allowed tariffs value for this resource access rule |
+| `--members` | list, repeat flag | List of members linked to this record |
+| `--added-members` | list, repeat flag | The added members value for this resource access rule |
+| `--removed-members` | list, repeat flag | The removed members value for this resource access rule |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this resource access rule |
+| `--removed-teams` | list, repeat flag | The removed teams value for this resource access rule |
+| `--allowed-teams` | list, repeat flag | List of allowed teams linked to this record |
+| `--added-allowed-teams` | list, repeat flag | The added allowed teams value for this resource access rule |
+| `--removed-allowed-teams` | list, repeat flag | The removed allowed teams value for this resource access rule |
+| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this resource access rule |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this resource access rule |
+| `--courses` | list, repeat flag | List of courses linked to this record |
+| `--added-courses` | list, repeat flag | The added courses value for this resource access rule |
+| `--removed-courses` | list, repeat flag | The removed courses value for this resource access rule |
 | `--evaluation-order` | int | Order in which this rule is evaluated relative to other rules on the same resource. Lower values are evaluated first. |
 | `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches. |
-| `--cancellation-fee-product-id` | long |  |
+| `--cancellation-fee-product-id` | long | ID of the cancellation fee product linked to this record |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
@@ -265,5 +265,11 @@ Or from a file:
 ```shell
 nexudus resourceaccessrules create ... --time-slots @timeslots.json --agent
 ```
+
+#### ResourceAccessRule enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--cancellation-fee-type` | `0` None, `1` Absolute, `2` Percentage |
 
 <!-- END:GENERATED entity=ResourceAccessRules -->

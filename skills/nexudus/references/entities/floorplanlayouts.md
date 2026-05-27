@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanLayouts -->
 
+A **FloorPlanLayout** represents the overall layout configuration of a floor plan, including its dimensions, background image, and visual settings. Each floor plan can have one or more layouts to represent different configurations of the same space.
+
 FloorPlanLayouts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,24 +23,24 @@ FloorPlanLayouts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--new-background-image-url` | string |  |
-| `--clear-background-image-file` | bool |  |
-| `--size` | decimal |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this floor plan layout |
+| `--new-background-image-url` | string | URL of a new file to upload as the background image |
+| `--clear-background-image-file` | bool | Set to true to remove the current background image file |
+| `--size` | decimal | The size value for this floor plan layout |
 | `--from-size` | range | |
 | `--to-size` | range | |
-| `--new-tracing-image-url` | string |  |
-| `--clear-tracing-image-file` | bool |  |
-| `--new-preview-image-url` | string |  |
-| `--clear-preview-image-file` | bool |  |
-| `--background-image-scale` | int |  |
+| `--new-tracing-image-url` | string | URL of a new file to upload as the tracing image |
+| `--clear-tracing-image-file` | bool | Set to true to remove the current tracing image file |
+| `--new-preview-image-url` | string | URL of a new file to upload as the preview image |
+| `--clear-preview-image-file` | bool | Set to true to remove the current preview image file |
+| `--background-image-scale` | int | The background image scale value for this floor plan layout |
 | `--from-background-image-scale` | range | |
 | `--to-background-image-scale` | range | |
-| `--tracing-image-scale` | int |  |
+| `--tracing-image-scale` | int | The tracing image scale value for this floor plan layout |
 | `--from-tracing-image-scale` | range | |
 | `--to-tracing-image-scale` | range | |
-| `--floor-level` | int |  |
+| `--floor-level` | int | The floor level value for this floor plan layout |
 | `--from-floor-level` | range | |
 | `--to-floor-level` | range | |
 | `--from-created-on` | range | |
@@ -50,34 +52,34 @@ FloorPlanLayouts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--new-background-image-url` | string |  |
-| `--clear-background-image-file` | bool |  |
-| `--size` | decimal, required |  |
-| `--new-tracing-image-url` | string |  |
-| `--clear-tracing-image-file` | bool |  |
-| `--new-preview-image-url` | string |  |
-| `--clear-preview-image-file` | bool |  |
-| `--background-image-scale` | int, required |  |
-| `--tracing-image-scale` | int, required |  |
-| `--floor-level` | int, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this floor plan layout |
+| `--new-background-image-url` | string | URL of a new file to upload as the background image |
+| `--clear-background-image-file` | bool | Set to true to remove the current background image file |
+| `--size` | decimal, required | The size value for this floor plan layout |
+| `--new-tracing-image-url` | string | URL of a new file to upload as the tracing image |
+| `--clear-tracing-image-file` | bool | Set to true to remove the current tracing image file |
+| `--new-preview-image-url` | string | URL of a new file to upload as the preview image |
+| `--clear-preview-image-file` | bool | Set to true to remove the current preview image file |
+| `--background-image-scale` | int, required | The background image scale value for this floor plan layout |
+| `--tracing-image-scale` | int, required | The tracing image scale value for this floor plan layout |
+| `--floor-level` | int, required | The floor level value for this floor plan layout |
 
 #### FloorPlanLayout update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--new-background-image-url` | string |  |
-| `--clear-background-image-file` | bool |  |
-| `--size` | decimal |  |
-| `--new-tracing-image-url` | string |  |
-| `--clear-tracing-image-file` | bool |  |
-| `--new-preview-image-url` | string |  |
-| `--clear-preview-image-file` | bool |  |
-| `--background-image-scale` | int |  |
-| `--tracing-image-scale` | int |  |
-| `--floor-level` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this floor plan layout |
+| `--new-background-image-url` | string | URL of a new file to upload as the background image |
+| `--clear-background-image-file` | bool | Set to true to remove the current background image file |
+| `--size` | decimal | The size value for this floor plan layout |
+| `--new-tracing-image-url` | string | URL of a new file to upload as the tracing image |
+| `--clear-tracing-image-file` | bool | Set to true to remove the current tracing image file |
+| `--new-preview-image-url` | string | URL of a new file to upload as the preview image |
+| `--clear-preview-image-file` | bool | Set to true to remove the current preview image file |
+| `--background-image-scale` | int | The background image scale value for this floor plan layout |
+| `--tracing-image-scale` | int | The tracing image scale value for this floor plan layout |
+| `--floor-level` | int | The floor level value for this floor plan layout |
 
 <!-- END:GENERATED entity=FloorPlanLayouts -->

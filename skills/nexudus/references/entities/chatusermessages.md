@@ -23,9 +23,9 @@ ChatUserMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--from-user-id` | long |  |
-| `--chat-text` | string |  |
-| `--delievered` | bool |  |
+| `--from-user-id` | long | ID of the from user linked to this record |
+| `--chat-text` | string | The chat text value for this chat user message |
+| `--delievered` | bool | Whether delievered is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -35,23 +35,23 @@ ChatUserMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--from-user-id` | long, required |  |
-| `--to-users` | list, repeat flag |  |
-| `--added-to-users` | list, repeat flag |  |
-| `--removed-to-users` | list, repeat flag |  |
-| `--chat-text` | string |  |
-| `--delievered` | bool |  |
+| `--from-user-id` | long, required | ID of the from user linked to this record |
+| `--to-users` | list, repeat flag | List of to users linked to this record |
+| `--added-to-users` | list, repeat flag | The added to users value for this chat user message |
+| `--removed-to-users` | list, repeat flag | The removed to users value for this chat user message |
+| `--chat-text` | string | The chat text value for this chat user message |
+| `--delievered` | bool | Whether delievered is enabled |
 
 #### ChatUserMessage update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--from-user-id` | long |  |
-| `--to-users` | list, repeat flag |  |
-| `--added-to-users` | list, repeat flag |  |
-| `--removed-to-users` | list, repeat flag |  |
-| `--chat-text` | string |  |
-| `--delievered` | bool |  |
+| `--from-user-id` | long | ID of the from user linked to this record |
+| `--to-users` | list, repeat flag | List of to users linked to this record |
+| `--added-to-users` | list, repeat flag | The added to users value for this chat user message |
+| `--removed-to-users` | list, repeat flag | The removed to users value for this chat user message |
+| `--chat-text` | string | The chat text value for this chat user message |
+| `--delievered` | bool | Whether delievered is enabled |
 
 **List properties (only returned by `get`, not by `list`):** `ToUsers`, `AddedToUsers`, `RemovedToUsers`
 

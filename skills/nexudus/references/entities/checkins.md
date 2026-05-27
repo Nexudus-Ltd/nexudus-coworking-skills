@@ -29,28 +29,28 @@ Checkins also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--from-time` | DateTime | Date and time the customer checked in |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
 | `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--counts-towards-plan-limits` | bool |  |
-| `--coworker-time-pass-guid` | string |  |
-| `--auto-checkout` | bool |  |
-| `--last-activity` | DateTime |  |
+| `--counts-towards-plan-limits` | bool | Whether counts towards plan limits is enabled |
+| `--coworker-time-pass-guid` | string | Unique identifier (GUID) for the coworker time pass |
+| `--auto-checkout` | bool | Whether auto checkout is enabled |
+| `--last-activity` | DateTime | Date/time value for last activity |
 | `--from-last-activity` | range | |
 | `--to-last-activity` | range | |
 | `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
 | `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
 | `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
-| `--validate-checkin-job-id` | string |  |
-| `--from-time-local` | DateTime |  |
+| `--validate-checkin-job-id` | string | ID of the validate checkin job associated with this record |
+| `--from-time-local` | DateTime | Date/time value for from time local |
 | `--from-from-time-local` | range | |
 | `--to-from-time-local` | range | |
-| `--to-time-local` | DateTime |  |
+| `--to-time-local` | DateTime | Date/time value for to time local |
 | `--from-to-time-local` | range | |
 | `--to-to-time-local` | range | |
 | `--from-created-on` | range | |
@@ -62,39 +62,39 @@ Checkins also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long, required |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--from-time` | DateTime, required | Date and time the customer checked in |
 | `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
-| `--counts-towards-plan-limits` | bool |  |
-| `--coworker-time-pass-guid` | string |  |
-| `--auto-checkout` | bool |  |
-| `--last-activity` | DateTime |  |
+| `--counts-towards-plan-limits` | bool | Whether counts towards plan limits is enabled |
+| `--coworker-time-pass-guid` | string | Unique identifier (GUID) for the coworker time pass |
+| `--auto-checkout` | bool | Whether auto checkout is enabled |
+| `--last-activity` | DateTime | Date/time value for last activity |
 | `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
 | `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
 | `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
-| `--validate-checkin-job-id` | string |  |
-| `--from-time-local` | DateTime |  |
-| `--to-time-local` | DateTime |  |
+| `--validate-checkin-job-id` | string | ID of the validate checkin job associated with this record |
+| `--from-time-local` | DateTime | Date/time value for from time local |
+| `--to-time-local` | DateTime | Date/time value for to time local |
 
 #### Checkin update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--from-time` | DateTime | Date and time the customer checked in |
 | `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
-| `--counts-towards-plan-limits` | bool |  |
-| `--coworker-time-pass-guid` | string |  |
-| `--auto-checkout` | bool |  |
-| `--last-activity` | DateTime |  |
+| `--counts-towards-plan-limits` | bool | Whether counts towards plan limits is enabled |
+| `--coworker-time-pass-guid` | string | Unique identifier (GUID) for the coworker time pass |
+| `--auto-checkout` | bool | Whether auto checkout is enabled |
+| `--last-activity` | DateTime | Date/time value for last activity |
 | `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
 | `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
 | `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
-| `--validate-checkin-job-id` | string |  |
-| `--from-time-local` | DateTime |  |
-| `--to-time-local` | DateTime |  |
+| `--validate-checkin-job-id` | string | ID of the validate checkin job associated with this record |
+| `--from-time-local` | DateTime | Date/time value for from time local |
+| `--to-time-local` | DateTime | Date/time value for to time local |
 
 #### Checkin PII fields
 

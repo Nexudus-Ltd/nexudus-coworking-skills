@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=UserBookmarks -->
 
+A **UserBookmark** represents a saved shortcut or favourite link created by an administrator for quick access to frequently used pages or records in the admin panel.
+
 UserBookmarks support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ UserBookmarks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--user-id` | long |  |
-| `--entity-id` | int |  |
+| `--user-id` | long | ID of the user linked to this record |
+| `--entity-id` | int | ID of the entity associated with this record |
 | `--from-entity-id` | range | |
 | `--to-entity-id` | range | |
-| `--name` | string |  |
-| `--entity-url` | string |  |
+| `--name` | string | The name value for this user bookmark |
+| `--entity-url` | string | The entity url value for this user bookmark |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,18 +38,18 @@ UserBookmarks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--user-id` | long, required |  |
-| `--entity-id` | int, required |  |
-| `--name` | string, required |  |
-| `--entity-url` | string, required |  |
+| `--user-id` | long, required | ID of the user linked to this record |
+| `--entity-id` | int, required | ID of the entity associated with this record |
+| `--name` | string, required | The name value for this user bookmark |
+| `--entity-url` | string, required | The entity url value for this user bookmark |
 
 #### UserBookmark update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--user-id` | long |  |
-| `--entity-id` | int |  |
-| `--name` | string |  |
-| `--entity-url` | string |  |
+| `--user-id` | long | ID of the user linked to this record |
+| `--entity-id` | int | ID of the entity associated with this record |
+| `--name` | string | The name value for this user bookmark |
+| `--entity-url` | string | The entity url value for this user bookmark |
 
 <!-- END:GENERATED entity=UserBookmarks -->

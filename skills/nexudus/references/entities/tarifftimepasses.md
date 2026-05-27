@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TariffTimePasses -->
 
+A **TariffTimePass** links a time pass to a pricing plan (tariff), defining an included allowance of time passes for customers on that plan. The renewal time controls how often the allowance resets.
+
 TariffTimePasses support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--time-pass-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
 | `--passes-included` | int | Number of passes included |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |
@@ -36,8 +38,8 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required |  |
-| `--time-pass-id` | long, required |  |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--time-pass-id` | long, required | ID of the time pass linked to this record |
 | `--passes-included` | int, required | Number of passes included |
 | `--pass-renewal-time` | enum, required | Pass renewal time period |
 
@@ -45,13 +47,19 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--time-pass-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
 | `--passes-included` | int | Number of passes included |
 | `--pass-renewal-time` | enum | Pass renewal time period |
 
 ### TariffTimePass (key fields)
 
 `Id`, `TariffName`, `TimePassName`, `PassesIncluded`
+
+#### TariffTimePass enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--pass-renewal-time` | `1` Week, `2` CalendarMonth, `3` TariffMonth, `4` Year, `5` Day |
 
 <!-- END:GENERATED entity=TariffTimePasses -->

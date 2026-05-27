@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorplanLayoutTransitions -->
 
+A **FloorplanLayoutTransition** defines a navigation link between two floor plan layouts, representing staircases, elevators, or other transitions between floors or zones.
+
 FloorplanLayoutTransitions support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,27 +23,27 @@ FloorplanLayoutTransitions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--area-unique-id` | string |  |
-| `--name` | string |  |
-| `--transition-type` | string |  |
-| `--transition-to` | string |  |
-| `--angle` | decimal |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--area-unique-id` | string | ID of the area unique associated with this record |
+| `--name` | string | The name value for this floorplan layout transition |
+| `--transition-type` | string | The transition type value for this floorplan layout transition |
+| `--transition-to` | string | The transition to value for this floorplan layout transition |
+| `--angle` | decimal | The angle value for this floorplan layout transition |
 | `--from-angle` | range | |
 | `--to-angle` | range | |
-| `--height` | int |  |
+| `--height` | int | The height value for this floorplan layout transition |
 | `--from-height` | range | |
 | `--to-height` | range | |
-| `--length` | int |  |
+| `--length` | int | The length value for this floorplan layout transition |
 | `--from-length` | range | |
 | `--to-length` | range | |
-| `--width` | int |  |
+| `--width` | int | The width value for this floorplan layout transition |
 | `--from-width` | range | |
 | `--to-width` | range | |
-| `--pos-x` | int |  |
+| `--pos-x` | int | The x value for this floorplan layout transition |
 | `--from-pos-x` | range | |
 | `--to-pos-x` | range | |
-| `--pos-y` | int |  |
+| `--pos-y` | int | The y value for this floorplan layout transition |
 | `--from-pos-y` | range | |
 | `--to-pos-y` | range | |
 | `--from-created-on` | range | |
@@ -53,32 +55,32 @@ FloorplanLayoutTransitions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long, required |  |
-| `--area-unique-id` | string |  |
-| `--name` | string |  |
-| `--transition-type` | string, required |  |
-| `--transition-to` | string |  |
-| `--angle` | decimal, required |  |
-| `--height` | int, required |  |
-| `--length` | int, required |  |
-| `--width` | int, required |  |
-| `--pos-x` | int, required |  |
-| `--pos-y` | int, required |  |
+| `--floor-plan-layout-id` | long, required | ID of the floor plan layout linked to this record |
+| `--area-unique-id` | string | ID of the area unique associated with this record |
+| `--name` | string | The name value for this floorplan layout transition |
+| `--transition-type` | string, required | The transition type value for this floorplan layout transition |
+| `--transition-to` | string | The transition to value for this floorplan layout transition |
+| `--angle` | decimal, required | The angle value for this floorplan layout transition |
+| `--height` | int, required | The height value for this floorplan layout transition |
+| `--length` | int, required | The length value for this floorplan layout transition |
+| `--width` | int, required | The width value for this floorplan layout transition |
+| `--pos-x` | int, required | The x value for this floorplan layout transition |
+| `--pos-y` | int, required | The y value for this floorplan layout transition |
 
 #### FloorplanLayoutTransition update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--area-unique-id` | string |  |
-| `--name` | string |  |
-| `--transition-type` | string |  |
-| `--transition-to` | string |  |
-| `--angle` | decimal |  |
-| `--height` | int |  |
-| `--length` | int |  |
-| `--width` | int |  |
-| `--pos-x` | int |  |
-| `--pos-y` | int |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--area-unique-id` | string | ID of the area unique associated with this record |
+| `--name` | string | The name value for this floorplan layout transition |
+| `--transition-type` | string | The transition type value for this floorplan layout transition |
+| `--transition-to` | string | The transition to value for this floorplan layout transition |
+| `--angle` | decimal | The angle value for this floorplan layout transition |
+| `--height` | int | The height value for this floorplan layout transition |
+| `--length` | int | The length value for this floorplan layout transition |
+| `--width` | int | The width value for this floorplan layout transition |
+| `--pos-x` | int | The x value for this floorplan layout transition |
+| `--pos-y` | int | The y value for this floorplan layout transition |
 
 <!-- END:GENERATED entity=FloorplanLayoutTransitions -->

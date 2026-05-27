@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanLayoutNodes -->
 
+A **FloorPlanLayoutNode** represents a point or vertex in a floor plan layout, used as an anchor for edges, openings, and other structural elements.
+
 FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--node-key` | string |  |
-| `--pos-x` | int |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--node-key` | string | The node key value for this floor plan layout node |
+| `--pos-x` | int | The x value for this floor plan layout node |
 | `--from-pos-x` | range | |
 | `--to-pos-x` | range | |
-| `--pos-y` | int |  |
+| `--pos-y` | int | The y value for this floor plan layout node |
 | `--from-pos-y` | range | |
 | `--to-pos-y` | range | |
 | `--from-created-on` | range | |
@@ -38,18 +40,18 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long, required |  |
-| `--node-key` | string |  |
-| `--pos-x` | int, required |  |
-| `--pos-y` | int, required |  |
+| `--floor-plan-layout-id` | long, required | ID of the floor plan layout linked to this record |
+| `--node-key` | string | The node key value for this floor plan layout node |
+| `--pos-x` | int, required | The x value for this floor plan layout node |
+| `--pos-y` | int, required | The y value for this floor plan layout node |
 
 #### FloorPlanLayoutNode update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--node-key` | string |  |
-| `--pos-x` | int |  |
-| `--pos-y` | int |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--node-key` | string | The node key value for this floor plan layout node |
+| `--pos-x` | int | The x value for this floor plan layout node |
+| `--pos-y` | int | The y value for this floor plan layout node |
 
 <!-- END:GENERATED entity=FloorPlanLayoutNodes -->

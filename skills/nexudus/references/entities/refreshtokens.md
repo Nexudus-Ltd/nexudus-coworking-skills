@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=RefreshTokens -->
 
+A **RefreshToken** represents an OAuth refresh token issued to maintain authenticated sessions. Refresh tokens allow clients to obtain new access tokens without re-authentication.
+
 RefreshTokens support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,14 +23,14 @@ RefreshTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--subject` | string |  |
-| `--client-id` | string |  |
-| `--expires-on` | DateTime |  |
+| `--subject` | string | The subject value for this refresh token |
+| `--client-id` | string | ID of the client associated with this record |
+| `--expires-on` | DateTime | Date/time value for expires on |
 | `--from-expires-on` | range | |
 | `--to-expires-on` | range | |
-| `--protected-ticket` | string |  |
-| `--ticket-hash` | string |  |
-| `--ticket-salt` | string |  |
+| `--protected-ticket` | string | The protected ticket value for this refresh token |
+| `--ticket-hash` | string | The ticket hash value for this refresh token |
+| `--ticket-salt` | string | The ticket salt value for this refresh token |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -38,22 +40,22 @@ RefreshTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--subject` | string, required |  |
-| `--client-id` | string, required |  |
-| `--expires-on` | DateTime, required |  |
-| `--protected-ticket` | string, required |  |
-| `--ticket-hash` | string, required |  |
-| `--ticket-salt` | string, required |  |
+| `--subject` | string, required | The subject value for this refresh token |
+| `--client-id` | string, required | ID of the client associated with this record |
+| `--expires-on` | DateTime, required | Date/time value for expires on |
+| `--protected-ticket` | string, required | The protected ticket value for this refresh token |
+| `--ticket-hash` | string, required | The ticket hash value for this refresh token |
+| `--ticket-salt` | string, required | The ticket salt value for this refresh token |
 
 #### RefreshToken update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--subject` | string |  |
-| `--client-id` | string |  |
-| `--expires-on` | DateTime |  |
-| `--protected-ticket` | string |  |
-| `--ticket-hash` | string |  |
-| `--ticket-salt` | string |  |
+| `--subject` | string | The subject value for this refresh token |
+| `--client-id` | string | ID of the client associated with this record |
+| `--expires-on` | DateTime | Date/time value for expires on |
+| `--protected-ticket` | string | The protected ticket value for this refresh token |
+| `--ticket-hash` | string | The ticket hash value for this refresh token |
+| `--ticket-salt` | string | The ticket salt value for this refresh token |
 
 <!-- END:GENERATED entity=RefreshTokens -->

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=RadiusServers -->
 
+A **RadiusServer** configures a RADIUS authentication server used for Wi-Fi access control. Each server defines the vendor type, connection settings, and shared secret for authenticating customer devices on the network.
+
 RadiusServers support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,11 +23,11 @@ RadiusServers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--vendor` | enum |  |
-| `--active` | bool |  |
-| `--description` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this radius server |
+| `--vendor` | enum | The vendor value for this radius server |
+| `--active` | bool | Whether this radius server is currently active |
+| `--description` | string | Free-text description of this radius server |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -35,20 +37,26 @@ RadiusServers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--vendor` | enum, required |  |
-| `--active` | bool |  |
-| `--description` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this radius server |
+| `--vendor` | enum, required | The vendor value for this radius server |
+| `--active` | bool | Whether this radius server is currently active |
+| `--description` | string | Free-text description of this radius server |
 
 #### RadiusServer update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--vendor` | enum |  |
-| `--active` | bool |  |
-| `--description` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this radius server |
+| `--vendor` | enum | The vendor value for this radius server |
+| `--active` | bool | Whether this radius server is currently active |
+| `--description` | string | Free-text description of this radius server |
+
+#### RadiusServer enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--vendor` | `0` Aerohive_Networks, `1` Alcatel_Lucent, `2` Aruba_Instant, `3` Aruba_Mobility_Controller, `4` Avaya, `5` Bluesocket, `6` Casa_Systems, `7` ChilliSpot, `8` CoovaChilli, `9` Cisco_Systems, `10` Dell, `11` EnGenius, `12` ExtremeWireless, `13` FortiGate, `14` ICC, `15` LigoWave, `16` Meraki_Sign_On, `17` Meraki_ClickThrough, `18` Meru_Networks, `19` MikroTik, `20` Motorola, `21` Mojo_Networks, `22` Open_Mesh_Cloudtrax, `23` pfSense, `24` Peplink, `25` Ruckus_Wireless, `26` Ruckus_Virtual_SZ, `27` SonicWall, `28` Ubiquiti_Networks, `29` TP_Link_EAP, `30` Trapeze_Wireless, `31` Trendnet, `32` Xirrus, `33` Virtual_Controller, `34` Other |
 
 <!-- END:GENERATED entity=RadiusServers -->

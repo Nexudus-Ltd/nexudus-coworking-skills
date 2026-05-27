@@ -22,7 +22,7 @@ LedgerEntries support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--code` | string | Short reference code for grouping or reconciliation (e.g. an external accounting reference) |
 | `--description` | string | Free-text description explaining the purpose of this ledger entry |
 | `--debit` | decimal | Debit amount in the location's default currency. Use 0 if this entry is a credit-only record |
@@ -31,7 +31,7 @@ LedgerEntries support Search, Get (no Create or Delete via API).
 | `--credit` | decimal | Credit amount in the location's default currency. Use 0 if this entry is a debit-only record |
 | `--from-credit` | range | |
 | `--to-credit` | range | |
-| `--balance` | decimal |  |
+| `--balance` | decimal | Account balance after this transaction. Read-only |
 | `--from-balance` | range | |
 | `--to-balance` | range | |
 | `--from-created-on` | range | |

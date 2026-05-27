@@ -28,7 +28,7 @@ BookingAvailabilityExceptions also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--from-time` | DateTime | Start date/time of the blocked period |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -47,10 +47,10 @@ BookingAvailabilityExceptions also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this booking availability exception |
+| `--removed-resources` | list, repeat flag | The removed resources value for this booking availability exception |
 | `--from-time` | DateTime, required | Start date/time of the blocked period |
 | `--to-time` | DateTime, required | End date/time of the blocked period |
 | `--message` | string, required | Message shown to users who attempt to book a blocked resource |
@@ -61,10 +61,10 @@ BookingAvailabilityExceptions also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this booking availability exception |
+| `--removed-resources` | list, repeat flag | The removed resources value for this booking availability exception |
 | `--from-time` | DateTime | Start date/time of the blocked period |
 | `--to-time` | DateTime | End date/time of the blocked period |
 | `--message` | string | Message shown to users who attempt to book a blocked resource |

@@ -25,7 +25,7 @@ DataFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name of the file |
 | `--description` | string | Optional description of the file |
 | `--new-file-data-url` | string | Public URL pointing to the file to upload. Set during create or update to attach a new file |
@@ -42,7 +42,7 @@ DataFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Display name of the file |
 | `--description` | string | Optional description of the file |
 | `--new-file-data-url` | string | Public URL pointing to the file to upload. Set during create or update to attach a new file |
@@ -53,7 +53,7 @@ DataFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name of the file |
 | `--description` | string | Optional description of the file |
 | `--new-file-data-url` | string | Public URL pointing to the file to upload. Set during create or update to attach a new file |

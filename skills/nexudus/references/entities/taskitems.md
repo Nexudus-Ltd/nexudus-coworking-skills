@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TaskItems -->
 
+A **TaskItem** represents an individual task or to-do item that can be assigned to staff or customers. Tasks can be organised into lists, have due dates, and track completion status.
+
 TaskItems support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,13 +23,13 @@ TaskItems support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--task-list-id` | long |  |
-| `--responsible-id` | long |  |
-| `--name` | string |  |
-| `--active` | bool |  |
-| `--notify-by-email` | bool |  |
-| `--display-to-everyone` | bool |  |
-| `--delay-in-hours` | int |  |
+| `--task-list-id` | long | ID of the task list linked to this record |
+| `--responsible-id` | long | ID of the responsible linked to this record |
+| `--name` | string | The name value for this task item |
+| `--active` | bool | Whether this task item is currently active |
+| `--notify-by-email` | bool | Whether notify by email is enabled |
+| `--display-to-everyone` | bool | Whether display to everyone is enabled |
+| `--delay-in-hours` | int | The delay in hours value for this task item |
 | `--from-delay-in-hours` | range | |
 | `--to-delay-in-hours` | range | |
 | `--from-created-on` | range | |
@@ -39,25 +41,25 @@ TaskItems support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--task-list-id` | long, required |  |
-| `--responsible-id` | long, required |  |
-| `--name` | string, required |  |
-| `--active` | bool |  |
-| `--notify-by-email` | bool |  |
-| `--display-to-everyone` | bool |  |
-| `--delay-in-hours` | int, required |  |
+| `--task-list-id` | long, required | ID of the task list linked to this record |
+| `--responsible-id` | long, required | ID of the responsible linked to this record |
+| `--name` | string, required | The name value for this task item |
+| `--active` | bool | Whether this task item is currently active |
+| `--notify-by-email` | bool | Whether notify by email is enabled |
+| `--display-to-everyone` | bool | Whether display to everyone is enabled |
+| `--delay-in-hours` | int, required | The delay in hours value for this task item |
 
 #### TaskItem update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--task-list-id` | long |  |
-| `--responsible-id` | long |  |
-| `--name` | string |  |
-| `--active` | bool |  |
-| `--notify-by-email` | bool |  |
-| `--display-to-everyone` | bool |  |
-| `--delay-in-hours` | int |  |
+| `--task-list-id` | long | ID of the task list linked to this record |
+| `--responsible-id` | long | ID of the responsible linked to this record |
+| `--name` | string | The name value for this task item |
+| `--active` | bool | Whether this task item is currently active |
+| `--notify-by-email` | bool | Whether notify by email is enabled |
+| `--display-to-everyone` | bool | Whether display to everyone is enabled |
+| `--delay-in-hours` | int | The delay in hours value for this task item |
 
 #### TaskItem PII fields
 

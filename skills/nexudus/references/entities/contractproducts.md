@@ -31,8 +31,8 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--coworker-contract-id` | long | Contract to add this product to |
 | `--product-id` | long | Product to bill on each contract invoice |
-| `--notes` | string | Notes |
-| `--quantity` | int | Quantity |
+| `--notes` | string | Optional notes or comments about this contract product |
+| `--quantity` | int | Number of units |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
 | `--price` | decimal | Price override |
@@ -56,8 +56,8 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--coworker-contract-id` | long, required | Contract to add this product to |
 | `--product-id` | long, required | Product to bill on each contract invoice |
-| `--notes` | string | Notes |
-| `--quantity` | int, required | Quantity |
+| `--notes` | string | Optional notes or comments about this contract product |
+| `--quantity` | int, required | Number of units |
 | `--price` | decimal | Price override |
 | `--repeat-from` | DateTime | Repeat from date |
 | `--repeat-until` | DateTime | Repeat until date |
@@ -69,8 +69,8 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--coworker-contract-id` | long | Contract to add this product to |
 | `--product-id` | long | Product to bill on each contract invoice |
-| `--notes` | string | Notes |
-| `--quantity` | int | Quantity |
+| `--notes` | string | Optional notes or comments about this contract product |
+| `--quantity` | int | Number of units |
 | `--price` | decimal | Price override |
 | `--repeat-from` | DateTime | Repeat from date |
 | `--repeat-until` | DateTime | Repeat until date |

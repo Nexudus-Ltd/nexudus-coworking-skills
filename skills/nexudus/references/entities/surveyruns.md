@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=SurveyRuns -->
 
+A **SurveyRun** represents a single delivery instance of a survey to a customer. Each run tracks when the survey was sent, whether it was completed, and links to the collected answers.
+
 SurveyRuns support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ SurveyRuns support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--survey-id` | long |  |
-| `--mailing-date` | DateTime |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--survey-id` | long | ID of the survey linked to this record |
+| `--mailing-date` | DateTime | Date/time value for mailing date |
 | `--from-mailing-date` | range | |
 | `--to-mailing-date` | range | |
-| `--submitted` | bool |  |
+| `--submitted` | bool | Whether submitted is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,18 +38,18 @@ SurveyRuns support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required |  |
-| `--survey-id` | long, required |  |
-| `--mailing-date` | DateTime |  |
-| `--submitted` | bool |  |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--survey-id` | long, required | ID of the survey linked to this record |
+| `--mailing-date` | DateTime | Date/time value for mailing date |
+| `--submitted` | bool | Whether submitted is enabled |
 
 #### SurveyRun update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--survey-id` | long |  |
-| `--mailing-date` | DateTime |  |
-| `--submitted` | bool |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--survey-id` | long | ID of the survey linked to this record |
+| `--mailing-date` | DateTime | Date/time value for mailing date |
+| `--submitted` | bool | Whether submitted is enabled |
 
 <!-- END:GENERATED entity=SurveyRuns -->

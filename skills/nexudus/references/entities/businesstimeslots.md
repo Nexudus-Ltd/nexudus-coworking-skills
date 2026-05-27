@@ -27,14 +27,14 @@ BusinessTimeSlots support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--from-time` | DateTime | Start time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
 | `--to-time` | DateTime | End time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this business time slot |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -44,22 +44,28 @@ BusinessTimeSlots support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--from-time` | DateTime, required | Start time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--to-time` | DateTime, required | End time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
-| `--day-of-week` | enum, required |  |
+| `--day-of-week` | enum, required | The day of week value for this business time slot |
 
 #### BusinessTimeSlot update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--from-time` | DateTime | Start time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--to-time` | DateTime | End time of the opening window. Only the time-of-day component is used; the date component is always 1976-01-01. |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this business time slot |
 
 ### BusinessTimeSlot (key fields)
 
 `Id`, `FromTime`, `ToTime`
+
+#### BusinessTimeSlot enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--day-of-week` | `0` Sunday, `1` Monday, `2` Tuesday, `3` Wednesday, `4` Thursday, `5` Friday, `6` Saturday |
 
 <!-- END:GENERATED entity=BusinessTimeSlots -->

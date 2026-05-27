@@ -25,7 +25,7 @@ BusinessRedirections support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--source-url` | string | Source URL path to redirect from |
 | `--destination-url` | string | Destination URL to redirect to |
 | `--active` | bool | Whether the redirect is currently active |
@@ -44,7 +44,7 @@ BusinessRedirections support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--source-url` | string, required | Source URL path to redirect from |
 | `--destination-url` | string, required | Destination URL to redirect to |
 | `--active` | bool | Whether the redirect is currently active |
@@ -55,7 +55,7 @@ BusinessRedirections support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--source-url` | string | Source URL path to redirect from |
 | `--destination-url` | string | Destination URL to redirect to |
 | `--active` | bool | Whether the redirect is currently active |

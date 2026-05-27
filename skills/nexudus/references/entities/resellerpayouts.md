@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ResellerPayouts -->
 
+A **ResellerPayout** records a payment made to or received from a reseller partner, tracking payout amounts, dates, and associated invoices.
+
 ResellerPayouts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ ResellerPayouts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--new-reseller-invoice-data-url` | string |  |
-| `--clear-reseller-invoice-data-file` | bool |  |
+| `--new-reseller-invoice-data-url` | string | URL of a new file to upload as the reseller invoice data |
+| `--clear-reseller-invoice-data-file` | bool | Set to true to remove the current reseller invoice data file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -32,15 +34,15 @@ ResellerPayouts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--new-reseller-invoice-data-url` | string |  |
-| `--clear-reseller-invoice-data-file` | bool |  |
+| `--new-reseller-invoice-data-url` | string | URL of a new file to upload as the reseller invoice data |
+| `--clear-reseller-invoice-data-file` | bool | Set to true to remove the current reseller invoice data file |
 
 #### ResellerPayout update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--new-reseller-invoice-data-url` | string |  |
-| `--clear-reseller-invoice-data-file` | bool |  |
+| `--new-reseller-invoice-data-url` | string | URL of a new file to upload as the reseller invoice data |
+| `--clear-reseller-invoice-data-file` | bool | Set to true to remove the current reseller invoice data file |
 
 #### ResellerPayout PII fields
 

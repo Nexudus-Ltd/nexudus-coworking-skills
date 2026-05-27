@@ -35,10 +35,10 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--issued-by-id` | long |  |
-| `--coworker-id` | long |  |
-| `--tariff-id` | long |  |
-| `--next-tariff-id` | long |  |
+| `--issued-by-id` | long | ID of the issued by linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--next-tariff-id` | long | ID of the next tariff linked to this record |
 | `--notes` | string | Free-text notes for this contract |
 | `--start-date` | DateTime | Contract start date |
 | `--from-start-date` | range | |
@@ -61,7 +61,7 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--value` | decimal | Contract value used in reporting to compare against the actual invoiced price |
 | `--from-value` | range | |
 | `--to-value` | range | |
-| `--quantity` | int | Quantity |
+| `--quantity` | int | Number of units |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
 | `--purchase-order` | string | Purchase order |
@@ -93,25 +93,25 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--address-checks-due-on` | DateTime | Date by which address verification checks must be completed for this contract |
 | `--from-address-checks-due-on` | range | |
 | `--to-address-checks-due-on` | range | |
-| `--start-date-local` | DateTime |  |
+| `--start-date-local` | DateTime | Date/time value for start date local |
 | `--from-start-date-local` | range | |
 | `--to-start-date-local` | range | |
-| `--renewal-date-local` | DateTime |  |
+| `--renewal-date-local` | DateTime | Date/time value for renewal date local |
 | `--from-renewal-date-local` | range | |
 | `--to-renewal-date-local` | range | |
-| `--next-auto-invoice-local` | DateTime |  |
+| `--next-auto-invoice-local` | DateTime | Date/time value for next auto invoice local |
 | `--from-next-auto-invoice-local` | range | |
 | `--to-next-auto-invoice-local` | range | |
-| `--price-plan-terms-accepted-on-local` | DateTime |  |
+| `--price-plan-terms-accepted-on-local` | DateTime | Date/time value for price plan terms accepted on local |
 | `--from-price-plan-terms-accepted-on-local` | range | |
 | `--to-price-plan-terms-accepted-on-local` | range | |
-| `--cancellation-date-local` | DateTime |  |
+| `--cancellation-date-local` | DateTime | Date/time value for cancellation date local |
 | `--from-cancellation-date-local` | range | |
 | `--to-cancellation-date-local` | range | |
-| `--contract-term-local` | DateTime |  |
+| `--contract-term-local` | DateTime | Date/time value for contract term local |
 | `--from-contract-term-local` | range | |
 | `--to-contract-term-local` | range | |
-| `--invoiced-period-local` | DateTime |  |
+| `--invoiced-period-local` | DateTime | Date/time value for invoiced period local |
 | `--from-invoiced-period-local` | range | |
 | `--to-invoiced-period-local` | range | |
 | `--po-box-number` | string | PO box number |
@@ -124,10 +124,10 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--issued-by-id` | long, required |  |
-| `--coworker-id` | long, required |  |
-| `--tariff-id` | long, required |  |
-| `--next-tariff-id` | long |  |
+| `--issued-by-id` | long, required | ID of the issued by linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--next-tariff-id` | long | ID of the next tariff linked to this record |
 | `--notes` | string | Free-text notes for this contract |
 | `--start-date` | DateTime | Contract start date |
 | `--billing-day` | int, required | Day of month on which billing occurs |
@@ -136,13 +136,13 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--contract-term` | DateTime | Minimum contract length end date. Defines the earliest date at which the contract can be cancelled without penalty |
 | `--price` | decimal | Fixed price override for this contract. If null, the contract uses the plan's default price (TariffPrice) |
 | `--value` | decimal | Contract value used in reporting to compare against the actual invoiced price |
-| `--desks` | list, repeat flag |  |
-| `--added-desks` | list, repeat flag |  |
-| `--removed-desks` | list, repeat flag |  |
-| `--variants` | list, repeat flag |  |
-| `--added-variants` | list, repeat flag |  |
-| `--removed-variants` | list, repeat flag |  |
-| `--quantity` | int, required | Quantity |
+| `--desks` | list, repeat flag | List of desks linked to this record |
+| `--added-desks` | list, repeat flag | The added desks value for this coworker contract |
+| `--removed-desks` | list, repeat flag | The removed desks value for this coworker contract |
+| `--variants` | list, repeat flag | List of variants linked to this record |
+| `--added-variants` | list, repeat flag | The added variants value for this coworker contract |
+| `--removed-variants` | list, repeat flag | The removed variants value for this coworker contract |
+| `--quantity` | int, required | Number of units |
 | `--purchase-order` | string | Purchase order |
 | `--include-signup-fee` | bool | Whether to include the plan's signup fee when creating this contract |
 | `--invoice-advanced-cycles` | bool | Whether to invoice multiple billing cycles in advance on the first invoice, as configured by Tariff.AdvanceInvoiceCycles |
@@ -162,13 +162,13 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--delivery-instructions` | string | Free-text delivery instructions for this contract's mail handling |
 | `--identity-checks-due-on` | DateTime | Date by which identity verification checks must be completed for this contract |
 | `--address-checks-due-on` | DateTime | Date by which address verification checks must be completed for this contract |
-| `--start-date-local` | DateTime |  |
-| `--renewal-date-local` | DateTime |  |
-| `--next-auto-invoice-local` | DateTime |  |
-| `--price-plan-terms-accepted-on-local` | DateTime |  |
-| `--cancellation-date-local` | DateTime |  |
-| `--contract-term-local` | DateTime |  |
-| `--invoiced-period-local` | DateTime |  |
+| `--start-date-local` | DateTime | Date/time value for start date local |
+| `--renewal-date-local` | DateTime | Date/time value for renewal date local |
+| `--next-auto-invoice-local` | DateTime | Date/time value for next auto invoice local |
+| `--price-plan-terms-accepted-on-local` | DateTime | Date/time value for price plan terms accepted on local |
+| `--cancellation-date-local` | DateTime | Date/time value for cancellation date local |
+| `--contract-term-local` | DateTime | Date/time value for contract term local |
+| `--invoiced-period-local` | DateTime | Date/time value for invoiced period local |
 | `--po-box-number` | string | PO box number |
 | `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 
@@ -176,10 +176,10 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--issued-by-id` | long |  |
-| `--coworker-id` | long |  |
-| `--tariff-id` | long |  |
-| `--next-tariff-id` | long |  |
+| `--issued-by-id` | long | ID of the issued by linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--next-tariff-id` | long | ID of the next tariff linked to this record |
 | `--notes` | string | Free-text notes for this contract |
 | `--start-date` | DateTime | Contract start date |
 | `--billing-day` | int | Day of month on which billing occurs |
@@ -188,13 +188,13 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--contract-term` | DateTime | Minimum contract length end date. Defines the earliest date at which the contract can be cancelled without penalty |
 | `--price` | decimal | Fixed price override for this contract. If null, the contract uses the plan's default price (TariffPrice) |
 | `--value` | decimal | Contract value used in reporting to compare against the actual invoiced price |
-| `--desks` | list, repeat flag |  |
-| `--added-desks` | list, repeat flag |  |
-| `--removed-desks` | list, repeat flag |  |
-| `--variants` | list, repeat flag |  |
-| `--added-variants` | list, repeat flag |  |
-| `--removed-variants` | list, repeat flag |  |
-| `--quantity` | int | Quantity |
+| `--desks` | list, repeat flag | List of desks linked to this record |
+| `--added-desks` | list, repeat flag | The added desks value for this coworker contract |
+| `--removed-desks` | list, repeat flag | The removed desks value for this coworker contract |
+| `--variants` | list, repeat flag | List of variants linked to this record |
+| `--added-variants` | list, repeat flag | The added variants value for this coworker contract |
+| `--removed-variants` | list, repeat flag | The removed variants value for this coworker contract |
+| `--quantity` | int | Number of units |
 | `--purchase-order` | string | Purchase order |
 | `--include-signup-fee` | bool | Whether to include the plan's signup fee when creating this contract |
 | `--invoice-advanced-cycles` | bool | Whether to invoice multiple billing cycles in advance on the first invoice, as configured by Tariff.AdvanceInvoiceCycles |
@@ -214,13 +214,13 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--delivery-instructions` | string | Free-text delivery instructions for this contract's mail handling |
 | `--identity-checks-due-on` | DateTime | Date by which identity verification checks must be completed for this contract |
 | `--address-checks-due-on` | DateTime | Date by which address verification checks must be completed for this contract |
-| `--start-date-local` | DateTime |  |
-| `--renewal-date-local` | DateTime |  |
-| `--next-auto-invoice-local` | DateTime |  |
-| `--price-plan-terms-accepted-on-local` | DateTime |  |
-| `--cancellation-date-local` | DateTime |  |
-| `--contract-term-local` | DateTime |  |
-| `--invoiced-period-local` | DateTime |  |
+| `--start-date-local` | DateTime | Date/time value for start date local |
+| `--renewal-date-local` | DateTime | Date/time value for renewal date local |
+| `--next-auto-invoice-local` | DateTime | Date/time value for next auto invoice local |
+| `--price-plan-terms-accepted-on-local` | DateTime | Date/time value for price plan terms accepted on local |
+| `--cancellation-date-local` | DateTime | Date/time value for cancellation date local |
+| `--contract-term-local` | DateTime | Date/time value for contract term local |
+| `--invoiced-period-local` | DateTime | Date/time value for invoiced period local |
 | `--po-box-number` | string | PO box number |
 | `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 

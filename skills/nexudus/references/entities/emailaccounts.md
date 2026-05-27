@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EmailAccounts -->
 
+An **EmailAccount** configures an incoming email connection (IMAP) used to receive messages for the help desk or other automated workflows. Each account specifies server connection details, credentials, and message handling policies.
+
 EmailAccounts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,38 +23,38 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--display-name` | string |  |
-| `--email-address` | string |  |
-| `--active` | bool |  |
-| `--send-notification-on-new-messages` | bool |  |
-| `--notification-email-address` | string |  |
-| `--incoming-server` | string |  |
-| `--incoming-server-type` | enum |  |
-| `--incoming-server-port` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--display-name` | string | The display name value for this email account |
+| `--email-address` | string | The email address value for this email account |
+| `--active` | bool | Whether this email account is currently active |
+| `--send-notification-on-new-messages` | bool | Whether send notification on new messages is enabled |
+| `--notification-email-address` | string | The notification email address value for this email account |
+| `--incoming-server` | string | The incoming server value for this email account |
+| `--incoming-server-type` | enum | The incoming server type value for this email account |
+| `--incoming-server-port` | int | The incoming server port value for this email account |
 | `--from-incoming-server-port` | range | |
 | `--to-incoming-server-port` | range | |
-| `--incoming-server-s-s-l` | bool |  |
-| `--incoming-server-username` | string |  |
-| `--delete-message-settings` | enum |  |
-| `--outgoing-server` | string |  |
-| `--outgoing-server-port` | int |  |
+| `--incoming-server-s-s-l` | bool | Whether incoming server ssl is enabled |
+| `--incoming-server-username` | string | The incoming server username value for this email account |
+| `--delete-message-settings` | enum | The delete message settings value for this email account |
+| `--outgoing-server` | string | The outgoing server value for this email account |
+| `--outgoing-server-port` | int | The outgoing server port value for this email account |
 | `--from-outgoing-server-port` | range | |
 | `--to-outgoing-server-port` | range | |
-| `--outgoing-server-s-s-l` | bool |  |
-| `--outgoing-server-username` | string |  |
-| `--reply-to-email` | string |  |
-| `--last-check-time` | DateTime |  |
+| `--outgoing-server-s-s-l` | bool | Whether outgoing server ssl is enabled |
+| `--outgoing-server-username` | string | The outgoing server username value for this email account |
+| `--reply-to-email` | string | The reply to email value for this email account |
+| `--last-check-time` | DateTime | Date/time value for last check time |
 | `--from-last-check-time` | range | |
 | `--to-last-check-time` | range | |
-| `--last-message-id` | int |  |
+| `--last-message-id` | int | ID of the last message associated with this record |
 | `--from-last-message-id` | range | |
 | `--to-last-message-id` | range | |
-| `--error-count` | int |  |
+| `--error-count` | int | The error count value for this email account |
 | `--from-error-count` | range | |
 | `--to-error-count` | range | |
-| `--google-access-token` | string |  |
-| `--office365-access-token` | string |  |
+| `--google-access-token` | string | The google access token value for this email account |
+| `--office365-access-token` | string | The office365 access token value for this email account |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -62,55 +64,55 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--display-name` | string, required |  |
-| `--email-address` | string, required |  |
-| `--active` | bool |  |
-| `--send-notification-on-new-messages` | bool |  |
-| `--notification-email-address` | string |  |
-| `--incoming-server` | string, required |  |
-| `--incoming-server-type` | enum, required |  |
-| `--incoming-server-port` | int, required |  |
-| `--incoming-server-s-s-l` | bool |  |
-| `--incoming-server-username` | string, required |  |
-| `--delete-message-settings` | enum, required |  |
-| `--outgoing-server` | string, required |  |
-| `--outgoing-server-port` | int, required |  |
-| `--outgoing-server-s-s-l` | bool |  |
-| `--outgoing-server-username` | string, required |  |
-| `--reply-to-email` | string |  |
-| `--last-check-time` | DateTime |  |
-| `--last-message-id` | int, required |  |
-| `--error-count` | int, required |  |
-| `--google-access-token` | string |  |
-| `--office365-access-token` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--display-name` | string, required | The display name value for this email account |
+| `--email-address` | string, required | The email address value for this email account |
+| `--active` | bool | Whether this email account is currently active |
+| `--send-notification-on-new-messages` | bool | Whether send notification on new messages is enabled |
+| `--notification-email-address` | string | The notification email address value for this email account |
+| `--incoming-server` | string, required | The incoming server value for this email account |
+| `--incoming-server-type` | enum, required | The incoming server type value for this email account |
+| `--incoming-server-port` | int, required | The incoming server port value for this email account |
+| `--incoming-server-s-s-l` | bool | Whether incoming server ssl is enabled |
+| `--incoming-server-username` | string, required | The incoming server username value for this email account |
+| `--delete-message-settings` | enum, required | The delete message settings value for this email account |
+| `--outgoing-server` | string, required | The outgoing server value for this email account |
+| `--outgoing-server-port` | int, required | The outgoing server port value for this email account |
+| `--outgoing-server-s-s-l` | bool | Whether outgoing server ssl is enabled |
+| `--outgoing-server-username` | string, required | The outgoing server username value for this email account |
+| `--reply-to-email` | string | The reply to email value for this email account |
+| `--last-check-time` | DateTime | Date/time value for last check time |
+| `--last-message-id` | int, required | ID of the last message associated with this record |
+| `--error-count` | int, required | The error count value for this email account |
+| `--google-access-token` | string | The google access token value for this email account |
+| `--office365-access-token` | string | The office365 access token value for this email account |
 
 #### EmailAccount update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--display-name` | string |  |
-| `--email-address` | string |  |
-| `--active` | bool |  |
-| `--send-notification-on-new-messages` | bool |  |
-| `--notification-email-address` | string |  |
-| `--incoming-server` | string |  |
-| `--incoming-server-type` | enum |  |
-| `--incoming-server-port` | int |  |
-| `--incoming-server-s-s-l` | bool |  |
-| `--incoming-server-username` | string |  |
-| `--delete-message-settings` | enum |  |
-| `--outgoing-server` | string |  |
-| `--outgoing-server-port` | int |  |
-| `--outgoing-server-s-s-l` | bool |  |
-| `--outgoing-server-username` | string |  |
-| `--reply-to-email` | string |  |
-| `--last-check-time` | DateTime |  |
-| `--last-message-id` | int |  |
-| `--error-count` | int |  |
-| `--google-access-token` | string |  |
-| `--office365-access-token` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--display-name` | string | The display name value for this email account |
+| `--email-address` | string | The email address value for this email account |
+| `--active` | bool | Whether this email account is currently active |
+| `--send-notification-on-new-messages` | bool | Whether send notification on new messages is enabled |
+| `--notification-email-address` | string | The notification email address value for this email account |
+| `--incoming-server` | string | The incoming server value for this email account |
+| `--incoming-server-type` | enum | The incoming server type value for this email account |
+| `--incoming-server-port` | int | The incoming server port value for this email account |
+| `--incoming-server-s-s-l` | bool | Whether incoming server ssl is enabled |
+| `--incoming-server-username` | string | The incoming server username value for this email account |
+| `--delete-message-settings` | enum | The delete message settings value for this email account |
+| `--outgoing-server` | string | The outgoing server value for this email account |
+| `--outgoing-server-port` | int | The outgoing server port value for this email account |
+| `--outgoing-server-s-s-l` | bool | Whether outgoing server ssl is enabled |
+| `--outgoing-server-username` | string | The outgoing server username value for this email account |
+| `--reply-to-email` | string | The reply to email value for this email account |
+| `--last-check-time` | DateTime | Date/time value for last check time |
+| `--last-message-id` | int | ID of the last message associated with this record |
+| `--error-count` | int | The error count value for this email account |
+| `--google-access-token` | string | The google access token value for this email account |
+| `--office365-access-token` | string | The office365 access token value for this email account |
 
 #### EmailAccount PII fields
 
@@ -123,5 +125,12 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 Example:
 
 `nexudus emailaccounts update <id> --reply-to-email "«PII:EMAIL:a3f2b1c9»" --agent`
+
+#### EmailAccount enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--incoming-server-type` | `1` Imap |
+| `--delete-message-settings` | `1` DontDelete, `2` DeleteOnReceive, `3` DeleteWhenDeleting |
 
 <!-- END:GENERATED entity=EmailAccounts -->

@@ -29,8 +29,8 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--name` | string | Task name |
 | `--notes` | string | Additional details or instructions for the task |
 | `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
@@ -39,7 +39,7 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
 | `--reminded` | bool | Whether a reminder has been sent for this task |
-| `--responsible-id` | long |  |
+| `--responsible-id` | long | ID of the responsible linked to this record |
 | `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
 | `--display-to-everyone` | bool | Whether the task is visible to all admin users |
 | `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
@@ -54,15 +54,15 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--coworker-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
 | `--name` | string, required | Task name |
 | `--notes` | string | Additional details or instructions for the task |
 | `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
 | `--completed` | bool | Whether the task has been marked as completed |
 | `--due-date` | DateTime | Due date for the task (UTC) |
 | `--reminded` | bool | Whether a reminder has been sent for this task |
-| `--responsible-id` | long, required |  |
+| `--responsible-id` | long, required | ID of the responsible linked to this record |
 | `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
 | `--display-to-everyone` | bool | Whether the task is visible to all admin users |
 | `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
@@ -71,15 +71,15 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--name` | string | Task name |
 | `--notes` | string | Additional details or instructions for the task |
 | `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
 | `--completed` | bool | Whether the task has been marked as completed |
 | `--due-date` | DateTime | Due date for the task (UTC) |
 | `--reminded` | bool | Whether a reminder has been sent for this task |
-| `--responsible-id` | long |  |
+| `--responsible-id` | long | ID of the responsible linked to this record |
 | `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
 | `--display-to-everyone` | bool | Whether the task is visible to all admin users |
 | `--due-date-local` | DateTime | Due date for the task in the location's local timezone |

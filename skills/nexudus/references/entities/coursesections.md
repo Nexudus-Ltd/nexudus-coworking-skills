@@ -79,4 +79,10 @@ CourseSections support Search, Get, Create, Update, Delete.
 | `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
 | `--unlock-after-days` | int | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |
 
+#### CourseSection enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--unlock-type` | `1` Immediate, `2` Sequential, `3` Timed |
+
 <!-- END:GENERATED entity=CourseSections -->

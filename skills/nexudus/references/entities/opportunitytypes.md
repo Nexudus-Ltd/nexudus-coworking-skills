@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=OpportunityTypes -->
 
+An **OpportunityType** defines a category for CRM opportunities, such as 'New Member', 'Event Booking', or 'Office Rental'. Types help classify and filter sales pipeline items.
+
 OpportunityTypes support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ OpportunityTypes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--notes-template` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this opportunity type |
+| `--notes-template` | string | The notes template value for this opportunity type |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,16 +35,16 @@ OpportunityTypes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--notes-template` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this opportunity type |
+| `--notes-template` | string | The notes template value for this opportunity type |
 
 #### OpportunityType update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--notes-template` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this opportunity type |
+| `--notes-template` | string | The notes template value for this opportunity type |
 
 <!-- END:GENERATED entity=OpportunityTypes -->

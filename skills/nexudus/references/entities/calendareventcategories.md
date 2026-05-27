@@ -39,8 +39,8 @@ CalendarEventCategories support Search, Get, Create, Update, Delete.
 | `--business-id` | long, required | The location this event category belongs to |
 | `--title` | string, required | Category name shown as a filter on the Members Portal |
 | `--calendar-events` | list, repeat flag | IDs of events assigned to this category |
-| `--added-calendar-events` | list, repeat flag |  |
-| `--removed-calendar-events` | list, repeat flag |  |
+| `--added-calendar-events` | list, repeat flag | The added calendar events value for this calendar event category |
+| `--removed-calendar-events` | list, repeat flag | The removed calendar events value for this calendar event category |
 
 #### CalendarEventCategory update options
 
@@ -49,8 +49,8 @@ CalendarEventCategories support Search, Get, Create, Update, Delete.
 | `--business-id` | long | The location this event category belongs to |
 | `--title` | string | Category name shown as a filter on the Members Portal |
 | `--calendar-events` | list, repeat flag | IDs of events assigned to this category |
-| `--added-calendar-events` | list, repeat flag |  |
-| `--removed-calendar-events` | list, repeat flag |  |
+| `--added-calendar-events` | list, repeat flag | The added calendar events value for this calendar event category |
+| `--removed-calendar-events` | list, repeat flag | The removed calendar events value for this calendar event category |
 
 ### CalendarEventCategory (key fields)
 

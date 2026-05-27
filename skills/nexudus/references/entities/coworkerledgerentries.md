@@ -30,10 +30,10 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
-| `--coworker-invoice-id` | long |  |
-| `--description` | string | Description |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
+| `--description` | string | Free-text description of this coworker ledger entry |
 | `--code` | string | Ledger entry code |
 | `--debit` | decimal | Debit amount |
 | `--from-debit` | range | |
@@ -46,7 +46,7 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 | `--transaction-date` | DateTime | Transaction date |
 | `--from-transaction-date` | range | |
 | `--to-transaction-date` | range | |
-| `--balance` | decimal | Balance |
+| `--balance` | decimal | Account balance after this transaction. Read-only |
 | `--from-balance` | range | |
 | `--to-balance` | range | |
 | `--billed` | bool | Whether this entry has been billed |
@@ -63,17 +63,17 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--coworker-id` | long, required |  |
-| `--coworker-invoice-id` | long |  |
-| `--description` | string, required | Description |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
+| `--description` | string, required | Free-text description of this coworker ledger entry |
 | `--code` | string, required | Ledger entry code |
 | `--debit` | decimal, required | Debit amount |
 | `--credit` | decimal, required | Credit amount |
 | `--payment-gateway-name` | enum | Payment gateway name |
 | `--payment-method-number` | string | Payment method number |
 | `--transaction-date` | DateTime | Transaction date |
-| `--balance` | decimal, required | Balance |
+| `--balance` | decimal, required | Account balance after this transaction. Read-only |
 | `--billed` | bool | Whether this entry has been billed |
 | `--transaction-date-local` | DateTime | Transaction date in the location's local time |
 | `--connected-transaction-guid` | string | Connected transaction GUID |
@@ -82,16 +82,16 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
-| `--coworker-invoice-id` | long |  |
-| `--description` | string | Description |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
+| `--description` | string | Free-text description of this coworker ledger entry |
 | `--code` | string | Ledger entry code |
 | `--debit` | decimal | Debit amount |
 | `--credit` | decimal | Credit amount |
 | `--payment-method-number` | string | Payment method number |
 | `--transaction-date` | DateTime | Transaction date |
-| `--balance` | decimal | Balance |
+| `--balance` | decimal | Account balance after this transaction. Read-only |
 | `--billed` | bool | Whether this entry has been billed |
 | `--transaction-date-local` | DateTime | Transaction date in the location's local time |
 | `--connected-transaction-guid` | string | Connected transaction GUID |

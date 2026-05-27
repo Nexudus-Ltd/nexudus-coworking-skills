@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EloxxLockersAudits -->
 
+An **EloxxLockersAudit** records an audit trail entry for Eloxx smart locker operations. Each record logs an action (unlock, release, or assign) along with its success or failure status, the associated customer, and a description of the event.
+
 EloxxLockersAudits support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,13 +23,13 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--floor-plan-desk-id` | long |  |
-| `--coworker-id` | long |  |
-| `--description` | string |  |
-| `--action-by` | string |  |
-| `--action` | enum |  |
-| `--tile-audit-type` | enum |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--description` | string | Free-text description of this eloxx lockers audit |
+| `--action-by` | string | The action by value for this eloxx lockers audit |
+| `--action` | enum | The action value for this eloxx lockers audit |
+| `--tile-audit-type` | enum | The tile audit type value for this eloxx lockers audit |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -37,25 +39,25 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--floor-plan-desk-id` | long, required |  |
-| `--coworker-id` | long, required |  |
-| `--description` | string, required |  |
-| `--action-by` | string |  |
-| `--action` | enum, required |  |
-| `--tile-audit-type` | enum, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--floor-plan-desk-id` | long, required | ID of the floor plan desk linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--description` | string, required | Free-text description of this eloxx lockers audit |
+| `--action-by` | string | The action by value for this eloxx lockers audit |
+| `--action` | enum, required | The action value for this eloxx lockers audit |
+| `--tile-audit-type` | enum, required | The tile audit type value for this eloxx lockers audit |
 
 #### EloxxLockersAudit update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--floor-plan-desk-id` | long |  |
-| `--coworker-id` | long |  |
-| `--description` | string |  |
-| `--action-by` | string |  |
-| `--action` | enum |  |
-| `--tile-audit-type` | enum |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--description` | string | Free-text description of this eloxx lockers audit |
+| `--action-by` | string | The action by value for this eloxx lockers audit |
+| `--action` | enum | The action value for this eloxx lockers audit |
+| `--tile-audit-type` | enum | The tile audit type value for this eloxx lockers audit |
 
 #### EloxxLockersAudit PII fields
 
@@ -70,5 +72,12 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 Example:
 
 `nexudus eloxxlockersaudits update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
+#### EloxxLockersAudit enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--action` | `1` None, `2` Unlock, `3` Release, `4` Assign |
+| `--tile-audit-type` | `1` Success, `2` Failure |
 
 <!-- END:GENERATED entity=EloxxLockersAudits -->

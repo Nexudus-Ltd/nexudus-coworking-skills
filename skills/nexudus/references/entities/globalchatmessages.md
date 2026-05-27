@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=GlobalChatMessages -->
 
+A **GlobalChatMessage** represents a message posted in the location-wide chat channel. Global chat messages are visible to all members of a location.
+
 GlobalChatMessages support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ GlobalChatMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--from-user-id` | long |  |
-| `--message-text` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--from-user-id` | long | ID of the from user linked to this record |
+| `--message-text` | string | The message text value for this global chat message |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,16 +35,16 @@ GlobalChatMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--from-user-id` | long, required |  |
-| `--message-text` | string, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--from-user-id` | long, required | ID of the from user linked to this record |
+| `--message-text` | string, required | The message text value for this global chat message |
 
 #### GlobalChatMessage update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--from-user-id` | long |  |
-| `--message-text` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--from-user-id` | long | ID of the from user linked to this record |
+| `--message-text` | string | The message text value for this global chat message |
 
 <!-- END:GENERATED entity=GlobalChatMessages -->

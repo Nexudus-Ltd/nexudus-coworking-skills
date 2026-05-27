@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=MarketPlaceApplications -->
 
+A **MarketPlaceApplication** represents an application available in the Nexudus marketplace. Marketplace apps provide integrations with third-party services, automation tools, and additional platform features.
+
 MarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,19 +23,19 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--developer-id` | long |  |
-| `--name` | string |  |
-| `--terms-and-conditions` | string |  |
-| `--support-email` | string |  |
-| `--developer-name` | string |  |
-| `--published` | bool |  |
-| `--secret-key` | string |  |
-| `--short-description` | string |  |
-| `--description` | string |  |
-| `--notification-email` | string |  |
-| `--notification-url` | string |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
+| `--developer-id` | long | ID of the developer linked to this record |
+| `--name` | string | The name value for this market place application |
+| `--terms-and-conditions` | string | The terms and conditions value for this market place application |
+| `--support-email` | string | The support email value for this market place application |
+| `--developer-name` | string | The developer name value for this market place application |
+| `--published` | bool | Whether published is enabled |
+| `--secret-key` | string | The secret key value for this market place application |
+| `--short-description` | string | The short description value for this market place application |
+| `--description` | string | Free-text description of this market place application |
+| `--notification-email` | string | The notification email value for this market place application |
+| `--notification-url` | string | The notification url value for this market place application |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -43,37 +45,37 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--developer-id` | long, required |  |
-| `--name` | string, required |  |
-| `--terms-and-conditions` | string |  |
-| `--support-email` | string, required |  |
-| `--developer-name` | string, required |  |
-| `--published` | bool |  |
-| `--secret-key` | string |  |
-| `--short-description` | string, required |  |
-| `--description` | string |  |
-| `--notification-email` | string, required |  |
-| `--notification-url` | string, required |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
+| `--developer-id` | long, required | ID of the developer linked to this record |
+| `--name` | string, required | The name value for this market place application |
+| `--terms-and-conditions` | string | The terms and conditions value for this market place application |
+| `--support-email` | string, required | The support email value for this market place application |
+| `--developer-name` | string, required | The developer name value for this market place application |
+| `--published` | bool | Whether published is enabled |
+| `--secret-key` | string | The secret key value for this market place application |
+| `--short-description` | string, required | The short description value for this market place application |
+| `--description` | string | Free-text description of this market place application |
+| `--notification-email` | string, required | The notification email value for this market place application |
+| `--notification-url` | string, required | The notification url value for this market place application |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
 
 #### MarketPlaceApplication update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--developer-id` | long |  |
-| `--name` | string |  |
-| `--terms-and-conditions` | string |  |
-| `--support-email` | string |  |
-| `--developer-name` | string |  |
-| `--published` | bool |  |
-| `--secret-key` | string |  |
-| `--short-description` | string |  |
-| `--description` | string |  |
-| `--notification-email` | string |  |
-| `--notification-url` | string |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
+| `--developer-id` | long | ID of the developer linked to this record |
+| `--name` | string | The name value for this market place application |
+| `--terms-and-conditions` | string | The terms and conditions value for this market place application |
+| `--support-email` | string | The support email value for this market place application |
+| `--developer-name` | string | The developer name value for this market place application |
+| `--published` | bool | Whether published is enabled |
+| `--secret-key` | string | The secret key value for this market place application |
+| `--short-description` | string | The short description value for this market place application |
+| `--description` | string | Free-text description of this market place application |
+| `--notification-email` | string | The notification email value for this market place application |
+| `--notification-url` | string | The notification url value for this market place application |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
 
 #### MarketPlaceApplication PII fields
 

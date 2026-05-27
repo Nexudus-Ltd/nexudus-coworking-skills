@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=NewsLetterSubscribers -->
 
+A **NewsLetterSubscriber** represents a person subscribed to receive newsletters. Subscribers can be customers, leads, or external contacts and have a preferred language for communications.
+
 NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,13 +23,13 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--company-name` | string |  |
-| `--language` | enum |  |
-| `--email` | string |  |
-| `--visit-reason` | string |  |
-| `--active` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this news letter subscriber |
+| `--company-name` | string | The company name value for this news letter subscriber |
+| `--language` | enum | The language value for this news letter subscriber |
+| `--email` | string | The email value for this news letter subscriber |
+| `--visit-reason` | string | The visit reason value for this news letter subscriber |
+| `--active` | bool | Whether this news letter subscriber is currently active |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -37,31 +39,31 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--company-name` | string |  |
-| `--language` | enum, required |  |
-| `--email` | string, required |  |
-| `--visit-reason` | string |  |
-| `--active` | bool |  |
-| `--groups` | list, repeat flag |  |
-| `--added-groups` | list, repeat flag |  |
-| `--removed-groups` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this news letter subscriber |
+| `--company-name` | string | The company name value for this news letter subscriber |
+| `--language` | enum, required | The language value for this news letter subscriber |
+| `--email` | string, required | The email value for this news letter subscriber |
+| `--visit-reason` | string | The visit reason value for this news letter subscriber |
+| `--active` | bool | Whether this news letter subscriber is currently active |
+| `--groups` | list, repeat flag | List of groups linked to this record |
+| `--added-groups` | list, repeat flag | The added groups value for this news letter subscriber |
+| `--removed-groups` | list, repeat flag | The removed groups value for this news letter subscriber |
 
 #### NewsLetterSubscriber update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--company-name` | string |  |
-| `--language` | enum |  |
-| `--email` | string |  |
-| `--visit-reason` | string |  |
-| `--active` | bool |  |
-| `--groups` | list, repeat flag |  |
-| `--added-groups` | list, repeat flag |  |
-| `--removed-groups` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this news letter subscriber |
+| `--company-name` | string | The company name value for this news letter subscriber |
+| `--language` | enum | The language value for this news letter subscriber |
+| `--email` | string | The email value for this news letter subscriber |
+| `--visit-reason` | string | The visit reason value for this news letter subscriber |
+| `--active` | bool | Whether this news letter subscriber is currently active |
+| `--groups` | list, repeat flag | List of groups linked to this record |
+| `--added-groups` | list, repeat flag | The added groups value for this news letter subscriber |
+| `--removed-groups` | list, repeat flag | The removed groups value for this news letter subscriber |
 
 #### NewsLetterSubscriber PII fields
 
@@ -77,5 +79,11 @@ Example:
 `nexudus newslettersubscribers update <id> --company-name "«PII:NAME:a3f2b1c9»" --agent`
 
 **List properties (only returned by `get`, not by `list`):** `Groups`, `AddedGroups`, `RemovedGroups`
+
+#### NewsLetterSubscriber enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
 
 <!-- END:GENERATED entity=NewsLetterSubscribers -->

@@ -26,15 +26,15 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long |  |
-| `--time-pass-id` | long |  |
+| `--product-id` | long | ID of the product linked to this record |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
 | `--passes-included` | int | Passes included |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |
-| `--expire-time-in-months` | int |  |
+| `--expire-time-in-months` | int | The expire time in months value for this product time pass |
 | `--from-expire-time-in-months` | range | |
 | `--to-expire-time-in-months` | range | |
-| `--expire-time-in-weeks` | int |  |
+| `--expire-time-in-weeks` | int | The expire time in weeks value for this product time pass |
 | `--from-expire-time-in-weeks` | range | |
 | `--to-expire-time-in-weeks` | range | |
 | `--expiration-type` | enum | Expiration type |
@@ -50,11 +50,11 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long, required |  |
-| `--time-pass-id` | long, required |  |
+| `--product-id` | long, required | ID of the product linked to this record |
+| `--time-pass-id` | long, required | ID of the time pass linked to this record |
 | `--passes-included` | int, required | Passes included |
-| `--expire-time-in-months` | int |  |
-| `--expire-time-in-weeks` | int |  |
+| `--expire-time-in-months` | int | The expire time in months value for this product time pass |
+| `--expire-time-in-weeks` | int | The expire time in weeks value for this product time pass |
 | `--expiration-type` | enum | Expiration type |
 | `--expires-in` | int | Expires in |
 
@@ -62,11 +62,11 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long |  |
-| `--time-pass-id` | long |  |
+| `--product-id` | long | ID of the product linked to this record |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
 | `--passes-included` | int | Passes included |
-| `--expire-time-in-months` | int |  |
-| `--expire-time-in-weeks` | int |  |
+| `--expire-time-in-months` | int | The expire time in months value for this product time pass |
+| `--expire-time-in-weeks` | int | The expire time in weeks value for this product time pass |
 | `--expiration-type` | enum | Expiration type |
 | `--expires-in` | int | Expires in |
 

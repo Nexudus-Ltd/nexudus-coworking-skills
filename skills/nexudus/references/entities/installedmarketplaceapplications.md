@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=InstalledMarketPlaceApplications -->
 
+An **InstalledMarketPlaceApplication** represents a marketplace application that has been installed for a business. Marketplace apps extend platform functionality with integrations, automations, and additional features.
+
 InstalledMarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,17 +23,17 @@ InstalledMarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--market-place-application-id` | long |  |
-| `--business-id` | long |  |
-| `--provide-products` | bool |  |
-| `--provide-resources` | bool |  |
-| `--provide-events` | bool |  |
-| `--provide-tariffs` | bool |  |
-| `--provide-resource-availability` | bool |  |
-| `--provide-resource-prices` | bool |  |
-| `--accept-bookings` | bool |  |
-| `--accept-event-signups` | bool |  |
-| `--accept-payment-requests` | bool |  |
+| `--market-place-application-id` | long | ID of the market place application linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--provide-products` | bool | Whether provide products is enabled |
+| `--provide-resources` | bool | Whether provide resources is enabled |
+| `--provide-events` | bool | Whether provide events is enabled |
+| `--provide-tariffs` | bool | Whether provide tariffs is enabled |
+| `--provide-resource-availability` | bool | Whether provide resource availability is enabled |
+| `--provide-resource-prices` | bool | Whether provide resource prices is enabled |
+| `--accept-bookings` | bool | Whether accept bookings is enabled |
+| `--accept-event-signups` | bool | Whether accept event signups is enabled |
+| `--accept-payment-requests` | bool | Whether accept payment requests is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -41,32 +43,32 @@ InstalledMarketPlaceApplications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--market-place-application-id` | long, required |  |
-| `--business-id` | long, required |  |
-| `--provide-products` | bool |  |
-| `--provide-resources` | bool |  |
-| `--provide-events` | bool |  |
-| `--provide-tariffs` | bool |  |
-| `--provide-resource-availability` | bool |  |
-| `--provide-resource-prices` | bool |  |
-| `--accept-bookings` | bool |  |
-| `--accept-event-signups` | bool |  |
-| `--accept-payment-requests` | bool |  |
+| `--market-place-application-id` | long, required | ID of the market place application linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--provide-products` | bool | Whether provide products is enabled |
+| `--provide-resources` | bool | Whether provide resources is enabled |
+| `--provide-events` | bool | Whether provide events is enabled |
+| `--provide-tariffs` | bool | Whether provide tariffs is enabled |
+| `--provide-resource-availability` | bool | Whether provide resource availability is enabled |
+| `--provide-resource-prices` | bool | Whether provide resource prices is enabled |
+| `--accept-bookings` | bool | Whether accept bookings is enabled |
+| `--accept-event-signups` | bool | Whether accept event signups is enabled |
+| `--accept-payment-requests` | bool | Whether accept payment requests is enabled |
 
 #### InstalledMarketPlaceApplication update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--market-place-application-id` | long |  |
-| `--business-id` | long |  |
-| `--provide-products` | bool |  |
-| `--provide-resources` | bool |  |
-| `--provide-events` | bool |  |
-| `--provide-tariffs` | bool |  |
-| `--provide-resource-availability` | bool |  |
-| `--provide-resource-prices` | bool |  |
-| `--accept-bookings` | bool |  |
-| `--accept-event-signups` | bool |  |
-| `--accept-payment-requests` | bool |  |
+| `--market-place-application-id` | long | ID of the market place application linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--provide-products` | bool | Whether provide products is enabled |
+| `--provide-resources` | bool | Whether provide resources is enabled |
+| `--provide-events` | bool | Whether provide events is enabled |
+| `--provide-tariffs` | bool | Whether provide tariffs is enabled |
+| `--provide-resource-availability` | bool | Whether provide resource availability is enabled |
+| `--provide-resource-prices` | bool | Whether provide resource prices is enabled |
+| `--accept-bookings` | bool | Whether accept bookings is enabled |
+| `--accept-event-signups` | bool | Whether accept event signups is enabled |
+| `--accept-payment-requests` | bool | Whether accept payment requests is enabled |
 
 <!-- END:GENERATED entity=InstalledMarketPlaceApplications -->

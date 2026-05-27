@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=InstalledApplications -->
 
+An **InstalledApplication** represents a third-party or internal application that has been installed and configured for a specific business location.
+
 InstalledApplications support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ InstalledApplications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--application-id` | long |  |
-| `--business-id` | long |  |
-| `--requires-approval` | bool |  |
+| `--application-id` | long | ID of the application linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--requires-approval` | bool | Whether requires approval is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,16 +35,16 @@ InstalledApplications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--application-id` | long, required |  |
-| `--business-id` | long, required |  |
-| `--requires-approval` | bool |  |
+| `--application-id` | long, required | ID of the application linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--requires-approval` | bool | Whether requires approval is enabled |
 
 #### InstalledApplication update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--application-id` | long |  |
-| `--business-id` | long |  |
-| `--requires-approval` | bool |  |
+| `--application-id` | long | ID of the application linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--requires-approval` | bool | Whether requires approval is enabled |
 
 <!-- END:GENERATED entity=InstalledApplications -->

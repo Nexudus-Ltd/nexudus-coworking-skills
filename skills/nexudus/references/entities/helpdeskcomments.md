@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=HelpDeskComments -->
 
+A **HelpDeskComment** represents a reply or internal note on a help desk message (support ticket). Comments track the conversation between staff and customers on a support request.
+
 HelpDeskComments support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--help-desk-message-id` | long |  |
-| `--coworker-id` | long |  |
-| `--message-text` | string |  |
-| `--internal` | bool |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
+| `--help-desk-message-id` | long | ID of the help desk message linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--message-text` | string | The message text value for this help desk comment |
+| `--internal` | bool | Whether internal is enabled |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,23 +38,23 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--help-desk-message-id` | long, required |  |
-| `--coworker-id` | long, required |  |
-| `--message-text` | string, required |  |
-| `--internal` | bool |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
+| `--help-desk-message-id` | long, required | ID of the help desk message linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--message-text` | string, required | The message text value for this help desk comment |
+| `--internal` | bool | Whether internal is enabled |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 
 #### HelpDeskComment update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--help-desk-message-id` | long |  |
-| `--coworker-id` | long |  |
-| `--message-text` | string |  |
-| `--internal` | bool |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
+| `--help-desk-message-id` | long | ID of the help desk message linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--message-text` | string | The message text value for this help desk comment |
+| `--internal` | bool | Whether internal is enabled |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 
 #### HelpDeskComment PII fields
 

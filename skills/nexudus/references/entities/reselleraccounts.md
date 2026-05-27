@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ResellerAccounts -->
 
+A **ResellerAccount** represents the financial account associated with a reseller, tracking commissions, payouts, and billing between Nexudus and the reseller partner.
+
 ResellerAccounts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ ResellerAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--notes` | string |  |
-| `--scope-of-work` | string |  |
+| `--notes` | string | Optional notes or comments about this reseller account |
+| `--scope-of-work` | string | The scope of work value for this reseller account |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -32,15 +34,15 @@ ResellerAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--notes` | string |  |
-| `--scope-of-work` | string |  |
+| `--notes` | string | Optional notes or comments about this reseller account |
+| `--scope-of-work` | string | The scope of work value for this reseller account |
 
 #### ResellerAccount update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--notes` | string |  |
-| `--scope-of-work` | string |  |
+| `--notes` | string | Optional notes or comments about this reseller account |
+| `--scope-of-work` | string | The scope of work value for this reseller account |
 
 #### ResellerAccount PII fields
 

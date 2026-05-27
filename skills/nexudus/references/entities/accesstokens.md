@@ -25,7 +25,7 @@ AccessTokens also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--access-code` | string | Unique network access code used to connect to WiFi |
 | `--description` | string | Free-text description of this access token |
 | `--minutes-included` | int | Total minutes of WiFi access included in this token |
@@ -41,8 +41,8 @@ AccessTokens also support entity commands.
 | `--from-user-limit` | range | |
 | `--to-user-limit` | range | |
 | `--mac-address` | string | MAC address of the device associated with this token |
-| `--booking-guid` | string |  |
-| `--visitor-guid` | string |  |
+| `--booking-guid` | string | Unique identifier (GUID) for the booking |
+| `--visitor-guid` | string | Unique identifier (GUID) for the visitor |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -52,7 +52,7 @@ AccessTokens also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--access-code` | string, required | Unique network access code used to connect to WiFi |
 | `--description` | string | Free-text description of this access token |
 | `--minutes-included` | int, required | Total minutes of WiFi access included in this token |
@@ -60,14 +60,14 @@ AccessTokens also support entity commands.
 | `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
 | `--user-limit` | int | Maximum number of users that can use this token simultaneously |
 | `--mac-address` | string | MAC address of the device associated with this token |
-| `--booking-guid` | string |  |
-| `--visitor-guid` | string |  |
+| `--booking-guid` | string | Unique identifier (GUID) for the booking |
+| `--visitor-guid` | string | Unique identifier (GUID) for the visitor |
 
 #### AccessToken update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--access-code` | string | Unique network access code used to connect to WiFi |
 | `--description` | string | Free-text description of this access token |
 | `--minutes-included` | int | Total minutes of WiFi access included in this token |
@@ -75,8 +75,8 @@ AccessTokens also support entity commands.
 | `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
 | `--user-limit` | int | Maximum number of users that can use this token simultaneously |
 | `--mac-address` | string | MAC address of the device associated with this token |
-| `--booking-guid` | string |  |
-| `--visitor-guid` | string |  |
+| `--booking-guid` | string | Unique identifier (GUID) for the booking |
+| `--visitor-guid` | string | Unique identifier (GUID) for the visitor |
 
 ### AccessToken (key fields)
 

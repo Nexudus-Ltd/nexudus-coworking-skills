@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanLayoutOpenings -->
 
+A **FloorPlanLayoutOpening** represents a door, window, or other opening in a floor plan layout wall or boundary edge.
+
 FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,30 +23,30 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-edge-id` | long |  |
-| `--opening-type` | string |  |
-| `--floor-offset` | int |  |
+| `--floor-plan-layout-edge-id` | long | ID of the floor plan layout edge linked to this record |
+| `--opening-type` | string | The opening type value for this floor plan layout opening |
+| `--floor-offset` | int | The floor offset value for this floor plan layout opening |
 | `--from-floor-offset` | range | |
 | `--to-floor-offset` | range | |
-| `--start` | int |  |
+| `--start` | int | The start value for this floor plan layout opening |
 | `--from-start` | range | |
 | `--to-start` | range | |
-| `--height` | int |  |
+| `--height` | int | The height value for this floor plan layout opening |
 | `--from-height` | range | |
 | `--to-height` | range | |
-| `--length` | int |  |
+| `--length` | int | The length value for this floor plan layout opening |
 | `--from-length` | range | |
 | `--to-length` | range | |
-| `--hinge` | string |  |
-| `--door-type` | string |  |
-| `--door-arc-angle` | int |  |
+| `--hinge` | string | The hinge value for this floor plan layout opening |
+| `--door-type` | string | The door type value for this floor plan layout opening |
+| `--door-arc-angle` | int | The door arc angle value for this floor plan layout opening |
 | `--from-door-arc-angle` | range | |
 | `--to-door-arc-angle` | range | |
-| `--door-is-locked` | bool |  |
-| `--window-pane-count` | int |  |
+| `--door-is-locked` | bool | Whether door is locked is enabled |
+| `--window-pane-count` | int | The window pane count value for this floor plan layout opening |
 | `--from-window-pane-count` | range | |
 | `--to-window-pane-count` | range | |
-| `--direction` | string |  |
+| `--direction` | string | The direction value for this floor plan layout opening |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -54,34 +56,34 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-edge-id` | long, required |  |
-| `--opening-type` | string, required |  |
-| `--floor-offset` | int, required |  |
-| `--start` | int, required |  |
-| `--height` | int, required |  |
-| `--length` | int, required |  |
-| `--hinge` | string |  |
-| `--door-type` | string |  |
-| `--door-arc-angle` | int |  |
-| `--door-is-locked` | bool |  |
-| `--window-pane-count` | int |  |
-| `--direction` | string |  |
+| `--floor-plan-layout-edge-id` | long, required | ID of the floor plan layout edge linked to this record |
+| `--opening-type` | string, required | The opening type value for this floor plan layout opening |
+| `--floor-offset` | int, required | The floor offset value for this floor plan layout opening |
+| `--start` | int, required | The start value for this floor plan layout opening |
+| `--height` | int, required | The height value for this floor plan layout opening |
+| `--length` | int, required | The length value for this floor plan layout opening |
+| `--hinge` | string | The hinge value for this floor plan layout opening |
+| `--door-type` | string | The door type value for this floor plan layout opening |
+| `--door-arc-angle` | int | The door arc angle value for this floor plan layout opening |
+| `--door-is-locked` | bool | Whether door is locked is enabled |
+| `--window-pane-count` | int | The window pane count value for this floor plan layout opening |
+| `--direction` | string | The direction value for this floor plan layout opening |
 
 #### FloorPlanLayoutOpening update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-edge-id` | long |  |
-| `--opening-type` | string |  |
-| `--floor-offset` | int |  |
-| `--start` | int |  |
-| `--height` | int |  |
-| `--length` | int |  |
-| `--hinge` | string |  |
-| `--door-type` | string |  |
-| `--door-arc-angle` | int |  |
-| `--door-is-locked` | bool |  |
-| `--window-pane-count` | int |  |
-| `--direction` | string |  |
+| `--floor-plan-layout-edge-id` | long | ID of the floor plan layout edge linked to this record |
+| `--opening-type` | string | The opening type value for this floor plan layout opening |
+| `--floor-offset` | int | The floor offset value for this floor plan layout opening |
+| `--start` | int | The start value for this floor plan layout opening |
+| `--height` | int | The height value for this floor plan layout opening |
+| `--length` | int | The length value for this floor plan layout opening |
+| `--hinge` | string | The hinge value for this floor plan layout opening |
+| `--door-type` | string | The door type value for this floor plan layout opening |
+| `--door-arc-angle` | int | The door arc angle value for this floor plan layout opening |
+| `--door-is-locked` | bool | Whether door is locked is enabled |
+| `--window-pane-count` | int | The window pane count value for this floor plan layout opening |
+| `--direction` | string | The direction value for this floor plan layout opening |
 
 <!-- END:GENERATED entity=FloorPlanLayoutOpenings -->

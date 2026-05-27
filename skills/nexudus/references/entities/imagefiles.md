@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ImageFiles -->
 
+An **ImageFile** represents an uploaded image stored in the system. Image files can be used for branding, content, floor plans, or other visual elements across the platform.
+
 ImageFiles support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,13 +23,13 @@ ImageFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--use-in-gallery` | bool |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--file-size-bytes` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this image file |
+| `--description` | string | Free-text description of this image file |
+| `--use-in-gallery` | bool | Whether use in gallery is enabled |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--file-size-bytes` | int | The file size bytes value for this image file |
 | `--from-file-size-bytes` | range | |
 | `--to-file-size-bytes` | range | |
 | `--from-created-on` | range | |
@@ -39,24 +41,24 @@ ImageFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--description` | string |  |
-| `--use-in-gallery` | bool |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--file-size-bytes` | int |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this image file |
+| `--description` | string | Free-text description of this image file |
+| `--use-in-gallery` | bool | Whether use in gallery is enabled |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--file-size-bytes` | int | The file size bytes value for this image file |
 
 #### ImageFile update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--use-in-gallery` | bool |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--file-size-bytes` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this image file |
+| `--description` | string | Free-text description of this image file |
+| `--use-in-gallery` | bool | Whether use in gallery is enabled |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--file-size-bytes` | int | The file size bytes value for this image file |
 
 <!-- END:GENERATED entity=ImageFiles -->

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=SurveyQuestions -->
 
+A **SurveyQuestion** defines a single question within a survey, including its type (text, boolean, long text, date, dropdown, or binary), label, and display order.
+
 SurveyQuestions support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,16 +23,16 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-id` | long |  |
-| `--text` | string |  |
-| `--description` | string |  |
-| `--available-options` | string |  |
-| `--active` | bool |  |
-| `--display-order` | int |  |
+| `--survey-id` | long | ID of the survey linked to this record |
+| `--text` | string | The text value for this survey question |
+| `--description` | string | Free-text description of this survey question |
+| `--available-options` | string | The available options value for this survey question |
+| `--active` | bool | Whether this survey question is currently active |
+| `--display-order` | int | The display order value for this survey question |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
-| `--allow-multiple-options` | bool |  |
-| `--question-type` | enum |  |
+| `--allow-multiple-options` | bool | Whether allow multiple options is enabled |
+| `--question-type` | enum | The question type value for this survey question |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -40,26 +42,32 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-id` | long, required |  |
-| `--text` | string, required |  |
-| `--description` | string, required |  |
-| `--available-options` | string |  |
-| `--active` | bool |  |
-| `--display-order` | int, required |  |
-| `--allow-multiple-options` | bool |  |
-| `--question-type` | enum, required |  |
+| `--survey-id` | long, required | ID of the survey linked to this record |
+| `--text` | string, required | The text value for this survey question |
+| `--description` | string, required | Free-text description of this survey question |
+| `--available-options` | string | The available options value for this survey question |
+| `--active` | bool | Whether this survey question is currently active |
+| `--display-order` | int, required | The display order value for this survey question |
+| `--allow-multiple-options` | bool | Whether allow multiple options is enabled |
+| `--question-type` | enum, required | The question type value for this survey question |
 
 #### SurveyQuestion update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-id` | long |  |
-| `--text` | string |  |
-| `--description` | string |  |
-| `--available-options` | string |  |
-| `--active` | bool |  |
-| `--display-order` | int |  |
-| `--allow-multiple-options` | bool |  |
-| `--question-type` | enum |  |
+| `--survey-id` | long | ID of the survey linked to this record |
+| `--text` | string | The text value for this survey question |
+| `--description` | string | Free-text description of this survey question |
+| `--available-options` | string | The available options value for this survey question |
+| `--active` | bool | Whether this survey question is currently active |
+| `--display-order` | int | The display order value for this survey question |
+| `--allow-multiple-options` | bool | Whether allow multiple options is enabled |
+| `--question-type` | enum | The question type value for this survey question |
+
+#### SurveyQuestion enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--question-type` | `1` Text, `2` Boolean, `3` LongText, `4` Date, `5` Dropdown, `6` Binary |
 
 <!-- END:GENERATED entity=SurveyQuestions -->

@@ -29,16 +29,16 @@ BlogPosts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--language-id` | long |  |
-| `--posted-by-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--language-id` | long | ID of the language linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
 | `--title` | string | Article title |
 | `--summary` | string | Short overview displayed at the top of the article |
 | `--body` | string | Main body content of the article |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--new-large-image-url` | string |  |
-| `--clear-large-image-file` | bool |  |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--new-large-image-url` | string | URL of a new file to upload as the large image |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image file |
 | `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
 | `--from-publish-date` | range | |
 | `--to-publish-date` | range | |
@@ -62,24 +62,24 @@ BlogPosts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--language-id` | long |  |
-| `--posted-by-id` | long |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--language-id` | long | ID of the language linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
 | `--title` | string, required | Article title |
 | `--summary` | string | Short overview displayed at the top of the article |
 | `--body` | string | Main body content of the article |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--new-large-image-url` | string |  |
-| `--clear-large-image-file` | bool |  |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--new-large-image-url` | string | URL of a new file to upload as the large image |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image file |
 | `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
 | `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
 | `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
 | `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
 | `--allow-comments` | bool | Whether customers can post comments on this article |
-| `--blog-categories` | list, repeat flag |  |
-| `--added-blog-categories` | list, repeat flag |  |
-| `--removed-blog-categories` | list, repeat flag |  |
+| `--blog-categories` | list, repeat flag | List of blog categories linked to this record |
+| `--added-blog-categories` | list, repeat flag | The added blog categories value for this blog post |
+| `--removed-blog-categories` | list, repeat flag | The removed blog categories value for this blog post |
 | `--comments-count` | int, required | Number of comments on this article |
 | `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
@@ -88,24 +88,24 @@ BlogPosts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--language-id` | long |  |
-| `--posted-by-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--language-id` | long | ID of the language linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
 | `--title` | string | Article title |
 | `--summary` | string | Short overview displayed at the top of the article |
 | `--body` | string | Main body content of the article |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--new-large-image-url` | string |  |
-| `--clear-large-image-file` | bool |  |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--new-large-image-url` | string | URL of a new file to upload as the large image |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image file |
 | `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
 | `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
 | `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
 | `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
 | `--allow-comments` | bool | Whether customers can post comments on this article |
-| `--blog-categories` | list, repeat flag |  |
-| `--added-blog-categories` | list, repeat flag |  |
-| `--removed-blog-categories` | list, repeat flag |  |
+| `--blog-categories` | list, repeat flag | List of blog categories linked to this record |
+| `--added-blog-categories` | list, repeat flag | The added blog categories value for this blog post |
+| `--removed-blog-categories` | list, repeat flag | The removed blog categories value for this blog post |
 | `--comments-count` | int | Number of comments on this article |
 | `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |

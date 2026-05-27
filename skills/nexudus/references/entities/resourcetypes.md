@@ -23,7 +23,7 @@ ResourceTypes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Resource type name |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -34,14 +34,14 @@ ResourceTypes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Resource type name |
 
 #### ResourceType update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Resource type name |
 
 ### ResourceType (key fields)

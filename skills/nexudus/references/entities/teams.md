@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Teams -->
 
+A **Team** groups customers (coworkers) together for billing, access control, and administrative purposes. Teams can share invoicing, have a designated team leader, and be assigned dedicated resources such as desks or offices.
+
 Teams support Search, Get, Create, Update, Delete.
 Teams also support entity commands.
 
@@ -23,14 +25,14 @@ Teams also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Team name |
 | `--description` | string | Team description |
 | `--tunnel-private-group-id` | string | Tunnel private group ID |
 | `--create-single-invoice-for-team` | bool | Create a single invoice for the team |
 | `--use-special-prices` | bool | Use special prices |
-| `--paying-member-id` | long |  |
-| `--default-member-tariff-id` | long |  |
+| `--paying-member-id` | long | ID of the paying member linked to this record |
+| `--default-member-tariff-id` | long | ID of the default member tariff linked to this record |
 | `--max-team-member-count` | decimal | Maximum team member count |
 | `--from-max-team-member-count` | range | |
 | `--to-max-team-member-count` | range | |
@@ -56,14 +58,14 @@ Teams also support entity commands.
 | `--google-maps-link` | string | Google Maps link |
 | `--profile-is-public` | bool | Whether the profile is public |
 | `--has-community-group` | bool | Whether the team has a community group |
-| `--new-team-logo-url` | string |  |
-| `--clear-team-logo-file` | bool |  |
-| `--new-team-image1-url` | string |  |
-| `--clear-team-image1-file` | bool |  |
-| `--new-team-image2-url` | string |  |
-| `--clear-team-image2-file` | bool |  |
-| `--new-team-image3-url` | string |  |
-| `--clear-team-image3-file` | bool |  |
+| `--new-team-logo-url` | string | URL of a new file to upload as the team logo |
+| `--clear-team-logo-file` | bool | Set to true to remove the current team logo file |
+| `--new-team-image1-url` | string | URL of a new file to upload as the team image1 |
+| `--clear-team-image1-file` | bool | Set to true to remove the current team image1 file |
+| `--new-team-image2-url` | string | URL of a new file to upload as the team image2 |
+| `--clear-team-image2-file` | bool | Set to true to remove the current team image2 file |
+| `--new-team-image3-url` | string | URL of a new file to upload as the team image3 |
+| `--clear-team-image3-file` | bool | Set to true to remove the current team image3 file |
 | `--twitter` | string | Twitter handle |
 | `--facebook` | string | Facebook URL |
 | `--linkedin` | string | LinkedIn URL |
@@ -86,20 +88,20 @@ Teams also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Team name |
 | `--description` | string | Team description |
 | `--tunnel-private-group-id` | string | Tunnel private group ID |
-| `--team-members` | list, repeat flag |  |
-| `--added-team-members` | list, repeat flag |  |
-| `--removed-team-members` | list, repeat flag |  |
-| `--team-administrators` | list, repeat flag |  |
-| `--added-team-administrators` | list, repeat flag |  |
-| `--removed-team-administrators` | list, repeat flag |  |
+| `--team-members` | list, repeat flag | List of team members linked to this record |
+| `--added-team-members` | list, repeat flag | The added team members value for this team |
+| `--removed-team-members` | list, repeat flag | The removed team members value for this team |
+| `--team-administrators` | list, repeat flag | List of team administrators linked to this record |
+| `--added-team-administrators` | list, repeat flag | The added team administrators value for this team |
+| `--removed-team-administrators` | list, repeat flag | The removed team administrators value for this team |
 | `--create-single-invoice-for-team` | bool | Create a single invoice for the team |
 | `--use-special-prices` | bool | Use special prices |
-| `--paying-member-id` | long |  |
-| `--default-member-tariff-id` | long |  |
+| `--paying-member-id` | long | ID of the paying member linked to this record |
+| `--default-member-tariff-id` | long | ID of the default member tariff linked to this record |
 | `--max-team-member-count` | decimal | Maximum team member count |
 | `--transfer-credits-to-paying-member` | bool | Transfer credits to paying member |
 | `--share-time-passes` | bool | Share time passes |
@@ -115,14 +117,14 @@ Teams also support entity commands.
 | `--google-maps-link` | string | Google Maps link |
 | `--profile-is-public` | bool | Whether the profile is public |
 | `--has-community-group` | bool | Whether the team has a community group |
-| `--new-team-logo-url` | string |  |
-| `--clear-team-logo-file` | bool |  |
-| `--new-team-image1-url` | string |  |
-| `--clear-team-image1-file` | bool |  |
-| `--new-team-image2-url` | string |  |
-| `--clear-team-image2-file` | bool |  |
-| `--new-team-image3-url` | string |  |
-| `--clear-team-image3-file` | bool |  |
+| `--new-team-logo-url` | string | URL of a new file to upload as the team logo |
+| `--clear-team-logo-file` | bool | Set to true to remove the current team logo file |
+| `--new-team-image1-url` | string | URL of a new file to upload as the team image1 |
+| `--clear-team-image1-file` | bool | Set to true to remove the current team image1 file |
+| `--new-team-image2-url` | string | URL of a new file to upload as the team image2 |
+| `--clear-team-image2-file` | bool | Set to true to remove the current team image2 file |
+| `--new-team-image3-url` | string | URL of a new file to upload as the team image3 |
+| `--clear-team-image3-file` | bool | Set to true to remove the current team image3 file |
 | `--twitter` | string | Twitter handle |
 | `--facebook` | string | Facebook URL |
 | `--linkedin` | string | LinkedIn URL |
@@ -136,28 +138,28 @@ Teams also support entity commands.
 | `--tumblr` | string | Tumblr URL |
 | `--blogger` | string | Blogger URL |
 | `--disable-attendance-dashboard` | bool | Disable attendance dashboard |
-| `--extra-services` | list, repeat flag |  |
-| `--added-extra-services` | list, repeat flag |  |
-| `--removed-extra-services` | list, repeat flag |  |
+| `--extra-services` | list, repeat flag | List of extra services linked to this record |
+| `--added-extra-services` | list, repeat flag | The added extra services value for this team |
+| `--removed-extra-services` | list, repeat flag | The removed extra services value for this team |
 
 #### Team update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Team name |
 | `--description` | string | Team description |
 | `--tunnel-private-group-id` | string | Tunnel private group ID |
-| `--team-members` | list, repeat flag |  |
-| `--added-team-members` | list, repeat flag |  |
-| `--removed-team-members` | list, repeat flag |  |
-| `--team-administrators` | list, repeat flag |  |
-| `--added-team-administrators` | list, repeat flag |  |
-| `--removed-team-administrators` | list, repeat flag |  |
+| `--team-members` | list, repeat flag | List of team members linked to this record |
+| `--added-team-members` | list, repeat flag | The added team members value for this team |
+| `--removed-team-members` | list, repeat flag | The removed team members value for this team |
+| `--team-administrators` | list, repeat flag | List of team administrators linked to this record |
+| `--added-team-administrators` | list, repeat flag | The added team administrators value for this team |
+| `--removed-team-administrators` | list, repeat flag | The removed team administrators value for this team |
 | `--create-single-invoice-for-team` | bool | Create a single invoice for the team |
 | `--use-special-prices` | bool | Use special prices |
-| `--paying-member-id` | long |  |
-| `--default-member-tariff-id` | long |  |
+| `--paying-member-id` | long | ID of the paying member linked to this record |
+| `--default-member-tariff-id` | long | ID of the default member tariff linked to this record |
 | `--max-team-member-count` | decimal | Maximum team member count |
 | `--transfer-credits-to-paying-member` | bool | Transfer credits to paying member |
 | `--share-time-passes` | bool | Share time passes |
@@ -173,14 +175,14 @@ Teams also support entity commands.
 | `--google-maps-link` | string | Google Maps link |
 | `--profile-is-public` | bool | Whether the profile is public |
 | `--has-community-group` | bool | Whether the team has a community group |
-| `--new-team-logo-url` | string |  |
-| `--clear-team-logo-file` | bool |  |
-| `--new-team-image1-url` | string |  |
-| `--clear-team-image1-file` | bool |  |
-| `--new-team-image2-url` | string |  |
-| `--clear-team-image2-file` | bool |  |
-| `--new-team-image3-url` | string |  |
-| `--clear-team-image3-file` | bool |  |
+| `--new-team-logo-url` | string | URL of a new file to upload as the team logo |
+| `--clear-team-logo-file` | bool | Set to true to remove the current team logo file |
+| `--new-team-image1-url` | string | URL of a new file to upload as the team image1 |
+| `--clear-team-image1-file` | bool | Set to true to remove the current team image1 file |
+| `--new-team-image2-url` | string | URL of a new file to upload as the team image2 |
+| `--clear-team-image2-file` | bool | Set to true to remove the current team image2 file |
+| `--new-team-image3-url` | string | URL of a new file to upload as the team image3 |
+| `--clear-team-image3-file` | bool | Set to true to remove the current team image3 file |
 | `--twitter` | string | Twitter handle |
 | `--facebook` | string | Facebook URL |
 | `--linkedin` | string | LinkedIn URL |
@@ -194,9 +196,9 @@ Teams also support entity commands.
 | `--tumblr` | string | Tumblr URL |
 | `--blogger` | string | Blogger URL |
 | `--disable-attendance-dashboard` | bool | Disable attendance dashboard |
-| `--extra-services` | list, repeat flag |  |
-| `--added-extra-services` | list, repeat flag |  |
-| `--removed-extra-services` | list, repeat flag |  |
+| `--extra-services` | list, repeat flag | List of extra services linked to this record |
+| `--added-extra-services` | list, repeat flag | The added extra services value for this team |
+| `--removed-extra-services` | list, repeat flag | The removed extra services value for this team |
 
 #### Team PII fields
 

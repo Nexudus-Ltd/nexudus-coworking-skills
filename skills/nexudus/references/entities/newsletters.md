@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=NewsLetters -->
 
+A **NewsLetter** represents an email newsletter that can be sent to subscribers. Each newsletter has content, a subject line, and can target specific subscriber groups or segments.
+
 NewsLetters support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,14 +23,14 @@ NewsLetters support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--last-sent` | DateTime |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this news letter |
+| `--last-sent` | DateTime | Date/time value for last sent |
 | `--from-last-sent` | range | |
 | `--to-last-sent` | range | |
-| `--language` | enum |  |
-| `--news-letter-contents` | string |  |
-| `--news-letter-design` | string |  |
+| `--language` | enum | The language value for this news letter |
+| `--news-letter-contents` | string | The news letter contents value for this news letter |
+| `--news-letter-design` | string | The news letter design value for this news letter |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -38,22 +40,28 @@ NewsLetters support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--last-sent` | DateTime |  |
-| `--language` | enum, required |  |
-| `--news-letter-contents` | string |  |
-| `--news-letter-design` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this news letter |
+| `--last-sent` | DateTime | Date/time value for last sent |
+| `--language` | enum, required | The language value for this news letter |
+| `--news-letter-contents` | string | The news letter contents value for this news letter |
+| `--news-letter-design` | string | The news letter design value for this news letter |
 
 #### NewsLetter update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--last-sent` | DateTime |  |
-| `--language` | enum |  |
-| `--news-letter-contents` | string |  |
-| `--news-letter-design` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this news letter |
+| `--last-sent` | DateTime | Date/time value for last sent |
+| `--language` | enum | The language value for this news letter |
+| `--news-letter-contents` | string | The news letter contents value for this news letter |
+| `--news-letter-design` | string | The news letter design value for this news letter |
+
+#### NewsLetter enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
 
 <!-- END:GENERATED entity=NewsLetters -->

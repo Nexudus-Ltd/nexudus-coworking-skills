@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Visitors -->
 
+A **Visitor** represents a person visiting a location who is not a member. Visitors are registered with their name, contact details, expected arrival time, and the host (customer) they are visiting. Visitor management includes check-in/check-out tracking and optional host approval workflows.
+
 Visitors support Search, Get, Create, Update, Delete.
 Visitors also support entity commands.
 
@@ -23,14 +25,14 @@ Visitors also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--full-name` | string | Visitor full name |
 | `--email` | string | Visitor email |
-| `--coworker-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--visitor-source` | enum | Visitor source |
 | `--host-approval-status` | enum | Host approval status |
 | `--checked-in-at` | string | Location checked in at |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this visitor |
 | `--customer-notes` | string | Customer notes |
 | `--visit-reason` | string | Reason for visit |
 | `--company-name` | string | Visitor company name |
@@ -45,12 +47,12 @@ Visitors also support entity commands.
 | `--departure-date` | DateTime | Departure date |
 | `--from-departure-date` | range | |
 | `--to-departure-date` | range | |
-| `--notified` | bool |  |
-| `--internal` | bool |  |
+| `--notified` | bool | Whether notified is enabled |
+| `--internal` | bool | Whether internal is enabled |
 | `--is-tour` | bool | Whether this is a tour visit |
 | `--has-agreed-terms` | bool | Whether the visitor has agreed to terms |
 | `--tour-confirmed` | bool | Whether the tour is confirmed |
-| `--access-control-scheduled-job-id` | string |  |
+| `--access-control-scheduled-job-id` | string | ID of the access control scheduled job associated with this record |
 | `--check-in-now` | bool | Check in the visitor now |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -61,14 +63,14 @@ Visitors also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--full-name` | string, required | Visitor full name |
 | `--email` | string, required | Visitor email |
-| `--coworker-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--visitor-source` | enum, required | Visitor source |
 | `--host-approval-status` | enum, required | Host approval status |
 | `--checked-in-at` | string | Location checked in at |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this visitor |
 | `--customer-notes` | string | Customer notes |
 | `--visit-reason` | string | Reason for visit |
 | `--company-name` | string | Visitor company name |
@@ -77,26 +79,26 @@ Visitors also support entity commands.
 | `--arrived` | bool | Whether the visitor has arrived |
 | `--arrival-date` | DateTime | Actual arrival date |
 | `--departure-date` | DateTime | Departure date |
-| `--notified` | bool |  |
-| `--internal` | bool |  |
+| `--notified` | bool | Whether notified is enabled |
+| `--internal` | bool | Whether internal is enabled |
 | `--is-tour` | bool | Whether this is a tour visit |
 | `--has-agreed-terms` | bool | Whether the visitor has agreed to terms |
 | `--tour-confirmed` | bool | Whether the tour is confirmed |
-| `--access-control-scheduled-job-id` | string |  |
+| `--access-control-scheduled-job-id` | string | ID of the access control scheduled job associated with this record |
 | `--check-in-now` | bool | Check in the visitor now |
 
 #### Visitor update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--full-name` | string | Visitor full name |
 | `--email` | string | Visitor email |
-| `--coworker-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--visitor-source` | enum | Visitor source |
 | `--host-approval-status` | enum | Host approval status |
 | `--checked-in-at` | string | Location checked in at |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this visitor |
 | `--customer-notes` | string | Customer notes |
 | `--visit-reason` | string | Reason for visit |
 | `--company-name` | string | Visitor company name |
@@ -105,12 +107,12 @@ Visitors also support entity commands.
 | `--arrived` | bool | Whether the visitor has arrived |
 | `--arrival-date` | DateTime | Actual arrival date |
 | `--departure-date` | DateTime | Departure date |
-| `--notified` | bool |  |
-| `--internal` | bool |  |
+| `--notified` | bool | Whether notified is enabled |
+| `--internal` | bool | Whether internal is enabled |
 | `--is-tour` | bool | Whether this is a tour visit |
 | `--has-agreed-terms` | bool | Whether the visitor has agreed to terms |
 | `--tour-confirmed` | bool | Whether the tour is confirmed |
-| `--access-control-scheduled-job-id` | string |  |
+| `--access-control-scheduled-job-id` | string | ID of the access control scheduled job associated with this record |
 
 #### Visitor PII fields
 

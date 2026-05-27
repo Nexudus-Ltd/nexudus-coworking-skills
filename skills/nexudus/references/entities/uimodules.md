@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=UiModules -->
 
+A **UiModule** represents a configurable user interface component or widget that can be enabled or disabled for a location's admin dashboard or member portal.
+
 UiModules support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ UiModules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--access-url` | string |  |
-| `--icon` | string |  |
-| `--active` | bool |  |
-| `--shared-secret` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this ui module |
+| `--access-url` | string | The access url value for this ui module |
+| `--icon` | string | The icon value for this ui module |
+| `--active` | bool | Whether this ui module is currently active |
+| `--shared-secret` | string | The shared secret value for this ui module |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,22 +38,22 @@ UiModules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--access-url` | string, required |  |
-| `--icon` | string, required |  |
-| `--active` | bool |  |
-| `--shared-secret` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this ui module |
+| `--access-url` | string, required | The access url value for this ui module |
+| `--icon` | string, required | The icon value for this ui module |
+| `--active` | bool | Whether this ui module is currently active |
+| `--shared-secret` | string | The shared secret value for this ui module |
 
 #### UiModule update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--access-url` | string |  |
-| `--icon` | string |  |
-| `--active` | bool |  |
-| `--shared-secret` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this ui module |
+| `--access-url` | string | The access url value for this ui module |
+| `--icon` | string | The icon value for this ui module |
+| `--active` | bool | Whether this ui module is currently active |
+| `--shared-secret` | string | The shared secret value for this ui module |
 
 <!-- END:GENERATED entity=UiModules -->

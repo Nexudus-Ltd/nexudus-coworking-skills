@@ -33,23 +33,23 @@ Proposals support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--issued-by-id` | long |  |
-| `--responsible-id` | long |  |
-| `--coworker-id` | long |  |
+| `--issued-by-id` | long | ID of the issued by linked to this record |
+| `--responsible-id` | long | ID of the responsible linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--reference` | string | Proposal reference |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this proposal |
 | `--proposal-status` | enum | Proposal status |
-| `--document-to-send-id` | long |  |
-| `--document-to-sign-id` | long |  |
-| `--document-to-sign-html` | string |  |
-| `--new-document-to-sign-binary-document-url` | string |  |
-| `--clear-document-to-sign-binary-document-file` | bool |  |
-| `--document-to-send-html` | string |  |
-| `--new-document-to-send-binary-document-url` | string |  |
-| `--clear-document-to-send-binary-document-file` | bool |  |
-| `--new-proposal-file-url` | string |  |
-| `--clear-proposal-file-file` | bool |  |
-| `--tariff-id` | long |  |
+| `--document-to-send-id` | long | ID of the document to send linked to this record |
+| `--document-to-sign-id` | long | ID of the document to sign linked to this record |
+| `--document-to-sign-html` | string | The document to sign html value for this proposal |
+| `--new-document-to-sign-binary-document-url` | string | URL of a new file to upload as the document to sign binary document |
+| `--clear-document-to-sign-binary-document-file` | bool | Set to true to remove the current document to sign binary document file |
+| `--document-to-send-html` | string | The document to send html value for this proposal |
+| `--new-document-to-send-binary-document-url` | string | URL of a new file to upload as the document to send binary document |
+| `--clear-document-to-send-binary-document-file` | bool | Set to true to remove the current document to send binary document file |
+| `--new-proposal-file-url` | string | URL of a new file to upload as the proposal file |
+| `--clear-proposal-file-file` | bool | Set to true to remove the current proposal file file |
+| `--tariff-id` | long | ID of the tariff linked to this record |
 | `--price` | decimal | Price override for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -74,11 +74,11 @@ Proposals support Search, Get, Create, Update, Delete.
 | `--quantity` | int | Quantity for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--discount-code-id` | long |  |
-| `--start-date-local` | DateTime |  |
+| `--discount-code-id` | long | ID of the discount code linked to this record |
+| `--start-date-local` | DateTime | Date/time value for start date local |
 | `--from-start-date-local` | range | |
 | `--to-start-date-local` | range | |
-| `--sent-on-local` | DateTime |  |
+| `--sent-on-local` | DateTime | Date/time value for sent on local |
 | `--from-sent-on-local` | range | |
 | `--to-sent-on-local` | range | |
 | `--do-not-issue-invoice` | bool | If true, the first invoice is not issued automatically when the proposal is accepted |
@@ -91,29 +91,29 @@ Proposals support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--issued-by-id` | long, required |  |
-| `--responsible-id` | long, required |  |
-| `--coworker-id` | long, required |  |
+| `--issued-by-id` | long, required | ID of the issued by linked to this record |
+| `--responsible-id` | long, required | ID of the responsible linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
 | `--reference` | string, required | Proposal reference |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this proposal |
 | `--proposal-status` | enum, required | Proposal status |
-| `--document-to-send-id` | long |  |
-| `--document-to-sign-id` | long |  |
-| `--document-to-sign-html` | string |  |
-| `--new-document-to-sign-binary-document-url` | string |  |
-| `--clear-document-to-sign-binary-document-file` | bool |  |
-| `--document-to-send-html` | string |  |
-| `--new-document-to-send-binary-document-url` | string |  |
-| `--clear-document-to-send-binary-document-file` | bool |  |
-| `--new-proposal-file-url` | string |  |
-| `--clear-proposal-file-file` | bool |  |
-| `--tariff-id` | long, required |  |
-| `--desks` | list, repeat flag |  |
-| `--added-desks` | list, repeat flag |  |
-| `--removed-desks` | list, repeat flag |  |
-| `--variants` | list, repeat flag |  |
-| `--added-variants` | list, repeat flag |  |
-| `--removed-variants` | list, repeat flag |  |
+| `--document-to-send-id` | long | ID of the document to send linked to this record |
+| `--document-to-sign-id` | long | ID of the document to sign linked to this record |
+| `--document-to-sign-html` | string | The document to sign html value for this proposal |
+| `--new-document-to-sign-binary-document-url` | string | URL of a new file to upload as the document to sign binary document |
+| `--clear-document-to-sign-binary-document-file` | bool | Set to true to remove the current document to sign binary document file |
+| `--document-to-send-html` | string | The document to send html value for this proposal |
+| `--new-document-to-send-binary-document-url` | string | URL of a new file to upload as the document to send binary document |
+| `--clear-document-to-send-binary-document-file` | bool | Set to true to remove the current document to send binary document file |
+| `--new-proposal-file-url` | string | URL of a new file to upload as the proposal file |
+| `--clear-proposal-file-file` | bool | Set to true to remove the current proposal file file |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--desks` | list, repeat flag | List of desks linked to this record |
+| `--added-desks` | list, repeat flag | The added desks value for this proposal |
+| `--removed-desks` | list, repeat flag | The removed desks value for this proposal |
+| `--variants` | list, repeat flag | List of variants linked to this record |
+| `--added-variants` | list, repeat flag | The added variants value for this proposal |
+| `--removed-variants` | list, repeat flag | The removed variants value for this proposal |
 | `--price` | decimal | Price override for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--start-date` | DateTime | Start date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--cancellation-limit-days` | int | Cancellation limit in days for the initial contract. Becomes read-only after creation; edit via ProposalContract |
@@ -122,40 +122,40 @@ Proposals support Search, Get, Create, Update, Delete.
 | `--expiration-date` | DateTime | Proposal expiration date. Becomes read-only after creation; edit via ProposalContract |
 | `--billing-day` | int, required | Billing day of month for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--quantity` | int, required | Quantity for the initial contract. Becomes read-only after creation; edit via ProposalContract |
-| `--discount-code-id` | long |  |
-| `--start-date-local` | DateTime |  |
-| `--sent-on-local` | DateTime |  |
+| `--discount-code-id` | long | ID of the discount code linked to this record |
+| `--start-date-local` | DateTime | Date/time value for start date local |
+| `--sent-on-local` | DateTime | Date/time value for sent on local |
 | `--do-not-issue-invoice` | bool | If true, the first invoice is not issued automatically when the proposal is accepted |
 
 #### Proposal update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--issued-by-id` | long |  |
-| `--responsible-id` | long |  |
-| `--coworker-id` | long |  |
+| `--issued-by-id` | long | ID of the issued by linked to this record |
+| `--responsible-id` | long | ID of the responsible linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--reference` | string | Proposal reference |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this proposal |
 | `--proposal-status` | enum | Proposal status |
-| `--document-to-send-id` | long |  |
-| `--document-to-sign-id` | long |  |
-| `--document-to-sign-html` | string |  |
-| `--new-document-to-sign-binary-document-url` | string |  |
-| `--clear-document-to-sign-binary-document-file` | bool |  |
-| `--document-to-send-html` | string |  |
-| `--new-document-to-send-binary-document-url` | string |  |
-| `--clear-document-to-send-binary-document-file` | bool |  |
-| `--new-proposal-file-url` | string |  |
-| `--clear-proposal-file-file` | bool |  |
-| `--added-desks` | list, repeat flag |  |
-| `--removed-desks` | list, repeat flag |  |
-| `--added-variants` | list, repeat flag |  |
-| `--removed-variants` | list, repeat flag |  |
+| `--document-to-send-id` | long | ID of the document to send linked to this record |
+| `--document-to-sign-id` | long | ID of the document to sign linked to this record |
+| `--document-to-sign-html` | string | The document to sign html value for this proposal |
+| `--new-document-to-sign-binary-document-url` | string | URL of a new file to upload as the document to sign binary document |
+| `--clear-document-to-sign-binary-document-file` | bool | Set to true to remove the current document to sign binary document file |
+| `--document-to-send-html` | string | The document to send html value for this proposal |
+| `--new-document-to-send-binary-document-url` | string | URL of a new file to upload as the document to send binary document |
+| `--clear-document-to-send-binary-document-file` | bool | Set to true to remove the current document to send binary document file |
+| `--new-proposal-file-url` | string | URL of a new file to upload as the proposal file |
+| `--clear-proposal-file-file` | bool | Set to true to remove the current proposal file file |
+| `--added-desks` | list, repeat flag | The added desks value for this proposal |
+| `--removed-desks` | list, repeat flag | The removed desks value for this proposal |
+| `--added-variants` | list, repeat flag | The added variants value for this proposal |
+| `--removed-variants` | list, repeat flag | The removed variants value for this proposal |
 | `--cancellation-limit-days` | int | Cancellation limit in days for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--contract-term` | DateTime | Contract term end date for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--expiration-date` | DateTime | Proposal expiration date. Becomes read-only after creation; edit via ProposalContract |
-| `--start-date-local` | DateTime |  |
-| `--sent-on-local` | DateTime |  |
+| `--start-date-local` | DateTime | Date/time value for start date local |
+| `--sent-on-local` | DateTime | Date/time value for sent on local |
 
 #### Proposal PII fields
 

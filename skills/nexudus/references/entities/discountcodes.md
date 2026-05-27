@@ -29,7 +29,7 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--code` | string | The unique alphanumeric code customers enter to apply the discount |
 | `--description` | string | Human-readable description of what this discount code is for |
 | `--active` | bool | Whether this discount code is currently active and can be redeemed |
@@ -77,7 +77,7 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--code` | string, required | The unique alphanumeric code customers enter to apply the discount |
 | `--description` | string, required | Human-readable description of what this discount code is for |
 | `--active` | bool | Whether this discount code is currently active and can be redeemed |
@@ -87,21 +87,21 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 | `--discount-amount` | decimal | Fixed monetary amount to discount. Mutually exclusive with DiscountPercentage |
 | `--referral-discount` | bool | Whether this discount code is used as part of the referral program |
 | `--discount-price-plans` | bool | Whether this discount can be applied to price plans (tariffs). When true, use Tariffs to restrict to specific plans |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this discount code |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this discount code |
 | `--discount-bookings` | bool | Whether this discount can be applied to resource bookings. When true, use ResourceTypes to restrict to specific resource types |
-| `--resource-types` | list, repeat flag |  |
-| `--added-resource-types` | list, repeat flag |  |
-| `--removed-resource-types` | list, repeat flag |  |
+| `--resource-types` | list, repeat flag | List of resource types linked to this record |
+| `--added-resource-types` | list, repeat flag | The added resource types value for this discount code |
+| `--removed-resource-types` | list, repeat flag | The removed resource types value for this discount code |
 | `--discount-products` | bool | Whether this discount can be applied to products. When true, use Products to restrict to specific products |
-| `--products` | list, repeat flag |  |
-| `--added-products` | list, repeat flag |  |
-| `--removed-products` | list, repeat flag |  |
+| `--products` | list, repeat flag | List of products linked to this record |
+| `--added-products` | list, repeat flag | The added products value for this discount code |
+| `--removed-products` | list, repeat flag | The removed products value for this discount code |
 | `--discount-events` | bool | Whether this discount can be applied to events. When true, use EventCategories to restrict to specific event categories |
-| `--event-categories` | list, repeat flag |  |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
+| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this discount code |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this discount code |
 | `--max-uses-per-user` | int | Maximum number of times a single customer can redeem this discount code |
 | `--max-uses` | int | Maximum total number of times this discount code can be redeemed across all customers |
 | `--only-for-contacts` | bool | When true, only contacts (non-member customers) can use this discount code |
@@ -115,7 +115,7 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--code` | string | The unique alphanumeric code customers enter to apply the discount |
 | `--description` | string | Human-readable description of what this discount code is for |
 | `--active` | bool | Whether this discount code is currently active and can be redeemed |
@@ -125,21 +125,21 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 | `--discount-amount` | decimal | Fixed monetary amount to discount. Mutually exclusive with DiscountPercentage |
 | `--referral-discount` | bool | Whether this discount code is used as part of the referral program |
 | `--discount-price-plans` | bool | Whether this discount can be applied to price plans (tariffs). When true, use Tariffs to restrict to specific plans |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this discount code |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this discount code |
 | `--discount-bookings` | bool | Whether this discount can be applied to resource bookings. When true, use ResourceTypes to restrict to specific resource types |
-| `--resource-types` | list, repeat flag |  |
-| `--added-resource-types` | list, repeat flag |  |
-| `--removed-resource-types` | list, repeat flag |  |
+| `--resource-types` | list, repeat flag | List of resource types linked to this record |
+| `--added-resource-types` | list, repeat flag | The added resource types value for this discount code |
+| `--removed-resource-types` | list, repeat flag | The removed resource types value for this discount code |
 | `--discount-products` | bool | Whether this discount can be applied to products. When true, use Products to restrict to specific products |
-| `--products` | list, repeat flag |  |
-| `--added-products` | list, repeat flag |  |
-| `--removed-products` | list, repeat flag |  |
+| `--products` | list, repeat flag | List of products linked to this record |
+| `--added-products` | list, repeat flag | The added products value for this discount code |
+| `--removed-products` | list, repeat flag | The removed products value for this discount code |
 | `--discount-events` | bool | Whether this discount can be applied to events. When true, use EventCategories to restrict to specific event categories |
-| `--event-categories` | list, repeat flag |  |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
+| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this discount code |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this discount code |
 | `--max-uses-per-user` | int | Maximum number of times a single customer can redeem this discount code |
 | `--max-uses` | int | Maximum total number of times this discount code can be redeemed across all customers |
 | `--only-for-contacts` | bool | When true, only contacts (non-member customers) can use this discount code |

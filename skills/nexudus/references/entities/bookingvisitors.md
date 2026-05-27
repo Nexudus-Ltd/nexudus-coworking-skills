@@ -29,8 +29,8 @@ BookingVisitors also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long |  |
-| `--visitor-id` | long |  |
+| `--booking-id` | long | ID of the booking linked to this record |
+| `--visitor-id` | long | ID of the visitor linked to this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -40,15 +40,15 @@ BookingVisitors also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long, required |  |
-| `--visitor-id` | long, required |  |
+| `--booking-id` | long, required | ID of the booking linked to this record |
+| `--visitor-id` | long, required | ID of the visitor linked to this record |
 
 #### BookingVisitor update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long |  |
-| `--visitor-id` | long |  |
+| `--booking-id` | long | ID of the booking linked to this record |
+| `--visitor-id` | long | ID of the visitor linked to this record |
 
 #### BookingVisitor PII fields
 

@@ -51,15 +51,15 @@ ExtraServices also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Extra service name |
-| `--description` | string | Description |
+| `--description` | string | Free-text description of this extra service |
 | `--invoice-display` | string | Invoice line display text |
 | `--visible` | bool | Whether the price is visible on the portal and app |
 | `--display-order` | int | Display order |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
-| `--price` | decimal | Price |
+| `--price` | decimal | Unit price amount |
 | `--from-price` | range | |
 | `--to-price` | range | |
 | `--credit-price` | decimal | Credit price |
@@ -71,11 +71,11 @@ ExtraServices also support entity commands.
 | `--to-maximum-price` | range | |
 | `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
 | `--per-night-pricing` | bool | Use per-night pricing |
-| `--currency-id` | long |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--from-time` | int | Start time restriction (minutes from midnight) |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -132,26 +132,26 @@ ExtraServices also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Extra service name |
-| `--description` | string | Description |
+| `--description` | string | Free-text description of this extra service |
 | `--invoice-display` | string | Invoice line display text |
 | `--visible` | bool | Whether the price is visible on the portal and app |
 | `--display-order` | int, required | Display order |
-| `--resource-types` | list, repeat flag |  |
-| `--added-resource-types` | list, repeat flag |  |
-| `--removed-resource-types` | list, repeat flag |  |
-| `--price` | decimal, required | Price |
+| `--resource-types` | list, repeat flag | List of resource types linked to this record |
+| `--added-resource-types` | list, repeat flag | The added resource types value for this extra service |
+| `--removed-resource-types` | list, repeat flag | The removed resource types value for this extra service |
+| `--price` | decimal, required | Unit price amount |
 | `--credit-price` | decimal | Credit price |
 | `--charge-period` | enum, required | Charge period |
 | `--maximum-price` | decimal | Maximum price cap |
 | `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
 | `--per-night-pricing` | bool | Use per-night pricing |
-| `--currency-id` | long, required |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--currency-id` | long, required | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--from-time` | int | Start time restriction (minutes from midnight) |
 | `--to-time` | int | End time restriction (minutes from midnight) |
 | `--min-length` | int | Minimum booking length (minutes) |
@@ -159,9 +159,9 @@ ExtraServices also support entity commands.
 | `--only-within-available-times` | bool | Only apply within the resource's available times |
 | `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
 | `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this extra service |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this extra service |
 | `--only-for-contacts` | bool | Only available for contacts |
 | `--only-for-members` | bool | Only available for members |
 | `--booking-credit` | bool | Price uses booking credits |
@@ -176,35 +176,35 @@ ExtraServices also support entity commands.
 | `--apply-from` | DateTime | Date from which this price applies |
 | `--apply-to` | DateTime | Date until which this price applies |
 | `--resource-type-names` | string | Comma-separated names of associated resource types |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this extra service |
+| `--removed-teams` | list, repeat flag | The removed teams value for this extra service |
 | `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 #### ExtraService update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Extra service name |
-| `--description` | string | Description |
+| `--description` | string | Free-text description of this extra service |
 | `--invoice-display` | string | Invoice line display text |
 | `--visible` | bool | Whether the price is visible on the portal and app |
 | `--display-order` | int | Display order |
-| `--resource-types` | list, repeat flag |  |
-| `--added-resource-types` | list, repeat flag |  |
-| `--removed-resource-types` | list, repeat flag |  |
-| `--price` | decimal | Price |
+| `--resource-types` | list, repeat flag | List of resource types linked to this record |
+| `--added-resource-types` | list, repeat flag | The added resource types value for this extra service |
+| `--removed-resource-types` | list, repeat flag | The removed resource types value for this extra service |
+| `--price` | decimal | Unit price amount |
 | `--credit-price` | decimal | Credit price |
 | `--charge-period` | enum | Charge period |
 | `--maximum-price` | decimal | Maximum price cap |
 | `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
 | `--per-night-pricing` | bool | Use per-night pricing |
-| `--currency-id` | long |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--from-time` | int | Start time restriction (minutes from midnight) |
 | `--to-time` | int | End time restriction (minutes from midnight) |
 | `--min-length` | int | Minimum booking length (minutes) |
@@ -212,9 +212,9 @@ ExtraServices also support entity commands.
 | `--only-within-available-times` | bool | Only apply within the resource's available times |
 | `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
 | `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this extra service |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this extra service |
 | `--only-for-contacts` | bool | Only available for contacts |
 | `--only-for-members` | bool | Only available for members |
 | `--booking-credit` | bool | Price uses booking credits |
@@ -229,9 +229,9 @@ ExtraServices also support entity commands.
 | `--apply-from` | DateTime | Date from which this price applies |
 | `--apply-to` | DateTime | Date until which this price applies |
 | `--resource-type-names` | string | Comma-separated names of associated resource types |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this extra service |
+| `--removed-teams` | list, repeat flag | The removed teams value for this extra service |
 | `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 ### ExtraService (key fields)

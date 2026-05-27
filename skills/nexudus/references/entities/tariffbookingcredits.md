@@ -33,7 +33,7 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | Credit name |
-| `--tariff-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
 | `--credit` | decimal | Credit amount |
 | `--from-credit` | range | |
 | `--to-credit` | range | |
@@ -52,27 +52,27 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string, required | Credit name |
-| `--tariff-id` | long, required |  |
-| `--elegible-resource-types` | list, repeat flag |  |
-| `--added-elegible-resource-types` | list, repeat flag |  |
-| `--removed-elegible-resource-types` | list, repeat flag |  |
-| `--elegible-products` | list, repeat flag |  |
-| `--added-elegible-products` | list, repeat flag |  |
-| `--removed-elegible-products` | list, repeat flag |  |
-| `--elegible-tariffs` | list, repeat flag |  |
-| `--added-elegible-tariffs` | list, repeat flag |  |
-| `--removed-elegible-tariffs` | list, repeat flag |  |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--elegible-resource-types` | list, repeat flag | List of elegible resource types linked to this record |
+| `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this tariff booking credit |
+| `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this tariff booking credit |
+| `--elegible-products` | list, repeat flag | List of elegible products linked to this record |
+| `--added-elegible-products` | list, repeat flag | The added elegible products value for this tariff booking credit |
+| `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this tariff booking credit |
+| `--elegible-tariffs` | list, repeat flag | List of elegible tariffs linked to this record |
+| `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this tariff booking credit |
+| `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this tariff booking credit |
 | `--credit` | decimal, required | Credit amount |
 | `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
 | `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag |  |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
+| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this tariff booking credit |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this tariff booking credit |
 | `--service-renewal-time` | enum, required | Service renewal time period |
 | `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--elegible-passes` | list, repeat flag |  |
-| `--added-elegible-passes` | list, repeat flag |  |
-| `--removed-elegible-passes` | list, repeat flag |  |
+| `--elegible-passes` | list, repeat flag | List of elegible passes linked to this record |
+| `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this tariff booking credit |
+| `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this tariff booking credit |
 | `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 #### TariffBookingCredit update options
@@ -80,27 +80,27 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | Credit name |
-| `--tariff-id` | long |  |
-| `--elegible-resource-types` | list, repeat flag |  |
-| `--added-elegible-resource-types` | list, repeat flag |  |
-| `--removed-elegible-resource-types` | list, repeat flag |  |
-| `--elegible-products` | list, repeat flag |  |
-| `--added-elegible-products` | list, repeat flag |  |
-| `--removed-elegible-products` | list, repeat flag |  |
-| `--elegible-tariffs` | list, repeat flag |  |
-| `--added-elegible-tariffs` | list, repeat flag |  |
-| `--removed-elegible-tariffs` | list, repeat flag |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--elegible-resource-types` | list, repeat flag | List of elegible resource types linked to this record |
+| `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this tariff booking credit |
+| `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this tariff booking credit |
+| `--elegible-products` | list, repeat flag | List of elegible products linked to this record |
+| `--added-elegible-products` | list, repeat flag | The added elegible products value for this tariff booking credit |
+| `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this tariff booking credit |
+| `--elegible-tariffs` | list, repeat flag | List of elegible tariffs linked to this record |
+| `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this tariff booking credit |
+| `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this tariff booking credit |
 | `--credit` | decimal | Credit amount |
 | `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
 | `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag |  |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
+| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this tariff booking credit |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this tariff booking credit |
 | `--service-renewal-time` | enum | Service renewal time period |
 | `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--elegible-passes` | list, repeat flag |  |
-| `--added-elegible-passes` | list, repeat flag |  |
-| `--removed-elegible-passes` | list, repeat flag |  |
+| `--elegible-passes` | list, repeat flag | List of elegible passes linked to this record |
+| `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this tariff booking credit |
+| `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this tariff booking credit |
 | `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 ### TariffBookingCredit (key fields)

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EmailQueueItemAttachments -->
 
+An **EmailQueueItemAttachment** represents a file attached to a queued email. Each record links an attachment file to its parent `EmailQueueItem`.
+
 EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via API).
 
 | Command | Description |
@@ -19,11 +21,11 @@ EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via A
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--email-queue-item-id` | long |  |
-| `--name` | string |  |
-| `--extension` | string |  |
-| `--new-binary-url` | string |  |
-| `--clear-binary-file` | bool |  |
+| `--email-queue-item-id` | long | ID of the email queue item linked to this record |
+| `--name` | string | The name value for this email queue item attachment |
+| `--extension` | string | The extension value for this email queue item attachment |
+| `--new-binary-url` | string | URL of a new file to upload as the binary |
+| `--clear-binary-file` | bool | Set to true to remove the current binary file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,10 +35,10 @@ EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via A
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--email-queue-item-id` | long |  |
-| `--name` | string |  |
-| `--extension` | string |  |
-| `--new-binary-url` | string |  |
-| `--clear-binary-file` | bool |  |
+| `--email-queue-item-id` | long | ID of the email queue item linked to this record |
+| `--name` | string | The name value for this email queue item attachment |
+| `--extension` | string | The extension value for this email queue item attachment |
+| `--new-binary-url` | string | URL of a new file to upload as the binary |
+| `--clear-binary-file` | bool | Set to true to remove the current binary file |
 
 <!-- END:GENERATED entity=EmailQueueItemAttachments -->

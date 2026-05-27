@@ -30,7 +30,7 @@ AuditTrailEntries support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--entity-short-name` | string | Short name of the audited entity type (e.g. Coworker, Booking, Charge) |
 | `--description` | string | Human-readable description of the audit trail entry |
 | `--property-name` | string | Name of the property that was changed |

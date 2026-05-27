@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TariffDefaultDueDates -->
 
+A **TariffDefaultDueDate** configures the default invoice due date settings for a pricing plan (tariff). This controls when invoices generated for customers on this plan are due for payment.
+
 TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,7 +23,7 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--auto-collect-on` | int | Day of month to auto collect |
 | `--from-auto-collect-on` | range | |
 | `--to-auto-collect-on` | range | |
@@ -37,10 +39,10 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this tariff default due date |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this tariff default due date |
 | `--auto-collect-on` | int | Day of month to auto collect |
 | `--auto-collect-after` | int | Days after invoice to auto collect |
 
@@ -48,10 +50,10 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this tariff default due date |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this tariff default due date |
 | `--auto-collect-on` | int | Day of month to auto collect |
 | `--auto-collect-after` | int | Days after invoice to auto collect |
 

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=RegisteredDevices -->
 
+A **RegisteredDevice** represents a device (phone, laptop, tablet) registered by a customer for network access, push notifications, or check-in purposes.
+
 RegisteredDevices support Search, Get, Update (no Create or Delete via API).
 
 | Command | Description |
@@ -19,9 +21,9 @@ RegisteredDevices support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--name` | string |  |
-| `--configuration-data` | string |  |
-| `--active` | bool |  |
+| `--name` | string | The name value for this registered device |
+| `--configuration-data` | string | The configuration data value for this registered device |
+| `--active` | bool | Whether this registered device is currently active |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -31,8 +33,8 @@ RegisteredDevices support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--name` | string |  |
-| `--configuration-data` | string |  |
-| `--active` | bool |  |
+| `--name` | string | The name value for this registered device |
+| `--configuration-data` | string | The configuration data value for this registered device |
+| `--active` | bool | Whether this registered device is currently active |
 
 <!-- END:GENERATED entity=RegisteredDevices -->

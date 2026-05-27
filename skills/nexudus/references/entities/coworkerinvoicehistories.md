@@ -25,7 +25,7 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long |  |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
 | `--name` | string | Short title of the history entry (e.g. 'Invoice sent', 'Payment received') |
 | `--description` | string | Detailed description of the activity or event recorded by this history entry |
 | `--is-problem` | bool | Flags this history entry as an error or issue (e.g. a failed payment attempt or e-invoicing error) |
@@ -39,7 +39,7 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long, required |  |
+| `--coworker-invoice-id` | long, required | ID of the coworker invoice linked to this record |
 | `--name` | string, required | Short title of the history entry (e.g. 'Invoice sent', 'Payment received') |
 | `--description` | string, required | Detailed description of the activity or event recorded by this history entry |
 | `--is-problem` | bool | Flags this history entry as an error or issue (e.g. a failed payment attempt or e-invoicing error) |
@@ -49,7 +49,7 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long |  |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
 | `--name` | string | Short title of the history entry (e.g. 'Invoice sent', 'Payment received') |
 | `--description` | string | Detailed description of the activity or event recorded by this history entry |
 | `--is-problem` | bool | Flags this history entry as an error or issue (e.g. a failed payment attempt or e-invoicing error) |

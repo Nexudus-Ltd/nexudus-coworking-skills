@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ResourceProducts -->
 
+A **ResourceProduct** links a product to a resource, enabling products to be offered as add-ons when booking that resource (e.g. catering, AV equipment, room setup).
+
 ResourceProducts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long |  |
-| `--product-id` | long |  |
+| `--resource-id` | long | ID of the resource linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice in minutes |
 | `--request-quantity` | bool | Whether to request quantity |
 | `--visible` | bool | Whether the resource product is visible |
@@ -38,8 +40,8 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long, required |  |
-| `--product-id` | long, required |  |
+| `--resource-id` | long, required | ID of the resource linked to this record |
+| `--product-id` | long, required | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice in minutes |
 | `--request-quantity` | bool | Whether to request quantity |
 | `--visible` | bool | Whether the resource product is visible |
@@ -49,8 +51,8 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long |  |
-| `--product-id` | long |  |
+| `--resource-id` | long | ID of the resource linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice in minutes |
 | `--request-quantity` | bool | Whether to request quantity |
 | `--visible` | bool | Whether the resource product is visible |

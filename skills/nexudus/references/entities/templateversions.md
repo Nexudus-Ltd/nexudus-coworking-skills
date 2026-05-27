@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TemplateVersions -->
 
+A **TemplateVersion** represents a saved version of a website or email template, enabling version history and rollback of template changes.
+
 TemplateVersions support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ TemplateVersions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this template version |
+| `--description` | string | Free-text description of this template version |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,16 +35,16 @@ TemplateVersions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--description` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this template version |
+| `--description` | string | Free-text description of this template version |
 
 #### TemplateVersion update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this template version |
+| `--description` | string | Free-text description of this template version |
 
 <!-- END:GENERATED entity=TemplateVersions -->

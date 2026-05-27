@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanLayoutAreas -->
 
+A **FloorPlanLayoutArea** defines a named region within a floor plan layout, such as a zone, room, or section. Areas help organize and group desks and assets within the floor plan.
+
 FloorPlanLayoutAreas support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,14 +23,14 @@ FloorPlanLayoutAreas support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--name` | string |  |
-| `--contained-areas` | string |  |
-| `--nodes` | string |  |
-| `--size` | decimal |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--name` | string | The name value for this floor plan layout area |
+| `--contained-areas` | string | The contained areas value for this floor plan layout area |
+| `--nodes` | string | The nodes value for this floor plan layout area |
+| `--size` | decimal | The size value for this floor plan layout area |
 | `--from-size` | range | |
 | `--to-size` | range | |
-| `--color` | string |  |
+| `--color` | string | The color value for this floor plan layout area |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -38,22 +40,22 @@ FloorPlanLayoutAreas support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long, required |  |
-| `--name` | string, required |  |
-| `--contained-areas` | string |  |
-| `--nodes` | string |  |
-| `--size` | decimal, required |  |
-| `--color` | string |  |
+| `--floor-plan-layout-id` | long, required | ID of the floor plan layout linked to this record |
+| `--name` | string, required | The name value for this floor plan layout area |
+| `--contained-areas` | string | The contained areas value for this floor plan layout area |
+| `--nodes` | string | The nodes value for this floor plan layout area |
+| `--size` | decimal, required | The size value for this floor plan layout area |
+| `--color` | string | The color value for this floor plan layout area |
 
 #### FloorPlanLayoutArea update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--name` | string |  |
-| `--contained-areas` | string |  |
-| `--nodes` | string |  |
-| `--size` | decimal |  |
-| `--color` | string |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--name` | string | The name value for this floor plan layout area |
+| `--contained-areas` | string | The contained areas value for this floor plan layout area |
+| `--nodes` | string | The nodes value for this floor plan layout area |
+| `--size` | decimal | The size value for this floor plan layout area |
+| `--color` | string | The color value for this floor plan layout area |
 
 <!-- END:GENERATED entity=FloorPlanLayoutAreas -->

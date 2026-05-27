@@ -27,7 +27,7 @@ BookingNotes also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long |  |
+| `--booking-id` | long | ID of the booking linked to this record |
 | `--added-by` | string | The name of the user who added the note |
 | `--notes` | string | The text content of the note, visible to customers in booking confirmations |
 | `--from-created-on` | range | |
@@ -39,7 +39,7 @@ BookingNotes also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long, required |  |
+| `--booking-id` | long, required | ID of the booking linked to this record |
 | `--added-by` | string | The name of the user who added the note |
 | `--notes` | string, required | The text content of the note, visible to customers in booking confirmations |
 
@@ -47,7 +47,7 @@ BookingNotes also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long |  |
+| `--booking-id` | long | ID of the booking linked to this record |
 | `--added-by` | string | The name of the user who added the note |
 | `--notes` | string | The text content of the note, visible to customers in booking confirmations |
 

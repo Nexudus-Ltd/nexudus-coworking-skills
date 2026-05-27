@@ -29,7 +29,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Plan name |
 | `--system-tariff-type` | enum | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
 | `--price` | decimal | Recurring price charged per billing cycle |
@@ -39,7 +39,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--from-default-invoicing-day` | range | |
 | `--to-default-invoicing-day` | range | |
 | `--visible` | bool | Whether the plan is visible to customers on the members portal and mobile app |
-| `--available-to-ai` | bool | Whether this plan is available to the Nexudus AI assistant |
+| `--available-to-ai` | bool | Whether this plan is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
 | `--notes-for-ai` | string | Custom notes provided to the AI assistant when describing this plan |
 | `--show-price-for-ai` | bool | Whether to show the plan price to the AI assistant |
 | `--price-for-ai` | decimal | Custom price shown to the AI assistant instead of the actual price |
@@ -51,7 +51,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--sign-up-fee` | decimal | One-off fee charged when a customer first signs up to this plan |
 | `--from-sign-up-fee` | range | |
 | `--to-sign-up-fee` | range | |
-| `--currency-id` | long |  |
+| `--currency-id` | long | ID of the currency linked to this record |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
 | `--exempt-tax-rate-id` | long | Tax-exempt rate applied when applicable |
@@ -182,6 +182,13 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--identity-check-provider` | enum | Provider used for identity checks: Manual or StripeIdentity |
 | `--identity-check-repeat-pattern` | enum | How often to repeat the identity check: Never, Every3Months, Every6Months, Every12Months, or Every24Months |
 | `--identity-check-description` | string | Instructions shown to members when completing the identity check |
+| `--request-aml-check` | bool | Whether to request an AML check from members signing up to this plan |
+| `--aml-check-open-sanctions-enabled` | bool | Whether to enable AML checks against the OpenSanctions dataset |
+| `--aml-check-pappers-enabled` | bool | Whether to enable AML checks against the Pappers dataset |
+| `--aml-check-open-sanctions-dataset` | string | Which OpenSanctions dataset to check against for AML screening (e.g. 'default') |
+| `--aml-check-score-threshold` | decimal | Score threshold for AML checks, between 0 and 1. Matches with a score above this threshold will be considered a positive match. Default is 0.7 |
+| `--from-aml-check-score-threshold` | range | |
+| `--to-aml-check-score-threshold` | range | |
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
 | `--delivery-preferences-mail` | enum | Allowed handling preferences for mail deliveries (virtual office) |
@@ -211,13 +218,13 @@ Tariffs support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Plan name |
 | `--system-tariff-type` | enum, required | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
 | `--price` | decimal, required | Recurring price charged per billing cycle |
 | `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan |
 | `--visible` | bool | Whether the plan is visible to customers on the members portal and mobile app |
-| `--available-to-ai` | bool | Whether this plan is available to the Nexudus AI assistant |
+| `--available-to-ai` | bool | Whether this plan is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
 | `--notes-for-ai` | string | Custom notes provided to the AI assistant when describing this plan |
 | `--show-price-for-ai` | bool | Whether to show the plan price to the AI assistant |
 | `--price-for-ai` | decimal | Custom price shown to the AI assistant instead of the actual price |
@@ -225,7 +232,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
 | `--sign-up-fee` | decimal | One-off fee charged when a customer first signs up to this plan |
-| `--currency-id` | long, required |  |
+| `--currency-id` | long, required | ID of the currency linked to this record |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
 | `--exempt-tax-rate-id` | long | Tax-exempt rate applied when applicable |
@@ -290,32 +297,37 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--identity-check-provider` | enum, required | Provider used for identity checks: Manual or StripeIdentity |
 | `--identity-check-repeat-pattern` | enum, required | How often to repeat the identity check: Never, Every3Months, Every6Months, Every12Months, or Every24Months |
 | `--identity-check-description` | string | Instructions shown to members when completing the identity check |
+| `--request-aml-check` | bool | Whether to request an AML check from members signing up to this plan |
+| `--aml-check-open-sanctions-enabled` | bool | Whether to enable AML checks against the OpenSanctions dataset |
+| `--aml-check-pappers-enabled` | bool | Whether to enable AML checks against the Pappers dataset |
+| `--aml-check-open-sanctions-dataset` | string | Which OpenSanctions dataset to check against for AML screening (e.g. 'default') |
+| `--aml-check-score-threshold` | decimal | Score threshold for AML checks, between 0 and 1. Matches with a score above this threshold will be considered a positive match. Default is 0.7 |
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
 | `--products-store` | list, repeat flag | Product IDs for mail stored for collection (virtual office) |
-| `--added-products-store` | list, repeat flag |  |
-| `--removed-products-store` | list, repeat flag |  |
+| `--added-products-store` | list, repeat flag | The added products store value for this tariff |
+| `--removed-products-store` | list, repeat flag | The removed products store value for this tariff |
 | `--products-forward` | list, repeat flag | Product IDs for mail forwarding (virtual office) |
-| `--added-products-forward` | list, repeat flag |  |
-| `--removed-products-forward` | list, repeat flag |  |
+| `--added-products-forward` | list, repeat flag | The added products forward value for this tariff |
+| `--removed-products-forward` | list, repeat flag | The removed products forward value for this tariff |
 | `--products-recycle` | list, repeat flag | Product IDs for mail recycling (virtual office) |
-| `--added-products-recycle` | list, repeat flag |  |
-| `--removed-products-recycle` | list, repeat flag |  |
+| `--added-products-recycle` | list, repeat flag | The added products recycle value for this tariff |
+| `--removed-products-recycle` | list, repeat flag | The removed products recycle value for this tariff |
 | `--products-shred` | list, repeat flag | Product IDs for mail shredding (virtual office) |
-| `--added-products-shred` | list, repeat flag |  |
-| `--removed-products-shred` | list, repeat flag |  |
+| `--added-products-shred` | list, repeat flag | The added products shred value for this tariff |
+| `--removed-products-shred` | list, repeat flag | The removed products shred value for this tariff |
 | `--products-scan` | list, repeat flag | Product IDs for mail scanning (virtual office) |
-| `--added-products-scan` | list, repeat flag |  |
-| `--removed-products-scan` | list, repeat flag |  |
+| `--added-products-scan` | list, repeat flag | The added products scan value for this tariff |
+| `--removed-products-scan` | list, repeat flag | The removed products scan value for this tariff |
 | `--products-return` | list, repeat flag | Product IDs for returning mail to sender (virtual office) |
-| `--added-products-return` | list, repeat flag |  |
-| `--removed-products-return` | list, repeat flag |  |
+| `--added-products-return` | list, repeat flag | The added products return value for this tariff |
+| `--removed-products-return` | list, repeat flag | The removed products return value for this tariff |
 | `--products-deposit` | list, repeat flag | Product IDs for check deposits (virtual office) |
-| `--added-products-deposit` | list, repeat flag |  |
-| `--removed-products-deposit` | list, repeat flag |  |
+| `--added-products-deposit` | list, repeat flag | The added products deposit value for this tariff |
+| `--removed-products-deposit` | list, repeat flag | The removed products deposit value for this tariff |
 | `--products-collect` | list, repeat flag | Product IDs for mail collection (virtual office) |
-| `--added-products-collect` | list, repeat flag |  |
-| `--removed-products-collect` | list, repeat flag |  |
+| `--added-products-collect` | list, repeat flag | The added products collect value for this tariff |
+| `--removed-products-collect` | list, repeat flag | The removed products collect value for this tariff |
 | `--delivery-preferences-mail` | enum, required | Allowed handling preferences for mail deliveries (virtual office) |
 | `--delivery-preferences-parcels` | enum, required | Allowed handling preferences for parcel deliveries (virtual office) |
 | `--delivery-preferences-checks` | enum, required | Allowed handling preferences for check deliveries (virtual office) |
@@ -331,13 +343,13 @@ Tariffs support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Plan name |
 | `--system-tariff-type` | enum | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
 | `--price` | decimal | Recurring price charged per billing cycle |
 | `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan |
 | `--visible` | bool | Whether the plan is visible to customers on the members portal and mobile app |
-| `--available-to-ai` | bool | Whether this plan is available to the Nexudus AI assistant |
+| `--available-to-ai` | bool | Whether this plan is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
 | `--notes-for-ai` | string | Custom notes provided to the AI assistant when describing this plan |
 | `--show-price-for-ai` | bool | Whether to show the plan price to the AI assistant |
 | `--price-for-ai` | decimal | Custom price shown to the AI assistant instead of the actual price |
@@ -345,7 +357,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
 | `--sign-up-fee` | decimal | One-off fee charged when a customer first signs up to this plan |
-| `--currency-id` | long |  |
+| `--currency-id` | long | ID of the currency linked to this record |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
 | `--exempt-tax-rate-id` | long | Tax-exempt rate applied when applicable |
@@ -410,32 +422,37 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--identity-check-provider` | enum | Provider used for identity checks: Manual or StripeIdentity |
 | `--identity-check-repeat-pattern` | enum | How often to repeat the identity check: Never, Every3Months, Every6Months, Every12Months, or Every24Months |
 | `--identity-check-description` | string | Instructions shown to members when completing the identity check |
+| `--request-aml-check` | bool | Whether to request an AML check from members signing up to this plan |
+| `--aml-check-open-sanctions-enabled` | bool | Whether to enable AML checks against the OpenSanctions dataset |
+| `--aml-check-pappers-enabled` | bool | Whether to enable AML checks against the Pappers dataset |
+| `--aml-check-open-sanctions-dataset` | string | Which OpenSanctions dataset to check against for AML screening (e.g. 'default') |
+| `--aml-check-score-threshold` | decimal | Score threshold for AML checks, between 0 and 1. Matches with a score above this threshold will be considered a positive match. Default is 0.7 |
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
 | `--products-store` | list, repeat flag | Product IDs for mail stored for collection (virtual office) |
-| `--added-products-store` | list, repeat flag |  |
-| `--removed-products-store` | list, repeat flag |  |
+| `--added-products-store` | list, repeat flag | The added products store value for this tariff |
+| `--removed-products-store` | list, repeat flag | The removed products store value for this tariff |
 | `--products-forward` | list, repeat flag | Product IDs for mail forwarding (virtual office) |
-| `--added-products-forward` | list, repeat flag |  |
-| `--removed-products-forward` | list, repeat flag |  |
+| `--added-products-forward` | list, repeat flag | The added products forward value for this tariff |
+| `--removed-products-forward` | list, repeat flag | The removed products forward value for this tariff |
 | `--products-recycle` | list, repeat flag | Product IDs for mail recycling (virtual office) |
-| `--added-products-recycle` | list, repeat flag |  |
-| `--removed-products-recycle` | list, repeat flag |  |
+| `--added-products-recycle` | list, repeat flag | The added products recycle value for this tariff |
+| `--removed-products-recycle` | list, repeat flag | The removed products recycle value for this tariff |
 | `--products-shred` | list, repeat flag | Product IDs for mail shredding (virtual office) |
-| `--added-products-shred` | list, repeat flag |  |
-| `--removed-products-shred` | list, repeat flag |  |
+| `--added-products-shred` | list, repeat flag | The added products shred value for this tariff |
+| `--removed-products-shred` | list, repeat flag | The removed products shred value for this tariff |
 | `--products-scan` | list, repeat flag | Product IDs for mail scanning (virtual office) |
-| `--added-products-scan` | list, repeat flag |  |
-| `--removed-products-scan` | list, repeat flag |  |
+| `--added-products-scan` | list, repeat flag | The added products scan value for this tariff |
+| `--removed-products-scan` | list, repeat flag | The removed products scan value for this tariff |
 | `--products-return` | list, repeat flag | Product IDs for returning mail to sender (virtual office) |
-| `--added-products-return` | list, repeat flag |  |
-| `--removed-products-return` | list, repeat flag |  |
+| `--added-products-return` | list, repeat flag | The added products return value for this tariff |
+| `--removed-products-return` | list, repeat flag | The removed products return value for this tariff |
 | `--products-deposit` | list, repeat flag | Product IDs for check deposits (virtual office) |
-| `--added-products-deposit` | list, repeat flag |  |
-| `--removed-products-deposit` | list, repeat flag |  |
+| `--added-products-deposit` | list, repeat flag | The added products deposit value for this tariff |
+| `--removed-products-deposit` | list, repeat flag | The removed products deposit value for this tariff |
 | `--products-collect` | list, repeat flag | Product IDs for mail collection (virtual office) |
-| `--added-products-collect` | list, repeat flag |  |
-| `--removed-products-collect` | list, repeat flag |  |
+| `--added-products-collect` | list, repeat flag | The added products collect value for this tariff |
+| `--removed-products-collect` | list, repeat flag | The removed products collect value for this tariff |
 | `--delivery-preferences-mail` | enum | Allowed handling preferences for mail deliveries (virtual office) |
 | `--delivery-preferences-parcels` | enum | Allowed handling preferences for parcel deliveries (virtual office) |
 | `--delivery-preferences-checks` | enum | Allowed handling preferences for check deliveries (virtual office) |

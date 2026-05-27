@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanDeskVariants -->
 
+A **FloorPlanDeskVariant** defines an alternative visual representation or configuration for a desk on a floor plan. Variants allow the same desk to be displayed differently based on context or state.
+
 FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,43 +23,43 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-desk-id` | long |  |
-| `--coworker-id` | long |  |
-| `--name` | string |  |
-| `--size` | decimal |  |
+| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--name` | string | The name value for this floor plan desk variant |
+| `--size` | decimal | The size value for this floor plan desk variant |
 | `--from-size` | range | |
 | `--to-size` | range | |
-| `--capacity` | decimal |  |
+| `--capacity` | decimal | The capacity value for this floor plan desk variant |
 | `--from-capacity` | range | |
 | `--to-capacity` | range | |
-| `--price` | decimal |  |
+| `--price` | decimal | Unit price amount |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--occupancy-percentage` | decimal |  |
+| `--occupancy-percentage` | decimal | The occupancy percentage value for this floor plan desk variant |
 | `--from-occupancy-percentage` | range | |
 | `--to-occupancy-percentage` | range | |
-| `--notes` | string |  |
-| `--available-monday` | bool |  |
-| `--available-tuesday` | bool |  |
-| `--available-wednesday` | bool |  |
-| `--available-thursday` | bool |  |
-| `--available-friday` | bool |  |
-| `--available-saturday` | bool |  |
-| `--available-sunday` | bool |  |
-| `--access-control-group-id` | string |  |
-| `--coworker-contract-ids` | string |  |
-| `--coworker-contract-full-names` | string |  |
-| `--coworker-contract-start-dates` | string |  |
-| `--available-from-time` | DateTime |  |
+| `--notes` | string | Optional notes or comments about this floor plan desk variant |
+| `--available-monday` | bool | Whether available monday is enabled |
+| `--available-tuesday` | bool | Whether available tuesday is enabled |
+| `--available-wednesday` | bool | Whether available wednesday is enabled |
+| `--available-thursday` | bool | Whether available thursday is enabled |
+| `--available-friday` | bool | Whether available friday is enabled |
+| `--available-saturday` | bool | Whether available saturday is enabled |
+| `--available-sunday` | bool | Whether available sunday is enabled |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
+| `--coworker-contract-ids` | string | The coworker contract ids value for this floor plan desk variant |
+| `--coworker-contract-full-names` | string | The coworker contract full names value for this floor plan desk variant |
+| `--coworker-contract-start-dates` | string | The coworker contract start dates value for this floor plan desk variant |
+| `--available-from-time` | DateTime | Date/time value for available from time |
 | `--from-available-from-time` | range | |
 | `--to-available-from-time` | range | |
-| `--available-to-time` | DateTime |  |
+| `--available-to-time` | DateTime | Date/time value for available to time |
 | `--from-available-to-time` | range | |
 | `--to-available-to-time` | range | |
-| `--available-from-time-local` | DateTime |  |
+| `--available-from-time-local` | DateTime | Date/time value for available from time local |
 | `--from-available-from-time-local` | range | |
 | `--to-available-from-time-local` | range | |
-| `--available-to-time-local` | DateTime |  |
+| `--available-to-time-local` | DateTime | Date/time value for available to time local |
 | `--from-available-to-time-local` | range | |
 | `--to-available-to-time-local` | range | |
 | `--from-created-on` | range | |
@@ -69,57 +71,57 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-desk-id` | long, required |  |
-| `--coworker-id` | long |  |
-| `--name` | string, required |  |
-| `--size` | decimal |  |
-| `--capacity` | decimal |  |
-| `--price` | decimal |  |
-| `--occupancy-percentage` | decimal, required |  |
-| `--notes` | string |  |
-| `--available-monday` | bool |  |
-| `--available-tuesday` | bool |  |
-| `--available-wednesday` | bool |  |
-| `--available-thursday` | bool |  |
-| `--available-friday` | bool |  |
-| `--available-saturday` | bool |  |
-| `--available-sunday` | bool |  |
-| `--access-control-group-id` | string |  |
-| `--coworker-contract-ids` | string |  |
-| `--coworker-contract-full-names` | string |  |
-| `--coworker-contract-start-dates` | string |  |
-| `--available-from-time` | DateTime |  |
-| `--available-to-time` | DateTime |  |
-| `--available-from-time-local` | DateTime |  |
-| `--available-to-time-local` | DateTime |  |
+| `--floor-plan-desk-id` | long, required | ID of the floor plan desk linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--name` | string, required | The name value for this floor plan desk variant |
+| `--size` | decimal | The size value for this floor plan desk variant |
+| `--capacity` | decimal | The capacity value for this floor plan desk variant |
+| `--price` | decimal | Unit price amount |
+| `--occupancy-percentage` | decimal, required | The occupancy percentage value for this floor plan desk variant |
+| `--notes` | string | Optional notes or comments about this floor plan desk variant |
+| `--available-monday` | bool | Whether available monday is enabled |
+| `--available-tuesday` | bool | Whether available tuesday is enabled |
+| `--available-wednesday` | bool | Whether available wednesday is enabled |
+| `--available-thursday` | bool | Whether available thursday is enabled |
+| `--available-friday` | bool | Whether available friday is enabled |
+| `--available-saturday` | bool | Whether available saturday is enabled |
+| `--available-sunday` | bool | Whether available sunday is enabled |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
+| `--coworker-contract-ids` | string | The coworker contract ids value for this floor plan desk variant |
+| `--coworker-contract-full-names` | string | The coworker contract full names value for this floor plan desk variant |
+| `--coworker-contract-start-dates` | string | The coworker contract start dates value for this floor plan desk variant |
+| `--available-from-time` | DateTime | Date/time value for available from time |
+| `--available-to-time` | DateTime | Date/time value for available to time |
+| `--available-from-time-local` | DateTime | Date/time value for available from time local |
+| `--available-to-time-local` | DateTime | Date/time value for available to time local |
 
 #### FloorPlanDeskVariant update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-desk-id` | long |  |
-| `--coworker-id` | long |  |
-| `--name` | string |  |
-| `--size` | decimal |  |
-| `--capacity` | decimal |  |
-| `--price` | decimal |  |
-| `--occupancy-percentage` | decimal |  |
-| `--notes` | string |  |
-| `--available-monday` | bool |  |
-| `--available-tuesday` | bool |  |
-| `--available-wednesday` | bool |  |
-| `--available-thursday` | bool |  |
-| `--available-friday` | bool |  |
-| `--available-saturday` | bool |  |
-| `--available-sunday` | bool |  |
-| `--access-control-group-id` | string |  |
-| `--coworker-contract-ids` | string |  |
-| `--coworker-contract-full-names` | string |  |
-| `--coworker-contract-start-dates` | string |  |
-| `--available-from-time` | DateTime |  |
-| `--available-to-time` | DateTime |  |
-| `--available-from-time-local` | DateTime |  |
-| `--available-to-time-local` | DateTime |  |
+| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--name` | string | The name value for this floor plan desk variant |
+| `--size` | decimal | The size value for this floor plan desk variant |
+| `--capacity` | decimal | The capacity value for this floor plan desk variant |
+| `--price` | decimal | Unit price amount |
+| `--occupancy-percentage` | decimal | The occupancy percentage value for this floor plan desk variant |
+| `--notes` | string | Optional notes or comments about this floor plan desk variant |
+| `--available-monday` | bool | Whether available monday is enabled |
+| `--available-tuesday` | bool | Whether available tuesday is enabled |
+| `--available-wednesday` | bool | Whether available wednesday is enabled |
+| `--available-thursday` | bool | Whether available thursday is enabled |
+| `--available-friday` | bool | Whether available friday is enabled |
+| `--available-saturday` | bool | Whether available saturday is enabled |
+| `--available-sunday` | bool | Whether available sunday is enabled |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
+| `--coworker-contract-ids` | string | The coworker contract ids value for this floor plan desk variant |
+| `--coworker-contract-full-names` | string | The coworker contract full names value for this floor plan desk variant |
+| `--coworker-contract-start-dates` | string | The coworker contract start dates value for this floor plan desk variant |
+| `--available-from-time` | DateTime | Date/time value for available from time |
+| `--available-to-time` | DateTime | Date/time value for available to time |
+| `--available-from-time-local` | DateTime | Date/time value for available from time local |
+| `--available-to-time-local` | DateTime | Date/time value for available to time local |
 
 #### FloorPlanDeskVariant PII fields
 

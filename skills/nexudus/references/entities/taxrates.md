@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TaxRates -->
 
+A **TaxRate** defines a tax percentage applied to products, services, and invoices. Multiple tax rates can be configured for different jurisdictions or product categories.
+
 TaxRates support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ TaxRates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--rate` | decimal |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this tax rate |
+| `--rate` | decimal | The rate value for this tax rate |
 | `--from-rate` | range | |
 | `--to-rate` | range | |
 | `--from-created-on` | range | |
@@ -35,16 +37,16 @@ TaxRates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--rate` | decimal, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this tax rate |
+| `--rate` | decimal, required | The rate value for this tax rate |
 
 #### TaxRate update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--rate` | decimal |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this tax rate |
+| `--rate` | decimal | The rate value for this tax rate |
 
 <!-- END:GENERATED entity=TaxRates -->

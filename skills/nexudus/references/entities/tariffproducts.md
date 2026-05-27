@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TariffProducts -->
 
+A **TariffProduct** links a product to a pricing plan (tariff), making the product automatically included or available as part of that plan's offering.
+
 TariffProducts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ TariffProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--product-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -32,15 +34,15 @@ TariffProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required |  |
-| `--product-id` | long, required |  |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--product-id` | long, required | ID of the product linked to this record |
 
 #### TariffProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--product-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 
 ### TariffProduct (key fields)
 

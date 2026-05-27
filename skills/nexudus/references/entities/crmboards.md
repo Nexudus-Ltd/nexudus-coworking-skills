@@ -27,7 +27,7 @@ CrmBoards support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
 | `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
 | `--from-created-on` | range | |
@@ -39,7 +39,7 @@ CrmBoards support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
 | `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
 
@@ -47,7 +47,7 @@ CrmBoards support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
 | `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
 

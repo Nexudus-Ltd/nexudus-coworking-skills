@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ProposalContractSchedules -->
 
+A **ProposalContractSchedule** defines the billing schedule for a contract within a proposal, specifying payment frequency, amounts, and timing.
+
 ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-contract-id` | long |  |
-| `--notes` | string | Notes |
+| `--proposal-contract-id` | long | ID of the proposal contract linked to this record |
+| `--notes` | string | Optional notes or comments about this proposal contract schedule |
 | `--price` | decimal | Scheduled price |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -38,8 +40,8 @@ ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-contract-id` | long, required |  |
-| `--notes` | string | Notes |
+| `--proposal-contract-id` | long, required | ID of the proposal contract linked to this record |
+| `--notes` | string | Optional notes or comments about this proposal contract schedule |
 | `--price` | decimal | Scheduled price |
 | `--apply-on` | DateTime, required | Date to apply |
 
@@ -47,8 +49,8 @@ ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-contract-id` | long |  |
-| `--notes` | string | Notes |
+| `--proposal-contract-id` | long | ID of the proposal contract linked to this record |
+| `--notes` | string | Optional notes or comments about this proposal contract schedule |
 | `--price` | decimal | Scheduled price |
 | `--apply-on` | DateTime | Date to apply |
 

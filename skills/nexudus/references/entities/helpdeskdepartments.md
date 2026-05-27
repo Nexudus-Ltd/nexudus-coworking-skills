@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=HelpDeskDepartments -->
 
+A **HelpDeskDepartment** defines a support department that help desk messages can be assigned to, such as 'Billing', 'Facilities', or 'IT Support'. Departments help route and organize incoming support requests.
+
 HelpDeskDepartments support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,11 +23,11 @@ HelpDeskDepartments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--active` | bool |  |
-| `--task-list-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this help desk department |
+| `--description` | string | Free-text description of this help desk department |
+| `--active` | bool | Whether this help desk department is currently active |
+| `--task-list-id` | long | ID of the task list linked to this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -35,27 +37,27 @@ HelpDeskDepartments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--description` | string, required |  |
-| `--active` | bool |  |
-| `--managers` | list, repeat flag |  |
-| `--added-managers` | list, repeat flag |  |
-| `--removed-managers` | list, repeat flag |  |
-| `--task-list-id` | long |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this help desk department |
+| `--description` | string, required | Free-text description of this help desk department |
+| `--active` | bool | Whether this help desk department is currently active |
+| `--managers` | list, repeat flag | List of managers linked to this record |
+| `--added-managers` | list, repeat flag | The added managers value for this help desk department |
+| `--removed-managers` | list, repeat flag | The removed managers value for this help desk department |
+| `--task-list-id` | long | ID of the task list linked to this record |
 
 #### HelpDeskDepartment update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--active` | bool |  |
-| `--managers` | list, repeat flag |  |
-| `--added-managers` | list, repeat flag |  |
-| `--removed-managers` | list, repeat flag |  |
-| `--task-list-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this help desk department |
+| `--description` | string | Free-text description of this help desk department |
+| `--active` | bool | Whether this help desk department is currently active |
+| `--managers` | list, repeat flag | List of managers linked to this record |
+| `--added-managers` | list, repeat flag | The added managers value for this help desk department |
+| `--removed-managers` | list, repeat flag | The removed managers value for this help desk department |
+| `--task-list-id` | long | ID of the task list linked to this record |
 
 **List properties (only returned by `get`, not by `list`):** `Managers`, `AddedManagers`, `RemovedManagers`
 

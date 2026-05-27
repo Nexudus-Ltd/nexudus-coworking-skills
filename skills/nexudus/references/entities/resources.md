@@ -53,13 +53,13 @@ Resources also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
 | `--system-resource-type` | enum | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). Distinct from the custom ResourceType. |
-| `--resource-type-id` | long |  |
+| `--resource-type-id` | long | ID of the resource type linked to this record |
 | `--description` | string | Free-text description shown to users when viewing the resource details. |
-| `--new-picture-url` | string |  |
-| `--clear-picture-file` | bool |  |
+| `--new-picture-url` | string | URL of a new file to upload as the picture |
+| `--clear-picture-file` | bool | Set to true to remove the current picture file |
 | `--email-confirmation-content` | string | Custom HTML or text included in booking confirmation emails for this resource. |
 | `--visible` | bool | Whether the resource is visible and bookable by end users. Hidden resources can still be booked by admins. |
 | `--requires-confirmation` | bool | When true, bookings for this resource are held as pending until an admin approves them. |
@@ -128,9 +128,9 @@ Resources also support entity commands.
 | `--from-min-booking-length` | range | |
 | `--to-min-booking-length` | range | |
 | `--shifts` | string | JSON-encoded shifts configuration defining the resource's availability schedule. |
-| `--google-calendar-id` | string |  |
-| `--kisi-group-id` | string |  |
-| `--access-control-group-id` | string |  |
+| `--google-calendar-id` | string | ID of the google calendar associated with this record |
+| `--kisi-group-id` | string | ID of the kisi group associated with this record |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--from-longitude` | range | |
 | `--to-longitude` | range | |
@@ -140,18 +140,18 @@ Resources also support entity commands.
 | `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view. |
 | `--archived` | bool | When true, the resource is archived and hidden from all views. It cannot be booked. |
 | `--use-shared-zoom-account` | bool | When true, bookings for this resource use the location's shared Zoom account to create virtual meetings. |
-| `--zoom-access-token` | string |  |
-| `--zoom-refresh-token` | string |  |
+| `--zoom-access-token` | string | The zoom access token value for this resource |
+| `--zoom-refresh-token` | string | The zoom refresh token value for this resource |
 | `--zoom-user-id` | string | Zoom user ID used to host virtual meetings when UseSharedZoomAccount is false. |
 | `--last-cleaned-at` | DateTime | Timestamp of the last cleaning event for this resource. |
 | `--from-last-cleaned-at` | range | |
 | `--to-last-cleaned-at` | range | |
-| `--office365-calendar-id` | string |  |
+| `--office365-calendar-id` | string | ID of the office365 calendar associated with this record |
 | `--linked-resource-ids` | string | Comma-separated string of linked resource IDs (read-only alternative view of LinkedResources). |
 | `--only-for-contacts` | bool | When true, only contacts (non-member customers) can book this resource. |
 | `--only-for-members` | bool | When true, only active members (coworkers with a plan) can book this resource. |
 | `--only-for-invoicing-business` | bool | When true, only coworkers invoiced by this specific location can book this resource. |
-| `--cancellation-fee-product-id` | long |  |
+| `--cancellation-fee-product-id` | long | ID of the cancellation fee product linked to this record |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
@@ -175,13 +175,13 @@ Resources also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
 | `--system-resource-type` | enum, required | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). Distinct from the custom ResourceType. |
-| `--resource-type-id` | long, required |  |
+| `--resource-type-id` | long, required | ID of the resource type linked to this record |
 | `--description` | string | Free-text description shown to users when viewing the resource details. |
-| `--new-picture-url` | string |  |
-| `--clear-picture-file` | bool |  |
+| `--new-picture-url` | string | URL of a new file to upload as the picture |
+| `--clear-picture-file` | bool | Set to true to remove the current picture file |
 | `--email-confirmation-content` | string | Custom HTML or text included in booking confirmation emails for this resource. |
 | `--visible` | bool | Whether the resource is visible and bookable by end users. Hidden resources can still be booked by admins. |
 | `--requires-confirmation` | bool | When true, bookings for this resource are held as pending until an admin approves them. |
@@ -227,37 +227,37 @@ Resources also support entity commands.
 | `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
 | `--max-booking-length` | int | Maximum allowed duration for a single booking on this resource, in minutes. |
 | `--min-booking-length` | int | Minimum allowed duration for a single booking on this resource, in minutes. |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this resource |
+| `--removed-teams` | list, repeat flag | The removed teams value for this resource |
 | `--shifts` | string | JSON-encoded shifts configuration defining the resource's availability schedule. |
-| `--linked-resources` | list, repeat flag |  |
-| `--added-linked-resources` | list, repeat flag |  |
-| `--removed-linked-resources` | list, repeat flag |  |
-| `--google-calendar-id` | string |  |
-| `--kisi-group-id` | string |  |
-| `--access-control-group-id` | string |  |
+| `--linked-resources` | list, repeat flag | List of linked resources linked to this record |
+| `--added-linked-resources` | list, repeat flag | The added linked resources value for this resource |
+| `--removed-linked-resources` | list, repeat flag | The removed linked resources value for this resource |
+| `--google-calendar-id` | string | ID of the google calendar associated with this record |
+| `--kisi-group-id` | string | ID of the kisi group associated with this record |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
 | `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view. |
 | `--archived` | bool | When true, the resource is archived and hidden from all views. It cannot be booked. |
 | `--use-shared-zoom-account` | bool | When true, bookings for this resource use the location's shared Zoom account to create virtual meetings. |
-| `--zoom-access-token` | string |  |
-| `--zoom-refresh-token` | string |  |
+| `--zoom-access-token` | string | The zoom access token value for this resource |
+| `--zoom-refresh-token` | string | The zoom refresh token value for this resource |
 | `--zoom-user-id` | string | Zoom user ID used to host virtual meetings when UseSharedZoomAccount is false. |
 | `--last-cleaned-at` | DateTime | Timestamp of the last cleaning event for this resource. |
-| `--office365-calendar-id` | string |  |
+| `--office365-calendar-id` | string | ID of the office365 calendar associated with this record |
 | `--linked-resource-ids` | string | Comma-separated string of linked resource IDs (read-only alternative view of LinkedResources). |
 | `--only-for-contacts` | bool | When true, only contacts (non-member customers) can book this resource. |
 | `--only-for-members` | bool | When true, only active members (coworkers with a plan) can book this resource. |
 | `--only-for-invoicing-business` | bool | When true, only coworkers invoiced by this specific location can book this resource. |
-| `--booking-availability-exceptions` | list, repeat flag |  |
-| `--added-booking-availability-exceptions` | list, repeat flag |  |
-| `--removed-booking-availability-exceptions` | list, repeat flag |  |
-| `--cancellation-fee-product-id` | long |  |
+| `--booking-availability-exceptions` | list, repeat flag | List of booking availability exceptions linked to this record |
+| `--added-booking-availability-exceptions` | list, repeat flag | The added booking availability exceptions value for this resource |
+| `--removed-booking-availability-exceptions` | list, repeat flag | The removed booking availability exceptions value for this resource |
+| `--cancellation-fee-product-id` | long | ID of the cancellation fee product linked to this record |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum, required | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
@@ -270,13 +270,13 @@ Resources also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
 | `--system-resource-type` | enum | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). Distinct from the custom ResourceType. |
-| `--resource-type-id` | long |  |
+| `--resource-type-id` | long | ID of the resource type linked to this record |
 | `--description` | string | Free-text description shown to users when viewing the resource details. |
-| `--new-picture-url` | string |  |
-| `--clear-picture-file` | bool |  |
+| `--new-picture-url` | string | URL of a new file to upload as the picture |
+| `--clear-picture-file` | bool | Set to true to remove the current picture file |
 | `--email-confirmation-content` | string | Custom HTML or text included in booking confirmation emails for this resource. |
 | `--visible` | bool | Whether the resource is visible and bookable by end users. Hidden resources can still be booked by admins. |
 | `--requires-confirmation` | bool | When true, bookings for this resource are held as pending until an admin approves them. |
@@ -322,37 +322,37 @@ Resources also support entity commands.
 | `--no-return-policy-all-users` | int | Cooldown in minutes: prevents any user from booking this resource within the specified window after the previous booking ends. |
 | `--max-booking-length` | int | Maximum allowed duration for a single booking on this resource, in minutes. |
 | `--min-booking-length` | int | Minimum allowed duration for a single booking on this resource, in minutes. |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this resource |
+| `--removed-teams` | list, repeat flag | The removed teams value for this resource |
 | `--shifts` | string | JSON-encoded shifts configuration defining the resource's availability schedule. |
-| `--linked-resources` | list, repeat flag |  |
-| `--added-linked-resources` | list, repeat flag |  |
-| `--removed-linked-resources` | list, repeat flag |  |
-| `--google-calendar-id` | string |  |
-| `--kisi-group-id` | string |  |
-| `--access-control-group-id` | string |  |
+| `--linked-resources` | list, repeat flag | List of linked resources linked to this record |
+| `--added-linked-resources` | list, repeat flag | The added linked resources value for this resource |
+| `--removed-linked-resources` | list, repeat flag | The removed linked resources value for this resource |
+| `--google-calendar-id` | string | ID of the google calendar associated with this record |
+| `--kisi-group-id` | string | ID of the kisi group associated with this record |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
 | `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view. |
 | `--archived` | bool | When true, the resource is archived and hidden from all views. It cannot be booked. |
 | `--use-shared-zoom-account` | bool | When true, bookings for this resource use the location's shared Zoom account to create virtual meetings. |
-| `--zoom-access-token` | string |  |
-| `--zoom-refresh-token` | string |  |
+| `--zoom-access-token` | string | The zoom access token value for this resource |
+| `--zoom-refresh-token` | string | The zoom refresh token value for this resource |
 | `--zoom-user-id` | string | Zoom user ID used to host virtual meetings when UseSharedZoomAccount is false. |
 | `--last-cleaned-at` | DateTime | Timestamp of the last cleaning event for this resource. |
-| `--office365-calendar-id` | string |  |
+| `--office365-calendar-id` | string | ID of the office365 calendar associated with this record |
 | `--linked-resource-ids` | string | Comma-separated string of linked resource IDs (read-only alternative view of LinkedResources). |
 | `--only-for-contacts` | bool | When true, only contacts (non-member customers) can book this resource. |
 | `--only-for-members` | bool | When true, only active members (coworkers with a plan) can book this resource. |
 | `--only-for-invoicing-business` | bool | When true, only coworkers invoiced by this specific location can book this resource. |
-| `--booking-availability-exceptions` | list, repeat flag |  |
-| `--added-booking-availability-exceptions` | list, repeat flag |  |
-| `--removed-booking-availability-exceptions` | list, repeat flag |  |
-| `--cancellation-fee-product-id` | long |  |
+| `--booking-availability-exceptions` | list, repeat flag | List of booking availability exceptions linked to this record |
+| `--added-booking-availability-exceptions` | list, repeat flag | The added booking availability exceptions value for this resource |
+| `--removed-booking-availability-exceptions` | list, repeat flag | The removed booking availability exceptions value for this resource |
+| `--cancellation-fee-product-id` | long | ID of the cancellation fee product linked to this record |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |

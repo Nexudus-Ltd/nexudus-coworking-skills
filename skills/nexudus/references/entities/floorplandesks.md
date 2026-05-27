@@ -58,6 +58,12 @@ FloorPlanDesks support Search, Get, Create, Update, Delete.
 | `--area` | string | Computed area of the drawn shape on the floor plan canvas, set automatically by the editor |
 | `--notes` | string | Internal notes about this unit, visible to admins only |
 | `--available` | bool | Whether this unit is currently available for assignment or booking |
+| `--available-to-ai` | bool | Whether this unit is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
+| `--notes-for-ai` | string | Notes or instructions for AI channels to consider when recommending this unit for private offices (e.g. 'great natural light but a bit noisy') |
+| `--show-price-for-ai` | bool | Whether to show the price of this unit in AI channel recommendations and responses based on users' budget preferences |
+| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
+| `--from-price-for-ai` | range | |
+| `--to-price-for-ai` | range | |
 | `--position-x` | int | X coordinate of this unit's position on the floor plan canvas |
 | `--from-position-x` | range | |
 | `--to-position-x` | range | |
@@ -108,6 +114,10 @@ FloorPlanDesks support Search, Get, Create, Update, Delete.
 | `--area` | string | Computed area of the drawn shape on the floor plan canvas, set automatically by the editor |
 | `--notes` | string | Internal notes about this unit, visible to admins only |
 | `--available` | bool | Whether this unit is currently available for assignment or booking |
+| `--available-to-ai` | bool | Whether this unit is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
+| `--notes-for-ai` | string | Notes or instructions for AI channels to consider when recommending this unit for private offices (e.g. 'great natural light but a bit noisy') |
+| `--show-price-for-ai` | bool | Whether to show the price of this unit in AI channel recommendations and responses based on users' budget preferences |
+| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
 | `--position-x` | int, required | X coordinate of this unit's position on the floor plan canvas |
 | `--position-y` | int, required | Y coordinate of this unit's position on the floor plan canvas |
 | `--position-z` | int, required | Z-index (draw order) of this unit on the floor plan canvas; higher values render on top |
@@ -140,6 +150,10 @@ FloorPlanDesks support Search, Get, Create, Update, Delete.
 | `--area` | string | Computed area of the drawn shape on the floor plan canvas, set automatically by the editor |
 | `--notes` | string | Internal notes about this unit, visible to admins only |
 | `--available` | bool | Whether this unit is currently available for assignment or booking |
+| `--available-to-ai` | bool | Whether this unit is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
+| `--notes-for-ai` | string | Notes or instructions for AI channels to consider when recommending this unit for private offices (e.g. 'great natural light but a bit noisy') |
+| `--show-price-for-ai` | bool | Whether to show the price of this unit in AI channel recommendations and responses based on users' budget preferences |
+| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
 | `--position-x` | int | X coordinate of this unit's position on the floor plan canvas |
 | `--position-y` | int | Y coordinate of this unit's position on the floor plan canvas |
 | `--position-z` | int | Z-index (draw order) of this unit on the floor plan canvas; higher values render on top |

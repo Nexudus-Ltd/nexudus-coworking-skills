@@ -34,7 +34,7 @@ CoworkerInvoiceLines support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long |  |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
 | `--description` | string | Line item description shown internally |
 | `--display-as` | string | Override text displayed on the printed/emailed invoice instead of the description |
 | `--tax-category-name` | string | Name of the tax category applied to this line |
@@ -52,15 +52,15 @@ CoworkerInvoiceLines support Search, Get, Update (no Create or Delete via API).
 | `--to-tax-rate` | range | |
 | `--financial-account-code` | string | Code of the financial account (revenue category) for this line |
 | `--financial-account-name` | string | Name of the financial account (revenue category) for this line |
-| `--issued-by-unique-id` | string |  |
-| `--cancelled-coworker-invoice-line-unique-id` | string |  |
-| `--created-on-local` | DateTime |  |
+| `--issued-by-unique-id` | string | ID of the issued by unique associated with this record |
+| `--cancelled-coworker-invoice-line-unique-id` | string | ID of the cancelled coworker invoice line unique associated with this record |
+| `--created-on-local` | DateTime | Date/time value for created on local |
 | `--from-created-on-local` | range | |
 | `--to-created-on-local` | range | |
-| `--refunded-on-local` | DateTime |  |
+| `--refunded-on-local` | DateTime | Date/time value for refunded on local |
 | `--from-refunded-on-local` | range | |
 | `--to-refunded-on-local` | range | |
-| `--sale-date-local` | DateTime |  |
+| `--sale-date-local` | DateTime | Date/time value for sale date local |
 | `--from-sale-date-local` | range | |
 | `--to-sale-date-local` | range | |
 | `--purchase-order` | string | Purchase order reference for this line |
@@ -76,7 +76,7 @@ CoworkerInvoiceLines support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long |  |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
 | `--description` | string | Line item description shown internally |
 | `--display-as` | string | Override text displayed on the printed/emailed invoice instead of the description |
 | `--tax-category-name` | string | Name of the tax category applied to this line |
@@ -86,11 +86,11 @@ CoworkerInvoiceLines support Search, Get, Update (no Create or Delete via API).
 | `--tax-rate` | decimal | Tax rate percentage applied to this line |
 | `--financial-account-code` | string | Code of the financial account (revenue category) for this line |
 | `--financial-account-name` | string | Name of the financial account (revenue category) for this line |
-| `--issued-by-unique-id` | string |  |
-| `--cancelled-coworker-invoice-line-unique-id` | string |  |
-| `--created-on-local` | DateTime |  |
-| `--refunded-on-local` | DateTime |  |
-| `--sale-date-local` | DateTime |  |
+| `--issued-by-unique-id` | string | ID of the issued by unique associated with this record |
+| `--cancelled-coworker-invoice-line-unique-id` | string | ID of the cancelled coworker invoice line unique associated with this record |
+| `--created-on-local` | DateTime | Date/time value for created on local |
+| `--refunded-on-local` | DateTime | Date/time value for refunded on local |
+| `--sale-date-local` | DateTime | Date/time value for sale date local |
 | `--purchase-order` | string | Purchase order reference for this line |
 | `--credit-amount` | decimal | Credit amount applied to this line |
 

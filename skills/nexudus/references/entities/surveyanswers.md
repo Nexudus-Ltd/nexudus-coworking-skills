@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=SurveyAnswers -->
 
+A **SurveyAnswer** stores a customer's response to a single survey question, recording the answer text, numeric value, or selected option.
+
 SurveyAnswers support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,11 +23,11 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-run-id` | long |  |
-| `--survey-question-id` | long |  |
-| `--value` | string |  |
-| `--new-file-value-url` | string |  |
-| `--clear-file-value-file` | bool |  |
+| `--survey-run-id` | long | ID of the survey run linked to this record |
+| `--survey-question-id` | long | ID of the survey question linked to this record |
+| `--value` | string | The value value for this survey answer |
+| `--new-file-value-url` | string | URL of a new file to upload as the file value |
+| `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -35,20 +37,20 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-run-id` | long |  |
-| `--survey-question-id` | long, required |  |
-| `--value` | string |  |
-| `--new-file-value-url` | string |  |
-| `--clear-file-value-file` | bool |  |
+| `--survey-run-id` | long | ID of the survey run linked to this record |
+| `--survey-question-id` | long, required | ID of the survey question linked to this record |
+| `--value` | string | The value value for this survey answer |
+| `--new-file-value-url` | string | URL of a new file to upload as the file value |
+| `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 
 #### SurveyAnswer update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-run-id` | long |  |
-| `--survey-question-id` | long |  |
-| `--value` | string |  |
-| `--new-file-value-url` | string |  |
-| `--clear-file-value-file` | bool |  |
+| `--survey-run-id` | long | ID of the survey run linked to this record |
+| `--survey-question-id` | long | ID of the survey question linked to this record |
+| `--value` | string | The value value for this survey answer |
+| `--new-file-value-url` | string | URL of a new file to upload as the file value |
+| `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 
 <!-- END:GENERATED entity=SurveyAnswers -->

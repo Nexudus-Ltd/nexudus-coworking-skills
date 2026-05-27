@@ -25,9 +25,9 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--blog-post-id` | long |  |
-| `--posted-by-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--blog-post-id` | long | ID of the blog post linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
 | `--title` | string | Comment title |
 | `--text` | string | Comment body text |
 | `--published` | bool | Whether the comment is published and visible to readers |
@@ -43,9 +43,9 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--blog-post-id` | long, required |  |
-| `--posted-by-id` | long |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--blog-post-id` | long, required | ID of the blog post linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
 | `--title` | string, required | Comment title |
 | `--text` | string, required | Comment body text |
 | `--published` | bool | Whether the comment is published and visible to readers |
@@ -55,9 +55,9 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--blog-post-id` | long |  |
-| `--posted-by-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--blog-post-id` | long | ID of the blog post linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
 | `--title` | string | Comment title |
 | `--text` | string | Comment body text |
 | `--published` | bool | Whether the comment is published and visible to readers |

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TaskLists -->
 
+A **TaskList** groups related task items into a named collection for organisation and tracking purposes.
+
 TaskLists support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ TaskLists support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--active` | bool |  |
-| `--assign-to-new-contacts` | bool |  |
-| `--assign-to-new-members` | bool |  |
-| `--assign-to-cancellations` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this task list |
+| `--active` | bool | Whether this task list is currently active |
+| `--assign-to-new-contacts` | bool | Whether assign to new contacts is enabled |
+| `--assign-to-new-members` | bool | Whether assign to new members is enabled |
+| `--assign-to-cancellations` | bool | Whether assign to cancellations is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,29 +38,29 @@ TaskLists support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--active` | bool |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--assign-to-new-contacts` | bool |  |
-| `--assign-to-new-members` | bool |  |
-| `--assign-to-cancellations` | bool |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this task list |
+| `--active` | bool | Whether this task list is currently active |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this task list |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this task list |
+| `--assign-to-new-contacts` | bool | Whether assign to new contacts is enabled |
+| `--assign-to-new-members` | bool | Whether assign to new members is enabled |
+| `--assign-to-cancellations` | bool | Whether assign to cancellations is enabled |
 
 #### TaskList update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--active` | bool |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--assign-to-new-contacts` | bool |  |
-| `--assign-to-new-members` | bool |  |
-| `--assign-to-cancellations` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this task list |
+| `--active` | bool | Whether this task list is currently active |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this task list |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this task list |
+| `--assign-to-new-contacts` | bool | Whether assign to new contacts is enabled |
+| `--assign-to-new-members` | bool | Whether assign to new members is enabled |
+| `--assign-to-cancellations` | bool | Whether assign to cancellations is enabled |
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

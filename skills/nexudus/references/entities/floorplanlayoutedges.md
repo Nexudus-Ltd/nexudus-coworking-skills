@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanLayoutEdges -->
 
+A **FloorPlanLayoutEdge** represents a connection or boundary line between nodes in a floor plan layout, used to define walls, pathways, or other structural elements.
+
 FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,23 +23,23 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--edge-key` | string |  |
-| `--source` | string |  |
-| `--target` | string |  |
-| `--angle` | decimal |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--edge-key` | string | The edge key value for this floor plan layout edge |
+| `--source` | string | The source value for this floor plan layout edge |
+| `--target` | string | The target value for this floor plan layout edge |
+| `--angle` | decimal | The angle value for this floor plan layout edge |
 | `--from-angle` | range | |
 | `--to-angle` | range | |
-| `--width` | int |  |
+| `--width` | int | The width value for this floor plan layout edge |
 | `--from-width` | range | |
 | `--to-width` | range | |
-| `--height` | int |  |
+| `--height` | int | The height value for this floor plan layout edge |
 | `--from-height` | range | |
 | `--to-height` | range | |
-| `--length` | int |  |
+| `--length` | int | The length value for this floor plan layout edge |
 | `--from-length` | range | |
 | `--to-length` | range | |
-| `--is-partition` | bool |  |
+| `--is-partition` | bool | Whether is partition is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -47,28 +49,28 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long, required |  |
-| `--edge-key` | string |  |
-| `--source` | string |  |
-| `--target` | string |  |
-| `--angle` | decimal, required |  |
-| `--width` | int, required |  |
-| `--height` | int, required |  |
-| `--length` | int, required |  |
-| `--is-partition` | bool |  |
+| `--floor-plan-layout-id` | long, required | ID of the floor plan layout linked to this record |
+| `--edge-key` | string | The edge key value for this floor plan layout edge |
+| `--source` | string | The source value for this floor plan layout edge |
+| `--target` | string | The target value for this floor plan layout edge |
+| `--angle` | decimal, required | The angle value for this floor plan layout edge |
+| `--width` | int, required | The width value for this floor plan layout edge |
+| `--height` | int, required | The height value for this floor plan layout edge |
+| `--length` | int, required | The length value for this floor plan layout edge |
+| `--is-partition` | bool | Whether is partition is enabled |
 
 #### FloorPlanLayoutEdge update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--edge-key` | string |  |
-| `--source` | string |  |
-| `--target` | string |  |
-| `--angle` | decimal |  |
-| `--width` | int |  |
-| `--height` | int |  |
-| `--length` | int |  |
-| `--is-partition` | bool |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--edge-key` | string | The edge key value for this floor plan layout edge |
+| `--source` | string | The source value for this floor plan layout edge |
+| `--target` | string | The target value for this floor plan layout edge |
+| `--angle` | decimal | The angle value for this floor plan layout edge |
+| `--width` | int | The width value for this floor plan layout edge |
+| `--height` | int | The height value for this floor plan layout edge |
+| `--length` | int | The length value for this floor plan layout edge |
+| `--is-partition` | bool | Whether is partition is enabled |
 
 <!-- END:GENERATED entity=FloorPlanLayoutEdges -->

@@ -31,20 +31,20 @@ Coworkers also support entity commands.
 | --- | --- | --- |
 | `--coworker-type` | enum | Coworker type |
 | `--full-name` | string | Full name |
-| `--salutation` | string | Salutation |
-| `--gender` | enum | Gender |
+| `--salutation` | string | Title or salutation prefix (e.g. Mr, Mrs, Dr) |
+| `--gender` | enum | Gender of the person |
 | `--email` | string | Email address |
 | `--create-user` | bool | Create user account. Grants portal and app access and sends a welcome email with the access details |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--new-banner-image-url` | string |  |
-| `--clear-banner-image-file` | bool |  |
-| `--address` | string | Address |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
+| `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
+| `--address` | string | Street address |
 | `--post-code` | string | Post code |
 | `--city` | string | City name |
-| `--state` | string | State |
-| `--country-id` | long |  |
-| `--simple-time-zone-id` | long |  |
+| `--state` | string | State or province |
+| `--country-id` | long | ID of the country linked to this record |
+| `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
 | `--mobile-phone` | string | Mobile phone |
 | `--land-line` | string | Land line |
 | `--date-of-birth` | DateTime | Date of birth |
@@ -52,34 +52,34 @@ Coworkers also support entity commands.
 | `--to-date-of-birth` | range | |
 | `--nick-name` | string | Nickname |
 | `--business-area` | string | Business area |
-| `--position` | string | Position |
+| `--position` | string | Display order position or job title |
 | `--company-name` | string | Company name |
 | `--profile-website` | string | Profile website |
 | `--profile-tags` | string | Profile tags |
 | `--profile-summary` | string | Profile summary |
 | `--twitter` | string | Twitter handle |
 | `--facebook` | string | Facebook profile |
-| `--google` | string |  |
+| `--google` | string | The google value for this coworker |
 | `--telegram` | string | Telegram handle |
 | `--linkedin` | string | LinkedIn profile |
 | `--skype` | string | Skype handle |
 | `--github` | string | GitHub profile |
-| `--pinterest` | string |  |
-| `--flickr` | string |  |
+| `--pinterest` | string | The pinterest value for this coworker |
+| `--flickr` | string | The flickr value for this coworker |
 | `--instagram` | string | Instagram profile |
-| `--vimeo` | string |  |
-| `--tumblr` | string |  |
-| `--blogger` | string |  |
+| `--vimeo` | string | The vimeo value for this coworker |
+| `--tumblr` | string | The tumblr value for this coworker |
+| `--blogger` | string | The blogger value for this coworker |
 | `--profile-is-public` | bool | Profile is public |
-| `--invoicing-business-id` | long |  |
+| `--invoicing-business-id` | long | ID of the invoicing business linked to this record |
 | `--billing-email` | string | Billing email |
 | `--billing-name` | string | Billing name |
 | `--billing-address` | string | Billing address |
 | `--billing-post-code` | string | Billing post code |
 | `--billing-city` | string | Billing city |
 | `--billing-state` | string | Billing state |
-| `--billing-country-id` | long |  |
-| `--billing-simple-time-zone-id` | long |  |
+| `--billing-country-id` | long | ID of the billing country linked to this record |
+| `--billing-simple-time-zone-id` | long | ID of the billing simple time zone linked to this record |
 | `--tax-rate-type` | enum | Tax rate type |
 | `--tax-rate` | decimal | Tax rate |
 | `--from-tax-rate` | range | |
@@ -93,19 +93,19 @@ Coworkers also support entity commands.
 | `--notify-on-failed-payment` | bool | Notify on failed payment |
 | `--show-paying-member-invoices` | bool | Show paying member invoices |
 | `--enable-gocardless` | bool | Enable GoCardless payments |
-| `--use-go-cardless-pro-payments` | bool |  |
+| `--use-go-cardless-pro-payments` | bool | Whether use go cardless pro payments is enabled |
 | `--gocardless-contract-number` | string | GoCardless contract number |
-| `--stripe-bacs-d-d-payment-method-id` | string |  |
-| `--stripe-bacs-d-d-mandate-id` | string |  |
-| `--stripe-bacs-d-d-customer-token` | string |  |
-| `--stripe-bacs-d-d-enabled` | bool |  |
-| `--last-over-due-invoice-reminder` | DateTime |  |
+| `--stripe-bacs-d-d-payment-method-id` | string | ID of the stripe bacs dd payment method associated with this record |
+| `--stripe-bacs-d-d-mandate-id` | string | ID of the stripe bacs dd mandate associated with this record |
+| `--stripe-bacs-d-d-customer-token` | string | The stripe bacs dd customer token value for this coworker |
+| `--stripe-bacs-d-d-enabled` | bool | Whether stripe bacs dd enabled is enabled |
+| `--last-over-due-invoice-reminder` | DateTime | Date/time value for last over due invoice reminder |
 | `--from-last-over-due-invoice-reminder` | range | |
 | `--to-last-over-due-invoice-reminder` | range | |
-| `--last-low-credit-reminder` | DateTime |  |
+| `--last-low-credit-reminder` | DateTime | Date/time value for last low credit reminder |
 | `--from-last-low-credit-reminder` | range | |
 | `--to-last-low-credit-reminder` | range | |
-| `--referer-guid` | string |  |
+| `--referer-guid` | string | Unique identifier (GUID) for the referer |
 | `--regular-payment-provider` | enum | Regular payment provider |
 | `--regular-payment-contract-number` | string | Regular payment contract number |
 | `--do-not-auto-process-invoices` | bool | Do not process invoices automatically |
@@ -114,26 +114,26 @@ Coworkers also support entity commands.
 | `--access-pincode` | string | Access PIN code |
 | `--key-fob-number` | string | Key fob number |
 | `--notify-on-delivery` | bool | Notify on delivery |
-| `--ezeep-user-id` | string |  |
-| `--ezeep-free-printing` | bool |  |
-| `--ezeep-blue-user-id` | string |  |
-| `--ezeep-blue-free-printing` | bool |  |
-| `--ezeep-blue-printing-enabled` | bool |  |
-| `--paper-cut-pay-as-you-print` | bool |  |
-| `--paper-cut-free-printing` | bool |  |
-| `--paper-cut-user-id` | string |  |
+| `--ezeep-user-id` | string | ID of the ezeep user associated with this record |
+| `--ezeep-free-printing` | bool | Whether ezeep free printing is enabled |
+| `--ezeep-blue-user-id` | string | ID of the ezeep blue user associated with this record |
+| `--ezeep-blue-free-printing` | bool | Whether ezeep blue free printing is enabled |
+| `--ezeep-blue-printing-enabled` | bool | Whether ezeep blue printing enabled is enabled |
+| `--paper-cut-pay-as-you-print` | bool | Whether paper cut pay as you print is enabled |
+| `--paper-cut-free-printing` | bool | Whether paper cut free printing is enabled |
+| `--paper-cut-user-id` | string | ID of the paper cut user associated with this record |
 | `--can-make-bookings` | bool | Can make bookings |
 | `--can-book-for-team` | bool | Can book for team |
 | `--can-purchase-products` | bool | Can purchase products |
 | `--can-purchase-events` | bool | Can purchase events |
 | `--can-access-community` | bool | Can access community |
 | `--reference-number` | string | Reference number |
-| `--tag` | string | Tag |
-| `--notes` | string | Notes |
+| `--tag` | string | Free-form tag for categorising or filtering |
+| `--notes` | string | Optional notes or comments about this coworker |
 | `--show-alert` | bool | Show alert |
 | `--alert-note` | string | Alert note |
-| `--user-id` | long |  |
-| `--active` | bool | Active |
+| `--user-id` | long | ID of the user linked to this record |
+| `--active` | bool | Whether this coworker is currently active |
 | `--next-auto-invoice` | DateTime | Next auto invoice date |
 | `--from-next-auto-invoice` | range | |
 | `--to-next-auto-invoice` | range | |
@@ -144,10 +144,10 @@ Coworkers also support entity commands.
 | `--from-registration-date` | range | |
 | `--to-registration-date` | range | |
 | `--general-terms-accepted` | bool | General terms accepted |
-| `--last-renewal` | DateTime |  |
+| `--last-renewal` | DateTime | Date/time value for last renewal |
 | `--from-last-renewal` | range | |
 | `--to-last-renewal` | range | |
-| `--last-invoice-attempt` | DateTime |  |
+| `--last-invoice-attempt` | DateTime | Date/time value for last invoice attempt |
 | `--from-last-invoice-attempt` | range | |
 | `--to-last-invoice-attempt` | range | |
 | `--custom1` | string | Custom field 1 |
@@ -180,52 +180,52 @@ Coworkers also support entity commands.
 | `--custom28` | string | Custom field 28 |
 | `--custom29` | string | Custom field 29 |
 | `--custom30` | string | Custom field 30 |
-| `--next-invoice-local` | DateTime |  |
+| `--next-invoice-local` | DateTime | Date/time value for next invoice local |
 | `--from-next-invoice-local` | range | |
 | `--to-next-invoice-local` | range | |
-| `--next-auto-invoice-local` | DateTime |  |
+| `--next-auto-invoice-local` | DateTime | Date/time value for next auto invoice local |
 | `--from-next-auto-invoice-local` | range | |
 | `--to-next-auto-invoice-local` | range | |
-| `--registration-date-local` | DateTime |  |
+| `--registration-date-local` | DateTime | Date/time value for registration date local |
 | `--from-registration-date-local` | range | |
 | `--to-registration-date-local` | range | |
-| `--access-control-debounce-time` | DateTime |  |
+| `--access-control-debounce-time` | DateTime | Date/time value for access control debounce time |
 | `--from-access-control-debounce-time` | range | |
 | `--to-access-control-debounce-time` | range | |
-| `--office365-access-token` | string |  |
-| `--office365-refresh-token` | string |  |
-| `--zoom-access-token` | string |  |
-| `--zoom-refresh-token` | string |  |
-| `--zoom-user-id` | string |  |
-| `--doordeck-private-key` | string |  |
-| `--doordeck-public-key` | string |  |
-| `--doordeck-user-guid` | string |  |
-| `--office365-subscription-id` | string |  |
-| `--salto-v2-access-token` | string |  |
-| `--stripe-a-c-h-bank-token` | string |  |
-| `--stripe-a-c-h-customer-token` | string |  |
-| `--has-accepted-stripe-a-c-h-agreement` | bool |  |
-| `--has-verified-stripe-a-c-h-deposits` | bool |  |
+| `--office365-access-token` | string | The office365 access token value for this coworker |
+| `--office365-refresh-token` | string | The office365 refresh token value for this coworker |
+| `--zoom-access-token` | string | The zoom access token value for this coworker |
+| `--zoom-refresh-token` | string | The zoom refresh token value for this coworker |
+| `--zoom-user-id` | string | ID of the zoom user associated with this record |
+| `--doordeck-private-key` | string | The doordeck private key value for this coworker |
+| `--doordeck-public-key` | string | The doordeck public key value for this coworker |
+| `--doordeck-user-guid` | string | Unique identifier (GUID) for the doordeck user |
+| `--office365-subscription-id` | string | ID of the office365 subscription associated with this record |
+| `--salto-v2-access-token` | string | The salto v2 access token value for this coworker |
+| `--stripe-a-c-h-bank-token` | string | The stripe ach bank token value for this coworker |
+| `--stripe-a-c-h-customer-token` | string | The stripe ach customer token value for this coworker |
+| `--has-accepted-stripe-a-c-h-agreement` | bool | Whether has accepted stripe ach agreement is enabled |
+| `--has-verified-stripe-a-c-h-deposits` | bool | Whether has verified stripe ach deposits is enabled |
 | `--purchase-order` | string | Purchase order |
-| `--sync-to-square` | bool |  |
+| `--sync-to-square` | bool | Whether sync to square is enabled |
 | `--notify-on-deliveries-email` | string | Notify on deliveries email |
-| `--access-control-error-notification-sent` | bool |  |
-| `--sync-to-paper-cut-due` | bool |  |
-| `--google-api-token` | string |  |
-| `--google-subscription-id` | string |  |
-| `--invoice-segregation-override` | bool |  |
-| `--invoice-segregate-contracts` | bool |  |
-| `--invoice-segregate-bookings` | bool |  |
-| `--invoice-segregate-products` | bool |  |
-| `--invoice-segregate-time-passes` | bool |  |
-| `--invoice-segregate-tickets` | bool |  |
-| `--is-default-profile` | bool |  |
-| `--invoice-segregate-charges` | bool |  |
-| `--brivo-user-id` | int |  |
+| `--access-control-error-notification-sent` | bool | Whether access control error notification sent is enabled |
+| `--sync-to-paper-cut-due` | bool | Whether sync to paper cut due is enabled |
+| `--google-api-token` | string | The google api token value for this coworker |
+| `--google-subscription-id` | string | ID of the google subscription associated with this record |
+| `--invoice-segregation-override` | bool | Whether invoice segregation override is enabled |
+| `--invoice-segregate-contracts` | bool | Whether invoice segregate contracts is enabled |
+| `--invoice-segregate-bookings` | bool | Whether invoice segregate bookings is enabled |
+| `--invoice-segregate-products` | bool | Whether invoice segregate products is enabled |
+| `--invoice-segregate-time-passes` | bool | Whether invoice segregate time passes is enabled |
+| `--invoice-segregate-tickets` | bool | Whether invoice segregate tickets is enabled |
+| `--is-default-profile` | bool | Whether is default profile is enabled |
+| `--invoice-segregate-charges` | bool | Whether invoice segregate charges is enabled |
+| `--brivo-user-id` | int | ID of the brivo user associated with this record |
 | `--from-brivo-user-id` | range | |
 | `--to-brivo-user-id` | range | |
-| `--ezeep-printing-enabled` | bool |  |
-| `--invoice-due-date-day` | int |  |
+| `--ezeep-printing-enabled` | bool | Whether ezeep printing enabled is enabled |
+| `--invoice-due-date-day` | int | The invoice due date day value for this coworker |
 | `--from-invoice-due-date-day` | range | |
 | `--to-invoice-due-date-day` | range | |
 | `--monday-attendance` | enum | Monday attendance |
@@ -235,10 +235,10 @@ Coworkers also support entity commands.
 | `--friday-attendance` | enum | Friday attendance |
 | `--saturday-attendance` | enum | Saturday attendance |
 | `--sunday-attendance` | enum | Sunday attendance |
-| `--longitude` | decimal | Longitude |
+| `--longitude` | decimal | GPS longitude coordinate |
 | `--from-longitude` | range | |
 | `--to-longitude` | range | |
-| `--latitude` | decimal | Latitude |
+| `--latitude` | decimal | GPS latitude coordinate |
 | `--from-latitude` | range | |
 | `--to-latitude` | range | |
 | `--billing-longitude` | decimal | Billing longitude |
@@ -247,7 +247,7 @@ Coworkers also support entity commands.
 | `--billing-latitude` | decimal | Billing latitude |
 | `--from-billing-latitude` | range | |
 | `--to-billing-latitude` | range | |
-| `--archived` | bool | Archived |
+| `--archived` | bool | Whether this coworker is archived and hidden from active lists |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -258,60 +258,60 @@ Coworkers also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-type` | enum, required | Coworker type |
-| `--businesses` | list, repeat flag |  |
-| `--added-businesses` | list, repeat flag |  |
-| `--removed-businesses` | list, repeat flag |  |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--businesses` | list, repeat flag | List of businesses linked to this record |
+| `--added-businesses` | list, repeat flag | The added businesses value for this coworker |
+| `--removed-businesses` | list, repeat flag | The removed businesses value for this coworker |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this coworker |
+| `--removed-teams` | list, repeat flag | The removed teams value for this coworker |
 | `--full-name` | string, required | Full name |
-| `--salutation` | string | Salutation |
-| `--gender` | enum, required | Gender |
+| `--salutation` | string | Title or salutation prefix (e.g. Mr, Mrs, Dr) |
+| `--gender` | enum, required | Gender of the person |
 | `--email` | string, required | Email address |
 | `--create-user` | bool | Create user account. Grants portal and app access and sends a welcome email with the access details |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--new-banner-image-url` | string |  |
-| `--clear-banner-image-file` | bool |  |
-| `--address` | string | Address |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
+| `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
+| `--address` | string | Street address |
 | `--post-code` | string | Post code |
 | `--city` | string | City name |
-| `--state` | string | State |
-| `--country-id` | long, required |  |
-| `--simple-time-zone-id` | long, required |  |
+| `--state` | string | State or province |
+| `--country-id` | long, required | ID of the country linked to this record |
+| `--simple-time-zone-id` | long, required | ID of the simple time zone linked to this record |
 | `--mobile-phone` | string | Mobile phone |
 | `--land-line` | string | Land line |
 | `--date-of-birth` | DateTime | Date of birth |
 | `--nick-name` | string | Nickname |
 | `--business-area` | string | Business area |
-| `--position` | string | Position |
+| `--position` | string | Display order position or job title |
 | `--company-name` | string | Company name |
 | `--profile-website` | string | Profile website |
 | `--profile-tags` | string | Profile tags |
 | `--profile-summary` | string | Profile summary |
 | `--twitter` | string | Twitter handle |
 | `--facebook` | string | Facebook profile |
-| `--google` | string |  |
+| `--google` | string | The google value for this coworker |
 | `--telegram` | string | Telegram handle |
 | `--linkedin` | string | LinkedIn profile |
 | `--skype` | string | Skype handle |
 | `--github` | string | GitHub profile |
-| `--pinterest` | string |  |
-| `--flickr` | string |  |
+| `--pinterest` | string | The pinterest value for this coworker |
+| `--flickr` | string | The flickr value for this coworker |
 | `--instagram` | string | Instagram profile |
-| `--vimeo` | string |  |
-| `--tumblr` | string |  |
-| `--blogger` | string |  |
+| `--vimeo` | string | The vimeo value for this coworker |
+| `--tumblr` | string | The tumblr value for this coworker |
+| `--blogger` | string | The blogger value for this coworker |
 | `--profile-is-public` | bool | Profile is public |
-| `--invoicing-business-id` | long |  |
+| `--invoicing-business-id` | long | ID of the invoicing business linked to this record |
 | `--billing-email` | string | Billing email |
 | `--billing-name` | string | Billing name |
 | `--billing-address` | string | Billing address |
 | `--billing-post-code` | string | Billing post code |
 | `--billing-city` | string | Billing city |
 | `--billing-state` | string | Billing state |
-| `--billing-country-id` | long |  |
-| `--billing-simple-time-zone-id` | long |  |
+| `--billing-country-id` | long | ID of the billing country linked to this record |
+| `--billing-simple-time-zone-id` | long | ID of the billing simple time zone linked to this record |
 | `--tax-rate-type` | enum, required | Tax rate type |
 | `--tax-rate` | decimal | Tax rate |
 | `--tax-id-number` | string | Tax ID number |
@@ -323,15 +323,15 @@ Coworkers also support entity commands.
 | `--notify-on-failed-payment` | bool | Notify on failed payment |
 | `--show-paying-member-invoices` | bool | Show paying member invoices |
 | `--enable-gocardless` | bool | Enable GoCardless payments |
-| `--use-go-cardless-pro-payments` | bool |  |
+| `--use-go-cardless-pro-payments` | bool | Whether use go cardless pro payments is enabled |
 | `--gocardless-contract-number` | string | GoCardless contract number |
-| `--stripe-bacs-d-d-payment-method-id` | string |  |
-| `--stripe-bacs-d-d-mandate-id` | string |  |
-| `--stripe-bacs-d-d-customer-token` | string |  |
-| `--stripe-bacs-d-d-enabled` | bool |  |
-| `--last-over-due-invoice-reminder` | DateTime |  |
-| `--last-low-credit-reminder` | DateTime |  |
-| `--referer-guid` | string |  |
+| `--stripe-bacs-d-d-payment-method-id` | string | ID of the stripe bacs dd payment method associated with this record |
+| `--stripe-bacs-d-d-mandate-id` | string | ID of the stripe bacs dd mandate associated with this record |
+| `--stripe-bacs-d-d-customer-token` | string | The stripe bacs dd customer token value for this coworker |
+| `--stripe-bacs-d-d-enabled` | bool | Whether stripe bacs dd enabled is enabled |
+| `--last-over-due-invoice-reminder` | DateTime | Date/time value for last over due invoice reminder |
+| `--last-low-credit-reminder` | DateTime | Date/time value for last low credit reminder |
+| `--referer-guid` | string | Unique identifier (GUID) for the referer |
 | `--regular-payment-provider` | enum | Regular payment provider |
 | `--regular-payment-contract-number` | string | Regular payment contract number |
 | `--do-not-auto-process-invoices` | bool | Do not process invoices automatically |
@@ -340,32 +340,32 @@ Coworkers also support entity commands.
 | `--access-pincode` | string | Access PIN code |
 | `--key-fob-number` | string | Key fob number |
 | `--notify-on-delivery` | bool | Notify on delivery |
-| `--ezeep-user-id` | string |  |
-| `--ezeep-free-printing` | bool |  |
-| `--ezeep-blue-user-id` | string |  |
-| `--ezeep-blue-free-printing` | bool |  |
-| `--ezeep-blue-printing-enabled` | bool |  |
-| `--paper-cut-pay-as-you-print` | bool |  |
-| `--paper-cut-free-printing` | bool |  |
-| `--paper-cut-user-id` | string |  |
+| `--ezeep-user-id` | string | ID of the ezeep user associated with this record |
+| `--ezeep-free-printing` | bool | Whether ezeep free printing is enabled |
+| `--ezeep-blue-user-id` | string | ID of the ezeep blue user associated with this record |
+| `--ezeep-blue-free-printing` | bool | Whether ezeep blue free printing is enabled |
+| `--ezeep-blue-printing-enabled` | bool | Whether ezeep blue printing enabled is enabled |
+| `--paper-cut-pay-as-you-print` | bool | Whether paper cut pay as you print is enabled |
+| `--paper-cut-free-printing` | bool | Whether paper cut free printing is enabled |
+| `--paper-cut-user-id` | string | ID of the paper cut user associated with this record |
 | `--can-make-bookings` | bool | Can make bookings |
 | `--can-book-for-team` | bool | Can book for team |
 | `--can-purchase-products` | bool | Can purchase products |
 | `--can-purchase-events` | bool | Can purchase events |
 | `--can-access-community` | bool | Can access community |
 | `--reference-number` | string | Reference number |
-| `--tag` | string | Tag |
-| `--notes` | string | Notes |
+| `--tag` | string | Free-form tag for categorising or filtering |
+| `--notes` | string | Optional notes or comments about this coworker |
 | `--show-alert` | bool | Show alert |
 | `--alert-note` | string | Alert note |
-| `--user-id` | long |  |
-| `--active` | bool | Active |
+| `--user-id` | long | ID of the user linked to this record |
+| `--active` | bool | Whether this coworker is currently active |
 | `--next-auto-invoice` | DateTime | Next auto invoice date |
 | `--invoice-due-date-period` | int | Invoice due date period |
 | `--registration-date` | DateTime | Registration date |
 | `--general-terms-accepted` | bool | General terms accepted |
-| `--last-renewal` | DateTime |  |
-| `--last-invoice-attempt` | DateTime |  |
+| `--last-renewal` | DateTime | Date/time value for last renewal |
+| `--last-invoice-attempt` | DateTime | Date/time value for last invoice attempt |
 | `--custom1` | string | Custom field 1 |
 | `--custom2` | string | Custom field 2 |
 | `--custom3` | string | Custom field 3 |
@@ -396,42 +396,42 @@ Coworkers also support entity commands.
 | `--custom28` | string | Custom field 28 |
 | `--custom29` | string | Custom field 29 |
 | `--custom30` | string | Custom field 30 |
-| `--next-invoice-local` | DateTime |  |
-| `--next-auto-invoice-local` | DateTime |  |
-| `--registration-date-local` | DateTime |  |
-| `--access-control-debounce-time` | DateTime |  |
-| `--office365-access-token` | string |  |
-| `--office365-refresh-token` | string |  |
-| `--zoom-access-token` | string |  |
-| `--zoom-refresh-token` | string |  |
-| `--zoom-user-id` | string |  |
-| `--doordeck-private-key` | string |  |
-| `--doordeck-public-key` | string |  |
-| `--doordeck-user-guid` | string |  |
-| `--office365-subscription-id` | string |  |
-| `--salto-v2-access-token` | string |  |
-| `--stripe-a-c-h-bank-token` | string |  |
-| `--stripe-a-c-h-customer-token` | string |  |
-| `--has-accepted-stripe-a-c-h-agreement` | bool |  |
-| `--has-verified-stripe-a-c-h-deposits` | bool |  |
+| `--next-invoice-local` | DateTime | Date/time value for next invoice local |
+| `--next-auto-invoice-local` | DateTime | Date/time value for next auto invoice local |
+| `--registration-date-local` | DateTime | Date/time value for registration date local |
+| `--access-control-debounce-time` | DateTime | Date/time value for access control debounce time |
+| `--office365-access-token` | string | The office365 access token value for this coworker |
+| `--office365-refresh-token` | string | The office365 refresh token value for this coworker |
+| `--zoom-access-token` | string | The zoom access token value for this coworker |
+| `--zoom-refresh-token` | string | The zoom refresh token value for this coworker |
+| `--zoom-user-id` | string | ID of the zoom user associated with this record |
+| `--doordeck-private-key` | string | The doordeck private key value for this coworker |
+| `--doordeck-public-key` | string | The doordeck public key value for this coworker |
+| `--doordeck-user-guid` | string | Unique identifier (GUID) for the doordeck user |
+| `--office365-subscription-id` | string | ID of the office365 subscription associated with this record |
+| `--salto-v2-access-token` | string | The salto v2 access token value for this coworker |
+| `--stripe-a-c-h-bank-token` | string | The stripe ach bank token value for this coworker |
+| `--stripe-a-c-h-customer-token` | string | The stripe ach customer token value for this coworker |
+| `--has-accepted-stripe-a-c-h-agreement` | bool | Whether has accepted stripe ach agreement is enabled |
+| `--has-verified-stripe-a-c-h-deposits` | bool | Whether has verified stripe ach deposits is enabled |
 | `--purchase-order` | string | Purchase order |
-| `--sync-to-square` | bool |  |
+| `--sync-to-square` | bool | Whether sync to square is enabled |
 | `--notify-on-deliveries-email` | string | Notify on deliveries email |
-| `--access-control-error-notification-sent` | bool |  |
-| `--sync-to-paper-cut-due` | bool |  |
-| `--google-api-token` | string |  |
-| `--google-subscription-id` | string |  |
-| `--invoice-segregation-override` | bool |  |
-| `--invoice-segregate-contracts` | bool |  |
-| `--invoice-segregate-bookings` | bool |  |
-| `--invoice-segregate-products` | bool |  |
-| `--invoice-segregate-time-passes` | bool |  |
-| `--invoice-segregate-tickets` | bool |  |
-| `--is-default-profile` | bool |  |
-| `--invoice-segregate-charges` | bool |  |
-| `--brivo-user-id` | int |  |
-| `--ezeep-printing-enabled` | bool |  |
-| `--invoice-due-date-day` | int |  |
+| `--access-control-error-notification-sent` | bool | Whether access control error notification sent is enabled |
+| `--sync-to-paper-cut-due` | bool | Whether sync to paper cut due is enabled |
+| `--google-api-token` | string | The google api token value for this coworker |
+| `--google-subscription-id` | string | ID of the google subscription associated with this record |
+| `--invoice-segregation-override` | bool | Whether invoice segregation override is enabled |
+| `--invoice-segregate-contracts` | bool | Whether invoice segregate contracts is enabled |
+| `--invoice-segregate-bookings` | bool | Whether invoice segregate bookings is enabled |
+| `--invoice-segregate-products` | bool | Whether invoice segregate products is enabled |
+| `--invoice-segregate-time-passes` | bool | Whether invoice segregate time passes is enabled |
+| `--invoice-segregate-tickets` | bool | Whether invoice segregate tickets is enabled |
+| `--is-default-profile` | bool | Whether is default profile is enabled |
+| `--invoice-segregate-charges` | bool | Whether invoice segregate charges is enabled |
+| `--brivo-user-id` | int | ID of the brivo user associated with this record |
+| `--ezeep-printing-enabled` | bool | Whether ezeep printing enabled is enabled |
+| `--invoice-due-date-day` | int | The invoice due date day value for this coworker |
 | `--monday-attendance` | enum, required | Monday attendance |
 | `--tuesday-attendance` | enum, required | Tuesday attendance |
 | `--wednesday-attendance` | enum, required | Wednesday attendance |
@@ -439,70 +439,70 @@ Coworkers also support entity commands.
 | `--friday-attendance` | enum, required | Friday attendance |
 | `--saturday-attendance` | enum, required | Saturday attendance |
 | `--sunday-attendance` | enum, required | Sunday attendance |
-| `--longitude` | decimal | Longitude |
-| `--latitude` | decimal | Latitude |
+| `--longitude` | decimal | GPS longitude coordinate |
+| `--latitude` | decimal | GPS latitude coordinate |
 | `--billing-longitude` | decimal | Billing longitude |
 | `--billing-latitude` | decimal | Billing latitude |
-| `--archived` | bool | Archived |
+| `--archived` | bool | Whether this coworker is archived and hidden from active lists |
 
 #### Coworker update options
 
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-type` | enum | Coworker type |
-| `--businesses` | list, repeat flag |  |
-| `--added-businesses` | list, repeat flag |  |
-| `--removed-businesses` | list, repeat flag |  |
-| `--teams` | list, repeat flag |  |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--businesses` | list, repeat flag | List of businesses linked to this record |
+| `--added-businesses` | list, repeat flag | The added businesses value for this coworker |
+| `--removed-businesses` | list, repeat flag | The removed businesses value for this coworker |
+| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--added-teams` | list, repeat flag | The added teams value for this coworker |
+| `--removed-teams` | list, repeat flag | The removed teams value for this coworker |
 | `--full-name` | string | Full name |
-| `--salutation` | string | Salutation |
-| `--gender` | enum | Gender |
+| `--salutation` | string | Title or salutation prefix (e.g. Mr, Mrs, Dr) |
+| `--gender` | enum | Gender of the person |
 | `--email` | string | Email address |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--new-banner-image-url` | string |  |
-| `--clear-banner-image-file` | bool |  |
-| `--address` | string | Address |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
+| `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
+| `--address` | string | Street address |
 | `--post-code` | string | Post code |
 | `--city` | string | City name |
-| `--state` | string | State |
-| `--country-id` | long |  |
-| `--simple-time-zone-id` | long |  |
+| `--state` | string | State or province |
+| `--country-id` | long | ID of the country linked to this record |
+| `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
 | `--mobile-phone` | string | Mobile phone |
 | `--land-line` | string | Land line |
 | `--date-of-birth` | DateTime | Date of birth |
 | `--nick-name` | string | Nickname |
 | `--business-area` | string | Business area |
-| `--position` | string | Position |
+| `--position` | string | Display order position or job title |
 | `--company-name` | string | Company name |
 | `--profile-website` | string | Profile website |
 | `--profile-tags` | string | Profile tags |
 | `--profile-summary` | string | Profile summary |
 | `--twitter` | string | Twitter handle |
 | `--facebook` | string | Facebook profile |
-| `--google` | string |  |
+| `--google` | string | The google value for this coworker |
 | `--telegram` | string | Telegram handle |
 | `--linkedin` | string | LinkedIn profile |
 | `--skype` | string | Skype handle |
 | `--github` | string | GitHub profile |
-| `--pinterest` | string |  |
-| `--flickr` | string |  |
+| `--pinterest` | string | The pinterest value for this coworker |
+| `--flickr` | string | The flickr value for this coworker |
 | `--instagram` | string | Instagram profile |
-| `--vimeo` | string |  |
-| `--tumblr` | string |  |
-| `--blogger` | string |  |
+| `--vimeo` | string | The vimeo value for this coworker |
+| `--tumblr` | string | The tumblr value for this coworker |
+| `--blogger` | string | The blogger value for this coworker |
 | `--profile-is-public` | bool | Profile is public |
-| `--invoicing-business-id` | long |  |
+| `--invoicing-business-id` | long | ID of the invoicing business linked to this record |
 | `--billing-email` | string | Billing email |
 | `--billing-name` | string | Billing name |
 | `--billing-address` | string | Billing address |
 | `--billing-post-code` | string | Billing post code |
 | `--billing-city` | string | Billing city |
 | `--billing-state` | string | Billing state |
-| `--billing-country-id` | long |  |
-| `--billing-simple-time-zone-id` | long |  |
+| `--billing-country-id` | long | ID of the billing country linked to this record |
+| `--billing-simple-time-zone-id` | long | ID of the billing simple time zone linked to this record |
 | `--tax-rate-type` | enum | Tax rate type |
 | `--tax-rate` | decimal | Tax rate |
 | `--tax-id-number` | string | Tax ID number |
@@ -514,15 +514,15 @@ Coworkers also support entity commands.
 | `--notify-on-failed-payment` | bool | Notify on failed payment |
 | `--show-paying-member-invoices` | bool | Show paying member invoices |
 | `--enable-gocardless` | bool | Enable GoCardless payments |
-| `--use-go-cardless-pro-payments` | bool |  |
+| `--use-go-cardless-pro-payments` | bool | Whether use go cardless pro payments is enabled |
 | `--gocardless-contract-number` | string | GoCardless contract number |
-| `--stripe-bacs-d-d-payment-method-id` | string |  |
-| `--stripe-bacs-d-d-mandate-id` | string |  |
-| `--stripe-bacs-d-d-customer-token` | string |  |
-| `--stripe-bacs-d-d-enabled` | bool |  |
-| `--last-over-due-invoice-reminder` | DateTime |  |
-| `--last-low-credit-reminder` | DateTime |  |
-| `--referer-guid` | string |  |
+| `--stripe-bacs-d-d-payment-method-id` | string | ID of the stripe bacs dd payment method associated with this record |
+| `--stripe-bacs-d-d-mandate-id` | string | ID of the stripe bacs dd mandate associated with this record |
+| `--stripe-bacs-d-d-customer-token` | string | The stripe bacs dd customer token value for this coworker |
+| `--stripe-bacs-d-d-enabled` | bool | Whether stripe bacs dd enabled is enabled |
+| `--last-over-due-invoice-reminder` | DateTime | Date/time value for last over due invoice reminder |
+| `--last-low-credit-reminder` | DateTime | Date/time value for last low credit reminder |
+| `--referer-guid` | string | Unique identifier (GUID) for the referer |
 | `--regular-payment-provider` | enum | Regular payment provider |
 | `--regular-payment-contract-number` | string | Regular payment contract number |
 | `--do-not-auto-process-invoices` | bool | Do not process invoices automatically |
@@ -531,32 +531,32 @@ Coworkers also support entity commands.
 | `--access-pincode` | string | Access PIN code |
 | `--key-fob-number` | string | Key fob number |
 | `--notify-on-delivery` | bool | Notify on delivery |
-| `--ezeep-user-id` | string |  |
-| `--ezeep-free-printing` | bool |  |
-| `--ezeep-blue-user-id` | string |  |
-| `--ezeep-blue-free-printing` | bool |  |
-| `--ezeep-blue-printing-enabled` | bool |  |
-| `--paper-cut-pay-as-you-print` | bool |  |
-| `--paper-cut-free-printing` | bool |  |
-| `--paper-cut-user-id` | string |  |
+| `--ezeep-user-id` | string | ID of the ezeep user associated with this record |
+| `--ezeep-free-printing` | bool | Whether ezeep free printing is enabled |
+| `--ezeep-blue-user-id` | string | ID of the ezeep blue user associated with this record |
+| `--ezeep-blue-free-printing` | bool | Whether ezeep blue free printing is enabled |
+| `--ezeep-blue-printing-enabled` | bool | Whether ezeep blue printing enabled is enabled |
+| `--paper-cut-pay-as-you-print` | bool | Whether paper cut pay as you print is enabled |
+| `--paper-cut-free-printing` | bool | Whether paper cut free printing is enabled |
+| `--paper-cut-user-id` | string | ID of the paper cut user associated with this record |
 | `--can-make-bookings` | bool | Can make bookings |
 | `--can-book-for-team` | bool | Can book for team |
 | `--can-purchase-products` | bool | Can purchase products |
 | `--can-purchase-events` | bool | Can purchase events |
 | `--can-access-community` | bool | Can access community |
 | `--reference-number` | string | Reference number |
-| `--tag` | string | Tag |
-| `--notes` | string | Notes |
+| `--tag` | string | Free-form tag for categorising or filtering |
+| `--notes` | string | Optional notes or comments about this coworker |
 | `--show-alert` | bool | Show alert |
 | `--alert-note` | string | Alert note |
-| `--user-id` | long |  |
-| `--active` | bool | Active |
+| `--user-id` | long | ID of the user linked to this record |
+| `--active` | bool | Whether this coworker is currently active |
 | `--next-auto-invoice` | DateTime | Next auto invoice date |
 | `--invoice-due-date-period` | int | Invoice due date period |
 | `--registration-date` | DateTime | Registration date |
 | `--general-terms-accepted` | bool | General terms accepted |
-| `--last-renewal` | DateTime |  |
-| `--last-invoice-attempt` | DateTime |  |
+| `--last-renewal` | DateTime | Date/time value for last renewal |
+| `--last-invoice-attempt` | DateTime | Date/time value for last invoice attempt |
 | `--custom1` | string | Custom field 1 |
 | `--custom2` | string | Custom field 2 |
 | `--custom3` | string | Custom field 3 |
@@ -587,42 +587,42 @@ Coworkers also support entity commands.
 | `--custom28` | string | Custom field 28 |
 | `--custom29` | string | Custom field 29 |
 | `--custom30` | string | Custom field 30 |
-| `--next-invoice-local` | DateTime |  |
-| `--next-auto-invoice-local` | DateTime |  |
-| `--registration-date-local` | DateTime |  |
-| `--access-control-debounce-time` | DateTime |  |
-| `--office365-access-token` | string |  |
-| `--office365-refresh-token` | string |  |
-| `--zoom-access-token` | string |  |
-| `--zoom-refresh-token` | string |  |
-| `--zoom-user-id` | string |  |
-| `--doordeck-private-key` | string |  |
-| `--doordeck-public-key` | string |  |
-| `--doordeck-user-guid` | string |  |
-| `--office365-subscription-id` | string |  |
-| `--salto-v2-access-token` | string |  |
-| `--stripe-a-c-h-bank-token` | string |  |
-| `--stripe-a-c-h-customer-token` | string |  |
-| `--has-accepted-stripe-a-c-h-agreement` | bool |  |
-| `--has-verified-stripe-a-c-h-deposits` | bool |  |
+| `--next-invoice-local` | DateTime | Date/time value for next invoice local |
+| `--next-auto-invoice-local` | DateTime | Date/time value for next auto invoice local |
+| `--registration-date-local` | DateTime | Date/time value for registration date local |
+| `--access-control-debounce-time` | DateTime | Date/time value for access control debounce time |
+| `--office365-access-token` | string | The office365 access token value for this coworker |
+| `--office365-refresh-token` | string | The office365 refresh token value for this coworker |
+| `--zoom-access-token` | string | The zoom access token value for this coworker |
+| `--zoom-refresh-token` | string | The zoom refresh token value for this coworker |
+| `--zoom-user-id` | string | ID of the zoom user associated with this record |
+| `--doordeck-private-key` | string | The doordeck private key value for this coworker |
+| `--doordeck-public-key` | string | The doordeck public key value for this coworker |
+| `--doordeck-user-guid` | string | Unique identifier (GUID) for the doordeck user |
+| `--office365-subscription-id` | string | ID of the office365 subscription associated with this record |
+| `--salto-v2-access-token` | string | The salto v2 access token value for this coworker |
+| `--stripe-a-c-h-bank-token` | string | The stripe ach bank token value for this coworker |
+| `--stripe-a-c-h-customer-token` | string | The stripe ach customer token value for this coworker |
+| `--has-accepted-stripe-a-c-h-agreement` | bool | Whether has accepted stripe ach agreement is enabled |
+| `--has-verified-stripe-a-c-h-deposits` | bool | Whether has verified stripe ach deposits is enabled |
 | `--purchase-order` | string | Purchase order |
-| `--sync-to-square` | bool |  |
+| `--sync-to-square` | bool | Whether sync to square is enabled |
 | `--notify-on-deliveries-email` | string | Notify on deliveries email |
-| `--access-control-error-notification-sent` | bool |  |
-| `--sync-to-paper-cut-due` | bool |  |
-| `--google-api-token` | string |  |
-| `--google-subscription-id` | string |  |
-| `--invoice-segregation-override` | bool |  |
-| `--invoice-segregate-contracts` | bool |  |
-| `--invoice-segregate-bookings` | bool |  |
-| `--invoice-segregate-products` | bool |  |
-| `--invoice-segregate-time-passes` | bool |  |
-| `--invoice-segregate-tickets` | bool |  |
-| `--is-default-profile` | bool |  |
-| `--invoice-segregate-charges` | bool |  |
-| `--brivo-user-id` | int |  |
-| `--ezeep-printing-enabled` | bool |  |
-| `--invoice-due-date-day` | int |  |
+| `--access-control-error-notification-sent` | bool | Whether access control error notification sent is enabled |
+| `--sync-to-paper-cut-due` | bool | Whether sync to paper cut due is enabled |
+| `--google-api-token` | string | The google api token value for this coworker |
+| `--google-subscription-id` | string | ID of the google subscription associated with this record |
+| `--invoice-segregation-override` | bool | Whether invoice segregation override is enabled |
+| `--invoice-segregate-contracts` | bool | Whether invoice segregate contracts is enabled |
+| `--invoice-segregate-bookings` | bool | Whether invoice segregate bookings is enabled |
+| `--invoice-segregate-products` | bool | Whether invoice segregate products is enabled |
+| `--invoice-segregate-time-passes` | bool | Whether invoice segregate time passes is enabled |
+| `--invoice-segregate-tickets` | bool | Whether invoice segregate tickets is enabled |
+| `--is-default-profile` | bool | Whether is default profile is enabled |
+| `--invoice-segregate-charges` | bool | Whether invoice segregate charges is enabled |
+| `--brivo-user-id` | int | ID of the brivo user associated with this record |
+| `--ezeep-printing-enabled` | bool | Whether ezeep printing enabled is enabled |
+| `--invoice-due-date-day` | int | The invoice due date day value for this coworker |
 | `--monday-attendance` | enum | Monday attendance |
 | `--tuesday-attendance` | enum | Tuesday attendance |
 | `--wednesday-attendance` | enum | Wednesday attendance |
@@ -630,11 +630,11 @@ Coworkers also support entity commands.
 | `--friday-attendance` | enum | Friday attendance |
 | `--saturday-attendance` | enum | Saturday attendance |
 | `--sunday-attendance` | enum | Sunday attendance |
-| `--longitude` | decimal | Longitude |
-| `--latitude` | decimal | Latitude |
+| `--longitude` | decimal | GPS longitude coordinate |
+| `--latitude` | decimal | GPS latitude coordinate |
 | `--billing-longitude` | decimal | Billing longitude |
 | `--billing-latitude` | decimal | Billing latitude |
-| `--archived` | bool | Archived |
+| `--archived` | bool | Whether this coworker is archived and hidden from active lists |
 
 #### Coworker PII fields
 

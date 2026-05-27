@@ -35,7 +35,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name for this financial account |
 | `--code` | string | Short reference code, typically matching the account code in an external accounting system |
 | `--description` | string | Optional free-text description of the account's purpose |
@@ -49,7 +49,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Display name for this financial account |
 | `--code` | string, required | Short reference code, typically matching the account code in an external accounting system |
 | `--description` | string | Optional free-text description of the account's purpose |
@@ -59,7 +59,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name for this financial account |
 | `--code` | string | Short reference code, typically matching the account code in an external accounting system |
 | `--description` | string | Optional free-text description of the account's purpose |

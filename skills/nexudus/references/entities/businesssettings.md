@@ -748,7 +748,7 @@ BusinessSettings support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Dotted setting key that identifies this configuration entry (e.g. Billing.AddTaxToInvoices, Bookings.SendConfirmationEmail) |
 | `--value` | string | Setting value stored as a string. Boolean settings use True/False, numeric settings use the number as text, dates use ISO 8601 format |
 | `--from-created-on` | range | |
@@ -760,7 +760,7 @@ BusinessSettings support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Dotted setting key that identifies this configuration entry (e.g. Billing.AddTaxToInvoices, Bookings.SendConfirmationEmail) |
 | `--value` | string | Setting value stored as a string. Boolean settings use True/False, numeric settings use the number as text, dates use ISO 8601 format |
 
@@ -768,7 +768,7 @@ BusinessSettings support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Dotted setting key that identifies this configuration entry (e.g. Billing.AddTaxToInvoices, Bookings.SendConfirmationEmail) |
 | `--value` | string | Setting value stored as a string. Boolean settings use True/False, numeric settings use the number as text, dates use ISO 8601 format |
 

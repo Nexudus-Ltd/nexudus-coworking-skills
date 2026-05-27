@@ -33,11 +33,11 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Announcement title |
 | `--active` | bool | Whether the announcement is active and visible to customers |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
-| `--clear-image-file` | bool |  |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--body` | string | Announcement body text (plain text only, no formatting) |
 | `--show-button` | bool | Whether to display a call-to-action button in the announcement |
 | `--button-label` | string | Text displayed on the call-to-action button |
@@ -61,11 +61,11 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Announcement title |
 | `--active` | bool | Whether the announcement is active and visible to customers |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
-| `--clear-image-file` | bool |  |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--body` | string | Announcement body text (plain text only, no formatting) |
 | `--show-button` | bool | Whether to display a call-to-action button in the announcement |
 | `--button-label` | string | Text displayed on the call-to-action button |
@@ -81,11 +81,11 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Announcement title |
 | `--active` | bool | Whether the announcement is active and visible to customers |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
-| `--clear-image-file` | bool |  |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--body` | string | Announcement body text (plain text only, no formatting) |
 | `--show-button` | bool | Whether to display a call-to-action button in the announcement |
 | `--button-label` | string | Text displayed on the call-to-action button |

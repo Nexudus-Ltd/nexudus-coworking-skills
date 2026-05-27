@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Roles -->
 
+A **Role** defines a set of permissions that can be assigned to administrators. Roles control what areas of the system a user can access and what actions they can perform.
+
 Roles support Search, Get (no Create or Delete via API).
 
 | Command | Description |
@@ -18,7 +20,7 @@ Roles support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--name` | string |  |
+| `--name` | string | The name value for this role |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=MsOfficeAdminCalendars -->
 
+An **MsOfficeAdminCalendar** configures a Microsoft Office 365 calendar integration for administrators, enabling two-way synchronisation of bookings and events between Nexudus and Outlook.
+
 MsOfficeAdminCalendars support Search, Get, Create, Update, Delete.
 MsOfficeAdminCalendars also support entity commands.
 
@@ -23,8 +25,8 @@ MsOfficeAdminCalendars also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long |  |
-| `--business-id` | long |  |
+| `--resource-id` | long | ID of the resource linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Calendar name |
 | `--subscription-id` | string | Subscription ID |
 | `--calendar-id` | string | Calendar ID |
@@ -40,8 +42,8 @@ MsOfficeAdminCalendars also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long, required |  |
-| `--business-id` | long, required |  |
+| `--resource-id` | long, required | ID of the resource linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Calendar name |
 | `--subscription-id` | string, required | Subscription ID |
 | `--calendar-id` | string, required | Calendar ID |
@@ -51,8 +53,8 @@ MsOfficeAdminCalendars also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long |  |
-| `--business-id` | long |  |
+| `--resource-id` | long | ID of the resource linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Calendar name |
 | `--subscription-id` | string | Subscription ID |
 | `--calendar-id` | string | Calendar ID |

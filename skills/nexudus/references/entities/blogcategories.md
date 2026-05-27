@@ -25,8 +25,8 @@ BlogCategories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--language-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--language-id` | long | ID of the language linked to this record |
 | `--title` | string | Category title |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -37,23 +37,23 @@ BlogCategories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--language-id` | long |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--language-id` | long | ID of the language linked to this record |
 | `--title` | string, required | Category title |
-| `--blog-posts` | list, repeat flag |  |
-| `--added-blog-posts` | list, repeat flag |  |
-| `--removed-blog-posts` | list, repeat flag |  |
+| `--blog-posts` | list, repeat flag | List of blog posts linked to this record |
+| `--added-blog-posts` | list, repeat flag | The added blog posts value for this blog category |
+| `--removed-blog-posts` | list, repeat flag | The removed blog posts value for this blog category |
 
 #### BlogCategory update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--language-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--language-id` | long | ID of the language linked to this record |
 | `--title` | string | Category title |
-| `--blog-posts` | list, repeat flag |  |
-| `--added-blog-posts` | list, repeat flag |  |
-| `--removed-blog-posts` | list, repeat flag |  |
+| `--blog-posts` | list, repeat flag | List of blog posts linked to this record |
+| `--added-blog-posts` | list, repeat flag | The added blog posts value for this blog category |
+| `--removed-blog-posts` | list, repeat flag | The removed blog posts value for this blog category |
 
 ### BlogCategory (key fields)
 

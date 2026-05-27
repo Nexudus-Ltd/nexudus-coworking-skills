@@ -22,8 +22,8 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--user-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--user-id` | long | ID of the user linked to this record |
 | `--job-id` | string | Unique identifier (GUID) of the background job |
 | `--description` | string | Human-readable description of what the job does |
 | `--files` | string | Files associated with the job (e.g. import files) |

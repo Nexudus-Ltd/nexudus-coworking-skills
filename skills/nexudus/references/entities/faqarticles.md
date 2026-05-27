@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FaqArticles -->
 
+A **FaqArticle** represents a frequently asked question and its answer, displayed on the members portal to help customers find information without contacting support.
+
 FaqArticles support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,22 +23,22 @@ FaqArticles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--title` | string |  |
-| `--summary-text` | string |  |
-| `--full-text` | string |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--new-large-image-url` | string |  |
-| `--clear-large-image-file` | bool |  |
-| `--active` | bool |  |
-| `--group-name` | string |  |
-| `--display-order` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--title` | string | The title value for this faq article |
+| `--summary-text` | string | The summary text value for this faq article |
+| `--full-text` | string | The full text value for this faq article |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--new-large-image-url` | string | URL of a new file to upload as the large image |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image file |
+| `--active` | bool | Whether this faq article is currently active |
+| `--group-name` | string | The group name value for this faq article |
+| `--display-order` | int | The display order value for this faq article |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
-| `--show-in-home-page` | bool |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
+| `--show-in-home-page` | bool | Whether show in home page is enabled |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -46,38 +48,38 @@ FaqArticles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--title` | string, required |  |
-| `--summary-text` | string |  |
-| `--full-text` | string |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--new-large-image-url` | string |  |
-| `--clear-large-image-file` | bool |  |
-| `--active` | bool |  |
-| `--group-name` | string |  |
-| `--display-order` | int, required |  |
-| `--show-in-home-page` | bool |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--title` | string, required | The title value for this faq article |
+| `--summary-text` | string | The summary text value for this faq article |
+| `--full-text` | string | The full text value for this faq article |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--new-large-image-url` | string | URL of a new file to upload as the large image |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image file |
+| `--active` | bool | Whether this faq article is currently active |
+| `--group-name` | string | The group name value for this faq article |
+| `--display-order` | int, required | The display order value for this faq article |
+| `--show-in-home-page` | bool | Whether show in home page is enabled |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
 
 #### FaqArticle update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--title` | string |  |
-| `--summary-text` | string |  |
-| `--full-text` | string |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--new-large-image-url` | string |  |
-| `--clear-large-image-file` | bool |  |
-| `--active` | bool |  |
-| `--group-name` | string |  |
-| `--display-order` | int |  |
-| `--show-in-home-page` | bool |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--title` | string | The title value for this faq article |
+| `--summary-text` | string | The summary text value for this faq article |
+| `--full-text` | string | The full text value for this faq article |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--new-large-image-url` | string | URL of a new file to upload as the large image |
+| `--clear-large-image-file` | bool | Set to true to remove the current large image file |
+| `--active` | bool | Whether this faq article is currently active |
+| `--group-name` | string | The group name value for this faq article |
+| `--display-order` | int | The display order value for this faq article |
+| `--show-in-home-page` | bool | Whether show in home page is enabled |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
 
 <!-- END:GENERATED entity=FaqArticles -->

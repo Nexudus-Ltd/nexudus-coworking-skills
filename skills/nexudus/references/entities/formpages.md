@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FormPages -->
 
+A **FormPage** represents a custom form that can be presented to customers during sign-up, check-in, or other workflows. Forms collect structured data through configurable questions and can be linked to specific pricing plans or events.
+
 FormPages support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ FormPages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--active` | bool |  |
-| `--crm-board-column-id` | long |  |
-| `--responsible-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this form page |
+| `--description` | string | Free-text description of this form page |
+| `--active` | bool | Whether this form page is currently active |
+| `--crm-board-column-id` | long | ID of the crm board column linked to this record |
+| `--responsible-id` | long | ID of the responsible linked to this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,23 +38,23 @@ FormPages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--description` | string, required |  |
-| `--active` | bool |  |
-| `--crm-board-column-id` | long |  |
-| `--responsible-id` | long |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this form page |
+| `--description` | string, required | Free-text description of this form page |
+| `--active` | bool | Whether this form page is currently active |
+| `--crm-board-column-id` | long | ID of the crm board column linked to this record |
+| `--responsible-id` | long | ID of the responsible linked to this record |
 
 #### FormPage update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--active` | bool |  |
-| `--crm-board-column-id` | long |  |
-| `--responsible-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this form page |
+| `--description` | string | Free-text description of this form page |
+| `--active` | bool | Whether this form page is currently active |
+| `--crm-board-column-id` | long | ID of the crm board column linked to this record |
+| `--responsible-id` | long | ID of the responsible linked to this record |
 
 #### FormPage PII fields
 

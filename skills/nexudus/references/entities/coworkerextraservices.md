@@ -29,9 +29,9 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
-| `--extra-service-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--notes` | string | Internal notes |
 | `--total-uses` | int | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
 | `--from-total-uses` | range | |
@@ -72,9 +72,9 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required |  |
-| `--business-id` | long, required |  |
-| `--extra-service-id` | long, required |  |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--extra-service-id` | long, required | ID of the extra service linked to this record |
 | `--notes` | string | Internal notes |
 | `--total-uses` | int, required | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
 | `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
@@ -95,9 +95,9 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
-| `--extra-service-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--notes` | string | Internal notes |
 | `--total-uses` | int | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
 | `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
@@ -129,5 +129,11 @@ Example:
 ### CoworkerExtraService (key fields)
 
 `Id`, `ExtraServiceName`, `Description`, `RemainingUses`, `Price`, `Invoiced`
+
+#### CoworkerExtraService enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--charge-period` | `1` Minutes, `2` Days, `3` Weeks, `4` Months, `5` Uses, `6` FourWeekMonths |
 
 <!-- END:GENERATED entity=CoworkerExtraServices -->

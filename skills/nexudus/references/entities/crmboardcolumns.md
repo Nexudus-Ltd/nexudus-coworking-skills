@@ -30,7 +30,7 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--crm-board-id` | long |  |
+| `--crm-board-id` | long | ID of the crm board linked to this record |
 | `--name` | string | Stage name (e.g. 'Contract Signature', 'Keys Handout', 'Office Tour') |
 | `--position` | int | Display order of this stage within the board (0-based) |
 | `--from-position` | range | |
@@ -67,7 +67,7 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--crm-board-id` | long, required |  |
+| `--crm-board-id` | long, required | ID of the crm board linked to this record |
 | `--name` | string, required | Stage name (e.g. 'Contract Signature', 'Keys Handout', 'Office Tour') |
 | `--position` | int, required | Display order of this stage within the board (0-based) |
 | `--tour-requests` | bool | Auto-assign: add anyone completing a tour request form to this stage |
@@ -92,19 +92,19 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 | `--confirm-tour` | bool | Auto-action: confirm the tour of opportunities added to this stage |
 | `--product-purchased` | bool | Auto-assign: add anyone purchasing a specific product to this stage. Requires Products list |
 | `--products` | list, repeat flag | Product IDs that trigger auto-assignment when ProductPurchased is enabled |
-| `--added-products` | list, repeat flag |  |
-| `--removed-products` | list, repeat flag |  |
+| `--added-products` | list, repeat flag | The added products value for this crm board column |
+| `--removed-products` | list, repeat flag | The removed products value for this crm board column |
 | `--resource-booked` | bool | Auto-assign: add anyone placing a booking for a specific resource to this stage. Requires Resources list |
 | `--resources` | list, repeat flag | Resource IDs that trigger auto-assignment when ResourceBooked is enabled |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag | The added resources value for this crm board column |
+| `--removed-resources` | list, repeat flag | The removed resources value for this crm board column |
 | `--event-checkins` | bool | Auto-assign: add any event attendee who checks in for an event to this stage |
 
 #### CrmBoardColumn update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--crm-board-id` | long |  |
+| `--crm-board-id` | long | ID of the crm board linked to this record |
 | `--name` | string | Stage name (e.g. 'Contract Signature', 'Keys Handout', 'Office Tour') |
 | `--position` | int | Display order of this stage within the board (0-based) |
 | `--tour-requests` | bool | Auto-assign: add anyone completing a tour request form to this stage |
@@ -129,12 +129,12 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 | `--confirm-tour` | bool | Auto-action: confirm the tour of opportunities added to this stage |
 | `--product-purchased` | bool | Auto-assign: add anyone purchasing a specific product to this stage. Requires Products list |
 | `--products` | list, repeat flag | Product IDs that trigger auto-assignment when ProductPurchased is enabled |
-| `--added-products` | list, repeat flag |  |
-| `--removed-products` | list, repeat flag |  |
+| `--added-products` | list, repeat flag | The added products value for this crm board column |
+| `--removed-products` | list, repeat flag | The removed products value for this crm board column |
 | `--resource-booked` | bool | Auto-assign: add anyone placing a booking for a specific resource to this stage. Requires Resources list |
 | `--resources` | list, repeat flag | Resource IDs that trigger auto-assignment when ResourceBooked is enabled |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag | The added resources value for this crm board column |
+| `--removed-resources` | list, repeat flag | The removed resources value for this crm board column |
 | `--event-checkins` | bool | Auto-assign: add any event attendee who checks in for an event to this stage |
 
 ### CrmBoardColumn (key fields)

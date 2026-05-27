@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Resellers -->
 
+A **Reseller** represents a partner organisation that resells Nexudus services or manages multiple business locations on behalf of their clients.
+
 Resellers support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,22 +23,22 @@ Resellers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--name` | string |  |
-| `--profile-is-public` | bool |  |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
-| `--area` | string |  |
-| `--operates-in` | string |  |
-| `--web-address` | string |  |
-| `--email` | string |  |
-| `--profile-summary` | string |  |
-| `--phone-number` | string |  |
-| `--testimonial1` | string |  |
-| `--testimonial1-author` | string |  |
-| `--testimonial2` | string |  |
-| `--testimonial2-author` | string |  |
+| `--name` | string | The name value for this reseller |
+| `--profile-is-public` | bool | Whether profile is public is enabled |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--area` | string | The area value for this reseller |
+| `--operates-in` | string | The operates in value for this reseller |
+| `--web-address` | string | The web address value for this reseller |
+| `--email` | string | The email value for this reseller |
+| `--profile-summary` | string | The profile summary value for this reseller |
+| `--phone-number` | string | The phone number value for this reseller |
+| `--testimonial1` | string | The testimonial1 value for this reseller |
+| `--testimonial1-author` | string | The testimonial1 author value for this reseller |
+| `--testimonial2` | string | The testimonial2 value for this reseller |
+| `--testimonial2-author` | string | The testimonial2 author value for this reseller |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -46,43 +48,43 @@ Resellers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--name` | string, required |  |
-| `--profile-is-public` | bool |  |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
-| `--area` | string |  |
-| `--operates-in` | string |  |
-| `--web-address` | string |  |
-| `--email` | string |  |
-| `--profile-summary` | string |  |
-| `--phone-number` | string |  |
-| `--testimonial1` | string |  |
-| `--testimonial1-author` | string |  |
-| `--testimonial2` | string |  |
-| `--testimonial2-author` | string |  |
+| `--name` | string, required | The name value for this reseller |
+| `--profile-is-public` | bool | Whether profile is public is enabled |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--area` | string | The area value for this reseller |
+| `--operates-in` | string | The operates in value for this reseller |
+| `--web-address` | string | The web address value for this reseller |
+| `--email` | string | The email value for this reseller |
+| `--profile-summary` | string | The profile summary value for this reseller |
+| `--phone-number` | string | The phone number value for this reseller |
+| `--testimonial1` | string | The testimonial1 value for this reseller |
+| `--testimonial1-author` | string | The testimonial1 author value for this reseller |
+| `--testimonial2` | string | The testimonial2 value for this reseller |
+| `--testimonial2-author` | string | The testimonial2 author value for this reseller |
 
 #### Reseller update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--name` | string |  |
-| `--profile-is-public` | bool |  |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
-| `--area` | string |  |
-| `--operates-in` | string |  |
-| `--web-address` | string |  |
-| `--email` | string |  |
-| `--profile-summary` | string |  |
-| `--phone-number` | string |  |
-| `--testimonial1` | string |  |
-| `--testimonial1-author` | string |  |
-| `--testimonial2` | string |  |
-| `--testimonial2-author` | string |  |
+| `--name` | string | The name value for this reseller |
+| `--profile-is-public` | bool | Whether profile is public is enabled |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--area` | string | The area value for this reseller |
+| `--operates-in` | string | The operates in value for this reseller |
+| `--web-address` | string | The web address value for this reseller |
+| `--email` | string | The email value for this reseller |
+| `--profile-summary` | string | The profile summary value for this reseller |
+| `--phone-number` | string | The phone number value for this reseller |
+| `--testimonial1` | string | The testimonial1 value for this reseller |
+| `--testimonial1-author` | string | The testimonial1 author value for this reseller |
+| `--testimonial2` | string | The testimonial2 value for this reseller |
+| `--testimonial2-author` | string | The testimonial2 author value for this reseller |
 
 #### Reseller PII fields
 

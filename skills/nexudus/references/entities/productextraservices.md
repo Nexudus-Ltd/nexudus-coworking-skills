@@ -43,15 +43,15 @@ ProductExtraServices also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long |  |
-| `--extra-service-id` | long |  |
+| `--product-id` | long | ID of the product linked to this record |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--uses-included` | int | Uses included |
 | `--from-uses-included` | range | |
 | `--to-uses-included` | range | |
-| `--expire-time-in-months` | int |  |
+| `--expire-time-in-months` | int | The expire time in months value for this product extra service |
 | `--from-expire-time-in-months` | range | |
 | `--to-expire-time-in-months` | range | |
-| `--expire-time-in-weeks` | int |  |
+| `--expire-time-in-weeks` | int | The expire time in weeks value for this product extra service |
 | `--from-expire-time-in-weeks` | range | |
 | `--to-expire-time-in-weeks` | range | |
 | `--expiration-type` | enum | Expiration type |
@@ -67,11 +67,11 @@ ProductExtraServices also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long, required |  |
-| `--extra-service-id` | long, required |  |
+| `--product-id` | long, required | ID of the product linked to this record |
+| `--extra-service-id` | long, required | ID of the extra service linked to this record |
 | `--uses-included` | int, required | Uses included |
-| `--expire-time-in-months` | int |  |
-| `--expire-time-in-weeks` | int |  |
+| `--expire-time-in-months` | int | The expire time in months value for this product extra service |
+| `--expire-time-in-weeks` | int | The expire time in weeks value for this product extra service |
 | `--expiration-type` | enum | Expiration type |
 | `--expires-in` | int | Expires in |
 
@@ -79,11 +79,11 @@ ProductExtraServices also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long |  |
-| `--extra-service-id` | long |  |
+| `--product-id` | long | ID of the product linked to this record |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--uses-included` | int | Uses included |
-| `--expire-time-in-months` | int |  |
-| `--expire-time-in-weeks` | int |  |
+| `--expire-time-in-months` | int | The expire time in months value for this product extra service |
+| `--expire-time-in-weeks` | int | The expire time in weeks value for this product extra service |
 | `--expiration-type` | enum | Expiration type |
 | `--expires-in` | int | Expires in |
 

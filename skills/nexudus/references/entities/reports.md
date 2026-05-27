@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Reports -->
 
+A **Report** defines a configured report that can be generated on demand or scheduled. Reports cover various data categories including check-ins, invoices, bookings, members, revenue, and occupancy metrics.
+
 Reports support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,11 +23,11 @@ Reports support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--folder` | string |  |
-| `--report-type` | enum |  |
-| `--report-xml` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this report |
+| `--folder` | string | The folder value for this report |
+| `--report-type` | enum | The report type value for this report |
+| `--report-xml` | string | The report xml value for this report |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -35,20 +37,26 @@ Reports support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--folder` | string, required |  |
-| `--report-type` | enum, required |  |
-| `--report-xml` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this report |
+| `--folder` | string, required | The folder value for this report |
+| `--report-type` | enum, required | The report type value for this report |
+| `--report-xml` | string | The report xml value for this report |
 
 #### Report update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--folder` | string |  |
-| `--report-type` | enum |  |
-| `--report-xml` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this report |
+| `--folder` | string | The folder value for this report |
+| `--report-type` | enum | The report type value for this report |
+| `--report-xml` | string | The report xml value for this report |
+
+#### Report enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--report-type` | `1` Checkins, `2` ExtraServices, `3` TimePasses, `4` Members, `5` AllMembers, `6` Invoices, `7` Bookings, `8` TodayBookings, `9` PaidInvoices, `10` Upgrades, `11` Tariffs, `12` Accruals, `13` Transactions, `14` AccrualsLiable, `15` AccrualsDelivered, `16` IncomePaid, `17` AccountsReceivable, `18` TariffHistory, `19` RecurrentCharges, `20` Events, `21` BookingCredit, `22` AccrualsByDelivery, `23` Tasks, `24` AllTasks, `25` Visitors, `26` CrmLeadTimes, `27` Desks, `28` UpgradesTransactions, `29` DesksOccupancy, `30` PricePlanOccupancy, `31` UnPaidInvoices, `32` ResourceOccupancy, `33` Crm, `34` SimpleBookings, `35` Surveys, `36` AccrualsBySaleDate, `37` InvoiceHeaders, `38` InvoicesBySaleDate, `39` DeferredRevenueByMonth, `40` Discounts, `41` CustomerCountChurnByMonth, `42` CustomerDetailsChurnByMonth, `43` CustomerCountChurnByMonthPayingMembers, `44` CustomerDetailsChurnByMonthPayingMembers, `45` FormPages, `46` GetCustomerDetailsRevenueChurnByMonth, `47` CancelledBookings, `998` CustomUrl, `999` CustomProcedure |
 
 <!-- END:GENERATED entity=Reports -->

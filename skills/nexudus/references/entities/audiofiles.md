@@ -23,11 +23,11 @@ AudioFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Name of the audio file |
 | `--description` | string | Description of the audio file |
-| `--new-audio-url` | string |  |
-| `--clear-audio-file` | bool |  |
+| `--new-audio-url` | string | URL of a new file to upload as the audio |
+| `--clear-audio-file` | bool | Set to true to remove the current audio file |
 | `--file-size-bytes` | int | File size in bytes |
 | `--from-file-size-bytes` | range | |
 | `--to-file-size-bytes` | range | |
@@ -40,22 +40,22 @@ AudioFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Name of the audio file |
 | `--description` | string | Description of the audio file |
-| `--new-audio-url` | string |  |
-| `--clear-audio-file` | bool |  |
+| `--new-audio-url` | string | URL of a new file to upload as the audio |
+| `--clear-audio-file` | bool | Set to true to remove the current audio file |
 | `--file-size-bytes` | int | File size in bytes |
 
 #### AudioFile update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Name of the audio file |
 | `--description` | string | Description of the audio file |
-| `--new-audio-url` | string |  |
-| `--clear-audio-file` | bool |  |
+| `--new-audio-url` | string | URL of a new file to upload as the audio |
+| `--clear-audio-file` | bool | Set to true to remove the current audio file |
 | `--file-size-bytes` | int | File size in bytes |
 
 ### AudioFile (key fields)

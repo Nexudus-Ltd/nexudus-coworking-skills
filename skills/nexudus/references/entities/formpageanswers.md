@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FormPageAnswers -->
 
+A **FormPageAnswer** stores a customer's response to a single question on a form page. Each answer links to a specific form page question and the request (submission) that contains it.
+
 FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 
 | Command | Description |
@@ -20,11 +22,11 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--form-page-request-id` | long |  |
-| `--form-page-question-id` | long |  |
-| `--value` | string |  |
-| `--new-file-value-url` | string |  |
-| `--clear-file-value-file` | bool |  |
+| `--form-page-request-id` | long | ID of the form page request linked to this record |
+| `--form-page-question-id` | long | ID of the form page question linked to this record |
+| `--value` | string | The value value for this form page answer |
+| `--new-file-value-url` | string | URL of a new file to upload as the file value |
+| `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -34,21 +36,21 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--form-page-request-id` | long |  |
-| `--form-page-question-id` | long, required |  |
-| `--value` | string |  |
-| `--new-file-value-url` | string |  |
-| `--clear-file-value-file` | bool |  |
+| `--form-page-request-id` | long | ID of the form page request linked to this record |
+| `--form-page-question-id` | long, required | ID of the form page question linked to this record |
+| `--value` | string | The value value for this form page answer |
+| `--new-file-value-url` | string | URL of a new file to upload as the file value |
+| `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 
 #### FormPageAnswer update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--form-page-request-id` | long |  |
-| `--form-page-question-id` | long |  |
-| `--value` | string |  |
-| `--new-file-value-url` | string |  |
-| `--clear-file-value-file` | bool |  |
+| `--form-page-request-id` | long | ID of the form page request linked to this record |
+| `--form-page-question-id` | long | ID of the form page question linked to this record |
+| `--value` | string | The value value for this form page answer |
+| `--new-file-value-url` | string | URL of a new file to upload as the file value |
+| `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 
 #### FormPageAnswer PII fields
 

@@ -25,7 +25,7 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--bill-to-name` | string | Name of the person or organisation being billed, captured at invoice time |
 | `--bill-to-address` | string | Billing street address, captured at invoice time |
 | `--bill-to-city` | string | Billing city, captured at invoice time |
@@ -33,7 +33,7 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 | `--bill-to-post-code` | string | Billing postal/ZIP code, captured at invoice time |
 | `--bill-to-phone` | string | Billing phone number, captured at invoice time |
 | `--bill-to-fax` | string | Billing fax number, captured at invoice time |
-| `--bill-to-country-id` | long |  |
+| `--bill-to-country-id` | long | ID of the bill to country linked to this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -43,7 +43,7 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--bill-to-name` | string | Name of the person or organisation being billed, captured at invoice time |
 | `--bill-to-address` | string | Billing street address, captured at invoice time |
 | `--bill-to-city` | string | Billing city, captured at invoice time |
@@ -51,7 +51,7 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 | `--bill-to-post-code` | string | Billing postal/ZIP code, captured at invoice time |
 | `--bill-to-phone` | string | Billing phone number, captured at invoice time |
 | `--bill-to-fax` | string | Billing fax number, captured at invoice time |
-| `--bill-to-country-id` | long |  |
+| `--bill-to-country-id` | long | ID of the bill to country linked to this record |
 
 #### Invoice PII fields
 

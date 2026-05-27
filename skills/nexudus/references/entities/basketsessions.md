@@ -23,7 +23,7 @@ BasketSessions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--session-id` | string | Unique session identifier linking the basket to the customer's browser session |
 | `--json-contents` | string | JSON-serialised basket contents including selected products, quantities, and pricing |
 | `--from-created-on` | range | |
@@ -35,7 +35,7 @@ BasketSessions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--session-id` | string, required | Unique session identifier linking the basket to the customer's browser session |
 | `--json-contents` | string | JSON-serialised basket contents including selected products, quantities, and pricing |
 
@@ -43,7 +43,7 @@ BasketSessions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--session-id` | string | Unique session identifier linking the basket to the customer's browser session |
 | `--json-contents` | string | JSON-serialised basket contents including selected products, quantities, and pricing |
 

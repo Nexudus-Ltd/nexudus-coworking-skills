@@ -27,14 +27,14 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--extra-service-id` | long |  |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--from-time` | DateTime | Start time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
 | `--to-time` | DateTime | End time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this extra service time slot |
 | `--available` | bool | Whether the extra service is available for booking during this time slot. When false, the slot acts as an explicit block. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -45,24 +45,30 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--extra-service-id` | long, required |  |
+| `--extra-service-id` | long, required | ID of the extra service linked to this record |
 | `--from-time` | DateTime, required | Start time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--to-time` | DateTime, required | End time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
-| `--day-of-week` | enum, required |  |
+| `--day-of-week` | enum, required | The day of week value for this extra service time slot |
 | `--available` | bool | Whether the extra service is available for booking during this time slot. When false, the slot acts as an explicit block. |
 
 #### ExtraServiceTimeSlot update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--extra-service-id` | long |  |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--from-time` | DateTime | Start time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
 | `--to-time` | DateTime | End time of the availability window. Only the time-of-day component is used; the date component is always 1976-01-01. |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this extra service time slot |
 | `--available` | bool | Whether the extra service is available for booking during this time slot. When false, the slot acts as an explicit block. |
 
 ### ExtraServiceTimeSlot (key fields)
 
 `Id`, `FromTime`, `ToTime`
+
+#### ExtraServiceTimeSlot enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--day-of-week` | `0` Sunday, `1` Monday, `2` Tuesday, `3` Wednesday, `4` Thursday, `5` Friday, `6` Saturday |
 
 <!-- END:GENERATED entity=ExtraServiceTimeSlots -->

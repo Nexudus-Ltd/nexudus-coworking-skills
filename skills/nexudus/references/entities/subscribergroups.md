@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=SubscriberGroups -->
 
+A **SubscriberGroup** defines a segment or group of newsletter subscribers that can be targeted for specific communications or campaigns.
+
 SubscriberGroups support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,14 +23,14 @@ SubscriberGroups support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--auto-add-members` | bool |  |
-| `--auto-add-contacts` | bool |  |
-| `--auto-add-bookings` | bool |  |
-| `--auto-add-events` | bool |  |
-| `--auto-add-visitors` | bool |  |
-| `--auto-add-paying-members` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this subscriber group |
+| `--auto-add-members` | bool | Whether auto add members is enabled |
+| `--auto-add-contacts` | bool | Whether auto add contacts is enabled |
+| `--auto-add-bookings` | bool | Whether auto add bookings is enabled |
+| `--auto-add-events` | bool | Whether auto add events is enabled |
+| `--auto-add-visitors` | bool | Whether auto add visitors is enabled |
+| `--auto-add-paying-members` | bool | Whether auto add paying members is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -38,39 +40,39 @@ SubscriberGroups support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--news-letter-subscribers` | list, repeat flag |  |
-| `--added-news-letter-subscribers` | list, repeat flag |  |
-| `--removed-news-letter-subscribers` | list, repeat flag |  |
-| `--auto-add-members` | bool |  |
-| `--auto-add-contacts` | bool |  |
-| `--auto-add-bookings` | bool |  |
-| `--auto-add-events` | bool |  |
-| `--auto-add-visitors` | bool |  |
-| `--auto-add-paying-members` | bool |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this subscriber group |
+| `--news-letter-subscribers` | list, repeat flag | List of news letter subscribers linked to this record |
+| `--added-news-letter-subscribers` | list, repeat flag | The added news letter subscribers value for this subscriber group |
+| `--removed-news-letter-subscribers` | list, repeat flag | The removed news letter subscribers value for this subscriber group |
+| `--auto-add-members` | bool | Whether auto add members is enabled |
+| `--auto-add-contacts` | bool | Whether auto add contacts is enabled |
+| `--auto-add-bookings` | bool | Whether auto add bookings is enabled |
+| `--auto-add-events` | bool | Whether auto add events is enabled |
+| `--auto-add-visitors` | bool | Whether auto add visitors is enabled |
+| `--auto-add-paying-members` | bool | Whether auto add paying members is enabled |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this subscriber group |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this subscriber group |
 
 #### SubscriberGroup update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--news-letter-subscribers` | list, repeat flag |  |
-| `--added-news-letter-subscribers` | list, repeat flag |  |
-| `--removed-news-letter-subscribers` | list, repeat flag |  |
-| `--auto-add-members` | bool |  |
-| `--auto-add-contacts` | bool |  |
-| `--auto-add-bookings` | bool |  |
-| `--auto-add-events` | bool |  |
-| `--auto-add-visitors` | bool |  |
-| `--auto-add-paying-members` | bool |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this subscriber group |
+| `--news-letter-subscribers` | list, repeat flag | List of news letter subscribers linked to this record |
+| `--added-news-letter-subscribers` | list, repeat flag | The added news letter subscribers value for this subscriber group |
+| `--removed-news-letter-subscribers` | list, repeat flag | The removed news letter subscribers value for this subscriber group |
+| `--auto-add-members` | bool | Whether auto add members is enabled |
+| `--auto-add-contacts` | bool | Whether auto add contacts is enabled |
+| `--auto-add-bookings` | bool | Whether auto add bookings is enabled |
+| `--auto-add-events` | bool | Whether auto add events is enabled |
+| `--auto-add-visitors` | bool | Whether auto add visitors is enabled |
+| `--auto-add-paying-members` | bool | Whether auto add paying members is enabled |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this subscriber group |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this subscriber group |
 
 **List properties (only returned by `get`, not by `list`):** `NewsLetterSubscribers`, `AddedNewsLetterSubscribers`, `RemovedNewsLetterSubscribers`, `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

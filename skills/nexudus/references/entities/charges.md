@@ -27,12 +27,12 @@ Charges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
-| `--quantity` | int | Quantity |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--quantity` | int | Number of units |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--description` | string | Description |
+| `--description` | string | Free-text description of this charge |
 | `--invoice-line-display-as` | string | Display text on invoice line |
 | `--regular-charge` | bool | Whether this is a regular charge |
 | `--discount-amount` | decimal | Discount amount |
@@ -48,19 +48,19 @@ Charges support Search, Get, Create, Update, Delete.
 | `--from-total-amount` | range | |
 | `--to-total-amount` | range | |
 | `--purchase-order` | string | Purchase order |
-| `--tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--invoiced` | bool | Whether the charge has been invoiced |
 | `--sale-date` | DateTime | Sale date |
 | `--from-sale-date` | range | |
 | `--to-sale-date` | range | |
-| `--from-team-member` | bool |  |
-| `--coworker-extra-service-name` | string |  |
-| `--coworker-time-pass-name` | string |  |
-| `--coworker-product-name` | string |  |
-| `--tariff-name` | string |  |
-| `--coworker-product-unique-id` | string |  |
-| `--booking-unique-id` | string |  |
+| `--from-team-member` | bool | Whether from team member is enabled |
+| `--coworker-extra-service-name` | string | The coworker extra service name value for this charge |
+| `--coworker-time-pass-name` | string | The coworker time pass name value for this charge |
+| `--coworker-product-name` | string | The coworker product name value for this charge |
+| `--tariff-name` | string | The tariff name value for this charge |
+| `--coworker-product-unique-id` | string | ID of the coworker product unique associated with this record |
+| `--booking-unique-id` | string | ID of the booking unique associated with this record |
 | `--repeat-from` | DateTime | Repeat from date |
 | `--from-repeat-from` | range | |
 | `--to-repeat-from` | range | |
@@ -76,10 +76,10 @@ Charges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required |  |
-| `--business-id` | long, required |  |
-| `--quantity` | int, required | Quantity |
-| `--description` | string | Description |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--quantity` | int, required | Number of units |
+| `--description` | string | Free-text description of this charge |
 | `--invoice-line-display-as` | string | Display text on invoice line |
 | `--regular-charge` | bool | Whether this is a regular charge |
 | `--discount-amount` | decimal, required | Discount amount |
@@ -87,17 +87,17 @@ Charges support Search, Get, Create, Update, Delete.
 | `--due-date` | DateTime | Due date |
 | `--total-amount` | decimal, required | Total amount |
 | `--purchase-order` | string | Purchase order |
-| `--tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--invoiced` | bool | Whether the charge has been invoiced |
 | `--sale-date` | DateTime | Sale date |
-| `--from-team-member` | bool |  |
-| `--coworker-extra-service-name` | string |  |
-| `--coworker-time-pass-name` | string |  |
-| `--coworker-product-name` | string |  |
-| `--tariff-name` | string |  |
-| `--coworker-product-unique-id` | string |  |
-| `--booking-unique-id` | string |  |
+| `--from-team-member` | bool | Whether from team member is enabled |
+| `--coworker-extra-service-name` | string | The coworker extra service name value for this charge |
+| `--coworker-time-pass-name` | string | The coworker time pass name value for this charge |
+| `--coworker-product-name` | string | The coworker product name value for this charge |
+| `--tariff-name` | string | The tariff name value for this charge |
+| `--coworker-product-unique-id` | string | ID of the coworker product unique associated with this record |
+| `--booking-unique-id` | string | ID of the booking unique associated with this record |
 | `--repeat-from` | DateTime | Repeat from date |
 | `--repeat-until` | DateTime | Repeat until date |
 
@@ -105,10 +105,10 @@ Charges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
-| `--quantity` | int | Quantity |
-| `--description` | string | Description |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--quantity` | int | Number of units |
+| `--description` | string | Free-text description of this charge |
 | `--invoice-line-display-as` | string | Display text on invoice line |
 | `--regular-charge` | bool | Whether this is a regular charge |
 | `--discount-amount` | decimal | Discount amount |
@@ -116,17 +116,17 @@ Charges support Search, Get, Create, Update, Delete.
 | `--due-date` | DateTime | Due date |
 | `--total-amount` | decimal | Total amount |
 | `--purchase-order` | string | Purchase order |
-| `--tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--invoiced` | bool | Whether the charge has been invoiced |
 | `--sale-date` | DateTime | Sale date |
-| `--from-team-member` | bool |  |
-| `--coworker-extra-service-name` | string |  |
-| `--coworker-time-pass-name` | string |  |
-| `--coworker-product-name` | string |  |
-| `--tariff-name` | string |  |
-| `--coworker-product-unique-id` | string |  |
-| `--booking-unique-id` | string |  |
+| `--from-team-member` | bool | Whether from team member is enabled |
+| `--coworker-extra-service-name` | string | The coworker extra service name value for this charge |
+| `--coworker-time-pass-name` | string | The coworker time pass name value for this charge |
+| `--coworker-product-name` | string | The coworker product name value for this charge |
+| `--tariff-name` | string | The tariff name value for this charge |
+| `--coworker-product-unique-id` | string | ID of the coworker product unique associated with this record |
+| `--booking-unique-id` | string | ID of the booking unique associated with this record |
 | `--repeat-from` | DateTime | Repeat from date |
 | `--repeat-until` | DateTime | Repeat until date |
 

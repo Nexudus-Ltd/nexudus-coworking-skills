@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=VideoRooms -->
 
+A **VideoRoom** represents a virtual meeting room for video conferencing. Video rooms enable online meetings between members and can be integrated with booking resources.
+
 VideoRooms support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,17 +23,17 @@ VideoRooms support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--number-of-participants` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this video room |
+| `--description` | string | Free-text description of this video room |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--number-of-participants` | int | The number of participants value for this video room |
 | `--from-number-of-participants` | range | |
 | `--to-number-of-participants` | range | |
-| `--active` | bool |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
+| `--active` | bool | Whether this video room is currently active |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -41,28 +43,28 @@ VideoRooms support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--description` | string |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--number-of-participants` | int, required |  |
-| `--active` | bool |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this video room |
+| `--description` | string | Free-text description of this video room |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--number-of-participants` | int, required | The number of participants value for this video room |
+| `--active` | bool | Whether this video room is currently active |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
 
 #### VideoRoom update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
-| `--number-of-participants` | int |  |
-| `--active` | bool |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this video room |
+| `--description` | string | Free-text description of this video room |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--number-of-participants` | int | The number of participants value for this video room |
+| `--active` | bool | Whether this video room is currently active |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
 
 <!-- END:GENERATED entity=VideoRooms -->

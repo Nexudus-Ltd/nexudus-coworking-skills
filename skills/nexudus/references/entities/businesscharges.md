@@ -27,8 +27,8 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--application-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--application-id` | long | ID of the application linked to this record |
 | `--description` | string | Human-readable description of what this charge is for |
 | `--callback-url` | string | URL that Nexudus will call back once the charge is processed or its status changes |
 | `--due-date` | DateTime | Date by which the charge must be paid |
@@ -52,8 +52,8 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--application-id` | long |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--application-id` | long | ID of the application linked to this record |
 | `--description` | string, required | Human-readable description of what this charge is for |
 | `--callback-url` | string, required | URL that Nexudus will call back once the charge is processed or its status changes |
 | `--due-date` | DateTime | Date by which the charge must be paid |
@@ -65,8 +65,8 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--application-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--application-id` | long | ID of the application linked to this record |
 | `--callback-url` | string | URL that Nexudus will call back once the charge is processed or its status changes |
 
 ### BusinessCharge (key fields)

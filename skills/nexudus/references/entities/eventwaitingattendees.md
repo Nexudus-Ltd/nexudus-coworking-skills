@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EventWaitingAttendees -->
 
+An **EventWaitingAttendee** records a customer on the waiting list for a calendar event that has reached its maximum capacity. When a spot opens up, waiting attendees can be promoted to full attendees.
+
 EventWaitingAttendees support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,11 +23,11 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--calendar-event-id` | long |  |
-| `--coworker-id` | long |  |
-| `--full-name` | string |  |
-| `--email` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--full-name` | string | The full name value for this event waiting attendee |
+| `--email` | string | The email value for this event waiting attendee |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -35,21 +37,21 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--calendar-event-id` | long, required |  |
-| `--coworker-id` | long |  |
-| `--full-name` | string, required |  |
-| `--email` | string, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--calendar-event-id` | long, required | ID of the calendar event linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--full-name` | string, required | The full name value for this event waiting attendee |
+| `--email` | string, required | The email value for this event waiting attendee |
 
 #### EventWaitingAttendee update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--calendar-event-id` | long |  |
-| `--coworker-id` | long |  |
-| `--full-name` | string |  |
-| `--email` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--full-name` | string | The full name value for this event waiting attendee |
+| `--email` | string | The email value for this event waiting attendee |
 
 #### EventWaitingAttendee PII fields
 

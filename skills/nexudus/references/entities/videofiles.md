@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=VideoFiles -->
 
+A **VideoFile** represents an uploaded video stored in the system. Video files can be used in courses, community content, or other areas of the platform.
+
 VideoFiles support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ VideoFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--new-video-url` | string |  |
-| `--clear-video-file` | bool |  |
-| `--file-size-bytes` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this video file |
+| `--description` | string | Free-text description of this video file |
+| `--new-video-url` | string | URL of a new file to upload as the video |
+| `--clear-video-file` | bool | Set to true to remove the current video file |
+| `--file-size-bytes` | int | The file size bytes value for this video file |
 | `--from-file-size-bytes` | range | |
 | `--to-file-size-bytes` | range | |
 | `--from-created-on` | range | |
@@ -38,22 +40,22 @@ VideoFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--description` | string |  |
-| `--new-video-url` | string |  |
-| `--clear-video-file` | bool |  |
-| `--file-size-bytes` | int |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this video file |
+| `--description` | string | Free-text description of this video file |
+| `--new-video-url` | string | URL of a new file to upload as the video |
+| `--clear-video-file` | bool | Set to true to remove the current video file |
+| `--file-size-bytes` | int | The file size bytes value for this video file |
 
 #### VideoFile update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--new-video-url` | string |  |
-| `--clear-video-file` | bool |  |
-| `--file-size-bytes` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this video file |
+| `--description` | string | Free-text description of this video file |
+| `--new-video-url` | string | URL of a new file to upload as the video |
+| `--clear-video-file` | bool | Set to true to remove the current video file |
+| `--file-size-bytes` | int | The file size bytes value for this video file |
 
 <!-- END:GENERATED entity=VideoFiles -->

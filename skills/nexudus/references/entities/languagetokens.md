@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=LanguageTokens -->
 
+A **LanguageToken** represents a translatable text string in the system. Each token has a key and a translated value for a specific language, enabling full localisation of the platform.
+
 LanguageTokens support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ LanguageTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--language-id` | long |  |
-| `--name` | string |  |
-| `--value` | string |  |
+| `--language-id` | long | ID of the language linked to this record |
+| `--name` | string | The name value for this language token |
+| `--value` | string | The value value for this language token |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,16 +35,16 @@ LanguageTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--language-id` | long, required |  |
-| `--name` | string, required |  |
-| `--value` | string |  |
+| `--language-id` | long, required | ID of the language linked to this record |
+| `--name` | string, required | The name value for this language token |
+| `--value` | string | The value value for this language token |
 
 #### LanguageToken update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--language-id` | long |  |
-| `--name` | string |  |
-| `--value` | string |  |
+| `--language-id` | long | ID of the language linked to this record |
+| `--name` | string | The name value for this language token |
+| `--value` | string | The value value for this language token |
 
 <!-- END:GENERATED entity=LanguageTokens -->

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Languages -->
 
+A **Language** represents a supported language in the system. Languages are used for localising the user interface, email templates, and customer-facing content.
+
 Languages support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,11 +23,11 @@ Languages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--culture` | string |  |
-| `--active` | bool |  |
-| `--display-order` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this language |
+| `--culture` | string | The culture value for this language |
+| `--active` | bool | Whether this language is currently active |
+| `--display-order` | int | The display order value for this language |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
 | `--from-created-on` | range | |
@@ -37,20 +39,20 @@ Languages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--culture` | string, required |  |
-| `--active` | bool |  |
-| `--display-order` | int, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this language |
+| `--culture` | string, required | The culture value for this language |
+| `--active` | bool | Whether this language is currently active |
+| `--display-order` | int, required | The display order value for this language |
 
 #### Language update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--culture` | string |  |
-| `--active` | bool |  |
-| `--display-order` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this language |
+| `--culture` | string | The culture value for this language |
+| `--active` | bool | Whether this language is currently active |
+| `--display-order` | int | The display order value for this language |
 
 <!-- END:GENERATED entity=Languages -->

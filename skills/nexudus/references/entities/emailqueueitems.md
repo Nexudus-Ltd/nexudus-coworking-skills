@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EmailQueueItems -->
 
+An **EmailQueueItem** represents a single email queued for delivery. Each record tracks the sender, recipient, subject, body, and delivery status of an outgoing email message.
+
 EmailQueueItems support Search, Get (no Create or Delete via API).
 
 | Command | Description |
@@ -18,26 +20,26 @@ EmailQueueItems support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--email-account-id` | long |  |
-| `--from-user-id` | long |  |
-| `--header` | string |  |
-| `--body` | string |  |
-| `--from-email` | string |  |
-| `--to-emails` | string |  |
-| `--c-c-emails` | string |  |
-| `--c-c-o-emails` | string |  |
-| `--sent` | bool |  |
-| `--sent-attempts` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--email-account-id` | long | ID of the email account linked to this record |
+| `--from-user-id` | long | ID of the from user linked to this record |
+| `--header` | string | The header value for this email queue item |
+| `--body` | string | The body value for this email queue item |
+| `--from-email` | string | The from email value for this email queue item |
+| `--to-emails` | string | The to emails value for this email queue item |
+| `--c-c-emails` | string | The cc emails value for this email queue item |
+| `--c-c-o-emails` | string | The cco emails value for this email queue item |
+| `--sent` | bool | Whether sent is enabled |
+| `--sent-attempts` | int | The sent attempts value for this email queue item |
 | `--from-sent-attempts` | range | |
 | `--to-sent-attempts` | range | |
-| `--delivered` | bool |  |
-| `--last-send-error` | string |  |
-| `--send-date` | DateTime |  |
+| `--delivered` | bool | Whether delivered is enabled |
+| `--last-send-error` | string | The last send error value for this email queue item |
+| `--send-date` | DateTime | Date/time value for send date |
 | `--from-send-date` | range | |
 | `--to-send-date` | range | |
-| `--queued` | bool |  |
-| `--from-name` | string |  |
+| `--queued` | bool | Whether queued is enabled |
+| `--from-name` | string | The from name value for this email queue item |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

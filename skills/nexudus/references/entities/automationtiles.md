@@ -41,7 +41,7 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Tile name used to identify it in the admin panel |
 | `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
 | `--action` | enum | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
@@ -69,7 +69,7 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Tile name used to identify it in the admin panel |
 | `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
 | `--action` | enum, required | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
@@ -82,24 +82,24 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 | `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
 | `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
 | `--error-message` | string | Custom error message shown to the user when the tile action fails |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--time-passes` | list, repeat flag |  |
-| `--added-time-passes` | list, repeat flag |  |
-| `--removed-time-passes` | list, repeat flag |  |
-| `--floor-plan-desks` | list, repeat flag |  |
-| `--added-floor-plan-desks` | list, repeat flag |  |
-| `--removed-floor-plan-desks` | list, repeat flag |  |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this automation tile |
+| `--removed-resources` | list, repeat flag | The removed resources value for this automation tile |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this automation tile |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this automation tile |
+| `--time-passes` | list, repeat flag | List of time passes linked to this record |
+| `--added-time-passes` | list, repeat flag | The added time passes value for this automation tile |
+| `--removed-time-passes` | list, repeat flag | The removed time passes value for this automation tile |
+| `--floor-plan-desks` | list, repeat flag | List of floor plan desks linked to this record |
+| `--added-floor-plan-desks` | list, repeat flag | The added floor plan desks value for this automation tile |
+| `--removed-floor-plan-desks` | list, repeat flag | The removed floor plan desks value for this automation tile |
 
 #### AutomationTile update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Tile name used to identify it in the admin panel |
 | `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
 | `--action` | enum | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
@@ -112,18 +112,18 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 | `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
 | `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
 | `--error-message` | string | Custom error message shown to the user when the tile action fails |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--time-passes` | list, repeat flag |  |
-| `--added-time-passes` | list, repeat flag |  |
-| `--removed-time-passes` | list, repeat flag |  |
-| `--floor-plan-desks` | list, repeat flag |  |
-| `--added-floor-plan-desks` | list, repeat flag |  |
-| `--removed-floor-plan-desks` | list, repeat flag |  |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this automation tile |
+| `--removed-resources` | list, repeat flag | The removed resources value for this automation tile |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this automation tile |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this automation tile |
+| `--time-passes` | list, repeat flag | List of time passes linked to this record |
+| `--added-time-passes` | list, repeat flag | The added time passes value for this automation tile |
+| `--removed-time-passes` | list, repeat flag | The removed time passes value for this automation tile |
+| `--floor-plan-desks` | list, repeat flag | List of floor plan desks linked to this record |
+| `--added-floor-plan-desks` | list, repeat flag | The added floor plan desks value for this automation tile |
+| `--removed-floor-plan-desks` | list, repeat flag | The removed floor plan desks value for this automation tile |
 
 ### AutomationTile (key fields)
 

@@ -25,7 +25,7 @@ CoworkerInvoicePaymentTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long |  |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
 | `--regular-payment-provider` | enum | Payment provider used to process the invoice |
 | `--token` | string | Provider-specific token used to authorise or capture the payment |
 | `--notes` | string | Additional notes about the payment token |
@@ -38,7 +38,7 @@ CoworkerInvoicePaymentTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long, required |  |
+| `--coworker-invoice-id` | long, required | ID of the coworker invoice linked to this record |
 | `--regular-payment-provider` | enum | Payment provider used to process the invoice |
 | `--token` | string | Provider-specific token used to authorise or capture the payment |
 | `--notes` | string | Additional notes about the payment token |
@@ -47,7 +47,7 @@ CoworkerInvoicePaymentTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-invoice-id` | long |  |
+| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
 | `--regular-payment-provider` | enum | Payment provider used to process the invoice |
 | `--token` | string | Provider-specific token used to authorise or capture the payment |
 | `--notes` | string | Additional notes about the payment token |

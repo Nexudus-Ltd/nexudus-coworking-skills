@@ -101,8 +101,8 @@ CustomFields support Search, Get, Create, Update, Delete.
 | `--display-in-booking-sign-up-form` | bool | Show this field on the booking sign-up form |
 | `--display-in-resource-search` | bool | Show this field as a filter in resource search |
 | `--resources` | list, repeat flag | Resources this custom field is linked to (for FloorPlanDesk or Resource record types) |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag | The added resources value for this custom field |
+| `--removed-resources` | list, repeat flag | The removed resources value for this custom field |
 
 #### CustomField update options
 
@@ -135,8 +135,8 @@ CustomFields support Search, Get, Create, Update, Delete.
 | `--display-in-booking-sign-up-form` | bool | Show this field on the booking sign-up form |
 | `--display-in-resource-search` | bool | Show this field as a filter in resource search |
 | `--resources` | list, repeat flag | Resources this custom field is linked to (for FloorPlanDesk or Resource record types) |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
+| `--added-resources` | list, repeat flag | The added resources value for this custom field |
+| `--removed-resources` | list, repeat flag | The removed resources value for this custom field |
 
 ### CustomField (key fields)
 

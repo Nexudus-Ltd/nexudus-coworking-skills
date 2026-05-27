@@ -23,10 +23,10 @@ ChatRooms support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--active` | bool |  |
-| `--last-agent-visit` | DateTime |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this chat room |
+| `--active` | bool | Whether this chat room is currently active |
+| `--last-agent-visit` | DateTime | Date/time value for last agent visit |
 | `--from-last-agent-visit` | range | |
 | `--to-last-agent-visit` | range | |
 | `--from-created-on` | range | |
@@ -38,25 +38,25 @@ ChatRooms support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string |  |
-| `--active` | bool |  |
-| `--last-agent-visit` | DateTime |  |
-| `--users` | list, repeat flag |  |
-| `--added-users` | list, repeat flag |  |
-| `--removed-users` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string | The name value for this chat room |
+| `--active` | bool | Whether this chat room is currently active |
+| `--last-agent-visit` | DateTime | Date/time value for last agent visit |
+| `--users` | list, repeat flag | List of users linked to this record |
+| `--added-users` | list, repeat flag | The added users value for this chat room |
+| `--removed-users` | list, repeat flag | The removed users value for this chat room |
 
 #### ChatRoom update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--active` | bool |  |
-| `--last-agent-visit` | DateTime |  |
-| `--users` | list, repeat flag |  |
-| `--added-users` | list, repeat flag |  |
-| `--removed-users` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this chat room |
+| `--active` | bool | Whether this chat room is currently active |
+| `--last-agent-visit` | DateTime | Date/time value for last agent visit |
+| `--users` | list, repeat flag | List of users linked to this record |
+| `--added-users` | list, repeat flag | The added users value for this chat room |
+| `--removed-users` | list, repeat flag | The removed users value for this chat room |
 
 **List properties (only returned by `get`, not by `list`):** `Users`, `AddedUsers`, `RemovedUsers`
 

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ProposalContracts -->
 
+A **ProposalContract** links a contract configuration to a proposal, defining the pricing plan and terms that will be applied if the proposal is accepted by the customer.
+
 ProposalContracts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long |  |
-| `--tariff-id` | long |  |
+| `--proposal-id` | long | ID of the proposal linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
 | `--price` | decimal | Price override |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -41,10 +43,10 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 | `--billing-day` | int | Billing day of month |
 | `--from-billing-day` | range | |
 | `--to-billing-day` | range | |
-| `--quantity` | int | Quantity |
+| `--quantity` | int | Number of units |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--discount-code-id` | long |  |
+| `--discount-code-id` | long | ID of the discount code linked to this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -54,43 +56,43 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long, required |  |
-| `--tariff-id` | long, required |  |
-| `--desks` | list, repeat flag |  |
-| `--added-desks` | list, repeat flag |  |
-| `--removed-desks` | list, repeat flag |  |
-| `--variants` | list, repeat flag |  |
-| `--added-variants` | list, repeat flag |  |
-| `--removed-variants` | list, repeat flag |  |
+| `--proposal-id` | long, required | ID of the proposal linked to this record |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--desks` | list, repeat flag | List of desks linked to this record |
+| `--added-desks` | list, repeat flag | The added desks value for this proposal contract |
+| `--removed-desks` | list, repeat flag | The removed desks value for this proposal contract |
+| `--variants` | list, repeat flag | List of variants linked to this record |
+| `--added-variants` | list, repeat flag | The added variants value for this proposal contract |
+| `--removed-variants` | list, repeat flag | The removed variants value for this proposal contract |
 | `--price` | decimal | Price override |
 | `--start-date` | DateTime | Contract start date |
 | `--cancellation-limit-days` | int | Cancellation limit in days |
 | `--contract-term` | DateTime | Contract term end date |
 | `--cancellation-date` | DateTime | Cancellation date |
 | `--billing-day` | int, required | Billing day of month |
-| `--quantity` | int, required | Quantity |
-| `--discount-code-id` | long |  |
+| `--quantity` | int, required | Number of units |
+| `--discount-code-id` | long | ID of the discount code linked to this record |
 
 #### ProposalContract update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long |  |
-| `--tariff-id` | long |  |
-| `--desks` | list, repeat flag |  |
-| `--added-desks` | list, repeat flag |  |
-| `--removed-desks` | list, repeat flag |  |
-| `--variants` | list, repeat flag |  |
-| `--added-variants` | list, repeat flag |  |
-| `--removed-variants` | list, repeat flag |  |
+| `--proposal-id` | long | ID of the proposal linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--desks` | list, repeat flag | List of desks linked to this record |
+| `--added-desks` | list, repeat flag | The added desks value for this proposal contract |
+| `--removed-desks` | list, repeat flag | The removed desks value for this proposal contract |
+| `--variants` | list, repeat flag | List of variants linked to this record |
+| `--added-variants` | list, repeat flag | The added variants value for this proposal contract |
+| `--removed-variants` | list, repeat flag | The removed variants value for this proposal contract |
 | `--price` | decimal | Price override |
 | `--start-date` | DateTime | Contract start date |
 | `--cancellation-limit-days` | int | Cancellation limit in days |
 | `--contract-term` | DateTime | Contract term end date |
 | `--cancellation-date` | DateTime | Cancellation date |
 | `--billing-day` | int | Billing day of month |
-| `--quantity` | int | Quantity |
-| `--discount-code-id` | long |  |
+| `--quantity` | int | Number of units |
+| `--discount-code-id` | long | ID of the discount code linked to this record |
 
 #### ProposalContract PII fields
 

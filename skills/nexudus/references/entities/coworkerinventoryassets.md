@@ -29,9 +29,9 @@ CoworkerInventoryAssets also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
-| `--inventory-asset-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--inventory-asset-id` | long | ID of the inventory asset linked to this record |
 | `--notes` | string | Free-text notes about this asset assignment |
 | `--assigned-from` | DateTime | Date the asset was assigned to the customer |
 | `--from-assigned-from` | range | |
@@ -48,9 +48,9 @@ CoworkerInventoryAssets also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required |  |
-| `--business-id` | long, required |  |
-| `--inventory-asset-id` | long, required |  |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--inventory-asset-id` | long, required | ID of the inventory asset linked to this record |
 | `--notes` | string | Free-text notes about this asset assignment |
 | `--assigned-from` | DateTime, required | Date the asset was assigned to the customer |
 | `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
@@ -59,9 +59,9 @@ CoworkerInventoryAssets also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
-| `--inventory-asset-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
+| `--inventory-asset-id` | long | ID of the inventory asset linked to this record |
 | `--notes` | string | Free-text notes about this asset assignment |
 | `--assigned-from` | DateTime | Date the asset was assigned to the customer |
 | `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |

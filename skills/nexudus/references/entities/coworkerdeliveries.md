@@ -44,29 +44,29 @@ CoworkerDeliveries also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
-| `--contract-contact-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--contract-contact-id` | long | ID of the contract contact linked to this record |
 | `--name` | string | Short label or description identifying the delivery item |
 | `--location` | string | Physical location where the delivery is being stored (e.g. mailroom shelf) |
 | `--received-by` | string | Name of the staff member who received the delivery |
 | `--notes` | string | Free-text notes about the delivery |
-| `--new-file-data-url` | string |  |
-| `--clear-file-data-file` | bool |  |
-| `--new-signature-url` | string |  |
-| `--clear-signature-file` | bool |  |
-| `--new-scanned-file-data-url` | string |  |
-| `--clear-scanned-file-data-file` | bool |  |
-| `--new-forwarded-file-data-url` | string |  |
-| `--clear-forwarded-file-data-file` | bool |  |
+| `--new-file-data-url` | string | URL of a new file to upload as the file data |
+| `--clear-file-data-file` | bool | Set to true to remove the current file data file |
+| `--new-signature-url` | string | URL of a new file to upload as the signature |
+| `--clear-signature-file` | bool | Set to true to remove the current signature file |
+| `--new-scanned-file-data-url` | string | URL of a new file to upload as the scanned file data |
+| `--clear-scanned-file-data-file` | bool | Set to true to remove the current scanned file data file |
+| `--new-forwarded-file-data-url` | string | URL of a new file to upload as the forwarded file data |
+| `--clear-forwarded-file-data-file` | bool | Set to true to remove the current forwarded file data file |
 | `--collected` | bool | Whether the customer has collected the delivery |
 | `--requires-signature` | bool | Whether the customer must sign upon collection |
 | `--signed` | bool | Whether the customer has signed for the delivery |
-| `--notified` | bool |  |
+| `--notified` | bool | Whether notified is enabled |
 | `--collected-on` | DateTime | Date and time the customer collected the delivery |
 | `--from-collected-on` | range | |
 | `--to-collected-on` | range | |
-| `--billed` | bool |  |
+| `--billed` | bool | Whether billed is enabled |
 | `--delivery-type` | enum | Type of delivery item (Mail, Parcel, Check, Publicity, or Other) |
 | `--handling-preference` | enum | How the customer wants this delivery handled (e.g. StoreForCollection, Forward, Shred) |
 | `--check-deposited` | bool | Whether the enclosed check has been deposited |
@@ -97,15 +97,15 @@ CoworkerDeliveries also support entity commands.
 | `--returned-to-sender-on` | DateTime | Date and time the delivery was returned to sender |
 | `--from-returned-to-sender-on` | range | |
 | `--to-returned-to-sender-on` | range | |
-| `--forwarding-address-unique-id` | string |  |
-| `--check-deposited-product-unique-id` | string |  |
-| `--forwarded-product-unique-id` | string |  |
-| `--scanned-product-unique-id` | string |  |
-| `--recycled-product-unique-id` | string |  |
-| `--shredded-product-unique-id` | string |  |
-| `--stored-for-collection-product-unique-id` | string |  |
-| `--returned-to-sender-product-unique-id` | string |  |
-| `--collected-product-unique-id` | string |  |
+| `--forwarding-address-unique-id` | string | ID of the forwarding address unique associated with this record |
+| `--check-deposited-product-unique-id` | string | ID of the check deposited product unique associated with this record |
+| `--forwarded-product-unique-id` | string | ID of the forwarded product unique associated with this record |
+| `--scanned-product-unique-id` | string | ID of the scanned product unique associated with this record |
+| `--recycled-product-unique-id` | string | ID of the recycled product unique associated with this record |
+| `--shredded-product-unique-id` | string | ID of the shredded product unique associated with this record |
+| `--stored-for-collection-product-unique-id` | string | ID of the stored for collection product unique associated with this record |
+| `--returned-to-sender-product-unique-id` | string | ID of the returned to sender product unique associated with this record |
+| `--collected-product-unique-id` | string | ID of the collected product unique associated with this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -115,27 +115,27 @@ CoworkerDeliveries also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--coworker-id` | long |  |
-| `--contract-contact-id` | long |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--contract-contact-id` | long | ID of the contract contact linked to this record |
 | `--name` | string, required | Short label or description identifying the delivery item |
 | `--location` | string, required | Physical location where the delivery is being stored (e.g. mailroom shelf) |
 | `--received-by` | string | Name of the staff member who received the delivery |
 | `--notes` | string | Free-text notes about the delivery |
-| `--new-file-data-url` | string |  |
-| `--clear-file-data-file` | bool |  |
-| `--new-signature-url` | string |  |
-| `--clear-signature-file` | bool |  |
-| `--new-scanned-file-data-url` | string |  |
-| `--clear-scanned-file-data-file` | bool |  |
-| `--new-forwarded-file-data-url` | string |  |
-| `--clear-forwarded-file-data-file` | bool |  |
+| `--new-file-data-url` | string | URL of a new file to upload as the file data |
+| `--clear-file-data-file` | bool | Set to true to remove the current file data file |
+| `--new-signature-url` | string | URL of a new file to upload as the signature |
+| `--clear-signature-file` | bool | Set to true to remove the current signature file |
+| `--new-scanned-file-data-url` | string | URL of a new file to upload as the scanned file data |
+| `--clear-scanned-file-data-file` | bool | Set to true to remove the current scanned file data file |
+| `--new-forwarded-file-data-url` | string | URL of a new file to upload as the forwarded file data |
+| `--clear-forwarded-file-data-file` | bool | Set to true to remove the current forwarded file data file |
 | `--collected` | bool | Whether the customer has collected the delivery |
 | `--requires-signature` | bool | Whether the customer must sign upon collection |
 | `--signed` | bool | Whether the customer has signed for the delivery |
-| `--notified` | bool |  |
+| `--notified` | bool | Whether notified is enabled |
 | `--collected-on` | DateTime | Date and time the customer collected the delivery |
-| `--billed` | bool |  |
+| `--billed` | bool | Whether billed is enabled |
 | `--delivery-type` | enum, required | Type of delivery item (Mail, Parcel, Check, Publicity, or Other) |
 | `--handling-preference` | enum | How the customer wants this delivery handled (e.g. StoreForCollection, Forward, Shred) |
 | `--check-deposited` | bool | Whether the enclosed check has been deposited |
@@ -152,41 +152,41 @@ CoworkerDeliveries also support entity commands.
 | `--shredded-on` | DateTime | Date and time the delivery was shredded |
 | `--stored-for-collection-on` | DateTime | Date and time the delivery was placed in storage for collection |
 | `--returned-to-sender-on` | DateTime | Date and time the delivery was returned to sender |
-| `--forwarding-address-unique-id` | string |  |
-| `--check-deposited-product-unique-id` | string |  |
-| `--forwarded-product-unique-id` | string |  |
-| `--scanned-product-unique-id` | string |  |
-| `--recycled-product-unique-id` | string |  |
-| `--shredded-product-unique-id` | string |  |
-| `--stored-for-collection-product-unique-id` | string |  |
-| `--returned-to-sender-product-unique-id` | string |  |
-| `--collected-product-unique-id` | string |  |
+| `--forwarding-address-unique-id` | string | ID of the forwarding address unique associated with this record |
+| `--check-deposited-product-unique-id` | string | ID of the check deposited product unique associated with this record |
+| `--forwarded-product-unique-id` | string | ID of the forwarded product unique associated with this record |
+| `--scanned-product-unique-id` | string | ID of the scanned product unique associated with this record |
+| `--recycled-product-unique-id` | string | ID of the recycled product unique associated with this record |
+| `--shredded-product-unique-id` | string | ID of the shredded product unique associated with this record |
+| `--stored-for-collection-product-unique-id` | string | ID of the stored for collection product unique associated with this record |
+| `--returned-to-sender-product-unique-id` | string | ID of the returned to sender product unique associated with this record |
+| `--collected-product-unique-id` | string | ID of the collected product unique associated with this record |
 
 #### CoworkerDelivery update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--coworker-id` | long |  |
-| `--contract-contact-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--contract-contact-id` | long | ID of the contract contact linked to this record |
 | `--name` | string | Short label or description identifying the delivery item |
 | `--location` | string | Physical location where the delivery is being stored (e.g. mailroom shelf) |
 | `--received-by` | string | Name of the staff member who received the delivery |
 | `--notes` | string | Free-text notes about the delivery |
-| `--new-file-data-url` | string |  |
-| `--clear-file-data-file` | bool |  |
-| `--new-signature-url` | string |  |
-| `--clear-signature-file` | bool |  |
-| `--new-scanned-file-data-url` | string |  |
-| `--clear-scanned-file-data-file` | bool |  |
-| `--new-forwarded-file-data-url` | string |  |
-| `--clear-forwarded-file-data-file` | bool |  |
+| `--new-file-data-url` | string | URL of a new file to upload as the file data |
+| `--clear-file-data-file` | bool | Set to true to remove the current file data file |
+| `--new-signature-url` | string | URL of a new file to upload as the signature |
+| `--clear-signature-file` | bool | Set to true to remove the current signature file |
+| `--new-scanned-file-data-url` | string | URL of a new file to upload as the scanned file data |
+| `--clear-scanned-file-data-file` | bool | Set to true to remove the current scanned file data file |
+| `--new-forwarded-file-data-url` | string | URL of a new file to upload as the forwarded file data |
+| `--clear-forwarded-file-data-file` | bool | Set to true to remove the current forwarded file data file |
 | `--collected` | bool | Whether the customer has collected the delivery |
 | `--requires-signature` | bool | Whether the customer must sign upon collection |
 | `--signed` | bool | Whether the customer has signed for the delivery |
-| `--notified` | bool |  |
+| `--notified` | bool | Whether notified is enabled |
 | `--collected-on` | DateTime | Date and time the customer collected the delivery |
-| `--billed` | bool |  |
+| `--billed` | bool | Whether billed is enabled |
 | `--delivery-type` | enum | Type of delivery item (Mail, Parcel, Check, Publicity, or Other) |
 | `--handling-preference` | enum | How the customer wants this delivery handled (e.g. StoreForCollection, Forward, Shred) |
 | `--check-deposited` | bool | Whether the enclosed check has been deposited |
@@ -203,15 +203,15 @@ CoworkerDeliveries also support entity commands.
 | `--shredded-on` | DateTime | Date and time the delivery was shredded |
 | `--stored-for-collection-on` | DateTime | Date and time the delivery was placed in storage for collection |
 | `--returned-to-sender-on` | DateTime | Date and time the delivery was returned to sender |
-| `--forwarding-address-unique-id` | string |  |
-| `--check-deposited-product-unique-id` | string |  |
-| `--forwarded-product-unique-id` | string |  |
-| `--scanned-product-unique-id` | string |  |
-| `--recycled-product-unique-id` | string |  |
-| `--shredded-product-unique-id` | string |  |
-| `--stored-for-collection-product-unique-id` | string |  |
-| `--returned-to-sender-product-unique-id` | string |  |
-| `--collected-product-unique-id` | string |  |
+| `--forwarding-address-unique-id` | string | ID of the forwarding address unique associated with this record |
+| `--check-deposited-product-unique-id` | string | ID of the check deposited product unique associated with this record |
+| `--forwarded-product-unique-id` | string | ID of the forwarded product unique associated with this record |
+| `--scanned-product-unique-id` | string | ID of the scanned product unique associated with this record |
+| `--recycled-product-unique-id` | string | ID of the recycled product unique associated with this record |
+| `--shredded-product-unique-id` | string | ID of the shredded product unique associated with this record |
+| `--stored-for-collection-product-unique-id` | string | ID of the stored for collection product unique associated with this record |
+| `--returned-to-sender-product-unique-id` | string | ID of the returned to sender product unique associated with this record |
+| `--collected-product-unique-id` | string | ID of the collected product unique associated with this record |
 
 #### CoworkerDelivery PII fields
 

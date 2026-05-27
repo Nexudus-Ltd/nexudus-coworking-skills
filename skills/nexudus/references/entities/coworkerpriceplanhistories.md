@@ -22,13 +22,13 @@ CoworkerPricePlanHistories support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--old-tariff-name` | string | Name of the previous plan before the change |
 | `--new-tariff-name` | string | Name of the new plan after the change |
-| `--old-tariff-unique-id` | string |  |
-| `--new-tariff-unique-id` | string |  |
-| `--old-contract-unique-id` | string |  |
-| `--new-contract-unique-id` | string |  |
+| `--old-tariff-unique-id` | string | ID of the old tariff unique associated with this record |
+| `--new-tariff-unique-id` | string | ID of the new tariff unique associated with this record |
+| `--old-contract-unique-id` | string | ID of the old contract unique associated with this record |
+| `--new-contract-unique-id` | string | ID of the new contract unique associated with this record |
 | `--is-upgrade` | bool | Whether the plan change was an upgrade (new plan value is higher) |
 | `--notes` | string | Notes recorded at the time of the plan change |
 | `--old-value` | decimal | Price of the previous plan |
@@ -43,7 +43,7 @@ CoworkerPricePlanHistories support Search, Get (no Create or Delete via API).
 | `--new-quantity` | int | Quantity of the new plan contract |
 | `--from-new-quantity` | range | |
 | `--to-new-quantity` | range | |
-| `--created-on-local` | DateTime |  |
+| `--created-on-local` | DateTime | Date/time value for created on local |
 | `--from-created-on-local` | range | |
 | `--to-created-on-local` | range | |
 | `--from-created-on` | range | |

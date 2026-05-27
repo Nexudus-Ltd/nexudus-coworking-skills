@@ -128,8 +128,8 @@ CalendarEvents support Search, Get, Create, Update, Delete.
 | `--end-date` | DateTime, required | Event end date and time (UTC) |
 | `--allocation` | int | Maximum number of attendees; leave empty for unlimited |
 | `--event-categories` | list, repeat flag | Categories assigned to this event |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this calendar event |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this calendar event |
 | `--publish-date` | DateTime | Date and time the event becomes visible on the Members Portal (UTC) |
 | `--show-in-home-banner` | bool | Display this event in the home page banner on the Members Portal |
 | `--show-in-home-page` | bool | Display this event on the Members Portal home page |
@@ -192,8 +192,8 @@ CalendarEvents support Search, Get, Create, Update, Delete.
 | `--end-date` | DateTime | Event end date and time (UTC) |
 | `--allocation` | int | Maximum number of attendees; leave empty for unlimited |
 | `--event-categories` | list, repeat flag | Categories assigned to this event |
-| `--added-event-categories` | list, repeat flag |  |
-| `--removed-event-categories` | list, repeat flag |  |
+| `--added-event-categories` | list, repeat flag | The added event categories value for this calendar event |
+| `--removed-event-categories` | list, repeat flag | The removed event categories value for this calendar event |
 | `--publish-date` | DateTime | Date and time the event becomes visible on the Members Portal (UTC) |
 | `--show-in-home-banner` | bool | Display this event in the home page banner on the Members Portal |
 | `--show-in-home-page` | bool | Display this event on the Members Portal home page |

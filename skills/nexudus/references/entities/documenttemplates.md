@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=DocumentTemplates -->
 
+A **DocumentTemplate** defines a reusable template for generating documents such as contracts, proposals, or invoices. Templates support HTML, Word, and binary output formats and can include dynamic merge fields populated from customer and business data.
+
 DocumentTemplates support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--document` | string |  |
-| `--new-binary-document-url` | string |  |
-| `--clear-binary-document-file` | bool |  |
-| `--template-output-format` | enum |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this document template |
+| `--document` | string | The document value for this document template |
+| `--new-binary-document-url` | string | URL of a new file to upload as the binary document |
+| `--clear-binary-document-file` | bool | Set to true to remove the current binary document file |
+| `--template-output-format` | enum | The template output format value for this document template |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,22 +38,28 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--document` | string |  |
-| `--new-binary-document-url` | string |  |
-| `--clear-binary-document-file` | bool |  |
-| `--template-output-format` | enum, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this document template |
+| `--document` | string | The document value for this document template |
+| `--new-binary-document-url` | string | URL of a new file to upload as the binary document |
+| `--clear-binary-document-file` | bool | Set to true to remove the current binary document file |
+| `--template-output-format` | enum, required | The template output format value for this document template |
 
 #### DocumentTemplate update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--document` | string |  |
-| `--new-binary-document-url` | string |  |
-| `--clear-binary-document-file` | bool |  |
-| `--template-output-format` | enum |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this document template |
+| `--document` | string | The document value for this document template |
+| `--new-binary-document-url` | string | URL of a new file to upload as the binary document |
+| `--clear-binary-document-file` | bool | Set to true to remove the current binary document file |
+| `--template-output-format` | enum | The template output format value for this document template |
+
+#### DocumentTemplate enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--template-output-format` | `1` Html, `2` Word, `3` Binary |
 
 <!-- END:GENERATED entity=DocumentTemplates -->

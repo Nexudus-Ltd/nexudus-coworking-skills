@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FormPageRequests -->
 
+A **FormPageRequest** represents a single submission of a form page by a customer. It groups all the answers provided in one form session and tracks which customer submitted it and when.
+
 FormPageRequests support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,12 +23,12 @@ FormPageRequests support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--form-page-id` | long |  |
-| `--sent-on` | DateTime |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--form-page-id` | long | ID of the form page linked to this record |
+| `--sent-on` | DateTime | Date/time value for sent on |
 | `--from-sent-on` | range | |
 | `--to-sent-on` | range | |
-| `--submitted` | bool |  |
+| `--submitted` | bool | Whether submitted is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -36,19 +38,19 @@ FormPageRequests support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required |  |
-| `--form-page-id` | long, required |  |
-| `--sent-on` | DateTime |  |
-| `--submitted` | bool |  |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--form-page-id` | long, required | ID of the form page linked to this record |
+| `--sent-on` | DateTime | Date/time value for sent on |
+| `--submitted` | bool | Whether submitted is enabled |
 
 #### FormPageRequest update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--form-page-id` | long |  |
-| `--sent-on` | DateTime |  |
-| `--submitted` | bool |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--form-page-id` | long | ID of the form page linked to this record |
+| `--sent-on` | DateTime | Date/time value for sent on |
+| `--submitted` | bool | Whether submitted is enabled |
 
 #### FormPageRequest PII fields
 

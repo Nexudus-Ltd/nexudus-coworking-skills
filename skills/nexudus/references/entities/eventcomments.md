@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EventComments -->
 
+An **EventComment** represents a comment posted by a user on a calendar event. Comments enable discussion and feedback on events within the community.
+
 EventComments support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,13 +23,13 @@ EventComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--calendar-event-id` | long |  |
-| `--posted-by-id` | long |  |
-| `--title` | string |  |
-| `--text` | string |  |
-| `--published` | bool |  |
-| `--rating` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
+| `--title` | string | The title value for this event comment |
+| `--text` | string | The text value for this event comment |
+| `--published` | bool | Whether published is enabled |
+| `--rating` | int | The rating value for this event comment |
 | `--from-rating` | range | |
 | `--to-rating` | range | |
 | `--from-created-on` | range | |
@@ -39,25 +41,25 @@ EventComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--calendar-event-id` | long, required |  |
-| `--posted-by-id` | long |  |
-| `--title` | string, required |  |
-| `--text` | string, required |  |
-| `--published` | bool |  |
-| `--rating` | int |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--calendar-event-id` | long, required | ID of the calendar event linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
+| `--title` | string, required | The title value for this event comment |
+| `--text` | string, required | The text value for this event comment |
+| `--published` | bool | Whether published is enabled |
+| `--rating` | int | The rating value for this event comment |
 
 #### EventComment update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--calendar-event-id` | long |  |
-| `--posted-by-id` | long |  |
-| `--title` | string |  |
-| `--text` | string |  |
-| `--published` | bool |  |
-| `--rating` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--posted-by-id` | long | ID of the posted by linked to this record |
+| `--title` | string | The title value for this event comment |
+| `--text` | string | The text value for this event comment |
+| `--published` | bool | Whether published is enabled |
+| `--rating` | int | The rating value for this event comment |
 
 #### EventComment PII fields
 

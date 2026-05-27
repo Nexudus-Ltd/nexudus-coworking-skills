@@ -30,7 +30,7 @@ BusinessDomains support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name for this domain mapping |
 | `--domain-url` | string | The custom domain or subdomain hostname — despite the name, this is just the bare domain (e.g. coworking.com or london.coworking.com), without https:// or any path |
 | `--active` | bool | Whether this domain mapping is active |
@@ -50,7 +50,7 @@ BusinessDomains support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Display name for this domain mapping |
 | `--domain-url` | string, required | The custom domain or subdomain hostname — despite the name, this is just the bare domain (e.g. coworking.com or london.coworking.com), without https:// or any path |
 | `--active` | bool | Whether this domain mapping is active |
@@ -62,7 +62,7 @@ BusinessDomains support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name for this domain mapping |
 | `--domain-url` | string | The custom domain or subdomain hostname — despite the name, this is just the bare domain (e.g. coworking.com or london.coworking.com), without https:// or any path |
 | `--active` | bool | Whether this domain mapping is active |

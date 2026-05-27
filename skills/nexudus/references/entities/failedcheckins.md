@@ -27,8 +27,8 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--checkin-attempt-time` | DateTime | Date and time when the check-in attempt occurred |
 | `--from-checkin-attempt-time` | range | |
 | `--to-checkin-attempt-time` | range | |
@@ -36,7 +36,7 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 | `--teams-at-the-time-of-checkin` | string | Comma-separated list of teams the coworker belonged to at the time of the failed check-in |
 | `--tariff-at-the-time-of-checkin` | string | Name of the pricing plan (tariff) assigned to the coworker at the time of the failed check-in |
 | `--description` | string | Reason or explanation for why the check-in attempt failed |
-| `--checkin-attempt-time-local` | DateTime |  |
+| `--checkin-attempt-time-local` | DateTime | Date/time value for checkin attempt time local |
 | `--from-checkin-attempt-time-local` | range | |
 | `--to-checkin-attempt-time-local` | range | |
 | `--from-created-on` | range | |
@@ -48,27 +48,27 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long, required |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--checkin-attempt-time` | DateTime, required | Date and time when the check-in attempt occurred |
 | `--mac-addresses` | string | MAC addresses of the device used during the check-in attempt, if available |
 | `--teams-at-the-time-of-checkin` | string | Comma-separated list of teams the coworker belonged to at the time of the failed check-in |
 | `--tariff-at-the-time-of-checkin` | string | Name of the pricing plan (tariff) assigned to the coworker at the time of the failed check-in |
 | `--description` | string | Reason or explanation for why the check-in attempt failed |
-| `--checkin-attempt-time-local` | DateTime |  |
+| `--checkin-attempt-time-local` | DateTime | Date/time value for checkin attempt time local |
 
 #### FailedCheckin update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--checkin-attempt-time` | DateTime | Date and time when the check-in attempt occurred |
 | `--mac-addresses` | string | MAC addresses of the device used during the check-in attempt, if available |
 | `--teams-at-the-time-of-checkin` | string | Comma-separated list of teams the coworker belonged to at the time of the failed check-in |
 | `--tariff-at-the-time-of-checkin` | string | Name of the pricing plan (tariff) assigned to the coworker at the time of the failed check-in |
 | `--description` | string | Reason or explanation for why the check-in attempt failed |
-| `--checkin-attempt-time-local` | DateTime |  |
+| `--checkin-attempt-time-local` | DateTime | Date/time value for checkin attempt time local |
 
 #### FailedCheckin PII fields
 

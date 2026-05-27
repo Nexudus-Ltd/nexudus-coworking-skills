@@ -27,8 +27,8 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--extra-service-id` | long |  |
-| `--tariff-id` | long |  |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
 | `--price` | decimal | Overriding price charged to members on the specified tariff |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -44,8 +44,8 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--extra-service-id` | long, required |  |
-| `--tariff-id` | long, required |  |
+| `--extra-service-id` | long, required | ID of the extra service linked to this record |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
 | `--price` | decimal, required | Overriding price charged to members on the specified tariff |
 | `--maximum-price` | decimal | Optional maximum price cap for time-based extra services on the specified tariff |
 
@@ -53,8 +53,8 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--extra-service-id` | long |  |
-| `--tariff-id` | long |  |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
+| `--tariff-id` | long | ID of the tariff linked to this record |
 | `--price` | decimal | Overriding price charged to members on the specified tariff |
 | `--maximum-price` | decimal | Optional maximum price cap for time-based extra services on the specified tariff |
 

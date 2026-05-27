@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=PayoutInvoices -->
 
+A **PayoutInvoice** represents an invoice generated for payout purposes, tracking payments due to or from reseller accounts or partner locations.
+
 PayoutInvoices support Search, Get, Create, Update, Delete.
 
 | Command | Description |

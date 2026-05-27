@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EventAttendees -->
 
+An **EventAttendee** records a customer's registration for a calendar event. Each record links a customer to an event and tracks attendance details such as check-in status and whether the attendee was invoiced.
+
 EventAttendees support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,34 +23,34 @@ EventAttendees support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--calendar-event-id` | long |  |
-| `--event-product-id` | long |  |
-| `--coworker-id` | long |  |
-| `--full-name` | string |  |
-| `--email` | string |  |
-| `--purchase-order` | string |  |
-| `--checked-in` | bool |  |
-| `--checked-in-date` | DateTime |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--event-product-id` | long | ID of the event product linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--full-name` | string | The full name value for this event attendee |
+| `--email` | string | The email value for this event attendee |
+| `--purchase-order` | string | The purchase order value for this event attendee |
+| `--checked-in` | bool | Whether checked in is enabled |
+| `--checked-in-date` | DateTime | Date/time value for checked in date |
 | `--from-checked-in-date` | range | |
 | `--to-checked-in-date` | range | |
-| `--invoiced` | bool |  |
-| `--billed` | bool |  |
-| `--created-on-local` | DateTime |  |
+| `--invoiced` | bool | Whether invoiced is enabled |
+| `--billed` | bool | Whether billed is enabled |
+| `--created-on-local` | DateTime | Date/time value for created on local |
 | `--from-created-on-local` | range | |
 | `--to-created-on-local` | range | |
-| `--checked-in-date-local` | DateTime |  |
+| `--checked-in-date-local` | DateTime | Date/time value for checked in date local |
 | `--from-checked-in-date-local` | range | |
 | `--to-checked-in-date-local` | range | |
-| `--coworker-invoice-id` | int |  |
+| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
 | `--from-coworker-invoice-id` | range | |
 | `--to-coworker-invoice-id` | range | |
-| `--coworker-invoice-number` | string |  |
-| `--coworker-invoice-paid` | bool |  |
-| `--reminded` | bool |  |
-| `--zoom-event-data` | string |  |
-| `--zoom-participant-id` | string |  |
-| `--is-sent` | bool |  |
+| `--coworker-invoice-number` | string | The coworker invoice number value for this event attendee |
+| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
+| `--reminded` | bool | Whether reminded is enabled |
+| `--zoom-event-data` | string | The zoom event data value for this event attendee |
+| `--zoom-participant-id` | string | ID of the zoom participant associated with this record |
+| `--is-sent` | bool | Whether is sent is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -58,50 +60,50 @@ EventAttendees support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--calendar-event-id` | long, required |  |
-| `--event-product-id` | long, required |  |
-| `--coworker-id` | long |  |
-| `--full-name` | string, required |  |
-| `--email` | string, required |  |
-| `--purchase-order` | string |  |
-| `--checked-in` | bool |  |
-| `--checked-in-date` | DateTime |  |
-| `--invoiced` | bool |  |
-| `--billed` | bool |  |
-| `--created-on-local` | DateTime |  |
-| `--checked-in-date-local` | DateTime |  |
-| `--coworker-invoice-id` | int |  |
-| `--coworker-invoice-number` | string |  |
-| `--coworker-invoice-paid` | bool |  |
-| `--reminded` | bool |  |
-| `--zoom-event-data` | string |  |
-| `--zoom-participant-id` | string |  |
-| `--is-sent` | bool |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--calendar-event-id` | long, required | ID of the calendar event linked to this record |
+| `--event-product-id` | long, required | ID of the event product linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--full-name` | string, required | The full name value for this event attendee |
+| `--email` | string, required | The email value for this event attendee |
+| `--purchase-order` | string | The purchase order value for this event attendee |
+| `--checked-in` | bool | Whether checked in is enabled |
+| `--checked-in-date` | DateTime | Date/time value for checked in date |
+| `--invoiced` | bool | Whether invoiced is enabled |
+| `--billed` | bool | Whether billed is enabled |
+| `--created-on-local` | DateTime | Date/time value for created on local |
+| `--checked-in-date-local` | DateTime | Date/time value for checked in date local |
+| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
+| `--coworker-invoice-number` | string | The coworker invoice number value for this event attendee |
+| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
+| `--reminded` | bool | Whether reminded is enabled |
+| `--zoom-event-data` | string | The zoom event data value for this event attendee |
+| `--zoom-participant-id` | string | ID of the zoom participant associated with this record |
+| `--is-sent` | bool | Whether is sent is enabled |
 
 #### EventAttendee update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--calendar-event-id` | long |  |
-| `--event-product-id` | long |  |
-| `--coworker-id` | long |  |
-| `--full-name` | string |  |
-| `--email` | string |  |
-| `--purchase-order` | string |  |
-| `--checked-in` | bool |  |
-| `--checked-in-date` | DateTime |  |
-| `--billed` | bool |  |
-| `--created-on-local` | DateTime |  |
-| `--checked-in-date-local` | DateTime |  |
-| `--coworker-invoice-id` | int |  |
-| `--coworker-invoice-number` | string |  |
-| `--coworker-invoice-paid` | bool |  |
-| `--reminded` | bool |  |
-| `--zoom-event-data` | string |  |
-| `--zoom-participant-id` | string |  |
-| `--is-sent` | bool |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--event-product-id` | long | ID of the event product linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--full-name` | string | The full name value for this event attendee |
+| `--email` | string | The email value for this event attendee |
+| `--purchase-order` | string | The purchase order value for this event attendee |
+| `--checked-in` | bool | Whether checked in is enabled |
+| `--checked-in-date` | DateTime | Date/time value for checked in date |
+| `--billed` | bool | Whether billed is enabled |
+| `--created-on-local` | DateTime | Date/time value for created on local |
+| `--checked-in-date-local` | DateTime | Date/time value for checked in date local |
+| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
+| `--coworker-invoice-number` | string | The coworker invoice number value for this event attendee |
+| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
+| `--reminded` | bool | Whether reminded is enabled |
+| `--zoom-event-data` | string | The zoom event data value for this event attendee |
+| `--zoom-participant-id` | string | ID of the zoom participant associated with this record |
+| `--is-sent` | bool | Whether is sent is enabled |
 
 #### EventAttendee PII fields
 

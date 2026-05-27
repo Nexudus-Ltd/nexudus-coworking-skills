@@ -35,15 +35,15 @@ CoworkerIdentityCheckDocuments also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--coworker-identity-check-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-identity-check-id` | long | ID of the coworker identity check linked to this record |
 | `--name` | string | Display name for this document record |
-| `--new-photo-url` | string |  |
-| `--clear-photo-file` | bool |  |
-| `--new-document-url` | string |  |
-| `--clear-document-file` | bool |  |
-| `--new-additional-document-url` | string |  |
-| `--clear-additional-document-file` | bool |  |
+| `--new-photo-url` | string | URL of a new file to upload as the photo |
+| `--clear-photo-file` | bool | Set to true to remove the current photo file |
+| `--new-document-url` | string | URL of a new file to upload as the document |
+| `--clear-document-file` | bool | Set to true to remove the current document file |
+| `--new-additional-document-url` | string | URL of a new file to upload as the additional document |
+| `--clear-additional-document-file` | bool | Set to true to remove the current additional document file |
 | `--notes` | string | Free-text notes or reviewer comments about this document |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -54,30 +54,30 @@ CoworkerIdentityCheckDocuments also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required |  |
-| `--coworker-identity-check-id` | long, required |  |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--coworker-identity-check-id` | long, required | ID of the coworker identity check linked to this record |
 | `--name` | string, required | Display name for this document record |
-| `--new-photo-url` | string |  |
-| `--clear-photo-file` | bool |  |
-| `--new-document-url` | string |  |
-| `--clear-document-file` | bool |  |
-| `--new-additional-document-url` | string |  |
-| `--clear-additional-document-file` | bool |  |
+| `--new-photo-url` | string | URL of a new file to upload as the photo |
+| `--clear-photo-file` | bool | Set to true to remove the current photo file |
+| `--new-document-url` | string | URL of a new file to upload as the document |
+| `--clear-document-file` | bool | Set to true to remove the current document file |
+| `--new-additional-document-url` | string | URL of a new file to upload as the additional document |
+| `--clear-additional-document-file` | bool | Set to true to remove the current additional document file |
 | `--notes` | string | Free-text notes or reviewer comments about this document |
 
 #### CoworkerIdentityCheckDocument update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--coworker-identity-check-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-identity-check-id` | long | ID of the coworker identity check linked to this record |
 | `--name` | string | Display name for this document record |
-| `--new-photo-url` | string |  |
-| `--clear-photo-file` | bool |  |
-| `--new-document-url` | string |  |
-| `--clear-document-file` | bool |  |
-| `--new-additional-document-url` | string |  |
-| `--clear-additional-document-file` | bool |  |
+| `--new-photo-url` | string | URL of a new file to upload as the photo |
+| `--clear-photo-file` | bool | Set to true to remove the current photo file |
+| `--new-document-url` | string | URL of a new file to upload as the document |
+| `--clear-document-file` | bool | Set to true to remove the current document file |
+| `--new-additional-document-url` | string | URL of a new file to upload as the additional document |
+| `--clear-additional-document-file` | bool | Set to true to remove the current additional document file |
 | `--notes` | string | Free-text notes or reviewer comments about this document |
 
 #### CoworkerIdentityCheckDocument PII fields

@@ -27,16 +27,16 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name for this payment gateway configuration |
 | `--payment-gateway-type` | enum | The payment provider to use (e.g. stripe, braintree, adyen). Determines which credentials are required |
-| `--attempt3d-secure` | bool |  |
+| `--attempt3d-secure` | bool | Whether attempt3d secure is enabled |
 | `--configuration-xml` | string | Provider-specific configuration in XML format (e.g. merchant ID, additional keys) |
 | `--transaction-fee` | decimal | Fee charged per transaction processed through this gateway |
 | `--from-transaction-fee` | range | |
 | `--to-transaction-fee` | range | |
-| `--financial-account-id` | long |  |
-| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -46,26 +46,26 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Display name for this payment gateway configuration |
 | `--payment-gateway-type` | enum, required | The payment provider to use (e.g. stripe, braintree, adyen). Determines which credentials are required |
-| `--attempt3d-secure` | bool |  |
+| `--attempt3d-secure` | bool | Whether attempt3d secure is enabled |
 | `--configuration-xml` | string | Provider-specific configuration in XML format (e.g. merchant ID, additional keys) |
 | `--transaction-fee` | decimal | Fee charged per transaction processed through this gateway |
-| `--financial-account-id` | long |  |
-| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
 
 #### PaymentGateway update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name for this payment gateway configuration |
-| `--attempt3d-secure` | bool |  |
+| `--attempt3d-secure` | bool | Whether attempt3d secure is enabled |
 | `--configuration-xml` | string | Provider-specific configuration in XML format (e.g. merchant ID, additional keys) |
 | `--transaction-fee` | decimal | Fee charged per transaction processed through this gateway |
-| `--financial-account-id` | long |  |
-| `--tax-rate-id` | long |  |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
 
 ### PaymentGateway (key fields)
 

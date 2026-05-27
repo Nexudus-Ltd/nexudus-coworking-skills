@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=OpenAiChatMessages -->
 
+An **OpenAiChatMessage** records a message in an AI-powered chat conversation. Each message tracks the content, the associated customer or operator, and the action type.
+
 OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,10 +23,11 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--user-id` | long |  |
-| `--action` | enum |  |
-| `--content` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--user-id` | long | ID of the user linked to this record |
+| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--action` | enum | The action value for this open ai chat message |
+| `--content` | string | The content value for this open ai chat message |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -34,18 +37,42 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--user-id` | long |  |
-| `--action` | enum, required |  |
-| `--content` | string, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--user-id` | long | ID of the user linked to this record |
+| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--action` | enum, required | The action value for this open ai chat message |
+| `--content` | string, required | The content value for this open ai chat message |
 
 #### OpenAiChatMessage update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--user-id` | long |  |
-| `--action` | enum |  |
-| `--content` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--user-id` | long | ID of the user linked to this record |
+| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--action` | enum | The action value for this open ai chat message |
+| `--content` | string | The content value for this open ai chat message |
+
+#### OpenAiChatMessage PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--ai-channel-session-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--ai-channel-session-coworker-mobile-phone` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--ai-channel-session-coworker-land-line` | `PHONE` | `«PII:PHONE:a3f2b1c9»` |
+| `--ai-channel-session-coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--ai-channel-session-coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus openaichatmessages update <id> --ai-channel-session-coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
+
+#### OpenAiChatMessage enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--action` | `1` Operator |
 
 <!-- END:GENERATED entity=OpenAiChatMessages -->

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TimePassTimeSlots -->
 
+A **TimePassTimeSlot** defines the days and times during which a time pass can be used. Each time slot specifies a day of the week and a from/to time window that restricts when the pass is valid.
+
 TimePassTimeSlots support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,14 +23,14 @@ TimePassTimeSlots support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--time-pass-id` | long |  |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
 | `--from-time` | DateTime | Start time |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
 | `--to-time` | DateTime | End time |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this time pass time slot |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -38,22 +40,28 @@ TimePassTimeSlots support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--time-pass-id` | long, required |  |
+| `--time-pass-id` | long, required | ID of the time pass linked to this record |
 | `--from-time` | DateTime, required | Start time |
 | `--to-time` | DateTime, required | End time |
-| `--day-of-week` | enum, required |  |
+| `--day-of-week` | enum, required | The day of week value for this time pass time slot |
 
 #### TimePassTimeSlot update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--time-pass-id` | long |  |
+| `--time-pass-id` | long | ID of the time pass linked to this record |
 | `--from-time` | DateTime | Start time |
 | `--to-time` | DateTime | End time |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this time pass time slot |
 
 ### TimePassTimeSlot (key fields)
 
 `Id`, `FromTime`, `ToTime`
+
+#### TimePassTimeSlot enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--day-of-week` | `0` Sunday, `1` Monday, `2` Tuesday, `3` Wednesday, `4` Thursday, `5` Friday, `6` Saturday |
 
 <!-- END:GENERATED entity=TimePassTimeSlots -->

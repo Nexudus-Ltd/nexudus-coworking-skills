@@ -27,8 +27,8 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--invoice-number` | string | Unique invoice number assigned when the invoice is finalised |
 | `--payment-reference` | string | Reference code used to match payments to this invoice |
 | `--bill-to-name` | string | Name of the person or company being billed |
@@ -38,7 +38,7 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 | `--bill-to-phone` | string | Billing phone number on the invoice |
 | `--bill-to-fax` | string | Billing fax number on the invoice |
 | `--bill-to-state` | string | Billing state or region on the invoice |
-| `--bill-to-country-id` | long |  |
+| `--bill-to-country-id` | long | ID of the bill to country linked to this record |
 | `--bill-to-bank-account` | string | Bank account number on the invoice for payment |
 | `--bill-to-tax-id-number` | string | Tax identification number of the billed party |
 | `--purchase-order` | string | Customer purchase order number for this invoice |
@@ -51,40 +51,40 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 | `--invoice-to-date` | DateTime | End date of the billing period covered by this invoice |
 | `--from-invoice-to-date` | range | |
 | `--to-invoice-to-date` | range | |
-| `--transaction-total-amount` | decimal |  |
+| `--transaction-total-amount` | decimal | The transaction total amount value for this coworker invoice |
 | `--from-transaction-total-amount` | range | |
 | `--to-transaction-total-amount` | range | |
-| `--transaction-currency-id` | long |  |
-| `--transaction-exchange-rate` | decimal |  |
+| `--transaction-currency-id` | long | ID of the transaction currency linked to this record |
+| `--transaction-exchange-rate` | decimal | The transaction exchange rate value for this coworker invoice |
 | `--from-transaction-exchange-rate` | range | |
 | `--to-transaction-exchange-rate` | range | |
-| `--currency-id` | long |  |
+| `--currency-id` | long | ID of the currency linked to this record |
 | `--draft` | bool | Whether the invoice is still a draft. Draft invoices can be modified before finalisation |
 | `--paid-on` | DateTime | Date the invoice was marked as fully paid |
 | `--from-paid-on` | range | |
 | `--to-paid-on` | range | |
 | `--storecove-invoice-status` | enum | Status of e-invoicing transfer via Storecove |
-| `--billed` | bool |  |
+| `--billed` | bool | Whether billed is enabled |
 | `--do-not-apply-credit-automatically` | bool | Whether to skip automatic application of available credit to this invoice |
-| `--created-on-local` | DateTime |  |
+| `--created-on-local` | DateTime | Date/time value for created on local |
 | `--from-created-on-local` | range | |
 | `--to-created-on-local` | range | |
-| `--due-date-local` | DateTime |  |
+| `--due-date-local` | DateTime | Date/time value for due date local |
 | `--from-due-date-local` | range | |
 | `--to-due-date-local` | range | |
-| `--invoice-from-date-local` | DateTime |  |
+| `--invoice-from-date-local` | DateTime | Date/time value for invoice from date local |
 | `--from-invoice-from-date-local` | range | |
 | `--to-invoice-from-date-local` | range | |
-| `--invoice-to-date-local` | DateTime |  |
+| `--invoice-to-date-local` | DateTime | Date/time value for invoice to date local |
 | `--from-invoice-to-date-local` | range | |
 | `--to-invoice-to-date-local` | range | |
-| `--paid-on-local` | DateTime |  |
+| `--paid-on-local` | DateTime | Date/time value for paid on local |
 | `--from-paid-on-local` | range | |
 | `--to-paid-on-local` | range | |
-| `--refunded-on-local` | DateTime |  |
+| `--refunded-on-local` | DateTime | Date/time value for refunded on local |
 | `--from-refunded-on-local` | range | |
 | `--to-refunded-on-local` | range | |
-| `--last-payment-attempt-local` | DateTime |  |
+| `--last-payment-attempt-local` | DateTime | Date/time value for last payment attempt local |
 | `--from-last-payment-attempt-local` | range | |
 | `--to-last-payment-attempt-local` | range | |
 | `--from-created-on` | range | |
@@ -96,8 +96,8 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
-| `--business-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--business-id` | long | ID of the business linked to this record |
 | `--invoice-number` | string | Unique invoice number assigned when the invoice is finalised |
 | `--payment-reference` | string | Reference code used to match payments to this invoice |
 | `--bill-to-name` | string | Name of the person or company being billed |
@@ -107,29 +107,29 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 | `--bill-to-phone` | string | Billing phone number on the invoice |
 | `--bill-to-fax` | string | Billing fax number on the invoice |
 | `--bill-to-state` | string | Billing state or region on the invoice |
-| `--bill-to-country-id` | long |  |
+| `--bill-to-country-id` | long | ID of the bill to country linked to this record |
 | `--bill-to-bank-account` | string | Bank account number on the invoice for payment |
 | `--bill-to-tax-id-number` | string | Tax identification number of the billed party |
 | `--purchase-order` | string | Customer purchase order number for this invoice |
 | `--due-date` | DateTime | Date by which payment is due |
 | `--invoice-from-date` | DateTime | Start date of the billing period covered by this invoice |
 | `--invoice-to-date` | DateTime | End date of the billing period covered by this invoice |
-| `--transaction-total-amount` | decimal |  |
-| `--transaction-currency-id` | long |  |
-| `--transaction-exchange-rate` | decimal |  |
-| `--currency-id` | long |  |
+| `--transaction-total-amount` | decimal | The transaction total amount value for this coworker invoice |
+| `--transaction-currency-id` | long | ID of the transaction currency linked to this record |
+| `--transaction-exchange-rate` | decimal | The transaction exchange rate value for this coworker invoice |
+| `--currency-id` | long | ID of the currency linked to this record |
 | `--draft` | bool | Whether the invoice is still a draft. Draft invoices can be modified before finalisation |
 | `--paid-on` | DateTime | Date the invoice was marked as fully paid |
 | `--storecove-invoice-status` | enum | Status of e-invoicing transfer via Storecove |
-| `--billed` | bool |  |
+| `--billed` | bool | Whether billed is enabled |
 | `--do-not-apply-credit-automatically` | bool | Whether to skip automatic application of available credit to this invoice |
-| `--created-on-local` | DateTime |  |
-| `--due-date-local` | DateTime |  |
-| `--invoice-from-date-local` | DateTime |  |
-| `--invoice-to-date-local` | DateTime |  |
-| `--paid-on-local` | DateTime |  |
-| `--refunded-on-local` | DateTime |  |
-| `--last-payment-attempt-local` | DateTime |  |
+| `--created-on-local` | DateTime | Date/time value for created on local |
+| `--due-date-local` | DateTime | Date/time value for due date local |
+| `--invoice-from-date-local` | DateTime | Date/time value for invoice from date local |
+| `--invoice-to-date-local` | DateTime | Date/time value for invoice to date local |
+| `--paid-on-local` | DateTime | Date/time value for paid on local |
+| `--refunded-on-local` | DateTime | Date/time value for refunded on local |
+| `--last-payment-attempt-local` | DateTime | Date/time value for last payment attempt local |
 
 #### CoworkerInvoice PII fields
 

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ProposalProducts -->
 
+A **ProposalProduct** links a product to a proposal, defining additional items or services included in the offer with their pricing and recurrence settings.
+
 ProposalProducts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long |  |
-| `--product-id` | long |  |
-| `--quantity` | int | Quantity |
+| `--proposal-id` | long | ID of the proposal linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
+| `--quantity` | int | Number of units |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
 | `--price` | decimal | Price override |
@@ -46,7 +48,7 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `--from-repeat-unit` | range | |
 | `--to-repeat-unit` | range | |
 | `--apply-pro-rating` | bool | Apply pro-rating |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this proposal product |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -56,9 +58,9 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long, required |  |
-| `--product-id` | long, required |  |
-| `--quantity` | int, required | Quantity |
+| `--proposal-id` | long, required | ID of the proposal linked to this record |
+| `--product-id` | long, required | ID of the product linked to this record |
+| `--quantity` | int, required | Number of units |
 | `--price` | decimal | Price override |
 | `--is-deposit` | bool | Whether this is a deposit |
 | `--is-contract-product` | bool | Whether this is a contract product |
@@ -69,15 +71,15 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `--repeat-until` | DateTime | Repeat until date |
 | `--repeat-unit` | int | Number of repeat units |
 | `--apply-pro-rating` | bool | Apply pro-rating |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this proposal product |
 
 #### ProposalProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long |  |
-| `--product-id` | long |  |
-| `--quantity` | int | Quantity |
+| `--proposal-id` | long | ID of the proposal linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
+| `--quantity` | int | Number of units |
 | `--price` | decimal | Price override |
 | `--is-deposit` | bool | Whether this is a deposit |
 | `--is-contract-product` | bool | Whether this is a contract product |
@@ -88,7 +90,7 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `--repeat-until` | DateTime | Repeat until date |
 | `--repeat-unit` | int | Number of repeat units |
 | `--apply-pro-rating` | bool | Apply pro-rating |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this proposal product |
 
 #### ProposalProduct PII fields
 
@@ -107,5 +109,11 @@ Example:
 ### ProposalProduct (key fields)
 
 `Id`, `ProposalCoworkerFullName`, `ProductName`, `Quantity`, `Price`
+
+#### ProposalProduct enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--repeat-cycle` | `1` PricePlan, `2` Day, `3` Week, `4` Month, `5` Year, `6` LastDayOfMonth |
 
 <!-- END:GENERATED entity=ProposalProducts -->

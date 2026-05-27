@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ResourceTimeSlots -->
 
+A **ResourceTimeSlot** defines the days and times during which a specific resource is available for booking. Each time slot specifies a day of the week and a from/to time window.
+
 ResourceTimeSlots support Search, Get, Create, Update, Delete.
 ResourceTimeSlots also support entity commands.
 
@@ -23,14 +25,14 @@ ResourceTimeSlots also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long |  |
+| `--resource-id` | long | ID of the resource linked to this record |
 | `--from-time` | DateTime | Start time |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
 | `--to-time` | DateTime | End time |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this resource time slot |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -40,22 +42,28 @@ ResourceTimeSlots also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long, required |  |
+| `--resource-id` | long, required | ID of the resource linked to this record |
 | `--from-time` | DateTime, required | Start time |
 | `--to-time` | DateTime, required | End time |
-| `--day-of-week` | enum, required |  |
+| `--day-of-week` | enum, required | The day of week value for this resource time slot |
 
 #### ResourceTimeSlot update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long |  |
+| `--resource-id` | long | ID of the resource linked to this record |
 | `--from-time` | DateTime | Start time |
 | `--to-time` | DateTime | End time |
-| `--day-of-week` | enum |  |
+| `--day-of-week` | enum | The day of week value for this resource time slot |
 
 ### ResourceTimeSlot (key fields)
 
 `Id`, `FromTime`, `ToTime`
+
+#### ResourceTimeSlot enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--day-of-week` | `0` Sunday, `1` Monday, `2` Tuesday, `3` Wednesday, `4` Thursday, `5` Friday, `6` Saturday |
 
 <!-- END:GENERATED entity=ResourceTimeSlots -->

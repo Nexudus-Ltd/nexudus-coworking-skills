@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=ProposalSchedules -->
 
+A **ProposalSchedule** defines the overall timeline and milestones for a proposal, including validity period and follow-up dates.
+
 ProposalSchedules support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long |  |
-| `--notes` | string | Notes |
+| `--proposal-id` | long | ID of the proposal linked to this record |
+| `--notes` | string | Optional notes or comments about this proposal schedule |
 | `--price` | decimal | Scheduled price |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -38,8 +40,8 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long, required |  |
-| `--notes` | string | Notes |
+| `--proposal-id` | long, required | ID of the proposal linked to this record |
+| `--notes` | string | Optional notes or comments about this proposal schedule |
 | `--price` | decimal | Scheduled price |
 | `--apply-on` | DateTime, required | Date to apply |
 
@@ -47,8 +49,8 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long |  |
-| `--notes` | string | Notes |
+| `--proposal-id` | long | ID of the proposal linked to this record |
+| `--notes` | string | Optional notes or comments about this proposal schedule |
 | `--price` | decimal | Scheduled price |
 | `--apply-on` | DateTime | Date to apply |
 

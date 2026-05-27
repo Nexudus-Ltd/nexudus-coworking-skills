@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=EmailTemplateFiles -->
 
+An **EmailTemplateFile** defines an email template used for automated communications such as welcome emails, invoices, booking confirmations, and reminders. Templates are language-specific and can be customised per location.
+
 EmailTemplateFiles support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,17 +23,17 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--language` | enum |  |
-| `--file-language-id` | long |  |
-| `--name` | string |  |
-| `--subject` | string |  |
-| `--file-contents` | string |  |
-| `--is-text-only` | bool |  |
-| `--from-name` | string |  |
-| `--from-email` | string |  |
-| `--c-c-email` | string |  |
-| `--c-c-o-email` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--language` | enum | The language value for this email template file |
+| `--file-language-id` | long | ID of the file language linked to this record |
+| `--name` | string | The name value for this email template file |
+| `--subject` | string | The subject value for this email template file |
+| `--file-contents` | string | The file contents value for this email template file |
+| `--is-text-only` | bool | Whether is text only is enabled |
+| `--from-name` | string | The from name value for this email template file |
+| `--from-email` | string | The from email value for this email template file |
+| `--c-c-email` | string | The cc email value for this email template file |
+| `--c-c-o-email` | string | The cco email value for this email template file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -41,33 +43,33 @@ EmailTemplateFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--language` | enum, required |  |
-| `--file-language-id` | long |  |
-| `--name` | string, required |  |
-| `--subject` | string, required |  |
-| `--file-contents` | string |  |
-| `--is-text-only` | bool |  |
-| `--from-name` | string |  |
-| `--from-email` | string |  |
-| `--c-c-email` | string |  |
-| `--c-c-o-email` | string |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--language` | enum, required | The language value for this email template file |
+| `--file-language-id` | long | ID of the file language linked to this record |
+| `--name` | string, required | The name value for this email template file |
+| `--subject` | string, required | The subject value for this email template file |
+| `--file-contents` | string | The file contents value for this email template file |
+| `--is-text-only` | bool | Whether is text only is enabled |
+| `--from-name` | string | The from name value for this email template file |
+| `--from-email` | string | The from email value for this email template file |
+| `--c-c-email` | string | The cc email value for this email template file |
+| `--c-c-o-email` | string | The cco email value for this email template file |
 
 #### EmailTemplateFile update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--language` | enum |  |
-| `--file-language-id` | long |  |
-| `--name` | string |  |
-| `--subject` | string |  |
-| `--file-contents` | string |  |
-| `--is-text-only` | bool |  |
-| `--from-name` | string |  |
-| `--from-email` | string |  |
-| `--c-c-email` | string |  |
-| `--c-c-o-email` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--language` | enum | The language value for this email template file |
+| `--file-language-id` | long | ID of the file language linked to this record |
+| `--name` | string | The name value for this email template file |
+| `--subject` | string | The subject value for this email template file |
+| `--file-contents` | string | The file contents value for this email template file |
+| `--is-text-only` | bool | Whether is text only is enabled |
+| `--from-name` | string | The from name value for this email template file |
+| `--from-email` | string | The from email value for this email template file |
+| `--c-c-email` | string | The cc email value for this email template file |
+| `--c-c-o-email` | string | The cco email value for this email template file |
 
 #### EmailTemplateFile PII fields
 
@@ -82,5 +84,11 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 Example:
 
 `nexudus emailtemplatefiles update <id> --from-email "«PII:EMAIL:a3f2b1c9»" --agent`
+
+#### EmailTemplateFile enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
 
 <!-- END:GENERATED entity=EmailTemplateFiles -->

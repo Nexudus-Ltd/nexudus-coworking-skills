@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Users -->
 
+A **User** represents an administrator or staff member who can sign in to the Nexudus admin panel. Users are assigned roles that control their permissions and can be associated with one or more business locations.
+
 Users support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,70 +23,70 @@ Users support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--full-name` | string |  |
-| `--email` | string |  |
-| `--access-token` | string |  |
-| `--language` | enum |  |
-| `--preferred-language-id` | long |  |
-| `--new-password` | string |  |
-| `--password` | string |  |
-| `--password-salt` | string |  |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--application-id` | long |  |
-| `--active` | bool |  |
-| `--is-admin` | bool |  |
-| `--a-p-i-access` | bool |  |
-| `--validated` | bool |  |
-| `--must-reset-password` | bool |  |
-| `--last-access` | DateTime |  |
+| `--full-name` | string | The full name value for this user |
+| `--email` | string | The email value for this user |
+| `--access-token` | string | The access token value for this user |
+| `--language` | enum | The language value for this user |
+| `--preferred-language-id` | long | ID of the preferred language linked to this record |
+| `--new-password` | string | The new password value for this user |
+| `--password` | string | The password value for this user |
+| `--password-salt` | string | The password salt value for this user |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--application-id` | long | ID of the application linked to this record |
+| `--active` | bool | Whether this user is currently active |
+| `--is-admin` | bool | Whether is admin is enabled |
+| `--a-p-i-access` | bool | Whether api access is enabled |
+| `--validated` | bool | Whether validated is enabled |
+| `--must-reset-password` | bool | Whether must reset password is enabled |
+| `--last-access` | DateTime | Date/time value for last access |
 | `--from-last-access` | range | |
 | `--to-last-access` | range | |
-| `--devices` | string |  |
-| `--on-new-email` | bool |  |
-| `--on-help-desk-msg` | bool |  |
-| `--on-new-wall-post` | bool |  |
-| `--on-new-member` | bool |  |
-| `--on-profile-changes` | bool |  |
-| `--on-new-blog-comment` | bool |  |
-| `--on-new-event-comment` | bool |  |
-| `--on-tariff-change` | bool |  |
-| `--on-booking-change` | bool |  |
-| `--on-tentative-booking-change` | bool |  |
-| `--on-purchases` | bool |  |
-| `--on-visitor-registration` | bool |  |
-| `--on-plaform-invoices` | bool |  |
-| `--receive-community-digest` | bool |  |
-| `--receive-every-message` | bool |  |
-| `--two-factor-secret` | string |  |
-| `--email-call-back-guid` | string |  |
-| `--last-help-visited` | int |  |
+| `--devices` | string | The devices value for this user |
+| `--on-new-email` | bool | Whether on new email is enabled |
+| `--on-help-desk-msg` | bool | Whether on help desk msg is enabled |
+| `--on-new-wall-post` | bool | Whether on new wall post is enabled |
+| `--on-new-member` | bool | Whether on new member is enabled |
+| `--on-profile-changes` | bool | Whether on profile changes is enabled |
+| `--on-new-blog-comment` | bool | Whether on new blog comment is enabled |
+| `--on-new-event-comment` | bool | Whether on new event comment is enabled |
+| `--on-tariff-change` | bool | Whether on tariff change is enabled |
+| `--on-booking-change` | bool | Whether on booking change is enabled |
+| `--on-tentative-booking-change` | bool | Whether on tentative booking change is enabled |
+| `--on-purchases` | bool | Whether on purchases is enabled |
+| `--on-visitor-registration` | bool | Whether on visitor registration is enabled |
+| `--on-plaform-invoices` | bool | Whether on plaform invoices is enabled |
+| `--receive-community-digest` | bool | Whether receive community digest is enabled |
+| `--receive-every-message` | bool | Whether receive every message is enabled |
+| `--two-factor-secret` | string | The two factor secret value for this user |
+| `--email-call-back-guid` | string | Unique identifier (GUID) for the email call back |
+| `--last-help-visited` | int | The last help visited value for this user |
 | `--from-last-help-visited` | range | |
 | `--to-last-help-visited` | range | |
-| `--last-received-community-thread-date` | DateTime |  |
+| `--last-received-community-thread-date` | DateTime | Date/time value for last received community thread date |
 | `--from-last-received-community-thread-date` | range | |
 | `--to-last-received-community-thread-date` | range | |
-| `--last-received-community-message-date` | DateTime |  |
+| `--last-received-community-message-date` | DateTime | Date/time value for last received community message date |
 | `--from-last-received-community-message-date` | range | |
 | `--to-last-received-community-message-date` | range | |
-| `--next-community-digest` | DateTime |  |
+| `--next-community-digest` | DateTime | Date/time value for next community digest |
 | `--from-next-community-digest` | range | |
 | `--to-next-community-digest` | range | |
-| `--support-team-user-email` | string |  |
-| `--invalid-login-attempts` | int |  |
+| `--support-team-user-email` | string | The support team user email value for this user |
+| `--invalid-login-attempts` | int | The invalid login attempts value for this user |
 | `--from-invalid-login-attempts` | range | |
 | `--to-invalid-login-attempts` | range | |
-| `--last-login-attempt` | DateTime |  |
+| `--last-login-attempt` | DateTime | Date/time value for last login attempt |
 | `--from-last-login-attempt` | range | |
 | `--to-last-login-attempt` | range | |
-| `--on-access-control-errors` | bool |  |
-| `--next-help-desk-message-reminder` | DateTime |  |
+| `--on-access-control-errors` | bool | Whether on access control errors is enabled |
+| `--next-help-desk-message-reminder` | DateTime | Date/time value for next help desk message reminder |
 | `--from-next-help-desk-message-reminder` | range | |
 | `--to-next-help-desk-message-reminder` | range | |
-| `--on-member-removed-from-team` | bool |  |
-| `--on-virtual-office-tariff-change` | bool |  |
-| `--on-virtual-office-delivery-preference-update` | bool |  |
-| `--on-identity-check-update` | bool |  |
+| `--on-member-removed-from-team` | bool | Whether on member removed from team is enabled |
+| `--on-virtual-office-tariff-change` | bool | Whether on virtual office tariff change is enabled |
+| `--on-virtual-office-delivery-preference-update` | bool | Whether on virtual office delivery preference update is enabled |
+| `--on-identity-check-update` | bool | Whether on identity check update is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -94,125 +96,125 @@ Users support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--full-name` | string, required |  |
-| `--email` | string, required |  |
-| `--access-token` | string |  |
-| `--language` | enum, required |  |
-| `--preferred-language-id` | long |  |
-| `--new-password` | string |  |
-| `--password` | string |  |
-| `--password-salt` | string, required |  |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--application-id` | long |  |
-| `--active` | bool |  |
-| `--is-admin` | bool |  |
-| `--a-p-i-access` | bool |  |
-| `--validated` | bool |  |
-| `--must-reset-password` | bool |  |
-| `--last-access` | DateTime |  |
-| `--devices` | string |  |
-| `--on-new-email` | bool |  |
-| `--on-help-desk-msg` | bool |  |
-| `--on-new-wall-post` | bool |  |
-| `--on-new-member` | bool |  |
-| `--on-profile-changes` | bool |  |
-| `--on-new-blog-comment` | bool |  |
-| `--on-new-event-comment` | bool |  |
-| `--on-tariff-change` | bool |  |
-| `--on-booking-change` | bool |  |
-| `--on-tentative-booking-change` | bool |  |
-| `--on-purchases` | bool |  |
-| `--on-visitor-registration` | bool |  |
-| `--on-plaform-invoices` | bool |  |
-| `--receive-community-digest` | bool |  |
-| `--receive-every-message` | bool |  |
-| `--two-factor-secret` | string |  |
-| `--email-call-back-guid` | string |  |
-| `--businesses` | list, repeat flag |  |
-| `--added-businesses` | list, repeat flag |  |
-| `--removed-businesses` | list, repeat flag |  |
-| `--user-roles` | list, repeat flag |  |
-| `--added-user-roles` | list, repeat flag |  |
-| `--removed-user-roles` | list, repeat flag |  |
-| `--chat-rooms` | list, repeat flag |  |
-| `--added-chat-rooms` | list, repeat flag |  |
-| `--removed-chat-rooms` | list, repeat flag |  |
-| `--last-help-visited` | int, required |  |
-| `--last-received-community-thread-date` | DateTime |  |
-| `--last-received-community-message-date` | DateTime |  |
-| `--next-community-digest` | DateTime |  |
-| `--support-team-user-email` | string |  |
-| `--invalid-login-attempts` | int, required |  |
-| `--last-login-attempt` | DateTime |  |
-| `--on-access-control-errors` | bool |  |
-| `--next-help-desk-message-reminder` | DateTime |  |
-| `--on-member-removed-from-team` | bool |  |
-| `--on-virtual-office-tariff-change` | bool |  |
-| `--on-virtual-office-delivery-preference-update` | bool |  |
-| `--on-identity-check-update` | bool |  |
+| `--full-name` | string, required | The full name value for this user |
+| `--email` | string, required | The email value for this user |
+| `--access-token` | string | The access token value for this user |
+| `--language` | enum, required | The language value for this user |
+| `--preferred-language-id` | long | ID of the preferred language linked to this record |
+| `--new-password` | string | The new password value for this user |
+| `--password` | string | The password value for this user |
+| `--password-salt` | string, required | The password salt value for this user |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--application-id` | long | ID of the application linked to this record |
+| `--active` | bool | Whether this user is currently active |
+| `--is-admin` | bool | Whether is admin is enabled |
+| `--a-p-i-access` | bool | Whether api access is enabled |
+| `--validated` | bool | Whether validated is enabled |
+| `--must-reset-password` | bool | Whether must reset password is enabled |
+| `--last-access` | DateTime | Date/time value for last access |
+| `--devices` | string | The devices value for this user |
+| `--on-new-email` | bool | Whether on new email is enabled |
+| `--on-help-desk-msg` | bool | Whether on help desk msg is enabled |
+| `--on-new-wall-post` | bool | Whether on new wall post is enabled |
+| `--on-new-member` | bool | Whether on new member is enabled |
+| `--on-profile-changes` | bool | Whether on profile changes is enabled |
+| `--on-new-blog-comment` | bool | Whether on new blog comment is enabled |
+| `--on-new-event-comment` | bool | Whether on new event comment is enabled |
+| `--on-tariff-change` | bool | Whether on tariff change is enabled |
+| `--on-booking-change` | bool | Whether on booking change is enabled |
+| `--on-tentative-booking-change` | bool | Whether on tentative booking change is enabled |
+| `--on-purchases` | bool | Whether on purchases is enabled |
+| `--on-visitor-registration` | bool | Whether on visitor registration is enabled |
+| `--on-plaform-invoices` | bool | Whether on plaform invoices is enabled |
+| `--receive-community-digest` | bool | Whether receive community digest is enabled |
+| `--receive-every-message` | bool | Whether receive every message is enabled |
+| `--two-factor-secret` | string | The two factor secret value for this user |
+| `--email-call-back-guid` | string | Unique identifier (GUID) for the email call back |
+| `--businesses` | list, repeat flag | List of businesses linked to this record |
+| `--added-businesses` | list, repeat flag | The added businesses value for this user |
+| `--removed-businesses` | list, repeat flag | The removed businesses value for this user |
+| `--user-roles` | list, repeat flag | List of user roles linked to this record |
+| `--added-user-roles` | list, repeat flag | The added user roles value for this user |
+| `--removed-user-roles` | list, repeat flag | The removed user roles value for this user |
+| `--chat-rooms` | list, repeat flag | List of chat rooms linked to this record |
+| `--added-chat-rooms` | list, repeat flag | The added chat rooms value for this user |
+| `--removed-chat-rooms` | list, repeat flag | The removed chat rooms value for this user |
+| `--last-help-visited` | int, required | The last help visited value for this user |
+| `--last-received-community-thread-date` | DateTime | Date/time value for last received community thread date |
+| `--last-received-community-message-date` | DateTime | Date/time value for last received community message date |
+| `--next-community-digest` | DateTime | Date/time value for next community digest |
+| `--support-team-user-email` | string | The support team user email value for this user |
+| `--invalid-login-attempts` | int, required | The invalid login attempts value for this user |
+| `--last-login-attempt` | DateTime | Date/time value for last login attempt |
+| `--on-access-control-errors` | bool | Whether on access control errors is enabled |
+| `--next-help-desk-message-reminder` | DateTime | Date/time value for next help desk message reminder |
+| `--on-member-removed-from-team` | bool | Whether on member removed from team is enabled |
+| `--on-virtual-office-tariff-change` | bool | Whether on virtual office tariff change is enabled |
+| `--on-virtual-office-delivery-preference-update` | bool | Whether on virtual office delivery preference update is enabled |
+| `--on-identity-check-update` | bool | Whether on identity check update is enabled |
 
 #### User update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--full-name` | string |  |
-| `--email` | string |  |
-| `--access-token` | string |  |
-| `--language` | enum |  |
-| `--preferred-language-id` | long |  |
-| `--new-password` | string |  |
-| `--password` | string |  |
-| `--password-salt` | string |  |
-| `--new-avatar-url` | string |  |
-| `--clear-avatar-file` | bool |  |
-| `--application-id` | long |  |
-| `--active` | bool |  |
-| `--is-admin` | bool |  |
-| `--a-p-i-access` | bool |  |
-| `--validated` | bool |  |
-| `--must-reset-password` | bool |  |
-| `--last-access` | DateTime |  |
-| `--devices` | string |  |
-| `--on-new-email` | bool |  |
-| `--on-help-desk-msg` | bool |  |
-| `--on-new-wall-post` | bool |  |
-| `--on-new-member` | bool |  |
-| `--on-profile-changes` | bool |  |
-| `--on-new-blog-comment` | bool |  |
-| `--on-new-event-comment` | bool |  |
-| `--on-tariff-change` | bool |  |
-| `--on-booking-change` | bool |  |
-| `--on-tentative-booking-change` | bool |  |
-| `--on-purchases` | bool |  |
-| `--on-visitor-registration` | bool |  |
-| `--on-plaform-invoices` | bool |  |
-| `--receive-community-digest` | bool |  |
-| `--receive-every-message` | bool |  |
-| `--two-factor-secret` | string |  |
-| `--email-call-back-guid` | string |  |
-| `--businesses` | list, repeat flag |  |
-| `--added-businesses` | list, repeat flag |  |
-| `--removed-businesses` | list, repeat flag |  |
-| `--user-roles` | list, repeat flag |  |
-| `--added-user-roles` | list, repeat flag |  |
-| `--removed-user-roles` | list, repeat flag |  |
-| `--chat-rooms` | list, repeat flag |  |
-| `--added-chat-rooms` | list, repeat flag |  |
-| `--removed-chat-rooms` | list, repeat flag |  |
-| `--last-help-visited` | int |  |
-| `--last-received-community-thread-date` | DateTime |  |
-| `--last-received-community-message-date` | DateTime |  |
-| `--next-community-digest` | DateTime |  |
-| `--support-team-user-email` | string |  |
-| `--invalid-login-attempts` | int |  |
-| `--last-login-attempt` | DateTime |  |
-| `--on-access-control-errors` | bool |  |
-| `--next-help-desk-message-reminder` | DateTime |  |
-| `--on-member-removed-from-team` | bool |  |
-| `--on-virtual-office-tariff-change` | bool |  |
-| `--on-virtual-office-delivery-preference-update` | bool |  |
-| `--on-identity-check-update` | bool |  |
+| `--full-name` | string | The full name value for this user |
+| `--email` | string | The email value for this user |
+| `--access-token` | string | The access token value for this user |
+| `--language` | enum | The language value for this user |
+| `--preferred-language-id` | long | ID of the preferred language linked to this record |
+| `--new-password` | string | The new password value for this user |
+| `--password` | string | The password value for this user |
+| `--password-salt` | string | The password salt value for this user |
+| `--new-avatar-url` | string | URL of a new file to upload as the avatar |
+| `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--application-id` | long | ID of the application linked to this record |
+| `--active` | bool | Whether this user is currently active |
+| `--is-admin` | bool | Whether is admin is enabled |
+| `--a-p-i-access` | bool | Whether api access is enabled |
+| `--validated` | bool | Whether validated is enabled |
+| `--must-reset-password` | bool | Whether must reset password is enabled |
+| `--last-access` | DateTime | Date/time value for last access |
+| `--devices` | string | The devices value for this user |
+| `--on-new-email` | bool | Whether on new email is enabled |
+| `--on-help-desk-msg` | bool | Whether on help desk msg is enabled |
+| `--on-new-wall-post` | bool | Whether on new wall post is enabled |
+| `--on-new-member` | bool | Whether on new member is enabled |
+| `--on-profile-changes` | bool | Whether on profile changes is enabled |
+| `--on-new-blog-comment` | bool | Whether on new blog comment is enabled |
+| `--on-new-event-comment` | bool | Whether on new event comment is enabled |
+| `--on-tariff-change` | bool | Whether on tariff change is enabled |
+| `--on-booking-change` | bool | Whether on booking change is enabled |
+| `--on-tentative-booking-change` | bool | Whether on tentative booking change is enabled |
+| `--on-purchases` | bool | Whether on purchases is enabled |
+| `--on-visitor-registration` | bool | Whether on visitor registration is enabled |
+| `--on-plaform-invoices` | bool | Whether on plaform invoices is enabled |
+| `--receive-community-digest` | bool | Whether receive community digest is enabled |
+| `--receive-every-message` | bool | Whether receive every message is enabled |
+| `--two-factor-secret` | string | The two factor secret value for this user |
+| `--email-call-back-guid` | string | Unique identifier (GUID) for the email call back |
+| `--businesses` | list, repeat flag | List of businesses linked to this record |
+| `--added-businesses` | list, repeat flag | The added businesses value for this user |
+| `--removed-businesses` | list, repeat flag | The removed businesses value for this user |
+| `--user-roles` | list, repeat flag | List of user roles linked to this record |
+| `--added-user-roles` | list, repeat flag | The added user roles value for this user |
+| `--removed-user-roles` | list, repeat flag | The removed user roles value for this user |
+| `--chat-rooms` | list, repeat flag | List of chat rooms linked to this record |
+| `--added-chat-rooms` | list, repeat flag | The added chat rooms value for this user |
+| `--removed-chat-rooms` | list, repeat flag | The removed chat rooms value for this user |
+| `--last-help-visited` | int | The last help visited value for this user |
+| `--last-received-community-thread-date` | DateTime | Date/time value for last received community thread date |
+| `--last-received-community-message-date` | DateTime | Date/time value for last received community message date |
+| `--next-community-digest` | DateTime | Date/time value for next community digest |
+| `--support-team-user-email` | string | The support team user email value for this user |
+| `--invalid-login-attempts` | int | The invalid login attempts value for this user |
+| `--last-login-attempt` | DateTime | Date/time value for last login attempt |
+| `--on-access-control-errors` | bool | Whether on access control errors is enabled |
+| `--next-help-desk-message-reminder` | DateTime | Date/time value for next help desk message reminder |
+| `--on-member-removed-from-team` | bool | Whether on member removed from team is enabled |
+| `--on-virtual-office-tariff-change` | bool | Whether on virtual office tariff change is enabled |
+| `--on-virtual-office-delivery-preference-update` | bool | Whether on virtual office delivery preference update is enabled |
+| `--on-identity-check-update` | bool | Whether on identity check update is enabled |
 
 #### User PII fields
 
@@ -230,5 +232,11 @@ Example:
 `nexudus users update <id> --full-name "«PII:NAME:a3f2b1c9»" --agent`
 
 **List properties (only returned by `get`, not by `list`):** `Businesses`, `AddedBusinesses`, `RemovedBusinesses`, `UserRoles`, `AddedUserRoles`, `RemovedUserRoles`, `ChatRooms`, `AddedChatRooms`, `RemovedChatRooms`
+
+#### User enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
 
 <!-- END:GENERATED entity=Users -->

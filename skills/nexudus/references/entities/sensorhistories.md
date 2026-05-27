@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=SensorHistories -->
 
+A **SensorHistory** record stores a historical data point from a sensor reading, including the measured value and timestamp. History records enable trend analysis and reporting on environmental conditions over time.
+
 SensorHistories support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ SensorHistories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--sensor-id` | long |  |
-| `--value` | string |  |
-| `--observed-on` | DateTime |  |
+| `--sensor-id` | long | ID of the sensor linked to this record |
+| `--value` | string | The value value for this sensor history |
+| `--observed-on` | DateTime | Date/time value for observed on |
 | `--from-observed-on` | range | |
 | `--to-observed-on` | range | |
 | `--from-created-on` | range | |
@@ -35,16 +37,16 @@ SensorHistories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--sensor-id` | long, required |  |
-| `--value` | string |  |
-| `--observed-on` | DateTime, required |  |
+| `--sensor-id` | long, required | ID of the sensor linked to this record |
+| `--value` | string | The value value for this sensor history |
+| `--observed-on` | DateTime, required | Date/time value for observed on |
 
 #### SensorHistory update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--sensor-id` | long |  |
-| `--value` | string |  |
-| `--observed-on` | DateTime |  |
+| `--sensor-id` | long | ID of the sensor linked to this record |
+| `--value` | string | The value value for this sensor history |
+| `--observed-on` | DateTime | Date/time value for observed on |
 
 <!-- END:GENERATED entity=SensorHistories -->

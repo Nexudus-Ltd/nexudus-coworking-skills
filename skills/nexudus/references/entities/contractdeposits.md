@@ -27,14 +27,14 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long |  |
-| `--product-id` | long |  |
+| `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--notes` | string | Optional notes or internal comments about this deposit |
 | `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
 | `--from-price` | range | |
 | `--to-price` | range | |
 | `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
-| `--invoice-during-online-checkout` | bool |  |
+| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -44,23 +44,23 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long, required |  |
-| `--product-id` | long, required |  |
+| `--coworker-contract-id` | long, required | ID of the coworker contract linked to this record |
+| `--product-id` | long, required | ID of the product linked to this record |
 | `--notes` | string | Optional notes or internal comments about this deposit |
 | `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
 | `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
-| `--invoice-during-online-checkout` | bool |  |
+| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
 
 #### ContractDeposit update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long |  |
-| `--product-id` | long |  |
+| `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--notes` | string | Optional notes or internal comments about this deposit |
 | `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
 | `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
-| `--invoice-during-online-checkout` | bool |  |
+| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
 
 #### ContractDeposit PII fields
 

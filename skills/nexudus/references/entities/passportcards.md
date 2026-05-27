@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=PassportCards -->
 
+A **PassportCard** represents a customer's public profile card displayed on the Nexudus Passport network. Passport cards show member information across participating locations to foster community and networking.
+
 PassportCards support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ PassportCards support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--code` | string |  |
-| `--active` | bool |  |
-| `--notes` | string |  |
+| `--code` | string | The code value for this passport card |
+| `--active` | bool | Whether this passport card is currently active |
+| `--notes` | string | Optional notes or comments about this passport card |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,17 +35,17 @@ PassportCards support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--code` | string, required |  |
-| `--active` | bool |  |
-| `--notes` | string |  |
+| `--code` | string, required | The code value for this passport card |
+| `--active` | bool | Whether this passport card is currently active |
+| `--notes` | string | Optional notes or comments about this passport card |
 
 #### PassportCard update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--code` | string |  |
-| `--active` | bool |  |
-| `--notes` | string |  |
+| `--code` | string | The code value for this passport card |
+| `--active` | bool | Whether this passport card is currently active |
+| `--notes` | string | Optional notes or comments about this passport card |
 
 #### PassportCard PII fields
 

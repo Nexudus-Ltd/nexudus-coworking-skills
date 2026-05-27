@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TariffExtraServices -->
 
+A **TariffExtraService** links an extra service (booking rate) to a pricing plan (tariff), defining an included allowance of booking time or printing credits for customers on that plan. The `UsesIncluded` value specifies how much is included.
+
 TariffExtraServices support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,8 +23,8 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--extra-service-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--uses-included` | int | Number of uses included |
 | `--from-uses-included` | range | |
 | `--to-uses-included` | range | |
@@ -36,8 +38,8 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required |  |
-| `--extra-service-id` | long, required |  |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--extra-service-id` | long, required | ID of the extra service linked to this record |
 | `--uses-included` | int, required | Number of uses included |
 | `--service-renewal-time` | enum, required | Service renewal time period |
 
@@ -45,13 +47,19 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--extra-service-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--extra-service-id` | long | ID of the extra service linked to this record |
 | `--uses-included` | int | Number of uses included |
 | `--service-renewal-time` | enum | Service renewal time period |
 
 ### TariffExtraService (key fields)
 
 `Id`, `TariffName`, `ExtraServiceName`, `UsesIncluded`
+
+#### TariffExtraService enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--service-renewal-time` | `1` Week, `2` CalendarMonth, `3` TariffMonth, `4` Year, `5` Day |
 
 <!-- END:GENERATED entity=TariffExtraServices -->

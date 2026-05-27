@@ -45,7 +45,7 @@ CoworkerNotifications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--message` | string | The notification message body displayed to the coworker |
 | `--notification-type` | string | The type of event that triggered this notification (e.g. blog, community-event, coworkerinvoice, push-notification) |
 | `--entity-id` | int | The ID of the entity related to this notification (e.g. the blog post, invoice, or thread that triggered it) |
@@ -61,7 +61,7 @@ CoworkerNotifications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required |  |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
 | `--message` | string, required | The notification message body displayed to the coworker |
 | `--notification-type` | string, required | The type of event that triggered this notification (e.g. blog, community-event, coworkerinvoice, push-notification) |
 | `--entity-id` | int, required | The ID of the entity related to this notification (e.g. the blog post, invoice, or thread that triggered it) |
@@ -71,7 +71,7 @@ CoworkerNotifications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long |  |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--message` | string | The notification message body displayed to the coworker |
 | `--notification-type` | string | The type of event that triggered this notification (e.g. blog, community-event, coworkerinvoice, push-notification) |
 | `--entity-id` | int | The ID of the entity related to this notification (e.g. the blog post, invoice, or thread that triggered it) |

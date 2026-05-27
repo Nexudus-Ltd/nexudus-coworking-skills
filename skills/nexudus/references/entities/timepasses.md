@@ -28,10 +28,10 @@ TimePasses also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Time pass name |
 | `--invoice-display` | string | Invoice line display text |
-| `--price` | decimal | Price |
+| `--price` | decimal | Unit price amount |
 | `--from-price` | range | |
 | `--to-price` | range | |
 | `--minutes-included` | int | Minutes included |
@@ -43,18 +43,18 @@ TimePasses also support entity commands.
 | `--use-priority` | int | Use priority |
 | `--from-use-priority` | range | |
 | `--to-use-priority` | range | |
-| `--currency-id` | long |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--kisi-group-id` | string | Kisi group ID |
 | `--door-guard-group-id` | string | DoorGuard group ID |
-| `--access-control-group-id` | string |  |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
 | `--allow-network-checkin` | bool | Allow network check-in |
 | `--only-for-contacts` | bool | Only available for contacts |
 | `--only-for-members` | bool | Only available for members |
-| `--archived` | bool | Archived |
+| `--archived` | bool | Whether this time pass is archived and hidden from active lists |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -64,65 +64,65 @@ TimePasses also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Time pass name |
 | `--invoice-display` | string | Invoice line display text |
-| `--price` | decimal, required | Price |
+| `--price` | decimal, required | Unit price amount |
 | `--minutes-included` | int | Minutes included |
 | `--counts-towards-plan` | bool | Counts towards plan limits |
 | `--payg-members` | bool | Use as pay-as-you-go for members |
 | `--payg-contacts` | bool | Use as pay-as-you-go for contacts |
 | `--use-priority` | int | Use priority |
-| `--currency-id` | long, required |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
-| `--businesses` | list, repeat flag |  |
-| `--added-businesses` | list, repeat flag |  |
-| `--removed-businesses` | list, repeat flag |  |
+| `--currency-id` | long, required | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--businesses` | list, repeat flag | List of businesses linked to this record |
+| `--added-businesses` | list, repeat flag | The added businesses value for this time pass |
+| `--removed-businesses` | list, repeat flag | The removed businesses value for this time pass |
 | `--kisi-group-id` | string | Kisi group ID |
 | `--door-guard-group-id` | string | DoorGuard group ID |
-| `--access-control-group-id` | string |  |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
 | `--allow-network-checkin` | bool | Allow network check-in |
 | `--only-for-contacts` | bool | Only available for contacts |
 | `--only-for-members` | bool | Only available for members |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--archived` | bool | Archived |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this time pass |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this time pass |
+| `--archived` | bool | Whether this time pass is archived and hidden from active lists |
 
 #### TimePass update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Time pass name |
 | `--invoice-display` | string | Invoice line display text |
-| `--price` | decimal | Price |
+| `--price` | decimal | Unit price amount |
 | `--minutes-included` | int | Minutes included |
 | `--counts-towards-plan` | bool | Counts towards plan limits |
 | `--payg-members` | bool | Use as pay-as-you-go for members |
 | `--payg-contacts` | bool | Use as pay-as-you-go for contacts |
 | `--use-priority` | int | Use priority |
-| `--currency-id` | long |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
-| `--businesses` | list, repeat flag |  |
-| `--added-businesses` | list, repeat flag |  |
-| `--removed-businesses` | list, repeat flag |  |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--businesses` | list, repeat flag | List of businesses linked to this record |
+| `--added-businesses` | list, repeat flag | The added businesses value for this time pass |
+| `--removed-businesses` | list, repeat flag | The removed businesses value for this time pass |
 | `--kisi-group-id` | string | Kisi group ID |
 | `--door-guard-group-id` | string | DoorGuard group ID |
-| `--access-control-group-id` | string |  |
+| `--access-control-group-id` | string | ID of the access control group associated with this record |
 | `--allow-network-checkin` | bool | Allow network check-in |
 | `--only-for-contacts` | bool | Only available for contacts |
 | `--only-for-members` | bool | Only available for members |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--archived` | bool | Archived |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this time pass |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this time pass |
+| `--archived` | bool | Whether this time pass is archived and hidden from active lists |
 
 ### TimePass (key fields)
 

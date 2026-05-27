@@ -25,7 +25,7 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--automation-tile-id` | long |  |
+| `--automation-tile-id` | long | ID of the automation tile linked to this record |
 | `--description` | string | Human-readable description of what happened when the tile was scanned |
 | `--action-by` | string | Name or identifier of the customer who scanned the tile |
 | `--action` | enum | The action that was triggered when the tile was scanned (matches the tile's configured action) |
@@ -39,7 +39,7 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--automation-tile-id` | long, required |  |
+| `--automation-tile-id` | long, required | ID of the automation tile linked to this record |
 | `--description` | string, required | Human-readable description of what happened when the tile was scanned |
 | `--action-by` | string | Name or identifier of the customer who scanned the tile |
 | `--action` | enum, required | The action that was triggered when the tile was scanned (matches the tile's configured action) |
@@ -49,7 +49,7 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--automation-tile-id` | long |  |
+| `--automation-tile-id` | long | ID of the automation tile linked to this record |
 | `--description` | string | Human-readable description of what happened when the tile was scanned |
 | `--action-by` | string | Name or identifier of the customer who scanned the tile |
 | `--action` | enum | The action that was triggered when the tile was scanned (matches the tile's configured action) |

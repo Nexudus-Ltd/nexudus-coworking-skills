@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=UserMessages -->
 
+A **UserMessage** represents a direct message sent between administrators or from the system to an administrator within the platform.
+
 UserMessages support Search, Get (no Create or Delete via API).
 
 | Command | Description |
@@ -18,9 +20,9 @@ UserMessages support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--header` | string |  |
-| `--body` | string |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--header` | string | The header value for this user message |
+| `--body` | string | The body value for this user message |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

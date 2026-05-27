@@ -25,7 +25,7 @@ Applications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--developer-id` | long |  |
+| `--developer-id` | long | ID of the developer linked to this record |
 | `--name` | string | Display name of the application |
 | `--published` | bool | Whether the application is published and available for installation |
 | `--secret-key` | string | Secret key used to authenticate API calls from the application |
@@ -41,31 +41,31 @@ Applications support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--developer-id` | long, required |  |
+| `--developer-id` | long, required | ID of the developer linked to this record |
 | `--name` | string, required | Display name of the application |
 | `--published` | bool | Whether the application is published and available for installation |
 | `--secret-key` | string | Secret key used to authenticate API calls from the application |
 | `--short-description` | string, required | Brief summary of the application shown in listing views |
 | `--description` | string | Full description of the application shown on the detail page |
 | `--install-url` | string, required | URL that Nexudus calls when a location installs this application |
-| `--required-roles` | list, repeat flag |  |
-| `--added-required-roles` | list, repeat flag |  |
-| `--removed-required-roles` | list, repeat flag |  |
+| `--required-roles` | list, repeat flag | List of required roles linked to this record |
+| `--added-required-roles` | list, repeat flag | Roles to add to the required roles list (used in partial updates) |
+| `--removed-required-roles` | list, repeat flag | Roles to remove from the required roles list (used in partial updates) |
 
 #### Application update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--developer-id` | long |  |
+| `--developer-id` | long | ID of the developer linked to this record |
 | `--name` | string | Display name of the application |
 | `--published` | bool | Whether the application is published and available for installation |
 | `--secret-key` | string | Secret key used to authenticate API calls from the application |
 | `--short-description` | string | Brief summary of the application shown in listing views |
 | `--description` | string | Full description of the application shown on the detail page |
 | `--install-url` | string | URL that Nexudus calls when a location installs this application |
-| `--required-roles` | list, repeat flag |  |
-| `--added-required-roles` | list, repeat flag |  |
-| `--removed-required-roles` | list, repeat flag |  |
+| `--required-roles` | list, repeat flag | List of required roles linked to this record |
+| `--added-required-roles` | list, repeat flag | Roles to add to the required roles list (used in partial updates) |
+| `--removed-required-roles` | list, repeat flag | Roles to remove from the required roles list (used in partial updates) |
 
 **List properties (only returned by `get`, not by `list`):** `RequiredRoles`, `AddedRequiredRoles`, `RemovedRequiredRoles`
 

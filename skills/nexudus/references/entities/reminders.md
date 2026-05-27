@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Reminders -->
 
+A **Reminder** defines an automated message triggered by a specific event or schedule. Reminders can send emails, canned messages, or surveys based on triggers such as sign-up anniversaries, booking activity, invoice due dates, or contract milestones.
+
 Reminders support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,36 +23,36 @@ Reminders support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--for-all-contacts` | bool |  |
-| `--for-all-members` | bool |  |
-| `--for-all-child-locations` | bool |  |
-| `--coworker-id` | long |  |
-| `--reminder-type` | enum |  |
-| `--reminder-date` | DateTime |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this reminder |
+| `--for-all-contacts` | bool | Whether for all contacts is enabled |
+| `--for-all-members` | bool | Whether for all members is enabled |
+| `--for-all-child-locations` | bool | Whether for all child locations is enabled |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--reminder-type` | enum | The reminder type value for this reminder |
+| `--reminder-date` | DateTime | Date/time value for reminder date |
 | `--from-reminder-date` | range | |
 | `--to-reminder-date` | range | |
-| `--days-after-signup` | int |  |
+| `--days-after-signup` | int | The days after signup value for this reminder |
 | `--from-days-after-signup` | range | |
 | `--to-days-after-signup` | range | |
-| `--product-id` | long |  |
-| `--survey-id` | long |  |
-| `--days-after-renewal` | int |  |
+| `--product-id` | long | ID of the product linked to this record |
+| `--survey-id` | long | ID of the survey linked to this record |
+| `--days-after-renewal` | int | The days after renewal value for this reminder |
 | `--from-days-after-renewal` | range | |
 | `--to-days-after-renewal` | range | |
-| `--days-before-renewal` | int |  |
+| `--days-before-renewal` | int | The days before renewal value for this reminder |
 | `--from-days-before-renewal` | range | |
 | `--to-days-before-renewal` | range | |
-| `--reminder-action` | enum |  |
-| `--email` | string |  |
-| `--canned-response-id` | long |  |
-| `--next-process-time` | DateTime |  |
+| `--reminder-action` | enum | The reminder action value for this reminder |
+| `--email` | string | The email value for this reminder |
+| `--canned-response-id` | long | ID of the canned response linked to this record |
+| `--next-process-time` | DateTime | Date/time value for next process time |
 | `--from-next-process-time` | range | |
 | `--to-next-process-time` | range | |
-| `--only-send-to-team-paying-members` | bool |  |
-| `--only-send-to-active-coworkers` | bool |  |
-| `--blocking-period-minutes` | int |  |
+| `--only-send-to-team-paying-members` | bool | Whether only send to team paying members is enabled |
+| `--only-send-to-active-coworkers` | bool | Whether only send to active coworkers is enabled |
+| `--blocking-period-minutes` | int | The blocking period minutes value for this reminder |
 | `--from-blocking-period-minutes` | range | |
 | `--to-blocking-period-minutes` | range | |
 | `--from-created-on` | range | |
@@ -62,63 +64,63 @@ Reminders support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--for-all-contacts` | bool |  |
-| `--for-all-members` | bool |  |
-| `--for-all-child-locations` | bool |  |
-| `--coworker-id` | long |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--reminder-type` | enum, required |  |
-| `--reminder-date` | DateTime |  |
-| `--days-after-signup` | int |  |
-| `--product-id` | long |  |
-| `--survey-id` | long |  |
-| `--days-after-renewal` | int |  |
-| `--days-before-renewal` | int |  |
-| `--reminder-action` | enum, required |  |
-| `--email` | string |  |
-| `--canned-response-id` | long |  |
-| `--next-process-time` | DateTime |  |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
-| `--only-send-to-team-paying-members` | bool |  |
-| `--only-send-to-active-coworkers` | bool |  |
-| `--blocking-period-minutes` | int |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this reminder |
+| `--for-all-contacts` | bool | Whether for all contacts is enabled |
+| `--for-all-members` | bool | Whether for all members is enabled |
+| `--for-all-child-locations` | bool | Whether for all child locations is enabled |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this reminder |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this reminder |
+| `--reminder-type` | enum, required | The reminder type value for this reminder |
+| `--reminder-date` | DateTime | Date/time value for reminder date |
+| `--days-after-signup` | int | The days after signup value for this reminder |
+| `--product-id` | long | ID of the product linked to this record |
+| `--survey-id` | long | ID of the survey linked to this record |
+| `--days-after-renewal` | int | The days after renewal value for this reminder |
+| `--days-before-renewal` | int | The days before renewal value for this reminder |
+| `--reminder-action` | enum, required | The reminder action value for this reminder |
+| `--email` | string | The email value for this reminder |
+| `--canned-response-id` | long | ID of the canned response linked to this record |
+| `--next-process-time` | DateTime | Date/time value for next process time |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this reminder |
+| `--removed-resources` | list, repeat flag | The removed resources value for this reminder |
+| `--only-send-to-team-paying-members` | bool | Whether only send to team paying members is enabled |
+| `--only-send-to-active-coworkers` | bool | Whether only send to active coworkers is enabled |
+| `--blocking-period-minutes` | int | The blocking period minutes value for this reminder |
 
 #### Reminder update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--for-all-contacts` | bool |  |
-| `--for-all-members` | bool |  |
-| `--for-all-child-locations` | bool |  |
-| `--coworker-id` | long |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
-| `--reminder-type` | enum |  |
-| `--reminder-date` | DateTime |  |
-| `--days-after-signup` | int |  |
-| `--product-id` | long |  |
-| `--survey-id` | long |  |
-| `--days-after-renewal` | int |  |
-| `--days-before-renewal` | int |  |
-| `--reminder-action` | enum |  |
-| `--email` | string |  |
-| `--canned-response-id` | long |  |
-| `--next-process-time` | DateTime |  |
-| `--resources` | list, repeat flag |  |
-| `--added-resources` | list, repeat flag |  |
-| `--removed-resources` | list, repeat flag |  |
-| `--only-send-to-team-paying-members` | bool |  |
-| `--only-send-to-active-coworkers` | bool |  |
-| `--blocking-period-minutes` | int |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this reminder |
+| `--for-all-contacts` | bool | Whether for all contacts is enabled |
+| `--for-all-members` | bool | Whether for all members is enabled |
+| `--for-all-child-locations` | bool | Whether for all child locations is enabled |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this reminder |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this reminder |
+| `--reminder-type` | enum | The reminder type value for this reminder |
+| `--reminder-date` | DateTime | Date/time value for reminder date |
+| `--days-after-signup` | int | The days after signup value for this reminder |
+| `--product-id` | long | ID of the product linked to this record |
+| `--survey-id` | long | ID of the survey linked to this record |
+| `--days-after-renewal` | int | The days after renewal value for this reminder |
+| `--days-before-renewal` | int | The days before renewal value for this reminder |
+| `--reminder-action` | enum | The reminder action value for this reminder |
+| `--email` | string | The email value for this reminder |
+| `--canned-response-id` | long | ID of the canned response linked to this record |
+| `--next-process-time` | DateTime | Date/time value for next process time |
+| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--added-resources` | list, repeat flag | The added resources value for this reminder |
+| `--removed-resources` | list, repeat flag | The removed resources value for this reminder |
+| `--only-send-to-team-paying-members` | bool | Whether only send to team paying members is enabled |
+| `--only-send-to-active-coworkers` | bool | Whether only send to active coworkers is enabled |
+| `--blocking-period-minutes` | int | The blocking period minutes value for this reminder |
 
 #### Reminder PII fields
 
@@ -133,5 +135,12 @@ Example:
 `nexudus reminders update <id> --email "«PII:EMAIL:a3f2b1c9»" --agent`
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`, `Resources`, `AddedResources`, `RemovedResources`
+
+#### Reminder enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--reminder-type` | `1` FixedDate, `2` DaysAfterSignUp, `3` DaysAfterRenewal, `4` DaysBeforeRenewal, `5` Birthday, `6` DaysBeforeCancellation, `7` AfterABooking, `8` LastActivity, `9` ProductPurchase, `10` DueInvoice, `11` OnFirstCheckIn, `12` OnSignUpFormSubmitted, `13` DaysBeforeTerm, `14` RegularBookerStoppedBooking, `15` RegularBooking, `16` StoppedBooking, `17` SingleBooking, `18` InvoiceFirstPaid, `19` DaysBeforeContractStarts, `20` DaysAfterDeliveryNotCollected, `21` DaysAfterFirstContractStartDate, `22` ProductAddedToBooking |
+| `--reminder-action` | `1` SendEmail, `2` SendCannedMessage, `3` SendSurvey |
 
 <!-- END:GENERATED entity=Reminders -->

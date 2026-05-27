@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=Surveys -->
 
+A **Survey** defines a questionnaire that can be delivered to customers on a schedule or triggered by specific events. Surveys support configurable delivery frequency and can target specific customer segments.
+
 Surveys support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,26 +23,26 @@ Surveys support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--active` | bool |  |
-| `--next-delivery-date` | DateTime |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this survey |
+| `--description` | string | Free-text description of this survey |
+| `--active` | bool | Whether this survey is currently active |
+| `--next-delivery-date` | DateTime | Date/time value for next delivery date |
 | `--from-next-delivery-date` | range | |
 | `--to-next-delivery-date` | range | |
-| `--delivery-rate` | int |  |
+| `--delivery-rate` | int | The delivery rate value for this survey |
 | `--from-delivery-rate` | range | |
 | `--to-delivery-rate` | range | |
-| `--delivery-frequency` | enum |  |
-| `--delivery-rate-maximum` | int |  |
+| `--delivery-frequency` | enum | The delivery frequency value for this survey |
+| `--delivery-rate-maximum` | int | The delivery rate maximum value for this survey |
 | `--from-delivery-rate-maximum` | range | |
 | `--to-delivery-rate-maximum` | range | |
-| `--delivery-frequency-maximum` | enum |  |
-| `--start-date` | DateTime |  |
+| `--delivery-frequency-maximum` | enum | The delivery frequency maximum value for this survey |
+| `--start-date` | DateTime | Date/time value for start date |
 | `--from-start-date` | range | |
 | `--to-start-date` | range | |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -50,42 +52,49 @@ Surveys support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
-| `--name` | string, required |  |
-| `--description` | string, required |  |
-| `--active` | bool |  |
-| `--next-delivery-date` | DateTime, required |  |
-| `--delivery-rate` | int, required |  |
-| `--delivery-frequency` | enum, required |  |
-| `--delivery-rate-maximum` | int, required |  |
-| `--delivery-frequency-maximum` | enum, required |  |
-| `--start-date` | DateTime |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--business-id` | long, required | ID of the business linked to this record |
+| `--name` | string, required | The name value for this survey |
+| `--description` | string, required | Free-text description of this survey |
+| `--active` | bool | Whether this survey is currently active |
+| `--next-delivery-date` | DateTime, required | Date/time value for next delivery date |
+| `--delivery-rate` | int, required | The delivery rate value for this survey |
+| `--delivery-frequency` | enum, required | The delivery frequency value for this survey |
+| `--delivery-rate-maximum` | int, required | The delivery rate maximum value for this survey |
+| `--delivery-frequency-maximum` | enum, required | The delivery frequency maximum value for this survey |
+| `--start-date` | DateTime | Date/time value for start date |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this survey |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this survey |
 
 #### Survey update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
-| `--name` | string |  |
-| `--description` | string |  |
-| `--active` | bool |  |
-| `--next-delivery-date` | DateTime |  |
-| `--delivery-rate` | int |  |
-| `--delivery-frequency` | enum |  |
-| `--delivery-rate-maximum` | int |  |
-| `--delivery-frequency-maximum` | enum |  |
-| `--start-date` | DateTime |  |
-| `--only-for-contacts` | bool |  |
-| `--only-for-members` | bool |  |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--business-id` | long | ID of the business linked to this record |
+| `--name` | string | The name value for this survey |
+| `--description` | string | Free-text description of this survey |
+| `--active` | bool | Whether this survey is currently active |
+| `--next-delivery-date` | DateTime | Date/time value for next delivery date |
+| `--delivery-rate` | int | The delivery rate value for this survey |
+| `--delivery-frequency` | enum | The delivery frequency value for this survey |
+| `--delivery-rate-maximum` | int | The delivery rate maximum value for this survey |
+| `--delivery-frequency-maximum` | enum | The delivery frequency maximum value for this survey |
+| `--start-date` | DateTime | Date/time value for start date |
+| `--only-for-contacts` | bool | Whether only for contacts is enabled |
+| `--only-for-members` | bool | Whether only for members is enabled |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this survey |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this survey |
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
+
+#### Survey enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--delivery-frequency` | `1` Weeks, `2` Months, `3` Years |
+| `--delivery-frequency-maximum` | `1` Weeks, `2` Months, `3` Years |
 
 <!-- END:GENERATED entity=Surveys -->

@@ -25,7 +25,7 @@ ContractContacts support Search, Get, Create, Update, Delete.
 | `nexudus contractcontacts list --email <value> --full-name <value> --agent` | Filter contractcontacts by properties |
 | `nexudus contractcontacts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus contractcontacts get <id> --agent` | Get single contractcontact |
-| `nexudus contractcontacts create --coworker-contract-id <value> --full-name <value> --contract-contact-type <value> --agent` | Create contractcontact |
+| `nexudus contractcontacts create --coworker-contract-id <value> --full-name <value> --contract-contact-type <value> --aml-check-status <value> --agent` | Create contractcontact |
 | `nexudus contractcontacts update <id> --name "New Name" --agent` | Update contractcontact |
 | `nexudus contractcontacts delete <id> --yes --agent` | Delete contractcontact (no prompt) |
 
@@ -33,21 +33,36 @@ ContractContacts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long |  |
-| `--coworker-id` | long |  |
+| `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--email` | string | Email address of the contact. Used when the contact is not linked to a coworker record |
 | `--full-name` | string | Full name of the contact. Used when the contact is not linked to a coworker record |
 | `--date-of-birth` | DateTime | Date of birth. Used for identity verification purposes |
 | `--from-date-of-birth` | range | |
 | `--to-date-of-birth` | range | |
-| `--address` | string | Address |
+| `--address` | string | Street address |
 | `--post-code` | string | Post code |
 | `--city-name` | string | City name |
-| `--state` | string | State |
-| `--country-id` | long |  |
+| `--state` | string | State or province |
+| `--country-id` | long | ID of the country linked to this record |
 | `--phone-number` | string | Phone number |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this contract contact |
 | `--contract-contact-type` | enum | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |
+| `--aml-check-status` | enum | The AML check status for this contact |
+| `--aml-check-date` | DateTime | The date when the AML check was performed |
+| `--from-aml-check-date` | range | |
+| `--to-aml-check-date` | range | |
+| `--aml-open-sanctions-score` | decimal | The score from the open sanctions check |
+| `--from-aml-open-sanctions-score` | range | |
+| `--to-aml-open-sanctions-score` | range | |
+| `--aml-open-sanctions-response` | string | The response from the open sanctions check as JSON string |
+| `--aml-pappers-response` | string | The response from the Pappers AML check as TEXT string |
+| `--aml-pappers-status` | string | The status from the Pappers AML check |
+| `--aml-notes` | string | Notes related to the AML check. Customers cannot see this field, it's for internal use only |
+| `--aml-cleared-by` | string | The user who cleared the AML check |
+| `--aml-cleared-on` | DateTime | The date when the AML check was cleared |
+| `--from-aml-cleared-on` | range | |
+| `--to-aml-cleared-on` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -57,37 +72,55 @@ ContractContacts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long, required |  |
-| `--coworker-id` | long |  |
+| `--coworker-contract-id` | long, required | ID of the coworker contract linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--email` | string | Email address of the contact. Used when the contact is not linked to a coworker record |
 | `--full-name` | string, required | Full name of the contact. Used when the contact is not linked to a coworker record |
 | `--date-of-birth` | DateTime | Date of birth. Used for identity verification purposes |
-| `--address` | string | Address |
+| `--address` | string | Street address |
 | `--post-code` | string | Post code |
 | `--city-name` | string | City name |
-| `--state` | string | State |
-| `--country-id` | long |  |
+| `--state` | string | State or province |
+| `--country-id` | long | ID of the country linked to this record |
 | `--phone-number` | string | Phone number |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this contract contact |
 | `--contract-contact-type` | enum, required | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |
+| `--aml-check-status` | enum, required | The AML check status for this contact |
+| `--aml-check-date` | DateTime | The date when the AML check was performed |
+| `--aml-open-sanctions-score` | decimal | The score from the open sanctions check |
+| `--aml-open-sanctions-response` | string | The response from the open sanctions check as JSON string |
+| `--aml-pappers-response` | string | The response from the Pappers AML check as TEXT string |
+| `--aml-pappers-status` | string | The status from the Pappers AML check |
+| `--aml-notes` | string | Notes related to the AML check. Customers cannot see this field, it's for internal use only |
+| `--aml-cleared-by` | string | The user who cleared the AML check |
+| `--aml-cleared-on` | DateTime | The date when the AML check was cleared |
 
 #### ContractContact update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long |  |
-| `--coworker-id` | long |  |
+| `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
 | `--email` | string | Email address of the contact. Used when the contact is not linked to a coworker record |
 | `--full-name` | string | Full name of the contact. Used when the contact is not linked to a coworker record |
 | `--date-of-birth` | DateTime | Date of birth. Used for identity verification purposes |
-| `--address` | string | Address |
+| `--address` | string | Street address |
 | `--post-code` | string | Post code |
 | `--city-name` | string | City name |
-| `--state` | string | State |
-| `--country-id` | long |  |
+| `--state` | string | State or province |
+| `--country-id` | long | ID of the country linked to this record |
 | `--phone-number` | string | Phone number |
-| `--notes` | string | Notes |
+| `--notes` | string | Optional notes or comments about this contract contact |
 | `--contract-contact-type` | enum | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |
+| `--aml-check-status` | enum | The AML check status for this contact |
+| `--aml-check-date` | DateTime | The date when the AML check was performed |
+| `--aml-open-sanctions-score` | decimal | The score from the open sanctions check |
+| `--aml-open-sanctions-response` | string | The response from the open sanctions check as JSON string |
+| `--aml-pappers-response` | string | The response from the Pappers AML check as TEXT string |
+| `--aml-pappers-status` | string | The status from the Pappers AML check |
+| `--aml-notes` | string | Notes related to the AML check. Customers cannot see this field, it's for internal use only |
+| `--aml-cleared-by` | string | The user who cleared the AML check |
+| `--aml-cleared-on` | DateTime | The date when the AML check was cleared |
 
 #### ContractContact PII fields
 
@@ -121,5 +154,6 @@ Example:
 | Option | Valid values |
 | ------ | ------------ |
 | `--contract-contact-type` | `0` None, `1` Director, `2` CompanyAlias, `3` NominatedRecipient |
+| `--aml-check-status` | `0` NotStarted, `1` Pending, `2` Clear, `3` PotentialMatch, `4` ConfirmedMatch, `5` Error, `6` ManuallyCleared |
 
 <!-- END:GENERATED entity=ContractContacts -->

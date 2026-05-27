@@ -25,12 +25,12 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--visited-help-items` | enum |  |
+| `--visited-help-items` | enum | The visited help items value for this business |
 | `--name` | string | Display name of the business location |
 | `--default-language` | enum | Default language identifier for communications and UI |
-| `--space-website-language-id` | long |  |
+| `--space-website-language-id` | long | ID of the space website language linked to this record |
 | `--website` | string | URL slug used for the business's public web address |
-| `--default-payment-gateway-id` | long |  |
+| `--default-payment-gateway-id` | long | ID of the default payment gateway linked to this record |
 | `--terms` | string | Terms and conditions text for this business |
 | `--short-intro` | string | Brief introduction shown on the business profile |
 | `--about` | string | Extended 'About Us' text for the business profile |
@@ -38,67 +38,67 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--privacy-url` | string | URL to the business's privacy policy |
 | `--cookie-url` | string | URL to the business's cookie policy |
 | `--web-contact` | string | Public-facing web contact URL |
-| `--welcome-email` | string |  |
+| `--welcome-email` | string | The welcome email value for this business |
 | `--address` | string | Street address of the business |
 | `--phone` | string | Primary phone number displayed on the business profile |
 | `--fax` | string | Fax number |
 | `--email` | string | Primary email address displayed on the business profile |
-| `--trial-expire-date` | DateTime |  |
+| `--trial-expire-date` | DateTime | Date/time value for trial expire date |
 | `--from-trial-expire-date` | range | |
 | `--to-trial-expire-date` | range | |
-| `--last-over-due-invoice-reminder` | DateTime |  |
+| `--last-over-due-invoice-reminder` | DateTime | Date/time value for last over due invoice reminder |
 | `--from-last-over-due-invoice-reminder` | range | |
 | `--to-last-over-due-invoice-reminder` | range | |
-| `--last-welcome-email` | DateTime |  |
+| `--last-welcome-email` | DateTime | Date/time value for last welcome email |
 | `--from-last-welcome-email` | range | |
 | `--to-last-welcome-email` | range | |
-| `--country-id` | long |  |
-| `--currency-id` | long |  |
-| `--simple-time-zone-id` | long |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
-| `--new-banner-image-url` | string |  |
-| `--clear-banner-image-file` | bool |  |
-| `--new-nex-io-banner-image-url` | string |  |
-| `--clear-nex-io-banner-image-file` | bool |  |
-| `--discount-percentage` | decimal |  |
+| `--country-id` | long | ID of the country linked to this record |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
+| `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
+| `--new-nex-io-banner-image-url` | string | URL of a new file to upload as the nex io banner image |
+| `--clear-nex-io-banner-image-file` | bool | Set to true to remove the current nex io banner image file |
+| `--discount-percentage` | decimal | The discount percentage value for this business |
 | `--from-discount-percentage` | range | |
 | `--to-discount-percentage` | range | |
-| `--discount-amount` | decimal |  |
+| `--discount-amount` | decimal | The discount amount value for this business |
 | `--from-discount-amount` | range | |
 | `--to-discount-amount` | range | |
-| `--last-language-token-update` | DateTime |  |
+| `--last-language-token-update` | DateTime | Date/time value for last language token update |
 | `--from-last-language-token-update` | range | |
 | `--to-last-language-token-update` | range | |
-| `--has-created-default-file-templates` | bool |  |
-| `--invoicing-period` | int |  |
+| `--has-created-default-file-templates` | bool | Whether has created default file templates is enabled |
+| `--invoicing-period` | int | The invoicing period value for this business |
 | `--from-invoicing-period` | range | |
 | `--to-invoicing-period` | range | |
-| `--suspended` | bool |  |
-| `--custom-passport-app` | bool |  |
-| `--reminders-processed-on` | DateTime |  |
+| `--suspended` | bool | Whether suspended is enabled |
+| `--custom-passport-app` | bool | Whether custom passport app is enabled |
+| `--reminders-processed-on` | DateTime | Date/time value for reminders processed on |
 | `--from-reminders-processed-on` | range | |
 | `--to-reminders-processed-on` | range | |
-| `--pre-auth-id` | string |  |
+| `--pre-auth-id` | string | ID of the pre auth associated with this record |
 | `--last4` | string | Last 4 digits of the payment card on file |
 | `--preauth-error` | string | Most recent pre-authorisation error message |
-| `--pre-auth-processed-on` | DateTime |  |
+| `--pre-auth-processed-on` | DateTime | Date/time value for pre auth processed on |
 | `--from-pre-auth-processed-on` | range | |
 | `--to-pre-auth-processed-on` | range | |
-| `--last-charged-invoice` | int |  |
+| `--last-charged-invoice` | int | The last charged invoice value for this business |
 | `--from-last-charged-invoice` | range | |
 | `--to-last-charged-invoice` | range | |
-| `--last-charged-transaction` | int |  |
+| `--last-charged-transaction` | int | The last charged transaction value for this business |
 | `--from-last-charged-transaction` | range | |
 | `--to-last-charged-transaction` | range | |
-| `--last-charged-attendee` | int |  |
+| `--last-charged-attendee` | int | The last charged attendee value for this business |
 | `--from-last-charged-attendee` | range | |
 | `--to-last-charged-attendee` | range | |
 | `--passport-channels` | string | Passport channels this business is listed under |
-| `--passport-only` | bool |  |
+| `--passport-only` | bool | Whether passport only is enabled |
 | `--passport-published` | bool | Whether this business is published and visible on Nexudus Passport |
-| `--new-passport-banner-url` | string |  |
-| `--clear-passport-banner-file` | bool |  |
+| `--new-passport-banner-url` | string | URL of a new file to upload as the passport banner |
+| `--clear-passport-banner-file` | bool | Set to true to remove the current passport banner file |
 | `--passport-name` | string | Display name shown on the Nexudus Passport listing |
 | `--passport-tagline` | string | Tagline shown on the Nexudus Passport listing |
 | `--venue-type` | enum | Type of venue (0 = default) |
@@ -179,12 +179,12 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--sat-closed` | bool | Whether the business is closed on Saturdays |
 | `--sun-closed` | bool | Whether the business is closed on Sundays |
 | `--same-opening` | bool | Whether all days share the same opening and closing times |
-| `--current-back-end-version` | int |  |
+| `--current-back-end-version` | int | The current back end version value for this business |
 | `--from-current-back-end-version` | range | |
 | `--to-current-back-end-version` | range | |
-| `--authentication-provider` | string |  |
-| `--created-by` | string |  |
-| `--default-payment-term` | int |  |
+| `--authentication-provider` | string | The authentication provider value for this business |
+| `--created-by` | string | The created by value for this business |
+| `--default-payment-term` | int | The default payment term value for this business |
 | `--from-default-payment-term` | range | |
 | `--to-default-payment-term` | range | |
 | `--from-created-on` | range | |
@@ -196,12 +196,12 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--visited-help-items` | enum |  |
+| `--visited-help-items` | enum | The visited help items value for this business |
 | `--name` | string | Display name of the business location |
 | `--default-language` | enum | Default language identifier for communications and UI |
-| `--space-website-language-id` | long |  |
+| `--space-website-language-id` | long | ID of the space website language linked to this record |
 | `--website` | string | URL slug used for the business's public web address |
-| `--default-payment-gateway-id` | long |  |
+| `--default-payment-gateway-id` | long | ID of the default payment gateway linked to this record |
 | `--terms` | string | Terms and conditions text for this business |
 | `--short-intro` | string | Brief introduction shown on the business profile |
 | `--about` | string | Extended 'About Us' text for the business profile |
@@ -209,43 +209,43 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--privacy-url` | string | URL to the business's privacy policy |
 | `--cookie-url` | string | URL to the business's cookie policy |
 | `--web-contact` | string | Public-facing web contact URL |
-| `--welcome-email` | string |  |
+| `--welcome-email` | string | The welcome email value for this business |
 | `--address` | string | Street address of the business |
 | `--phone` | string | Primary phone number displayed on the business profile |
 | `--fax` | string | Fax number |
 | `--email` | string | Primary email address displayed on the business profile |
-| `--trial-expire-date` | DateTime |  |
-| `--last-over-due-invoice-reminder` | DateTime |  |
-| `--last-welcome-email` | DateTime |  |
-| `--country-id` | long |  |
-| `--currency-id` | long |  |
-| `--simple-time-zone-id` | long |  |
-| `--new-logo-url` | string |  |
-| `--clear-logo-file` | bool |  |
-| `--new-banner-image-url` | string |  |
-| `--clear-banner-image-file` | bool |  |
-| `--new-nex-io-banner-image-url` | string |  |
-| `--clear-nex-io-banner-image-file` | bool |  |
-| `--discount-percentage` | decimal |  |
-| `--discount-amount` | decimal |  |
-| `--last-language-token-update` | DateTime |  |
-| `--has-created-default-file-templates` | bool |  |
-| `--invoicing-period` | int |  |
-| `--suspended` | bool |  |
-| `--custom-passport-app` | bool |  |
-| `--reminders-processed-on` | DateTime |  |
-| `--pre-auth-id` | string |  |
+| `--trial-expire-date` | DateTime | Date/time value for trial expire date |
+| `--last-over-due-invoice-reminder` | DateTime | Date/time value for last over due invoice reminder |
+| `--last-welcome-email` | DateTime | Date/time value for last welcome email |
+| `--country-id` | long | ID of the country linked to this record |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
+| `--new-logo-url` | string | URL of a new file to upload as the logo |
+| `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
+| `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
+| `--new-nex-io-banner-image-url` | string | URL of a new file to upload as the nex io banner image |
+| `--clear-nex-io-banner-image-file` | bool | Set to true to remove the current nex io banner image file |
+| `--discount-percentage` | decimal | The discount percentage value for this business |
+| `--discount-amount` | decimal | The discount amount value for this business |
+| `--last-language-token-update` | DateTime | Date/time value for last language token update |
+| `--has-created-default-file-templates` | bool | Whether has created default file templates is enabled |
+| `--invoicing-period` | int | The invoicing period value for this business |
+| `--suspended` | bool | Whether suspended is enabled |
+| `--custom-passport-app` | bool | Whether custom passport app is enabled |
+| `--reminders-processed-on` | DateTime | Date/time value for reminders processed on |
+| `--pre-auth-id` | string | ID of the pre auth associated with this record |
 | `--last4` | string | Last 4 digits of the payment card on file |
 | `--preauth-error` | string | Most recent pre-authorisation error message |
-| `--pre-auth-processed-on` | DateTime |  |
-| `--last-charged-invoice` | int |  |
-| `--last-charged-transaction` | int |  |
-| `--last-charged-attendee` | int |  |
+| `--pre-auth-processed-on` | DateTime | Date/time value for pre auth processed on |
+| `--last-charged-invoice` | int | The last charged invoice value for this business |
+| `--last-charged-transaction` | int | The last charged transaction value for this business |
+| `--last-charged-attendee` | int | The last charged attendee value for this business |
 | `--passport-channels` | string | Passport channels this business is listed under |
-| `--passport-only` | bool |  |
+| `--passport-only` | bool | Whether passport only is enabled |
 | `--passport-published` | bool | Whether this business is published and visible on Nexudus Passport |
-| `--new-passport-banner-url` | string |  |
-| `--clear-passport-banner-file` | bool |  |
+| `--new-passport-banner-url` | string | URL of a new file to upload as the passport banner |
+| `--clear-passport-banner-file` | bool | Set to true to remove the current passport banner file |
 | `--passport-name` | string | Display name shown on the Nexudus Passport listing |
 | `--passport-tagline` | string | Tagline shown on the Nexudus Passport listing |
 | `--venue-type` | enum | Type of venue (0 = default) |
@@ -290,10 +290,10 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--sat-closed` | bool | Whether the business is closed on Saturdays |
 | `--sun-closed` | bool | Whether the business is closed on Sundays |
 | `--same-opening` | bool | Whether all days share the same opening and closing times |
-| `--current-back-end-version` | int |  |
-| `--authentication-provider` | string |  |
-| `--created-by` | string |  |
-| `--default-payment-term` | int |  |
+| `--current-back-end-version` | int | The current back end version value for this business |
+| `--authentication-provider` | string | The authentication provider value for this business |
+| `--created-by` | string | The created by value for this business |
+| `--default-payment-term` | int | The default payment term value for this business |
 
 #### Business PII fields
 
@@ -318,5 +318,18 @@ Example:
 ### Business (key fields)
 
 `Id`, `Name`, `WebAddress`, `Address`, `Phone`, `EmailContact`, `CountryName`, `CurrencyCode`, `PassportPublished`, `VenueType`, `Tags`, `TownCity`, `State`, `PostalCode`
+
+#### Business enum values
+
+| Option | Valid values |
+| ------ | ------------ |
+| `--visited-help-items` | `0` None, `1` WelcomePage, `2` GridPage, `4` EditPage, `8` SettingsPage, `16` HelpPage |
+| `--default-language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
+| `--venue-type` | `1` BusinessCenter, `2` CorporateOffice, `3` CoworkingSpace, `4` Hotel, `5` InformalOffice, `6` Studio, `7` Other |
+| `--floor-space-unit` | `1` SqFt, `2` SqMt |
+| `--passport-members` | `1` Everyone, `2` RegisteredUsers, `3` RegisteredWithMySpaceUsers, `4` NoOne |
+| `--passport-events` | `1` Everyone, `2` RegisteredUsers, `3` RegisteredWithMySpaceUsers, `4` NoOne |
+| `--passport-community` | `1` Everyone, `2` RegisteredUsers, `3` RegisteredWithMySpaceUsers, `4` NoOne |
+| `--passport-blog` | `1` Everyone, `2` RegisteredUsers, `3` RegisteredWithMySpaceUsers, `4` NoOne |
 
 <!-- END:GENERATED entity=Businesses -->

@@ -37,9 +37,9 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | Optional tag to identify this opportunity, useful when the same customer appears in multiple boards |
-| `--crm-board-column-id` | long |  |
-| `--coworker-id` | long |  |
-| `--team-id` | long |  |
+| `--crm-board-column-id` | long | ID of the crm board column linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--team-id` | long | ID of the team linked to this record |
 | `--opportunity-type-id` | long | Opportunity type used to categorise and auto-populate general notes from a template |
 | `--responsible-id` | long | Admin user responsible for managing this opportunity |
 | `--referrer-id` | long | Customer who referred this opportunity |
@@ -80,9 +80,9 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | Optional tag to identify this opportunity, useful when the same customer appears in multiple boards |
-| `--crm-board-column-id` | long, required |  |
-| `--coworker-id` | long, required |  |
-| `--team-id` | long |  |
+| `--crm-board-column-id` | long, required | ID of the crm board column linked to this record |
+| `--coworker-id` | long, required | ID of the coworker linked to this record |
+| `--team-id` | long | ID of the team linked to this record |
 | `--opportunity-type-id` | long | Opportunity type used to categorise and auto-populate general notes from a template |
 | `--responsible-id` | long | Admin user responsible for managing this opportunity |
 | `--referrer-id` | long | Customer who referred this opportunity |
@@ -109,9 +109,9 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | Optional tag to identify this opportunity, useful when the same customer appears in multiple boards |
-| `--crm-board-column-id` | long |  |
-| `--coworker-id` | long |  |
-| `--team-id` | long |  |
+| `--crm-board-column-id` | long | ID of the crm board column linked to this record |
+| `--coworker-id` | long | ID of the coworker linked to this record |
+| `--team-id` | long | ID of the team linked to this record |
 | `--opportunity-type-id` | long | Opportunity type used to categorise and auto-populate general notes from a template |
 | `--responsible-id` | long | Admin user responsible for managing this opportunity |
 | `--referrer-id` | long | Customer who referred this opportunity |

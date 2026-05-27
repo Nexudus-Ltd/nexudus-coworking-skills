@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=TariffSignupProducts -->
 
+A **TariffSignupProduct** links a product to a pricing plan (tariff) as a one-time sign-up charge. Products linked this way are automatically added to a customer's first invoice when they join the plan.
+
 TariffSignupProducts support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,13 +23,13 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--product-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--price` | decimal | Signup product price override |
 | `--from-price` | range | |
 | `--to-price` | range | |
 | `--refundable` | bool | Whether the signup product is refundable |
-| `--invoice-during-online-checkout` | bool |  |
+| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -37,21 +39,21 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required |  |
-| `--product-id` | long, required |  |
+| `--tariff-id` | long, required | ID of the tariff linked to this record |
+| `--product-id` | long, required | ID of the product linked to this record |
 | `--price` | decimal | Signup product price override |
 | `--refundable` | bool | Whether the signup product is refundable |
-| `--invoice-during-online-checkout` | bool |  |
+| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
 
 #### TariffSignupProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long |  |
-| `--product-id` | long |  |
+| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--product-id` | long | ID of the product linked to this record |
 | `--price` | decimal | Signup product price override |
 | `--refundable` | bool | Whether the signup product is refundable |
-| `--invoice-during-online-checkout` | bool |  |
+| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
 
 ### TariffSignupProduct (key fields)
 

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=LegalContentAudits -->
 
+A **LegalContentAudit** records when a customer has accepted or acknowledged legal content such as terms and conditions, privacy policies, or cookie policies.
+
 LegalContentAudits support Search, Get, Create, Update, Delete.
 
 | Command | Description |

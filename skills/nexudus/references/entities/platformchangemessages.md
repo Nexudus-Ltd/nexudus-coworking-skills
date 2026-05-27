@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=PlatformChangeMessages -->
 
+A **PlatformChangeMessage** represents a platform update notification or changelog entry informing administrators about new features, fixes, or changes to the system.
+
 PlatformChangeMessages support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,9 +23,9 @@ PlatformChangeMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--title` | string |  |
-| `--description-english` | string |  |
-| `--description-spanish` | string |  |
+| `--title` | string | The title value for this platform change message |
+| `--description-english` | string | The description english value for this platform change message |
+| `--description-spanish` | string | The description spanish value for this platform change message |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -33,16 +35,16 @@ PlatformChangeMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--title` | string, required |  |
-| `--description-english` | string |  |
-| `--description-spanish` | string |  |
+| `--title` | string, required | The title value for this platform change message |
+| `--description-english` | string | The description english value for this platform change message |
+| `--description-spanish` | string | The description spanish value for this platform change message |
 
 #### PlatformChangeMessage update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--title` | string |  |
-| `--description-english` | string |  |
-| `--description-spanish` | string |  |
+| `--title` | string | The title value for this platform change message |
+| `--description-english` | string | The description english value for this platform change message |
+| `--description-spanish` | string | The description spanish value for this platform change message |
 
 <!-- END:GENERATED entity=PlatformChangeMessages -->

@@ -2,6 +2,8 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanLayoutAssets -->
 
+A **FloorPlanLayoutAsset** positions a physical asset within a specific floor plan layout, defining its coordinates, rotation, and visual properties on the plan.
+
 FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 
 | Command | Description |
@@ -21,28 +23,28 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--area-unique-id` | string |  |
-| `--asset-type` | string |  |
-| `--angle` | decimal |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--area-unique-id` | string | ID of the area unique associated with this record |
+| `--asset-type` | string | The asset type value for this floor plan layout asset |
+| `--angle` | decimal | The angle value for this floor plan layout asset |
 | `--from-angle` | range | |
 | `--to-angle` | range | |
-| `--height` | int |  |
+| `--height` | int | The height value for this floor plan layout asset |
 | `--from-height` | range | |
 | `--to-height` | range | |
-| `--length` | int |  |
+| `--length` | int | The length value for this floor plan layout asset |
 | `--from-length` | range | |
 | `--to-length` | range | |
-| `--width` | int |  |
+| `--width` | int | The width value for this floor plan layout asset |
 | `--from-width` | range | |
 | `--to-width` | range | |
-| `--pos-x` | int |  |
+| `--pos-x` | int | The x value for this floor plan layout asset |
 | `--from-pos-x` | range | |
 | `--to-pos-x` | range | |
-| `--pos-y` | int |  |
+| `--pos-y` | int | The y value for this floor plan layout asset |
 | `--from-pos-y` | range | |
 | `--to-pos-y` | range | |
-| `--floor-offset` | int |  |
+| `--floor-offset` | int | The floor offset value for this floor plan layout asset |
 | `--from-floor-offset` | range | |
 | `--to-floor-offset` | range | |
 | `--from-created-on` | range | |
@@ -54,30 +56,30 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long, required |  |
-| `--area-unique-id` | string |  |
-| `--asset-type` | string |  |
-| `--angle` | decimal, required |  |
-| `--height` | int, required |  |
-| `--length` | int, required |  |
-| `--width` | int, required |  |
-| `--pos-x` | int, required |  |
-| `--pos-y` | int, required |  |
-| `--floor-offset` | int, required |  |
+| `--floor-plan-layout-id` | long, required | ID of the floor plan layout linked to this record |
+| `--area-unique-id` | string | ID of the area unique associated with this record |
+| `--asset-type` | string | The asset type value for this floor plan layout asset |
+| `--angle` | decimal, required | The angle value for this floor plan layout asset |
+| `--height` | int, required | The height value for this floor plan layout asset |
+| `--length` | int, required | The length value for this floor plan layout asset |
+| `--width` | int, required | The width value for this floor plan layout asset |
+| `--pos-x` | int, required | The x value for this floor plan layout asset |
+| `--pos-y` | int, required | The y value for this floor plan layout asset |
+| `--floor-offset` | int, required | The floor offset value for this floor plan layout asset |
 
 #### FloorPlanLayoutAsset update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-layout-id` | long |  |
-| `--area-unique-id` | string |  |
-| `--asset-type` | string |  |
-| `--angle` | decimal |  |
-| `--height` | int |  |
-| `--length` | int |  |
-| `--width` | int |  |
-| `--pos-x` | int |  |
-| `--pos-y` | int |  |
-| `--floor-offset` | int |  |
+| `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--area-unique-id` | string | ID of the area unique associated with this record |
+| `--asset-type` | string | The asset type value for this floor plan layout asset |
+| `--angle` | decimal | The angle value for this floor plan layout asset |
+| `--height` | int | The height value for this floor plan layout asset |
+| `--length` | int | The length value for this floor plan layout asset |
+| `--width` | int | The width value for this floor plan layout asset |
+| `--pos-x` | int | The x value for this floor plan layout asset |
+| `--pos-y` | int | The y value for this floor plan layout asset |
+| `--floor-offset` | int | The floor offset value for this floor plan layout asset |
 
 <!-- END:GENERATED entity=FloorPlanLayoutAssets -->

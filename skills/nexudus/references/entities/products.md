@@ -32,13 +32,13 @@ Products also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Product name |
 | `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string | Product description |
 | `--invoice-display` | string | Custom text shown on the invoice line instead of the product name |
 | `--sku` | string | SKU code |
-| `--tags` | string | Tags |
+| `--tags` | string | Comma-separated tags for categorising and filtering |
 | `--display-order` | int | Display order |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
@@ -46,12 +46,19 @@ Products also support entity commands.
 | `--from-price` | range | |
 | `--to-price` | range | |
 | `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
-| `--sync-square` | bool | Sync to Square |
-| `--currency-id` | long |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--visible-in-kiosk` | bool | Whether the product is visible to customers in the NexKiosk app |
+| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes; |
+| `--notes-for-ai` | string | Additional notes about the product that are included in AI channel recommendations and responses to provide more context to customers |
+| `--show-price-for-ai` | bool | Whether to show the price of this product in AI channel recommendations and responses based on users' budget preferences |
+| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
+| `--from-price-for-ai` | range | |
+| `--to-price-for-ai` | range | |
+| `--sync-square` | bool | Sync to Square Point of Sale |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
@@ -63,8 +70,8 @@ Products also support entity commands.
 | `--from-stock-alert-level` | range | |
 | `--to-stock-alert-level` | range | |
 | `--apply-pro-rating` | bool | Whether to pro-rate the price when the product is added or removed part-way through a billing period |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--invoice-coworker` | bool | Whether to invoice the customer directly rather than their company or team |
 | `--sync-nex-kiosk` | bool | Sync to NexKiosk |
 | `--create-delivery` | bool | Automatically create a delivery record for the customer when this product is purchased |
@@ -77,36 +84,41 @@ Products also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required |  |
+| `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Product name |
 | `--system-product-type` | enum, required | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string, required | Product description |
 | `--invoice-display` | string | Custom text shown on the invoice line instead of the product name |
 | `--sku` | string | SKU code |
-| `--tags` | string | Tags |
+| `--tags` | string | Comma-separated tags for categorising and filtering |
 | `--display-order` | int, required | Display order |
 | `--price` | decimal, required | Product price |
 | `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
-| `--sync-square` | bool | Sync to Square |
-| `--currency-id` | long, required |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--visible-in-kiosk` | bool | Whether the product is visible to customers in the NexKiosk app |
+| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes; |
+| `--notes-for-ai` | string | Additional notes about the product that are included in AI channel recommendations and responses to provide more context to customers |
+| `--show-price-for-ai` | bool | Whether to show the price of this product in AI channel recommendations and responses based on users' budget preferences |
+| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
+| `--sync-square` | bool | Sync to Square Point of Sale |
+| `--currency-id` | long, required | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--available-as` | enum, required | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this product |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this product |
 | `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
 | `--starred` | bool | Mark the product as featured or highlighted |
 | `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |
 | `--allow-negative-stock` | bool | Allow sales to continue even when stock reaches zero |
 | `--stock-alert-level` | int | Stock level at which a low-stock alert is triggered |
 | `--apply-pro-rating` | bool | Whether to pro-rate the price when the product is added or removed part-way through a billing period |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--invoice-coworker` | bool | Whether to invoice the customer directly rather than their company or team |
 | `--sync-nex-kiosk` | bool | Sync to NexKiosk |
 | `--create-delivery` | bool | Automatically create a delivery record for the customer when this product is purchased |
@@ -115,36 +127,41 @@ Products also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long |  |
+| `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Product name |
 | `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string | Product description |
 | `--invoice-display` | string | Custom text shown on the invoice line instead of the product name |
 | `--sku` | string | SKU code |
-| `--tags` | string | Tags |
+| `--tags` | string | Comma-separated tags for categorising and filtering |
 | `--display-order` | int | Display order |
 | `--price` | decimal | Product price |
 | `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
-| `--sync-square` | bool | Sync to Square |
-| `--currency-id` | long |  |
-| `--tax-rate-id` | long |  |
-| `--reduced-tax-rate-id` | long |  |
-| `--exempt-tax-rate-id` | long |  |
-| `--financial-account-id` | long |  |
+| `--visible-in-kiosk` | bool | Whether the product is visible to customers in the NexKiosk app |
+| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes; |
+| `--notes-for-ai` | string | Additional notes about the product that are included in AI channel recommendations and responses to provide more context to customers |
+| `--show-price-for-ai` | bool | Whether to show the price of this product in AI channel recommendations and responses based on users' budget preferences |
+| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
+| `--sync-square` | bool | Sync to Square Point of Sale |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--tax-rate-id` | long | ID of the tax rate linked to this record |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
+| `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
-| `--tariffs` | list, repeat flag |  |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--added-tariffs` | list, repeat flag | The added tariffs value for this product |
+| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this product |
 | `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
 | `--starred` | bool | Mark the product as featured or highlighted |
 | `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |
 | `--allow-negative-stock` | bool | Allow sales to continue even when stock reaches zero |
 | `--stock-alert-level` | int | Stock level at which a low-stock alert is triggered |
 | `--apply-pro-rating` | bool | Whether to pro-rate the price when the product is added or removed part-way through a billing period |
-| `--new-image-url` | string |  |
-| `--clear-image-file` | bool |  |
+| `--new-image-url` | string | URL of a new file to upload as the image |
+| `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--invoice-coworker` | bool | Whether to invoice the customer directly rather than their company or team |
 | `--sync-nex-kiosk` | bool | Sync to NexKiosk |
 | `--create-delivery` | bool | Automatically create a delivery record for the customer when this product is purchased |
