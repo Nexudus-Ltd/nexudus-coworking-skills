@@ -33,6 +33,7 @@ ProductExtraServices also support entity commands.
 | `nexudus productextraservices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus productextraservices list --uses-included <value> --agent` | Filter productextraservices by properties |
 | `nexudus productextraservices list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus productextraservices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus productextraservices get <id> --agent` | Get single productextraservice |
 | `nexudus productextraservices create --product-id <value> --extra-service-id <value> --uses-included <value> --agent` | Create productextraservice |
 | `nexudus productextraservices update <id> --name "New Name" --agent` | Update productextraservice |
@@ -62,6 +63,15 @@ ProductExtraServices also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ProductExtraService sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ProductExtraService create options
 

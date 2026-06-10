@@ -16,6 +16,7 @@ Applications support Search, Get, Create, Update, Delete.
 | `nexudus applications list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus applications list --developer-id <value> --name <value> --agent` | Filter applications by properties |
 | `nexudus applications list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus applications list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus applications get <id> --agent` | Get single application |
 | `nexudus applications create --developer-id <value> --name <value> --short-description <value> --install-url <value> --agent` | Create application |
 | `nexudus applications update <id> --name "New Name" --agent` | Update application |
@@ -36,6 +37,15 @@ Applications support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Application sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 #### Application create options
 

@@ -14,6 +14,7 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 | `nexudus helpdeskcomments list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus helpdeskcomments list --help-desk-message-id <value> --coworker-id <value> --agent` | Filter helpdeskcomments by properties |
 | `nexudus helpdeskcomments list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus helpdeskcomments list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus helpdeskcomments get <id> --agent` | Get single helpdeskcomment |
 | `nexudus helpdeskcomments create --help-desk-message-id <value> --coworker-id <value> --message-text <value> --agent` | Create helpdeskcomment |
 | `nexudus helpdeskcomments update <id> --name "New Name" --agent` | Update helpdeskcomment |
@@ -33,6 +34,15 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### HelpDeskComment sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### HelpDeskComment create options
 

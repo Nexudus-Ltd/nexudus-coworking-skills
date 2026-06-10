@@ -14,6 +14,7 @@ EmailQueueItems support Search, Get (no Create or Delete via API).
 | `nexudus emailqueueitems list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus emailqueueitems list --business-id <value> --email-account-id <value> --agent` | Filter emailqueueitems by properties |
 | `nexudus emailqueueitems list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus emailqueueitems list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus emailqueueitems get <id> --agent` | Get single emailqueueitem |
 
 #### EmailQueueItem list filter options
@@ -44,6 +45,15 @@ EmailQueueItems support Search, Get (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### EmailQueueItem sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### EmailQueueItem PII fields
 

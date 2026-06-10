@@ -24,6 +24,7 @@ CommunityGroups support Search, Get, Create, Update, Delete.
 | `nexudus communitygroups list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus communitygroups list --name <value> --agent` | Filter communitygroups by properties |
 | `nexudus communitygroups list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus communitygroups list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus communitygroups get <id> --agent` | Get single communitygroup |
 | `nexudus communitygroups create --business-id <value> --user-id <value> --name <value> --group-access <value> --agent` | Create communitygroup |
 | `nexudus communitygroups update <id> --name "New Name" --agent` | Update communitygroup |
@@ -44,6 +45,15 @@ CommunityGroups support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CommunityGroup sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CommunityGroup create options
 

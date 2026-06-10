@@ -19,6 +19,7 @@ CoworkerInventoryAssets also support entity commands.
 | `nexudus coworkerinventoryassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerinventoryassets list --coworker-id <value> --business-id <value> --agent` | Filter coworkerinventoryassets by properties |
 | `nexudus coworkerinventoryassets list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerinventoryassets list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerinventoryassets get <id> --agent` | Get single coworkerinventoryasset |
 | `nexudus coworkerinventoryassets create --coworker-id <value> --business-id <value> --inventory-asset-id <value> --assigned-from <value> --agent` | Create coworkerinventoryasset |
 | `nexudus coworkerinventoryassets update <id> --name "New Name" --agent` | Update coworkerinventoryasset |
@@ -43,6 +44,15 @@ CoworkerInventoryAssets also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerInventoryAsset sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API returns results ordered by `CreatedOn` (ascending).
 
 #### CoworkerInventoryAsset create options
 

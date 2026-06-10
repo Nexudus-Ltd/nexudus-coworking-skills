@@ -28,6 +28,7 @@ CoworkerIdentityChecks also support entity commands.
 | `nexudus coworkeridentitychecks list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkeridentitychecks list --name <value> --agent` | Filter coworkeridentitychecks by properties |
 | `nexudus coworkeridentitychecks list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkeridentitychecks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkeridentitychecks get <id> --agent` | Get single coworkeridentitycheck |
 | `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --identity-check-provider <value> --identity-document-type <value> --address-document-type <value> --agent` | Create coworkeridentitycheck |
 | `nexudus coworkeridentitychecks update <id> --name "New Name" --agent` | Update coworkeridentitycheck |
@@ -62,6 +63,15 @@ CoworkerIdentityChecks also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerIdentityCheck sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerIdentityCheck create options
 

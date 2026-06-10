@@ -14,6 +14,7 @@ RefreshTokens support Search, Get, Create, Update, Delete.
 | `nexudus refreshtokens list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus refreshtokens list --subject <value> --client-id <value> --agent` | Filter refreshtokens by properties |
 | `nexudus refreshtokens list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus refreshtokens list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus refreshtokens get <id> --agent` | Get single refreshtoken |
 | `nexudus refreshtokens create --subject <value> --client-id <value> --expires-on <value> --protected-ticket <value> --ticket-hash <value> --ticket-salt <value> --agent` | Create refreshtoken |
 | `nexudus refreshtokens update <id> --name "New Name" --agent` | Update refreshtoken |
@@ -35,6 +36,15 @@ RefreshTokens support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### RefreshToken sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### RefreshToken create options
 

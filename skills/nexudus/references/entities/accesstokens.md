@@ -15,6 +15,7 @@ AccessTokens also support entity commands.
 | `nexudus accesstokens list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus accesstokens list --access-code <value> --minutes-included <value> --agent` | Filter accesstokens by properties |
 | `nexudus accesstokens list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus accesstokens list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus accesstokens get <id> --agent` | Get single accesstoken |
 | `nexudus accesstokens create --business-id <value> --access-code <value> --minutes-included <value> --agent` | Create accesstoken |
 | `nexudus accesstokens update <id> --name "New Name" --agent` | Update accesstoken |
@@ -47,6 +48,15 @@ AccessTokens also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### AccessToken sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### AccessToken create options
 

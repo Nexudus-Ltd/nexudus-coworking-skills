@@ -14,6 +14,7 @@ TaskItems support Search, Get, Create, Update, Delete.
 | `nexudus taskitems list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus taskitems list --task-list-id <value> --responsible-id <value> --agent` | Filter taskitems by properties |
 | `nexudus taskitems list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus taskitems list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus taskitems get <id> --agent` | Get single taskitem |
 | `nexudus taskitems create --task-list-id <value> --responsible-id <value> --name <value> --delay-in-hours <value> --agent` | Create taskitem |
 | `nexudus taskitems update <id> --name "New Name" --agent` | Update taskitem |
@@ -36,6 +37,15 @@ TaskItems support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### TaskItem sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `DelayInHours` ascending. If no `--order-by` is specified, the API returns results ordered by `DelayInHours` (ascending).
 
 #### TaskItem create options
 

@@ -23,6 +23,7 @@ ProductBookingCredits support Search, Get, Create, Update, Delete.
 | `nexudus productbookingcredits list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus productbookingcredits list --name <value> --credit <value> --agent` | Filter productbookingcredits by properties |
 | `nexudus productbookingcredits list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus productbookingcredits list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus productbookingcredits get <id> --agent` | Get single productbookingcredit |
 | `nexudus productbookingcredits create --name <value> --product-id <value> --credit <value> --agent` | Create productbookingcredit |
 | `nexudus productbookingcredits update <id> --name "New Name" --agent` | Update productbookingcredit |
@@ -55,6 +56,15 @@ ProductBookingCredits support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ProductBookingCredit sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ProductBookingCredit create options
 

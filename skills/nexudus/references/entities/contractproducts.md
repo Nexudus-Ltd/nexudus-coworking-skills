@@ -20,6 +20,7 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | `nexudus contractproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus contractproducts list --quantity <value> --price <value> --agent` | Filter contractproducts by properties |
 | `nexudus contractproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus contractproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus contractproducts get <id> --agent` | Get single contractproduct |
 | `nexudus contractproducts create --coworker-contract-id <value> --product-id <value> --quantity <value> --agent` | Create contractproduct |
 | `nexudus contractproducts update <id> --name "New Name" --agent` | Update contractproduct |
@@ -49,6 +50,15 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ContractProduct sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ContractProduct create options
 

@@ -14,6 +14,7 @@ PassportCards support Search, Get, Create, Update, Delete.
 | `nexudus passportcards list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus passportcards list --code <value> --active <value> --agent` | Filter passportcards by properties |
 | `nexudus passportcards list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus passportcards list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus passportcards get <id> --agent` | Get single passportcard |
 | `nexudus passportcards create --code <value> --agent` | Create passportcard |
 | `nexudus passportcards update <id> --name "New Name" --agent` | Update passportcard |
@@ -30,6 +31,15 @@ PassportCards support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### PassportCard sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### PassportCard create options
 

@@ -20,6 +20,7 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 | `nexudus discountcodes list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus discountcodes list --code <value> --description <value> --agent` | Filter discountcodes by properties |
 | `nexudus discountcodes list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus discountcodes list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus discountcodes get <id> --agent` | Get single discountcode |
 | `nexudus discountcodes create --business-id <value> --code <value> --description <value> --agent` | Create discountcode |
 | `nexudus discountcodes update <id> --name "New Name" --agent` | Update discountcode |
@@ -72,6 +73,15 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### DiscountCode sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Code` ascending. If no `--order-by` is specified, the API returns results ordered by `Code` (ascending).
 
 #### DiscountCode create options
 

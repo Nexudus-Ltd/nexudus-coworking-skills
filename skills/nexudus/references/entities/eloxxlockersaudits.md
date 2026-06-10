@@ -14,6 +14,7 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 | `nexudus eloxxlockersaudits list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus eloxxlockersaudits list --business-id <value> --floor-plan-desk-id <value> --agent` | Filter eloxxlockersaudits by properties |
 | `nexudus eloxxlockersaudits list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus eloxxlockersaudits list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus eloxxlockersaudits get <id> --agent` | Get single eloxxlockersaudit |
 | `nexudus eloxxlockersaudits create --business-id <value> --floor-plan-desk-id <value> --coworker-id <value> --description <value> --action <value> --tile-audit-type <value> --agent` | Create eloxxlockersaudit |
 | `nexudus eloxxlockersaudits update <id> --name "New Name" --agent` | Update eloxxlockersaudit |
@@ -34,6 +35,15 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### EloxxLockersAudit sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### EloxxLockersAudit create options
 

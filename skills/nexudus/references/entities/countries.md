@@ -18,6 +18,7 @@ Countries support Search, Get (no Create or Delete via API).
 | `nexudus countries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus countries list --name <value> --two-digits-code <value> --agent` | Filter countries by properties |
 | `nexudus countries list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus countries list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus countries get <id> --agent` | Get single country |
 
 #### Country list filter options
@@ -31,6 +32,15 @@ Countries support Search, Get (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Country sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 ### Country (key fields)
 

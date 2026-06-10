@@ -14,6 +14,7 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 | `nexudus templatefiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus templatefiles list --business-id <value> --template-version-id <value> --agent` | Filter templatefiles by properties |
 | `nexudus templatefiles list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus templatefiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus templatefiles get <id> --agent` | Get single templatefile |
 | `nexudus templatefiles create --business-id <value> --name <value> --permalink <value> --visibility <value> --agent` | Create templatefile |
 | `nexudus templatefiles update <id> --name "New Name" --agent` | Update templatefile |
@@ -40,6 +41,15 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### TemplateFile sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### TemplateFile create options
 

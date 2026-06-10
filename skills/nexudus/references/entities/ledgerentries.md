@@ -16,6 +16,7 @@ LedgerEntries support Search, Get (no Create or Delete via API).
 | `nexudus ledgerentries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus ledgerentries list --code <value> --description <value> --agent` | Filter ledgerentries by properties |
 | `nexudus ledgerentries list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus ledgerentries list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus ledgerentries get <id> --agent` | Get single ledgerentry |
 
 #### LedgerEntry list filter options
@@ -38,6 +39,15 @@ LedgerEntries support Search, Get (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### LedgerEntry sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 ### LedgerEntry (key fields)
 

@@ -26,6 +26,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 | `nexudus financialaccounts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus financialaccounts list --name <value> --code <value> --agent` | Filter financialaccounts by properties |
 | `nexudus financialaccounts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus financialaccounts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus financialaccounts get <id> --agent` | Get single financialaccount |
 | `nexudus financialaccounts create --business-id <value> --name <value> --code <value> --account-type <value> --agent` | Create financialaccount |
 | `nexudus financialaccounts update <id> --name "New Name" --agent` | Update financialaccount |
@@ -44,6 +45,15 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FinancialAccount sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FinancialAccount create options
 

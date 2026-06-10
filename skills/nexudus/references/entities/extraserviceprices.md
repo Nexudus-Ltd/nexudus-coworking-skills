@@ -18,6 +18,7 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 | `nexudus extraserviceprices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus extraserviceprices list --price <value> --agent` | Filter extraserviceprices by properties |
 | `nexudus extraserviceprices list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus extraserviceprices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus extraserviceprices get <id> --agent` | Get single extraserviceprice |
 | `nexudus extraserviceprices create --extra-service-id <value> --tariff-id <value> --price <value> --agent` | Create extraserviceprice |
 | `nexudus extraserviceprices update <id> --name "New Name" --agent` | Update extraserviceprice |
@@ -39,6 +40,15 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ExtraServicePrice sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ExtraServicePrice create options
 

@@ -20,6 +20,7 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 | `nexudus coworkertasks list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkertasks list --name <value> --completed <value> --agent` | Filter coworkertasks by properties |
 | `nexudus coworkertasks list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkertasks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkertasks get <id> --agent` | Get single coworkertask |
 | `nexudus coworkertasks create --business-id <value> --coworker-id <value> --name <value> --responsible-id <value> --agent` | Create coworkertask |
 | `nexudus coworkertasks update <id> --name "New Name" --agent` | Update coworkertask |
@@ -49,6 +50,15 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerTask sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `DueDate` ascending. If no `--order-by` is specified, the API returns results ordered by `DueDate` (ascending).
 
 #### CoworkerTask create options
 

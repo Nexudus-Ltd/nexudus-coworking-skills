@@ -18,6 +18,7 @@ CoworkerSettings support Search, Get, Create, Update, Delete.
 | `nexudus coworkersettings list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkersettings list --name <value> --agent` | Filter coworkersettings by properties |
 | `nexudus coworkersettings list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkersettings list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkersettings get <id> --agent` | Get single coworkersetting |
 | `nexudus coworkersettings create --coworker-id <value> --name <value> --agent` | Create coworkersetting |
 | `nexudus coworkersettings update <id> --name "New Name" --agent` | Update coworkersetting |
@@ -35,6 +36,15 @@ CoworkerSettings support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerSetting sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerSetting create options
 

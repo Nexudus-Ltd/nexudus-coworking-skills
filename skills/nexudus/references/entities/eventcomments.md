@@ -14,6 +14,7 @@ EventComments support Search, Get, Create, Update, Delete.
 | `nexudus eventcomments list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus eventcomments list --business-id <value> --calendar-event-id <value> --agent` | Filter eventcomments by properties |
 | `nexudus eventcomments list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus eventcomments list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus eventcomments get <id> --agent` | Get single eventcomment |
 | `nexudus eventcomments create --business-id <value> --calendar-event-id <value> --title <value> --text <value> --agent` | Create eventcomment |
 | `nexudus eventcomments update <id> --name "New Name" --agent` | Update eventcomment |
@@ -36,6 +37,15 @@ EventComments support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### EventComment sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### EventComment create options
 

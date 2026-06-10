@@ -14,6 +14,7 @@ Reminders support Search, Get, Create, Update, Delete.
 | `nexudus reminders list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus reminders list --business-id <value> --name <value> --agent` | Filter reminders by properties |
 | `nexudus reminders list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus reminders list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus reminders get <id> --agent` | Get single reminder |
 | `nexudus reminders create --business-id <value> --name <value> --reminder-type <value> --reminder-action <value> --agent` | Create reminder |
 | `nexudus reminders update <id> --name "New Name" --agent` | Update reminder |
@@ -59,6 +60,15 @@ Reminders support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Reminder sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### Reminder create options
 

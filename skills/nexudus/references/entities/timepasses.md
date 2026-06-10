@@ -18,6 +18,7 @@ TimePasses also support entity commands.
 | `nexudus timepasses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus timepasses list --name <value> --price <value> --agent` | Filter timepasses by properties |
 | `nexudus timepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus timepasses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus timepasses get <id> --agent` | Get single timepass |
 | `nexudus timepasses create --business-id <value> --name <value> --price <value> --currency-id <value> --agent` | Create timepass |
 | `nexudus timepasses update <id> --name "New Name" --agent` | Update timepass |
@@ -59,6 +60,15 @@ TimePasses also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### TimePass sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### TimePass create options
 

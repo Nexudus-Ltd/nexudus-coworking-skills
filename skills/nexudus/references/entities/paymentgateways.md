@@ -18,6 +18,7 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 | `nexudus paymentgateways list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus paymentgateways list --name <value> --payment-gateway-type <value> --agent` | Filter paymentgateways by properties |
 | `nexudus paymentgateways list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus paymentgateways list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus paymentgateways get <id> --agent` | Get single paymentgateway |
 | `nexudus paymentgateways create --business-id <value> --name <value> --payment-gateway-type <value> --agent` | Create paymentgateway |
 | `nexudus paymentgateways update <id> --name "New Name" --agent` | Update paymentgateway |
@@ -41,6 +42,15 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### PaymentGateway sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### PaymentGateway create options
 

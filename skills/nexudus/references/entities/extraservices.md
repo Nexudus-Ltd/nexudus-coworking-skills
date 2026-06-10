@@ -41,6 +41,7 @@ ExtraServices also support entity commands.
 | `nexudus extraservices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus extraservices list --name <value> --visible <value> --agent` | Filter extraservices by properties |
 | `nexudus extraservices list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus extraservices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus extraservices get <id> --agent` | Get single extraservice |
 | `nexudus extraservices create --business-id <value> --name <value> --display-order <value> --price <value> --charge-period <value> --currency-id <value> --last-minute-adjustment-type <value> --agent` | Create extraservice |
 | `nexudus extraservices update <id> --name "New Name" --agent` | Update extraservice |
@@ -127,6 +128,15 @@ ExtraServices also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ExtraService sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API returns results ordered by `CreatedOn` (ascending).
 
 #### ExtraService create options
 

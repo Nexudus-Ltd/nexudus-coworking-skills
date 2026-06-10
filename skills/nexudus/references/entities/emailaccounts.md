@@ -14,6 +14,7 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 | `nexudus emailaccounts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus emailaccounts list --business-id <value> --display-name <value> --agent` | Filter emailaccounts by properties |
 | `nexudus emailaccounts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus emailaccounts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus emailaccounts get <id> --agent` | Get single emailaccount |
 | `nexudus emailaccounts create --business-id <value> --display-name <value> --email-address <value> --incoming-server <value> --incoming-server-type <value> --incoming-server-port <value> --incoming-server-username <value> --delete-message-settings <value> --outgoing-server <value> --outgoing-server-port <value> --outgoing-server-username <value> --last-message-id <value> --error-count <value> --agent` | Create emailaccount |
 | `nexudus emailaccounts update <id> --name "New Name" --agent` | Update emailaccount |
@@ -59,6 +60,15 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### EmailAccount sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### EmailAccount create options
 

@@ -14,6 +14,7 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 | `nexudus resourceproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus resourceproducts list --visible <value> --agent` | Filter resourceproducts by properties |
 | `nexudus resourceproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus resourceproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus resourceproducts get <id> --agent` | Get single resourceproduct |
 | `nexudus resourceproducts create --resource-id <value> --product-id <value> --agent` | Create resourceproduct |
 | `nexudus resourceproducts update <id> --name "New Name" --agent` | Update resourceproduct |
@@ -35,6 +36,15 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ResourceProduct sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ResourceProduct create options
 

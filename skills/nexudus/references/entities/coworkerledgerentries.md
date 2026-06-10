@@ -21,6 +21,7 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 | `nexudus coworkerledgerentries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerledgerentries list --description <value> --code <value> --agent` | Filter coworkerledgerentries by properties |
 | `nexudus coworkerledgerentries list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerledgerentries list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerledgerentries get <id> --agent` | Get single coworkerledgerentry |
 | `nexudus coworkerledgerentries create --business-id <value> --coworker-id <value> --description <value> --code <value> --debit <value> --credit <value> --balance <value> --agent` | Create coworkerledgerentry |
 | `nexudus coworkerledgerentries update <id> --name "New Name" --agent` | Update coworkerledgerentry |
@@ -58,6 +59,15 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerLedgerEntry sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `TransactionDate` ascending. If no `--order-by` is specified, the API returns results ordered by `TransactionDate` (ascending).
 
 #### CoworkerLedgerEntry create options
 

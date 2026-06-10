@@ -14,6 +14,7 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 | `nexudus proposalschedules list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus proposalschedules list --price <value> --apply-on <value> --agent` | Filter proposalschedules by properties |
 | `nexudus proposalschedules list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus proposalschedules list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus proposalschedules get <id> --agent` | Get single proposalschedule |
 | `nexudus proposalschedules create --proposal-id <value> --apply-on <value> --agent` | Create proposalschedule |
 | `nexudus proposalschedules update <id> --name "New Name" --agent` | Update proposalschedule |
@@ -35,6 +36,15 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ProposalSchedule sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ProposalSchedule create options
 

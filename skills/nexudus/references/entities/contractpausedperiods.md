@@ -24,6 +24,7 @@ ContractPausedPeriods support Search, Get, Create, Update, Delete.
 | `nexudus contractpausedperiods list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus contractpausedperiods list --pause-from <value> --pause-until <value> --agent` | Filter contractpausedperiods by properties |
 | `nexudus contractpausedperiods list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus contractpausedperiods list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus contractpausedperiods get <id> --agent` | Get single contractpausedperiod |
 | `nexudus contractpausedperiods create --coworker-contract-id <value> --pause-from <value> --pause-until <value> --agent` | Create contractpausedperiod |
 | `nexudus contractpausedperiods update <id> --name "New Name" --agent` | Update contractpausedperiod |
@@ -51,6 +52,15 @@ ContractPausedPeriods support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ContractPausedPeriod sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ContractPausedPeriod create options
 

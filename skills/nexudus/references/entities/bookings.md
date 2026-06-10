@@ -25,6 +25,7 @@ Bookings also support entity commands.
 | `nexudus bookings list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus bookings list --from-time <value> --to-time <value> --agent` | Filter bookings by properties |
 | `nexudus bookings list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus bookings list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus bookings get <id> --agent` | Get single booking |
 | `nexudus bookings create --resource-id <value> --from-time <value> --to-time <value> --repeats <value> --which-bookings-to-update <value> --agent` | Create booking |
 | `nexudus bookings update <id> --name "New Name" --agent` | Update booking |
@@ -110,6 +111,15 @@ Bookings also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Booking sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `FromTime` ascending. If no `--order-by` is specified, the API returns results ordered by `FromTime` (ascending).
 
 #### Booking create options
 

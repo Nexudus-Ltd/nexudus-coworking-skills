@@ -17,6 +17,7 @@ BookingProducts also support entity commands.
 | `nexudus bookingproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus bookingproducts list --quantity <value> --agent` | Filter bookingproducts by properties |
 | `nexudus bookingproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus bookingproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus bookingproducts get <id> --agent` | Get single bookingproduct |
 | `nexudus bookingproducts create --booking-id <value> --product-id <value> --quantity <value> --agent` | Create bookingproduct |
 | `nexudus bookingproducts update <id> --name "New Name" --agent` | Update bookingproduct |
@@ -38,6 +39,15 @@ BookingProducts also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### BookingProduct sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### BookingProduct create options
 

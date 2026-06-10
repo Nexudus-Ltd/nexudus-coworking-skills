@@ -186,6 +186,7 @@ CannedResponses support Search, Get, Create, Update, Delete.
 | `nexudus cannedresponses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus cannedresponses list --name <value> --agent` | Filter cannedresponses by properties |
 | `nexudus cannedresponses list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus cannedresponses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus cannedresponses get <id> --agent` | Get single cannedresponse |
 | `nexudus cannedresponses create --business-id <value> --name <value> --agent` | Create cannedresponse |
 | `nexudus cannedresponses update <id> --name "New Name" --agent` | Update cannedresponse |
@@ -203,6 +204,15 @@ CannedResponses support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CannedResponse sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CannedResponse create options
 

@@ -14,6 +14,7 @@ InstalledApplications support Search, Get, Create, Update, Delete.
 | `nexudus installedapplications list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus installedapplications list --application-id <value> --business-id <value> --agent` | Filter installedapplications by properties |
 | `nexudus installedapplications list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus installedapplications list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus installedapplications get <id> --agent` | Get single installedapplication |
 | `nexudus installedapplications create --application-id <value> --business-id <value> --agent` | Create installedapplication |
 | `nexudus installedapplications update <id> --name "New Name" --agent` | Update installedapplication |
@@ -30,6 +31,15 @@ InstalledApplications support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### InstalledApplication sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### InstalledApplication create options
 

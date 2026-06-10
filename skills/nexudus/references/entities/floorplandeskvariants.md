@@ -14,6 +14,7 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 | `nexudus floorplandeskvariants list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus floorplandeskvariants list --floor-plan-desk-id <value> --coworker-id <value> --agent` | Filter floorplandeskvariants by properties |
 | `nexudus floorplandeskvariants list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus floorplandeskvariants list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplandeskvariants get <id> --agent` | Get single floorplandeskvariant |
 | `nexudus floorplandeskvariants create --floor-plan-desk-id <value> --name <value> --occupancy-percentage <value> --agent` | Create floorplandeskvariant |
 | `nexudus floorplandeskvariants update <id> --name "New Name" --agent` | Update floorplandeskvariant |
@@ -66,6 +67,15 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FloorPlanDeskVariant sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FloorPlanDeskVariant create options
 

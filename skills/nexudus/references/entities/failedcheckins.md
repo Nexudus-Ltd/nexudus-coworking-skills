@@ -18,6 +18,7 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 | `nexudus failedcheckins list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus failedcheckins list --coworker-id <value> --business-id <value> --agent` | Filter failedcheckins by properties |
 | `nexudus failedcheckins list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus failedcheckins list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus failedcheckins get <id> --agent` | Get single failedcheckin |
 | `nexudus failedcheckins create --business-id <value> --checkin-attempt-time <value> --agent` | Create failedcheckin |
 | `nexudus failedcheckins update <id> --name "New Name" --agent` | Update failedcheckin |
@@ -43,6 +44,15 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FailedCheckin sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `CreatedOn` descending. If no `--order-by` is specified, the API returns results ordered by `CreatedOn` (descending).
 
 #### FailedCheckin create options
 

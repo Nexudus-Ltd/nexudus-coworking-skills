@@ -14,6 +14,7 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutedges list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus floorplanlayoutedges list --floor-plan-layout-id <value> --edge-key <value> --agent` | Filter floorplanlayoutedges by properties |
 | `nexudus floorplanlayoutedges list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus floorplanlayoutedges list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutedges get <id> --agent` | Get single floorplanlayoutedge |
 | `nexudus floorplanlayoutedges create --floor-plan-layout-id <value> --angle <value> --width <value> --height <value> --length <value> --agent` | Create floorplanlayoutedge |
 | `nexudus floorplanlayoutedges update <id> --name "New Name" --agent` | Update floorplanlayoutedge |
@@ -44,6 +45,15 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FloorPlanLayoutEdge sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FloorPlanLayoutEdge create options
 

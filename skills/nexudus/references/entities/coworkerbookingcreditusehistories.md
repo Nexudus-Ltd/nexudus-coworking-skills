@@ -16,6 +16,7 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 | `nexudus coworkerbookingcreditusehistories list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerbookingcreditusehistories list --description <value> --coworker-booking-credit-id <value> --agent` | Filter coworkerbookingcreditusehistories by properties |
 | `nexudus coworkerbookingcreditusehistories list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerbookingcreditusehistories list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerbookingcreditusehistories get <id> --agent` | Get single coworkerbookingcreditusehistory |
 | `nexudus coworkerbookingcreditusehistories create --coworker-booking-credit-id <value> --credit-used <value> --agent` | Create coworkerbookingcreditusehistory |
 | `nexudus coworkerbookingcreditusehistories update <id> --name "New Name" --agent` | Update coworkerbookingcreditusehistory |
@@ -36,6 +37,15 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerBookingCreditUseHistory sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerBookingCreditUseHistory create options
 

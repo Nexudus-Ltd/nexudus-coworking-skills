@@ -14,6 +14,7 @@ SurveyRuns support Search, Get, Create, Update, Delete.
 | `nexudus surveyruns list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus surveyruns list --coworker-id <value> --survey-id <value> --agent` | Filter surveyruns by properties |
 | `nexudus surveyruns list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus surveyruns list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus surveyruns get <id> --agent` | Get single surveyrun |
 | `nexudus surveyruns create --coworker-id <value> --survey-id <value> --agent` | Create surveyrun |
 | `nexudus surveyruns update <id> --name "New Name" --agent` | Update surveyrun |
@@ -33,6 +34,15 @@ SurveyRuns support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### SurveyRun sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### SurveyRun create options
 

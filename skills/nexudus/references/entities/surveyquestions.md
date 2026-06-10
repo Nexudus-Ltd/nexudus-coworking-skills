@@ -14,6 +14,7 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 | `nexudus surveyquestions list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus surveyquestions list --survey-id <value> --text <value> --agent` | Filter surveyquestions by properties |
 | `nexudus surveyquestions list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus surveyquestions list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus surveyquestions get <id> --agent` | Get single surveyquestion |
 | `nexudus surveyquestions create --survey-id <value> --text <value> --description <value> --display-order <value> --question-type <value> --agent` | Create surveyquestion |
 | `nexudus surveyquestions update <id> --name "New Name" --agent` | Update surveyquestion |
@@ -37,6 +38,15 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### SurveyQuestion sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### SurveyQuestion create options
 

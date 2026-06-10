@@ -14,6 +14,7 @@ CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 | `nexudus crmopportunityimportfiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus crmopportunityimportfiles list --business-id <value> --new-file-data-url <value> --agent` | Filter crmopportunityimportfiles by properties |
 | `nexudus crmopportunityimportfiles list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus crmopportunityimportfiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmopportunityimportfiles get <id> --agent` | Get single crmopportunityimportfile |
 | `nexudus crmopportunityimportfiles create --business-id <value> --name <value> --agent` | Create crmopportunityimportfile |
 | `nexudus crmopportunityimportfiles update <id> --name "New Name" --agent` | Update crmopportunityimportfile |
@@ -32,6 +33,15 @@ CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CrmOpportunityImportFile sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CrmOpportunityImportFile create options
 

@@ -14,6 +14,7 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 | `nexudus tariffdefaultduedates list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus tariffdefaultduedates list --auto-collect-on <value> --auto-collect-after <value> --agent` | Filter tariffdefaultduedates by properties |
 | `nexudus tariffdefaultduedates list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus tariffdefaultduedates list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tariffdefaultduedates get <id> --agent` | Get single tariffdefaultduedate |
 | `nexudus tariffdefaultduedates create --business-id <value> --agent` | Create tariffdefaultduedate |
 | `nexudus tariffdefaultduedates update <id> --name "New Name" --agent` | Update tariffdefaultduedate |
@@ -34,6 +35,15 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### TariffDefaultDueDate sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `CreatedOn` descending. If no `--order-by` is specified, the API returns results ordered by `CreatedOn` (descending).
 
 #### TariffDefaultDueDate create options
 

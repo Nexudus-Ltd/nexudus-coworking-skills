@@ -24,6 +24,7 @@ Proposals support Search, Get, Create, Update, Delete.
 | `nexudus proposals list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus proposals list --reference <value> --proposal-status <value> --agent` | Filter proposals by properties |
 | `nexudus proposals list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus proposals list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus proposals get <id> --agent` | Get single proposal |
 | `nexudus proposals create --issued-by-id <value> --responsible-id <value> --coworker-id <value> --reference <value> --proposal-status <value> --tariff-id <value> --billing-day <value> --quantity <value> --agent` | Create proposal |
 | `nexudus proposals update <id> --name "New Name" --agent` | Update proposal |
@@ -86,6 +87,15 @@ Proposals support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Proposal sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### Proposal create options
 

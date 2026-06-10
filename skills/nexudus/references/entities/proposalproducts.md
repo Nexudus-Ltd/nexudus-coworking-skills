@@ -14,6 +14,7 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `nexudus proposalproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus proposalproducts list --quantity <value> --price <value> --agent` | Filter proposalproducts by properties |
 | `nexudus proposalproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus proposalproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus proposalproducts get <id> --agent` | Get single proposalproduct |
 | `nexudus proposalproducts create --proposal-id <value> --product-id <value> --quantity <value> --repeat-cycle <value> --agent` | Create proposalproduct |
 | `nexudus proposalproducts update <id> --name "New Name" --agent` | Update proposalproduct |
@@ -53,6 +54,15 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ProposalProduct sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ProposalProduct create options
 

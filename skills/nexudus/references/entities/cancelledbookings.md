@@ -18,6 +18,7 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `nexudus cancelledbookings list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus cancelledbookings list --from-time <value> --to-time <value> --agent` | Filter cancelledbookings by properties |
 | `nexudus cancelledbookings list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus cancelledbookings list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus cancelledbookings get <id> --agent` | Get single cancelledbooking |
 | `nexudus cancelledbookings create --resource-id <value> --from-time <value> --to-time <value> --repeats <value> --which-bookings-to-update <value> --cancelled-on <value> --agent` | Create cancelledbooking |
 | `nexudus cancelledbookings update <id> --name "New Name" --agent` | Update cancelledbooking |
@@ -156,6 +157,15 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CancelledBooking sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `FromTime` ascending. If no `--order-by` is specified, the API returns results ordered by `FromTime` (ascending).
 
 #### CancelledBooking create options
 

@@ -26,6 +26,7 @@ CustomFields support Search, Get, Create, Update, Delete.
 | `nexudus customfields list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus customfields list --name <value> --agent` | Filter customfields by properties |
 | `nexudus customfields list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus customfields list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus customfields get <id> --agent` | Get single customfield |
 | `nexudus customfields create --business-id <value> --name <value> --display-order <value> --record-type <value> --field-type <value> --coworker-field-position <value> --custom-field-index <value> --visibility <value> --agent` | Create customfield |
 | `nexudus customfields update <id> --name "New Name" --agent` | Update customfield |
@@ -69,6 +70,15 @@ CustomFields support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CustomField sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CustomField create options
 

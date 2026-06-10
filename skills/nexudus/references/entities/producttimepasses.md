@@ -17,6 +17,7 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 | `nexudus producttimepasses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus producttimepasses list --passes-included <value> --agent` | Filter producttimepasses by properties |
 | `nexudus producttimepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus producttimepasses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus producttimepasses get <id> --agent` | Get single producttimepass |
 | `nexudus producttimepasses create --product-id <value> --time-pass-id <value> --passes-included <value> --agent` | Create producttimepass |
 | `nexudus producttimepasses update <id> --name "New Name" --agent` | Update producttimepass |
@@ -45,6 +46,15 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ProductTimePass sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ProductTimePass create options
 

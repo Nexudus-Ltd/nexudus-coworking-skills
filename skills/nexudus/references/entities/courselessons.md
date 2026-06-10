@@ -33,6 +33,7 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | `nexudus courselessons list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus courselessons list --course-id <value> --section-id <value> --agent` | Filter courselessons by properties |
 | `nexudus courselessons list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus courselessons list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus courselessons get <id> --agent` | Get single courselesson |
 | `nexudus courselessons create --course-id <value> --title <value> --display-order <value> --unlock-type <value> --unlock-after-days <value> --completion-type <value> --agent` | Create courselesson |
 | `nexudus courselessons update <id> --name "New Name" --agent` | Update courselesson |
@@ -63,6 +64,15 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CourseLesson sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CourseLesson create options
 

@@ -14,6 +14,7 @@ Sensors support Search, Get, Create, Update, Delete.
 | `nexudus sensors list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus sensors list --business-id <value> --canned-response-id <value> --agent` | Filter sensors by properties |
 | `nexudus sensors list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus sensors list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus sensors get <id> --agent` | Get single sensor |
 | `nexudus sensors create --business-id <value> --name <value> --reference <value> --sensor-type <value> --data-strategy <value> --agent` | Create sensor |
 | `nexudus sensors update <id> --name "New Name" --agent` | Update sensor |
@@ -55,6 +56,15 @@ Sensors support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Sensor sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### Sensor create options
 

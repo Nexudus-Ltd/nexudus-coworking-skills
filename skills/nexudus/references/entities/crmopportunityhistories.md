@@ -16,6 +16,7 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | `nexudus crmopportunityhistories list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus crmopportunityhistories list --from-time <value> --to-time <value> --agent` | Filter crmopportunityhistories by properties |
 | `nexudus crmopportunityhistories list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus crmopportunityhistories list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmopportunityhistories get <id> --agent` | Get single crmopportunityhistory |
 | `nexudus crmopportunityhistories create --new-crm-board-column-id <value> --agent` | Create crmopportunityhistory |
 | `nexudus crmopportunityhistories update <id> --name "New Name" --agent` | Update crmopportunityhistory |
@@ -39,6 +40,15 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CrmOpportunityHistory sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CrmOpportunityHistory create options
 

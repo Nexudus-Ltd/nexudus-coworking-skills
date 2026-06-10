@@ -14,6 +14,7 @@ EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via A
 | `nexudus emailqueueitemattachments list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus emailqueueitemattachments list --email-queue-item-id <value> --name <value> --agent` | Filter emailqueueitemattachments by properties |
 | `nexudus emailqueueitemattachments list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus emailqueueitemattachments list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus emailqueueitemattachments get <id> --agent` | Get single emailqueueitemattachment |
 | `nexudus emailqueueitemattachments update <id> --name "New Name" --agent` | Update emailqueueitemattachment |
 
@@ -30,6 +31,15 @@ EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via A
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### EmailQueueItemAttachment sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### EmailQueueItemAttachment update options
 

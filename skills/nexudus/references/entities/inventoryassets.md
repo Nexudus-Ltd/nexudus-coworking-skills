@@ -25,6 +25,7 @@ InventoryAssets also support entity commands.
 | `nexudus inventoryassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus inventoryassets list --name <value> --agent` | Filter inventoryassets by properties |
 | `nexudus inventoryassets list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus inventoryassets list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus inventoryassets get <id> --agent` | Get single inventoryasset |
 | `nexudus inventoryassets create --business-id <value> --name <value> --assign-to-type <value> --agent` | Create inventoryasset |
 | `nexudus inventoryassets update <id> --name "New Name" --agent` | Update inventoryasset |
@@ -51,6 +52,15 @@ InventoryAssets also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### InventoryAsset sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 #### InventoryAsset create options
 

@@ -20,6 +20,7 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 | `nexudus coworkergooglecalendars list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkergooglecalendars list --name <value> --agent` | Filter coworkergooglecalendars by properties |
 | `nexudus coworkergooglecalendars list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkergooglecalendars list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkergooglecalendars get <id> --agent` | Get single coworkergooglecalendar |
 | `nexudus coworkergooglecalendars create --resource-id <value> --name <value> --subscription-id <value> --calendar-id <value> --subscription-expire-date <value> --watch-resource-id <value> --agent` | Create coworkergooglecalendar |
 | `nexudus coworkergooglecalendars update <id> --name "New Name" --agent` | Update coworkergooglecalendar |
@@ -43,6 +44,15 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerGoogleCalendar sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerGoogleCalendar create options
 

@@ -14,6 +14,7 @@ Surveys support Search, Get, Create, Update, Delete.
 | `nexudus surveys list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus surveys list --business-id <value> --name <value> --agent` | Filter surveys by properties |
 | `nexudus surveys list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus surveys list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus surveys get <id> --agent` | Get single survey |
 | `nexudus surveys create --business-id <value> --name <value> --description <value> --next-delivery-date <value> --delivery-rate <value> --delivery-frequency <value> --delivery-rate-maximum <value> --delivery-frequency-maximum <value> --agent` | Create survey |
 | `nexudus surveys update <id> --name "New Name" --agent` | Update survey |
@@ -47,6 +48,15 @@ Surveys support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Survey sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### Survey create options
 

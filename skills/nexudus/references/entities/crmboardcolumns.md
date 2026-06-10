@@ -21,6 +21,7 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 | `nexudus crmboardcolumns list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus crmboardcolumns list --name <value> --position <value> --agent` | Filter crmboardcolumns by properties |
 | `nexudus crmboardcolumns list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus crmboardcolumns list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmboardcolumns get <id> --agent` | Get single crmboardcolumn |
 | `nexudus crmboardcolumns create --crm-board-id <value> --name <value> --position <value> --agent` | Create crmboardcolumn |
 | `nexudus crmboardcolumns update <id> --name "New Name" --agent` | Update crmboardcolumn |
@@ -62,6 +63,15 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CrmBoardColumn sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Position` ascending. If no `--order-by` is specified, the API returns results ordered by `Position` (ascending).
 
 #### CrmBoardColumn create options
 

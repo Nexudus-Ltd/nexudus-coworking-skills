@@ -20,6 +20,7 @@ CalendarEvents support Search, Get, Create, Update, Delete.
 | `nexudus calendarevents list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus calendarevents list --business-id <value> --name <value> --agent` | Filter calendarevents by properties |
 | `nexudus calendarevents list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus calendarevents list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus calendarevents get <id> --agent` | Get single calendarevent |
 | `nexudus calendarevents create --business-id <value> --name <value> --start-date <value> --end-date <value> --repeats <value> --which-events-to-update <value> --agent` | Create calendarevent |
 | `nexudus calendarevents update <id> --name "New Name" --agent` | Update calendarevent |
@@ -107,6 +108,15 @@ CalendarEvents support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CalendarEvent sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `StartDate` ascending. If no `--order-by` is specified, the API returns results ordered by `StartDate` (ascending).
 
 #### CalendarEvent create options
 

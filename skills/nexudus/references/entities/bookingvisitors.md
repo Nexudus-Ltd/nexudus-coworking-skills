@@ -19,6 +19,7 @@ BookingVisitors also support entity commands.
 | `nexudus bookingvisitors list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus bookingvisitors list --booking-id <value> --visitor-id <value> --agent` | Filter bookingvisitors by properties |
 | `nexudus bookingvisitors list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus bookingvisitors list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus bookingvisitors get <id> --agent` | Get single bookingvisitor |
 | `nexudus bookingvisitors create --booking-id <value> --visitor-id <value> --agent` | Create bookingvisitor |
 | `nexudus bookingvisitors update <id> --name "New Name" --agent` | Update bookingvisitor |
@@ -35,6 +36,15 @@ BookingVisitors also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### BookingVisitor sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### BookingVisitor create options
 

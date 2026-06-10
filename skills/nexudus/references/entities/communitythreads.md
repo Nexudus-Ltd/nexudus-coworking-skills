@@ -18,6 +18,7 @@ CommunityThreads support Search, Get, Create, Update, Delete.
 | `nexudus communitythreads list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus communitythreads list --business-id <value> --community-group-id <value> --agent` | Filter communitythreads by properties |
 | `nexudus communitythreads list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus communitythreads list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus communitythreads get <id> --agent` | Get single communitythread |
 | `nexudus communitythreads create --business-id <value> --user-id <value> --subject <value> --message <value> --agent` | Create communitythread |
 | `nexudus communitythreads update <id> --name "New Name" --agent` | Update communitythread |
@@ -42,6 +43,15 @@ CommunityThreads support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CommunityThread sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CommunityThread create options
 

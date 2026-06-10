@@ -18,6 +18,7 @@ ContractSchedules support Search, Get, Create, Update, Delete.
 | `nexudus contractschedules list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus contractschedules list --price <value> --apply-on <value> --agent` | Filter contractschedules by properties |
 | `nexudus contractschedules list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus contractschedules list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus contractschedules get <id> --agent` | Get single contractschedule |
 | `nexudus contractschedules create --coworker-contract-id <value> --apply-on <value> --agent` | Create contractschedule |
 | `nexudus contractschedules update <id> --name "New Name" --agent` | Update contractschedule |
@@ -42,6 +43,15 @@ ContractSchedules support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ContractSchedule sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ContractSchedule create options
 

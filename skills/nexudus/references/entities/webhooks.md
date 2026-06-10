@@ -20,6 +20,7 @@ WebHooks support Search, Get, Create, Update, Delete.
 | `nexudus webhooks list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus webhooks list --name <value> --u-r-l <value> --agent` | Filter webhooks by properties |
 | `nexudus webhooks list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus webhooks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus webhooks get <id> --agent` | Get single webhook |
 | `nexudus webhooks create --business-id <value> --name <value> --action <value> --u-r-l <value> --agent` | Create webhook |
 | `nexudus webhooks update <id> --name "New Name" --agent` | Update webhook |
@@ -39,6 +40,15 @@ WebHooks support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### WebHook sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### WebHook create options
 

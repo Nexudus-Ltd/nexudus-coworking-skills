@@ -14,6 +14,7 @@ PlatformChangeMessages support Search, Get, Create, Update, Delete.
 | `nexudus platformchangemessages list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus platformchangemessages list --title <value> --description-english <value> --agent` | Filter platformchangemessages by properties |
 | `nexudus platformchangemessages list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus platformchangemessages list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus platformchangemessages get <id> --agent` | Get single platformchangemessage |
 | `nexudus platformchangemessages create --title <value> --agent` | Create platformchangemessage |
 | `nexudus platformchangemessages update <id> --name "New Name" --agent` | Update platformchangemessage |
@@ -30,6 +31,15 @@ PlatformChangeMessages support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### PlatformChangeMessage sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `CreatedOn` descending. If no `--order-by` is specified, the API returns results ordered by `CreatedOn` (descending).
 
 #### PlatformChangeMessage create options
 

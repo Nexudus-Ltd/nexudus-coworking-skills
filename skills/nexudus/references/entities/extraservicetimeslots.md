@@ -18,6 +18,7 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 | `nexudus extraservicetimeslots list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus extraservicetimeslots list --from-time <value> --to-time <value> --agent` | Filter extraservicetimeslots by properties |
 | `nexudus extraservicetimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus extraservicetimeslots list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus extraservicetimeslots get <id> --agent` | Get single extraservicetimeslot |
 | `nexudus extraservicetimeslots create --extra-service-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create extraservicetimeslot |
 | `nexudus extraservicetimeslots update <id> --name "New Name" --agent` | Update extraservicetimeslot |
@@ -40,6 +41,15 @@ ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ExtraServiceTimeSlot sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ExtraServiceTimeSlot create options
 

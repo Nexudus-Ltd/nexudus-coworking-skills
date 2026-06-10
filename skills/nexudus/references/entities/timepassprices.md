@@ -14,6 +14,7 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 | `nexudus timepassprices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus timepassprices list --price <value> --agent` | Filter timepassprices by properties |
 | `nexudus timepassprices list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus timepassprices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus timepassprices get <id> --agent` | Get single timepassprice |
 | `nexudus timepassprices create --time-pass-id <value> --tariff-id <value> --price <value> --agent` | Create timepassprice |
 | `nexudus timepassprices update <id> --name "New Name" --agent` | Update timepassprice |
@@ -32,6 +33,15 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### TimePassPrice sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### TimePassPrice create options
 

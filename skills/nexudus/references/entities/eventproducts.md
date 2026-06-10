@@ -14,6 +14,7 @@ EventProducts support Search, Get, Create, Update, Delete.
 | `nexudus eventproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus eventproducts list --calendar-event-id <value> --name <value> --agent` | Filter eventproducts by properties |
 | `nexudus eventproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus eventproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus eventproducts get <id> --agent` | Get single eventproduct |
 | `nexudus eventproducts create --calendar-event-id <value> --name <value> --display-order <value> --start-date <value> --end-date <value> --price <value> --currency-id <value> --agent` | Create eventproduct |
 | `nexudus eventproducts update <id> --name "New Name" --agent` | Update eventproduct |
@@ -55,6 +56,15 @@ EventProducts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### EventProduct sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `DisplayOrder` ascending. If no `--order-by` is specified, the API returns results ordered by `DisplayOrder` (ascending).
 
 #### EventProduct create options
 

@@ -14,6 +14,7 @@ FormPages support Search, Get, Create, Update, Delete.
 | `nexudus formpages list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus formpages list --business-id <value> --name <value> --agent` | Filter formpages by properties |
 | `nexudus formpages list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus formpages list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus formpages get <id> --agent` | Get single formpage |
 | `nexudus formpages create --business-id <value> --name <value> --description <value> --agent` | Create formpage |
 | `nexudus formpages update <id> --name "New Name" --agent` | Update formpage |
@@ -33,6 +34,15 @@ FormPages support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FormPage sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FormPage create options
 

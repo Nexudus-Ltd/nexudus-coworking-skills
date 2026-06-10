@@ -14,6 +14,7 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 | `nexudus formpageanswers list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus formpageanswers list --form-page-request-id <value> --form-page-question-id <value> --agent` | Filter formpageanswers by properties |
 | `nexudus formpageanswers list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus formpageanswers list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus formpageanswers get <id> --agent` | Get single formpageanswer |
 | `nexudus formpageanswers create --form-page-question-id <value> --agent` | Create formpageanswer |
 | `nexudus formpageanswers update <id> --name "New Name" --agent` | Update formpageanswer |
@@ -31,6 +32,15 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FormPageAnswer sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FormPageAnswer create options
 

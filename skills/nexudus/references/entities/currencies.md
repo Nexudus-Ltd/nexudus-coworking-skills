@@ -18,6 +18,7 @@ Currencies support Search, Get (no Create or Delete via API).
 | `nexudus currencies list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus currencies list --name <value> --code <value> --agent` | Filter currencies by properties |
 | `nexudus currencies list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus currencies list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus currencies get <id> --agent` | Get single currency |
 
 #### Currency list filter options
@@ -31,6 +32,15 @@ Currencies support Search, Get (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Currency sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 ### Currency (key fields)
 

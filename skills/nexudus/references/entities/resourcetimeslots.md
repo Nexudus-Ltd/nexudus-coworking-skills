@@ -15,6 +15,7 @@ ResourceTimeSlots also support entity commands.
 | `nexudus resourcetimeslots list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus resourcetimeslots list --from-time <value> --to-time <value> --agent` | Filter resourcetimeslots by properties |
 | `nexudus resourcetimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus resourcetimeslots list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus resourcetimeslots get <id> --agent` | Get single resourcetimeslot |
 | `nexudus resourcetimeslots create --resource-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create resourcetimeslot |
 | `nexudus resourcetimeslots update <id> --name "New Name" --agent` | Update resourcetimeslot |
@@ -37,6 +38,15 @@ ResourceTimeSlots also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ResourceTimeSlot sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ResourceTimeSlot create options
 

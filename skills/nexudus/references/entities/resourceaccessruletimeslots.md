@@ -14,6 +14,7 @@ ResourceAccessRuleTimeSlots support Search, Get, Create, Update, Delete.
 | `nexudus resourceaccessruletimeslots list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus resourceaccessruletimeslots list --from-time <value> --to-time <value> --agent` | Filter resourceaccessruletimeslots by properties |
 | `nexudus resourceaccessruletimeslots list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus resourceaccessruletimeslots list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus resourceaccessruletimeslots get <id> --agent` | Get single resourceaccessruletimeslot |
 | `nexudus resourceaccessruletimeslots create --resource-access-rule-id <value> --from-time <value> --to-time <value> --day-of-week <value> --agent` | Create resourceaccessruletimeslot |
 | `nexudus resourceaccessruletimeslots update <id> --name "New Name" --agent` | Update resourceaccessruletimeslot |
@@ -35,6 +36,15 @@ ResourceAccessRuleTimeSlots support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ResourceAccessRuleTimeSlot sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ResourceAccessRuleTimeSlot create options
 

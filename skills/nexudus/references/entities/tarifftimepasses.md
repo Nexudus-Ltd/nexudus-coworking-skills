@@ -14,6 +14,7 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 | `nexudus tarifftimepasses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus tarifftimepasses list --passes-included <value> --agent` | Filter tarifftimepasses by properties |
 | `nexudus tarifftimepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus tarifftimepasses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tarifftimepasses get <id> --agent` | Get single tarifftimepass |
 | `nexudus tarifftimepasses create --tariff-id <value> --time-pass-id <value> --passes-included <value> --pass-renewal-time <value> --agent` | Create tarifftimepass |
 | `nexudus tarifftimepasses update <id> --name "New Name" --agent` | Update tarifftimepass |
@@ -33,6 +34,15 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### TariffTimePass sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### TariffTimePass create options
 

@@ -20,6 +20,7 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 | `nexudus coworkerpaymentmethods list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerpaymentmethods list --coworker-id <value> --business-id <value> --agent` | Filter coworkerpaymentmethods by properties |
 | `nexudus coworkerpaymentmethods list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerpaymentmethods list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerpaymentmethods get <id> --agent` | Get single coworkerpaymentmethod |
 | `nexudus coworkerpaymentmethods create --coworker-id <value> --business-id <value> --agent` | Create coworkerpaymentmethod |
 | `nexudus coworkerpaymentmethods update <id> --name "New Name" --agent` | Update coworkerpaymentmethod |
@@ -41,6 +42,15 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerPaymentMethod sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerPaymentMethod create options
 

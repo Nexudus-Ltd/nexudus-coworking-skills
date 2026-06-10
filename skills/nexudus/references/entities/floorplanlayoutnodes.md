@@ -14,6 +14,7 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutnodes list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus floorplanlayoutnodes list --floor-plan-layout-id <value> --node-key <value> --agent` | Filter floorplanlayoutnodes by properties |
 | `nexudus floorplanlayoutnodes list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus floorplanlayoutnodes list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutnodes get <id> --agent` | Get single floorplanlayoutnode |
 | `nexudus floorplanlayoutnodes create --floor-plan-layout-id <value> --pos-x <value> --pos-y <value> --agent` | Create floorplanlayoutnode |
 | `nexudus floorplanlayoutnodes update <id> --name "New Name" --agent` | Update floorplanlayoutnode |
@@ -35,6 +36,15 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FloorPlanLayoutNode sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FloorPlanLayoutNode create options
 

@@ -14,6 +14,7 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 | `nexudus tariffsignupproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus tariffsignupproducts list --price <value> --agent` | Filter tariffsignupproducts by properties |
 | `nexudus tariffsignupproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus tariffsignupproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tariffsignupproducts get <id> --agent` | Get single tariffsignupproduct |
 | `nexudus tariffsignupproducts create --tariff-id <value> --product-id <value> --agent` | Create tariffsignupproduct |
 | `nexudus tariffsignupproducts update <id> --name "New Name" --agent` | Update tariffsignupproduct |
@@ -34,6 +35,15 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### TariffSignupProduct sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### TariffSignupProduct create options
 

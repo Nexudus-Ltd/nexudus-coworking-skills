@@ -18,6 +18,7 @@ Charges support Search, Get, Create, Update, Delete.
 | `nexudus charges list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus charges list --description <value> --total-amount <value> --agent` | Filter charges by properties |
 | `nexudus charges list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus charges list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus charges get <id> --agent` | Get single charge |
 | `nexudus charges create --coworker-id <value> --business-id <value> --quantity <value> --discount-amount <value> --credit-amount <value> --total-amount <value> --agent` | Create charge |
 | `nexudus charges update <id> --name "New Name" --agent` | Update charge |
@@ -71,6 +72,15 @@ Charges support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Charge sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### Charge create options
 

@@ -14,6 +14,7 @@ CommunityThreadFiles support Search, Get, Create, Update, Delete.
 | `nexudus communitythreadfiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus communitythreadfiles list --name <value> --agent` | Filter communitythreadfiles by properties |
 | `nexudus communitythreadfiles list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus communitythreadfiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus communitythreadfiles get <id> --agent` | Get single communitythreadfile |
 | `nexudus communitythreadfiles create --community-thread-id <value> --agent` | Create communitythreadfile |
 | `nexudus communitythreadfiles update <id> --name "New Name" --agent` | Update communitythreadfile |
@@ -32,6 +33,15 @@ CommunityThreadFiles support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CommunityThreadFile sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CommunityThreadFile create options
 

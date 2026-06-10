@@ -16,6 +16,7 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 | `nexudus businessbackgroundjobs list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus businessbackgroundjobs list --business-id <value> --user-id <value> --agent` | Filter businessbackgroundjobs by properties |
 | `nexudus businessbackgroundjobs list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus businessbackgroundjobs list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus businessbackgroundjobs get <id> --agent` | Get single businessbackgroundjob |
 
 #### BusinessBackgroundJob list filter options
@@ -33,6 +34,15 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### BusinessBackgroundJob sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### BusinessBackgroundJob PII fields
 

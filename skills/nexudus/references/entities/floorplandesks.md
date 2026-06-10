@@ -30,6 +30,7 @@ FloorPlanDesks support Search, Get, Create, Update, Delete.
 | `nexudus floorplandesks list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus floorplandesks list --name <value> --agent` | Filter floorplandesks by properties |
 | `nexudus floorplandesks list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus floorplandesks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplandesks get <id> --agent` | Get single floorplandesk |
 | `nexudus floorplandesks create --floor-plan-id <value> --name <value> --item-type <value> --size <value> --capacity <value> --price <value> --position-x <value> --position-y <value> --position-z <value> --agent` | Create floorplandesk |
 | `nexudus floorplandesks update <id> --name "New Name" --agent` | Update floorplandesk |
@@ -96,6 +97,15 @@ FloorPlanDesks support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FloorPlanDesk sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FloorPlanDesk create options
 

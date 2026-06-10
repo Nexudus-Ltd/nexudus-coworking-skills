@@ -20,6 +20,7 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 | `nexudus coworkermsofficecalendars list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkermsofficecalendars list --name <value> --agent` | Filter coworkermsofficecalendars by properties |
 | `nexudus coworkermsofficecalendars list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkermsofficecalendars list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkermsofficecalendars get <id> --agent` | Get single coworkermsofficecalendar |
 | `nexudus coworkermsofficecalendars create --resource-id <value> --name <value> --subscription-id <value> --calendar-id <value> --subscription-expire-date <value> --agent` | Create coworkermsofficecalendar |
 | `nexudus coworkermsofficecalendars update <id> --name "New Name" --agent` | Update coworkermsofficecalendar |
@@ -41,6 +42,15 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerMsOfficeCalendar sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerMsOfficeCalendar create options
 

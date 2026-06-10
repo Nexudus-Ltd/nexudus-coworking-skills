@@ -21,6 +21,7 @@ Products also support entity commands.
 | `nexudus products list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus products list --name <value> --description <value> --agent` | Filter products by properties |
 | `nexudus products list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus products list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus products get <id> --agent` | Get single product |
 | `nexudus products create --business-id <value> --name <value> --system-product-type <value> --description <value> --display-order <value> --price <value> --currency-id <value> --available-as <value> --agent` | Create product |
 | `nexudus products update <id> --name "New Name" --agent` | Update product |
@@ -79,6 +80,15 @@ Products also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Product sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 #### Product create options
 

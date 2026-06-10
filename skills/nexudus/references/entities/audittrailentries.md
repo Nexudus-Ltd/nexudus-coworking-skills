@@ -24,6 +24,7 @@ AuditTrailEntries support Search, Get (no Create or Delete via API).
 | `nexudus audittrailentries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus audittrailentries list --business-id <value> --entity-short-name <value> --agent` | Filter audittrailentries by properties |
 | `nexudus audittrailentries list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus audittrailentries list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus audittrailentries get <id> --agent` | Get single audittrailentry |
 
 #### AuditTrailEntry list filter options
@@ -45,6 +46,15 @@ AuditTrailEntries support Search, Get (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### AuditTrailEntry sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### AuditTrailEntry enum values
 

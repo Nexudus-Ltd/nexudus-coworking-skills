@@ -16,6 +16,7 @@ BlogCategories support Search, Get, Create, Update, Delete.
 | `nexudus blogcategories list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus blogcategories list --title <value> --agent` | Filter blogcategories by properties |
 | `nexudus blogcategories list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus blogcategories list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus blogcategories get <id> --agent` | Get single blogcategory |
 | `nexudus blogcategories create --business-id <value> --title <value> --agent` | Create blogcategory |
 | `nexudus blogcategories update <id> --name "New Name" --agent` | Update blogcategory |
@@ -32,6 +33,15 @@ BlogCategories support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### BlogCategory sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Title` ascending. If no `--order-by` is specified, the API returns results ordered by `Title` (ascending).
 
 #### BlogCategory create options
 

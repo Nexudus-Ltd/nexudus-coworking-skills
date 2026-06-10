@@ -16,6 +16,7 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 | `nexudus coworkerinvoicehistories list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerinvoicehistories list --name <value> --description <value> --agent` | Filter coworkerinvoicehistories by properties |
 | `nexudus coworkerinvoicehistories list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerinvoicehistories list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerinvoicehistories get <id> --agent` | Get single coworkerinvoicehistory |
 | `nexudus coworkerinvoicehistories create --coworker-invoice-id <value> --name <value> --description <value> --agent` | Create coworkerinvoicehistory |
 | `nexudus coworkerinvoicehistories update <id> --name "New Name" --agent` | Update coworkerinvoicehistory |
@@ -34,6 +35,15 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerInvoiceHistory sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API returns results ordered by `CreatedOn` (ascending).
 
 #### CoworkerInvoiceHistory create options
 

@@ -14,6 +14,7 @@ RegisteredDevices support Search, Get, Update (no Create or Delete via API).
 | `nexudus registereddevices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus registereddevices list --name <value> --configuration-data <value> --agent` | Filter registereddevices by properties |
 | `nexudus registereddevices list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus registereddevices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus registereddevices get <id> --agent` | Get single registereddevice |
 | `nexudus registereddevices update <id> --name "New Name" --agent` | Update registereddevice |
 
@@ -28,6 +29,15 @@ RegisteredDevices support Search, Get, Update (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### RegisteredDevice sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 #### RegisteredDevice update options
 

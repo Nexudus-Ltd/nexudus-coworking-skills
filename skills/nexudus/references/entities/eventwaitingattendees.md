@@ -14,6 +14,7 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 | `nexudus eventwaitingattendees list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus eventwaitingattendees list --business-id <value> --calendar-event-id <value> --agent` | Filter eventwaitingattendees by properties |
 | `nexudus eventwaitingattendees list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus eventwaitingattendees list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus eventwaitingattendees get <id> --agent` | Get single eventwaitingattendee |
 | `nexudus eventwaitingattendees create --business-id <value> --calendar-event-id <value> --full-name <value> --email <value> --agent` | Create eventwaitingattendee |
 | `nexudus eventwaitingattendees update <id> --name "New Name" --agent` | Update eventwaitingattendee |
@@ -32,6 +33,15 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### EventWaitingAttendee sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### EventWaitingAttendee create options
 

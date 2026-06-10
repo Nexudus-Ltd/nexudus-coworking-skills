@@ -14,6 +14,7 @@ Workspaces support Search, Get, Create, Update, Delete.
 | `nexudus workspaces list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus workspaces list --business-id <value> --administrator-id <value> --agent` | Filter workspaces by properties |
 | `nexudus workspaces list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus workspaces list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus workspaces get <id> --agent` | Get single workspace |
 | `nexudus workspaces create --business-id <value> --administrator-id <value> --name <value> --agent` | Create workspace |
 | `nexudus workspaces update <id> --name "New Name" --agent` | Update workspace |
@@ -34,6 +35,15 @@ Workspaces support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Workspace sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### Workspace create options
 

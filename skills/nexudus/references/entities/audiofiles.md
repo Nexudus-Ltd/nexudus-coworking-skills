@@ -14,6 +14,7 @@ AudioFiles support Search, Get, Create, Update, Delete.
 | `nexudus audiofiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus audiofiles list --name <value> --agent` | Filter audiofiles by properties |
 | `nexudus audiofiles list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus audiofiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus audiofiles get <id> --agent` | Get single audiofile |
 | `nexudus audiofiles create --business-id <value> --name <value> --agent` | Create audiofile |
 | `nexudus audiofiles update <id> --name "New Name" --agent` | Update audiofile |
@@ -35,6 +36,15 @@ AudioFiles support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### AudioFile sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### AudioFile create options
 

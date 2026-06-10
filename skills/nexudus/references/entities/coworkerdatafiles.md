@@ -20,6 +20,7 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 | `nexudus coworkerdatafiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerdatafiles list --name <value> --agent` | Filter coworkerdatafiles by properties |
 | `nexudus coworkerdatafiles list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerdatafiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerdatafiles get <id> --agent` | Get single coworkerdatafile |
 | `nexudus coworkerdatafiles create --business-id <value> --coworker-id <value> --name <value> --agent` | Create coworkerdatafile |
 | `nexudus coworkerdatafiles update <id> --name "New Name" --agent` | Update coworkerdatafile |
@@ -51,6 +52,15 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerDataFile sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerDataFile create options
 

@@ -14,6 +14,7 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 | `nexudus proposalcontracts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus proposalcontracts list --price <value> --start-date <value> --agent` | Filter proposalcontracts by properties |
 | `nexudus proposalcontracts list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus proposalcontracts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus proposalcontracts get <id> --agent` | Get single proposalcontract |
 | `nexudus proposalcontracts create --proposal-id <value> --tariff-id <value> --billing-day <value> --quantity <value> --agent` | Create proposalcontract |
 | `nexudus proposalcontracts update <id> --name "New Name" --agent` | Update proposalcontract |
@@ -51,6 +52,15 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ProposalContract sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ProposalContract create options
 

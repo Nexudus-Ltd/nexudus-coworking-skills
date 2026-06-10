@@ -14,6 +14,7 @@ FaqArticles support Search, Get, Create, Update, Delete.
 | `nexudus faqarticles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus faqarticles list --business-id <value> --title <value> --agent` | Filter faqarticles by properties |
 | `nexudus faqarticles list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus faqarticles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus faqarticles get <id> --agent` | Get single faqarticle |
 | `nexudus faqarticles create --business-id <value> --title <value> --display-order <value> --agent` | Create faqarticle |
 | `nexudus faqarticles update <id> --name "New Name" --agent` | Update faqarticle |
@@ -43,6 +44,15 @@ FaqArticles support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FaqArticle sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FaqArticle create options
 

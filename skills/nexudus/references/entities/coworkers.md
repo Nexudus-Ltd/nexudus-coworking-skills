@@ -19,6 +19,7 @@ Coworkers also support entity commands.
 | `nexudus coworkers list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkers list --coworker-type <value> --full-name <value> --agent` | Filter coworkers by properties |
 | `nexudus coworkers list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkers list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkers get <id> --agent` | Get single coworker |
 | `nexudus coworkers create --coworker-type <value> --full-name <value> --gender <value> --email <value> --country-id <value> --simple-time-zone-id <value> --tax-rate-type <value> --monday-attendance <value> --tuesday-attendance <value> --wednesday-attendance <value> --thursday-attendance <value> --friday-attendance <value> --saturday-attendance <value> --sunday-attendance <value> --agent` | Create coworker |
 | `nexudus coworkers update <id> --name "New Name" --agent` | Update coworker |
@@ -252,6 +253,15 @@ Coworkers also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Coworker sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `FullName` ascending. If no `--order-by` is specified, the API returns results ordered by `FullName` (ascending).
 
 #### Coworker create options
 

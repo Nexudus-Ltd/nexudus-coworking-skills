@@ -18,6 +18,7 @@ FloorPlans support Search, Get, Create, Update, Delete.
 | `nexudus floorplans list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus floorplans list --name <value> --agent` | Filter floorplans by properties |
 | `nexudus floorplans list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus floorplans list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplans get <id> --agent` | Get single floorplan |
 | `nexudus floorplans create --business-id <value> --name <value> --background-scale <value> --position-x <value> --position-y <value> --floor-level <value> --scale <value> --agent` | Create floorplan |
 | `nexudus floorplans update <id> --name "New Name" --agent` | Update floorplan |
@@ -56,6 +57,15 @@ FloorPlans support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FloorPlan sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FloorPlan create options
 

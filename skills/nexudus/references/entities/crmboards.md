@@ -18,6 +18,7 @@ CrmBoards support Search, Get, Create, Update, Delete.
 | `nexudus crmboards list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus crmboards list --name <value> --agent` | Filter crmboards by properties |
 | `nexudus crmboards list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus crmboards list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmboards get <id> --agent` | Get single crmboard |
 | `nexudus crmboards create --business-id <value> --name <value> --agent` | Create crmboard |
 | `nexudus crmboards update <id> --name "New Name" --agent` | Update crmboard |
@@ -34,6 +35,15 @@ CrmBoards support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CrmBoard sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CrmBoard create options
 

@@ -14,6 +14,7 @@ Reports support Search, Get, Create, Update, Delete.
 | `nexudus reports list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus reports list --business-id <value> --name <value> --agent` | Filter reports by properties |
 | `nexudus reports list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus reports list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus reports get <id> --agent` | Get single report |
 | `nexudus reports create --business-id <value> --name <value> --folder <value> --report-type <value> --agent` | Create report |
 | `nexudus reports update <id> --name "New Name" --agent` | Update report |
@@ -32,6 +33,15 @@ Reports support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Report sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 #### Report create options
 

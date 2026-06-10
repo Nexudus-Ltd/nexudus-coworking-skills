@@ -14,6 +14,7 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 | `nexudus marketplaceapplications list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus marketplaceapplications list --developer-id <value> --name <value> --agent` | Filter marketplaceapplications by properties |
 | `nexudus marketplaceapplications list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus marketplaceapplications list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus marketplaceapplications get <id> --agent` | Get single marketplaceapplication |
 | `nexudus marketplaceapplications create --developer-id <value> --name <value> --support-email <value> --developer-name <value> --short-description <value> --notification-email <value> --notification-url <value> --agent` | Create marketplaceapplication |
 | `nexudus marketplaceapplications update <id> --name "New Name" --agent` | Update marketplaceapplication |
@@ -40,6 +41,15 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### MarketPlaceApplication sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 #### MarketPlaceApplication create options
 

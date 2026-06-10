@@ -36,6 +36,7 @@ ResourceAccessRules also support entity commands.
 | `nexudus resourceaccessrules list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus resourceaccessrules list --name <value> --active <value> --agent` | Filter resourceaccessrules by properties |
 | `nexudus resourceaccessrules list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus resourceaccessrules list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus resourceaccessrules get <id> --agent` | Get single resourceaccessrule |
 | `nexudus resourceaccessrules create --business-id <value> --name <value> --applied-resources-count <value> --evaluation-order <value> --cancellation-fee-type <value> --agent` | Create resourceaccessrule |
 | `nexudus resourceaccessrules update <id> --name "New Name" --agent` | Update resourceaccessrule |
@@ -111,6 +112,15 @@ ResourceAccessRules also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### ResourceAccessRule sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### ResourceAccessRule create options
 

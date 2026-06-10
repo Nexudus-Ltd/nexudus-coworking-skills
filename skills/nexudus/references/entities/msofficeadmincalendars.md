@@ -15,6 +15,7 @@ MsOfficeAdminCalendars also support entity commands.
 | `nexudus msofficeadmincalendars list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus msofficeadmincalendars list --name <value> --agent` | Filter msofficeadmincalendars by properties |
 | `nexudus msofficeadmincalendars list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus msofficeadmincalendars list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus msofficeadmincalendars get <id> --agent` | Get single msofficeadmincalendar |
 | `nexudus msofficeadmincalendars create --resource-id <value> --business-id <value> --name <value> --subscription-id <value> --calendar-id <value> --subscription-expire-date <value> --agent` | Create msofficeadmincalendar |
 | `nexudus msofficeadmincalendars update <id> --name "New Name" --agent` | Update msofficeadmincalendar |
@@ -37,6 +38,15 @@ MsOfficeAdminCalendars also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### MsOfficeAdminCalendar sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### MsOfficeAdminCalendar create options
 

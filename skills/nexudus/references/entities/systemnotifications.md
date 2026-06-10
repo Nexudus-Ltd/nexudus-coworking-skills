@@ -14,6 +14,7 @@ SystemNotifications support Search, Get, Create, Update, Delete.
 | `nexudus systemnotifications list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus systemnotifications list --title <value> --severity <value> --agent` | Filter systemnotifications by properties |
 | `nexudus systemnotifications list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus systemnotifications list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus systemnotifications get <id> --agent` | Get single systemnotification |
 | `nexudus systemnotifications create --title <value> --severity <value> --start-time <value> --short-description <value> --description <value> --message-type <value> --agent` | Create systemnotification |
 | `nexudus systemnotifications update <id> --name "New Name" --agent` | Update systemnotification |
@@ -53,6 +54,15 @@ SystemNotifications support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### SystemNotification sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### SystemNotification create options
 

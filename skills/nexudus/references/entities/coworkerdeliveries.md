@@ -34,6 +34,7 @@ CoworkerDeliveries also support entity commands.
 | `nexudus coworkerdeliveries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerdeliveries list --name <value> --collected <value> --agent` | Filter coworkerdeliveries by properties |
 | `nexudus coworkerdeliveries list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerdeliveries list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerdeliveries get <id> --agent` | Get single coworkerdelivery |
 | `nexudus coworkerdeliveries create --business-id <value> --name <value> --location <value> --delivery-type <value> --agent` | Create coworkerdelivery |
 | `nexudus coworkerdeliveries update <id> --name "New Name" --agent` | Update coworkerdelivery |
@@ -110,6 +111,15 @@ CoworkerDeliveries also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerDelivery sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerDelivery create options
 

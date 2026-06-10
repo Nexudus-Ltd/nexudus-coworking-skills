@@ -18,6 +18,7 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 | `nexudus businesscharges list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus businesscharges list --description <value> --total-amount <value> --agent` | Filter businesscharges by properties |
 | `nexudus businesscharges list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus businesscharges list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus businesscharges get <id> --agent` | Get single businesscharge |
 | `nexudus businesscharges create --business-id <value> --description <value> --callback-url <value> --percentage-discount <value> --total-amount <value> --tax-amount <value> --agent` | Create businesscharge |
 | `nexudus businesscharges update <id> --name "New Name" --agent` | Update businesscharge |
@@ -47,6 +48,15 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### BusinessCharge sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### BusinessCharge create options
 

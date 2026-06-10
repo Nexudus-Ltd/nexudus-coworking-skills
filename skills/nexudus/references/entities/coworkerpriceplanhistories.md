@@ -16,6 +16,7 @@ CoworkerPricePlanHistories support Search, Get (no Create or Delete via API).
 | `nexudus coworkerpriceplanhistories list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus coworkerpriceplanhistories list --old-tariff-name <value> --new-tariff-name <value> --agent` | Filter coworkerpriceplanhistories by properties |
 | `nexudus coworkerpriceplanhistories list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus coworkerpriceplanhistories list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerpriceplanhistories get <id> --agent` | Get single coworkerpriceplanhistory |
 
 #### CoworkerPricePlanHistory list filter options
@@ -50,6 +51,15 @@ CoworkerPricePlanHistories support Search, Get (no Create or Delete via API).
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### CoworkerPricePlanHistory sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### CoworkerPricePlanHistory PII fields
 

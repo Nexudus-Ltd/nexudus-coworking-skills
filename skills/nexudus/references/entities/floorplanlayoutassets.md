@@ -14,6 +14,7 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus floorplanlayoutassets list --floor-plan-layout-id <value> --area-unique-id <value> --agent` | Filter floorplanlayoutassets by properties |
 | `nexudus floorplanlayoutassets list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus floorplanlayoutassets list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutassets get <id> --agent` | Get single floorplanlayoutasset |
 | `nexudus floorplanlayoutassets create --floor-plan-layout-id <value> --angle <value> --height <value> --length <value> --width <value> --pos-x <value> --pos-y <value> --floor-offset <value> --agent` | Create floorplanlayoutasset |
 | `nexudus floorplanlayoutassets update <id> --name "New Name" --agent` | Update floorplanlayoutasset |
@@ -51,6 +52,15 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### FloorPlanLayoutAsset sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### FloorPlanLayoutAsset create options
 

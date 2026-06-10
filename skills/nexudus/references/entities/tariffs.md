@@ -20,6 +20,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `nexudus tariffs list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus tariffs list --name <value> --system-tariff-type <value> --agent` | Filter tariffs by properties |
 | `nexudus tariffs list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus tariffs list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tariffs get <id> --agent` | Get single tariff |
 | `nexudus tariffs create --business-id <value> --name <value> --system-tariff-type <value> --price <value> --currency-id <value> --cancellation-period <value> --display-order <value> --invoice-every <value> --invoice-every-weeks <value> --booking-due-date-strategy <value> --address-identity-check-provider <value> --address-identity-check-repeat-pattern <value> --identity-check-provider <value> --identity-check-repeat-pattern <value> --delivery-preferences-mail <value> --delivery-preferences-parcels <value> --delivery-preferences-checks <value> --delivery-preferences-publicity <value> --delivery-preferences-other <value> --agent` | Create tariff |
 | `nexudus tariffs update <id> --name "New Name" --agent` | Update tariff |
@@ -213,6 +214,15 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Tariff sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Name` ascending. If no `--order-by` is specified, the API returns results ordered by `Name` (ascending).
 
 #### Tariff create options
 

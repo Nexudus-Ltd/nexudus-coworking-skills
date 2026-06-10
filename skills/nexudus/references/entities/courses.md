@@ -25,6 +25,7 @@ Courses support Search, Get, Create, Update, Delete.
 | `nexudus courses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus courses list --business-id <value> --host-id <value> --agent` | Filter courses by properties |
 | `nexudus courses list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus courses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus courses get <id> --agent` | Get single course |
 | `nexudus courses create --business-id <value> --host-id <value> --title <value> --display-order <value> --visibility <value> --agent` | Create course |
 | `nexudus courses update <id> --name "New Name" --agent` | Update course |
@@ -58,6 +59,15 @@ Courses support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Course sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### Course create options
 

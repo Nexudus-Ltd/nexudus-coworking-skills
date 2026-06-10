@@ -14,6 +14,7 @@ UiModules support Search, Get, Create, Update, Delete.
 | `nexudus uimodules list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus uimodules list --business-id <value> --name <value> --agent` | Filter uimodules by properties |
 | `nexudus uimodules list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus uimodules list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus uimodules get <id> --agent` | Get single uimodule |
 | `nexudus uimodules create --business-id <value> --name <value> --access-url <value> --icon <value> --agent` | Create uimodule |
 | `nexudus uimodules update <id> --name "New Name" --agent` | Update uimodule |
@@ -33,6 +34,15 @@ UiModules support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### UiModule sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### UiModule create options
 

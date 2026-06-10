@@ -13,6 +13,7 @@ PayoutInvoices support Search, Get, Create, Update, Delete.
 | `nexudus payoutinvoices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus payoutinvoices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus payoutinvoices list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus payoutinvoices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus payoutinvoices get <id> --agent` | Get single payoutinvoice |
 | `nexudus payoutinvoices create  --agent` | Create payoutinvoice |
 | `nexudus payoutinvoices update <id> --name "New Name" --agent` | Update payoutinvoice |
@@ -26,6 +27,15 @@ PayoutInvoices support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### PayoutInvoice sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### PayoutInvoice create options
 

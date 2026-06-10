@@ -15,6 +15,7 @@ Visitors also support entity commands.
 | `nexudus visitors list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus visitors list --full-name <value> --email <value> --agent` | Filter visitors by properties |
 | `nexudus visitors list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus visitors list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus visitors get <id> --agent` | Get single visitor |
 | `nexudus visitors create --business-id <value> --full-name <value> --email <value> --visitor-source <value> --host-approval-status <value> --expected-arrival <value> --agent` | Create visitor |
 | `nexudus visitors update <id> --name "New Name" --agent` | Update visitor |
@@ -58,6 +59,15 @@ Visitors also support entity commands.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### Visitor sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `ExpectedArrival` ascending. If no `--order-by` is specified, the API returns results ordered by `ExpectedArrival` (ascending).
 
 #### Visitor create options
 

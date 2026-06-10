@@ -14,6 +14,7 @@ Users support Search, Get, Create, Update, Delete.
 | `nexudus users list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
 | `nexudus users list --full-name <value> --email <value> --agent` | Filter users by properties |
 | `nexudus users list --page-number 2 --page-size 10 --agent` | Paginated list |
+| `nexudus users list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus users get <id> --agent` | Get single user |
 | `nexudus users create --full-name <value> --email <value> --language <value> --password-salt <value> --last-help-visited <value> --invalid-login-attempts <value> --agent` | Create user |
 | `nexudus users update <id> --name "New Name" --agent` | Update user |
@@ -91,6 +92,15 @@ Users support Search, Get, Create, Update, Delete.
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
 | `--to-updated-on` | range | |
+
+#### User sorting
+
+| Option | Description |
+| --- | --- |
+| `--order-by <property>` | Property name to sort by |
+| `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
+
+Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
 
 #### User create options
 
