@@ -58,6 +58,8 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
 | `--new-logo-url` | string | URL of a new file to upload as the logo |
 | `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--new-logo-dark-mode-url` | string | URL of a new file to upload as the dark mode logo |
+| `--clear-logo-dark-mode-file` | bool | Set to true to remove the current dark mode logo file |
 | `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
 | `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
 | `--new-nex-io-banner-image-url` | string | URL of a new file to upload as the nex io banner image |
@@ -232,6 +234,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
 | `--new-logo-url` | string | URL of a new file to upload as the logo |
 | `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--new-logo-dark-mode-url` | string | URL of a new file to upload as the dark mode logo |
+| `--clear-logo-dark-mode-file` | bool | Set to true to remove the current dark mode logo file |
 | `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
 | `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
 | `--new-nex-io-banner-image-url` | string | URL of a new file to upload as the nex io banner image |

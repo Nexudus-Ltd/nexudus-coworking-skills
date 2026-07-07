@@ -107,6 +107,12 @@ Bookings also support entity commands.
 | `--include-zoom-invite` | bool | Include Zoom invite |
 | `--zoom-event-data` | string | The zoom event data value for this booking |
 | `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
+| `--coworker-checked-in-at` | DateTime | Date and time when the customer checked in to this booking |
+| `--from-coworker-checked-in-at` | range | |
+| `--to-coworker-checked-in-at` | range | |
+| `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking |
+| `--from-coworker-checked-out-at` | range | |
+| `--to-coworker-checked-out-at` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -174,6 +180,8 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 | `--include-zoom-invite` | bool | Include Zoom invite |
 | `--zoom-event-data` | string | The zoom event data value for this booking |
 | `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
+| `--coworker-checked-in-at` | DateTime | Date and time when the customer checked in to this booking |
+| `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking |
 | `--booking-products` | JSON array or @filepath | Products to include with this booking |
 | `--booking-visitors` | JSON array or @filepath | Visitors to add to this booking |
 
@@ -217,6 +225,8 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 | `--include-zoom-invite` | bool | Include Zoom invite |
 | `--zoom-event-data` | string | The zoom event data value for this booking |
 | `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
+| `--coworker-checked-in-at` | DateTime | Date and time when the customer checked in to this booking |
+| `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking |
 | `--booking-products` | JSON array or @filepath | Products to include with this booking |
 | `--booking-visitors` | JSON array or @filepath | Visitors to add to this booking |
 

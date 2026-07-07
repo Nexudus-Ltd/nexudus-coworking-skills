@@ -31,10 +31,12 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 | `--message-text` | string | The message text value for this help desk message |
 | `--priority` | enum | The priority value for this help desk message |
 | `--ai-processing-result` | enum | The ai processing result value for this help desk message |
+| `--support-issue-category` | enum | Category of the support issue (e.g. Printing, WiFi, Access, Billing, Noise, HVAC, Cleaning, Booking, Other) |
 | `--closed` | bool | Whether closed is enabled |
 | `--owner-id` | long | ID of the owner linked to this record |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -60,10 +62,12 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--message-text` | string, required | The message text value for this help desk message |
 | `--priority` | enum, required | The priority value for this help desk message |
 | `--ai-processing-result` | enum, required | The ai processing result value for this help desk message |
+| `--support-issue-category` | enum | Category of the support issue (e.g. Printing, WiFi, Access, Billing, Noise, HVAC, Cleaning, Booking, Other) |
 | `--closed` | bool | Whether closed is enabled |
 | `--owner-id` | long | ID of the owner linked to this record |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
 
 #### HelpDeskMessage update options
 
@@ -76,10 +80,12 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--message-text` | string | The message text value for this help desk message |
 | `--priority` | enum | The priority value for this help desk message |
 | `--ai-processing-result` | enum | The ai processing result value for this help desk message |
+| `--support-issue-category` | enum | Category of the support issue (e.g. Printing, WiFi, Access, Billing, Noise, HVAC, Cleaning, Booking, Other) |
 | `--closed` | bool | Whether closed is enabled |
 | `--owner-id` | long | ID of the owner linked to this record |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
 
 #### HelpDeskMessage PII fields
 

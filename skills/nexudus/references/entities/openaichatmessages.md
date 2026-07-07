@@ -29,6 +29,9 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 | `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
 | `--action` | enum | The action value for this open ai chat message |
 | `--content` | string | The content value for this open ai chat message |
+| `--coworker-message-id` | long | ID of the customer message linked to this AI chat message, if the message was part of a customer communication thread |
+| `--help-desk-message-id` | long | ID of the help desk ticket linked to this AI chat message, if the message was part of a support ticket conversation |
+| `--help-desk-comment-id` | long | ID of the help desk comment linked to this AI chat message, if the message was a reply on a support ticket |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -52,6 +55,9 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
 | `--action` | enum, required | The action value for this open ai chat message |
 | `--content` | string, required | The content value for this open ai chat message |
+| `--coworker-message-id` | long | ID of the customer message linked to this AI chat message, if the message was part of a customer communication thread |
+| `--help-desk-message-id` | long | ID of the help desk ticket linked to this AI chat message, if the message was part of a support ticket conversation |
+| `--help-desk-comment-id` | long | ID of the help desk comment linked to this AI chat message, if the message was a reply on a support ticket |
 
 #### OpenAiChatMessage update options
 
@@ -62,6 +68,9 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
 | `--action` | enum | The action value for this open ai chat message |
 | `--content` | string | The content value for this open ai chat message |
+| `--coworker-message-id` | long | ID of the customer message linked to this AI chat message, if the message was part of a customer communication thread |
+| `--help-desk-message-id` | long | ID of the help desk ticket linked to this AI chat message, if the message was part of a support ticket conversation |
+| `--help-desk-comment-id` | long | ID of the help desk comment linked to this AI chat message, if the message was a reply on a support ticket |
 
 #### OpenAiChatMessage PII fields
 

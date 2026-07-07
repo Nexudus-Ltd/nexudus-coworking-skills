@@ -90,6 +90,7 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `--discount-amount` | decimal | Discount amount |
 | `--from-discount-amount` | range | |
 | `--to-discount-amount` | range | |
+| `--refundable` | bool | Whether this product sale can be refunded |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -134,6 +135,7 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
 | `--credit-amount` | decimal, required | Credit amount |
 | `--discount-amount` | decimal, required | Discount amount |
+| `--refundable` | bool | Whether this product sale can be refunded |
 
 #### CoworkerProduct update options
 
@@ -164,6 +166,7 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
 | `--credit-amount` | decimal | Credit amount |
 | `--discount-amount` | decimal | Discount amount |
+| `--refundable` | bool | Whether this product sale can be refunded |
 
 #### CoworkerProduct PII fields
 

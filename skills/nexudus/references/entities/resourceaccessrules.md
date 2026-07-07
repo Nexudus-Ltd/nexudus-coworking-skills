@@ -57,6 +57,18 @@ ResourceAccessRules also support entity commands.
 | `--apply-rule-to` | DateTime | Date after which this rule stops being evaluated. Null means no end-date restriction. |
 | `--from-apply-rule-to` | range | |
 | `--to-apply-rule-to` | range | |
+| `--apply-if-within-minutes-of-start` | int | Apply this rule only if the booking is within this many minutes of its start time |
+| `--from-apply-if-within-minutes-of-start` | range | |
+| `--to-apply-if-within-minutes-of-start` | range | |
+| `--apply-if-more-than-minutes-from-start` | int | Apply this rule only if the booking is more than this many minutes away from its start time |
+| `--from-apply-if-more-than-minutes-from-start` | range | |
+| `--to-apply-if-more-than-minutes-from-start` | range | |
+| `--apply-if-price-min` | decimal | Apply this rule only if the booking price is at least this amount |
+| `--from-apply-if-price-min` | range | |
+| `--to-apply-if-price-min` | range | |
+| `--apply-if-price-max` | decimal | Apply this rule only if the booking price does not exceed this amount |
+| `--from-apply-if-price-max` | range | |
+| `--to-apply-if-price-max` | range | |
 | `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made. Null means no limit. |
 | `--from-book-in-advance-limit` | range | |
 | `--to-book-in-advance-limit` | range | |
@@ -135,6 +147,10 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
 | `--apply-rule-from` | DateTime | Date from which this rule starts being evaluated. Null means no start-date restriction. |
 | `--apply-rule-to` | DateTime | Date after which this rule stops being evaluated. Null means no end-date restriction. |
+| `--apply-if-within-minutes-of-start` | int | Apply this rule only if the booking is within this many minutes of its start time |
+| `--apply-if-more-than-minutes-from-start` | int | Apply this rule only if the booking is more than this many minutes away from its start time |
+| `--apply-if-price-min` | decimal | Apply this rule only if the booking price is at least this amount |
+| `--apply-if-price-max` | decimal | Apply this rule only if the booking price does not exceed this amount |
 | `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made. Null means no limit. |
 | `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
 | `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |
@@ -193,6 +209,10 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers). |
 | `--apply-rule-from` | DateTime | Date from which this rule starts being evaluated. Null means no start-date restriction. |
 | `--apply-rule-to` | DateTime | Date after which this rule stops being evaluated. Null means no end-date restriction. |
+| `--apply-if-within-minutes-of-start` | int | Apply this rule only if the booking is within this many minutes of its start time |
+| `--apply-if-more-than-minutes-from-start` | int | Apply this rule only if the booking is more than this many minutes away from its start time |
+| `--apply-if-price-min` | decimal | Apply this rule only if the booking price is at least this amount |
+| `--apply-if-price-max` | decimal | Apply this rule only if the booking price does not exceed this amount |
 | `--book-in-advance-limit` | decimal | Maximum number of days in advance a booking can be made. Null means no limit. |
 | `--late-booking-limit` | decimal | Minimum lead time (in minutes) required before a booking can start. Prevents last-minute bookings. |
 | `--late-cancellation-limit` | int | Cut-off in minutes before the booking start time. Cancellations after this point are considered late and may incur a fee. |

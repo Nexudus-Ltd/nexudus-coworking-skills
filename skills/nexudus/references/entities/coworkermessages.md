@@ -31,6 +31,8 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 | `--from-message-id` | range | |
 | `--to-message-id` | range | |
 | `--reminder-unique-id` | string | Unique identifier of the reminder that triggered this message, if any |
+| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--rfc-message-id` | string | RFC 5322 Message-ID header value for email messages, used to track email threads and replies |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

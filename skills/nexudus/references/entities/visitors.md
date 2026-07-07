@@ -55,6 +55,7 @@ Visitors also support entity commands.
 | `--tour-confirmed` | bool | Whether the tour is confirmed |
 | `--access-control-scheduled-job-id` | string | ID of the access control scheduled job associated with this record |
 | `--check-in-now` | bool | Check in the visitor now |
+| `--is-customer` | bool | Whether the visitor is also registered as a customer (coworker) in the system |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -96,6 +97,7 @@ Default sort: `ExpectedArrival` ascending. If no `--order-by` is specified, the 
 | `--tour-confirmed` | bool | Whether the tour is confirmed |
 | `--access-control-scheduled-job-id` | string | ID of the access control scheduled job associated with this record |
 | `--check-in-now` | bool | Check in the visitor now |
+| `--is-customer` | bool | Whether the visitor is also registered as a customer (coworker) in the system |
 
 #### Visitor update options
 
@@ -123,6 +125,7 @@ Default sort: `ExpectedArrival` ascending. If no `--order-by` is specified, the 
 | `--has-agreed-terms` | bool | Whether the visitor has agreed to terms |
 | `--tour-confirmed` | bool | Whether the tour is confirmed |
 | `--access-control-scheduled-job-id` | string | ID of the access control scheduled job associated with this record |
+| `--is-customer` | bool | Whether the visitor is also registered as a customer (coworker) in the system |
 
 #### Visitor PII fields
 

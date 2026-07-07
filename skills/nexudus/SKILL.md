@@ -259,6 +259,7 @@ Before working with an entity, load its reference file for full details (command
 | Entity | CLI command | Operations | Reference |
 | ------ | ----------- | ---------- | --------- |
 | AccessToken | `accesstokens` | list, get, create, update, delete | [accesstokens.md](./references/entities/accesstokens.md) |
+| AiChannelSession | `aichannelsessions` | list, get, create, update, delete | [aichannelsessions.md](./references/entities/aichannelsessions.md) |
 | Application | `applications` | list, get, create, update, delete | [applications.md](./references/entities/applications.md) |
 | AudioFile | `audiofiles` | list, get, create, update, delete | [audiofiles.md](./references/entities/audiofiles.md) |
 | AuditTrailEntry | `audittrailentries` | list, get | [audittrailentries.md](./references/entities/audittrailentries.md) |
@@ -404,6 +405,7 @@ Before working with an entity, load its reference file for full details (command
 | PaymentGateway | `paymentgateways` | list, get, create, update, delete | [paymentgateways.md](./references/entities/paymentgateways.md) |
 | PayoutInvoice | `payoutinvoices` | list, get, create, update, delete | [payoutinvoices.md](./references/entities/payoutinvoices.md) |
 | PlatformChangeMessage | `platformchangemessages` | list, get, create, update, delete | [platformchangemessages.md](./references/entities/platformchangemessages.md) |
+| ProactiveActionConfig | `proactiveactionconfigs` | list, get, create, update, delete | [proactiveactionconfigs.md](./references/entities/proactiveactionconfigs.md) |
 | Product | `products` | list, get, create, update, delete, commands | [products.md](./references/entities/products.md) |
 | ProductBookingCredit | `productbookingcredits` | list, get, create, update, delete | [productbookingcredits.md](./references/entities/productbookingcredits.md) |
 | ProductExtraService | `productextraservices` | list, get, create, update, delete | [productextraservices.md](./references/entities/productextraservices.md) |
@@ -413,6 +415,7 @@ Before working with an entity, load its reference file for full details (command
 | ProposalContractSchedule | `proposalcontractschedules` | list, get, create, update, delete | [proposalcontractschedules.md](./references/entities/proposalcontractschedules.md) |
 | ProposalProduct | `proposalproducts` | list, get, create, update, delete | [proposalproducts.md](./references/entities/proposalproducts.md) |
 | ProposalSchedule | `proposalschedules` | list, get, create, update, delete | [proposalschedules.md](./references/entities/proposalschedules.md) |
+| ProposedAction | `proposedactions` | list, get, create, update, delete | [proposedactions.md](./references/entities/proposedactions.md) |
 | RadiusServer | `radiusservers` | list, get, create, update, delete | [radiusservers.md](./references/entities/radiusservers.md) |
 | RefreshToken | `refreshtokens` | list, get, create, update, delete | [refreshtokens.md](./references/entities/refreshtokens.md) |
 | RegisteredDevice | `registereddevices` | list, get, update | [registereddevices.md](./references/entities/registereddevices.md) |
