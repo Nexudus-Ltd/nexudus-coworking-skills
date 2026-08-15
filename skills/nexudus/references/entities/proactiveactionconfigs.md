@@ -40,7 +40,7 @@ ProactiveActionConfigs support Search, Get, Create, Update, Delete.
 | `--from-cooldown-hours` | range | |
 | `--to-cooldown-hours` | range | |
 | `--channel-preference` | enum | Preferred outbound channel for actions from this criteria (Email, Voice, CoworkerMessage, HelpDesk, WhatsApp). Null lets the AI choose. |
-| `--custom-prompt-override` | string | Business-specific prompt customization for message composition. If it starts with "OVERRIDE:" (case-insensitive), it replaces the entire criteria template; otherwise it appends as additional instructions. |
+| `--custom-prompt-override` | string | Business-specific prompt customization for message composition. If it starts with 'OVERRIDE:' (case-insensitive), it replaces the entire criteria template; otherwise it appends as additional instructions. |
 | `--first-message` | string | Custom first message template used when initiating outbound conversations for this criteria type. |
 | `--system-prompt` | string | Custom system prompt for the AI agent during outbound conversations initiated by this criteria. |
 | `--criteria-configuration` | string | JSON-serialized configuration specific to this criteria type (e.g. threshold values, tier definitions, day counts). |
@@ -70,7 +70,7 @@ Default sort: `CriteriaType` ascending. If no `--order-by` is specified, the API
 | `--max-actions-per-day` | int | Maximum number of actions this criteria can produce per day for the business. Null means no limit. |
 | `--cooldown-hours` | int, required | Minimum hours between actions targeting the same customer for this criteria type. Prevents excessive outreach. |
 | `--channel-preference` | enum | Preferred outbound channel for actions from this criteria (Email, Voice, CoworkerMessage, HelpDesk, WhatsApp). Null lets the AI choose. |
-| `--custom-prompt-override` | string | Business-specific prompt customization for message composition. If it starts with "OVERRIDE:" (case-insensitive), it replaces the entire criteria template; otherwise it appends as additional instructions. |
+| `--custom-prompt-override` | string | Business-specific prompt customization for message composition. If it starts with 'OVERRIDE:' (case-insensitive), it replaces the entire criteria template; otherwise it appends as additional instructions. |
 | `--first-message` | string | Custom first message template used when initiating outbound conversations for this criteria type. |
 | `--system-prompt` | string | Custom system prompt for the AI agent during outbound conversations initiated by this criteria. |
 | `--criteria-configuration` | string | JSON-serialized configuration specific to this criteria type (e.g. threshold values, tier definitions, day counts). |
@@ -87,7 +87,7 @@ Default sort: `CriteriaType` ascending. If no `--order-by` is specified, the API
 | `--max-actions-per-day` | int | Maximum number of actions this criteria can produce per day for the business. Null means no limit. |
 | `--cooldown-hours` | int | Minimum hours between actions targeting the same customer for this criteria type. Prevents excessive outreach. |
 | `--channel-preference` | enum | Preferred outbound channel for actions from this criteria (Email, Voice, CoworkerMessage, HelpDesk, WhatsApp). Null lets the AI choose. |
-| `--custom-prompt-override` | string | Business-specific prompt customization for message composition. If it starts with "OVERRIDE:" (case-insensitive), it replaces the entire criteria template; otherwise it appends as additional instructions. |
+| `--custom-prompt-override` | string | Business-specific prompt customization for message composition. If it starts with 'OVERRIDE:' (case-insensitive), it replaces the entire criteria template; otherwise it appends as additional instructions. |
 | `--first-message` | string | Custom first message template used when initiating outbound conversations for this criteria type. |
 | `--system-prompt` | string | Custom system prompt for the AI agent during outbound conversations initiated by this criteria. |
 | `--criteria-configuration` | string | JSON-serialized configuration specific to this criteria type (e.g. threshold values, tier definitions, day counts). |

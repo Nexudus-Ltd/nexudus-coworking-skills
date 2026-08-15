@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanDeskVariants -->
 
-A **FloorPlanDeskVariant** defines an alternative visual representation or configuration for a desk on a floor plan. Variants allow the same desk to be displayed differently based on context or state.
+A FloorPlanDeskVariant, called a Package by operators, defines how a location's floor plan unit can be contracted under different availability, setup, or pricing conditions. Packages can split an office between customers on different weekdays, or offer the same unit as a private office (full-time or fractional), storage unit, or event space.
 
 FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 
@@ -24,45 +24,36 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--name` | string | The name value for this floor plan desk variant |
-| `--size` | decimal | The size value for this floor plan desk variant |
+| `--floor-plan-desk-id` | long | ID of the required floor plan unit this variant configures; the unit determines the owning location |
+| `--coworker-id` | long | ID of the optional customer this variant is associated with |
+| `--name` | string | Required, non-empty display name for this alternate floor plan unit configuration |
+| `--size` | decimal | Optional floor area in square metres for this configuration |
 | `--from-size` | range | |
 | `--to-size` | range | |
-| `--capacity` | decimal | The capacity value for this floor plan desk variant |
+| `--capacity` | decimal | Optional number of seats this configuration can accommodate |
 | `--from-capacity` | range | |
 | `--to-capacity` | range | |
-| `--price` | decimal | Unit price amount |
+| `--price` | decimal | Optional target price in the owning location's currency, used for occupancy reporting rather than billing |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--occupancy-percentage` | decimal | The occupancy percentage value for this floor plan desk variant |
+| `--occupancy-percentage` | decimal | Percentage of the floor plan unit's total possible use reported when this package is contracted; normally divide use evenly across packages according to the number of weekdays each is available |
 | `--from-occupancy-percentage` | range | |
 | `--to-occupancy-percentage` | range | |
-| `--notes` | string | Optional notes or comments about this floor plan desk variant |
-| `--available-monday` | bool | Whether available monday is enabled |
-| `--available-tuesday` | bool | Whether available tuesday is enabled |
-| `--available-wednesday` | bool | Whether available wednesday is enabled |
-| `--available-thursday` | bool | Whether available thursday is enabled |
-| `--available-friday` | bool | Whether available friday is enabled |
-| `--available-saturday` | bool | Whether available saturday is enabled |
-| `--available-sunday` | bool | Whether available sunday is enabled |
-| `--access-control-group-id` | string | ID of the access control group associated with this record |
-| `--coworker-contract-ids` | string | The coworker contract ids value for this floor plan desk variant |
-| `--coworker-contract-full-names` | string | The coworker contract full names value for this floor plan desk variant |
-| `--coworker-contract-start-dates` | string | The coworker contract start dates value for this floor plan desk variant |
-| `--available-from-time` | DateTime | Date/time value for available from time |
+| `--notes` | string | Optional internal notes about this configuration, limited to 255 characters |
+| `--available-monday` | bool | Whether this configuration is marked available on Monday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-tuesday` | bool | Whether this configuration is marked available on Tuesday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-wednesday` | bool | Whether this configuration is marked available on Wednesday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-thursday` | bool | Whether this configuration is marked available on Thursday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-friday` | bool | Whether this configuration is marked available on Friday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-saturday` | bool | Whether this configuration is marked available on Saturday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-sunday` | bool | Whether this configuration is marked available on Sunday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained for legacy records; do not set it through floor plan administration |
+| `--available-from-time` | DateTime | Optional inclusive UTC start of this configuration's availability window; it must precede AvailableToTime when both are set |
 | `--from-available-from-time` | range | |
 | `--to-available-from-time` | range | |
-| `--available-to-time` | DateTime | Date/time value for available to time |
+| `--available-to-time` | DateTime | Optional inclusive UTC end of this configuration's availability window; null means no end, and it must follow AvailableFromTime when both are set |
 | `--from-available-to-time` | range | |
 | `--to-available-to-time` | range | |
-| `--available-from-time-local` | DateTime | Date/time value for available from time local |
-| `--from-available-from-time-local` | range | |
-| `--to-available-from-time-local` | range | |
-| `--available-to-time-local` | DateTime | Date/time value for available to time local |
-| `--from-available-to-time-local` | range | |
-| `--to-available-to-time-local` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -81,57 +72,47 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-desk-id` | long, required | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--name` | string, required | The name value for this floor plan desk variant |
-| `--size` | decimal | The size value for this floor plan desk variant |
-| `--capacity` | decimal | The capacity value for this floor plan desk variant |
-| `--price` | decimal | Unit price amount |
-| `--occupancy-percentage` | decimal, required | The occupancy percentage value for this floor plan desk variant |
-| `--notes` | string | Optional notes or comments about this floor plan desk variant |
-| `--available-monday` | bool | Whether available monday is enabled |
-| `--available-tuesday` | bool | Whether available tuesday is enabled |
-| `--available-wednesday` | bool | Whether available wednesday is enabled |
-| `--available-thursday` | bool | Whether available thursday is enabled |
-| `--available-friday` | bool | Whether available friday is enabled |
-| `--available-saturday` | bool | Whether available saturday is enabled |
-| `--available-sunday` | bool | Whether available sunday is enabled |
-| `--access-control-group-id` | string | ID of the access control group associated with this record |
-| `--coworker-contract-ids` | string | The coworker contract ids value for this floor plan desk variant |
-| `--coworker-contract-full-names` | string | The coworker contract full names value for this floor plan desk variant |
-| `--coworker-contract-start-dates` | string | The coworker contract start dates value for this floor plan desk variant |
-| `--available-from-time` | DateTime | Date/time value for available from time |
-| `--available-to-time` | DateTime | Date/time value for available to time |
-| `--available-from-time-local` | DateTime | Date/time value for available from time local |
-| `--available-to-time-local` | DateTime | Date/time value for available to time local |
+| `--floor-plan-desk-id` | long, required | ID of the required floor plan unit this variant configures; the unit determines the owning location |
+| `--coworker-id` | long | ID of the optional customer this variant is associated with |
+| `--name` | string, required | Required, non-empty display name for this alternate floor plan unit configuration |
+| `--size` | decimal | Optional floor area in square metres for this configuration |
+| `--capacity` | decimal | Optional number of seats this configuration can accommodate |
+| `--price` | decimal | Optional target price in the owning location's currency, used for occupancy reporting rather than billing |
+| `--occupancy-percentage` | decimal, required | Percentage of the floor plan unit's total possible use reported when this package is contracted; normally divide use evenly across packages according to the number of weekdays each is available |
+| `--notes` | string | Optional internal notes about this configuration, limited to 255 characters |
+| `--available-monday` | bool | Whether this configuration is marked available on Monday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-tuesday` | bool | Whether this configuration is marked available on Tuesday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-wednesday` | bool | Whether this configuration is marked available on Wednesday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-thursday` | bool | Whether this configuration is marked available on Thursday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-friday` | bool | Whether this configuration is marked available on Friday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-saturday` | bool | Whether this configuration is marked available on Saturday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-sunday` | bool | Whether this configuration is marked available on Sunday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained for legacy records; do not set it through floor plan administration |
+| `--available-from-time` | DateTime | Optional inclusive UTC start of this configuration's availability window; it must precede AvailableToTime when both are set |
+| `--available-to-time` | DateTime | Optional inclusive UTC end of this configuration's availability window; null means no end, and it must follow AvailableFromTime when both are set |
 
 #### FloorPlanDeskVariant update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--name` | string | The name value for this floor plan desk variant |
-| `--size` | decimal | The size value for this floor plan desk variant |
-| `--capacity` | decimal | The capacity value for this floor plan desk variant |
-| `--price` | decimal | Unit price amount |
-| `--occupancy-percentage` | decimal | The occupancy percentage value for this floor plan desk variant |
-| `--notes` | string | Optional notes or comments about this floor plan desk variant |
-| `--available-monday` | bool | Whether available monday is enabled |
-| `--available-tuesday` | bool | Whether available tuesday is enabled |
-| `--available-wednesday` | bool | Whether available wednesday is enabled |
-| `--available-thursday` | bool | Whether available thursday is enabled |
-| `--available-friday` | bool | Whether available friday is enabled |
-| `--available-saturday` | bool | Whether available saturday is enabled |
-| `--available-sunday` | bool | Whether available sunday is enabled |
-| `--access-control-group-id` | string | ID of the access control group associated with this record |
-| `--coworker-contract-ids` | string | The coworker contract ids value for this floor plan desk variant |
-| `--coworker-contract-full-names` | string | The coworker contract full names value for this floor plan desk variant |
-| `--coworker-contract-start-dates` | string | The coworker contract start dates value for this floor plan desk variant |
-| `--available-from-time` | DateTime | Date/time value for available from time |
-| `--available-to-time` | DateTime | Date/time value for available to time |
-| `--available-from-time-local` | DateTime | Date/time value for available from time local |
-| `--available-to-time-local` | DateTime | Date/time value for available to time local |
+| `--floor-plan-desk-id` | long | ID of the required floor plan unit this variant configures; the unit determines the owning location |
+| `--coworker-id` | long | ID of the optional customer this variant is associated with |
+| `--name` | string | Required, non-empty display name for this alternate floor plan unit configuration |
+| `--size` | decimal | Optional floor area in square metres for this configuration |
+| `--capacity` | decimal | Optional number of seats this configuration can accommodate |
+| `--price` | decimal | Optional target price in the owning location's currency, used for occupancy reporting rather than billing |
+| `--occupancy-percentage` | decimal | Percentage of the floor plan unit's total possible use reported when this package is contracted; normally divide use evenly across packages according to the number of weekdays each is available |
+| `--notes` | string | Optional internal notes about this configuration, limited to 255 characters |
+| `--available-monday` | bool | Whether this configuration is marked available on Monday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-tuesday` | bool | Whether this configuration is marked available on Tuesday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-wednesday` | bool | Whether this configuration is marked available on Wednesday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-thursday` | bool | Whether this configuration is marked available on Thursday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-friday` | bool | Whether this configuration is marked available on Friday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-saturday` | bool | Whether this configuration is marked available on Saturday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--available-sunday` | bool | Whether this configuration is marked available on Sunday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
+| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained for legacy records; do not set it through floor plan administration |
+| `--available-from-time` | DateTime | Optional inclusive UTC start of this configuration's availability window; it must precede AvailableToTime when both are set |
+| `--available-to-time` | DateTime | Optional inclusive UTC end of this configuration's availability window; null means no end, and it must follow AvailableFromTime when both are set |
 
 #### FloorPlanDeskVariant PII fields
 

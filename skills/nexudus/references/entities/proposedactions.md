@@ -150,6 +150,7 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 | --- | --- | --- |
 | `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--reviewed-by-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--reviewed-by-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
 
 Example:

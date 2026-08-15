@@ -2,25 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerProducts -->
 
-A **CoworkerProduct** is a record of a product sold to a customer as a one-off or on a recurrent basis.
-
-`RepeatCycle` can only be set to `PricePlan` if the customer has a contract set as their main contract. In general, it is best to use `ContractProduct` instead of adding CoworkerProducts repeating based on `PricePlan`.
-
-`InvoiceThisCoworker` indicates this customer should be invoiced for this product instead of the paying member of their team.
-
-`ActivateNow` releases any benefits (credits or passes) even before the product is invoiced and paid.
-
-`ProductApplyProRating` indicates the sold product is configured to prorate the price of this sale based on the prorating rules of the main contract of the customer: it adjusts the price based on the number of days left between the current date and the next invoice date (`RenewalDate`) of the customer's main contract.
-
-Properties ending in `UniqueId` link the sale to the originating record using its GUID `UniqueId` property (not the integer ID). Only one of these will be populated per record:
-
-| UniqueId property                | Source entity        |
-| -------------------------------- | -------------------- |
-| `CoworkerContractUniqueId`       | CoworkerContract     |
-| `ContractDepositUniqueId`        | ContractDeposit      |
-| `ContractProductUniqueId`        | ContractProduct      |
-| `BookingUniqueId`                | Booking              |
-| `CoworkerDeliveryUniqueId`       | CoworkerDelivery     |
+A product sale (CoworkerProduct) records a product sold to a customer, either as a one-off purchase or a recurring charge, and can grant the product's included passes, time credit, and booking credit.
 
 CoworkerProducts support Search, Get, Create, Update, Delete.
 
@@ -30,11 +12,11 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `nexudus coworkerproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerproducts list --price <value> --invoiced <value> --agent` | Filter coworkerproducts by properties |
+| `nexudus coworkerproducts list --price <value> --agent` | Filter coworkerproducts by properties |
 | `nexudus coworkerproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerproducts get <id> --agent` | Get single coworkerproduct |
-| `nexudus coworkerproducts create --coworker-id <value> --business-id <value> --product-id <value> --quantity <value> --repeat-cycle <value> --credit-amount <value> --discount-amount <value> --agent` | Create coworkerproduct |
+| `nexudus coworkerproducts create --coworker-id <value> --business-id <value> --product-id <value> --quantity <value> --repeat-cycle <value> --discount-amount <value> --agent` | Create coworkerproduct |
 | `nexudus coworkerproducts update <id> --name "New Name" --agent` | Update coworkerproduct |
 | `nexudus coworkerproducts delete <id> --yes --agent` | Delete coworkerproduct (no prompt) |
 
@@ -42,55 +24,46 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--product-id` | long | ID of the product linked to this record |
-| `--notes` | string | Optional notes or comments about this coworker product |
-| `--purchase-order` | string | Purchase order |
-| `--activate-now` | bool | Activate immediately, releasing any benefits (credits or passes) even before the product is invoiced and paid |
-| `--invoice-this-coworker` | bool | Invoice this customer for this product instead of the paying member of their team |
-| `--price` | decimal | Price override |
+| `--coworker-id` | long | ID of the customer purchasing this product; the customer must be accessible at the selected location. |
+| `--business-id` | long | ID of the location that owns and issues this product sale; set automatically from the tool's location context. |
+| `--product-id` | long | ID of the product being sold; the product must be available to the selected customer at this location. |
+| `--notes` | string | Optional internal notes about this product sale. |
+| `--purchase-order` | string | Optional customer purchase-order reference for this sale. |
+| `--activate-now` | bool | Whether to activate included passes, time credit, and booking credit immediately, before the sale is invoiced or paid. |
+| `--invoice-this-coworker` | bool | Whether to invoice this customer directly instead of the paying customer in their team. |
+| `--price` | decimal | Optional unit-price override in the product currency; when omitted, the product's current price is used, then multiplied by Quantity. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--quantity` | int | Number of units |
+| `--quantity` | int | Number of product units to sell; must be at least 1 and multiplies price and included benefits. |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--repeat-cycle` | enum | Repeat cycle pattern. PricePlan can only be used if the customer has a main contract; prefer ContractProduct instead of CoworkerProducts repeating on PricePlan |
-| `--repeat-unit` | int | Number of repeat units |
+| `--regular-charge` | bool | Whether this is a recurring product sale rather than a one-off sale; requires scheduling values for non-PricePlan repeat cycles. |
+| `--repeat-cycle` | enum | Recurring schedule pattern: PricePlan, Day, Week, Month, Year, or LastDayOfMonth. PricePlan follows the customer's main contract; prefer ContractProduct for plan-linked recurring products. |
+| `--repeat-unit` | int | Positive number of RepeatCycle units between recurring charges; required when RegularCharge is true and RepeatCycle is not PricePlan. |
 | `--from-repeat-unit` | range | |
 | `--to-repeat-unit` | range | |
-| `--invoice-on` | DateTime | Invoice on date |
+| `--invoice-on` | DateTime | Date and time when this sale is next due for invoicing; required for recurring sales whose RepeatCycle is not PricePlan. |
 | `--from-invoice-on` | range | |
 | `--to-invoice-on` | range | |
-| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-from` | DateTime | Optional date and time from which recurring invoicing begins; a future value delays activation until that date. |
 | `--from-repeat-from` | range | |
 | `--to-repeat-from` | range | |
-| `--repeat-until` | DateTime | Repeat until date |
+| `--repeat-until` | DateTime | Optional exclusive end date for recurring invoicing; no later charge is created when the next invoicing date reaches this value. |
 | `--from-repeat-until` | range | |
 | `--to-repeat-until` | range | |
-| `--sale-date` | DateTime | Sale date |
+| `--sale-date` | DateTime | Optional sale date for this product sale; when omitted, reports use the record creation date. |
 | `--from-sale-date` | range | |
 | `--to-sale-date` | range | |
-| `--due-date` | DateTime | Due date |
+| `--due-date` | DateTime | Optional date and time by which payment is due; benefits can auto-activate when it has passed and the discounted price is zero. |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
-| `--invoiced` | bool | Whether it has been invoiced |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--apply-pro-rating` | bool | Apply pro-rating |
-| `--proposal-unique-id` | string | ID of the proposal unique associated with this record |
-| `--coworker-invoice-id` | int | Coworker invoice ID |
-| `--from-coworker-invoice-id` | range | |
-| `--to-coworker-invoice-id` | range | |
-| `--coworker-invoice-number` | string | Coworker invoice number |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
-| `--credit-amount` | decimal | Credit amount |
-| `--from-credit-amount` | range | |
-| `--to-credit-amount` | range | |
-| `--discount-amount` | decimal | Discount amount |
+| `--mrm-reminded` | bool | Internal reminder-processing flag set after product reminders are handled. |
+| `--apply-pro-rating` | bool | Whether the sale price is prorated against the customer's main contract billing period; the product's prorating setting can also apply. |
+| `--proposal-unique-id` | string | Internal GUID link to the proposal that created this sale; manage the proposal instead. |
+| `--discount-amount` | decimal | Monetary discount amount applied to this sale in the invoice currency. |
 | `--from-discount-amount` | range | |
 | `--to-discount-amount` | range | |
-| `--refundable` | bool | Whether this product sale can be refunded |
+| `--refundable` | bool | Whether the deposit represented by this sale is refunded when its connected contract is cancelled; applies only to deposit products. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -109,64 +82,54 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--product-id` | long, required | ID of the product linked to this record |
-| `--notes` | string | Optional notes or comments about this coworker product |
-| `--purchase-order` | string | Purchase order |
-| `--activate-now` | bool | Activate immediately, releasing any benefits (credits or passes) even before the product is invoiced and paid |
-| `--invoice-this-coworker` | bool | Invoice this customer for this product instead of the paying member of their team |
-| `--price` | decimal | Price override |
-| `--quantity` | int, required | Number of units |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--repeat-cycle` | enum, required | Repeat cycle pattern. PricePlan can only be used if the customer has a main contract; prefer ContractProduct instead of CoworkerProducts repeating on PricePlan |
-| `--repeat-unit` | int | Number of repeat units |
-| `--invoice-on` | DateTime | Invoice on date |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
-| `--sale-date` | DateTime | Sale date |
-| `--due-date` | DateTime | Due date |
-| `--invoiced` | bool | Whether it has been invoiced |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--apply-pro-rating` | bool | Apply pro-rating |
-| `--proposal-unique-id` | string | ID of the proposal unique associated with this record |
-| `--coworker-invoice-id` | int | Coworker invoice ID |
-| `--coworker-invoice-number` | string | Coworker invoice number |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
-| `--credit-amount` | decimal, required | Credit amount |
-| `--discount-amount` | decimal, required | Discount amount |
-| `--refundable` | bool | Whether this product sale can be refunded |
+| `--coworker-id` | long, required | ID of the customer purchasing this product; the customer must be accessible at the selected location. |
+| `--business-id` | long, required | ID of the location that owns and issues this product sale; set automatically from the tool's location context. |
+| `--product-id` | long, required | ID of the product being sold; the product must be available to the selected customer at this location. |
+| `--notes` | string | Optional internal notes about this product sale. |
+| `--purchase-order` | string | Optional customer purchase-order reference for this sale. |
+| `--activate-now` | bool | Whether to activate included passes, time credit, and booking credit immediately, before the sale is invoiced or paid. |
+| `--invoice-this-coworker` | bool | Whether to invoice this customer directly instead of the paying customer in their team. |
+| `--price` | decimal | Optional unit-price override in the product currency; when omitted, the product's current price is used, then multiplied by Quantity. |
+| `--quantity` | int, required | Number of product units to sell; must be at least 1 and multiplies price and included benefits. |
+| `--regular-charge` | bool | Whether this is a recurring product sale rather than a one-off sale; requires scheduling values for non-PricePlan repeat cycles. |
+| `--repeat-cycle` | enum, required | Recurring schedule pattern: PricePlan, Day, Week, Month, Year, or LastDayOfMonth. PricePlan follows the customer's main contract; prefer ContractProduct for plan-linked recurring products. |
+| `--repeat-unit` | int | Positive number of RepeatCycle units between recurring charges; required when RegularCharge is true and RepeatCycle is not PricePlan. |
+| `--invoice-on` | DateTime | Date and time when this sale is next due for invoicing; required for recurring sales whose RepeatCycle is not PricePlan. |
+| `--repeat-from` | DateTime | Optional date and time from which recurring invoicing begins; a future value delays activation until that date. |
+| `--repeat-until` | DateTime | Optional exclusive end date for recurring invoicing; no later charge is created when the next invoicing date reaches this value. |
+| `--sale-date` | DateTime | Optional sale date for this product sale; when omitted, reports use the record creation date. |
+| `--due-date` | DateTime | Optional date and time by which payment is due; benefits can auto-activate when it has passed and the discounted price is zero. |
+| `--mrm-reminded` | bool | Internal reminder-processing flag set after product reminders are handled. |
+| `--apply-pro-rating` | bool | Whether the sale price is prorated against the customer's main contract billing period; the product's prorating setting can also apply. |
+| `--proposal-unique-id` | string | Internal GUID link to the proposal that created this sale; manage the proposal instead. |
+| `--discount-amount` | decimal, required | Monetary discount amount applied to this sale in the invoice currency. |
+| `--refundable` | bool | Whether the deposit represented by this sale is refunded when its connected contract is cancelled; applies only to deposit products. |
 
 #### CoworkerProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--product-id` | long | ID of the product linked to this record |
-| `--notes` | string | Optional notes or comments about this coworker product |
-| `--purchase-order` | string | Purchase order |
-| `--invoice-this-coworker` | bool | Invoice this customer for this product instead of the paying member of their team |
-| `--price` | decimal | Price override |
-| `--quantity` | int | Number of units |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--repeat-cycle` | enum | Repeat cycle pattern. PricePlan can only be used if the customer has a main contract; prefer ContractProduct instead of CoworkerProducts repeating on PricePlan |
-| `--repeat-unit` | int | Number of repeat units |
-| `--invoice-on` | DateTime | Invoice on date |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
-| `--sale-date` | DateTime | Sale date |
-| `--due-date` | DateTime | Due date |
-| `--invoiced` | bool | Whether it has been invoiced |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--apply-pro-rating` | bool | Apply pro-rating |
-| `--proposal-unique-id` | string | ID of the proposal unique associated with this record |
-| `--coworker-invoice-id` | int | Coworker invoice ID |
-| `--coworker-invoice-number` | string | Coworker invoice number |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice is paid |
-| `--credit-amount` | decimal | Credit amount |
-| `--discount-amount` | decimal | Discount amount |
-| `--refundable` | bool | Whether this product sale can be refunded |
+| `--coworker-id` | long | ID of the customer purchasing this product; the customer must be accessible at the selected location. |
+| `--business-id` | long | ID of the location that owns and issues this product sale; set automatically from the tool's location context. |
+| `--product-id` | long | ID of the product being sold; the product must be available to the selected customer at this location. |
+| `--notes` | string | Optional internal notes about this product sale. |
+| `--purchase-order` | string | Optional customer purchase-order reference for this sale. |
+| `--invoice-this-coworker` | bool | Whether to invoice this customer directly instead of the paying customer in their team. |
+| `--price` | decimal | Optional unit-price override in the product currency; when omitted, the product's current price is used, then multiplied by Quantity. |
+| `--quantity` | int | Number of product units to sell; must be at least 1 and multiplies price and included benefits. |
+| `--regular-charge` | bool | Whether this is a recurring product sale rather than a one-off sale; requires scheduling values for non-PricePlan repeat cycles. |
+| `--repeat-cycle` | enum | Recurring schedule pattern: PricePlan, Day, Week, Month, Year, or LastDayOfMonth. PricePlan follows the customer's main contract; prefer ContractProduct for plan-linked recurring products. |
+| `--repeat-unit` | int | Positive number of RepeatCycle units between recurring charges; required when RegularCharge is true and RepeatCycle is not PricePlan. |
+| `--invoice-on` | DateTime | Date and time when this sale is next due for invoicing; required for recurring sales whose RepeatCycle is not PricePlan. |
+| `--repeat-from` | DateTime | Optional date and time from which recurring invoicing begins; a future value delays activation until that date. |
+| `--repeat-until` | DateTime | Optional exclusive end date for recurring invoicing; no later charge is created when the next invoicing date reaches this value. |
+| `--sale-date` | DateTime | Optional sale date for this product sale; when omitted, reports use the record creation date. |
+| `--due-date` | DateTime | Optional date and time by which payment is due; benefits can auto-activate when it has passed and the discounted price is zero. |
+| `--mrm-reminded` | bool | Internal reminder-processing flag set after product reminders are handled. |
+| `--apply-pro-rating` | bool | Whether the sale price is prorated against the customer's main contract billing period; the product's prorating setting can also apply. |
+| `--proposal-unique-id` | string | Internal GUID link to the proposal that created this sale; manage the proposal instead. |
+| `--discount-amount` | decimal | Monetary discount amount applied to this sale in the invoice currency. |
+| `--refundable` | bool | Whether the deposit represented by this sale is refunded when its connected contract is cancelled; applies only to deposit products. |
 
 #### CoworkerProduct PII fields
 

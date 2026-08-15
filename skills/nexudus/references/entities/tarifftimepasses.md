@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TariffTimePasses -->
 
-A **TariffTimePass** links a time pass to a pricing plan (tariff), defining an included allowance of time passes for customers on that plan. The renewal time controls how often the allowance resets.
+A TariffTimePass links a time pass to a pricing plan (tariff), defining an included allowance of time passes for customers on that plan. The renewal time controls how often the allowance resets.
 
 TariffTimePasses support Search, Get, Create, Update, Delete.
 
@@ -24,12 +24,12 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--time-pass-id` | long | ID of the time pass linked to this record |
+| `--tariff-id` | long | ID of the plan linked to this record |
+| `--time-pass-id` | long | ID of the pass linked to this record |
 | `--passes-included` | int | Number of passes included |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |
-| `--pass-renewal-time` | enum | Pass renewal time period |
+| `--pass-renewal-time` | enum | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -48,19 +48,19 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required | ID of the tariff linked to this record |
-| `--time-pass-id` | long, required | ID of the time pass linked to this record |
+| `--tariff-id` | long, required | ID of the plan linked to this record |
+| `--time-pass-id` | long, required | ID of the pass linked to this record |
 | `--passes-included` | int, required | Number of passes included |
-| `--pass-renewal-time` | enum, required | Pass renewal time period |
+| `--pass-renewal-time` | enum, required | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 
 #### TariffTimePass update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--time-pass-id` | long | ID of the time pass linked to this record |
+| `--tariff-id` | long | ID of the plan linked to this record |
+| `--time-pass-id` | long | ID of the pass linked to this record |
 | `--passes-included` | int | Number of passes included |
-| `--pass-renewal-time` | enum | Pass renewal time period |
+| `--pass-renewal-time` | enum | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 
 ### TariffTimePass (key fields)
 

@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TaxRates -->
 
-A **TaxRate** defines a tax percentage applied to products, services, and invoices. Multiple tax rates can be configured for different jurisdictions or product categories.
+Tax rates are percentages applied to products, plans (tariff entity), resource rates (ExtraService entity), event tickets (EventProduct entity) and charges for tax calculation, including standard, reduced, and exempt rates
 
 TaxRates support Search, Get, Create, Update, Delete.
 

@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TariffDefaultDueDates -->
 
-A **TariffDefaultDueDate** configures the default invoice due date settings for a pricing plan (tariff). This controls when invoices generated for customers on this plan are due for payment.
+A TariffDefaultDueDate configures the default invoice due date settings for a pricing plan (tariff). This controls when invoices generated for customers on this plan are due for payment.
 
 TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 

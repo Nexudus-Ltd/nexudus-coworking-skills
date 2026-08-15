@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TariffExtraServices -->
 
-A **TariffExtraService** links an extra service (booking rate) to a pricing plan (tariff), defining an included allowance of booking time or printing credits for customers on that plan. The `UsesIncluded` value specifies how much is included.
+Plan time credit (internally TariffExtraService) links an time credit type (internally ExtraService) to a plan (internally Tariff), defining an included allowance of booking time or printing credits for customers on that plan. The `UsesIncluded` value specifies how much is included. The renewal time controls how often the credit expires and the allowance resets.
 
 TariffExtraServices support Search, Get, Create, Update, Delete.
 
@@ -24,12 +24,12 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--uses-included` | int | Number of uses included |
+| `--tariff-id` | long | ID of the plan linked to this record |
+| `--extra-service-id` | long | ID of the time credit type linked to this record. An ExtraService with IsBookingCredit = true associated with the type of resources this time credit is valid for.  |
+| `--uses-included` | int | Number of uses included in the unit associated with the selected time credit type (ExtraService.ChargePeriod). ExtraServiceChargePeriod in this entity. Minutes = 1, Days = 2, Weeks = 3, Months = 4, Uses = 5, FourWeekMonths = 6 |
 | `--from-uses-included` | range | |
 | `--to-uses-included` | range | |
-| `--service-renewal-time` | enum | Service renewal time period |
+| `--service-renewal-time` | enum | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -48,19 +48,19 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required | ID of the tariff linked to this record |
-| `--extra-service-id` | long, required | ID of the extra service linked to this record |
-| `--uses-included` | int, required | Number of uses included |
-| `--service-renewal-time` | enum, required | Service renewal time period |
+| `--tariff-id` | long, required | ID of the plan linked to this record |
+| `--extra-service-id` | long, required | ID of the time credit type linked to this record. An ExtraService with IsBookingCredit = true associated with the type of resources this time credit is valid for.  |
+| `--uses-included` | int, required | Number of uses included in the unit associated with the selected time credit type (ExtraService.ChargePeriod). ExtraServiceChargePeriod in this entity. Minutes = 1, Days = 2, Weeks = 3, Months = 4, Uses = 5, FourWeekMonths = 6 |
+| `--service-renewal-time` | enum, required | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 
 #### TariffExtraService update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--uses-included` | int | Number of uses included |
-| `--service-renewal-time` | enum | Service renewal time period |
+| `--tariff-id` | long | ID of the plan linked to this record |
+| `--extra-service-id` | long | ID of the time credit type linked to this record. An ExtraService with IsBookingCredit = true associated with the type of resources this time credit is valid for.  |
+| `--uses-included` | int | Number of uses included in the unit associated with the selected time credit type (ExtraService.ChargePeriod). ExtraServiceChargePeriod in this entity. Minutes = 1, Days = 2, Weeks = 3, Months = 4, Uses = 5, FourWeekMonths = 6 |
+| `--service-renewal-time` | enum | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 
 ### TariffExtraService (key fields)
 

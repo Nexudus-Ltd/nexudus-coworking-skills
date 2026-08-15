@@ -2,33 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ExtraServices -->
 
-An **ExtraService** serves two distinct purposes:
-
-1. **Resource-type pricing rule** — defines how one or more resource types are billed. A single resource type can have multiple extra services — for example, one per charge period (hourly, half-day, full-day) or one per customer segment.
-2. **Printing credit** — when `IsPrintingCredit` is `true`, the extra service represents a printing allowance rather than booking time. In this case `ChargePeriod` must always be `5` (Uses) and `Price` should be set to `1`.
-
-
-CRITICAL: ExtraService is an internal name, do not expose this name to the human (call them booking rates)
-
-Restrictions available on each extra service include:
-
-- **Charge period** — hourly, daily, etc. (`--charge-period`). For printing credit, always use `5` (Uses).
-- **Customer type** — members only (`--only-for-members`) or contacts only (`--only-for-contacts`)
-- **Time window** — bookings must fall within specific hours (`--from-time`, `--to-time`)
-- **Booking length** — minimum/maximum duration (`--min-length`, `--max-length`)
-- **Fixed-cost slot** — charge a flat fee for bookings up to a fixed length (`--fixed-cost-length`, `--fixed-cost-price`)
-- **Dynamic pricing** — price factors for low/average/high demand and last-minute bookings
-- **Date range** — apply only between specific dates (`--apply-from`, `--apply-to`)
-
-To set up pricing for a resource type, create one `ExtraService` per pricing rule and associate it with the desired resource type(s) using or the resource types assignment. The `ResourceTypeNames` field on an extra service shows which resource types it currently applies to.
-
-To create a **printing credit** extra service, set `--printing-credit true`, `--charge-period 5`, and `--price 1`. Resource type assignment is not required for printing credit extra services.
-
-### Setting up hourly pricing
-
-For hourly pricing, set `--charge-period 1` (Minutes) and `--price` to the cost of 60 minutes. The system interprets a charge period of 1 minute as hourly billing when the price represents a full hour.
-
-Example — create a $50/hour meeting room pricing rule:
+Resource Rates (internally Extra services) are pricing rules for resource types (like meeting rooms) that define how resources are billed, including charge periods, dynamic pricing, and customer restrictions
 
 ExtraServices support Search, Get, Create, Update, Delete.
 ExtraServices also support entity commands.
@@ -52,78 +26,77 @@ ExtraServices also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Extra service name |
-| `--description` | string | Free-text description of this extra service |
-| `--invoice-display` | string | Invoice line display text |
-| `--visible` | bool | Whether the price is visible on the portal and app |
-| `--display-order` | int | Display order |
+| `--business-id` | long | ID of the location this resource rate belongs to |
+| `--name` | string | Resource rate name |
+| `--description` | string | Optional description of this resource rate |
+| `--invoice-display` | string | Custom text shown on invoice lines instead of the resource rate name |
+| `--visible` | bool | Whether this resource rate is active and available for resource pricing. Not currently used. |
+| `--display-order` | int | Sort position of this resource rate; lower values appear first |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
-| `--price` | decimal | Unit price amount |
+| `--price` | decimal | Base price in the selected currency per charge period; minute-based rates are prorated as an hourly price |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--credit-price` | decimal | Credit price |
+| `--credit-price` | decimal | Optional alternative price used when the customer pays using time credit; null uses the base price |
 | `--from-credit-price` | range | |
 | `--to-credit-price` | range | |
-| `--charge-period` | enum | Charge period |
-| `--maximum-price` | decimal | Maximum price cap |
+| `--charge-period` | enum | Unit used to calculate the booking cost: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths |
+| `--maximum-price` | decimal | Optional maximum amount this rate can charge for a booking after length-based calculation |
 | `--from-maximum-price` | range | |
 | `--to-maximum-price` | range | |
-| `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
-| `--per-night-pricing` | bool | Use per-night pricing |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
-| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--from-time` | int | Start time restriction (minutes from midnight) |
+| `--default-price` | bool | Whether this rate is preferred when multiple valid rates match the same resource and charge period |
+| `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
+| `--currency-id` | long | ID of the currency used for prices charged by this resource rate |
+| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
+| `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
+| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
+| `--from-time` | int | Legacy start hour restriction; manage availability through time slots instead |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
-| `--to-time` | int | End time restriction (minutes from midnight) |
+| `--to-time` | int | Legacy end hour restriction; manage availability through time slots instead |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--min-length` | int | Minimum booking length (minutes) |
+| `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--from-min-length` | range | |
 | `--to-min-length` | range | |
-| `--max-length` | int | Maximum booking length (minutes) |
+| `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
 | `--from-max-length` | range | |
 | `--to-max-length` | range | |
-| `--only-within-available-times` | bool | Only apply within the resource's available times |
-| `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
+| `--only-within-available-times` | bool | Legacy availability enforcement flag; availability is determined by the configured time slots |
+| `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
 | `--from-fixed-cost-length` | range | |
 | `--to-fixed-cost-length` | range | |
-| `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
+| `--fixed-cost-price` | decimal | Fixed amount charged for the initial FixedCostLength minutes; requires FixedCostLength |
 | `--from-fixed-cost-price` | range | |
 | `--to-fixed-cost-price` | range | |
-| `--only-for-contacts` | bool | Only available for contacts |
-| `--only-for-members` | bool | Only available for members |
-| `--booking-credit` | bool | Price uses booking credits |
-| `--printing-credit` | bool | Price uses printing credits |
-| `--apply-to-visitors` | bool | Apply charge to visitors |
-| `--price-factor-low-demand` | decimal | Price factor for low demand periods |
+| `--only-for-contacts` | bool | Whether this rate is restricted to contacts without an active contract; cannot be true together with OnlyForMembers |
+| `--only-for-members` | bool | Whether this rate is restricted to customers with an active contract; cannot be true together with OnlyForContacts |
+| `--booking-credit` | bool | Whether this record defines a time credit type rather than a chargeable resource rate |
+| `--printing-credit` | bool | Whether this record defines a printing credit type used by printing integrations |
+| `--apply-to-visitors` | bool | Whether the booking charge is multiplied by the number of visitors linked to the booking |
+| `--price-factor-low-demand` | decimal | Optional signed percentage adjustment for low demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
 | `--from-price-factor-low-demand` | range | |
 | `--to-price-factor-low-demand` | range | |
-| `--price-factor-average-demand` | decimal | Price factor for average demand periods |
+| `--price-factor-average-demand` | decimal | Optional signed percentage adjustment for average demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
 | `--from-price-factor-average-demand` | range | |
 | `--to-price-factor-average-demand` | range | |
-| `--price-factor-high-demand` | decimal | Price factor for high demand periods |
+| `--price-factor-high-demand` | decimal | Optional signed percentage adjustment for high demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
 | `--from-price-factor-high-demand` | range | |
 | `--to-price-factor-high-demand` | range | |
-| `--price-factor-last-minute` | decimal | Price factor for last-minute bookings |
+| `--price-factor-last-minute` | decimal | Optional signed percentage adjustment for bookings made within LastMinutePeriodMinutes; negative values discount and positive values increase the price |
 | `--from-price-factor-last-minute` | range | |
 | `--to-price-factor-last-minute` | range | |
-| `--last-minute-period` | int | Last-minute period threshold (minutes before booking) |
+| `--last-minute-period` | int | Number of minutes before a booking starts during which PriceFactorLastMinute applies |
 | `--from-last-minute-period` | range | |
 | `--to-last-minute-period` | range | |
-| `--last-minute-adjustment-type` | enum | Last-minute discount type |
-| `--apply-from` | DateTime | Date from which this price applies |
+| `--last-minute-adjustment-type` | enum | How the last-minute adjustment is applied: Fixed applies the full factor throughout the period; Gradual increases it from zero at the period boundary to the full factor near the start time; Disabled turns it off |
+| `--apply-from` | DateTime | Optional date and time from which this rate is valid, inclusive |
 | `--from-apply-from` | range | |
 | `--to-apply-from` | range | |
-| `--apply-to` | DateTime | Date until which this price applies |
+| `--apply-to` | DateTime | Optional date and time until which this rate is valid, exclusive |
 | `--from-apply-to` | range | |
 | `--to-apply-to` | range | |
-| `--resource-type-names` | string | Comma-separated names of associated resource types |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -142,51 +115,50 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | Extra service name |
-| `--description` | string | Free-text description of this extra service |
-| `--invoice-display` | string | Invoice line display text |
-| `--visible` | bool | Whether the price is visible on the portal and app |
-| `--display-order` | int, required | Display order |
-| `--resource-types` | list, repeat flag | List of resource types linked to this record |
+| `--business-id` | long, required | ID of the location this resource rate belongs to |
+| `--name` | string, required | Resource rate name |
+| `--description` | string | Optional description of this resource rate |
+| `--invoice-display` | string | Custom text shown on invoice lines instead of the resource rate name |
+| `--visible` | bool | Whether this resource rate is active and available for resource pricing. Not currently used. |
+| `--display-order` | int, required | Sort position of this resource rate; lower values appear first |
+| `--resource-types` | list, repeat flag | List of resource types priced by this rate. At least one resource type is required |
 | `--added-resource-types` | list, repeat flag | The added resource types value for this extra service |
 | `--removed-resource-types` | list, repeat flag | The removed resource types value for this extra service |
-| `--price` | decimal, required | Unit price amount |
-| `--credit-price` | decimal | Credit price |
-| `--charge-period` | enum, required | Charge period |
-| `--maximum-price` | decimal | Maximum price cap |
-| `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
-| `--per-night-pricing` | bool | Use per-night pricing |
-| `--currency-id` | long, required | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
-| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--from-time` | int | Start time restriction (minutes from midnight) |
-| `--to-time` | int | End time restriction (minutes from midnight) |
-| `--min-length` | int | Minimum booking length (minutes) |
-| `--max-length` | int | Maximum booking length (minutes) |
-| `--only-within-available-times` | bool | Only apply within the resource's available times |
-| `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
-| `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--price` | decimal, required | Base price in the selected currency per charge period; minute-based rates are prorated as an hourly price |
+| `--credit-price` | decimal | Optional alternative price used when the customer pays using time credit; null uses the base price |
+| `--charge-period` | enum, required | Unit used to calculate the booking cost: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths |
+| `--maximum-price` | decimal | Optional maximum amount this rate can charge for a booking after length-based calculation |
+| `--default-price` | bool | Whether this rate is preferred when multiple valid rates match the same resource and charge period |
+| `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
+| `--currency-id` | long, required | ID of the currency used for prices charged by this resource rate |
+| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
+| `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
+| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
+| `--from-time` | int | Legacy start hour restriction; manage availability through time slots instead |
+| `--to-time` | int | Legacy end hour restriction; manage availability through time slots instead |
+| `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
+| `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
+| `--only-within-available-times` | bool | Legacy availability enforcement flag; availability is determined by the configured time slots |
+| `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
+| `--fixed-cost-price` | decimal | Fixed amount charged for the initial FixedCostLength minutes; requires FixedCostLength |
+| `--tariffs` | list, repeat flag | List of plans whose active members can use this rate; empty means no plan restriction |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this extra service |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this extra service |
-| `--only-for-contacts` | bool | Only available for contacts |
-| `--only-for-members` | bool | Only available for members |
-| `--booking-credit` | bool | Price uses booking credits |
-| `--printing-credit` | bool | Price uses printing credits |
-| `--apply-to-visitors` | bool | Apply charge to visitors |
-| `--price-factor-low-demand` | decimal | Price factor for low demand periods |
-| `--price-factor-average-demand` | decimal | Price factor for average demand periods |
-| `--price-factor-high-demand` | decimal | Price factor for high demand periods |
-| `--price-factor-last-minute` | decimal | Price factor for last-minute bookings |
-| `--last-minute-period` | int | Last-minute period threshold (minutes before booking) |
-| `--last-minute-adjustment-type` | enum, required | Last-minute discount type |
-| `--apply-from` | DateTime | Date from which this price applies |
-| `--apply-to` | DateTime | Date until which this price applies |
-| `--resource-type-names` | string | Comma-separated names of associated resource types |
-| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--only-for-contacts` | bool | Whether this rate is restricted to contacts without an active contract; cannot be true together with OnlyForMembers |
+| `--only-for-members` | bool | Whether this rate is restricted to customers with an active contract; cannot be true together with OnlyForContacts |
+| `--booking-credit` | bool | Whether this record defines a time credit type rather than a chargeable resource rate |
+| `--printing-credit` | bool | Whether this record defines a printing credit type used by printing integrations |
+| `--apply-to-visitors` | bool | Whether the booking charge is multiplied by the number of visitors linked to the booking |
+| `--price-factor-low-demand` | decimal | Optional signed percentage adjustment for low demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
+| `--price-factor-average-demand` | decimal | Optional signed percentage adjustment for average demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
+| `--price-factor-high-demand` | decimal | Optional signed percentage adjustment for high demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
+| `--price-factor-last-minute` | decimal | Optional signed percentage adjustment for bookings made within LastMinutePeriodMinutes; negative values discount and positive values increase the price |
+| `--last-minute-period` | int | Number of minutes before a booking starts during which PriceFactorLastMinute applies |
+| `--last-minute-adjustment-type` | enum, required | How the last-minute adjustment is applied: Fixed applies the full factor throughout the period; Gradual increases it from zero at the period boundary to the full factor near the start time; Disabled turns it off |
+| `--apply-from` | DateTime | Optional date and time from which this rate is valid, inclusive |
+| `--apply-to` | DateTime | Optional date and time until which this rate is valid, exclusive |
+| `--teams` | list, repeat flag | List of teams whose customers can use this rate; empty means no team restriction |
 | `--added-teams` | list, repeat flag | The added teams value for this extra service |
 | `--removed-teams` | list, repeat flag | The removed teams value for this extra service |
 | `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
@@ -195,51 +167,50 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Extra service name |
-| `--description` | string | Free-text description of this extra service |
-| `--invoice-display` | string | Invoice line display text |
-| `--visible` | bool | Whether the price is visible on the portal and app |
-| `--display-order` | int | Display order |
-| `--resource-types` | list, repeat flag | List of resource types linked to this record |
+| `--business-id` | long | ID of the location this resource rate belongs to |
+| `--name` | string | Resource rate name |
+| `--description` | string | Optional description of this resource rate |
+| `--invoice-display` | string | Custom text shown on invoice lines instead of the resource rate name |
+| `--visible` | bool | Whether this resource rate is active and available for resource pricing. Not currently used. |
+| `--display-order` | int | Sort position of this resource rate; lower values appear first |
+| `--resource-types` | list, repeat flag | List of resource types priced by this rate. At least one resource type is required |
 | `--added-resource-types` | list, repeat flag | The added resource types value for this extra service |
 | `--removed-resource-types` | list, repeat flag | The removed resource types value for this extra service |
-| `--price` | decimal | Unit price amount |
-| `--credit-price` | decimal | Credit price |
-| `--charge-period` | enum | Charge period |
-| `--maximum-price` | decimal | Maximum price cap |
-| `--default-price` | bool | Use as the default price for matched resource types if more than one price applies |
-| `--per-night-pricing` | bool | Use per-night pricing |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
-| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--from-time` | int | Start time restriction (minutes from midnight) |
-| `--to-time` | int | End time restriction (minutes from midnight) |
-| `--min-length` | int | Minimum booking length (minutes) |
-| `--max-length` | int | Maximum booking length (minutes) |
-| `--only-within-available-times` | bool | Only apply within the resource's available times |
-| `--fixed-cost-length` | int | Fixed cost booking length threshold (minutes) |
-| `--fixed-cost-price` | decimal | Fixed cost price applied once the threshold is reached |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--price` | decimal | Base price in the selected currency per charge period; minute-based rates are prorated as an hourly price |
+| `--credit-price` | decimal | Optional alternative price used when the customer pays using time credit; null uses the base price |
+| `--charge-period` | enum | Unit used to calculate the booking cost: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths |
+| `--maximum-price` | decimal | Optional maximum amount this rate can charge for a booking after length-based calculation |
+| `--default-price` | bool | Whether this rate is preferred when multiple valid rates match the same resource and charge period |
+| `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
+| `--currency-id` | long | ID of the currency used for prices charged by this resource rate |
+| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
+| `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
+| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
+| `--from-time` | int | Legacy start hour restriction; manage availability through time slots instead |
+| `--to-time` | int | Legacy end hour restriction; manage availability through time slots instead |
+| `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
+| `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
+| `--only-within-available-times` | bool | Legacy availability enforcement flag; availability is determined by the configured time slots |
+| `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
+| `--fixed-cost-price` | decimal | Fixed amount charged for the initial FixedCostLength minutes; requires FixedCostLength |
+| `--tariffs` | list, repeat flag | List of plans whose active members can use this rate; empty means no plan restriction |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this extra service |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this extra service |
-| `--only-for-contacts` | bool | Only available for contacts |
-| `--only-for-members` | bool | Only available for members |
-| `--booking-credit` | bool | Price uses booking credits |
-| `--printing-credit` | bool | Price uses printing credits |
-| `--apply-to-visitors` | bool | Apply charge to visitors |
-| `--price-factor-low-demand` | decimal | Price factor for low demand periods |
-| `--price-factor-average-demand` | decimal | Price factor for average demand periods |
-| `--price-factor-high-demand` | decimal | Price factor for high demand periods |
-| `--price-factor-last-minute` | decimal | Price factor for last-minute bookings |
-| `--last-minute-period` | int | Last-minute period threshold (minutes before booking) |
-| `--last-minute-adjustment-type` | enum | Last-minute discount type |
-| `--apply-from` | DateTime | Date from which this price applies |
-| `--apply-to` | DateTime | Date until which this price applies |
-| `--resource-type-names` | string | Comma-separated names of associated resource types |
-| `--teams` | list, repeat flag | List of teams linked to this record |
+| `--only-for-contacts` | bool | Whether this rate is restricted to contacts without an active contract; cannot be true together with OnlyForMembers |
+| `--only-for-members` | bool | Whether this rate is restricted to customers with an active contract; cannot be true together with OnlyForContacts |
+| `--booking-credit` | bool | Whether this record defines a time credit type rather than a chargeable resource rate |
+| `--printing-credit` | bool | Whether this record defines a printing credit type used by printing integrations |
+| `--apply-to-visitors` | bool | Whether the booking charge is multiplied by the number of visitors linked to the booking |
+| `--price-factor-low-demand` | decimal | Optional signed percentage adjustment for low demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
+| `--price-factor-average-demand` | decimal | Optional signed percentage adjustment for average demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
+| `--price-factor-high-demand` | decimal | Optional signed percentage adjustment for high demand; for example 10 increases the price by 10% and -10 discounts it by 10%. Overrides the location-wide factor |
+| `--price-factor-last-minute` | decimal | Optional signed percentage adjustment for bookings made within LastMinutePeriodMinutes; negative values discount and positive values increase the price |
+| `--last-minute-period` | int | Number of minutes before a booking starts during which PriceFactorLastMinute applies |
+| `--last-minute-adjustment-type` | enum | How the last-minute adjustment is applied: Fixed applies the full factor throughout the period; Gradual increases it from zero at the period boundary to the full factor near the start time; Disabled turns it off |
+| `--apply-from` | DateTime | Optional date and time from which this rate is valid, inclusive |
+| `--apply-to` | DateTime | Optional date and time until which this rate is valid, exclusive |
+| `--teams` | list, repeat flag | List of teams whose customers can use this rate; empty means no team restriction |
 | `--added-teams` | list, repeat flag | The added teams value for this extra service |
 | `--removed-teams` | list, repeat flag | The removed teams value for this extra service |
 | `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |

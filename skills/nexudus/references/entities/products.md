@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Products -->
 
-A **Product** represents an item that can be sold to customers. Products can be sold via contracts (`ContractProduct` entity), added to bookings (`BookingProduct` entity), or purchased directly (`CoworkerProduct` entity).
-
-Products support both one-off sales and recurring charges. Recurring charges can be set to daily, weekly, monthly, or yearly frequencies, or charged every time a contract is invoiced. For invoice-linked recurring charges, prefer using `ContractProduct` to associate the sale directly with a specific contract rather than relying on the customer's `MainContract`.
-
-Use `AvailableAs` to control whether a product can be sold as a one-off purchase, a recurring charge, or both. The `SystemProductType` field categorises the product (e.g. day pass, credit bundle, booking product, stationery, or other).
-
-Products can optionally track stock levels, be restricted to specific pricing plans (tariffs), and be limited to members or contacts only.
+A Product represents an item that can be sold to customers. Products can be sold via contracts (ContractProduct entity), added to bookings (BookingProduct entity), or purchased directly (CoworkerProduct entity). Products support both one-off sales and recurring charges. Recurring charges can be set to daily, weekly, monthly, or yearly frequencies, or charged every time a contract is invoiced. For invoice-linked recurring charges, prefer using ContractProduct to associate the sale directly with a specific contract rather than relying on the customer's MainContract. Use AvailableAs to control whether a product can be sold as a one-off purchase, a recurring charge, or both. The SystemProductType field categorises the product (e.g. day pass, credit bundle, booking product, stationery, or other). Products can optionally track stock levels, be restricted to specific pricing plans (tariffs), and be limited to members or contacts only.
 
 Products support Search, Get, Create, Update, Delete.
 Products also support entity commands.
@@ -33,7 +27,7 @@ Products also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
+| `--business-id` | long | ID of the location linked to this product |
 | `--name` | string | Product name |
 | `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string | Product description |
@@ -48,18 +42,18 @@ Products also support entity commands.
 | `--to-price` | range | |
 | `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
 | `--visible-in-kiosk` | bool | Whether the product is visible to customers in the NexKiosk app |
-| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes; |
+| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes |
 | `--notes-for-ai` | string | Additional notes about the product that are included in AI channel recommendations and responses to provide more context to customers |
 | `--show-price-for-ai` | bool | Whether to show the price of this product in AI channel recommendations and responses based on users' budget preferences |
 | `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
 | `--from-price-for-ai` | range | |
 | `--to-price-for-ai` | range | |
 | `--sync-square` | bool | Sync to Square Point of Sale |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
-| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--currency-id` | long | ID of the currency linked to this product |
+| `--tax-rate-id` | long | ID of the tax rate linked to this product |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this product |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this product |
+| `--financial-account-id` | long | ID of the financial account linked to this product |
 | `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
@@ -94,7 +88,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
+| `--business-id` | long, required | ID of the location linked to this product |
 | `--name` | string, required | Product name |
 | `--system-product-type` | enum, required | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string, required | Product description |
@@ -105,20 +99,20 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--price` | decimal, required | Product price |
 | `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
 | `--visible-in-kiosk` | bool | Whether the product is visible to customers in the NexKiosk app |
-| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes; |
+| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes |
 | `--notes-for-ai` | string | Additional notes about the product that are included in AI channel recommendations and responses to provide more context to customers |
 | `--show-price-for-ai` | bool | Whether to show the price of this product in AI channel recommendations and responses based on users' budget preferences |
 | `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
 | `--sync-square` | bool | Sync to Square Point of Sale |
-| `--currency-id` | long, required | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
-| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--currency-id` | long, required | ID of the currency linked to this product |
+| `--tax-rate-id` | long | ID of the tax rate linked to this product |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this product |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this product |
+| `--financial-account-id` | long | ID of the financial account linked to this product |
 | `--available-as` | enum, required | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this product |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this product |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this product |
 | `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
@@ -137,7 +131,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
+| `--business-id` | long | ID of the location linked to this product |
 | `--name` | string | Product name |
 | `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string | Product description |
@@ -148,20 +142,20 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--price` | decimal | Product price |
 | `--visible` | bool | Whether the product is visible to customers on the members portal and mobile app |
 | `--visible-in-kiosk` | bool | Whether the product is visible to customers in the NexKiosk app |
-| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes; |
+| `--available-to-ai` | bool | Whether this product is available to any AI channels (Email, Chat or WhatsApp) for recommendations for day passes |
 | `--notes-for-ai` | string | Additional notes about the product that are included in AI channel recommendations and responses to provide more context to customers |
 | `--show-price-for-ai` | bool | Whether to show the price of this product in AI channel recommendations and responses based on users' budget preferences |
 | `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
 | `--sync-square` | bool | Sync to Square Point of Sale |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this record |
-| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
+| `--currency-id` | long | ID of the currency linked to this product |
+| `--tax-rate-id` | long | ID of the tax rate linked to this product |
+| `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this product |
+| `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this product |
+| `--financial-account-id` | long | ID of the financial account linked to this product |
 | `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--tariffs` | list, repeat flag | List of tariffs linked to this product |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this product |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this product |
 | `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
@@ -186,7 +180,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 
 | Option | Valid values |
 | ------ | ------------ |
-| `--system-product-type` | `0` None, `1` DayPass, `2` CreditBundle, `3` Stationery, `4` BookingFeature, `5` BookingProducts, `99` Other |
-| `--available-as` | `0` None, `1` RecurrentOrOneOff, `2` OnlyRecurrent, `3` OnlyOneOff |
+| `--system-product-type` | `1` DayPass, `2` CreditBundle, `3` Stationery, `4` BookingFeature, `5` BookingProducts, `6` Lockers, `7` Equipment, `8` EventServices, `9` AdminServices, `10` FoodAndBeverage, `99` Other |
+| `--available-as` | `1` RecurrentOrOneOff, `2` OnlyRecurrent, `3` OnlyOneOff |
 
 <!-- END:GENERATED entity=Products -->

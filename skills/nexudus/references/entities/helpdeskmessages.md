@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=HelpDeskMessages -->
 
-A **HelpDeskMessage** represents a support ticket submitted by a customer or created by staff. Each message has a priority level, can be assigned to a department, and tracks its resolution status.
+Help desk messages are location-owned support tickets opened by customers, which can be assigned, categorized, prioritized, and closed.
 
 HelpDeskMessages support Search, Get, Create, Update, Delete.
 
@@ -16,7 +16,7 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 | `nexudus helpdeskmessages list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus helpdeskmessages list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus helpdeskmessages get <id> --agent` | Get single helpdeskmessage |
-| `nexudus helpdeskmessages create --business-id <value> --coworker-id <value> --subject <value> --message-text <value> --priority <value> --ai-processing-result <value> --agent` | Create helpdeskmessage |
+| `nexudus helpdeskmessages create --business-id <value> --coworker-id <value> --subject <value> --message-text <value> --priority <value> --agent` | Create helpdeskmessage |
 | `nexudus helpdeskmessages update <id> --name "New Name" --agent` | Update helpdeskmessage |
 | `nexudus helpdeskmessages delete <id> --yes --agent` | Delete helpdeskmessage (no prompt) |
 
@@ -24,19 +24,17 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--help-desk-department-id` | long | ID of the help desk department linked to this record |
-| `--subject` | string | The subject value for this help desk message |
-| `--message-text` | string | The message text value for this help desk message |
-| `--priority` | enum | The priority value for this help desk message |
-| `--ai-processing-result` | enum | The ai processing result value for this help desk message |
-| `--support-issue-category` | enum | Category of the support issue (e.g. Printing, WiFi, Access, Billing, Noise, HVAC, Cleaning, Booking, Other) |
-| `--closed` | bool | Whether closed is enabled |
-| `--owner-id` | long | ID of the owner linked to this record |
+| `--business-id` | long | ID of the location that owns this support ticket; it is supplied from the agent context. |
+| `--coworker-id` | long | ID of the customer who opened this support ticket. |
+| `--help-desk-department-id` | long | Optional ID of the support department that receives the ticket and can trigger its task-list workflow. |
+| `--subject` | string | Required ticket subject, up to 254 characters. |
+| `--message-text` | string | Required initial message describing the customer's support request; multiline text is allowed. |
+| `--priority` | enum | Ticket urgency: Low, Normal, High, or Critical; new tickets default to Normal when no priority is supplied. |
+| `--closed` | bool | Whether the ticket is closed; closing records the closure time and reopening clears it. |
+| `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -55,37 +53,33 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--help-desk-department-id` | long | ID of the help desk department linked to this record |
-| `--subject` | string, required | The subject value for this help desk message |
-| `--message-text` | string, required | The message text value for this help desk message |
-| `--priority` | enum, required | The priority value for this help desk message |
-| `--ai-processing-result` | enum, required | The ai processing result value for this help desk message |
-| `--support-issue-category` | enum | Category of the support issue (e.g. Printing, WiFi, Access, Billing, Noise, HVAC, Cleaning, Booking, Other) |
-| `--closed` | bool | Whether closed is enabled |
-| `--owner-id` | long | ID of the owner linked to this record |
+| `--business-id` | long, required | ID of the location that owns this support ticket; it is supplied from the agent context. |
+| `--coworker-id` | long, required | ID of the customer who opened this support ticket. |
+| `--help-desk-department-id` | long | Optional ID of the support department that receives the ticket and can trigger its task-list workflow. |
+| `--subject` | string, required | Required ticket subject, up to 254 characters. |
+| `--message-text` | string, required | Required initial message describing the customer's support request; multiline text is allowed. |
+| `--priority` | enum, required | Ticket urgency: Low, Normal, High, or Critical; new tickets default to Normal when no priority is supplied. |
+| `--closed` | bool | Whether the ticket is closed; closing records the closure time and reopening clears it. |
+| `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--help-desk-department-id` | long | ID of the help desk department linked to this record |
-| `--subject` | string | The subject value for this help desk message |
-| `--message-text` | string | The message text value for this help desk message |
-| `--priority` | enum | The priority value for this help desk message |
-| `--ai-processing-result` | enum | The ai processing result value for this help desk message |
-| `--support-issue-category` | enum | Category of the support issue (e.g. Printing, WiFi, Access, Billing, Noise, HVAC, Cleaning, Booking, Other) |
-| `--closed` | bool | Whether closed is enabled |
-| `--owner-id` | long | ID of the owner linked to this record |
+| `--business-id` | long | ID of the location that owns this support ticket; it is supplied from the agent context. |
+| `--coworker-id` | long | ID of the customer who opened this support ticket. |
+| `--help-desk-department-id` | long | Optional ID of the support department that receives the ticket and can trigger its task-list workflow. |
+| `--subject` | string | Required ticket subject, up to 254 characters. |
+| `--message-text` | string | Required initial message describing the customer's support request; multiline text is allowed. |
+| `--priority` | enum | Ticket urgency: Low, Normal, High, or Critical; new tickets default to Normal when no priority is supplied. |
+| `--closed` | bool | Whether the ticket is closed; closing records the closure time and reopening clears it. |
+| `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage PII fields
 
@@ -105,6 +99,5 @@ Example:
 | Option | Valid values |
 | ------ | ------------ |
 | `--priority` | `1` Low, `2` Normal, `3` High, `4` Critical |
-| `--ai-processing-result` | `1` NotProcessed, `2` Responded, `3` NotResponded |
 
 <!-- END:GENERATED entity=HelpDeskMessages -->

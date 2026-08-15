@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ContractDeposits -->
 
-A **ContractDeposit** represents a security deposit or retainer associated with a plan contract (`CoworkerContract`). Each deposit is based on a `Product` and is charged to the member either on the first invoice generated for the contract, or on the next invoice for any contract that has `IncludeSignupFee = true`.
-
-ContractDeposits are created automatically when a contract is signed for a plan (`Tariff`) that includes one or more `TariffSignupProducts`. Each `TariffSignupProduct` on the plan becomes a corresponding `ContractDeposit` on the new contract.
-
-When `Refundable = true`, cancelling the parent contract automatically generates a credit note for the deposit amount. That credit note can then be applied — fully or partially — against any outstanding fees or damage charges raised via a separate invoice.
+A contract deposit (internally ContractDeposit) is a one-time product charge attached to a customer's contract, normally created from a plan's sign-up products. Creating a new contract from a plan with sign-up products creates one deposit for each product and sets the contract's IncludeSignupFee flag to true. Deposits are charged on the next eligible contract invoice only while IncludeSignupFee is true; that invoicing run then resets the flag to false. A deposit marked InvoiceDuringOnlineCheckout is instead charged during the customer's online checkout. A refundable deposit can be processed through the dedicated refund workflow after the contract ends.
 
 ContractDeposits support Search, Get, Create, Update, Delete.
 
@@ -28,14 +24,14 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
-| `--product-id` | long | ID of the product linked to this record |
-| `--notes` | string | Optional notes or internal comments about this deposit |
-| `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
+| `--coworker-contract-id` | long | ID of the customer's contract; it determines this deposit's location, customer, plan, and invoice cycle. |
+| `--product-id` | long | ID of the location product charged for this deposit; its current price is used when Price is null. |
+| `--notes` | string | Optional operator notes about this deposit. |
+| `--price` | decimal | Optional deposit amount in the location's currency; when null, the linked product's current price is used. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
-| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
+| `--refundable` | bool | Whether cancelling the contract makes this deposit eligible for the dedicated refund workflow, which creates a negative sale that can be included in a credit note. |
+| `--invoice-during-online-checkout` | bool | Whether this deposit is charged during the customer's online checkout instead of waiting for the contract's next eligible invoice. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -54,23 +50,23 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long, required | ID of the coworker contract linked to this record |
-| `--product-id` | long, required | ID of the product linked to this record |
-| `--notes` | string | Optional notes or internal comments about this deposit |
-| `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
-| `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
-| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
+| `--coworker-contract-id` | long, required | ID of the customer's contract; it determines this deposit's location, customer, plan, and invoice cycle. |
+| `--product-id` | long, required | ID of the location product charged for this deposit; its current price is used when Price is null. |
+| `--notes` | string | Optional operator notes about this deposit. |
+| `--price` | decimal | Optional deposit amount in the location's currency; when null, the linked product's current price is used. |
+| `--refundable` | bool | Whether cancelling the contract makes this deposit eligible for the dedicated refund workflow, which creates a negative sale that can be included in a credit note. |
+| `--invoice-during-online-checkout` | bool | Whether this deposit is charged during the customer's online checkout instead of waiting for the contract's next eligible invoice. |
 
 #### ContractDeposit update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
-| `--product-id` | long | ID of the product linked to this record |
-| `--notes` | string | Optional notes or internal comments about this deposit |
-| `--price` | decimal | Deposit amount to charge. When set, overrides the default price of the linked product |
-| `--refundable` | bool | When true, cancelling the parent contract automatically generates a credit note for the deposit amount, which can be applied against outstanding fees or damages |
-| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
+| `--coworker-contract-id` | long | ID of the customer's contract; it determines this deposit's location, customer, plan, and invoice cycle. |
+| `--product-id` | long | ID of the location product charged for this deposit; its current price is used when Price is null. |
+| `--notes` | string | Optional operator notes about this deposit. |
+| `--price` | decimal | Optional deposit amount in the location's currency; when null, the linked product's current price is used. |
+| `--refundable` | bool | Whether cancelling the contract makes this deposit eligible for the dedicated refund workflow, which creates a negative sale that can be included in a credit note. |
+| `--invoice-during-online-checkout` | bool | Whether this deposit is charged during the customer's online checkout instead of waiting for the contract's next eligible invoice. |
 
 #### ContractDeposit PII fields
 

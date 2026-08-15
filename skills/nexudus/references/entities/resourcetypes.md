@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ResourceTypes -->
 
-A **ResourceType** is a category of bookable space (e.g., "Meeting Room", "Phone Booth", "Hot Desk"). Every `Resource` must be assigned to exactly one resource type. Pricing for a resource type is not stored on the type itself — it is defined by `ExtraService` records that reference the type. Multiple extra services can apply to the same resource type, covering different charge periods or customer restrictions.
+A resource type categorizes bookable resources (e.g., Meeting Room, Hot Desk, or Private Office). Each resource belongs to one resource type. Pricing is not stored on the resource type: booking rates (ExtraService records) apply through their ResourceTypes relationship, and every resource assigned to the type inherits those rates.
 
 ResourceTypes support Search, Get, Create, Update, Delete.
 
@@ -24,8 +24,8 @@ ResourceTypes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Resource type name |
+| `--business-id` | long | ID of the location that owns this resource type. Resources and booking rates assigned to the type should belong to this location. |
+| `--name` | string | Display name of the resource category (e.g., 'Meeting Room', 'Hot Desk', or 'Private Office'). Resources that share this type also share the booking rates linked to it. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -44,15 +44,15 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | Resource type name |
+| `--business-id` | long, required | ID of the location that owns this resource type. Resources and booking rates assigned to the type should belong to this location. |
+| `--name` | string, required | Display name of the resource category (e.g., 'Meeting Room', 'Hot Desk', or 'Private Office'). Resources that share this type also share the booking rates linked to it. |
 
 #### ResourceType update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Resource type name |
+| `--business-id` | long | ID of the location that owns this resource type. Resources and booking rates assigned to the type should belong to this location. |
+| `--name` | string | Display name of the resource category (e.g., 'Meeting Room', 'Hot Desk', or 'Private Office'). Resources that share this type also share the booking rates linked to it. |
 
 ### ResourceType (key fields)
 

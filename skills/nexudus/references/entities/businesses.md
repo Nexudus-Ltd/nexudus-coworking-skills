@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Businesses -->
 
-A **Business** represents an individual location or a group of locations in Nexudus. Most records in the system are connected — directly or via other records — to a business, which controls access and visibility based on the locations a user or customer can access.
-
-Businesses can be organised into a hierarchy using `RootLocationId`, which references the parent business of a given business. A business with no `RootLocationId` is a top-level location. Child businesses inherit certain configuration from their parent.
-
-Each business defines its own address, contact details, currency, opening hours, and public-facing content (Passport profile, website text, branding images). Read-only properties such as opening hours, theme, and image URLs reflect the current configuration set through the Nexudus admin UI.
+Business represents a coworking location with its settings, address, and configuration
 
 Businesses support Search, Get, Update (no Create or Delete via API).
 
@@ -337,7 +333,7 @@ Example:
 
 | Option | Valid values |
 | ------ | ------------ |
-| `--visited-help-items` | `0` None, `1` WelcomePage, `2` GridPage, `4` EditPage, `8` SettingsPage, `16` HelpPage |
+| `--visited-help-items` | `1` WelcomePage, `2` GridPage, `4` EditPage, `8` SettingsPage, `16` HelpPage |
 | `--default-language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
 | `--venue-type` | `1` BusinessCenter, `2` CorporateOffice, `3` CoworkingSpace, `4` Hotel, `5` InformalOffice, `6` Studio, `7` Other |
 | `--floor-space-unit` | `1` SqFt, `2` SqMt |

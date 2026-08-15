@@ -2,17 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Bookings -->
 
-A **Booking** is a reservation for a specific `Resource` and, optionally, for a customer (`CoworkerId`) and a desk or unit in the floor plan (`FloorPlanDeskId`).
-
-**Charging vs Invoicing** — When a booking is charged (confusingly labelled `Invoiced` in the booking entity), a charge is posted to the customer account as a `CoworkerExtraService` with the calculated price. If the booking has no fixed rate (`ExtraServiceId = null`), Nexudus calculates the rate automatically based on the resource type, booking parameters and customer. A booking is actually invoiced when the `CoworkerExtraService` associated with it is invoiced.
-
-- `InvoiceThisCoworker = true` means the booking is charged to the customer making it rather than their paying member (if any).
-- `Tentative` bookings must be approved by an administrator before being confirmed or charged. They still block the calendar.
-- `Online` bookings are those made via the portal or the app.
-
-**Repeating bookings** — `RepeatBooking` and all repeat-configuration fields (`Repeats`, `RepeatEvery`, `RepeatUntil`, `RepeatOn*`) are create-only. Once a booking series is created, only `WhichBookingsToUpdate` can be used to update or delete bookings in the series. No new bookings can be added to an existing series.
-
-**Pricing overrides** — `OverridePrice` lets an admin set a fixed price for the booking, regardless of what extra service (rate) is associated with it.
+A booking is a reservation of a resource, such as a meeting room or desk, for a customer at a specified time; it can be tentative, recurring, charged, and invoiced.
 
 Bookings support Search, Get, Create, Update, Delete.
 Bookings also support entity commands.
@@ -36,81 +26,81 @@ Bookings also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long | ID of the resource linked to this record |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--from-time` | DateTime | Booking start time |
+| `--resource-id` | long | ID of the resource being reserved; it determines the booking location and availability rules. |
+| `--floor-plan-desk-id` | long | Optional ID of the floor-plan unit assigned within the selected resource. The unit must be connected to this resource |
+| `--coworker-id` | long | Optional ID of the customer this booking is for. |
+| `--extra-service-id` | long | Optional ID of the rate used to price this booking. Set it only to a rate linked to the selected resource's ResourceType. When no rate is provided, the system calculates an applicable rate automatically. |
+| `--from-time` | DateTime | Booking start date and time in UTC. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
-| `--to-time` | DateTime | Booking end time |
+| `--to-time` | DateTime | Booking end date and time in UTC; it must be after FromTime. |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--notes` | string | Optional notes or comments about this booking |
-| `--internal-notes` | string | Internal notes |
-| `--charge-now` | bool | Charge immediately |
-| `--invoice-now` | bool | Invoice immediately |
-| `--invoice-this-coworker` | bool | Charge the booking to the customer making it rather than their paying member (if any) |
-| `--do-not-use-booking-credit` | bool | Do not use booking credit |
-| `--purchase-order` | string | Purchase order |
-| `--discount-code` | string | Discount code |
-| `--last-notification-time` | DateTime | Date/time value for last notification time |
+| `--notes` | string | Customer-facing notes for the booking. |
+| `--internal-notes` | string | Internal staff notes recorded when the booking is created. |
+| `--charge-now` | bool | Whether to charge the booking immediately when it is created or updated. |
+| `--invoice-now` | bool | Whether to generate an invoice for the booking immediately. |
+| `--invoice-this-coworker` | bool | Whether the selected customer receives the booking charge. When false, the customer's team-paying member, if any, is the billing party. |
+| `--do-not-use-booking-credit` | bool | Whether to prevent available customer booking credit from being used for this booking. |
+| `--purchase-order` | string | Optional customer purchase-order reference for the booking. |
+| `--discount-code` | string | Optional discount code applied when the booking price is calculated. |
+| `--last-notification-time` | DateTime | System-maintained UTC timestamp of the last booking notification. |
 | `--from-last-notification-time` | range | |
 | `--to-last-notification-time` | range | |
-| `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--google-event-id` | string | ID of the google event associated with this record |
-| `--office365-event-id` | string | ID of the office365 event associated with this record |
-| `--public-google-event-id` | string | ID of the public google event associated with this record |
-| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
-| `--teams-at-booking` | string | Teams at the time of booking |
-| `--tariff-at-booking` | string | Tariff at the time of booking |
-| `--repeat-series-unique-id` | string | ID of the repeat series unique associated with this record |
-| `--repeat-booking` | bool | Create a repeating booking series. Create-only: once created, only WhichBookingsToUpdate can be used to update the series. No new bookings can be added to the series |
-| `--repeats` | enum | Repeat cycle. Create-only |
-| `--which-bookings-to-update` | enum | Action to apply when updating or deleting bookings in a repeated series. This is the only field that can modify a series after creation |
-| `--repeat-every` | int | Repeat every N periods. Create-only |
+| `--google-calendar-id` | string | Internal Google Calendar identifier maintained by calendar synchronization. |
+| `--google-event-id` | string | Internal Google Calendar event identifier maintained by calendar synchronization. |
+| `--office365-event-id` | string | Internal Microsoft 365 calendar event identifier maintained by synchronization. |
+| `--public-google-event-id` | string | Internal public Google Calendar event identifier maintained by synchronization. |
+| `--tentative` | bool | Whether the booking is tentative and still requires confirmation. Customer bookings for resources requiring confirmation are created as tentative; administrators can create tentative bookings for any resource. |
+| `--teams-at-booking` | string | System snapshot of the customer's team memberships when the booking was made. |
+| `--tariff-at-booking` | string | System snapshot of the customer's plan when the booking was made. |
+| `--repeat-series-unique-id` | string | System-generated identifier linking all bookings in the same recurrence series; use it to find and update all bookings in that series. |
+| `--repeat-booking` | bool | Whether to create a recurring series from this booking. |
+| `--repeats` | enum | Recurrence cycle: Daily, Weekly, Monthly, Yearly, FirstOfMonth, SecondOfMonth, ThirdOfMonth, FourthOfMonth, or LastOfMonth. |
+| `--which-bookings-to-update` | enum | For a recurring booking update, selects whether to update this booking, future bookings, all bookings, not-charged bookings, or perform the corresponding delete or charge-reversal action. |
+| `--repeat-every` | int | Optional positive recurrence interval; for example, 2 with Weekly repeats every two weeks. |
 | `--from-repeat-every` | range | |
 | `--to-repeat-every` | range | |
-| `--repeat-until` | DateTime | Repeat until date. Create-only |
+| `--repeat-until` | DateTime | Optional final UTC date and time for creating occurrences in the recurrence series. |
 | `--from-repeat-until` | range | |
 | `--to-repeat-until` | range | |
-| `--repeat-on-mondays` | bool | Repeat on Mondays. Create-only |
-| `--repeat-on-tuesdays` | bool | Repeat on Tuesdays. Create-only |
-| `--repeat-on-wednesdays` | bool | Repeat on Wednesdays. Create-only |
-| `--repeat-on-thursdays` | bool | Repeat on Thursdays. Create-only |
-| `--repeat-on-fridays` | bool | Repeat on Fridays. Create-only |
-| `--repeat-on-saturdays` | bool | Repeat on Saturdays. Create-only |
-| `--repeat-on-sundays` | bool | Repeat on Sundays. Create-only |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--override-price` | decimal | Admin-set fixed price for the booking, regardless of what extra service (rate) is associated with it |
+| `--repeat-on-mondays` | bool | Whether a weekly recurring booking includes Mondays. |
+| `--repeat-on-tuesdays` | bool | Whether a weekly recurring booking includes Tuesdays. |
+| `--repeat-on-wednesdays` | bool | Whether a weekly recurring booking includes Wednesdays. |
+| `--repeat-on-thursdays` | bool | Whether a weekly recurring booking includes Thursdays. |
+| `--repeat-on-fridays` | bool | Whether a weekly recurring booking includes Fridays. |
+| `--repeat-on-saturdays` | bool | Whether a weekly recurring booking includes Saturdays. |
+| `--repeat-on-sundays` | bool | Whether a weekly recurring booking includes Sundays. |
+| `--reminded` | bool | System flag showing whether the standard booking reminder has been sent. |
+| `--mrm-reminded` | bool | System flag showing whether an MRM reminder has been sent. |
+| `--override-price` | decimal | Optional total price override for this booking, before normal rate calculation. |
 | `--from-override-price` | range | |
 | `--to-override-price` | range | |
-| `--kisi-key-id` | int | ID of the kisi key associated with this record |
+| `--kisi-key-id` | int | Internal Kisi access-control key identifier for this booking. |
 | `--from-kisi-key-id` | range | |
 | `--to-kisi-key-id` | range | |
-| `--start-scheduled-job-id` | string | ID of the start scheduled job associated with this record |
-| `--end-scheduled-job-id` | string | ID of the end scheduled job associated with this record |
-| `--billed` | bool | Whether billed is enabled |
-| `--from-time-local` | DateTime | Date/time value for from time local |
+| `--start-scheduled-job-id` | string | Internal scheduled-job identifier for the booking start. |
+| `--end-scheduled-job-id` | string | Internal scheduled-job identifier for the booking end. |
+| `--billed` | bool | Internal billing-processing state for this booking. |
+| `--from-time-local` | DateTime | System-maintained local-time representation of FromTime. |
 | `--from-from-time-local` | range | |
 | `--to-from-time-local` | range | |
-| `--to-time-local` | DateTime | Date/time value for to time local |
+| `--to-time-local` | DateTime | System-maintained local-time representation of ToTime. |
 | `--from-to-time-local` | range | |
 | `--to-to-time-local` | range | |
-| `--invoice-date-local` | DateTime | Date/time value for invoice date local |
+| `--invoice-date-local` | DateTime | System-maintained local-time representation of InvoiceDate. |
 | `--from-invoice-date-local` | range | |
 | `--to-invoice-date-local` | range | |
-| `--coworker-extra-service-price` | decimal | The coworker extra service price value for this booking |
+| `--coworker-extra-service-price` | decimal | System-calculated price from the customer's applicable rate entitlement. |
 | `--from-coworker-extra-service-price` | range | |
 | `--to-coworker-extra-service-price` | range | |
-| `--include-zoom-invite` | bool | Include Zoom invite |
-| `--zoom-event-data` | string | The zoom event data value for this booking |
-| `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
-| `--coworker-checked-in-at` | DateTime | Date and time when the customer checked in to this booking |
+| `--include-zoom-invite` | bool | Whether to include a Zoom meeting invitation for this booking. |
+| `--zoom-event-data` | string | Internal Zoom event payload maintained by the integration. |
+| `--office365-admin-event-id` | string | Internal Microsoft 365 administrator calendar event identifier maintained by synchronization. |
+| `--coworker-checked-in-at` | DateTime | UTC date and time when the customer checked in for this booking. |
 | `--from-coworker-checked-in-at` | range | |
 | `--to-coworker-checked-in-at` | range | |
-| `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking |
+| `--coworker-checked-out-at` | DateTime | UTC date and time when the customer checked out from this booking. |
 | `--from-coworker-checked-out-at` | range | |
 | `--to-coworker-checked-out-at` | range | |
 | `--from-created-on` | range | |
@@ -131,57 +121,57 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long, required | ID of the resource linked to this record |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--from-time` | DateTime, required | Booking start time |
-| `--to-time` | DateTime, required | Booking end time |
-| `--notes` | string | Optional notes or comments about this booking |
-| `--internal-notes` | string | Internal notes |
-| `--charge-now` | bool | Charge immediately |
-| `--invoice-now` | bool | Invoice immediately |
-| `--invoice-this-coworker` | bool | Charge the booking to the customer making it rather than their paying member (if any) |
-| `--do-not-use-booking-credit` | bool | Do not use booking credit |
-| `--purchase-order` | string | Purchase order |
-| `--discount-code` | string | Discount code |
-| `--last-notification-time` | DateTime | Date/time value for last notification time |
-| `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--google-event-id` | string | ID of the google event associated with this record |
-| `--office365-event-id` | string | ID of the office365 event associated with this record |
-| `--public-google-event-id` | string | ID of the public google event associated with this record |
-| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
-| `--teams-at-booking` | string | Teams at the time of booking |
-| `--tariff-at-booking` | string | Tariff at the time of booking |
-| `--repeat-series-unique-id` | string | ID of the repeat series unique associated with this record |
-| `--repeat-booking` | bool | Create a repeating booking series. Create-only: once created, only WhichBookingsToUpdate can be used to update the series. No new bookings can be added to the series |
-| `--repeats` | enum, required | Repeat cycle. Create-only |
-| `--which-bookings-to-update` | enum, required | Action to apply when updating or deleting bookings in a repeated series. This is the only field that can modify a series after creation |
-| `--repeat-every` | int | Repeat every N periods. Create-only |
-| `--repeat-until` | DateTime | Repeat until date. Create-only |
-| `--repeat-on-mondays` | bool | Repeat on Mondays. Create-only |
-| `--repeat-on-tuesdays` | bool | Repeat on Tuesdays. Create-only |
-| `--repeat-on-wednesdays` | bool | Repeat on Wednesdays. Create-only |
-| `--repeat-on-thursdays` | bool | Repeat on Thursdays. Create-only |
-| `--repeat-on-fridays` | bool | Repeat on Fridays. Create-only |
-| `--repeat-on-saturdays` | bool | Repeat on Saturdays. Create-only |
-| `--repeat-on-sundays` | bool | Repeat on Sundays. Create-only |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--override-price` | decimal | Admin-set fixed price for the booking, regardless of what extra service (rate) is associated with it |
-| `--kisi-key-id` | int | ID of the kisi key associated with this record |
-| `--start-scheduled-job-id` | string | ID of the start scheduled job associated with this record |
-| `--end-scheduled-job-id` | string | ID of the end scheduled job associated with this record |
-| `--billed` | bool | Whether billed is enabled |
-| `--from-time-local` | DateTime | Date/time value for from time local |
-| `--to-time-local` | DateTime | Date/time value for to time local |
-| `--invoice-date-local` | DateTime | Date/time value for invoice date local |
-| `--coworker-extra-service-price` | decimal | The coworker extra service price value for this booking |
-| `--include-zoom-invite` | bool | Include Zoom invite |
-| `--zoom-event-data` | string | The zoom event data value for this booking |
-| `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
-| `--coworker-checked-in-at` | DateTime | Date and time when the customer checked in to this booking |
-| `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking |
+| `--resource-id` | long, required | ID of the resource being reserved; it determines the booking location and availability rules. |
+| `--floor-plan-desk-id` | long | Optional ID of the floor-plan unit assigned within the selected resource. The unit must be connected to this resource |
+| `--coworker-id` | long | Optional ID of the customer this booking is for. |
+| `--extra-service-id` | long | Optional ID of the rate used to price this booking. Set it only to a rate linked to the selected resource's ResourceType. When no rate is provided, the system calculates an applicable rate automatically. |
+| `--from-time` | DateTime, required | Booking start date and time in UTC. |
+| `--to-time` | DateTime, required | Booking end date and time in UTC; it must be after FromTime. |
+| `--notes` | string | Customer-facing notes for the booking. |
+| `--internal-notes` | string | Internal staff notes recorded when the booking is created. |
+| `--charge-now` | bool | Whether to charge the booking immediately when it is created or updated. |
+| `--invoice-now` | bool | Whether to generate an invoice for the booking immediately. |
+| `--invoice-this-coworker` | bool | Whether the selected customer receives the booking charge. When false, the customer's team-paying member, if any, is the billing party. |
+| `--do-not-use-booking-credit` | bool | Whether to prevent available customer booking credit from being used for this booking. |
+| `--purchase-order` | string | Optional customer purchase-order reference for the booking. |
+| `--discount-code` | string | Optional discount code applied when the booking price is calculated. |
+| `--last-notification-time` | DateTime | System-maintained UTC timestamp of the last booking notification. |
+| `--google-calendar-id` | string | Internal Google Calendar identifier maintained by calendar synchronization. |
+| `--google-event-id` | string | Internal Google Calendar event identifier maintained by calendar synchronization. |
+| `--office365-event-id` | string | Internal Microsoft 365 calendar event identifier maintained by synchronization. |
+| `--public-google-event-id` | string | Internal public Google Calendar event identifier maintained by synchronization. |
+| `--tentative` | bool | Whether the booking is tentative and still requires confirmation. Customer bookings for resources requiring confirmation are created as tentative; administrators can create tentative bookings for any resource. |
+| `--teams-at-booking` | string | System snapshot of the customer's team memberships when the booking was made. |
+| `--tariff-at-booking` | string | System snapshot of the customer's plan when the booking was made. |
+| `--repeat-series-unique-id` | string | System-generated identifier linking all bookings in the same recurrence series; use it to find and update all bookings in that series. |
+| `--repeat-booking` | bool | Whether to create a recurring series from this booking. |
+| `--repeats` | enum, required | Recurrence cycle: Daily, Weekly, Monthly, Yearly, FirstOfMonth, SecondOfMonth, ThirdOfMonth, FourthOfMonth, or LastOfMonth. |
+| `--which-bookings-to-update` | enum, required | For a recurring booking update, selects whether to update this booking, future bookings, all bookings, not-charged bookings, or perform the corresponding delete or charge-reversal action. |
+| `--repeat-every` | int | Optional positive recurrence interval; for example, 2 with Weekly repeats every two weeks. |
+| `--repeat-until` | DateTime | Optional final UTC date and time for creating occurrences in the recurrence series. |
+| `--repeat-on-mondays` | bool | Whether a weekly recurring booking includes Mondays. |
+| `--repeat-on-tuesdays` | bool | Whether a weekly recurring booking includes Tuesdays. |
+| `--repeat-on-wednesdays` | bool | Whether a weekly recurring booking includes Wednesdays. |
+| `--repeat-on-thursdays` | bool | Whether a weekly recurring booking includes Thursdays. |
+| `--repeat-on-fridays` | bool | Whether a weekly recurring booking includes Fridays. |
+| `--repeat-on-saturdays` | bool | Whether a weekly recurring booking includes Saturdays. |
+| `--repeat-on-sundays` | bool | Whether a weekly recurring booking includes Sundays. |
+| `--reminded` | bool | System flag showing whether the standard booking reminder has been sent. |
+| `--mrm-reminded` | bool | System flag showing whether an MRM reminder has been sent. |
+| `--override-price` | decimal | Optional total price override for this booking, before normal rate calculation. |
+| `--kisi-key-id` | int | Internal Kisi access-control key identifier for this booking. |
+| `--start-scheduled-job-id` | string | Internal scheduled-job identifier for the booking start. |
+| `--end-scheduled-job-id` | string | Internal scheduled-job identifier for the booking end. |
+| `--billed` | bool | Internal billing-processing state for this booking. |
+| `--from-time-local` | DateTime | System-maintained local-time representation of FromTime. |
+| `--to-time-local` | DateTime | System-maintained local-time representation of ToTime. |
+| `--invoice-date-local` | DateTime | System-maintained local-time representation of InvoiceDate. |
+| `--coworker-extra-service-price` | decimal | System-calculated price from the customer's applicable rate entitlement. |
+| `--include-zoom-invite` | bool | Whether to include a Zoom meeting invitation for this booking. |
+| `--zoom-event-data` | string | Internal Zoom event payload maintained by the integration. |
+| `--office365-admin-event-id` | string | Internal Microsoft 365 administrator calendar event identifier maintained by synchronization. |
+| `--coworker-checked-in-at` | DateTime | UTC date and time when the customer checked in for this booking. |
+| `--coworker-checked-out-at` | DateTime | UTC date and time when the customer checked out from this booking. |
 | `--booking-products` | JSON array or @filepath | Products to include with this booking |
 | `--booking-visitors` | JSON array or @filepath | Visitors to add to this booking |
 
@@ -189,44 +179,44 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long | ID of the resource linked to this record |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--from-time` | DateTime | Booking start time |
-| `--to-time` | DateTime | Booking end time |
-| `--notes` | string | Optional notes or comments about this booking |
-| `--charge-now` | bool | Charge immediately |
-| `--invoice-now` | bool | Invoice immediately |
-| `--invoice-this-coworker` | bool | Charge the booking to the customer making it rather than their paying member (if any) |
-| `--do-not-use-booking-credit` | bool | Do not use booking credit |
-| `--purchase-order` | string | Purchase order |
-| `--discount-code` | string | Discount code |
-| `--last-notification-time` | DateTime | Date/time value for last notification time |
-| `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--google-event-id` | string | ID of the google event associated with this record |
-| `--office365-event-id` | string | ID of the office365 event associated with this record |
-| `--public-google-event-id` | string | ID of the public google event associated with this record |
-| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
-| `--teams-at-booking` | string | Teams at the time of booking |
-| `--tariff-at-booking` | string | Tariff at the time of booking |
-| `--which-bookings-to-update` | enum | Action to apply when updating or deleting bookings in a repeated series. This is the only field that can modify a series after creation |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--override-price` | decimal | Admin-set fixed price for the booking, regardless of what extra service (rate) is associated with it |
-| `--kisi-key-id` | int | ID of the kisi key associated with this record |
-| `--start-scheduled-job-id` | string | ID of the start scheduled job associated with this record |
-| `--end-scheduled-job-id` | string | ID of the end scheduled job associated with this record |
-| `--billed` | bool | Whether billed is enabled |
-| `--from-time-local` | DateTime | Date/time value for from time local |
-| `--to-time-local` | DateTime | Date/time value for to time local |
-| `--invoice-date-local` | DateTime | Date/time value for invoice date local |
-| `--coworker-extra-service-price` | decimal | The coworker extra service price value for this booking |
-| `--include-zoom-invite` | bool | Include Zoom invite |
-| `--zoom-event-data` | string | The zoom event data value for this booking |
-| `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
-| `--coworker-checked-in-at` | DateTime | Date and time when the customer checked in to this booking |
-| `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking |
+| `--resource-id` | long | ID of the resource being reserved; it determines the booking location and availability rules. |
+| `--floor-plan-desk-id` | long | Optional ID of the floor-plan unit assigned within the selected resource. The unit must be connected to this resource |
+| `--coworker-id` | long | Optional ID of the customer this booking is for. |
+| `--extra-service-id` | long | Optional ID of the rate used to price this booking. Set it only to a rate linked to the selected resource's ResourceType. When no rate is provided, the system calculates an applicable rate automatically. |
+| `--from-time` | DateTime | Booking start date and time in UTC. |
+| `--to-time` | DateTime | Booking end date and time in UTC; it must be after FromTime. |
+| `--notes` | string | Customer-facing notes for the booking. |
+| `--charge-now` | bool | Whether to charge the booking immediately when it is created or updated. |
+| `--invoice-now` | bool | Whether to generate an invoice for the booking immediately. |
+| `--invoice-this-coworker` | bool | Whether the selected customer receives the booking charge. When false, the customer's team-paying member, if any, is the billing party. |
+| `--do-not-use-booking-credit` | bool | Whether to prevent available customer booking credit from being used for this booking. |
+| `--purchase-order` | string | Optional customer purchase-order reference for the booking. |
+| `--discount-code` | string | Optional discount code applied when the booking price is calculated. |
+| `--last-notification-time` | DateTime | System-maintained UTC timestamp of the last booking notification. |
+| `--google-calendar-id` | string | Internal Google Calendar identifier maintained by calendar synchronization. |
+| `--google-event-id` | string | Internal Google Calendar event identifier maintained by calendar synchronization. |
+| `--office365-event-id` | string | Internal Microsoft 365 calendar event identifier maintained by synchronization. |
+| `--public-google-event-id` | string | Internal public Google Calendar event identifier maintained by synchronization. |
+| `--tentative` | bool | Whether the booking is tentative and still requires confirmation. Customer bookings for resources requiring confirmation are created as tentative; administrators can create tentative bookings for any resource. |
+| `--teams-at-booking` | string | System snapshot of the customer's team memberships when the booking was made. |
+| `--tariff-at-booking` | string | System snapshot of the customer's plan when the booking was made. |
+| `--which-bookings-to-update` | enum | For a recurring booking update, selects whether to update this booking, future bookings, all bookings, not-charged bookings, or perform the corresponding delete or charge-reversal action. |
+| `--reminded` | bool | System flag showing whether the standard booking reminder has been sent. |
+| `--mrm-reminded` | bool | System flag showing whether an MRM reminder has been sent. |
+| `--override-price` | decimal | Optional total price override for this booking, before normal rate calculation. |
+| `--kisi-key-id` | int | Internal Kisi access-control key identifier for this booking. |
+| `--start-scheduled-job-id` | string | Internal scheduled-job identifier for the booking start. |
+| `--end-scheduled-job-id` | string | Internal scheduled-job identifier for the booking end. |
+| `--billed` | bool | Internal billing-processing state for this booking. |
+| `--from-time-local` | DateTime | System-maintained local-time representation of FromTime. |
+| `--to-time-local` | DateTime | System-maintained local-time representation of ToTime. |
+| `--invoice-date-local` | DateTime | System-maintained local-time representation of InvoiceDate. |
+| `--coworker-extra-service-price` | decimal | System-calculated price from the customer's applicable rate entitlement. |
+| `--include-zoom-invite` | bool | Whether to include a Zoom meeting invitation for this booking. |
+| `--zoom-event-data` | string | Internal Zoom event payload maintained by the integration. |
+| `--office365-admin-event-id` | string | Internal Microsoft 365 administrator calendar event identifier maintained by synchronization. |
+| `--coworker-checked-in-at` | DateTime | UTC date and time when the customer checked in for this booking. |
+| `--coworker-checked-out-at` | DateTime | UTC date and time when the customer checked out from this booking. |
 | `--booking-products` | JSON array or @filepath | Products to include with this booking |
 | `--booking-visitors` | JSON array or @filepath | Visitors to add to this booking |
 

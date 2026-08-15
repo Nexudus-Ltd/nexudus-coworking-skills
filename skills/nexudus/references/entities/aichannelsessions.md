@@ -99,6 +99,6 @@ Example:
 
 | Option | Valid values |
 | ------ | ------------ |
-| `--escalation-status` | `0` None, `1` Pending, `2` Active, `3` Resolved |
+| `--escalation-status` | `1` Pending, `2` Active, `3` Resolved |
 
 <!-- END:GENERATED entity=AiChannelSessions -->

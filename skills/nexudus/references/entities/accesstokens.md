@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=AccessTokens -->
 
-> **WiFi Access Tokens** provide unique network access codes for customers and visitors. They work alongside the Mikrotik, IronWifi, and Layer8 integrations. Access tokens can be shared with customers and visitors as part of visitor and booking confirmation emails. Each token includes a number of minutes of WiFi access and, optionally, an expiration date and user limit.
+WiFi access tokens are location-scoped network access codes for customers, visitors, bookings, and events, with a WiFi-minute allowance and optional validity window or user limit.
 
 AccessTokens support Search, Get, Create, Update, Delete.
 AccessTokens also support entity commands.
@@ -26,24 +26,24 @@ AccessTokens also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--access-code` | string | Unique network access code used to connect to WiFi |
-| `--description` | string | Free-text description of this access token |
-| `--minutes-included` | int | Total minutes of WiFi access included in this token |
+| `--business-id` | long | ID of the location that owns this WiFi access token. |
+| `--access-code` | string | Required unique code used to authenticate to the location's WiFi network. |
+| `--description` | string | Optional operator-facing label, such as the related visitor, booking, or event. |
+| `--minutes-included` | int | Non-negative total number of WiFi minutes granted when the token is created. |
 | `--from-minutes-included` | range | |
 | `--to-minutes-included` | range | |
-| `--valid-from` | DateTime | Start date from which this token can be used |
+| `--valid-from` | DateTime | Optional UTC date and time after which the token can be used; no value allows use immediately. |
 | `--from-valid-from` | range | |
 | `--to-valid-from` | range | |
-| `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
+| `--valid-to` | DateTime | Optional UTC expiration date and time; no value means the token does not expire by date. |
 | `--from-valid-to` | range | |
 | `--to-valid-to` | range | |
-| `--user-limit` | int | Maximum number of users that can use this token simultaneously |
+| `--user-limit` | int | Optional minimum-one limit on users or devices permitted by the WiFi integration. |
 | `--from-user-limit` | range | |
 | `--to-user-limit` | range | |
-| `--mac-address` | string | MAC address of the device associated with this token |
-| `--booking-guid` | string | Unique identifier (GUID) for the booking |
-| `--visitor-guid` | string | Unique identifier (GUID) for the visitor |
+| `--mac-address` | string | Optional comma-separated list of device MAC addresses associated with this token; stored in lowercase. |
+| `--booking-guid` | string | Internal GUID linking this token to the booking that created it; set by booking automation, not by operators. |
+| `--visitor-guid` | string | Internal GUID linking this token to the visitor that created it; set by visitor automation, not by operators. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -62,31 +62,31 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--access-code` | string, required | Unique network access code used to connect to WiFi |
-| `--description` | string | Free-text description of this access token |
-| `--minutes-included` | int, required | Total minutes of WiFi access included in this token |
-| `--valid-from` | DateTime | Start date from which this token can be used |
-| `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
-| `--user-limit` | int | Maximum number of users that can use this token simultaneously |
-| `--mac-address` | string | MAC address of the device associated with this token |
-| `--booking-guid` | string | Unique identifier (GUID) for the booking |
-| `--visitor-guid` | string | Unique identifier (GUID) for the visitor |
+| `--business-id` | long, required | ID of the location that owns this WiFi access token. |
+| `--access-code` | string, required | Required unique code used to authenticate to the location's WiFi network. |
+| `--description` | string | Optional operator-facing label, such as the related visitor, booking, or event. |
+| `--minutes-included` | int, required | Non-negative total number of WiFi minutes granted when the token is created. |
+| `--valid-from` | DateTime | Optional UTC date and time after which the token can be used; no value allows use immediately. |
+| `--valid-to` | DateTime | Optional UTC expiration date and time; no value means the token does not expire by date. |
+| `--user-limit` | int | Optional minimum-one limit on users or devices permitted by the WiFi integration. |
+| `--mac-address` | string | Optional comma-separated list of device MAC addresses associated with this token; stored in lowercase. |
+| `--booking-guid` | string | Internal GUID linking this token to the booking that created it; set by booking automation, not by operators. |
+| `--visitor-guid` | string | Internal GUID linking this token to the visitor that created it; set by visitor automation, not by operators. |
 
 #### AccessToken update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--access-code` | string | Unique network access code used to connect to WiFi |
-| `--description` | string | Free-text description of this access token |
-| `--minutes-included` | int | Total minutes of WiFi access included in this token |
-| `--valid-from` | DateTime | Start date from which this token can be used |
-| `--valid-to` | DateTime | Expiration date after which this token is no longer valid |
-| `--user-limit` | int | Maximum number of users that can use this token simultaneously |
-| `--mac-address` | string | MAC address of the device associated with this token |
-| `--booking-guid` | string | Unique identifier (GUID) for the booking |
-| `--visitor-guid` | string | Unique identifier (GUID) for the visitor |
+| `--business-id` | long | ID of the location that owns this WiFi access token. |
+| `--access-code` | string | Required unique code used to authenticate to the location's WiFi network. |
+| `--description` | string | Optional operator-facing label, such as the related visitor, booking, or event. |
+| `--minutes-included` | int | Non-negative total number of WiFi minutes granted when the token is created. |
+| `--valid-from` | DateTime | Optional UTC date and time after which the token can be used; no value allows use immediately. |
+| `--valid-to` | DateTime | Optional UTC expiration date and time; no value means the token does not expire by date. |
+| `--user-limit` | int | Optional minimum-one limit on users or devices permitted by the WiFi integration. |
+| `--mac-address` | string | Optional comma-separated list of device MAC addresses associated with this token; stored in lowercase. |
+| `--booking-guid` | string | Internal GUID linking this token to the booking that created it; set by booking automation, not by operators. |
+| `--visitor-guid` | string | Internal GUID linking this token to the visitor that created it; set by visitor automation, not by operators. |
 
 ### AccessToken (key fields)
 

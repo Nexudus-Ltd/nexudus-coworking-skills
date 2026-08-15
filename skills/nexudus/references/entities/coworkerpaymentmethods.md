@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerPaymentMethods -->
 
-A **CoworkerPaymentMethod** is a tokenised payment method stored against a customer and a location, used when charging invoices issued to that customer by that location.
-
-Currently supported providers are **Stripe** (card and ACH/BACS) and **GoCardless** (direct debit mandates). The `RegularPaymentProvider` field identifies the provider; valid values for this entity are `Stripe` (2), `StripeACH` (11), `StripeBACS` (13), and `GoCardless` (12).
-
-- For Stripe methods, `MethodId` holds the Stripe payment method ID and `CustomerId` holds the Stripe customer ID.
-- For GoCardless mandates, `MandateId` holds the GoCardless mandate ID and `CustomerId` holds the GoCardless customer ID.
-- `CardNumber` stores a masked card number for display purposes only.
+A customer payment method (CoworkerPaymentMethod) records the provider credentials used to charge a specific customer at a specific location; only one record is allowed for each customer, location, and provider.
 
 CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 
@@ -30,14 +24,13 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | Customer this payment method belongs to |
-| `--business-id` | long | Location that issued or will charge invoices using this payment method |
-| `--regular-payment-provider` | enum | Payment provider for this method. For this entity, valid values are Stripe (2), StripeACH (11), StripeBACS (13), and GoCardless (12). |
-| `--method-id` | string | Provider payment method ID (e.g. Stripe payment method ID) |
-| `--customer-id` | string | Provider customer ID (e.g. Stripe or GoCardless customer ID) |
-| `--mandate-id` | string | GoCardless mandate ID. Only populated for GoCardless payment methods. |
-| `--card-number` | string | Masked card number for display purposes only |
-| `--notes` | string | Optional notes about this payment method |
+| `--coworker-id` | long | ID of the customer whose payment method is stored; the customer must belong to a location the operator can access |
+| `--business-id` | long | ID of the location that uses this payment method when charging the customer |
+| `--regular-payment-provider` | enum | Regular-payment provider for this method; only one method may exist for the same customer, location, and provider, and the Admin UI supports Stripe, StripeACH, StripeBACS, and GoCardless |
+| `--method-id` | string | Payment-provider method ID supplied by the provider, such as a Stripe payment method token; set it only for the matching provider flow |
+| `--customer-id` | string | Payment-provider customer ID supplied by the provider, such as a Stripe customer ID; set it only for the matching provider flow |
+| `--mandate-id` | string | Payment-provider mandate or bank-account identifier supplied by a direct-debit provider; GoCardless and StripeBACS use this field |
+| `--notes` | string | Optional internal notes about this customer payment method |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -56,27 +49,24 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | Customer this payment method belongs to |
-| `--business-id` | long, required | Location that issued or will charge invoices using this payment method |
-| `--regular-payment-provider` | enum | Payment provider for this method. For this entity, valid values are Stripe (2), StripeACH (11), StripeBACS (13), and GoCardless (12). |
-| `--method-id` | string | Provider payment method ID (e.g. Stripe payment method ID) |
-| `--customer-id` | string | Provider customer ID (e.g. Stripe or GoCardless customer ID) |
-| `--mandate-id` | string | GoCardless mandate ID. Only populated for GoCardless payment methods. |
-| `--card-number` | string | Masked card number for display purposes only |
-| `--notes` | string | Optional notes about this payment method |
+| `--coworker-id` | long, required | ID of the customer whose payment method is stored; the customer must belong to a location the operator can access |
+| `--business-id` | long, required | ID of the location that uses this payment method when charging the customer |
+| `--regular-payment-provider` | enum | Regular-payment provider for this method; only one method may exist for the same customer, location, and provider, and the Admin UI supports Stripe, StripeACH, StripeBACS, and GoCardless |
+| `--method-id` | string | Payment-provider method ID supplied by the provider, such as a Stripe payment method token; set it only for the matching provider flow |
+| `--customer-id` | string | Payment-provider customer ID supplied by the provider, such as a Stripe customer ID; set it only for the matching provider flow |
+| `--mandate-id` | string | Payment-provider mandate or bank-account identifier supplied by a direct-debit provider; GoCardless and StripeBACS use this field |
+| `--notes` | string | Optional internal notes about this customer payment method |
 
 #### CoworkerPaymentMethod update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | Customer this payment method belongs to |
-| `--business-id` | long | Location that issued or will charge invoices using this payment method |
-| `--regular-payment-provider` | enum | Payment provider for this method. For this entity, valid values are Stripe (2), StripeACH (11), StripeBACS (13), and GoCardless (12). |
-| `--method-id` | string | Provider payment method ID (e.g. Stripe payment method ID) |
-| `--customer-id` | string | Provider customer ID (e.g. Stripe or GoCardless customer ID) |
-| `--mandate-id` | string | GoCardless mandate ID. Only populated for GoCardless payment methods. |
-| `--card-number` | string | Masked card number for display purposes only |
-| `--notes` | string | Optional notes about this payment method |
+| `--coworker-id` | long | ID of the customer whose payment method is stored; the customer must belong to a location the operator can access |
+| `--business-id` | long | ID of the location that uses this payment method when charging the customer |
+| `--method-id` | string | Payment-provider method ID supplied by the provider, such as a Stripe payment method token; set it only for the matching provider flow |
+| `--customer-id` | string | Payment-provider customer ID supplied by the provider, such as a Stripe customer ID; set it only for the matching provider flow |
+| `--mandate-id` | string | Payment-provider mandate or bank-account identifier supplied by a direct-debit provider; GoCardless and StripeBACS use this field |
+| `--notes` | string | Optional internal notes about this customer payment method |
 
 #### CoworkerPaymentMethod PII fields
 

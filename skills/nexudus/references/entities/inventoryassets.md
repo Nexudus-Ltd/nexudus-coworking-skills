@@ -2,17 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=InventoryAssets -->
 
-An **InventoryAsset** represents a physical asset — such as a desk, chair, monitor, printer, or other piece of equipment — that a location can track and optionally assign to customers.
-
-Each asset belongs to a single location (`BusinessId`) and can be assigned to a specific scope via `AssignToType`:
-
-| AssignToType value | Meaning |
-| ------------------ | ------- |
-| 1 (Location)       | Assigned to the location generally, not tied to a specific resource or floor-plan item |
-| 2 (Resource)       | Linked to a bookable resource (e.g. a specific meeting room) via `ResourceId` |
-| 3 (FloorPlanItem)  | Linked to a floor-plan desk via `FloorPlanDeskId` |
-
-Assets may also be assigned to one or more coworkers. The read-only fields `CoworkerIds`, `CoworkerFullNames`, `CoworkerStartDates`, and `CoworkerEndDates` reflect current assignments. To manage coworker-level assignments, use the `CoworkerInventoryAsset` entity instead.
+An InventoryAsset is a location-owned physical item, such as a desk, chair, monitor, or printer, tracked at the location, a bookable resource, or a floor-plan desk. Customer assignments are managed as separate CoworkerInventoryAsset records.
 
 InventoryAssets support Search, Get, Create, Update, Delete.
 InventoryAssets also support entity commands.
@@ -36,18 +26,18 @@ InventoryAssets also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Display name of the asset (e.g. 'Standing Desk #3', 'HP LaserJet') |
-| `--description` | string | Free-text description of the asset |
-| `--sku` | string | Stock-keeping unit code for the asset |
+| `--business-id` | long | ID of the location that owns this asset; saving a linked resource or floor-plan desk can replace it with that linked record's location. |
+| `--name` | string | Required display name of the physical asset, such as 'Standing Desk #3' or 'HP LaserJet'. |
+| `--description` | string | Optional free-text description of the asset. |
+| `--sku` | string | Optional stock-keeping unit code; when provided, it must be unique within the location. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--value` | decimal | Monetary value of the asset |
+| `--value` | decimal | Optional monetary value of the asset in the owning location's currency. |
 | `--from-value` | range | |
 | `--to-value` | range | |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--resource-id` | long | ID of the resource linked to this record |
-| `--assign-to-type` | enum | Determines what this asset is assigned to: Location (1), Resource (2), or FloorPlanItem (3) |
+| `--floor-plan-desk-id` | long | ID of the floor-plan desk linked to this asset; required when AssignToType is FloorPlanItem and it sets the asset's location from the desk's floor plan. |
+| `--resource-id` | long | ID of the bookable resource linked to this asset; required when AssignToType is Resource and it sets the asset's location to the resource's location. |
+| `--assign-to-type` | enum | Determines the asset scope: Location (1) needs no linked resource or desk, Resource (2) requires ResourceId, and FloorPlanItem (3) requires FloorPlanDeskId. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -66,31 +56,31 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | Display name of the asset (e.g. 'Standing Desk #3', 'HP LaserJet') |
-| `--description` | string | Free-text description of the asset |
-| `--sku` | string | Stock-keeping unit code for the asset |
+| `--business-id` | long, required | ID of the location that owns this asset; saving a linked resource or floor-plan desk can replace it with that linked record's location. |
+| `--name` | string, required | Required display name of the physical asset, such as 'Standing Desk #3' or 'HP LaserJet'. |
+| `--description` | string | Optional free-text description of the asset. |
+| `--sku` | string | Optional stock-keeping unit code; when provided, it must be unique within the location. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--value` | decimal | Monetary value of the asset |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--resource-id` | long | ID of the resource linked to this record |
-| `--assign-to-type` | enum, required | Determines what this asset is assigned to: Location (1), Resource (2), or FloorPlanItem (3) |
+| `--value` | decimal | Optional monetary value of the asset in the owning location's currency. |
+| `--floor-plan-desk-id` | long | ID of the floor-plan desk linked to this asset; required when AssignToType is FloorPlanItem and it sets the asset's location from the desk's floor plan. |
+| `--resource-id` | long | ID of the bookable resource linked to this asset; required when AssignToType is Resource and it sets the asset's location to the resource's location. |
+| `--assign-to-type` | enum, required | Determines the asset scope: Location (1) needs no linked resource or desk, Resource (2) requires ResourceId, and FloorPlanItem (3) requires FloorPlanDeskId. |
 
 #### InventoryAsset update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Display name of the asset (e.g. 'Standing Desk #3', 'HP LaserJet') |
-| `--description` | string | Free-text description of the asset |
-| `--sku` | string | Stock-keeping unit code for the asset |
+| `--business-id` | long | ID of the location that owns this asset; saving a linked resource or floor-plan desk can replace it with that linked record's location. |
+| `--name` | string | Required display name of the physical asset, such as 'Standing Desk #3' or 'HP LaserJet'. |
+| `--description` | string | Optional free-text description of the asset. |
+| `--sku` | string | Optional stock-keeping unit code; when provided, it must be unique within the location. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--value` | decimal | Monetary value of the asset |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--resource-id` | long | ID of the resource linked to this record |
-| `--assign-to-type` | enum | Determines what this asset is assigned to: Location (1), Resource (2), or FloorPlanItem (3) |
+| `--value` | decimal | Optional monetary value of the asset in the owning location's currency. |
+| `--floor-plan-desk-id` | long | ID of the floor-plan desk linked to this asset; required when AssignToType is FloorPlanItem and it sets the asset's location from the desk's floor plan. |
+| `--resource-id` | long | ID of the bookable resource linked to this asset; required when AssignToType is Resource and it sets the asset's location to the resource's location. |
+| `--assign-to-type` | enum | Determines the asset scope: Location (1) needs no linked resource or desk, Resource (2) requires ResourceId, and FloorPlanItem (3) requires FloorPlanDeskId. |
 
 #### InventoryAsset PII fields
 

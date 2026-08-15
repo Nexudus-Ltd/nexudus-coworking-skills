@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerInventoryAssets -->
 
-A **CoworkerInventoryAsset** tracks inventory assets — such as chairs, desks, monitors, or other physical items — that have been assigned to a customer.
-
-Each record links a `Coworker` to an `InventoryAsset` at a specific `Business` (location), with an assignment period defined by `AssignedFrom` and optionally `AssignedTo`. If `AssignedTo` is null, the asset is still assigned to the customer.
-
-Read-only fields prefixed with `Coworker*` and `InventoryAsset*` are denormalized from the linked coworker and inventory asset records for convenience when listing or filtering.
+A customer equipment assignment links one customer to one equipment item at a location, with a required start and optional end date; use it for assignment history, planned returns, or notes rather than editing the equipment item's read-only assignment summaries.
 
 CoworkerInventoryAssets support Search, Get, Create, Update, Delete.
 CoworkerInventoryAssets also support entity commands.
@@ -30,14 +26,14 @@ CoworkerInventoryAssets also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--inventory-asset-id` | long | ID of the inventory asset linked to this record |
-| `--notes` | string | Free-text notes about this asset assignment |
-| `--assigned-from` | DateTime | Date the asset was assigned to the customer |
+| `--coworker-id` | long | ID of the customer receiving the equipment item; the customer must be accessible to the current user. |
+| `--business-id` | long | ID of the location where this customer equipment assignment applies. |
+| `--inventory-asset-id` | long | ID of the equipment item assigned to the customer; a customer cannot have more than one active assignment for the same item. |
+| `--notes` | string | Optional internal notes about this customer equipment assignment. |
+| `--assigned-from` | DateTime | Required assignment start date and time; the server rejects the record when it is not supplied. |
 | `--from-assigned-from` | range | |
 | `--to-assigned-from` | range | |
-| `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
+| `--assigned-to` | DateTime | Optional assignment end date and time, which cannot be earlier than AssignedFrom; null keeps the assignment active. |
 | `--from-assigned-to` | range | |
 | `--to-assigned-to` | range | |
 | `--from-created-on` | range | |
@@ -58,23 +54,23 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--inventory-asset-id` | long, required | ID of the inventory asset linked to this record |
-| `--notes` | string | Free-text notes about this asset assignment |
-| `--assigned-from` | DateTime, required | Date the asset was assigned to the customer |
-| `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
+| `--coworker-id` | long, required | ID of the customer receiving the equipment item; the customer must be accessible to the current user. |
+| `--business-id` | long, required | ID of the location where this customer equipment assignment applies. |
+| `--inventory-asset-id` | long, required | ID of the equipment item assigned to the customer; a customer cannot have more than one active assignment for the same item. |
+| `--notes` | string | Optional internal notes about this customer equipment assignment. |
+| `--assigned-from` | DateTime, required | Required assignment start date and time; the server rejects the record when it is not supplied. |
+| `--assigned-to` | DateTime | Optional assignment end date and time, which cannot be earlier than AssignedFrom; null keeps the assignment active. |
 
 #### CoworkerInventoryAsset update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--inventory-asset-id` | long | ID of the inventory asset linked to this record |
-| `--notes` | string | Free-text notes about this asset assignment |
-| `--assigned-from` | DateTime | Date the asset was assigned to the customer |
-| `--assigned-to` | DateTime | Date the asset assignment ends. Null if still assigned |
+| `--coworker-id` | long | ID of the customer receiving the equipment item; the customer must be accessible to the current user. |
+| `--business-id` | long | ID of the location where this customer equipment assignment applies. |
+| `--inventory-asset-id` | long | ID of the equipment item assigned to the customer; a customer cannot have more than one active assignment for the same item. |
+| `--notes` | string | Optional internal notes about this customer equipment assignment. |
+| `--assigned-from` | DateTime | Required assignment start date and time; the server rejects the record when it is not supplied. |
+| `--assigned-to` | DateTime | Optional assignment end date and time, which cannot be earlier than AssignedFrom; null keeps the assignment active. |
 
 #### CoworkerInventoryAsset PII fields
 

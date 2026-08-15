@@ -2,25 +2,23 @@
 
 <!-- BEGIN:GENERATED entity=ProductExtraServices -->
 
-A **ProductExtraService** links an `ExtraService` to a `Product`. The meaning of `UsesIncluded` depends on the type of the linked extra service:
+A ProductExtraService links an ExtraService to a Product. The meaning of UsesIncluded depends on the type of the linked extra service:
 
-- **Booking time** (ExtraService with `IsPrintingCredit = false`) — customers receive an allowance of booking time for the resource type(s) associated with that extra service. For example, a product called "Hot Desk Bundle" might include 2 hours of meeting room usage — achieved by linking a "Meeting Room Hourly" extra service with `--uses-included 120`.
-- **Printing credit** (ExtraService with `IsPrintingCredit = true`) — customers receive a number of print jobs/pages. `UsesIncluded` is the number of printing credits included. The linked extra service must have `ChargePeriod = 5` (Uses) and `Price = 1`.
+- **Booking time** (ExtraService with IsPrintingCredit = false) — customers receive an allowance of booking time for the resource type(s) associated with that extra service. For example, a product called "Hot Desk Bundle" might include 2 hours of meeting room usage — achieved by linking a "Meeting Room Hourly" extra service with UsesIncluded = 120.
+- **Printing credit** (ExtraService with IsPrintingCredit = true) — customers receive a number of print jobs/pages. UsesIncluded is the number of printing credits included. The linked extra service must have ChargePeriod = Uses and Price = 1.
 
-Always check `IsPrintingCredit` on the linked extra service before interpreting `UsesIncluded`.
+**Unit of UsesIncluded:** The unit is determined by the ChargePeriod of the linked ExtraService:
+- Minutes (1): UsesIncluded is in minutes
+- Days (2): UsesIncluded is in days
+- Weeks (3): UsesIncluded is in weeks
+- Months (4): UsesIncluded is in months
+- Uses (5): UsesIncluded is in individual uses (e.g., print credits)
+- FourWeekMonths (6): UsesIncluded is in 4-week periods
 
-For booking-time extra services, the unit of `UsesIncluded` is determined by the **ChargePeriod** of the linked `ExtraService`:
-
-| ExtraService ChargePeriod | UsesIncluded unit |
-| ------------------------- | ----------------- |
-| 1 (Minutes)               | Minutes           |
-| 2 (Days)                  | Days              |
-| 3 (Weeks)                 | Weeks             |
-| 4 (Months)                | Months            |
-| 5 (Uses)                  | Individual uses   |
-| 6 (FourWeekMonths)        | 4-week periods    |
-
-So `--uses-included 60` on a minutes extra service means 60 minutes of booking time included. On a daily extra service it means 60 full days.
+**When is the credit released?** The credit is released as a CoworkerBookingCredit on the customer's account when the product is purchased:
+- **Admin sale (via CoworkerProduct):** An admin can choose to release the credit before payment by setting ActivateNow = true when selling the product.
+- **Member purchase (online, active contract):** Credits are released immediately unless the Store.AlwaysInvoice business setting is enabled, in which case credits release after payment.
+- **Contact purchase (online, no active contract):** Credits are released after the product is paid.
 
 ProductExtraServices support Search, Get, Create, Update, Delete.
 ProductExtraServices also support entity commands.
@@ -45,18 +43,18 @@ ProductExtraServices also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--product-id` | long | ID of the product linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--uses-included` | int | Uses included |
+| `--extra-service-id` | long | ID of the extra service linked to this record. Check IsPrintingCredit to determine if UsesIncluded represents booking time or printing credits. Check ChargePeriod to determine the unit of UsesIncluded (Minutes, Days, Weeks, Months, Uses, or FourWeekMonths) |
+| `--uses-included` | int | Number of uses included. The unit depends on the ChargePeriod of the linked ExtraService: Minutes (1) = minutes of booking time, Days (2) = days, Weeks (3) = weeks, Months (4) = months, Uses (5) = individual uses (e.g., print credits), FourWeekMonths (6) = 4-week periods. For printing credits, the extra service should have ChargePeriod = Uses (5). |
 | `--from-uses-included` | range | |
 | `--to-uses-included` | range | |
-| `--expire-time-in-months` | int | The expire time in months value for this product extra service |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--from-expire-time-in-months` | range | |
 | `--to-expire-time-in-months` | range | |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product extra service |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--from-expire-time-in-weeks` | range | |
 | `--to-expire-time-in-weeks` | range | |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Expires in |
+| `--expiration-type` | enum | Expiration type: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released credit expires |
 | `--from-expires-in` | range | |
 | `--to-expires-in` | range | |
 | `--from-created-on` | range | |
@@ -78,24 +76,24 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | Option | Type | Description |
 | --- | --- | --- |
 | `--product-id` | long, required | ID of the product linked to this record |
-| `--extra-service-id` | long, required | ID of the extra service linked to this record |
-| `--uses-included` | int, required | Uses included |
-| `--expire-time-in-months` | int | The expire time in months value for this product extra service |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product extra service |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Expires in |
+| `--extra-service-id` | long, required | ID of the extra service linked to this record. Check IsPrintingCredit to determine if UsesIncluded represents booking time or printing credits. Check ChargePeriod to determine the unit of UsesIncluded (Minutes, Days, Weeks, Months, Uses, or FourWeekMonths) |
+| `--uses-included` | int, required | Number of uses included. The unit depends on the ChargePeriod of the linked ExtraService: Minutes (1) = minutes of booking time, Days (2) = days, Weeks (3) = weeks, Months (4) = months, Uses (5) = individual uses (e.g., print credits), FourWeekMonths (6) = 4-week periods. For printing credits, the extra service should have ChargePeriod = Uses (5). |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expiration-type` | enum | Expiration type: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released credit expires |
 
 #### ProductExtraService update options
 
 | Option | Type | Description |
 | --- | --- | --- |
 | `--product-id` | long | ID of the product linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--uses-included` | int | Uses included |
-| `--expire-time-in-months` | int | The expire time in months value for this product extra service |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product extra service |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Expires in |
+| `--extra-service-id` | long | ID of the extra service linked to this record. Check IsPrintingCredit to determine if UsesIncluded represents booking time or printing credits. Check ChargePeriod to determine the unit of UsesIncluded (Minutes, Days, Weeks, Months, Uses, or FourWeekMonths) |
+| `--uses-included` | int | Number of uses included. The unit depends on the ChargePeriod of the linked ExtraService: Minutes (1) = minutes of booking time, Days (2) = days, Weeks (3) = weeks, Months (4) = months, Uses (5) = individual uses (e.g., print credits), FourWeekMonths (6) = 4-week periods. For printing credits, the extra service should have ChargePeriod = Uses (5). |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expiration-type` | enum | Expiration type: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released credit expires |
 
 ### ProductExtraService (key fields)
 

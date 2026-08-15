@@ -2,16 +2,14 @@
 
 <!-- BEGIN:GENERATED entity=ProductBookingCredits -->
 
-A **ProductBookingCredit** represents an amount of credit linked to a `Product`. When a customer purchases the product, the credit is automatically released as a `CoworkerBookingCredit` on the customer's account.
+A ProductBookingCredit represents an amount of credit linked to a Product. When a customer purchases the product, the credit is automatically released as a CoworkerBookingCredit on the customer's account.
 
-Credit can be configured for two primary uses:
+**When is the credit released?**
+- **Admin sale (via CoworkerProduct):** An admin can choose to release the credit before payment by setting ActivateNow = true when selling the product.
+- **Member purchase (online, active contract):** Credits are released immediately unless the Store.AlwaysInvoice business setting is enabled, in which case credits release after payment.
+- **Contact purchase (online, no active contract):** Credits are released after the product is paid.
 
-- **Bookings** — set `--can-be-used-for-bookings` to allow the credit to pay for bookings. Use `--elegible-resource-types` to restrict the credit to specific resource types; if left empty the credit is valid for all resource types.
-- **Events** — set `--can-be-used-for-events` to allow the credit to pay for event sign-ups. Use `--event-categories` to restrict to specific event categories; if left empty the credit is valid for all events.
-
-Setting `--is-universal-credit` enables the credit for products, time passes, and other charges. Use `--elegible-products`, `--elegible-passes`, and `--applies-to-charges` to restrict which products or passes the credit is valid for. If all restriction lists are empty the universal credit applies to all products, passes and charges.
-
-Use `--expiration-type` and `--expires-in` to control when the released credit expires.
+Credit can be configured for bookings (with CaneBeUsedForBookings and ElegibleResourceTypes), events (with CaneBeUsedForEvents and EventCategories), or as a universal credit (with IsUniversalCredit) applicable to products, time passes, and other charges. Use ExpirationType and ExpiresIn to control when the released credit expires.
 
 ProductBookingCredits support Search, Get, Create, Update, Delete.
 
@@ -35,23 +33,23 @@ ProductBookingCredits support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--name` | string | Credit name |
 | `--product-id` | long | ID of the product linked to this record |
-| `--credit` | decimal | Credit amount |
+| `--credit` | decimal | Credit amount that will be released to the customer's account as a CoworkerBookingCredit. Release timing depends on purchase method: admin sales can release before payment (ActivateNow), member purchases release immediately (unless Store.AlwaysInvoice is set), and contact purchases release after payment |
 | `--from-credit` | range | |
 | `--to-credit` | range | |
-| `--expire-time-in-months` | int | The expire time in months value for this product booking credit |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--from-expire-time-in-months` | range | |
 | `--to-expire-time-in-months` | range | |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product booking credit |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--from-expire-time-in-weeks` | range | |
 | `--to-expire-time-in-weeks` | range | |
-| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Number of periods (of --expiration-type) until the released credit expires |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with ElegibleResourceTypes |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with EventCategories |
+| `--expiration-type` | enum | Expiration type: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released credit expires |
 | `--from-expires-in` | range | |
 | `--to-expires-in` | range | |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges beyond products and passes |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -72,30 +70,30 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--name` | string, required | Credit name |
 | `--product-id` | long, required | ID of the product linked to this record |
-| `--elegible-resource-types` | list, repeat flag | List of elegible resource types linked to this record |
+| `--elegible-resource-types` | list, repeat flag | List of eligible resource types this credit can be used for. If empty, the credit is valid for all resource types |
 | `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this product booking credit |
 | `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this product booking credit |
-| `--elegible-products` | list, repeat flag | List of elegible products linked to this record |
+| `--elegible-products` | list, repeat flag | List of eligible products this universal credit can be used to purchase. If empty and IsUniversalCredit is true, the credit applies to all products |
 | `--added-elegible-products` | list, repeat flag | The added elegible products value for this product booking credit |
 | `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this product booking credit |
-| `--elegible-tariffs` | list, repeat flag | List of elegible tariffs linked to this record |
+| `--elegible-tariffs` | list, repeat flag | List of eligible tariffs (plans) this credit is valid for |
 | `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this product booking credit |
 | `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this product booking credit |
-| `--credit` | decimal, required | Credit amount |
-| `--expire-time-in-months` | int | The expire time in months value for this product booking credit |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product booking credit |
-| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--credit` | decimal, required | Credit amount that will be released to the customer's account as a CoworkerBookingCredit. Release timing depends on purchase method: admin sales can release before payment (ActivateNow), member purchases release immediately (unless Store.AlwaysInvoice is set), and contact purchases release after payment |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with ElegibleResourceTypes |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with EventCategories |
+| `--event-categories` | list, repeat flag | List of event categories this credit is valid for. If empty and CaneBeUsedForEvents is true, the credit is valid for all events |
 | `--added-event-categories` | list, repeat flag | The added event categories value for this product booking credit |
 | `--removed-event-categories` | list, repeat flag | The removed event categories value for this product booking credit |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Number of periods (of --expiration-type) until the released credit expires |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--elegible-passes` | list, repeat flag | List of elegible passes linked to this record |
+| `--expiration-type` | enum | Expiration type: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released credit expires |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
+| `--elegible-passes` | list, repeat flag | List of eligible time passes this universal credit can be used to purchase. If empty and IsUniversalCredit is true, the credit applies to all passes |
 | `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this product booking credit |
 | `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this product booking credit |
-| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges beyond products and passes |
 
 #### ProductBookingCredit update options
 
@@ -103,30 +101,30 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--name` | string | Credit name |
 | `--product-id` | long | ID of the product linked to this record |
-| `--elegible-resource-types` | list, repeat flag | List of elegible resource types linked to this record |
+| `--elegible-resource-types` | list, repeat flag | List of eligible resource types this credit can be used for. If empty, the credit is valid for all resource types |
 | `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this product booking credit |
 | `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this product booking credit |
-| `--elegible-products` | list, repeat flag | List of elegible products linked to this record |
+| `--elegible-products` | list, repeat flag | List of eligible products this universal credit can be used to purchase. If empty and IsUniversalCredit is true, the credit applies to all products |
 | `--added-elegible-products` | list, repeat flag | The added elegible products value for this product booking credit |
 | `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this product booking credit |
-| `--elegible-tariffs` | list, repeat flag | List of elegible tariffs linked to this record |
+| `--elegible-tariffs` | list, repeat flag | List of eligible tariffs (plans) this credit is valid for |
 | `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this product booking credit |
 | `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this product booking credit |
-| `--credit` | decimal | Credit amount |
-| `--expire-time-in-months` | int | The expire time in months value for this product booking credit |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product booking credit |
-| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--credit` | decimal | Credit amount that will be released to the customer's account as a CoworkerBookingCredit. Release timing depends on purchase method: admin sales can release before payment (ActivateNow), member purchases release immediately (unless Store.AlwaysInvoice is set), and contact purchases release after payment |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with ElegibleResourceTypes |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with EventCategories |
+| `--event-categories` | list, repeat flag | List of event categories this credit is valid for. If empty and CaneBeUsedForEvents is true, the credit is valid for all events |
 | `--added-event-categories` | list, repeat flag | The added event categories value for this product booking credit |
 | `--removed-event-categories` | list, repeat flag | The removed event categories value for this product booking credit |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Number of periods (of --expiration-type) until the released credit expires |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--elegible-passes` | list, repeat flag | List of elegible passes linked to this record |
+| `--expiration-type` | enum | Expiration type: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released credit expires |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
+| `--elegible-passes` | list, repeat flag | List of eligible time passes this universal credit can be used to purchase. If empty and IsUniversalCredit is true, the credit applies to all passes |
 | `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this product booking credit |
 | `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this product booking credit |
-| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--applies-to-charges` | bool | Whether this universal credit applies to other charges beyond products and passes |
 
 ### ProductBookingCredit (key fields)
 

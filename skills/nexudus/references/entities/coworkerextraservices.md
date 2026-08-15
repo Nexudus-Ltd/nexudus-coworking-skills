@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerExtraServices -->
 
-A **CoworkerExtraService** records a charge or credit assigned to a customer. It covers three use cases:
-
-- **Booking charges** — charges associated with bookings (e.g., meeting room usage fees). These are linked to a specific booking via `BookingId` and track the resource, time range, and price.
-- **Time credit** — booking time allowances for specific resource types. Customers can spend these credits when booking resources of the matching type. The unit of credit depends on the `ChargePeriod` of the linked extra service (minutes, days, uses, etc.). `TotalUses` and `RemainingUses` track the allowance.
-- **Printing credit** — credits for printing integrations such as PaperCut or Ezeep. The linked extra service has `IsPrintingCredit = true`. `TotalUses` and `RemainingUses` track the number of print jobs or pages available.
-
-Records can be created manually or added automatically from a plan (tariff). When `IsFromTariff` is `true`, the record was provisioned by a customer's contract (CoworkerContract) and is linked via `CoworkerContractUniqueId`.
+A Customer Time Credit (CoworkerExtraService) records a customer's booking time or printing allowance, or a charge generated for a booking; manual credits are used only for matching booking rates while plan, product, and booking records are managed by their source workflow.
 
 CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
@@ -30,40 +24,29 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--notes` | string | Internal notes |
-| `--total-uses` | int | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
+| `--coworker-id` | long | ID of the customer who owns this time credit or booking charge. |
+| `--business-id` | long | ID of the location that issued this record; it is required and cannot be changed after creation. |
+| `--extra-service-id` | long | ID of the booking rate that defines this record's eligible resource types, currency, and credit type. |
+| `--notes` | string | Optional internal notes about this time credit or booking charge. |
+| `--total-uses` | int | Total credit granted, in the ChargePeriod unit; it must be at least RemainingUses and is set only when creating a manual credit. |
 | `--from-total-uses` | range | |
 | `--to-total-uses` | range | |
-| `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
-| `--price` | decimal | Price charged for this extra service |
+| `--free` | bool | Whether the record has no charge to the customer; when true, calculated price is zero. |
+| `--price` | decimal | Optional monetary amount charged in the booking rate's currency; when omitted, the server calculates it from the rate and TotalUses. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--valid-from` | DateTime | Date from which this credit becomes usable |
+| `--valid-from` | DateTime | Optional UTC date and time when credit becomes usable; blank means it can be used immediately. |
 | `--from-valid-from` | range | |
 | `--to-valid-from` | range | |
-| `--expire-date` | DateTime | Date when this credit expires and can no longer be used |
+| `--expire-date` | DateTime | Optional UTC expiry date and time; blank means no expiry, and when set it must be after ValidFrom and credit is valid only before it. |
 | `--from-expire-date` | range | |
 | `--to-expire-date` | range | |
-| `--due-date` | DateTime | Payment due date for the charge |
+| `--due-date` | DateTime | Optional UTC due date for invoicing this booking charge; blank means it is included on the next invoice. |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
-| `--purchase-order` | string | Purchase order |
-| `--charge-period` | enum | Unit of measurement for time credit (Minutes, Days, Weeks, Months, Uses, FourWeekMonths) |
-| `--invoice-this-coworker` | bool | Invoice the customer directly instead of the team or company paying member |
-| `--booking-id` | int | ID of the booking that generated this charge |
-| `--from-booking-id` | range | |
-| `--to-booking-id` | range | |
-| `--booking-from-time` | DateTime | Start time of the booking that generated this charge |
-| `--from-booking-from-time` | range | |
-| `--to-booking-from-time` | range | |
-| `--booking-to-time` | DateTime | End time of the booking that generated this charge |
-| `--from-booking-to-time` | range | |
-| `--to-booking-to-time` | range | |
-| `--booking-resource-name` | string | Name of the resource booked (e.g., meeting room name) |
-| `--coworker-contract-unique-id` | string | Links this credit back to the customer contract that provisioned it |
+| `--purchase-order` | string | Optional customer purchase-order reference for invoicing. |
+| `--charge-period` | enum | Unit used for TotalUses and RemainingUses: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths. |
+| `--invoice-this-coworker` | bool | Whether to invoice this customer directly rather than their team or company paying customer. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -82,47 +65,37 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--extra-service-id` | long, required | ID of the extra service linked to this record |
-| `--notes` | string | Internal notes |
-| `--total-uses` | int, required | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
-| `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
-| `--price` | decimal | Price charged for this extra service |
-| `--valid-from` | DateTime | Date from which this credit becomes usable |
-| `--expire-date` | DateTime | Date when this credit expires and can no longer be used |
-| `--due-date` | DateTime | Payment due date for the charge |
-| `--purchase-order` | string | Purchase order |
-| `--charge-period` | enum, required | Unit of measurement for time credit (Minutes, Days, Weeks, Months, Uses, FourWeekMonths) |
-| `--invoice-this-coworker` | bool | Invoice the customer directly instead of the team or company paying member |
-| `--booking-id` | int | ID of the booking that generated this charge |
-| `--booking-from-time` | DateTime | Start time of the booking that generated this charge |
-| `--booking-to-time` | DateTime | End time of the booking that generated this charge |
-| `--booking-resource-name` | string | Name of the resource booked (e.g., meeting room name) |
-| `--coworker-contract-unique-id` | string | Links this credit back to the customer contract that provisioned it |
+| `--coworker-id` | long, required | ID of the customer who owns this time credit or booking charge. |
+| `--business-id` | long, required | ID of the location that issued this record; it is required and cannot be changed after creation. |
+| `--extra-service-id` | long, required | ID of the booking rate that defines this record's eligible resource types, currency, and credit type. |
+| `--notes` | string | Optional internal notes about this time credit or booking charge. |
+| `--total-uses` | int, required | Total credit granted, in the ChargePeriod unit; it must be at least RemainingUses and is set only when creating a manual credit. |
+| `--free` | bool | Whether the record has no charge to the customer; when true, calculated price is zero. |
+| `--price` | decimal | Optional monetary amount charged in the booking rate's currency; when omitted, the server calculates it from the rate and TotalUses. |
+| `--valid-from` | DateTime | Optional UTC date and time when credit becomes usable; blank means it can be used immediately. |
+| `--expire-date` | DateTime | Optional UTC expiry date and time; blank means no expiry, and when set it must be after ValidFrom and credit is valid only before it. |
+| `--due-date` | DateTime | Optional UTC due date for invoicing this booking charge; blank means it is included on the next invoice. |
+| `--purchase-order` | string | Optional customer purchase-order reference for invoicing. |
+| `--charge-period` | enum, required | Unit used for TotalUses and RemainingUses: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths. |
+| `--invoice-this-coworker` | bool | Whether to invoice this customer directly rather than their team or company paying customer. |
 
 #### CoworkerExtraService update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--notes` | string | Internal notes |
-| `--total-uses` | int | Total credit originally allocated (time or printing). Unit depends on the ChargePeriod of the linked extra service |
-| `--free` | bool | Whether this charge or credit is free (no cost to the customer) |
-| `--price` | decimal | Price charged for this extra service |
-| `--valid-from` | DateTime | Date from which this credit becomes usable |
-| `--expire-date` | DateTime | Date when this credit expires and can no longer be used |
-| `--due-date` | DateTime | Payment due date for the charge |
-| `--purchase-order` | string | Purchase order |
-| `--charge-period` | enum | Unit of measurement for time credit (Minutes, Days, Weeks, Months, Uses, FourWeekMonths) |
-| `--invoice-this-coworker` | bool | Invoice the customer directly instead of the team or company paying member |
-| `--booking-id` | int | ID of the booking that generated this charge |
-| `--booking-from-time` | DateTime | Start time of the booking that generated this charge |
-| `--booking-to-time` | DateTime | End time of the booking that generated this charge |
-| `--booking-resource-name` | string | Name of the resource booked (e.g., meeting room name) |
-| `--coworker-contract-unique-id` | string | Links this credit back to the customer contract that provisioned it |
+| `--coworker-id` | long | ID of the customer who owns this time credit or booking charge. |
+| `--business-id` | long | ID of the location that issued this record; it is required and cannot be changed after creation. |
+| `--extra-service-id` | long | ID of the booking rate that defines this record's eligible resource types, currency, and credit type. |
+| `--notes` | string | Optional internal notes about this time credit or booking charge. |
+| `--total-uses` | int | Total credit granted, in the ChargePeriod unit; it must be at least RemainingUses and is set only when creating a manual credit. |
+| `--free` | bool | Whether the record has no charge to the customer; when true, calculated price is zero. |
+| `--price` | decimal | Optional monetary amount charged in the booking rate's currency; when omitted, the server calculates it from the rate and TotalUses. |
+| `--valid-from` | DateTime | Optional UTC date and time when credit becomes usable; blank means it can be used immediately. |
+| `--expire-date` | DateTime | Optional UTC expiry date and time; blank means no expiry, and when set it must be after ValidFrom and credit is valid only before it. |
+| `--due-date` | DateTime | Optional UTC due date for invoicing this booking charge; blank means it is included on the next invoice. |
+| `--purchase-order` | string | Optional customer purchase-order reference for invoicing. |
+| `--charge-period` | enum | Unit used for TotalUses and RemainingUses: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths. |
+| `--invoice-this-coworker` | bool | Whether to invoice this customer directly rather than their team or company paying customer. |
 
 #### CoworkerExtraService PII fields
 

@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=BookingVisitors -->
 
-A **BookingVisitor** links a `Visitor` to a `Booking`, representing a guest associated with that booking.
-
-Visitors can only be added to bookings that are associated with a customer (`Booking.CoworkerId` is not null).
-
-When a visitor is added to a booking, they may receive a booking confirmation email and a visitor invite email, depending on the notification settings configured for the location of the booked resource.
+A BookingVisitor links a Visitor to a Booking, representing a guest associated with that booking. Visitors can only be added to bookings that are associated with a customer (Booking.CoworkerId is not null). When a visitor is added to a booking, they may receive a booking confirmation email and a visitor invite email, depending on the notification settings configured for the location of the booked resource.
 
 BookingVisitors support Search, Get, Create, Update, Delete.
 BookingVisitors also support entity commands.
@@ -30,8 +26,8 @@ BookingVisitors also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long | ID of the booking linked to this record |
-| `--visitor-id` | long | ID of the visitor linked to this record |
+| `--booking-id` | long | ID of the booking this visitor is attending. The booking determines this record's location; the visitor email must be unique within the booking and must not match the booking customer's email. |
+| `--visitor-id` | long | ID of the visitor attending the selected booking. The visitor is a location-scoped record; creating or updating the link may update access-control keys for customers with the same email. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -50,15 +46,15 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long, required | ID of the booking linked to this record |
-| `--visitor-id` | long, required | ID of the visitor linked to this record |
+| `--booking-id` | long, required | ID of the booking this visitor is attending. The booking determines this record's location; the visitor email must be unique within the booking and must not match the booking customer's email. |
+| `--visitor-id` | long, required | ID of the visitor attending the selected booking. The visitor is a location-scoped record; creating or updating the link may update access-control keys for customers with the same email. |
 
 #### BookingVisitor update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long | ID of the booking linked to this record |
-| `--visitor-id` | long | ID of the visitor linked to this record |
+| `--booking-id` | long | ID of the booking this visitor is attending. The booking determines this record's location; the visitor email must be unique within the booking and must not match the booking customer's email. |
+| `--visitor-id` | long | ID of the visitor attending the selected booking. The visitor is a location-scoped record; creating or updating the link may update access-control keys for customers with the same email. |
 
 #### BookingVisitor PII fields
 

@@ -163,7 +163,7 @@ Example:
 
 | Option | Valid values |
 | ------ | ------------ |
-| `--contract-contact-type` | `0` None, `1` Director, `2` CompanyAlias, `3` NominatedRecipient |
+| `--contract-contact-type` | `1` Director, `2` CompanyAlias, `3` NominatedRecipient |
 | `--aml-check-status` | `0` NotStarted, `1` Pending, `2` Clear, `3` PotentialMatch, `4` ConfirmedMatch, `5` Error, `6` ManuallyCleared |
 
 <!-- END:GENERATED entity=ContractContacts -->

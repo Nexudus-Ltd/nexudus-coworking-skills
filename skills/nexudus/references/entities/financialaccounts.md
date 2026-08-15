@@ -2,19 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=FinancialAccounts -->
 
-A **FinancialAccount** represents a bookkeeping account used for categorising revenue and payments.
-
-Financial accounts can be assigned to Products, EventProducts, TimePasses, ExtraServices (resource prices), Tariffs and Charges to control how income is tracked and reported.
-
-Each account has a `Code` (typically matching an external accounting system reference), a `Name`, and an `AccountType` that determines where it appears:
-
-| AccountType | Value | Purpose |
-| ----------- | ----- | ------- |
-| Sales       | 1     | Revenue from products, services and bookings |
-| Payments    | 2     | Incoming payment receipts |
-| Deposits    | 3     | Security deposits held against contracts |
-
-**Important:** Changing a financial account's details or reassigning it to different items has no effect on existing invoices. The financial account recorded on each invoice line is captured at the time the invoice is issued and is never updated retroactively.
+A financial account represents a bookkeeping account used for categorising revenue and payments. Financial accounts can be assigned to Products, Event tickets (internally EventProducts), Passes (internall TimePasses), Resoruce rates (internall ExtraService), Plans (internally Tariffs) and Charges to control how income is tracked and reported. Each account has a Code (typically matching an external accounting system reference), a Name, and an type (AccountType) that determines where it appears: | AccountType | Value | Purpose | | ----------- | ----- | ------- | | Sales | 1 | Revenue from products, services and bookings | | Payments | 2 | Incoming payment receipts | | Deposits | 3 | Security deposits held against contracts | Important: Changing a financial account's details or reassigning it to different items has no effect on existing invoices. The financial account recorded on each invoice line is captured at the time the invoice is issued and is never updated retroactively.
 
 FinancialAccounts support Search, Get, Create, Update, Delete.
 
@@ -36,7 +24,7 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
+| `--business-id` | long | ID of the location linked to this record. Financial accounts can be used across locations  |
 | `--name` | string | Display name for this financial account |
 | `--code` | string | Short reference code, typically matching the account code in an external accounting system |
 | `--description` | string | Optional free-text description of the account's purpose |
@@ -59,7 +47,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
+| `--business-id` | long, required | ID of the location linked to this record. Financial accounts can be used across locations  |
 | `--name` | string, required | Display name for this financial account |
 | `--code` | string, required | Short reference code, typically matching the account code in an external accounting system |
 | `--description` | string | Optional free-text description of the account's purpose |
@@ -69,7 +57,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
+| `--business-id` | long | ID of the location linked to this record. Financial accounts can be used across locations  |
 | `--name` | string | Display name for this financial account |
 | `--code` | string | Short reference code, typically matching the account code in an external accounting system |
 | `--description` | string | Optional free-text description of the account's purpose |
@@ -83,6 +71,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Valid values |
 | ------ | ------------ |
-| `--account-type` | `0` None, `1` Sales, `2` Payments, `3` Deposits |
+| `--account-type` | `1` Sales, `2` Payments, `3` Deposits |
 
 <!-- END:GENERATED entity=FinancialAccounts -->

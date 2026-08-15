@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=HelpDeskComments -->
 
-A **HelpDeskComment** represents a reply or internal note on a help desk message (support ticket). Comments track the conversation between staff and customers on a support request.
+A HelpDeskComment is a customer or staff reply, including internal notes, on a support ticket; creating one reopens the ticket and follows its notification rules.
 
 HelpDeskComments support Search, Get, Create, Update, Delete.
 
@@ -24,10 +24,10 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--help-desk-message-id` | long | ID of the help desk message linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--message-text` | string | The message text value for this help desk comment |
-| `--internal` | bool | Whether internal is enabled |
+| `--help-desk-message-id` | long | ID of the support ticket this reply or note belongs to; it determines the owning location and a new comment reopens the ticket. |
+| `--coworker-id` | long | ID of the customer or staff member who authored this comment; the author determines the notification path. |
+| `--message-text` | string | Required multiline text of the customer reply or staff note. |
+| `--internal` | bool | Whether this is an internal staff note; when true it is not sent to the customer. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--from-created-on` | range | |
@@ -48,10 +48,10 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--help-desk-message-id` | long, required | ID of the help desk message linked to this record |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--message-text` | string, required | The message text value for this help desk comment |
-| `--internal` | bool | Whether internal is enabled |
+| `--help-desk-message-id` | long, required | ID of the support ticket this reply or note belongs to; it determines the owning location and a new comment reopens the ticket. |
+| `--coworker-id` | long, required | ID of the customer or staff member who authored this comment; the author determines the notification path. |
+| `--message-text` | string, required | Required multiline text of the customer reply or staff note. |
+| `--internal` | bool | Whether this is an internal staff note; when true it is not sent to the customer. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 
@@ -59,10 +59,10 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--help-desk-message-id` | long | ID of the help desk message linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--message-text` | string | The message text value for this help desk comment |
-| `--internal` | bool | Whether internal is enabled |
+| `--help-desk-message-id` | long | ID of the support ticket this reply or note belongs to; it determines the owning location and a new comment reopens the ticket. |
+| `--coworker-id` | long | ID of the customer or staff member who authored this comment; the author determines the notification path. |
+| `--message-text` | string | Required multiline text of the customer reply or staff note. |
+| `--internal` | bool | Whether this is an internal staff note; when true it is not sent to the customer. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 

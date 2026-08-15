@@ -2,16 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerBookingCredits -->
 
-A **CoworkerBookingCredit** is an amount of monetary credit assigned to a customer. Credits are typically created automatically when a customer's contract on a plan that includes a `TariffBookingCredit` renews, but can also be created manually.
-
-Credit can be configured for two primary uses:
-
-- **Bookings** — set `--cane-be-used-for-bookings` to allow the credit to pay for bookings. Use `--elegible-resource-types` to restrict the credit to specific resource types; if left empty the credit is valid for all resource types.
-- **Events** — set `--cane-be-used-for-events` to allow the credit to pay for event sign-ups. Use `--event-categories` to restrict to specific event categories; if left empty the credit is valid for all events.
-
-Setting `--is-universal-credit` enables the credit for products, time passes, and other charges. Use `--elegible-products`, `--elegible-passes`, and `--applies-to-charges` to restrict which products or passes the credit is valid for. If all restriction lists are empty the universal credit applies to all products, passes and charges.
-
-Use `--valid-from` and `--expire-date` to control the validity window of the credit.
+A booking credit (internally CoworkerBookingCredit) is a monetary balance assigned to a customer that can pay for bookings, event sign-ups, or, when universal credit is enabled, products, plans, passes, and selected one-off charges. It can be created manually or released from a plan or product benefit, and its availability can be limited by eligibility and a validity period.
 
 CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 
@@ -33,24 +24,23 @@ CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the customer this credit is assigned to |
-| `--business-id` | long | ID of the location issuing the credit |
-| `--description` | string | Optional description or label for this credit |
-| `--total-credit` | decimal | Total credit amount originally assigned |
+| `--coworker-id` | long | ID of the customer this booking credit belongs to |
+| `--business-id` | long | ID of the location that issued and owns this booking credit |
+| `--description` | string | Optional operator-facing label or description for this booking credit |
+| `--total-credit` | decimal | Total monetary amount assigned when this credit is created; it sets the initial RemainingCredit |
 | `--from-total-credit` | range | |
 | `--to-total-credit` | range | |
-| `--valid-from` | DateTime | Date from which this credit is valid |
+| `--valid-from` | DateTime | Optional UTC date and time when this credit becomes usable; blank means it is usable immediately |
 | `--from-valid-from` | range | |
 | `--to-valid-from` | range | |
-| `--expire-date` | DateTime | Date on which this credit expires |
+| `--expire-date` | DateTime | Optional UTC date and time when this credit stops being usable; blank means no expiry, and when set it must be later than ValidFrom |
 | `--from-expire-date` | range | |
 | `--to-expire-date` | range | |
-| `--cane-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--cane-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--use-credit-price` | bool | Whether to use the credit price instead of the standard booking price when this credit is applied |
-| `--coworker-contract-unique-id` | string | Unique ID of the contract that originated this credit |
-| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--cane-be-used-for-bookings` | bool | Whether this credit can pay for bookings; use ElegibleResourceTypes to limit eligible resource types |
+| `--cane-be-used-for-events` | bool | Whether this credit can pay for event sign-ups; use EventCategories to limit eligible event categories |
+| `--is-universal-credit` | bool | Whether this credit can pay for products, plans, passes, and eligible charges; use the eligibility lists and AppliesToCharges to restrict those uses |
+| `--coworker-contract-unique-id` | string | Internal unique ID linking this credit to the contract that originated it |
+| `--applies-to-charges` | bool | Whether this universal credit can pay for one-off charges in addition to products, plans, and passes |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -69,65 +59,75 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the customer this credit is assigned to |
-| `--business-id` | long, required | ID of the location issuing the credit |
-| `--description` | string | Optional description or label for this credit |
-| `--elegible-resource-types` | list, repeat flag | Resource types this credit can be used for. If empty, the credit is valid for all resource types |
+| `--coworker-id` | long, required | ID of the customer this booking credit belongs to |
+| `--business-id` | long, required | ID of the location that issued and owns this booking credit |
+| `--description` | string | Optional operator-facing label or description for this booking credit |
+| `--elegible-resource-types` | list, repeat flag | List of resource-type IDs this credit can pay for when CaneBeUsedForBookings is true; an empty list allows every resource type |
 | `--added-elegible-resource-types` | list, repeat flag | Resource type IDs to add to ElegibleResourceTypes |
 | `--removed-elegible-resource-types` | list, repeat flag | Resource type IDs to remove from ElegibleResourceTypes |
-| `--elegible-products` | list, repeat flag | Products this credit can be used for. If empty, applies to all products |
+| `--elegible-products` | list, repeat flag | List of product IDs this universal credit can pay for; when IsUniversalCredit is true, an empty list allows every product |
 | `--added-elegible-products` | list, repeat flag | Product IDs to add to ElegibleProducts |
 | `--removed-elegible-products` | list, repeat flag | Product IDs to remove from ElegibleProducts |
-| `--elegible-tariffs` | list, repeat flag | Plans (tariffs) this credit is restricted to. If empty, applies to customers on any plan |
+| `--elegible-tariffs` | list, repeat flag | List of plan IDs this universal credit can pay for; when IsUniversalCredit is true, an empty list allows every plan |
 | `--added-elegible-tariffs` | list, repeat flag | Plan IDs to add to ElegibleTariffs |
 | `--removed-elegible-tariffs` | list, repeat flag | Plan IDs to remove from ElegibleTariffs |
-| `--total-credit` | decimal, required | Total credit amount originally assigned |
-| `--valid-from` | DateTime | Date from which this credit is valid |
-| `--expire-date` | DateTime | Date on which this credit expires |
-| `--cane-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--cane-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag | Event categories this credit can be used for. If empty, applies to all event categories |
+| `--total-credit` | decimal, required | Total monetary amount assigned when this credit is created; it sets the initial RemainingCredit |
+| `--valid-from` | DateTime | Optional UTC date and time when this credit becomes usable; blank means it is usable immediately |
+| `--expire-date` | DateTime | Optional UTC date and time when this credit stops being usable; blank means no expiry, and when set it must be later than ValidFrom |
+| `--cane-be-used-for-bookings` | bool | Whether this credit can pay for bookings; use ElegibleResourceTypes to limit eligible resource types |
+| `--cane-be-used-for-events` | bool | Whether this credit can pay for event sign-ups; use EventCategories to limit eligible event categories |
+| `--event-categories` | list, repeat flag | List of event-category IDs this credit can pay for when CaneBeUsedForEvents is true; an empty list allows every event category |
 | `--added-event-categories` | list, repeat flag | Event category IDs to add to EventCategories |
 | `--removed-event-categories` | list, repeat flag | Event category IDs to remove from EventCategories |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--use-credit-price` | bool | Whether to use the credit price instead of the standard booking price when this credit is applied |
-| `--coworker-contract-unique-id` | string | Unique ID of the contract that originated this credit |
-| `--elegible-passes` | list, repeat flag | Time passes this credit can be used for. If empty, applies to all passes |
+| `--is-universal-credit` | bool | Whether this credit can pay for products, plans, passes, and eligible charges; use the eligibility lists and AppliesToCharges to restrict those uses |
+| `--coworker-contract-unique-id` | string | Internal unique ID linking this credit to the contract that originated it |
+| `--elegible-passes` | list, repeat flag | List of pass IDs this universal credit can pay for; when IsUniversalCredit is true, an empty list allows every pass |
 | `--added-elegible-passes` | list, repeat flag | Pass IDs to add to ElegiblePasses |
 | `--removed-elegible-passes` | list, repeat flag | Pass IDs to remove from ElegiblePasses |
-| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--applies-to-charges` | bool | Whether this universal credit can pay for one-off charges in addition to products, plans, and passes |
 
 #### CoworkerBookingCredit update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the customer this credit is assigned to |
-| `--business-id` | long | ID of the location issuing the credit |
-| `--description` | string | Optional description or label for this credit |
-| `--elegible-resource-types` | list, repeat flag | Resource types this credit can be used for. If empty, the credit is valid for all resource types |
+| `--coworker-id` | long | ID of the customer this booking credit belongs to |
+| `--business-id` | long | ID of the location that issued and owns this booking credit |
+| `--description` | string | Optional operator-facing label or description for this booking credit |
+| `--elegible-resource-types` | list, repeat flag | List of resource-type IDs this credit can pay for when CaneBeUsedForBookings is true; an empty list allows every resource type |
 | `--added-elegible-resource-types` | list, repeat flag | Resource type IDs to add to ElegibleResourceTypes |
 | `--removed-elegible-resource-types` | list, repeat flag | Resource type IDs to remove from ElegibleResourceTypes |
-| `--elegible-products` | list, repeat flag | Products this credit can be used for. If empty, applies to all products |
+| `--elegible-products` | list, repeat flag | List of product IDs this universal credit can pay for; when IsUniversalCredit is true, an empty list allows every product |
 | `--added-elegible-products` | list, repeat flag | Product IDs to add to ElegibleProducts |
 | `--removed-elegible-products` | list, repeat flag | Product IDs to remove from ElegibleProducts |
-| `--elegible-tariffs` | list, repeat flag | Plans (tariffs) this credit is restricted to. If empty, applies to customers on any plan |
+| `--elegible-tariffs` | list, repeat flag | List of plan IDs this universal credit can pay for; when IsUniversalCredit is true, an empty list allows every plan |
 | `--added-elegible-tariffs` | list, repeat flag | Plan IDs to add to ElegibleTariffs |
 | `--removed-elegible-tariffs` | list, repeat flag | Plan IDs to remove from ElegibleTariffs |
-| `--total-credit` | decimal | Total credit amount originally assigned |
-| `--valid-from` | DateTime | Date from which this credit is valid |
-| `--expire-date` | DateTime | Date on which this credit expires |
-| `--cane-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--cane-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag | Event categories this credit can be used for. If empty, applies to all event categories |
+| `--total-credit` | decimal | Total monetary amount assigned when this credit is created; it sets the initial RemainingCredit |
+| `--valid-from` | DateTime | Optional UTC date and time when this credit becomes usable; blank means it is usable immediately |
+| `--expire-date` | DateTime | Optional UTC date and time when this credit stops being usable; blank means no expiry, and when set it must be later than ValidFrom |
+| `--cane-be-used-for-bookings` | bool | Whether this credit can pay for bookings; use ElegibleResourceTypes to limit eligible resource types |
+| `--cane-be-used-for-events` | bool | Whether this credit can pay for event sign-ups; use EventCategories to limit eligible event categories |
+| `--event-categories` | list, repeat flag | List of event-category IDs this credit can pay for when CaneBeUsedForEvents is true; an empty list allows every event category |
 | `--added-event-categories` | list, repeat flag | Event category IDs to add to EventCategories |
 | `--removed-event-categories` | list, repeat flag | Event category IDs to remove from EventCategories |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--use-credit-price` | bool | Whether to use the credit price instead of the standard booking price when this credit is applied |
-| `--coworker-contract-unique-id` | string | Unique ID of the contract that originated this credit |
-| `--elegible-passes` | list, repeat flag | Time passes this credit can be used for. If empty, applies to all passes |
+| `--is-universal-credit` | bool | Whether this credit can pay for products, plans, passes, and eligible charges; use the eligibility lists and AppliesToCharges to restrict those uses |
+| `--coworker-contract-unique-id` | string | Internal unique ID linking this credit to the contract that originated it |
+| `--elegible-passes` | list, repeat flag | List of pass IDs this universal credit can pay for; when IsUniversalCredit is true, an empty list allows every pass |
 | `--added-elegible-passes` | list, repeat flag | Pass IDs to add to ElegiblePasses |
 | `--removed-elegible-passes` | list, repeat flag | Pass IDs to remove from ElegiblePasses |
-| `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
+| `--applies-to-charges` | bool | Whether this universal credit can pay for one-off charges in addition to products, plans, and passes |
+
+#### CoworkerBookingCredit PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus coworkerbookingcredits update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
 
 ### CoworkerBookingCredit (key fields)
 

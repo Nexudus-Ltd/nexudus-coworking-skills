@@ -2,16 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TariffBookingCredits -->
 
-A **TariffBookingCredit** represents an amount of credit linked to a plan (`Tariff`). When a customer's contract on that plan renews, the credit is automatically released as a `CoworkerBookingCredit` on the customer's account.
-
-Credit can be configured for two primary uses:
-
-- **Bookings** — set `--can-be-used-for-bookings` to allow the credit to pay for bookings. Use `--elegible-resource-types` to restrict the credit to specific resource types; if left empty the credit is valid for all resource types.
-- **Events** — set `--can-be-used-for-events` to allow the credit to pay for event sign-ups. Use `--event-categories` to restrict to specific event categories; if left empty the credit is valid for all events.
-
-Setting `--is-universal-credit` enables the credit for products, time passes, and other charges. Use `--elegible-products`, `--elegible-passes`, and `--applies-to-charges` to restrict which products or passes the credit is valid for. If all restriction lists are empty the universal credit applies to all products, passes and charges.
-
-Use `--service-renewal-time` to control how often the credit is renewed (e.g. weekly, monthly).
+Plan booking credit (internally TariffBookingCredit) represents an amount of monetary credit linked to a plan (internally Tariff). The `Credit` value specifies how much credit is included. The renewal time controls how often the credit expires and the allowance resets.
 
 TariffBookingCredits support Search, Get, Create, Update, Delete.
 
@@ -34,14 +25,14 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | Credit name |
-| `--tariff-id` | long | ID of the tariff linked to this record |
+| `--tariff-id` | long | ID of the plan linked to this record |
 | `--credit` | decimal | Credit amount |
 | `--from-credit` | range | |
 | `--to-credit` | range | |
-| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--service-renewal-time` | enum | Service renewal time period |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types using elegible-resource-types |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with ElegibleResourceTypes |
+| `--service-renewal-time` | enum | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
 | `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -62,25 +53,25 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string, required | Credit name |
-| `--tariff-id` | long, required | ID of the tariff linked to this record |
-| `--elegible-resource-types` | list, repeat flag | List of elegible resource types linked to this record |
+| `--tariff-id` | long, required | ID of the plan linked to this record |
+| `--elegible-resource-types` | list, repeat flag | List of the IDs of the resource types this booking credit can be used for |
 | `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this tariff booking credit |
 | `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this tariff booking credit |
-| `--elegible-products` | list, repeat flag | List of elegible products linked to this record |
+| `--elegible-products` | list, repeat flag | List of the IDs of the products this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-elegible-products` | list, repeat flag | The added elegible products value for this tariff booking credit |
 | `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this tariff booking credit |
-| `--elegible-tariffs` | list, repeat flag | List of elegible tariffs linked to this record |
+| `--elegible-tariffs` | list, repeat flag | List of the IDs of the plans this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this tariff booking credit |
 | `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this tariff booking credit |
 | `--credit` | decimal, required | Credit amount |
-| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types using elegible-resource-types |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with ElegibleResourceTypes |
+| `--event-categories` | list, repeat flag | List of the IDs of the event categories this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-event-categories` | list, repeat flag | The added event categories value for this tariff booking credit |
 | `--removed-event-categories` | list, repeat flag | The removed event categories value for this tariff booking credit |
-| `--service-renewal-time` | enum, required | Service renewal time period |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--elegible-passes` | list, repeat flag | List of elegible passes linked to this record |
+| `--service-renewal-time` | enum, required | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
+| `--elegible-passes` | list, repeat flag | List of the IDs of the passes this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this tariff booking credit |
 | `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this tariff booking credit |
 | `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
@@ -90,25 +81,25 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | Credit name |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--elegible-resource-types` | list, repeat flag | List of elegible resource types linked to this record |
+| `--tariff-id` | long | ID of the plan linked to this record |
+| `--elegible-resource-types` | list, repeat flag | List of the IDs of the resource types this booking credit can be used for |
 | `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this tariff booking credit |
 | `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this tariff booking credit |
-| `--elegible-products` | list, repeat flag | List of elegible products linked to this record |
+| `--elegible-products` | list, repeat flag | List of the IDs of the products this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-elegible-products` | list, repeat flag | The added elegible products value for this tariff booking credit |
 | `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this tariff booking credit |
-| `--elegible-tariffs` | list, repeat flag | List of elegible tariffs linked to this record |
+| `--elegible-tariffs` | list, repeat flag | List of the IDs of the plans this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this tariff booking credit |
 | `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this tariff booking credit |
 | `--credit` | decimal | Credit amount |
-| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with --elegible-resource-types |
-| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with --event-categories |
-| `--event-categories` | list, repeat flag | List of event categories linked to this record |
+| `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types using elegible-resource-types |
+| `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with ElegibleResourceTypes |
+| `--event-categories` | list, repeat flag | List of the IDs of the event categories this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-event-categories` | list, repeat flag | The added event categories value for this tariff booking credit |
 | `--removed-event-categories` | list, repeat flag | The removed event categories value for this tariff booking credit |
-| `--service-renewal-time` | enum | Service renewal time period |
-| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with --elegible-products, --elegible-passes and --applies-to-charges; if all are empty the credit applies to all products, passes and charges |
-| `--elegible-passes` | list, repeat flag | List of elegible passes linked to this record |
+| `--service-renewal-time` | enum | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
+| `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
+| `--elegible-passes` | list, repeat flag | List of the IDs of the passes this booking credit can be used for. Applies only when IsUniversalCredit is true. |
 | `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this tariff booking credit |
 | `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this tariff booking credit |
 | `--applies-to-charges` | bool | Whether this universal credit applies to other charges |

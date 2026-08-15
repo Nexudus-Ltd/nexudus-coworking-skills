@@ -2,10 +2,18 @@
 
 <!-- BEGIN:GENERATED entity=ProductTimePasses -->
 
-A **ProductTimePass** links a `TimePass` to a `Product` so that customers purchasing the product automatically receive an amount of check-in time. The nature of that time depends on the type of the linked `TimePass`:
+A ProductTimePass links a TimePass to a Product so that customers purchasing the product automatically receive an amount of check-in time.
 
-- **Day Pass** (TimePass with `MinutesIncluded` = null) — `PassesIncluded` is the number of calendar days. The customer can check in any number of times during each calendar day they hold.
-- **Time Pass** (TimePass with `MinutesIncluded` set) — `PassesIncluded` is the number of pass instances (each worth `MinutesIncluded` minutes). Multiply `PassesIncluded` by `MinutesIncluded` to get total hours. For example, `PassesIncluded = 10` with a 60-minute time pass gives the customer 10 hours of check-in time to use across different dates.
+**How time is calculated:**
+- **Day Pass** (TimePass with MinutesIncluded = null): PassesIncluded is the number of calendar days. The customer can check in any number of times during each calendar day they hold.
+- **Time Pass** (TimePass with MinutesIncluded set): PassesIncluded is the number of pass instances (each worth MinutesIncluded minutes). Multiply PassesIncluded by MinutesIncluded to get total hours. For example, PassesIncluded = 10 with a 60-minute time pass gives the customer 10 hours of check-in time to use across different dates.
+
+**When is the time pass released?**
+- **Admin sale (via CoworkerProduct):** An admin can choose to release the time pass before payment by setting ActivateNow = true when selling the product.
+- **Member purchase (online, active contract):** Time passes are released immediately unless the Store.AlwaysInvoice business setting is enabled, in which case they release after payment.
+- **Contact purchase (online, no active contract):** Time passes are released after the product is paid.
+
+Use ExpirationType and ExpiresIn to control when the released time pass expires.
 
 ProductTimePasses support Search, Get, Create, Update, Delete.
 
@@ -27,19 +35,19 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long | ID of the product linked to this record |
-| `--time-pass-id` | long | ID of the time pass linked to this record |
-| `--passes-included` | int | Passes included |
+| `--product-id` | long | ID of the product linked to this time pass record |
+| `--time-pass-id` | long | ID of the time pass linked to this record. The type of time pass determines how time is calculated: Day Pass (MinutesIncluded = null) gives calendar days of check-in access; Time Pass (MinutesIncluded set) gives instances worth MinutesIncluded minutes each |
+| `--passes-included` | int | Number of passes included: for Day Passes this is the number of calendar days the customer can check in; for Time Passes this is the number of pass instances (each worth the TimePass's MinutesIncluded minutes). Total time = PassesIncluded × MinutesIncluded for time passes |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |
-| `--expire-time-in-months` | int | The expire time in months value for this product time pass |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--from-expire-time-in-months` | range | |
 | `--to-expire-time-in-months` | range | |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product time pass |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--from-expire-time-in-weeks` | range | |
 | `--to-expire-time-in-weeks` | range | |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Expires in |
+| `--expiration-type` | enum | Expiration type for the released time pass: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released time pass expires |
 | `--from-expires-in` | range | |
 | `--to-expires-in` | range | |
 | `--from-created-on` | range | |
@@ -60,25 +68,25 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long, required | ID of the product linked to this record |
-| `--time-pass-id` | long, required | ID of the time pass linked to this record |
-| `--passes-included` | int, required | Passes included |
-| `--expire-time-in-months` | int | The expire time in months value for this product time pass |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product time pass |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Expires in |
+| `--product-id` | long, required | ID of the product linked to this time pass record |
+| `--time-pass-id` | long, required | ID of the time pass linked to this record. The type of time pass determines how time is calculated: Day Pass (MinutesIncluded = null) gives calendar days of check-in access; Time Pass (MinutesIncluded set) gives instances worth MinutesIncluded minutes each |
+| `--passes-included` | int, required | Number of passes included: for Day Passes this is the number of calendar days the customer can check in; for Time Passes this is the number of pass instances (each worth the TimePass's MinutesIncluded minutes). Total time = PassesIncluded × MinutesIncluded for time passes |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expiration-type` | enum | Expiration type for the released time pass: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released time pass expires |
 
 #### ProductTimePass update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--product-id` | long | ID of the product linked to this record |
-| `--time-pass-id` | long | ID of the time pass linked to this record |
-| `--passes-included` | int | Passes included |
-| `--expire-time-in-months` | int | The expire time in months value for this product time pass |
-| `--expire-time-in-weeks` | int | The expire time in weeks value for this product time pass |
-| `--expiration-type` | enum | Expiration type |
-| `--expires-in` | int | Expires in |
+| `--product-id` | long | ID of the product linked to this time pass record |
+| `--time-pass-id` | long | ID of the time pass linked to this record. The type of time pass determines how time is calculated: Day Pass (MinutesIncluded = null) gives calendar days of check-in access; Time Pass (MinutesIncluded set) gives instances worth MinutesIncluded minutes each |
+| `--passes-included` | int | Number of passes included: for Day Passes this is the number of calendar days the customer can check in; for Time Passes this is the number of pass instances (each worth the TimePass's MinutesIncluded minutes). Total time = PassesIncluded × MinutesIncluded for time passes |
+| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
+| `--expiration-type` | enum | Expiration type for the released time pass: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
+| `--expires-in` | int | Number of periods (of ExpirationType) until the released time pass expires |
 
 ### ProductTimePass (key fields)
 

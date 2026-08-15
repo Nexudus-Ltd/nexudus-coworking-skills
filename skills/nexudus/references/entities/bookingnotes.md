@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=BookingNotes -->
 
-A **BookingNote** is a text note attached to a `Booking`. These notes are visible to customers and are included in booking confirmation messages.
-
-To add notes that customers cannot see, use the `InternalNotes` field on the `Booking` entity instead.
+A BookingNote is an internal staff note attached to a booking. It records booking activity or comments for staff and may be included in connected admin calendar event descriptions; it is not customer-facing.
 
 BookingNotes support Search, Get, Create, Update, Delete.
 BookingNotes also support entity commands.
@@ -28,9 +26,9 @@ BookingNotes also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long | ID of the booking linked to this record |
-| `--added-by` | string | The name of the user who added the note |
-| `--notes` | string | The text content of the note, visible to customers in booking confirmations |
+| `--booking-id` | long | ID of the booking this internal note belongs to. The booking's resource determines this record's location. |
+| `--added-by` | string | Name of the user who created the note, assigned automatically from the current user after creation. |
+| `--notes` | string | Required free-text internal note for the booking; it is visible to staff and included in connected admin calendar event descriptions, not customer-facing booking messages. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -49,17 +47,17 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long, required | ID of the booking linked to this record |
-| `--added-by` | string | The name of the user who added the note |
-| `--notes` | string, required | The text content of the note, visible to customers in booking confirmations |
+| `--booking-id` | long, required | ID of the booking this internal note belongs to. The booking's resource determines this record's location. |
+| `--added-by` | string | Name of the user who created the note, assigned automatically from the current user after creation. |
+| `--notes` | string, required | Required free-text internal note for the booking; it is visible to staff and included in connected admin calendar event descriptions, not customer-facing booking messages. |
 
 #### BookingNote update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--booking-id` | long | ID of the booking linked to this record |
-| `--added-by` | string | The name of the user who added the note |
-| `--notes` | string | The text content of the note, visible to customers in booking confirmations |
+| `--booking-id` | long | ID of the booking this internal note belongs to. The booking's resource determines this record's location. |
+| `--added-by` | string | Name of the user who created the note, assigned automatically from the current user after creation. |
+| `--notes` | string | Required free-text internal note for the booking; it is visible to staff and included in connected admin calendar event descriptions, not customer-facing booking messages. |
 
 #### BookingNote PII fields
 

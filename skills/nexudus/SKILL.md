@@ -417,6 +417,8 @@ Before working with an entity, load its reference file for full details (command
 | ProposalSchedule | `proposalschedules` | list, get, create, update, delete | [proposalschedules.md](./references/entities/proposalschedules.md) |
 | ProposedAction | `proposedactions` | list, get, create, update, delete | [proposedactions.md](./references/entities/proposedactions.md) |
 | RadiusServer | `radiusservers` | list, get, create, update, delete | [radiusservers.md](./references/entities/radiusservers.md) |
+| RecordCreationWorkflow | `recordcreationworkflows` | list, get, create, update, delete | [recordcreationworkflows.md](./references/entities/recordcreationworkflows.md) |
+| RecordCreationWorkflowVersion | `recordcreationworkflowversions` | list, get, create, update, delete | [recordcreationworkflowversions.md](./references/entities/recordcreationworkflowversions.md) |
 | RefreshToken | `refreshtokens` | list, get, create, update, delete | [refreshtokens.md](./references/entities/refreshtokens.md) |
 | RegisteredDevice | `registereddevices` | list, get, update | [registereddevices.md](./references/entities/registereddevices.md) |
 | Reminder | `reminders` | list, get, create, update, delete | [reminders.md](./references/entities/reminders.md) |

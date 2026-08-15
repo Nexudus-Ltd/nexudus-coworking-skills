@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Tariffs -->
 
-A **Tariff** (also called a Plan) is a membership plan that customers can sign up to in exchange for access to a coworking space and other benefits. Tariffs are the foundation for contracts — every time a customer signs up to a plan, Nexudus generates a `CoworkerContract` for that member based on the plan's settings.
-
-Plans define billing frequency (in months or weeks via `InvoiceEvery` / `InvoiceEveryWeeks`), pricing, cancellation rules, and limits on check-ins, booking minutes, visitor passes, and hours. Members are invoiced at the end of each billing cycle. Plans can include benefits such as day passes, booking credits, and money credits — these are configured through `CoworkerExtraService` and `Product` entities linked to the contract.
-
-Use `SystemTariffType` to categorise the plan (e.g. FullTimeHotDesk, VirtualOffice, Storage). Use `Visible` to control whether the plan appears on the members portal. Plans can optionally require identity checks before activation, enforce contract terms, support pausing, and define delivery handling preferences for virtual office mail.
-
-When you edit a plan, changes impact all members signed up to that plan. To customise settings for an individual member, edit their `CoworkerContract` instead.
+A Tariff (also called a Plan) is a membership plan that customers can sign up to in exchange for access to a coworking space and other benefits. Tariffs are the foundation for contracts — every time a customer signs up to a plan, Nexudus generates a CoworkerContract for that member based on the plan's settings. Plans define billing frequency (in months or weeks via InvoiceEvery / InvoiceEveryWeeks), pricing, cancellation rules, and limits on check-ins, booking minutes, visitor passes, and hours. Members are invoiced at the end of each billing cycle. Plans can include benefits such as day passes, booking credits, and money credits — these are configured through CoworkerExtraService and Product entities linked to the contract. Use SystemTariffType to categorise the plan (e.g. FullTimeHotDesk, VirtualOffice, Storage). Use Visible to control whether the plan appears on the members portal. Plans can optionally require identity checks before activation, enforce contract terms, support pausing, and define delivery handling preferences for virtual office mail. When you edit a plan, changes impact all members signed up to that plan. To customise settings for an individual member, edit their CoworkerContract instead.
 
 Tariffs support Search, Get, Create, Update, Delete.
 
@@ -33,10 +27,10 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Plan name |
 | `--system-tariff-type` | enum | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
-| `--price` | decimal | Recurring price charged per billing cycle |
+| `--price` | decimal | Recurring price charged per billing cycle. Can be overriden per contract. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan |
+| `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan. Can be overriden per contract. |
 | `--from-default-invoicing-day` | range | |
 | `--to-default-invoicing-day` | range | |
 | `--visible` | bool | Whether the plan is visible to customers on the members portal and mobile app |
@@ -49,7 +43,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--use-time-passes` | bool | Whether this plan uses time passes for check-in access |
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
-| `--sign-up-fee` | decimal | One-off fee charged when a customer first signs up to this plan |
+| `--sign-up-fee` | decimal | Legacy field. Do not use. Use TariffSignupProducts instead. |
 | `--from-sign-up-fee` | range | |
 | `--to-sign-up-fee` | range | |
 | `--currency-id` | long | ID of the currency linked to this record |
@@ -71,13 +65,13 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--subscribers-limit` | int | Maximum number of members that can be signed up to this plan at any time |
 | `--from-subscribers-limit` | range | |
 | `--to-subscribers-limit` | range | |
-| `--cancellation-limit-days` | int | Minimum number of days a contract must be active before it can be cancelled |
+| `--cancellation-limit-days` | int | Number of days' notice customers must give before they can cancel the contract |
 | `--from-cancellation-limit-days` | range | |
 | `--to-cancellation-limit-days` | range | |
 | `--default-contract-term` | int | Default minimum contract term in months for new sign-ups |
 | `--from-default-contract-term` | range | |
 | `--to-default-contract-term` | range | |
-| `--cancel-member-account-after` | int | Number of days after contract cancellation before the member account is deactivated |
+| `--cancel-member-account-after` | int | Number of days an invoice can be due before the customer's account is automatically suspended (contracts are not cancelled) |
 | `--from-cancel-member-account-after` | range | |
 | `--to-cancel-member-account-after` | range | |
 | `--checkin-price-plan-limit` | int | Maximum number of check-ins included per billing cycle |
@@ -128,7 +122,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--invoice-every-weeks` | int | Billing cycle length in weeks. Set to 0 if billing by months instead |
 | `--from-invoice-every-weeks` | range | |
 | `--to-invoice-every-weeks` | range | |
-| `--auto-cancel-after` | int | Number of days after which the contract is automatically cancelled if not paid |
+| `--auto-cancel-after` | int | Number of billing cycles after which the contract is automatically cancelled |
 | `--from-auto-cancel-after` | range | |
 | `--to-auto-cancel-after` | range | |
 | `--advance-invoice-cycles` | int | Number of billing cycles to invoice in advance |
@@ -161,7 +155,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--archived` | bool | Whether the plan is archived and no longer available for new sign-ups |
 | `--starred` | bool | Whether the plan is starred (highlighted) on the members portal |
 | `--keep-new-accounts-on-hold` | bool | Whether new sign-ups are kept on hold until manually approved |
-| `--can-be-paused` | bool | Whether members can pause their contract on this plan |
+| `--can-be-paused` | bool | Whether members can pause their contract on this plan. A paused member loses member status (no member-only access, policies, or pricing) but other charges besides the plan fee continue billing. |
 | `--pause-yearly-limit` | int | Maximum number of times a contract can be paused per year |
 | `--from-pause-yearly-limit` | range | |
 | `--to-pause-yearly-limit` | range | |
@@ -192,11 +186,11 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--to-aml-check-score-threshold` | range | |
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
-| `--delivery-preferences-mail` | enum | Allowed handling preferences for mail deliveries (virtual office) |
-| `--delivery-preferences-parcels` | enum | Allowed handling preferences for parcel deliveries (virtual office) |
-| `--delivery-preferences-checks` | enum | Allowed handling preferences for check deliveries (virtual office) |
-| `--delivery-preferences-publicity` | enum | Allowed handling preferences for publicity deliveries (virtual office) |
-| `--delivery-preferences-other` | enum | Allowed handling preferences for other deliveries (virtual office) |
+| `--delivery-preferences-mail` | enum | Handling preferences customers on this plan can select for mail deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-parcels` | enum | Handling preferences customers on this plan can select for parcel deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-checks` | enum | Handling preferences customers on this plan can select for check deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-publicity` | enum | Handling preferences customers on this plan can select for publicity deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-other` | enum | Handling preferences customers on this plan can select for other deliveries (virtual office). Only included values are visible to the customer. |
 | `--maximum-delivery-storage-days` | int | Maximum number of days deliveries are stored before being returned (virtual office) |
 | `--from-maximum-delivery-storage-days` | range | |
 | `--to-maximum-delivery-storage-days` | range | |
@@ -231,8 +225,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--business-id` | long, required | ID of the business linked to this record |
 | `--name` | string, required | Plan name |
 | `--system-tariff-type` | enum, required | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
-| `--price` | decimal, required | Recurring price charged per billing cycle |
-| `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan |
+| `--price` | decimal, required | Recurring price charged per billing cycle. Can be overriden per contract. |
+| `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan. Can be overriden per contract. |
 | `--visible` | bool | Whether the plan is visible to customers on the members portal and mobile app |
 | `--available-to-ai` | bool | Whether this plan is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
 | `--notes-for-ai` | string | Custom notes provided to the AI assistant when describing this plan |
@@ -241,7 +235,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--use-time-passes` | bool | Whether this plan uses time passes for check-in access |
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
-| `--sign-up-fee` | decimal | One-off fee charged when a customer first signs up to this plan |
+| `--sign-up-fee` | decimal | Legacy field. Do not use. Use TariffSignupProducts instead. |
 | `--currency-id` | long, required | ID of the currency linked to this record |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
@@ -255,9 +249,9 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--group-name` | string | Group name used to visually group plans together on the members portal |
 | `--disable-portal-cancellations` | bool | Prevents members from cancelling this plan through the members portal |
 | `--subscribers-limit` | int | Maximum number of members that can be signed up to this plan at any time |
-| `--cancellation-limit-days` | int | Minimum number of days a contract must be active before it can be cancelled |
+| `--cancellation-limit-days` | int | Number of days' notice customers must give before they can cancel the contract |
 | `--default-contract-term` | int | Default minimum contract term in months for new sign-ups |
-| `--cancel-member-account-after` | int | Number of days after contract cancellation before the member account is deactivated |
+| `--cancel-member-account-after` | int | Number of days an invoice can be due before the customer's account is automatically suspended (contracts are not cancelled) |
 | `--checkin-price-plan-limit` | int | Maximum number of check-ins included per billing cycle |
 | `--checkin-month-limit` | int | Maximum number of check-ins allowed per month |
 | `--checkin-week-limit` | int | Maximum number of check-ins allowed per week |
@@ -274,7 +268,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--discount-charges` | decimal | Discount percentage for charges |
 | `--invoice-every` | int, required | Billing cycle length in months. Set to 0 if billing by weeks instead |
 | `--invoice-every-weeks` | int, required | Billing cycle length in weeks. Set to 0 if billing by months instead |
-| `--auto-cancel-after` | int | Number of days after which the contract is automatically cancelled if not paid |
+| `--auto-cancel-after` | int | Number of billing cycles after which the contract is automatically cancelled |
 | `--advance-invoice-cycles` | int | Number of billing cycles to invoice in advance |
 | `--prorate-day-of-month` | int | Day of the month used to align billing cycles when prorating |
 | `--prorate-days-before` | int | Number of days before the prorate day to start prorating |
@@ -291,7 +285,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--archived` | bool | Whether the plan is archived and no longer available for new sign-ups |
 | `--starred` | bool | Whether the plan is starred (highlighted) on the members portal |
 | `--keep-new-accounts-on-hold` | bool | Whether new sign-ups are kept on hold until manually approved |
-| `--can-be-paused` | bool | Whether members can pause their contract on this plan |
+| `--can-be-paused` | bool | Whether members can pause their contract on this plan. A paused member loses member status (no member-only access, policies, or pricing) but other charges besides the plan fee continue billing. |
 | `--pause-yearly-limit` | int | Maximum number of times a contract can be paused per year |
 | `--pause-cycles-limit` | int | Maximum number of billing cycles a contract can be paused for |
 | `--booking-due-date-strategy` | enum, required | Strategy for determining when booking charges are due: RenewalDate, BookingEndDate, BookingCreationDate, or NextNthOfMonth |
@@ -338,11 +332,11 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--products-collect` | list, repeat flag | Product IDs for mail collection (virtual office) |
 | `--added-products-collect` | list, repeat flag | The added products collect value for this tariff |
 | `--removed-products-collect` | list, repeat flag | The removed products collect value for this tariff |
-| `--delivery-preferences-mail` | enum, required | Allowed handling preferences for mail deliveries (virtual office) |
-| `--delivery-preferences-parcels` | enum, required | Allowed handling preferences for parcel deliveries (virtual office) |
-| `--delivery-preferences-checks` | enum, required | Allowed handling preferences for check deliveries (virtual office) |
-| `--delivery-preferences-publicity` | enum, required | Allowed handling preferences for publicity deliveries (virtual office) |
-| `--delivery-preferences-other` | enum, required | Allowed handling preferences for other deliveries (virtual office) |
+| `--delivery-preferences-mail` | enum, required | Handling preferences customers on this plan can select for mail deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-parcels` | enum, required | Handling preferences customers on this plan can select for parcel deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-checks` | enum, required | Handling preferences customers on this plan can select for check deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-publicity` | enum, required | Handling preferences customers on this plan can select for publicity deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-other` | enum, required | Handling preferences customers on this plan can select for other deliveries (virtual office). Only included values are visible to the customer. |
 | `--maximum-delivery-storage-days` | int | Maximum number of days deliveries are stored before being returned (virtual office) |
 | `--maximum-company-aliases` | int | Maximum number of company name aliases allowed for mail handling (virtual office) |
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |
@@ -356,8 +350,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Plan name |
 | `--system-tariff-type` | enum | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
-| `--price` | decimal | Recurring price charged per billing cycle |
-| `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan |
+| `--price` | decimal | Recurring price charged per billing cycle. Can be overriden per contract. |
+| `--default-invoicing-day` | int | Day of the month on which invoices are generated for members on this plan. Can be overriden per contract. |
 | `--visible` | bool | Whether the plan is visible to customers on the members portal and mobile app |
 | `--available-to-ai` | bool | Whether this plan is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
 | `--notes-for-ai` | string | Custom notes provided to the AI assistant when describing this plan |
@@ -366,7 +360,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--use-time-passes` | bool | Whether this plan uses time passes for check-in access |
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
-| `--sign-up-fee` | decimal | One-off fee charged when a customer first signs up to this plan |
+| `--sign-up-fee` | decimal | Legacy field. Do not use. Use TariffSignupProducts instead. |
 | `--currency-id` | long | ID of the currency linked to this record |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
@@ -380,9 +374,9 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--group-name` | string | Group name used to visually group plans together on the members portal |
 | `--disable-portal-cancellations` | bool | Prevents members from cancelling this plan through the members portal |
 | `--subscribers-limit` | int | Maximum number of members that can be signed up to this plan at any time |
-| `--cancellation-limit-days` | int | Minimum number of days a contract must be active before it can be cancelled |
+| `--cancellation-limit-days` | int | Number of days' notice customers must give before they can cancel the contract |
 | `--default-contract-term` | int | Default minimum contract term in months for new sign-ups |
-| `--cancel-member-account-after` | int | Number of days after contract cancellation before the member account is deactivated |
+| `--cancel-member-account-after` | int | Number of days an invoice can be due before the customer's account is automatically suspended (contracts are not cancelled) |
 | `--checkin-price-plan-limit` | int | Maximum number of check-ins included per billing cycle |
 | `--checkin-month-limit` | int | Maximum number of check-ins allowed per month |
 | `--checkin-week-limit` | int | Maximum number of check-ins allowed per week |
@@ -399,7 +393,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--discount-charges` | decimal | Discount percentage for charges |
 | `--invoice-every` | int | Billing cycle length in months. Set to 0 if billing by weeks instead |
 | `--invoice-every-weeks` | int | Billing cycle length in weeks. Set to 0 if billing by months instead |
-| `--auto-cancel-after` | int | Number of days after which the contract is automatically cancelled if not paid |
+| `--auto-cancel-after` | int | Number of billing cycles after which the contract is automatically cancelled |
 | `--advance-invoice-cycles` | int | Number of billing cycles to invoice in advance |
 | `--prorate-day-of-month` | int | Day of the month used to align billing cycles when prorating |
 | `--prorate-days-before` | int | Number of days before the prorate day to start prorating |
@@ -416,7 +410,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--archived` | bool | Whether the plan is archived and no longer available for new sign-ups |
 | `--starred` | bool | Whether the plan is starred (highlighted) on the members portal |
 | `--keep-new-accounts-on-hold` | bool | Whether new sign-ups are kept on hold until manually approved |
-| `--can-be-paused` | bool | Whether members can pause their contract on this plan |
+| `--can-be-paused` | bool | Whether members can pause their contract on this plan. A paused member loses member status (no member-only access, policies, or pricing) but other charges besides the plan fee continue billing. |
 | `--pause-yearly-limit` | int | Maximum number of times a contract can be paused per year |
 | `--pause-cycles-limit` | int | Maximum number of billing cycles a contract can be paused for |
 | `--booking-due-date-strategy` | enum | Strategy for determining when booking charges are due: RenewalDate, BookingEndDate, BookingCreationDate, or NextNthOfMonth |
@@ -463,11 +457,11 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--products-collect` | list, repeat flag | Product IDs for mail collection (virtual office) |
 | `--added-products-collect` | list, repeat flag | The added products collect value for this tariff |
 | `--removed-products-collect` | list, repeat flag | The removed products collect value for this tariff |
-| `--delivery-preferences-mail` | enum | Allowed handling preferences for mail deliveries (virtual office) |
-| `--delivery-preferences-parcels` | enum | Allowed handling preferences for parcel deliveries (virtual office) |
-| `--delivery-preferences-checks` | enum | Allowed handling preferences for check deliveries (virtual office) |
-| `--delivery-preferences-publicity` | enum | Allowed handling preferences for publicity deliveries (virtual office) |
-| `--delivery-preferences-other` | enum | Allowed handling preferences for other deliveries (virtual office) |
+| `--delivery-preferences-mail` | enum | Handling preferences customers on this plan can select for mail deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-parcels` | enum | Handling preferences customers on this plan can select for parcel deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-checks` | enum | Handling preferences customers on this plan can select for check deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-publicity` | enum | Handling preferences customers on this plan can select for publicity deliveries (virtual office). Only included values are visible to the customer. |
+| `--delivery-preferences-other` | enum | Handling preferences customers on this plan can select for other deliveries (virtual office). Only included values are visible to the customer. |
 | `--maximum-delivery-storage-days` | int | Maximum number of days deliveries are stored before being returned (virtual office) |
 | `--maximum-company-aliases` | int | Maximum number of company name aliases allowed for mail handling (virtual office) |
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |

@@ -135,8 +135,8 @@ Example:
 
 | Option | Valid values |
 | ------ | ------------ |
-| `--identity-check-provider` | `0` None, `1` Manual, `2` StripeIdentity |
-| `--identity-document-type` | `0` None, `1` Passport, `2` DriversLicense, `3` IdCard, `4` UniformedServiceId, `5` CertificateOfNaturalization, `6` AccessCard, `7` MatriculaConsular, `8` ResidentCard, `9` UniversityId, `10` NEXUSCard, `99` Other |
-| `--address-document-type` | `0` None, `1` Passport, `2` DriversLicense, `3` IdCard, `4` LeaseRentalAgreement, `5` InsurancePolicy, `6` Mortgage, `7` VehicleRegistrationCard, `8` VoterCard, `99` Other |
+| `--identity-check-provider` | `1` Manual, `2` StripeIdentity |
+| `--identity-document-type` | `1` Passport, `2` DriversLicense, `3` IdCard, `4` UniformedServiceId, `5` CertificateOfNaturalization, `6` AccessCard, `7` MatriculaConsular, `8` ResidentCard, `9` UniversityId, `10` NEXUSCard, `99` Other |
+| `--address-document-type` | `1` Passport, `2` DriversLicense, `3` IdCard, `4` LeaseRentalAgreement, `5` InsurancePolicy, `6` Mortgage, `7` VehicleRegistrationCard, `8` VoterCard, `9` BankStatement, `99` Other |
 
 <!-- END:GENERATED entity=CoworkerIdentityChecks -->

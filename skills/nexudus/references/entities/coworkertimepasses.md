@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerTimePasses -->
 
-A **CoworkerTimePass** represents a time pass assigned to a customer. Time passes can be assigned directly, granted by a product purchase (`CoworkerProductUniqueId`), or included in a pricing plan (`TariffTimePassUniqueId`).
-
-Each time pass tracks its usage status (`Used`, `UsedDate`), remaining and total uses, and whether the customer is currently checked in. Time passes may have an expiration date and can be free or priced.
-
-Use `CreateMultiple` when creating to issue several time passes at once. The `IsFromTariff` and `IsPayAsYouGo` flags indicate the origin and billing model of the time pass.
+A customer pass (CoworkerTimePass) is an issued check-in allowance for a customer, tracking its remaining uses, use status, price, expiry, and invoicing status.
 
 CoworkerTimePasses support Search, Get, Create, Update, Delete.
 
@@ -28,25 +24,25 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | The customer who owns this time pass |
-| `--business-id` | long | The business (location) this time pass belongs to |
-| `--time-pass-id` | long | The time pass definition this is an instance of |
-| `--notes` | string | Optional notes for this time pass |
-| `--purchase-order` | string | Purchase order reference |
-| `--used` | bool | Whether this time pass has been used |
-| `--free` | bool | Whether this time pass is free of charge |
-| `--price` | decimal | Custom price for this time pass |
+| `--coworker-id` | long | ID of the customer assigned this pass |
+| `--business-id` | long | ID of the location that owns this pass |
+| `--time-pass-id` | long | ID of the pass definition to issue; it determines the included number of uses and default price |
+| `--notes` | string | Optional internal notes about this issued pass |
+| `--purchase-order` | string | Optional purchase-order reference for this pass |
+| `--used` | bool | Whether the customer has used this pass; update-only operational status |
+| `--free` | bool | Whether no charge is due for this issued pass; when true its calculated price is zero |
+| `--price` | decimal | Optional monetary price override for this issued pass; when omitted, the selected pass calculates the price for the customer |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--create-multiple` | int | Number of time passes to create at once |
+| `--create-multiple` | int | Number of identical passes to issue in this request, including this one; a customer cannot hold more than 500 passes |
 | `--from-create-multiple` | range | |
 | `--to-create-multiple` | range | |
-| `--expire-date` | DateTime | Expiration date for this time pass |
+| `--expire-date` | DateTime | Optional UTC expiration date and time; an expired pass is excluded from access-control updates |
 | `--from-expire-date` | range | |
 | `--to-expire-date` | range | |
-| `--tariff-time-pass-unique-id` | string | Unique identifier linking this time pass to a tariff time pass allocation |
-| `--coworker-product-unique-id` | string | Unique identifier linking this time pass to a customer product purchase |
-| `--coworker-contract-unique-id` | string | Unique identifier linking this time pass to a customer contract |
+| `--tariff-time-pass-unique-id` | string | Internal GUID linking this pass to the plan allocation that created it; do not set or use this field |
+| `--coworker-product-unique-id` | string | Internal GUID linking this pass to the customer product purchase that created it; do not set or use this field |
+| `--coworker-contract-unique-id` | string | Internal GUID linking this pass to the customer contract that created it; do not set or use this field |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -65,36 +61,36 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | The customer who owns this time pass |
-| `--business-id` | long, required | The business (location) this time pass belongs to |
-| `--time-pass-id` | long, required | The time pass definition this is an instance of |
-| `--notes` | string | Optional notes for this time pass |
-| `--purchase-order` | string | Purchase order reference |
-| `--used` | bool | Whether this time pass has been used |
-| `--free` | bool | Whether this time pass is free of charge |
-| `--price` | decimal | Custom price for this time pass |
-| `--create-multiple` | int, required | Number of time passes to create at once |
-| `--expire-date` | DateTime | Expiration date for this time pass |
-| `--tariff-time-pass-unique-id` | string | Unique identifier linking this time pass to a tariff time pass allocation |
-| `--coworker-product-unique-id` | string | Unique identifier linking this time pass to a customer product purchase |
-| `--coworker-contract-unique-id` | string | Unique identifier linking this time pass to a customer contract |
+| `--coworker-id` | long, required | ID of the customer assigned this pass |
+| `--business-id` | long, required | ID of the location that owns this pass |
+| `--time-pass-id` | long, required | ID of the pass definition to issue; it determines the included number of uses and default price |
+| `--notes` | string | Optional internal notes about this issued pass |
+| `--purchase-order` | string | Optional purchase-order reference for this pass |
+| `--used` | bool | Whether the customer has used this pass; update-only operational status |
+| `--free` | bool | Whether no charge is due for this issued pass; when true its calculated price is zero |
+| `--price` | decimal | Optional monetary price override for this issued pass; when omitted, the selected pass calculates the price for the customer |
+| `--create-multiple` | int, required | Number of identical passes to issue in this request, including this one; a customer cannot hold more than 500 passes |
+| `--expire-date` | DateTime | Optional UTC expiration date and time; an expired pass is excluded from access-control updates |
+| `--tariff-time-pass-unique-id` | string | Internal GUID linking this pass to the plan allocation that created it; do not set or use this field |
+| `--coworker-product-unique-id` | string | Internal GUID linking this pass to the customer product purchase that created it; do not set or use this field |
+| `--coworker-contract-unique-id` | string | Internal GUID linking this pass to the customer contract that created it; do not set or use this field |
 
 #### CoworkerTimePass update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | The customer who owns this time pass |
-| `--business-id` | long | The business (location) this time pass belongs to |
-| `--time-pass-id` | long | The time pass definition this is an instance of |
-| `--notes` | string | Optional notes for this time pass |
-| `--purchase-order` | string | Purchase order reference |
-| `--used` | bool | Whether this time pass has been used |
-| `--free` | bool | Whether this time pass is free of charge |
-| `--price` | decimal | Custom price for this time pass |
-| `--expire-date` | DateTime | Expiration date for this time pass |
-| `--tariff-time-pass-unique-id` | string | Unique identifier linking this time pass to a tariff time pass allocation |
-| `--coworker-product-unique-id` | string | Unique identifier linking this time pass to a customer product purchase |
-| `--coworker-contract-unique-id` | string | Unique identifier linking this time pass to a customer contract |
+| `--coworker-id` | long | ID of the customer assigned this pass |
+| `--business-id` | long | ID of the location that owns this pass |
+| `--time-pass-id` | long | ID of the pass definition to issue; it determines the included number of uses and default price |
+| `--notes` | string | Optional internal notes about this issued pass |
+| `--purchase-order` | string | Optional purchase-order reference for this pass |
+| `--used` | bool | Whether the customer has used this pass; update-only operational status |
+| `--free` | bool | Whether no charge is due for this issued pass; when true its calculated price is zero |
+| `--price` | decimal | Optional monetary price override for this issued pass; when omitted, the selected pass calculates the price for the customer |
+| `--expire-date` | DateTime | Optional UTC expiration date and time; an expired pass is excluded from access-control updates |
+| `--tariff-time-pass-unique-id` | string | Internal GUID linking this pass to the plan allocation that created it; do not set or use this field |
+| `--coworker-product-unique-id` | string | Internal GUID linking this pass to the customer product purchase that created it; do not set or use this field |
+| `--coworker-contract-unique-id` | string | Internal GUID linking this pass to the customer contract that created it; do not set or use this field |
 
 #### CoworkerTimePass PII fields
 

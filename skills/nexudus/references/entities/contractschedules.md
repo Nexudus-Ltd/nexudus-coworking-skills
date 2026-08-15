@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ContractSchedules -->
 
-A **ContractSchedule** defines a future price change for a plan contract (`CoworkerContract`). On the date specified by `ApplyOn`, the system automatically updates the contract's price to the value in `Price`.
-
-Schedules allow operators to pre-configure stepped pricing — for example, an introductory rate for the first few months that transitions to a full rate on a known date — without any manual intervention at the time of the change.
-
-Once a schedule has been processed, `Applied` is set to `true` and the record becomes read-only.
+A ContractSchedule defines a future price change for a plan contract (CoworkerContract). On the date specified by ApplyOn, the system automatically updates the contract's price to the value in Price. Schedules allow operators to pre-configure stepped pricing — for example, an introductory rate for the first few months that transitions to a full rate on a known date — without any manual intervention at the time of the change. Once a schedule has been processed, Applied is set to true and the record becomes read-only.
 
 ContractSchedules support Search, Get, Create, Update, Delete.
 

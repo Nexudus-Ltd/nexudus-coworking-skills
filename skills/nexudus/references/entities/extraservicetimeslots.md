@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ExtraServiceTimeSlots -->
 
-An **ExtraServiceTimeSlot** defines the days and times during which an `ExtraService` (resource pricing rule) is available for booking. Each time slot specifies a day of the week and a from/to time window.
-
-The year, month, and day components of `FromTime` and `ToTime` are always `1976-01-01` — only the time-of-day portion is meaningful.
-
-When no time slots are defined for an extra service, the price applies at all times. Adding time slots restricts the price to the specified windows only.
+Time slots define the specific days and time windows when a resource pricing rule is available for booking
 
 ExtraServiceTimeSlots support Search, Get, Create, Update, Delete.
 

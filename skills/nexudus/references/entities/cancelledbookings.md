@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CancelledBookings -->
 
-A **CancelledBooking** is a read-only snapshot of a booking that was removed from the calendar. When a booking is cancelled, the system preserves its details — resource, coworker, time range, price, and cancellation metadata — so they remain available for reporting and auditing.
-
-Cancelled bookings cannot be created or modified through the API; they are generated automatically when an active `Booking` is cancelled. Use `list` and `get` to query cancellation history.
-
-The `CancellationReason` field indicates why the booking was removed. Possible reasons include the customer no longer needing the booking, cost concerns, rebooking for a different time, failure to pay upfront, automated cancellation due to not checking in, and others.
+A cancelled booking is the audit snapshot created when a resource reservation is cancelled, preserving its resource, customer, time, price, and cancellation reason for reporting.
 
 CancelledBookings support Search, Get, Create, Update, Delete.
 
@@ -28,131 +24,131 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long | ID of the resource linked to this record |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--from-time` | DateTime | Booking start time |
+| `--resource-id` | long | ID of the resource that was reserved; it determines the cancelled booking's location. |
+| `--floor-plan-desk-id` | long | Optional ID of the floor-plan unit assigned within the resource when the booking was cancelled. |
+| `--coworker-id` | long | Optional ID of the customer whose booking was cancelled. |
+| `--extra-service-id` | long | Optional ID of the booking rate used when the cancelled booking was priced. |
+| `--from-time` | DateTime | UTC date and time when the cancelled booking began. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
-| `--to-time` | DateTime | Booking end time |
+| `--to-time` | DateTime | UTC date and time when the cancelled booking ended; it is after FromTime. |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--notes` | string | Optional notes or comments about this cancelled booking |
-| `--internal-notes` | string | The internal notes value for this cancelled booking |
-| `--charge-now` | bool | Whether charge now is enabled |
-| `--invoice-now` | bool | Whether invoice now is enabled |
-| `--invoice-this-coworker` | bool | Whether invoice this coworker is enabled |
-| `--do-not-use-booking-credit` | bool | Whether do not use booking credit is enabled |
-| `--purchase-order` | string | The purchase order value for this cancelled booking |
-| `--discount-code` | string | The discount code value for this cancelled booking |
-| `--last-notification-time` | DateTime | Date/time value for last notification time |
+| `--notes` | string | Customer-facing notes retained from the cancelled booking. |
+| `--internal-notes` | string | Internal staff notes retained from the cancelled booking. |
+| `--charge-now` | bool | Whether the original booking was requested to be charged immediately. |
+| `--invoice-now` | bool | Whether the original booking was requested to generate an invoice immediately. |
+| `--invoice-this-coworker` | bool | Whether the selected customer was the billing party for the original booking. |
+| `--do-not-use-booking-credit` | bool | Whether customer booking credit was prevented from being used for the original booking. |
+| `--purchase-order` | string | Customer purchase-order reference retained from the cancelled booking. |
+| `--discount-code` | string | Discount code retained from the cancelled booking. |
+| `--last-notification-time` | DateTime | Internal UTC timestamp maintained for the last booking notification. |
 | `--from-last-notification-time` | range | |
 | `--to-last-notification-time` | range | |
-| `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--google-event-id` | string | ID of the google event associated with this record |
-| `--office365-event-id` | string | ID of the office365 event associated with this record |
-| `--public-google-event-id` | string | ID of the public google event associated with this record |
-| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
-| `--online` | bool | Whether online is enabled |
-| `--teams-at-the-time-of-booking` | string | The teams at the time of booking value for this cancelled booking |
-| `--tariff-at-the-time-of-booking` | string | The tariff at the time of booking value for this cancelled booking |
-| `--repeat-series-unique-id` | string | ID of the repeat series unique associated with this record |
-| `--repeat-booking` | bool | Whether repeat booking is enabled |
-| `--repeats` | enum | The repeats value for this cancelled booking |
-| `--which-bookings-to-update` | enum | Date/time value for which bookings to update |
-| `--repeat-every` | int | The repeat every value for this cancelled booking |
+| `--google-calendar-id` | string | Internal Google Calendar identifier maintained by calendar synchronization. |
+| `--google-event-id` | string | Internal Google Calendar event identifier maintained by calendar synchronization. |
+| `--office365-event-id` | string | Internal Microsoft 365 calendar event identifier maintained by synchronization. |
+| `--public-google-event-id` | string | Internal public Google Calendar event identifier maintained by synchronization. |
+| `--tentative` | bool | Whether the cancelled booking was tentative and awaiting confirmation; tentative bookings still blocked the calendar. |
+| `--online` | bool | Whether the cancelled booking was for an online resource. |
+| `--teams-at-the-time-of-booking` | string | System snapshot of the customer's team memberships when the cancelled booking was made. |
+| `--tariff-at-the-time-of-booking` | string | System snapshot of the customer's plan when the cancelled booking was made. |
+| `--repeat-series-unique-id` | string | System-generated identifier linking bookings from the same recurrence series. |
+| `--repeat-booking` | bool | Whether the cancelled booking was created as part of a recurrence series. |
+| `--repeats` | enum | Recurrence cycle retained from the booking: Daily, Weekly, Monthly, Yearly, FirstOfMonth, SecondOfMonth, ThirdOfMonth, FourthOfMonth, or LastOfMonth. |
+| `--which-bookings-to-update` | enum | Original recurrence action: UpdateThisBookingOnly, UpdateFutureBookingsOnly, UpdateAllBookings, UpdateNotChargedBookings, DeleteAllBookings, DeleteBookingsAfterThis, DeleteNotChargedBookings, or RevertAllCharges. |
+| `--repeat-every` | int | Recurrence interval retained from the booking; for example, 2 with Weekly means every two weeks. |
 | `--from-repeat-every` | range | |
 | `--to-repeat-every` | range | |
-| `--repeat-until` | DateTime | Date/time value for repeat until |
+| `--repeat-until` | DateTime | Final UTC date and time for creating occurrences in the original recurrence series. |
 | `--from-repeat-until` | range | |
 | `--to-repeat-until` | range | |
-| `--repeat-on-mondays` | bool | Whether repeat on mondays is enabled |
-| `--repeat-on-tuesdays` | bool | Whether repeat on tuesdays is enabled |
-| `--repeat-on-wednesdays` | bool | Whether repeat on wednesdays is enabled |
-| `--repeat-on-thursdays` | bool | Whether repeat on thursdays is enabled |
-| `--repeat-on-fridays` | bool | Whether repeat on fridays is enabled |
-| `--repeat-on-saturdays` | bool | Whether repeat on saturdays is enabled |
-| `--repeat-on-sundays` | bool | Whether repeat on sundays is enabled |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--override-price` | decimal | The override price value for this cancelled booking |
+| `--repeat-on-mondays` | bool | Whether the original weekly recurrence included Mondays. |
+| `--repeat-on-tuesdays` | bool | Whether the original weekly recurrence included Tuesdays. |
+| `--repeat-on-wednesdays` | bool | Whether the original weekly recurrence included Wednesdays. |
+| `--repeat-on-thursdays` | bool | Whether the original weekly recurrence included Thursdays. |
+| `--repeat-on-fridays` | bool | Whether the original weekly recurrence included Fridays. |
+| `--repeat-on-saturdays` | bool | Whether the original weekly recurrence included Saturdays. |
+| `--repeat-on-sundays` | bool | Whether the original weekly recurrence included Sundays. |
+| `--reminded` | bool | System flag showing whether the standard booking reminder had been sent. |
+| `--mrm-reminded` | bool | System flag showing whether an MRM reminder had been sent. |
+| `--override-price` | decimal | Optional total price override retained from the original booking, before normal rate calculation. |
 | `--from-override-price` | range | |
 | `--to-override-price` | range | |
-| `--invoiced` | bool | Whether the booking had been charged. When true, a charge (CoworkerExtraService) had been posted to the customer account |
-| `--invoice-date` | DateTime | Date/time value for invoice date |
+| `--invoiced` | bool | Whether a charge was posted to the customer account for the original booking; it does not indicate invoice status. |
+| `--invoice-date` | DateTime | UTC date and time when the original booking was charged. |
 | `--from-invoice-date` | range | |
 | `--to-invoice-date` | range | |
-| `--booking-number` | int | The booking number value for this cancelled booking |
+| `--booking-number` | int | System-generated reference number retained from the original booking. |
 | `--from-booking-number` | range | |
 | `--to-booking-number` | range | |
-| `--kisi-key-id` | int | ID of the kisi key associated with this record |
+| `--kisi-key-id` | int | Internal Kisi access-control key identifier retained from the original booking. |
 | `--from-kisi-key-id` | range | |
 | `--to-kisi-key-id` | range | |
-| `--start-scheduled-job-id` | string | ID of the start scheduled job associated with this record |
-| `--end-scheduled-job-id` | string | ID of the end scheduled job associated with this record |
-| `--billed` | bool | Whether billed is enabled |
-| `--from-time-local` | DateTime | Date/time value for from time local |
+| `--start-scheduled-job-id` | string | Internal scheduled-job identifier for the original booking start. |
+| `--end-scheduled-job-id` | string | Internal scheduled-job identifier for the original booking end. |
+| `--billed` | bool | Internal billing-processing state retained from the original booking. |
+| `--from-time-local` | DateTime | System-maintained local-time representation of FromTime. |
 | `--from-from-time-local` | range | |
 | `--to-from-time-local` | range | |
-| `--to-time-local` | DateTime | Date/time value for to time local |
+| `--to-time-local` | DateTime | System-maintained local-time representation of ToTime. |
 | `--from-to-time-local` | range | |
 | `--to-to-time-local` | range | |
-| `--invoice-date-local` | DateTime | Date/time value for invoice date local |
+| `--invoice-date-local` | DateTime | System-maintained local-time representation of InvoiceDate. |
 | `--from-invoice-date-local` | range | |
 | `--to-invoice-date-local` | range | |
-| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
+| `--coworker-invoice-id` | int | ID of the invoice associated with the original booking; manage it through the invoice entity. |
 | `--from-coworker-invoice-id` | range | |
 | `--to-coworker-invoice-id` | range | |
-| `--coworker-invoice-number` | string | The coworker invoice number value for this cancelled booking |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
-| `--coworker-invoice-draft` | bool | Whether coworker invoice draft is enabled |
-| `--coworker-invoice-void` | bool | Whether coworker invoice void is enabled |
-| `--coworker-invoice-credit-note` | bool | Whether coworker invoice credit note is enabled |
-| `--coworker-extra-service-ids` | string | The coworker extra service ids value for this cancelled booking |
-| `--coworker-extra-service-price` | decimal | The coworker extra service price value for this cancelled booking |
+| `--coworker-invoice-number` | string | Invoice number associated with the original booking, when it was included in an invoice. |
+| `--coworker-invoice-paid` | bool | Whether the invoice associated with the original booking has been paid. |
+| `--coworker-invoice-draft` | bool | Whether the invoice associated with the original booking is a draft. |
+| `--coworker-invoice-void` | bool | Whether the invoice associated with the original booking has been voided. |
+| `--coworker-invoice-credit-note` | bool | Whether the invoice associated with the original booking is a credit note. |
+| `--coworker-extra-service-ids` | string | Internal serialized identifiers of customer rate entitlements used by the original booking. |
+| `--coworker-extra-service-price` | decimal | System-calculated price from the customer's applicable booking rate entitlement. |
 | `--from-coworker-extra-service-price` | range | |
 | `--to-coworker-extra-service-price` | range | |
-| `--coworker-extra-service-currency-code` | string | The coworker extra service currency code value for this cancelled booking |
-| `--coworker-extra-service-charge-period` | int | The coworker extra service charge period value for this cancelled booking |
+| `--coworker-extra-service-currency-code` | string | System-calculated currency code for the customer rate entitlement used by the original booking. |
+| `--coworker-extra-service-charge-period` | int | System-calculated charge-period setting for the customer rate entitlement used by the original booking. |
 | `--from-coworker-extra-service-charge-period` | range | |
 | `--to-coworker-extra-service-charge-period` | range | |
-| `--coworker-extra-service-total-uses` | int | The coworker extra service total uses value for this cancelled booking |
+| `--coworker-extra-service-total-uses` | int | System-calculated number of customer rate uses consumed or available for the original booking. |
 | `--from-coworker-extra-service-total-uses` | range | |
 | `--to-coworker-extra-service-total-uses` | range | |
-| `--include-zoom-invite` | bool | Whether include zoom invite is enabled |
-| `--zoom-event-data` | string | The zoom event data value for this cancelled booking |
-| `--checked-in-at` | DateTime | Date/time value for checked in at |
+| `--include-zoom-invite` | bool | Whether the original booking included a Zoom meeting invitation. |
+| `--zoom-event-data` | string | Internal Zoom event payload maintained by the integration. |
+| `--checked-in-at` | DateTime | UTC date and time when the original booking was checked in through the booking workflow. |
 | `--from-checked-in-at` | range | |
 | `--to-checked-in-at` | range | |
-| `--cancel-if-not-paid` | bool | Whether cancel if not paid is enabled |
-| `--cancel-if-not-checked-in` | bool | Whether cancel if not checked in is enabled |
-| `--max-occupancy` | int | The max occupancy value for this cancelled booking |
+| `--cancel-if-not-paid` | bool | Whether the resource policy cancelled the booking when payment was not received. |
+| `--cancel-if-not-checked-in` | bool | Whether the resource policy cancelled the booking when no check-in occurred. |
+| `--max-occupancy` | int | Maximum occupancy detected by sensors in the resource during the original booking. |
 | `--from-max-occupancy` | range | |
 | `--to-max-occupancy` | range | |
-| `--last-minute-price-adjustment` | decimal | The last minute price adjustment value for this cancelled booking |
+| `--last-minute-price-adjustment` | decimal | System-calculated monetary dynamic-pricing adjustment applied for a last-minute booking. |
 | `--from-last-minute-price-adjustment` | range | |
 | `--to-last-minute-price-adjustment` | range | |
-| `--dynamic-price-adjustment` | decimal | The dynamic price adjustment value for this cancelled booking |
+| `--dynamic-price-adjustment` | decimal | System-calculated monetary adjustment from dynamic-pricing settings for the resource or location. |
 | `--from-dynamic-price-adjustment` | range | |
 | `--to-dynamic-price-adjustment` | range | |
-| `--price-factor-last-minute` | decimal | The price factor last minute value for this cancelled booking |
+| `--price-factor-last-minute` | decimal | System-calculated multiplier used for the last-minute dynamic-pricing adjustment. |
 | `--from-price-factor-last-minute` | range | |
 | `--to-price-factor-last-minute` | range | |
-| `--price-factor-demand` | decimal | The price factor demand value for this cancelled booking |
+| `--price-factor-demand` | decimal | System-calculated multiplier used for demand-based dynamic pricing. |
 | `--from-price-factor-demand` | range | |
 | `--to-price-factor-demand` | range | |
-| `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
-| `--cancellation-reason` | enum | Reason the booking was cancelled, e.g. NoLongerNeeded, TooExpensive, or NotCheckedIn |
-| `--cancelled-on` | DateTime | Date and time when the booking was cancelled |
+| `--office365-admin-event-id` | string | Internal Microsoft 365 administrator calendar event identifier maintained by synchronization. |
+| `--cancellation-reason` | enum | Reason the booking was cancelled: Unknown, NoLongerNeeded, TooExpensive, BadPreviousExperience, RebookedForADifferentTime, FailedToPayUpfront, Integration, Other, NotCheckedIn, or MarketPlace. |
+| `--cancelled-on` | DateTime | UTC date and time when the booking was cancelled. |
 | `--from-cancelled-on` | range | |
 | `--to-cancelled-on` | range | |
-| `--cancelled-by` | string | Name or identifier of the user who cancelled the booking |
-| `--cancellation-reason-details` | string | Additional free-text details explaining the cancellation reason |
-| `--price` | decimal | Booking price |
+| `--cancelled-by` | string | Name or identifier supplied by the user or process that cancelled the booking. |
+| `--cancellation-reason-details` | string | Optional free-text details explaining the cancellation reason, up to 255 characters. |
+| `--price` | decimal | Final calculated price of the booking at cancellation, including the system's booking cost calculation. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--original-booking-id` | string | ID of the original booking associated with this record |
+| `--original-booking-id` | string | GUID of the original booking from which this cancellation record was created. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -171,92 +167,92 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--resource-id` | long, required | ID of the resource linked to this record |
-| `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--from-time` | DateTime, required | Booking start time |
-| `--to-time` | DateTime, required | Booking end time |
-| `--notes` | string | Optional notes or comments about this cancelled booking |
-| `--internal-notes` | string | The internal notes value for this cancelled booking |
-| `--charge-now` | bool | Whether charge now is enabled |
-| `--invoice-now` | bool | Whether invoice now is enabled |
-| `--invoice-this-coworker` | bool | Whether invoice this coworker is enabled |
-| `--do-not-use-booking-credit` | bool | Whether do not use booking credit is enabled |
-| `--purchase-order` | string | The purchase order value for this cancelled booking |
-| `--discount-code` | string | The discount code value for this cancelled booking |
-| `--last-notification-time` | DateTime | Date/time value for last notification time |
-| `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--google-event-id` | string | ID of the google event associated with this record |
-| `--office365-event-id` | string | ID of the office365 event associated with this record |
-| `--public-google-event-id` | string | ID of the public google event associated with this record |
-| `--tentative` | bool | Tentative booking. Must be approved by an administrator before confirmed or charged. Tentative bookings still block the calendar |
-| `--online` | bool | Whether online is enabled |
-| `--teams-at-the-time-of-booking` | string | The teams at the time of booking value for this cancelled booking |
-| `--tariff-at-the-time-of-booking` | string | The tariff at the time of booking value for this cancelled booking |
-| `--repeat-series-unique-id` | string | ID of the repeat series unique associated with this record |
-| `--repeat-booking` | bool | Whether repeat booking is enabled |
-| `--repeats` | enum, required | The repeats value for this cancelled booking |
-| `--which-bookings-to-update` | enum, required | Date/time value for which bookings to update |
-| `--repeat-every` | int | The repeat every value for this cancelled booking |
-| `--repeat-until` | DateTime | Date/time value for repeat until |
-| `--repeat-on-mondays` | bool | Whether repeat on mondays is enabled |
-| `--repeat-on-tuesdays` | bool | Whether repeat on tuesdays is enabled |
-| `--repeat-on-wednesdays` | bool | Whether repeat on wednesdays is enabled |
-| `--repeat-on-thursdays` | bool | Whether repeat on thursdays is enabled |
-| `--repeat-on-fridays` | bool | Whether repeat on fridays is enabled |
-| `--repeat-on-saturdays` | bool | Whether repeat on saturdays is enabled |
-| `--repeat-on-sundays` | bool | Whether repeat on sundays is enabled |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
-| `--override-price` | decimal | The override price value for this cancelled booking |
-| `--invoiced` | bool | Whether the booking had been charged. When true, a charge (CoworkerExtraService) had been posted to the customer account |
-| `--invoice-date` | DateTime | Date/time value for invoice date |
-| `--booking-number` | int | The booking number value for this cancelled booking |
-| `--kisi-key-id` | int | ID of the kisi key associated with this record |
-| `--start-scheduled-job-id` | string | ID of the start scheduled job associated with this record |
-| `--end-scheduled-job-id` | string | ID of the end scheduled job associated with this record |
-| `--billed` | bool | Whether billed is enabled |
-| `--from-time-local` | DateTime | Date/time value for from time local |
-| `--to-time-local` | DateTime | Date/time value for to time local |
-| `--invoice-date-local` | DateTime | Date/time value for invoice date local |
-| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
-| `--coworker-invoice-number` | string | The coworker invoice number value for this cancelled booking |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
-| `--coworker-invoice-draft` | bool | Whether coworker invoice draft is enabled |
-| `--coworker-invoice-void` | bool | Whether coworker invoice void is enabled |
-| `--coworker-invoice-credit-note` | bool | Whether coworker invoice credit note is enabled |
-| `--coworker-extra-service-ids` | string | The coworker extra service ids value for this cancelled booking |
-| `--coworker-extra-service-price` | decimal | The coworker extra service price value for this cancelled booking |
-| `--coworker-extra-service-currency-code` | string | The coworker extra service currency code value for this cancelled booking |
-| `--coworker-extra-service-charge-period` | int | The coworker extra service charge period value for this cancelled booking |
-| `--coworker-extra-service-total-uses` | int | The coworker extra service total uses value for this cancelled booking |
-| `--include-zoom-invite` | bool | Whether include zoom invite is enabled |
-| `--zoom-event-data` | string | The zoom event data value for this cancelled booking |
-| `--checked-in-at` | DateTime | Date/time value for checked in at |
-| `--cancel-if-not-paid` | bool | Whether cancel if not paid is enabled |
-| `--cancel-if-not-checked-in` | bool | Whether cancel if not checked in is enabled |
-| `--max-occupancy` | int | The max occupancy value for this cancelled booking |
-| `--last-minute-price-adjustment` | decimal | The last minute price adjustment value for this cancelled booking |
-| `--dynamic-price-adjustment` | decimal | The dynamic price adjustment value for this cancelled booking |
-| `--price-factor-last-minute` | decimal | The price factor last minute value for this cancelled booking |
-| `--price-factor-demand` | decimal | The price factor demand value for this cancelled booking |
-| `--office365-admin-event-id` | string | ID of the office365 admin event associated with this record |
-| `--cancellation-reason` | enum | Reason the booking was cancelled, e.g. NoLongerNeeded, TooExpensive, or NotCheckedIn |
-| `--cancelled-on` | DateTime, required | Date and time when the booking was cancelled |
-| `--cancelled-by` | string | Name or identifier of the user who cancelled the booking |
-| `--cancellation-reason-details` | string | Additional free-text details explaining the cancellation reason |
-| `--price` | decimal | Booking price |
-| `--original-booking-id` | string | ID of the original booking associated with this record |
+| `--resource-id` | long, required | ID of the resource that was reserved; it determines the cancelled booking's location. |
+| `--floor-plan-desk-id` | long | Optional ID of the floor-plan unit assigned within the resource when the booking was cancelled. |
+| `--coworker-id` | long | Optional ID of the customer whose booking was cancelled. |
+| `--extra-service-id` | long | Optional ID of the booking rate used when the cancelled booking was priced. |
+| `--from-time` | DateTime, required | UTC date and time when the cancelled booking began. |
+| `--to-time` | DateTime, required | UTC date and time when the cancelled booking ended; it is after FromTime. |
+| `--notes` | string | Customer-facing notes retained from the cancelled booking. |
+| `--internal-notes` | string | Internal staff notes retained from the cancelled booking. |
+| `--charge-now` | bool | Whether the original booking was requested to be charged immediately. |
+| `--invoice-now` | bool | Whether the original booking was requested to generate an invoice immediately. |
+| `--invoice-this-coworker` | bool | Whether the selected customer was the billing party for the original booking. |
+| `--do-not-use-booking-credit` | bool | Whether customer booking credit was prevented from being used for the original booking. |
+| `--purchase-order` | string | Customer purchase-order reference retained from the cancelled booking. |
+| `--discount-code` | string | Discount code retained from the cancelled booking. |
+| `--last-notification-time` | DateTime | Internal UTC timestamp maintained for the last booking notification. |
+| `--google-calendar-id` | string | Internal Google Calendar identifier maintained by calendar synchronization. |
+| `--google-event-id` | string | Internal Google Calendar event identifier maintained by calendar synchronization. |
+| `--office365-event-id` | string | Internal Microsoft 365 calendar event identifier maintained by synchronization. |
+| `--public-google-event-id` | string | Internal public Google Calendar event identifier maintained by synchronization. |
+| `--tentative` | bool | Whether the cancelled booking was tentative and awaiting confirmation; tentative bookings still blocked the calendar. |
+| `--online` | bool | Whether the cancelled booking was for an online resource. |
+| `--teams-at-the-time-of-booking` | string | System snapshot of the customer's team memberships when the cancelled booking was made. |
+| `--tariff-at-the-time-of-booking` | string | System snapshot of the customer's plan when the cancelled booking was made. |
+| `--repeat-series-unique-id` | string | System-generated identifier linking bookings from the same recurrence series. |
+| `--repeat-booking` | bool | Whether the cancelled booking was created as part of a recurrence series. |
+| `--repeats` | enum, required | Recurrence cycle retained from the booking: Daily, Weekly, Monthly, Yearly, FirstOfMonth, SecondOfMonth, ThirdOfMonth, FourthOfMonth, or LastOfMonth. |
+| `--which-bookings-to-update` | enum, required | Original recurrence action: UpdateThisBookingOnly, UpdateFutureBookingsOnly, UpdateAllBookings, UpdateNotChargedBookings, DeleteAllBookings, DeleteBookingsAfterThis, DeleteNotChargedBookings, or RevertAllCharges. |
+| `--repeat-every` | int | Recurrence interval retained from the booking; for example, 2 with Weekly means every two weeks. |
+| `--repeat-until` | DateTime | Final UTC date and time for creating occurrences in the original recurrence series. |
+| `--repeat-on-mondays` | bool | Whether the original weekly recurrence included Mondays. |
+| `--repeat-on-tuesdays` | bool | Whether the original weekly recurrence included Tuesdays. |
+| `--repeat-on-wednesdays` | bool | Whether the original weekly recurrence included Wednesdays. |
+| `--repeat-on-thursdays` | bool | Whether the original weekly recurrence included Thursdays. |
+| `--repeat-on-fridays` | bool | Whether the original weekly recurrence included Fridays. |
+| `--repeat-on-saturdays` | bool | Whether the original weekly recurrence included Saturdays. |
+| `--repeat-on-sundays` | bool | Whether the original weekly recurrence included Sundays. |
+| `--reminded` | bool | System flag showing whether the standard booking reminder had been sent. |
+| `--mrm-reminded` | bool | System flag showing whether an MRM reminder had been sent. |
+| `--override-price` | decimal | Optional total price override retained from the original booking, before normal rate calculation. |
+| `--invoiced` | bool | Whether a charge was posted to the customer account for the original booking; it does not indicate invoice status. |
+| `--invoice-date` | DateTime | UTC date and time when the original booking was charged. |
+| `--booking-number` | int | System-generated reference number retained from the original booking. |
+| `--kisi-key-id` | int | Internal Kisi access-control key identifier retained from the original booking. |
+| `--start-scheduled-job-id` | string | Internal scheduled-job identifier for the original booking start. |
+| `--end-scheduled-job-id` | string | Internal scheduled-job identifier for the original booking end. |
+| `--billed` | bool | Internal billing-processing state retained from the original booking. |
+| `--from-time-local` | DateTime | System-maintained local-time representation of FromTime. |
+| `--to-time-local` | DateTime | System-maintained local-time representation of ToTime. |
+| `--invoice-date-local` | DateTime | System-maintained local-time representation of InvoiceDate. |
+| `--coworker-invoice-id` | int | ID of the invoice associated with the original booking; manage it through the invoice entity. |
+| `--coworker-invoice-number` | string | Invoice number associated with the original booking, when it was included in an invoice. |
+| `--coworker-invoice-paid` | bool | Whether the invoice associated with the original booking has been paid. |
+| `--coworker-invoice-draft` | bool | Whether the invoice associated with the original booking is a draft. |
+| `--coworker-invoice-void` | bool | Whether the invoice associated with the original booking has been voided. |
+| `--coworker-invoice-credit-note` | bool | Whether the invoice associated with the original booking is a credit note. |
+| `--coworker-extra-service-ids` | string | Internal serialized identifiers of customer rate entitlements used by the original booking. |
+| `--coworker-extra-service-price` | decimal | System-calculated price from the customer's applicable booking rate entitlement. |
+| `--coworker-extra-service-currency-code` | string | System-calculated currency code for the customer rate entitlement used by the original booking. |
+| `--coworker-extra-service-charge-period` | int | System-calculated charge-period setting for the customer rate entitlement used by the original booking. |
+| `--coworker-extra-service-total-uses` | int | System-calculated number of customer rate uses consumed or available for the original booking. |
+| `--include-zoom-invite` | bool | Whether the original booking included a Zoom meeting invitation. |
+| `--zoom-event-data` | string | Internal Zoom event payload maintained by the integration. |
+| `--checked-in-at` | DateTime | UTC date and time when the original booking was checked in through the booking workflow. |
+| `--cancel-if-not-paid` | bool | Whether the resource policy cancelled the booking when payment was not received. |
+| `--cancel-if-not-checked-in` | bool | Whether the resource policy cancelled the booking when no check-in occurred. |
+| `--max-occupancy` | int | Maximum occupancy detected by sensors in the resource during the original booking. |
+| `--last-minute-price-adjustment` | decimal | System-calculated monetary dynamic-pricing adjustment applied for a last-minute booking. |
+| `--dynamic-price-adjustment` | decimal | System-calculated monetary adjustment from dynamic-pricing settings for the resource or location. |
+| `--price-factor-last-minute` | decimal | System-calculated multiplier used for the last-minute dynamic-pricing adjustment. |
+| `--price-factor-demand` | decimal | System-calculated multiplier used for demand-based dynamic pricing. |
+| `--office365-admin-event-id` | string | Internal Microsoft 365 administrator calendar event identifier maintained by synchronization. |
+| `--cancellation-reason` | enum | Reason the booking was cancelled: Unknown, NoLongerNeeded, TooExpensive, BadPreviousExperience, RebookedForADifferentTime, FailedToPayUpfront, Integration, Other, NotCheckedIn, or MarketPlace. |
+| `--cancelled-on` | DateTime, required | UTC date and time when the booking was cancelled. |
+| `--cancelled-by` | string | Name or identifier supplied by the user or process that cancelled the booking. |
+| `--cancellation-reason-details` | string | Optional free-text details explaining the cancellation reason, up to 255 characters. |
+| `--price` | decimal | Final calculated price of the booking at cancellation, including the system's booking cost calculation. |
+| `--original-booking-id` | string | GUID of the original booking from which this cancellation record was created. |
 
 #### CancelledBooking update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--start-scheduled-job-id` | string | ID of the start scheduled job associated with this record |
-| `--cancellation-reason` | enum | Reason the booking was cancelled, e.g. NoLongerNeeded, TooExpensive, or NotCheckedIn |
-| `--cancelled-on` | DateTime | Date and time when the booking was cancelled |
-| `--cancelled-by` | string | Name or identifier of the user who cancelled the booking |
+| `--start-scheduled-job-id` | string | Internal scheduled-job identifier for the original booking start. |
+| `--cancellation-reason` | enum | Reason the booking was cancelled: Unknown, NoLongerNeeded, TooExpensive, BadPreviousExperience, RebookedForADifferentTime, FailedToPayUpfront, Integration, Other, NotCheckedIn, or MarketPlace. |
+| `--cancelled-on` | DateTime | UTC date and time when the booking was cancelled. |
+| `--cancelled-by` | string | Name or identifier supplied by the user or process that cancelled the booking. |
 
 #### CancelledBooking PII fields
 

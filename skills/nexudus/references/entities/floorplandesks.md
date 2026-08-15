@@ -2,23 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlanDesks -->
 
-A **FloorPlanDesk** (referred to as a *floor plan unit* in the UI) represents a specific area or room placed on a floor plan. Each unit typically maps to a bookable resource or a space assigned to a customer through a contract.
-
-There are five unit types controlled by `ItemType`:
-
-| ItemType       | Typical use                                                      |
-| -------------- | ---------------------------------------------------------------- |
-| Office         | Private office assigned to a customer via a contract             |
-| DedicatedDesk  | Desk permanently assigned to a customer via a contract           |
-| HotDesk        | Shared desk bookable via a resource or assigned to a contract    |
-| Room           | Meeting room or bookable space linked to a resource              |
-| Other          | Any area that does not match the types above                     |
-
-Link a unit to a `Resource` via `ResourceId` to let customers book it through the floor plan view on the Members Portal. Assign it to one or more contracts via `CoworkerContractIds` to track occupancy.
-
-Units can be monitored by an IoT sensor (`SensorId`). The last sensor reading is exposed via `SensorLastValue` and `IsSensorOccupied`.
-
-Position and size on the canvas are maintained by the floor plan editor. `AvailableFromTime` / `AvailableToTime` allow time-bounded availability windows.
+A FloorPlanDesk, called a floor plan unit by operators, represents an office, desk, room, or other area on a location's floor plan that can be assigned through contracts, connected to a bookable resource, and included in occupancy reporting.
 
 FloorPlanDesks support Search, Get, Create, Update, Delete.
 
@@ -40,59 +24,50 @@ FloorPlanDesks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-id` | long | ID of the floor plan this unit belongs to |
-| `--coworker-id` | long | ID of the customer assigned to this unit (used for dedicated desks and offices) |
-| `--sensor-id` | long | ID of the IoT sensor monitoring occupancy or environmental conditions in this unit |
-| `--name` | string | Display name of the floor plan unit (e.g. 'Office 3', 'Hot Desk 12') |
-| `--item-type` | enum | Type of area this unit represents: Office, DedicatedDesk, HotDesk, Room, or Other |
-| `--resource-id` | long | ID of the bookable resource linked to this unit, enabling customers to book it via the floor plan view |
-| `--size` | decimal | Floor area of this unit (e.g. in sq ft or sq m, depending on the location's unit setting) |
+| `--floor-plan-id` | long | ID of the required floor plan that owns this unit and determines its location |
+| `--coworker-id` | long | ID of the optional customer occupying this unit; normally assign occupancy through a contract, and the customer cannot be changed while contracts are linked |
+| `--sensor-id` | long | ID of the optional IoT sensor whose latest reading and occupancy action are reported for this unit |
+| `--name` | string | Required, non-empty display name of the floor plan unit, such as 'Office 3' or 'Hot Desk 12' |
+| `--item-type` | enum | Type of unit: Office, DedicatedDesk, HotDesk, Other, or Room; AI private-office recommendations include only Office units |
+| `--resource-id` | long | ID of the optional bookable resource connected to this unit so customers can book it through a floor plan view |
+| `--size` | decimal | Floor area stored in square metres; the Admin UI may display and convert it to square feet, and a linked layout area can overwrite it when SizeIsLinkedToArea is true |
 | `--from-size` | range | |
 | `--to-size` | range | |
-| `--size-is-linked-to-area` | bool | When true, the Size value is automatically calculated from the drawn shape area on the floor plan canvas |
-| `--capacity` | decimal | Number of people this unit can accommodate at the same time |
+| `--size-is-linked-to-area` | bool | Whether Size is synchronized from the Floor Plan Editor area identified by FloorPlanLayoutAssetUniqueId when that linked area exists |
+| `--capacity` | decimal | Target number of seats for this unit, used for occupancy reporting and as a minimum-capacity filter in AI private-office recommendations |
 | `--from-capacity` | range | |
 | `--to-capacity` | range | |
-| `--price` | decimal | Indicative price displayed on the floor plan view (informational only; actual billing is handled by products and contracts) |
+| `--price` | decimal | Target price in the floor plan location's currency for revenue occupancy reporting; it is not a billing price and is the AI price fallback when PriceForAi is null |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--area` | string | Computed area of the drawn shape on the floor plan canvas, set automatically by the editor |
-| `--notes` | string | Internal notes about this unit, visible to admins only |
-| `--available` | bool | Whether this unit is currently available for assignment or booking |
-| `--available-to-ai` | bool | Whether this unit is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
-| `--notes-for-ai` | string | Notes or instructions for AI channels to consider when recommending this unit for private offices (e.g. 'great natural light but a bit noisy') |
-| `--show-price-for-ai` | bool | Whether to show the price of this unit in AI channel recommendations and responses based on users' budget preferences |
-| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
+| `--area` | string | Optional reporting group for floor plan units, such as a floor, zone, or wing |
+| `--notes` | string | Optional internal notes about this unit, limited to 255 characters and not visible to customers |
+| `--available` | bool | Whether this unit is in service and can be assigned to contracts or bookings; current availability also requires the UTC availability window to include now |
+| `--available-to-ai` | bool | Whether AI channels may include this unit in private-office recommendations; the unit must also be an available Office |
+| `--notes-for-ai` | string | Optional notes for AI recommendations, limited to 1,024 characters, such as accessibility, furnishing, natural light, or noise information |
+| `--show-price-for-ai` | bool | Whether AI recommendations may show a price for this unit; this does not stop PriceForAi or Price from being used to match a customer's budget |
+| `--price-for-ai` | decimal | Optional price override in the location's currency used for AI display and budget matching; null falls back to Price |
 | `--from-price-for-ai` | range | |
 | `--to-price-for-ai` | range | |
-| `--position-x` | int | X coordinate of this unit's position on the floor plan canvas |
+| `--position-x` | int | Floor Plan Editor-managed horizontal canvas coordinate used to render this unit |
 | `--from-position-x` | range | |
 | `--to-position-x` | range | |
-| `--position-y` | int | Y coordinate of this unit's position on the floor plan canvas |
+| `--position-y` | int | Floor Plan Editor-managed vertical canvas coordinate used to render this unit |
 | `--from-position-y` | range | |
 | `--to-position-y` | range | |
-| `--position-z` | int | Z-index (draw order) of this unit on the floor plan canvas; higher values render on top |
+| `--position-z` | int | Floor Plan Editor-managed stacking order used to render overlapping units; higher values render on top |
 | `--from-position-z` | range | |
 | `--to-position-z` | range | |
-| `--access-control-group-id` | string | Access control group identifier that governs door/entry access for this unit |
-| `--tunnel-private-group-id` | string | Network tunnel group identifier for private network access scoped to this unit |
-| `--coworker-contract-ids` | string | Comma-separated list of contract IDs currently assigned to this unit |
-| `--coworker-contract-full-names` | string | Comma-separated list of customer names from contracts assigned to this unit |
-| `--coworker-contract-start-dates` | string | Comma-separated list of start dates for contracts assigned to this unit |
-| `--available-from-time` | DateTime | UTC date/time from which this unit becomes available |
+| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained as a fallback for legacy records; AccessControlGroupIds is the supported replacement |
+| `--tunnel-private-group-id` | string | Internal virtual LAN or RADIUS tunnel group identifier used by network integrations for this unit |
+| `--available-from-time` | DateTime | Inclusive UTC start of the reporting availability window; when omitted on create it defaults to the start of the current day at the location, and it must precede AvailableToTime when both are set |
 | `--from-available-from-time` | range | |
 | `--to-available-from-time` | range | |
-| `--available-to-time` | DateTime | UTC date/time until which this unit is available |
+| `--available-to-time` | DateTime | Optional inclusive UTC end of the reporting availability window; null means no end, and it must follow AvailableFromTime when both are set |
 | `--from-available-to-time` | range | |
 | `--to-available-to-time` | range | |
-| `--available-from-time-local` | DateTime | Local date/time from which this unit becomes available (derived from AvailableFromTime) |
-| `--from-available-from-time-local` | range | |
-| `--to-available-from-time-local` | range | |
-| `--available-to-time-local` | DateTime | Local date/time until which this unit is available (derived from AvailableToTime) |
-| `--from-available-to-time-local` | range | |
-| `--to-available-to-time-local` | range | |
-| `--archilogic-unique-id` | string | Unique identifier linking this unit to its corresponding element in an Archilogic 3D model |
-| `--floor-plan-layout-asset-unique-id` | string | Unique identifier linking this unit to a component in the associated floor plan layout template |
+| `--archilogic-unique-id` | string | Integration-managed Archilogic element GUID used to map this unit into a 3D scene; changing it can break scene synchronization |
+| `--floor-plan-layout-asset-unique-id` | string | Floor Plan Editor-managed area GUID that links this unit to a layout asset and drives linked Size synchronization |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -111,73 +86,63 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-id` | long, required | ID of the floor plan this unit belongs to |
-| `--coworker-id` | long | ID of the customer assigned to this unit (used for dedicated desks and offices) |
-| `--sensor-id` | long | ID of the IoT sensor monitoring occupancy or environmental conditions in this unit |
-| `--name` | string, required | Display name of the floor plan unit (e.g. 'Office 3', 'Hot Desk 12') |
-| `--item-type` | enum, required | Type of area this unit represents: Office, DedicatedDesk, HotDesk, Room, or Other |
-| `--resource-id` | long | ID of the bookable resource linked to this unit, enabling customers to book it via the floor plan view |
-| `--size` | decimal, required | Floor area of this unit (e.g. in sq ft or sq m, depending on the location's unit setting) |
-| `--size-is-linked-to-area` | bool | When true, the Size value is automatically calculated from the drawn shape area on the floor plan canvas |
-| `--capacity` | decimal, required | Number of people this unit can accommodate at the same time |
-| `--price` | decimal, required | Indicative price displayed on the floor plan view (informational only; actual billing is handled by products and contracts) |
-| `--area` | string | Computed area of the drawn shape on the floor plan canvas, set automatically by the editor |
-| `--notes` | string | Internal notes about this unit, visible to admins only |
-| `--available` | bool | Whether this unit is currently available for assignment or booking |
-| `--available-to-ai` | bool | Whether this unit is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
-| `--notes-for-ai` | string | Notes or instructions for AI channels to consider when recommending this unit for private offices (e.g. 'great natural light but a bit noisy') |
-| `--show-price-for-ai` | bool | Whether to show the price of this unit in AI channel recommendations and responses based on users' budget preferences |
-| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
-| `--position-x` | int, required | X coordinate of this unit's position on the floor plan canvas |
-| `--position-y` | int, required | Y coordinate of this unit's position on the floor plan canvas |
-| `--position-z` | int, required | Z-index (draw order) of this unit on the floor plan canvas; higher values render on top |
-| `--access-control-group-id` | string | Access control group identifier that governs door/entry access for this unit |
-| `--tunnel-private-group-id` | string | Network tunnel group identifier for private network access scoped to this unit |
-| `--coworker-contract-ids` | string | Comma-separated list of contract IDs currently assigned to this unit |
-| `--coworker-contract-full-names` | string | Comma-separated list of customer names from contracts assigned to this unit |
-| `--coworker-contract-start-dates` | string | Comma-separated list of start dates for contracts assigned to this unit |
-| `--available-from-time` | DateTime | UTC date/time from which this unit becomes available |
-| `--available-to-time` | DateTime | UTC date/time until which this unit is available |
-| `--available-from-time-local` | DateTime | Local date/time from which this unit becomes available (derived from AvailableFromTime) |
-| `--available-to-time-local` | DateTime | Local date/time until which this unit is available (derived from AvailableToTime) |
-| `--archilogic-unique-id` | string | Unique identifier linking this unit to its corresponding element in an Archilogic 3D model |
-| `--floor-plan-layout-asset-unique-id` | string | Unique identifier linking this unit to a component in the associated floor plan layout template |
+| `--floor-plan-id` | long, required | ID of the required floor plan that owns this unit and determines its location |
+| `--coworker-id` | long | ID of the optional customer occupying this unit; normally assign occupancy through a contract, and the customer cannot be changed while contracts are linked |
+| `--sensor-id` | long | ID of the optional IoT sensor whose latest reading and occupancy action are reported for this unit |
+| `--name` | string, required | Required, non-empty display name of the floor plan unit, such as 'Office 3' or 'Hot Desk 12' |
+| `--item-type` | enum, required | Type of unit: Office, DedicatedDesk, HotDesk, Other, or Room; AI private-office recommendations include only Office units |
+| `--resource-id` | long | ID of the optional bookable resource connected to this unit so customers can book it through a floor plan view |
+| `--size` | decimal, required | Floor area stored in square metres; the Admin UI may display and convert it to square feet, and a linked layout area can overwrite it when SizeIsLinkedToArea is true |
+| `--size-is-linked-to-area` | bool | Whether Size is synchronized from the Floor Plan Editor area identified by FloorPlanLayoutAssetUniqueId when that linked area exists |
+| `--capacity` | decimal, required | Target number of seats for this unit, used for occupancy reporting and as a minimum-capacity filter in AI private-office recommendations |
+| `--price` | decimal, required | Target price in the floor plan location's currency for revenue occupancy reporting; it is not a billing price and is the AI price fallback when PriceForAi is null |
+| `--area` | string | Optional reporting group for floor plan units, such as a floor, zone, or wing |
+| `--notes` | string | Optional internal notes about this unit, limited to 255 characters and not visible to customers |
+| `--available` | bool | Whether this unit is in service and can be assigned to contracts or bookings; current availability also requires the UTC availability window to include now |
+| `--available-to-ai` | bool | Whether AI channels may include this unit in private-office recommendations; the unit must also be an available Office |
+| `--notes-for-ai` | string | Optional notes for AI recommendations, limited to 1,024 characters, such as accessibility, furnishing, natural light, or noise information |
+| `--show-price-for-ai` | bool | Whether AI recommendations may show a price for this unit; this does not stop PriceForAi or Price from being used to match a customer's budget |
+| `--price-for-ai` | decimal | Optional price override in the location's currency used for AI display and budget matching; null falls back to Price |
+| `--position-x` | int, required | Floor Plan Editor-managed horizontal canvas coordinate used to render this unit |
+| `--position-y` | int, required | Floor Plan Editor-managed vertical canvas coordinate used to render this unit |
+| `--position-z` | int, required | Floor Plan Editor-managed stacking order used to render overlapping units; higher values render on top |
+| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained as a fallback for legacy records; AccessControlGroupIds is the supported replacement |
+| `--tunnel-private-group-id` | string | Internal virtual LAN or RADIUS tunnel group identifier used by network integrations for this unit |
+| `--available-from-time` | DateTime | Inclusive UTC start of the reporting availability window; when omitted on create it defaults to the start of the current day at the location, and it must precede AvailableToTime when both are set |
+| `--available-to-time` | DateTime | Optional inclusive UTC end of the reporting availability window; null means no end, and it must follow AvailableFromTime when both are set |
+| `--archilogic-unique-id` | string | Integration-managed Archilogic element GUID used to map this unit into a 3D scene; changing it can break scene synchronization |
+| `--floor-plan-layout-asset-unique-id` | string | Floor Plan Editor-managed area GUID that links this unit to a layout asset and drives linked Size synchronization |
 
 #### FloorPlanDesk update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--floor-plan-id` | long | ID of the floor plan this unit belongs to |
-| `--coworker-id` | long | ID of the customer assigned to this unit (used for dedicated desks and offices) |
-| `--sensor-id` | long | ID of the IoT sensor monitoring occupancy or environmental conditions in this unit |
-| `--name` | string | Display name of the floor plan unit (e.g. 'Office 3', 'Hot Desk 12') |
-| `--item-type` | enum | Type of area this unit represents: Office, DedicatedDesk, HotDesk, Room, or Other |
-| `--resource-id` | long | ID of the bookable resource linked to this unit, enabling customers to book it via the floor plan view |
-| `--size` | decimal | Floor area of this unit (e.g. in sq ft or sq m, depending on the location's unit setting) |
-| `--size-is-linked-to-area` | bool | When true, the Size value is automatically calculated from the drawn shape area on the floor plan canvas |
-| `--capacity` | decimal | Number of people this unit can accommodate at the same time |
-| `--price` | decimal | Indicative price displayed on the floor plan view (informational only; actual billing is handled by products and contracts) |
-| `--area` | string | Computed area of the drawn shape on the floor plan canvas, set automatically by the editor |
-| `--notes` | string | Internal notes about this unit, visible to admins only |
-| `--available` | bool | Whether this unit is currently available for assignment or booking |
-| `--available-to-ai` | bool | Whether this unit is available to any AI channels (Email, Chat or WhatsApp) for recommendations for private offices; |
-| `--notes-for-ai` | string | Notes or instructions for AI channels to consider when recommending this unit for private offices (e.g. 'great natural light but a bit noisy') |
-| `--show-price-for-ai` | bool | Whether to show the price of this unit in AI channel recommendations and responses based on users' budget preferences |
-| `--price-for-ai` | decimal | Override price to show in AI channel recommendations and responses based on users' budget preferences (if not set, the regular Price value is used) |
-| `--position-x` | int | X coordinate of this unit's position on the floor plan canvas |
-| `--position-y` | int | Y coordinate of this unit's position on the floor plan canvas |
-| `--position-z` | int | Z-index (draw order) of this unit on the floor plan canvas; higher values render on top |
-| `--access-control-group-id` | string | Access control group identifier that governs door/entry access for this unit |
-| `--tunnel-private-group-id` | string | Network tunnel group identifier for private network access scoped to this unit |
-| `--coworker-contract-ids` | string | Comma-separated list of contract IDs currently assigned to this unit |
-| `--coworker-contract-full-names` | string | Comma-separated list of customer names from contracts assigned to this unit |
-| `--coworker-contract-start-dates` | string | Comma-separated list of start dates for contracts assigned to this unit |
-| `--available-from-time` | DateTime | UTC date/time from which this unit becomes available |
-| `--available-to-time` | DateTime | UTC date/time until which this unit is available |
-| `--available-from-time-local` | DateTime | Local date/time from which this unit becomes available (derived from AvailableFromTime) |
-| `--available-to-time-local` | DateTime | Local date/time until which this unit is available (derived from AvailableToTime) |
-| `--archilogic-unique-id` | string | Unique identifier linking this unit to its corresponding element in an Archilogic 3D model |
-| `--floor-plan-layout-asset-unique-id` | string | Unique identifier linking this unit to a component in the associated floor plan layout template |
+| `--floor-plan-id` | long | ID of the required floor plan that owns this unit and determines its location |
+| `--coworker-id` | long | ID of the optional customer occupying this unit; normally assign occupancy through a contract, and the customer cannot be changed while contracts are linked |
+| `--sensor-id` | long | ID of the optional IoT sensor whose latest reading and occupancy action are reported for this unit |
+| `--name` | string | Required, non-empty display name of the floor plan unit, such as 'Office 3' or 'Hot Desk 12' |
+| `--item-type` | enum | Type of unit: Office, DedicatedDesk, HotDesk, Other, or Room; AI private-office recommendations include only Office units |
+| `--resource-id` | long | ID of the optional bookable resource connected to this unit so customers can book it through a floor plan view |
+| `--size` | decimal | Floor area stored in square metres; the Admin UI may display and convert it to square feet, and a linked layout area can overwrite it when SizeIsLinkedToArea is true |
+| `--size-is-linked-to-area` | bool | Whether Size is synchronized from the Floor Plan Editor area identified by FloorPlanLayoutAssetUniqueId when that linked area exists |
+| `--capacity` | decimal | Target number of seats for this unit, used for occupancy reporting and as a minimum-capacity filter in AI private-office recommendations |
+| `--price` | decimal | Target price in the floor plan location's currency for revenue occupancy reporting; it is not a billing price and is the AI price fallback when PriceForAi is null |
+| `--area` | string | Optional reporting group for floor plan units, such as a floor, zone, or wing |
+| `--notes` | string | Optional internal notes about this unit, limited to 255 characters and not visible to customers |
+| `--available` | bool | Whether this unit is in service and can be assigned to contracts or bookings; current availability also requires the UTC availability window to include now |
+| `--available-to-ai` | bool | Whether AI channels may include this unit in private-office recommendations; the unit must also be an available Office |
+| `--notes-for-ai` | string | Optional notes for AI recommendations, limited to 1,024 characters, such as accessibility, furnishing, natural light, or noise information |
+| `--show-price-for-ai` | bool | Whether AI recommendations may show a price for this unit; this does not stop PriceForAi or Price from being used to match a customer's budget |
+| `--price-for-ai` | decimal | Optional price override in the location's currency used for AI display and budget matching; null falls back to Price |
+| `--position-x` | int | Floor Plan Editor-managed horizontal canvas coordinate used to render this unit |
+| `--position-y` | int | Floor Plan Editor-managed vertical canvas coordinate used to render this unit |
+| `--position-z` | int | Floor Plan Editor-managed stacking order used to render overlapping units; higher values render on top |
+| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained as a fallback for legacy records; AccessControlGroupIds is the supported replacement |
+| `--tunnel-private-group-id` | string | Internal virtual LAN or RADIUS tunnel group identifier used by network integrations for this unit |
+| `--available-from-time` | DateTime | Inclusive UTC start of the reporting availability window; when omitted on create it defaults to the start of the current day at the location, and it must precede AvailableToTime when both are set |
+| `--available-to-time` | DateTime | Optional inclusive UTC end of the reporting availability window; null means no end, and it must follow AvailableFromTime when both are set |
+| `--archilogic-unique-id` | string | Integration-managed Archilogic element GUID used to map this unit into a 3D scene; changing it can break scene synchronization |
+| `--floor-plan-layout-asset-unique-id` | string | Floor Plan Editor-managed area GUID that links this unit to a layout asset and drives linked Size synchronization |
 
 #### FloorPlanDesk PII fields
 

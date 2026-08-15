@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=SimpleTimeZones -->
 
-A **SimpleTimeZone** represents a time zone available in the system. Time zones are used to configure business opening hours, booking times, and scheduling across different geographic locations.
+A SimpleTimeZone represents a time zone definition with its name, description, UTC offset, and daylight saving time settings. Time zones are used for scheduling, reporting, and displaying times in the local context of each business.
 
 SimpleTimeZones support Search, Get, Update (no Create or Delete via API).
 
@@ -23,9 +23,9 @@ SimpleTimeZones support Search, Get, Update (no Create or Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | The name value for this simple time zone |
-| `--description` | string | Free-text description of this simple time zone |
+| `--description` | string | The description value for this simple time zone |
 | `--time-offset` | string | The time offset value for this simple time zone |
-| `--uses-summer-time` | bool | Whether uses summer time is enabled |
+| `--uses-summer-time` | bool | Whether this simple time zone uses summer time |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -45,8 +45,8 @@ Default sort: `TimeOffset` descending. If no `--order-by` is specified, the API 
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | The name value for this simple time zone |
-| `--description` | string | Free-text description of this simple time zone |
+| `--description` | string | The description value for this simple time zone |
 | `--time-offset` | string | The time offset value for this simple time zone |
-| `--uses-summer-time` | bool | Whether uses summer time is enabled |
+| `--uses-summer-time` | bool | Whether this simple time zone uses summer time |
 
 <!-- END:GENERATED entity=SimpleTimeZones -->

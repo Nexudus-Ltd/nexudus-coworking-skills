@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ResourceAccessRuleTimeSlots -->
 
-A **ResourceAccessRuleTimeSlot** defines a specific day and time window that restricts when bookings are allowed under a resource access rule. This controls the available booking times for a resource.
+A ResourceAccessRuleTimeSlot defines a specific day and time window that restricts when bookings are allowed under a resource access rule. This controls the available booking times for a resource. Time values are stored in UTC. The base date is 1976-01-01 but the actual stored date depends on the time zone offset (e.g., 1975-12-31 for time zones ahead of UTC). Always convert local times to UTC before creating time slots.
 
 ResourceAccessRuleTimeSlots support Search, Get, Create, Update, Delete.
 
@@ -25,10 +25,10 @@ ResourceAccessRuleTimeSlots support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--resource-access-rule-id` | long | ID of the resource access rule linked to this record |
-| `--from-time` | DateTime | Start time |
+| `--from-time` | DateTime | Start time, stored in UTC. The base date is 1976-01-01 but the actual date depends on the time zone offset. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
-| `--to-time` | DateTime | End time |
+| `--to-time` | DateTime | End time, stored in UTC. The base date is 1976-01-01 but the actual date depends on the time zone offset. |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
 | `--day-of-week` | enum | The day of week value for this resource access rule time slot |
@@ -51,8 +51,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | Option | Type | Description |
 | --- | --- | --- |
 | `--resource-access-rule-id` | long, required | ID of the resource access rule linked to this record |
-| `--from-time` | DateTime, required | Start time |
-| `--to-time` | DateTime, required | End time |
+| `--from-time` | DateTime, required | Start time, stored in UTC. The base date is 1976-01-01 but the actual date depends on the time zone offset. |
+| `--to-time` | DateTime, required | End time, stored in UTC. The base date is 1976-01-01 but the actual date depends on the time zone offset. |
 | `--day-of-week` | enum, required | The day of week value for this resource access rule time slot |
 
 #### ResourceAccessRuleTimeSlot update options
@@ -60,8 +60,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | Option | Type | Description |
 | --- | --- | --- |
 | `--resource-access-rule-id` | long | ID of the resource access rule linked to this record |
-| `--from-time` | DateTime | Start time |
-| `--to-time` | DateTime | End time |
+| `--from-time` | DateTime | Start time, stored in UTC. The base date is 1976-01-01 but the actual date depends on the time zone offset. |
+| `--to-time` | DateTime | End time, stored in UTC. The base date is 1976-01-01 but the actual date depends on the time zone offset. |
 | `--day-of-week` | enum | The day of week value for this resource access rule time slot |
 
 ### ResourceAccessRuleTimeSlot (key fields)

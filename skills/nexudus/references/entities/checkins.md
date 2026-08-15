@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Checkins -->
 
-A **Checkin** records when a customer accessed a location. To check in, a customer must hold a valid pass (`TimePass` entity) that covers the location and the time of the check-in.
-
-If the customer does not have a valid pass but the location or network has one or more **Pay As You Go** passes configured, a pass is automatically assigned and charged to the customer at check-in time.
-
-Check-ins can be created manually, or opened and closed automatically by **NexIO** (the front-desk Nexudus tablet app), door-access systems, or IT-network integrations. The `Source` field indicates how the check-in was created.
+A Checkin records a customer's access to a location using an eligible pass. The system first selects an eligible customer or shared pass; when none is available, it creates a customer pay-as-you-go pass only when the location enables pay-as-you-go and has a valid pass for that customer type. A pay-as-you-go check-in starts with no charge and, at checkout, is charged by duration or fixed pass price subject to the location's daily minimum and maximum settings. Check-ins can be opened or closed manually or through access, network, sensor, tile, or booking integrations.
 
 Checkins support Search, Get, Create, Update, Delete.
 Checkins also support entity commands.
@@ -30,28 +26,28 @@ Checkins also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--from-time` | DateTime | Date and time the customer checked in |
+| `--coworker-id` | long | ID of the customer checking in. The customer must be active; the system first uses an eligible customer or shared pass, then can fall back to an eligible pay-as-you-go pass when the location allows it. |
+| `--business-id` | long | ID of the location where the customer checked in. The Admin Agent supplies the current location for create and update operations. |
+| `--from-time` | DateTime | Check-in start date and time, stored in UTC and rounded to the nearest 15 minutes. It must be earlier than ToTime when a checkout time is provided. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
-| `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
+| `--to-time` | DateTime | Optional checkout date and time, stored in UTC and rounded to the nearest 15 minutes. Leave empty to keep the check-in open; when set, it must be later than FromTime. |
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
-| `--counts-towards-plan-limits` | bool | Whether counts towards plan limits is enabled |
-| `--coworker-time-pass-guid` | string | Unique identifier (GUID) for the coworker time pass |
-| `--auto-checkout` | bool | Whether auto checkout is enabled |
-| `--last-activity` | DateTime | Date/time value for last activity |
+| `--counts-towards-plan-limits` | bool | System-calculated flag copied from the pass used for this check-in; it determines whether the duration counts against the customer's plan limits. |
+| `--coworker-time-pass-guid` | string | Internal GUID of the customer pass selected or created by check-in validation; choose an eligible pass through the check-in workflow instead. |
+| `--auto-checkout` | bool | Internal flag set by automated check-in sources to request later checkout validation; it is not a manual check-in setting. |
+| `--last-activity` | DateTime | Internal UTC timestamp of the most recent activity reported by a network or access-control integration for this open check-in. |
 | `--from-last-activity` | range | |
 | `--to-last-activity` | range | |
-| `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
-| `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
-| `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
-| `--validate-checkin-job-id` | string | ID of the validate checkin job associated with this record |
-| `--from-time-local` | DateTime | Date/time value for from time local |
+| `--mac-addresses` | string | Internal comma-separated device MAC addresses captured by a network-activity check-in; this network identifier is managed by integrations. |
+| `--teams-at-checkin` | string | System-generated comma-separated snapshot of the customer's team names when the check-in was created. |
+| `--tariff-at-checkin` | string | System-generated comma-separated snapshot of the customer's active plan names when the check-in was created. |
+| `--validate-checkin-job-id` | string | Internal scheduler job ID used to prevent duplicate automatic checkout validation for an open check-in. |
+| `--from-time-local` | DateTime | Internal location-local representation of FromTime generated for reporting; set FromTime instead. |
 | `--from-from-time-local` | range | |
 | `--to-from-time-local` | range | |
-| `--to-time-local` | DateTime | Date/time value for to time local |
+| `--to-time-local` | DateTime | Internal location-local representation of ToTime generated for reporting; set ToTime instead. |
 | `--from-to-time-local` | range | |
 | `--to-to-time-local` | range | |
 | `--from-created-on` | range | |
@@ -72,39 +68,39 @@ Default sort: `FromTime` descending. If no `--order-by` is specified, the API re
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--from-time` | DateTime, required | Date and time the customer checked in |
-| `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
-| `--counts-towards-plan-limits` | bool | Whether counts towards plan limits is enabled |
-| `--coworker-time-pass-guid` | string | Unique identifier (GUID) for the coworker time pass |
-| `--auto-checkout` | bool | Whether auto checkout is enabled |
-| `--last-activity` | DateTime | Date/time value for last activity |
-| `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
-| `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
-| `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
-| `--validate-checkin-job-id` | string | ID of the validate checkin job associated with this record |
-| `--from-time-local` | DateTime | Date/time value for from time local |
-| `--to-time-local` | DateTime | Date/time value for to time local |
+| `--coworker-id` | long | ID of the customer checking in. The customer must be active; the system first uses an eligible customer or shared pass, then can fall back to an eligible pay-as-you-go pass when the location allows it. |
+| `--business-id` | long, required | ID of the location where the customer checked in. The Admin Agent supplies the current location for create and update operations. |
+| `--from-time` | DateTime, required | Check-in start date and time, stored in UTC and rounded to the nearest 15 minutes. It must be earlier than ToTime when a checkout time is provided. |
+| `--to-time` | DateTime | Optional checkout date and time, stored in UTC and rounded to the nearest 15 minutes. Leave empty to keep the check-in open; when set, it must be later than FromTime. |
+| `--counts-towards-plan-limits` | bool | System-calculated flag copied from the pass used for this check-in; it determines whether the duration counts against the customer's plan limits. |
+| `--coworker-time-pass-guid` | string | Internal GUID of the customer pass selected or created by check-in validation; choose an eligible pass through the check-in workflow instead. |
+| `--auto-checkout` | bool | Internal flag set by automated check-in sources to request later checkout validation; it is not a manual check-in setting. |
+| `--last-activity` | DateTime | Internal UTC timestamp of the most recent activity reported by a network or access-control integration for this open check-in. |
+| `--mac-addresses` | string | Internal comma-separated device MAC addresses captured by a network-activity check-in; this network identifier is managed by integrations. |
+| `--teams-at-checkin` | string | System-generated comma-separated snapshot of the customer's team names when the check-in was created. |
+| `--tariff-at-checkin` | string | System-generated comma-separated snapshot of the customer's active plan names when the check-in was created. |
+| `--validate-checkin-job-id` | string | Internal scheduler job ID used to prevent duplicate automatic checkout validation for an open check-in. |
+| `--from-time-local` | DateTime | Internal location-local representation of FromTime generated for reporting; set FromTime instead. |
+| `--to-time-local` | DateTime | Internal location-local representation of ToTime generated for reporting; set ToTime instead. |
 
 #### Checkin update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--from-time` | DateTime | Date and time the customer checked in |
-| `--to-time` | DateTime | Date and time the customer checked out. Null while the check-in is still open |
-| `--counts-towards-plan-limits` | bool | Whether counts towards plan limits is enabled |
-| `--coworker-time-pass-guid` | string | Unique identifier (GUID) for the coworker time pass |
-| `--auto-checkout` | bool | Whether auto checkout is enabled |
-| `--last-activity` | DateTime | Date/time value for last activity |
-| `--mac-addresses` | string | MAC addresses of devices detected during a network-activity check-in |
-| `--teams-at-checkin` | string | Teams the customer belonged to when the check-in was recorded |
-| `--tariff-at-checkin` | string | Product (tariff) assigned to the customer when the check-in was recorded |
-| `--validate-checkin-job-id` | string | ID of the validate checkin job associated with this record |
-| `--from-time-local` | DateTime | Date/time value for from time local |
-| `--to-time-local` | DateTime | Date/time value for to time local |
+| `--coworker-id` | long | ID of the customer checking in. The customer must be active; the system first uses an eligible customer or shared pass, then can fall back to an eligible pay-as-you-go pass when the location allows it. |
+| `--business-id` | long | ID of the location where the customer checked in. The Admin Agent supplies the current location for create and update operations. |
+| `--from-time` | DateTime | Check-in start date and time, stored in UTC and rounded to the nearest 15 minutes. It must be earlier than ToTime when a checkout time is provided. |
+| `--to-time` | DateTime | Optional checkout date and time, stored in UTC and rounded to the nearest 15 minutes. Leave empty to keep the check-in open; when set, it must be later than FromTime. |
+| `--counts-towards-plan-limits` | bool | System-calculated flag copied from the pass used for this check-in; it determines whether the duration counts against the customer's plan limits. |
+| `--coworker-time-pass-guid` | string | Internal GUID of the customer pass selected or created by check-in validation; choose an eligible pass through the check-in workflow instead. |
+| `--auto-checkout` | bool | Internal flag set by automated check-in sources to request later checkout validation; it is not a manual check-in setting. |
+| `--last-activity` | DateTime | Internal UTC timestamp of the most recent activity reported by a network or access-control integration for this open check-in. |
+| `--mac-addresses` | string | Internal comma-separated device MAC addresses captured by a network-activity check-in; this network identifier is managed by integrations. |
+| `--teams-at-checkin` | string | System-generated comma-separated snapshot of the customer's team names when the check-in was created. |
+| `--tariff-at-checkin` | string | System-generated comma-separated snapshot of the customer's active plan names when the check-in was created. |
+| `--validate-checkin-job-id` | string | Internal scheduler job ID used to prevent duplicate automatic checkout validation for an open check-in. |
+| `--from-time-local` | DateTime | Internal location-local representation of FromTime generated for reporting; set FromTime instead. |
+| `--to-time-local` | DateTime | Internal location-local representation of ToTime generated for reporting; set ToTime instead. |
 
 #### Checkin PII fields
 

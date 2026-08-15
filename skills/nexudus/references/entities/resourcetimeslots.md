@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ResourceTimeSlots -->
 
-A **ResourceTimeSlot** defines the days and times during which a specific resource is available for booking. Each time slot specifies a day of the week and a from/to time window.
+Resource time slots define the specific days and time windows when an individual resource is available for booking
 
 ResourceTimeSlots support Search, Get, Create, Update, Delete.
 ResourceTimeSlots also support entity commands.

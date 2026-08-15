@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ResourceProducts -->
 
-A **ResourceProduct** links a product to a resource, enabling products to be offered as add-ons when booking that resource (e.g. catering, AV equipment, room setup).
+A ResourceProduct links a product to a resource, enabling products to be offered as add-ons when booking that resource (e.g. catering, AV equipment, room setup).
 
 ResourceProducts support Search, Get, Create, Update, Delete.
 

@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ContractProducts -->
 
-A **ContractProduct** is a product added to a contract that is billed every time the contract is invoiced. Use `ContractProduct` to append product charges to a specific member's billing cycle alongside the base plan.
-
-**Price** — If `Price` is not set, the price of the underlying product (`ProductPrice`) is used instead. Set `Price` to override the product's default price for this specific contract line.
-
-**Billing window** — `RepeatFrom` and `RepeatUntil` control the date range during which the product is included on invoices. Outside that range the product is silently skipped. Leave both null to bill the product on every invoice.
-
-**Pro-rating** — `ApplyProRating` distributes the charge proportionally across the billing period, but only takes effect when the linked location plan has prorating enabled (`Tariff.ProrateDaysBefore > 0`). If the plan does not have prorating configured, `ApplyProRating` is ignored.
+A contract product (internally known as ContractProduct) is a recurring product line on a customer's contract, billed with plan invoices and optionally controlled by a price override and billing window. When the product includes passes, booking time credit, monetary credit, or printing credit, those benefits are released as each contract invoice is created; configure the product's credit expiration separately, either aligned with or independent of the billing cycle. A negative product price creates a discount shown as a negative invoice line; use ContractSchedule for a future contract price change instead. Do not use a contract product for a deposit: use ContractDeposit so it is invoiced only at contract start and can be refunded when appropriate.
 
 ContractProducts support Search, Get, Create, Update, Delete.
 
@@ -30,22 +24,22 @@ ContractProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long | Contract to add this product to |
-| `--product-id` | long | Product to bill on each contract invoice |
-| `--notes` | string | Optional notes or comments about this contract product |
-| `--quantity` | int | Number of units |
+| `--coworker-contract-id` | long | ID of the customer's contract; it determines the location and billing cycle that will receive this recurring product line. |
+| `--product-id` | long | ID of the location product billed on the contract's invoices; its current price is used when this line has no price override. |
+| `--notes` | string | Optional operator notes about this recurring product line. |
+| `--quantity` | int | Number of product units billed in each contract billing cycle; must be at least 1. |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--price` | decimal | Price override |
+| `--price` | decimal | Optional per-unit price override in the location's currency; when null, the linked product's price is used. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-from` | DateTime | Optional UTC date and time for the first invoice period that includes this product line; inclusive, and null starts billing immediately. |
 | `--from-repeat-from` | range | |
 | `--to-repeat-from` | range | |
-| `--repeat-until` | DateTime | Repeat until date |
+| `--repeat-until` | DateTime | Optional UTC date and time for the first invoice period that excludes this product line; exclusive, and null continues billing indefinitely. |
 | `--from-repeat-until` | range | |
 | `--to-repeat-until` | range | |
-| `--apply-pro-rating` | bool | Apply pro-rating to this product charge. Only takes effect when the location plan has prorating enabled (Tariff.ProrateDaysBefore > 0). |
+| `--apply-pro-rating` | bool | Whether this line requests prorating when it ends during an invoice period; the product's setting can also enable prorating, and the contract plan must have ProrateDaysBefore configured. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -64,27 +58,27 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long, required | Contract to add this product to |
-| `--product-id` | long, required | Product to bill on each contract invoice |
-| `--notes` | string | Optional notes or comments about this contract product |
-| `--quantity` | int, required | Number of units |
-| `--price` | decimal | Price override |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
-| `--apply-pro-rating` | bool | Apply pro-rating to this product charge. Only takes effect when the location plan has prorating enabled (Tariff.ProrateDaysBefore > 0). |
+| `--coworker-contract-id` | long, required | ID of the customer's contract; it determines the location and billing cycle that will receive this recurring product line. |
+| `--product-id` | long, required | ID of the location product billed on the contract's invoices; its current price is used when this line has no price override. |
+| `--notes` | string | Optional operator notes about this recurring product line. |
+| `--quantity` | int, required | Number of product units billed in each contract billing cycle; must be at least 1. |
+| `--price` | decimal | Optional per-unit price override in the location's currency; when null, the linked product's price is used. |
+| `--repeat-from` | DateTime | Optional UTC date and time for the first invoice period that includes this product line; inclusive, and null starts billing immediately. |
+| `--repeat-until` | DateTime | Optional UTC date and time for the first invoice period that excludes this product line; exclusive, and null continues billing indefinitely. |
+| `--apply-pro-rating` | bool | Whether this line requests prorating when it ends during an invoice period; the product's setting can also enable prorating, and the contract plan must have ProrateDaysBefore configured. |
 
 #### ContractProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-contract-id` | long | Contract to add this product to |
-| `--product-id` | long | Product to bill on each contract invoice |
-| `--notes` | string | Optional notes or comments about this contract product |
-| `--quantity` | int | Number of units |
-| `--price` | decimal | Price override |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
-| `--apply-pro-rating` | bool | Apply pro-rating to this product charge. Only takes effect when the location plan has prorating enabled (Tariff.ProrateDaysBefore > 0). |
+| `--coworker-contract-id` | long | ID of the customer's contract; it determines the location and billing cycle that will receive this recurring product line. |
+| `--product-id` | long | ID of the location product billed on the contract's invoices; its current price is used when this line has no price override. |
+| `--notes` | string | Optional operator notes about this recurring product line. |
+| `--quantity` | int | Number of product units billed in each contract billing cycle; must be at least 1. |
+| `--price` | decimal | Optional per-unit price override in the location's currency; when null, the linked product's price is used. |
+| `--repeat-from` | DateTime | Optional UTC date and time for the first invoice period that includes this product line; inclusive, and null starts billing immediately. |
+| `--repeat-until` | DateTime | Optional UTC date and time for the first invoice period that excludes this product line; exclusive, and null continues billing indefinitely. |
+| `--apply-pro-rating` | bool | Whether this line requests prorating when it ends during an invoice period; the product's setting can also enable prorating, and the contract plan must have ProrateDaysBefore configured. |
 
 #### ContractProduct PII fields
 

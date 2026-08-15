@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Countries -->
 
-A **Country** is a read-only reference record that represents a country supported by the platform. Countries are used across the system to configure address formats, locale settings, and language preferences for a location.
-
-The `TwoDigitsCode` is the ISO 3166-1 alpha-2 code (e.g. `GB`, `US`, `DE`) and is the standard identifier used when filtering or referencing a country from other entities.
-
-The `Culture` field contains a BCP 47 language tag (e.g. `en-GB`, `en-US`, `de-DE`) that determines number formatting, date formatting, and language defaults for the location.
+A Country is a read-only reference record that represents a country supported by the platform. Countries are used across the system to configure address formats, locale settings, and language preferences for a location. The TwoDigitsCode is the ISO 3166-1 alpha-2 code (e.g. GB, US, DE) and is the standard identifier used when filtering or referencing a country from other entities. The Culture field contains a BCP 47 language tag (e.g. en-GB, en-US, de-DE) that determines number formatting, date formatting, and language defaults for the location.
 
 Countries support Search, Get (no Create or Delete via API).
 

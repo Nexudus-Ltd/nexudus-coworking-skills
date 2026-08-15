@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=FloorPlans -->
 
-A **FloorPlan** is a visual diagram representing a single floor of a location. Floor plans are used by admins and customers to get an overview of the space layout, including rooms, desks, and other areas.
-
-Each floor plan belongs to a location (`Business`) and can optionally reference a `FloorPlanLayout` template. A background/tracing image can be uploaded to overlay the drawn areas, and its position and scale can be adjusted independently from the floor plan's own scale.
-
-Once created, floor plan units (FloorPlanDesks) are added to the floor plan to represent individual bookable or non-bookable areas such as offices, dedicated desks, hot desks, and meeting rooms.
+A floor plan represents one floor at a location and groups the bookable or assignable floor plan units shown through an uploaded image, a Nexudus Floor Plan Editor layout, or an Archilogic 3D scene.
 
 FloorPlans support Search, Get, Create, Update, Delete.
 
@@ -28,31 +24,31 @@ FloorPlans support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location this floor plan belongs to |
-| `--floor-plan-layout-id` | long | ID of the floor plan layout template to apply to this floor plan |
-| `--name` | string | Display name of the floor plan (e.g. 'Ground Floor', 'Level 2') |
+| `--business-id` | long | ID of the required location that owns this floor plan |
+| `--floor-plan-layout-id` | long | ID of the optional Nexudus Floor Plan Editor layout associated with this floor plan; the layout must belong to a location the user can access |
+| `--name` | string | Required display name; changing it also updates the associated editor layout name and floor plan unit names containing the previous name |
 | `--new-background-image-url` | string | URL of a new background/tracing image to upload. The image will be fetched and stored when the floor plan is saved |
 | `--clear-background-image-file` | bool | Set to true to remove the current background/tracing image from this floor plan |
-| `--display-background` | bool | Whether the background/tracing image is visible when the floor plan is rendered |
-| `--background-scale` | int | Zoom/scale factor applied to the background/tracing image, expressed as a percentage (e.g. 100 = original size) |
+| `--display-background` | bool | Whether the uploaded background image is displayed for an image-based floor plan |
+| `--background-scale` | int | Integer percentage used to scale floor plan unit coordinates over the background image; 100 is full scale, values above 100 are capped at 100 when rendered, and non-positive values render at 33 |
 | `--from-background-scale` | range | |
 | `--to-background-scale` | range | |
-| `--position-x` | int | Horizontal offset (in pixels) of the background image within the floor plan canvas |
+| `--position-x` | int | Legacy horizontal floor plan offset; the current editor stores each unit's horizontal canvas coordinate in FloorPlanDesk.PositionX instead |
 | `--from-position-x` | range | |
 | `--to-position-x` | range | |
-| `--position-y` | int | Vertical offset (in pixels) of the background image within the floor plan canvas |
+| `--position-y` | int | Legacy vertical floor plan offset; the current editor stores each unit's vertical canvas coordinate in FloorPlanDesk.PositionY instead |
 | `--from-position-y` | range | |
 | `--to-position-y` | range | |
-| `--floor-level` | int | Floor number used to order floor plans (e.g. 0 = ground floor, 1 = first floor, -1 = basement) |
+| `--floor-level` | int | Legacy floor-level value; Nexudus Floor Plan Editor layouts maintain the active level in FloorPlanLayout.FloorLevel instead |
 | `--from-floor-level` | range | |
 | `--to-floor-level` | range | |
-| `--scale` | decimal | Real-world scale of the floor plan, representing how many real-world units correspond to one canvas unit |
+| `--scale` | decimal | Legacy decimal floor plan scale retained for older image-based records; the current editor does not expose or interpret this field |
 | `--from-scale` | range | |
 | `--to-scale` | range | |
-| `--capacity` | int | Maximum number of people this floor can accommodate at the same time |
+| `--capacity` | int | Optional maximum number of simultaneous bookings accepted across this floor plan; null means unlimited |
 | `--from-capacity` | range | |
 | `--to-capacity` | range | |
-| `--archilogic-unique-id` | string | Unique identifier used to link this floor plan to a corresponding Archilogic 3D model |
+| `--archilogic-unique-id` | string | Integration-managed Archilogic scene GUID used to load the linked 3D floor plan; changing it can break the scene and unit mapping |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -71,37 +67,37 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the location this floor plan belongs to |
-| `--floor-plan-layout-id` | long | ID of the floor plan layout template to apply to this floor plan |
-| `--name` | string, required | Display name of the floor plan (e.g. 'Ground Floor', 'Level 2') |
+| `--business-id` | long, required | ID of the required location that owns this floor plan |
+| `--floor-plan-layout-id` | long | ID of the optional Nexudus Floor Plan Editor layout associated with this floor plan; the layout must belong to a location the user can access |
+| `--name` | string, required | Required display name; changing it also updates the associated editor layout name and floor plan unit names containing the previous name |
 | `--new-background-image-url` | string | URL of a new background/tracing image to upload. The image will be fetched and stored when the floor plan is saved |
 | `--clear-background-image-file` | bool | Set to true to remove the current background/tracing image from this floor plan |
-| `--display-background` | bool | Whether the background/tracing image is visible when the floor plan is rendered |
-| `--background-scale` | int, required | Zoom/scale factor applied to the background/tracing image, expressed as a percentage (e.g. 100 = original size) |
-| `--position-x` | int, required | Horizontal offset (in pixels) of the background image within the floor plan canvas |
-| `--position-y` | int, required | Vertical offset (in pixels) of the background image within the floor plan canvas |
-| `--floor-level` | int, required | Floor number used to order floor plans (e.g. 0 = ground floor, 1 = first floor, -1 = basement) |
-| `--scale` | decimal, required | Real-world scale of the floor plan, representing how many real-world units correspond to one canvas unit |
-| `--capacity` | int | Maximum number of people this floor can accommodate at the same time |
-| `--archilogic-unique-id` | string | Unique identifier used to link this floor plan to a corresponding Archilogic 3D model |
+| `--display-background` | bool | Whether the uploaded background image is displayed for an image-based floor plan |
+| `--background-scale` | int, required | Integer percentage used to scale floor plan unit coordinates over the background image; 100 is full scale, values above 100 are capped at 100 when rendered, and non-positive values render at 33 |
+| `--position-x` | int, required | Legacy horizontal floor plan offset; the current editor stores each unit's horizontal canvas coordinate in FloorPlanDesk.PositionX instead |
+| `--position-y` | int, required | Legacy vertical floor plan offset; the current editor stores each unit's vertical canvas coordinate in FloorPlanDesk.PositionY instead |
+| `--floor-level` | int, required | Legacy floor-level value; Nexudus Floor Plan Editor layouts maintain the active level in FloorPlanLayout.FloorLevel instead |
+| `--scale` | decimal, required | Legacy decimal floor plan scale retained for older image-based records; the current editor does not expose or interpret this field |
+| `--capacity` | int | Optional maximum number of simultaneous bookings accepted across this floor plan; null means unlimited |
+| `--archilogic-unique-id` | string | Integration-managed Archilogic scene GUID used to load the linked 3D floor plan; changing it can break the scene and unit mapping |
 
 #### FloorPlan update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location this floor plan belongs to |
-| `--floor-plan-layout-id` | long | ID of the floor plan layout template to apply to this floor plan |
-| `--name` | string | Display name of the floor plan (e.g. 'Ground Floor', 'Level 2') |
+| `--business-id` | long | ID of the required location that owns this floor plan |
+| `--floor-plan-layout-id` | long | ID of the optional Nexudus Floor Plan Editor layout associated with this floor plan; the layout must belong to a location the user can access |
+| `--name` | string | Required display name; changing it also updates the associated editor layout name and floor plan unit names containing the previous name |
 | `--new-background-image-url` | string | URL of a new background/tracing image to upload. The image will be fetched and stored when the floor plan is saved |
 | `--clear-background-image-file` | bool | Set to true to remove the current background/tracing image from this floor plan |
-| `--display-background` | bool | Whether the background/tracing image is visible when the floor plan is rendered |
-| `--background-scale` | int | Zoom/scale factor applied to the background/tracing image, expressed as a percentage (e.g. 100 = original size) |
-| `--position-x` | int | Horizontal offset (in pixels) of the background image within the floor plan canvas |
-| `--position-y` | int | Vertical offset (in pixels) of the background image within the floor plan canvas |
-| `--floor-level` | int | Floor number used to order floor plans (e.g. 0 = ground floor, 1 = first floor, -1 = basement) |
-| `--scale` | decimal | Real-world scale of the floor plan, representing how many real-world units correspond to one canvas unit |
-| `--capacity` | int | Maximum number of people this floor can accommodate at the same time |
-| `--archilogic-unique-id` | string | Unique identifier used to link this floor plan to a corresponding Archilogic 3D model |
+| `--display-background` | bool | Whether the uploaded background image is displayed for an image-based floor plan |
+| `--background-scale` | int | Integer percentage used to scale floor plan unit coordinates over the background image; 100 is full scale, values above 100 are capped at 100 when rendered, and non-positive values render at 33 |
+| `--position-x` | int | Legacy horizontal floor plan offset; the current editor stores each unit's horizontal canvas coordinate in FloorPlanDesk.PositionX instead |
+| `--position-y` | int | Legacy vertical floor plan offset; the current editor stores each unit's vertical canvas coordinate in FloorPlanDesk.PositionY instead |
+| `--floor-level` | int | Legacy floor-level value; Nexudus Floor Plan Editor layouts maintain the active level in FloorPlanLayout.FloorLevel instead |
+| `--scale` | decimal | Legacy decimal floor plan scale retained for older image-based records; the current editor does not expose or interpret this field |
+| `--capacity` | int | Optional maximum number of simultaneous bookings accepted across this floor plan; null means unlimited |
+| `--archilogic-unique-id` | string | Integration-managed Archilogic scene GUID used to load the linked 3D floor plan; changing it can break the scene and unit mapping |
 
 ### FloorPlan (key fields)
 
