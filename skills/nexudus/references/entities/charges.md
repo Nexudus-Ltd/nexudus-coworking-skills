@@ -16,7 +16,7 @@ Charges support Search, Get, Create, Update, Delete.
 | `nexudus charges list --id <id> --agent` | Filter by single ID |
 | `nexudus charges list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus charges list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus charges list --description <value> --total-amount <value> --agent` | Filter charges by properties |
+| `nexudus charges list --charge-number <value> --description <value> --agent` | Filter charges by properties |
 | `nexudus charges list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus charges list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus charges get <id> --agent` | Get single charge |
@@ -30,6 +30,9 @@ Charges support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the coworker linked to this record |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Business name |
+| `--business-currency-code` | string | Business currency code |
+| `--charge-number` | string | Charge number |
 | `--quantity` | int | Number of units |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
@@ -42,6 +45,7 @@ Charges support Search, Get, Create, Update, Delete.
 | `--credit-amount` | decimal | Credit amount |
 | `--from-credit-amount` | range | |
 | `--to-credit-amount` | range | |
+| `--discount-code` | string | Discount code |
 | `--due-date` | DateTime | Due date |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
@@ -52,6 +56,9 @@ Charges support Search, Get, Create, Update, Delete.
 | `--tax-rate-id` | long | ID of the tax rate linked to this record |
 | `--financial-account-id` | long | ID of the financial account linked to this record |
 | `--invoiced` | bool | Whether the charge has been invoiced |
+| `--invoiced-on` | DateTime | Date the charge was invoiced |
+| `--from-invoiced-on` | range | |
+| `--to-invoiced-on` | range | |
 | `--sale-date` | DateTime | Sale date |
 | `--from-sale-date` | range | |
 | `--to-sale-date` | range | |
@@ -62,12 +69,25 @@ Charges support Search, Get, Create, Update, Delete.
 | `--tariff-name` | string | The tariff name value for this charge |
 | `--coworker-product-unique-id` | string | ID of the coworker product unique associated with this record |
 | `--booking-unique-id` | string | ID of the booking unique associated with this record |
+| `--coworker-contract-unique-id` | string | UniqueId of the CoworkerContract that originated this charge |
+| `--coworker-extra-service-unique-id` | string | UniqueId of the CoworkerExtraService (booking extra-service charge) that originated this charge |
+| `--extra-service-unique-id` | string | UniqueId of the ExtraService that originated this charge |
+| `--coworker-time-pass-unique-id` | string | UniqueId of the CoworkerTimePass that originated this charge |
+| `--coworker-charge-unique-id` | string | UniqueId of the original charge passed from a non-paying team member to the team's paying member |
+| `--event-attendee-unique-id` | string | UniqueId of the EventAttendee that originated this charge |
+| `--invoice-from-date` | DateTime | Invoice period start date |
+| `--from-invoice-from-date` | range | |
+| `--to-invoice-from-date` | range | |
+| `--invoice-to-date` | DateTime | Invoice period end date |
+| `--from-invoice-to-date` | range | |
+| `--to-invoice-to-date` | range | |
 | `--repeat-from` | DateTime | Repeat from date |
 | `--from-repeat-from` | range | |
 | `--to-repeat-from` | range | |
 | `--repeat-until` | DateTime | Repeat until date |
 | `--from-repeat-until` | range | |
 | `--to-repeat-until` | range | |
+| `--coworker-discount-code-unique-id` | string | UniqueId of the CoworkerDiscountCode applied to this charge |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

@@ -18,7 +18,7 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 | `nexudus coworkermsofficecalendars list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkermsofficecalendars list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkermsofficecalendars list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkermsofficecalendars list --name <value> --agent` | Filter coworkermsofficecalendars by properties |
+| `nexudus coworkermsofficecalendars list --coworker-full-name <value> --name <value> --agent` | Filter coworkermsofficecalendars by properties |
 | `nexudus coworkermsofficecalendars list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkermsofficecalendars list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkermsofficecalendars get <id> --agent` | Get single coworkermsofficecalendar |
@@ -32,6 +32,7 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Microsoft Graph push-notification watch target for this connection |
 | `--coworker-id` | long | ID of the customer who connected their Office 365 Calendar |
+| `--coworker-full-name` | string | Full name of the customer who connected their Office 365 Calendar |
 | `--name` | string | Display name of the connected Office 365 Calendar |
 | `--subscription-id` | string | Microsoft Graph push-notification subscription ID used to receive calendar change notifications |
 | `--calendar-id` | string | Microsoft Graph calendar ID of the customer's connected Office 365 calendar |

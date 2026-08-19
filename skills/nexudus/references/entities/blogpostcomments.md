@@ -14,7 +14,7 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 | `nexudus blogpostcomments list --id <id> --agent` | Filter by single ID |
 | `nexudus blogpostcomments list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus blogpostcomments list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus blogpostcomments list --title <value> --agent` | Filter blogpostcomments by properties |
+| `nexudus blogpostcomments list --posted-by-name <value> --title <value> --agent` | Filter blogpostcomments by properties |
 | `nexudus blogpostcomments list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus blogpostcomments list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus blogpostcomments get <id> --agent` | Get single blogpostcomment |
@@ -29,6 +29,7 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--blog-post-id` | long | ID of the blog post linked to this record |
 | `--posted-by-id` | long | ID of the posted by linked to this record |
+| `--posted-by-name` | string | Full name of the coworker who posted the comment |
 | `--title` | string | Comment title |
 | `--text` | string | Comment body text |
 | `--published` | bool | Whether the comment is published and visible to readers |

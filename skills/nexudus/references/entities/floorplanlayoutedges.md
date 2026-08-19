@@ -12,7 +12,7 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutedges list --id <id> --agent` | Filter by single ID |
 | `nexudus floorplanlayoutedges list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus floorplanlayoutedges list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus floorplanlayoutedges list --floor-plan-layout-id <value> --edge-key <value> --agent` | Filter floorplanlayoutedges by properties |
+| `nexudus floorplanlayoutedges list --floor-plan-layout-id <value> --floor-plan-layout-name <value> --agent` | Filter floorplanlayoutedges by properties |
 | `nexudus floorplanlayoutedges list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus floorplanlayoutedges list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutedges get <id> --agent` | Get single floorplanlayoutedge |
@@ -25,6 +25,7 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
 | `--edge-key` | string | The edge key value for this floor plan layout edge |
 | `--source` | string | The source value for this floor plan layout edge |
 | `--target` | string | The target value for this floor plan layout edge |

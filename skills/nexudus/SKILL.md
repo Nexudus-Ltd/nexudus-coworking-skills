@@ -293,12 +293,14 @@ Before working with an entity, load its reference file for full details (command
 | CommunityGroup | `communitygroups` | list, get, create, update, delete | [communitygroups.md](./references/entities/communitygroups.md) |
 | CommunityMessage | `communitymessages` | list, get, create, update, delete | [communitymessages.md](./references/entities/communitymessages.md) |
 | CommunityMessageLike | `communitymessagelikes` | list, get, create, update, delete | [communitymessagelikes.md](./references/entities/communitymessagelikes.md) |
+| CommunityMessageRead | `communitymessagereads` | list, get, create, update, delete | [communitymessagereads.md](./references/entities/communitymessagereads.md) |
 | CommunityPerk | `communityperks` | list, get, create, update, delete | [communityperks.md](./references/entities/communityperks.md) |
 | CommunityThread | `communitythreads` | list, get, create, update, delete | [communitythreads.md](./references/entities/communitythreads.md) |
 | CommunityThreadFile | `communitythreadfiles` | list, get, create, update, delete | [communitythreadfiles.md](./references/entities/communitythreadfiles.md) |
 | CommunityThreadFollow | `communitythreadfollows` | list, get, create, update, delete | [communitythreadfollows.md](./references/entities/communitythreadfollows.md) |
 | CommunityThreadLike | `communitythreadlikes` | list, get, create, update, delete | [communitythreadlikes.md](./references/entities/communitythreadlikes.md) |
 | CommunityThreadMute | `communitythreadmutes` | list, get, create, update, delete | [communitythreadmutes.md](./references/entities/communitythreadmutes.md) |
+| CommunityThreadRead | `communitythreadreads` | list, get, create, update, delete | [communitythreadreads.md](./references/entities/communitythreadreads.md) |
 | ContractContact | `contractcontacts` | list, get, create, update, delete | [contractcontacts.md](./references/entities/contractcontacts.md) |
 | ContractDeposit | `contractdeposits` | list, get, create, update, delete | [contractdeposits.md](./references/entities/contractdeposits.md) |
 | ContractPausedPeriod | `contractpausedperiods` | list, get, create, update, delete | [contractpausedperiods.md](./references/entities/contractpausedperiods.md) |

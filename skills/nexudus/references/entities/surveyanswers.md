@@ -26,7 +26,10 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--survey-run-id` | long | ID of the survey run linked to this record |
 | `--survey-question-id` | long | ID of the survey question linked to this record |
+| `--survey-question-text` | string | The survey question text value for this survey answer |
+| `--survey-question-survey-name` | string | Display name of the linked survey question survey (read-only) |
 | `--value` | string | The value value for this survey answer |
+| `--file-value-file-name` | string | Current file name of the file value (read-only; upload via the corresponding URL field) |
 | `--new-file-value-url` | string | URL of a new file to upload as the file value |
 | `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 | `--from-created-on` | range | |

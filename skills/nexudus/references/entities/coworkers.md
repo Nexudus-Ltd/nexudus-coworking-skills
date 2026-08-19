@@ -32,8 +32,10 @@ Coworkers also support entity commands.
 | `--gender` | enum | Optional customer gender: NotSet, Male, Female, Other, or RatherNotSay. |
 | `--email` | string | Customer email address; required by entity validation and used when creating an associated user account. |
 | `--create-user` | bool | Whether to create the associated user account when this customer is first created; create-only. |
+| `--avatar-file-name` | string | Current file name of the avatar (read-only; upload via the corresponding URL field) |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--banner-image-file-name` | string | Current file name of the banner image (read-only; upload via the corresponding URL field) |
 | `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
 | `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
 | `--address` | string | Customer contact street address. |
@@ -69,6 +71,7 @@ Coworkers also support entity commands.
 | `--blogger` | string | Customer's Blogger profile or handle, limited to 254 characters. |
 | `--profile-is-public` | bool | Whether the customer's profile is visible in the public member directory. |
 | `--invoicing-business-id` | long | ID of the location that owns this customer (their home location) and issues their invoices unless invoice split by location is enabled; defaults to the current location when omitted on create. |
+| `--invoicing-business-name` | string | The name of the customer home location |
 | `--billing-email` | string | Email address to receive this customer's invoices, limited to 254 characters. |
 | `--billing-name` | string | Legal or trading name printed on invoices; when empty, invoices use the company name for Company customers or FullName otherwise. |
 | `--billing-address` | string | Billing street address; when empty, invoices use the contact address. |
@@ -90,24 +93,22 @@ Coworkers also support entity commands.
 | `--notify-on-failed-payment` | bool | Whether to notify the customer when an automatic payment fails. |
 | `--show-paying-member-invoices` | bool | Whether this customer can view invoices of their paying member when one exists. |
 | `--enable-gocardless` | bool | Whether GoCardless regular payments are enabled for this customer. |
-| `--use-go-cardless-pro-payments` | bool | Internal GoCardless Pro integration flag; managed by payment integration setup. |
 | `--gocardless-contract-number` | string | External GoCardless mandate or contract identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-payment-method-id` | string | Stripe BACS payment-method identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-mandate-id` | string | Stripe BACS mandate identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-customer-token` | string | Stripe BACS customer token; security-sensitive integration credential not exposed to the agent. |
 | `--stripe-bacs-d-d-enabled` | bool | Whether Stripe BACS direct-debit payments are enabled for this customer. |
-| `--last-over-due-invoice-reminder` | DateTime | Timestamp of the last overdue-invoice reminder; maintained by reminder processing and not exposed to the agent. |
-| `--from-last-over-due-invoice-reminder` | range | |
-| `--to-last-over-due-invoice-reminder` | range | |
-| `--last-low-credit-reminder` | DateTime | Timestamp of the last low-credit reminder; maintained by reminder processing and not exposed to the agent. |
-| `--from-last-low-credit-reminder` | range | |
-| `--to-last-low-credit-reminder` | range | |
-| `--referer-guid` | string | Internal referral tracking identifier; not exposed to the agent. |
 | `--regular-payment-provider` | enum | Regular-payment provider selected for this customer; set by the supported payment flow rather than by manual provider assignment. |
 | `--regular-payment-contract-number` | string | External regular-payment contract or mandate identifier managed by the payment provider. |
 | `--card-number` | string | Read-only last four digits of the customer's payment card; supplied by the payment provider and not exposed to the agent. |
 | `--do-not-auto-process-invoices` | bool | Whether automatic invoice payment processing is disabled for this customer. |
 | `--allow-network-checkin` | bool | Whether this customer may check in through the network check-in integration. |
+| `--checkin-since-last-renewal` | int | Read-only number of check-ins since the last allowance renewal; maintained from check-in activity. |
+| `--from-checkin-since-last-renewal` | range | |
+| `--to-checkin-since-last-renewal` | range | |
+| `--minutes-since-last-renewal` | int | Read-only number of check-in minutes used since the last allowance renewal; maintained from check-in activity. |
+| `--from-minutes-since-last-renewal` | range | |
+| `--to-minutes-since-last-renewal` | range | |
 | `--access-card-id` | string | Physical access-card identifier; managed through access control and not exposed to the agent. |
 | `--access-pincode` | string | Access-control PIN; security-sensitive and not exposed to the agent. |
 | `--key-fob-number` | string | Physical access key-fob identifier; managed through access control and not exposed to the agent. |
@@ -116,7 +117,6 @@ Coworkers also support entity commands.
 | `--ezeep-free-printing` | bool | Whether this customer can print for free through Ezeep. |
 | `--ezeep-blue-user-id` | string | External Ezeep Blue user ID used by the printing integration. |
 | `--ezeep-blue-free-printing` | bool | Whether this customer can print for free through Ezeep Blue. |
-| `--ezeep-blue-printing-enabled` | bool | Internal Ezeep Blue printing synchronization flag; managed by the integration. |
 | `--paper-cut-pay-as-you-print` | bool | Whether PaperCut pay-as-you-print is enabled for this customer. |
 | `--paper-cut-free-printing` | bool | Whether this customer can print for free through PaperCut. |
 | `--paper-cut-user-id` | string | External PaperCut user identifier used by the printing integration. |
@@ -131,6 +131,14 @@ Coworkers also support entity commands.
 | `--show-alert` | bool | Whether an alert should be shown when staff open this customer's record. |
 | `--alert-note` | string | Alert message displayed to staff when ShowAlert is enabled. |
 | `--user-id` | long | ID of the optional user account linked to this customer; update-only because creating the account uses CreateUser. |
+| `--user-full-name` | string | Display name of the linked user full (read-only) |
+| `--user-is-admin` | bool | Whether user is admin is enabled |
+| `--user-last-access` | DateTime | Date/time value for user last access |
+| `--from-user-last-access` | range | |
+| `--to-user-last-access` | range | |
+| `--user-active` | bool | Whether user active is enabled |
+| `--user-receive-community-digest` | bool | Whether user receive community digest is enabled |
+| `--user-receive-every-message` | bool | Whether user receive every message is enabled |
 | `--active` | bool | Whether this customer record is active. |
 | `--next-auto-invoice` | DateTime | Next scheduled automatic-invoice date; recalculated from active contracts and maintained by invoicing processing. |
 | `--from-next-auto-invoice` | range | |
@@ -142,12 +150,6 @@ Coworkers also support entity commands.
 | `--from-registration-date` | range | |
 | `--to-registration-date` | range | |
 | `--general-terms-accepted` | bool | Whether the customer has accepted the location's general terms and conditions. |
-| `--last-renewal` | DateTime | Timestamp used by allowance-renewal processing; maintained by the system and not exposed to the agent. |
-| `--from-last-renewal` | range | |
-| `--to-last-renewal` | range | |
-| `--last-invoice-attempt` | DateTime | Timestamp of the latest invoice-processing attempt; maintained by the system and not exposed to the agent. |
-| `--from-last-invoice-attempt` | range | |
-| `--to-last-invoice-attempt` | range | |
 | `--custom1` | string | Optional custom customer field 1; its meaning is configured by the location. |
 | `--custom2` | string | Optional custom customer field 2; its meaning is configured by the location. |
 | `--custom3` | string | Optional custom customer field 3; its meaning is configured by the location. |
@@ -178,39 +180,36 @@ Coworkers also support entity commands.
 | `--custom28` | string | Optional custom customer field 28; its meaning is configured by the location. |
 | `--custom29` | string | Optional custom customer field 29; its meaning is configured by the location. |
 | `--custom30` | string | Optional custom customer field 30; its meaning is configured by the location. |
-| `--next-invoice-local` | DateTime | Localized invoice schedule value derived by the application; not exposed to the agent. |
-| `--from-next-invoice-local` | range | |
-| `--to-next-invoice-local` | range | |
-| `--next-auto-invoice-local` | DateTime | Localized next automatic-invoice value derived by the application; not exposed to the agent. |
-| `--from-next-auto-invoice-local` | range | |
-| `--to-next-auto-invoice-local` | range | |
-| `--registration-date-local` | DateTime | Localized registration-date value derived by the application; not exposed to the agent. |
-| `--from-registration-date-local` | range | |
-| `--to-registration-date-local` | range | |
-| `--access-control-debounce-time` | DateTime | Internal access-control debounce timestamp; not exposed to the agent. |
-| `--from-access-control-debounce-time` | range | |
-| `--to-access-control-debounce-time` | range | |
-| `--office365-access-token` | string | Microsoft 365 OAuth access token; security-sensitive credential not exposed to the agent. |
-| `--office365-refresh-token` | string | Microsoft 365 OAuth refresh token; security-sensitive credential not exposed to the agent. |
-| `--zoom-access-token` | string | Zoom OAuth access token; security-sensitive credential not exposed to the agent. |
-| `--zoom-refresh-token` | string | Zoom OAuth refresh token; security-sensitive credential not exposed to the agent. |
 | `--zoom-user-id` | string | External Zoom user ID managed by the calendar integration. |
-| `--doordeck-private-key` | string | Doordeck private key; security-sensitive credential not exposed to the agent. |
-| `--doordeck-public-key` | string | Doordeck public key used by the access integration; not exposed through customer administration. |
 | `--doordeck-user-guid` | string | External Doordeck user ID managed by the access integration. |
 | `--office365-subscription-id` | string | Microsoft 365 calendar subscription ID managed by the calendar integration. |
-| `--salto-v2-access-token` | string | Salto access-control token; security-sensitive credential not exposed to the agent. |
-| `--stripe-a-c-h-bank-token` | string | Stripe ACH bank token; security-sensitive payment credential not exposed to the agent. |
-| `--stripe-a-c-h-customer-token` | string | Stripe ACH customer token; security-sensitive payment credential not exposed to the agent. |
-| `--has-accepted-stripe-a-c-h-agreement` | bool | Internal Stripe ACH agreement status; maintained by the payment flow and not exposed to the agent. |
-| `--has-verified-stripe-a-c-h-deposits` | bool | Internal Stripe ACH deposit-verification status; maintained by the payment flow and not exposed to the agent. |
 | `--purchase-order` | string | Optional purchase-order reference used for this customer's billing. |
 | `--sync-to-square` | bool | Internal Square synchronization flag; maintained by the integration and not exposed to the agent. |
 | `--notify-on-deliveries-email` | string | Email address for delivery notifications, limited to 254 characters. |
-| `--access-control-error-notification-sent` | bool | Internal marker that an access-control error notification was sent; not exposed to the agent. |
-| `--sync-to-paper-cut-due` | bool | Internal PaperCut synchronization marker; not exposed to the agent. |
-| `--google-api-token` | string | Google OAuth token; security-sensitive credential not exposed to the agent. |
 | `--google-subscription-id` | string | Google calendar subscription ID managed by the calendar integration. |
+| `--coworker-contract-ids` | string | Read-only comma-separated list of all contract IDs for this customer; derived from contracts and not exposed to the agent. |
+| `--coworker-contract-tariff-names` | string | Read-only comma-separated list of plan names for all customer contracts; derived from contracts and not exposed to the agent. |
+| `--billing-day` | int | Read-only billing day of this customer's main contract; other contracts may have different billing details, so change the contract instead. |
+| `--from-billing-day` | range | |
+| `--to-billing-day` | range | |
+| `--tariff-id` | int | Read-only plan ID of this customer's main contract; other contracts may use different plans, so change the contract instead. |
+| `--from-tariff-id` | range | |
+| `--to-tariff-id` | range | |
+| `--tariff-invoice-every` | int | Read-only monthly billing interval of this customer's main contract; change the contract instead. |
+| `--from-tariff-invoice-every` | range | |
+| `--to-tariff-invoice-every` | range | |
+| `--tariff-invoice-every-weeks` | int | Read-only weekly billing interval of this customer's main contract; change the contract instead. |
+| `--from-tariff-invoice-every-weeks` | range | |
+| `--to-tariff-invoice-every-weeks` | range | |
+| `--renewal-date` | DateTime | Read-only next invoice date of this customer's main contract; change the contract instead. |
+| `--from-renewal-date` | range | |
+| `--to-renewal-date` | range | |
+| `--team-name` | string | Read-only billing team name, populated only when the customer belongs to a merged-billing team with a paying member assigned. |
+| `--team-id` | int | Read-only billing team ID, populated only when the customer belongs to a merged-billing team with a paying member assigned. |
+| `--from-team-id` | range | |
+| `--to-team-id` | range | |
+| `--team-names` | string | Read-only team names derived from team membership; change Teams instead. |
+| `--team-ids` | string | Read-only team IDs derived from team membership; change Teams instead. |
 | `--invoice-segregation-override` | bool | Whether customer-specific invoice-segregation settings override the location-level settings. |
 | `--invoice-segregate-contracts` | bool | Whether charges for contracts other than the main contract are invoiced separately from main-contract charges when invoice segregation is enabled. |
 | `--invoice-segregate-bookings` | bool | Whether booking charges are invoiced separately from plan and contract charges when invoice segregation is enabled. |
@@ -223,6 +222,10 @@ Coworkers also support entity commands.
 | `--from-brivo-user-id` | range | |
 | `--to-brivo-user-id` | range | |
 | `--ezeep-printing-enabled` | bool | Internal Ezeep printing synchronization flag; managed by the integration. |
+| `--churn-probability` | decimal | Read-only predicted probability that this customer will churn, calculated by the analytics process. |
+| `--from-churn-probability` | range | |
+| `--to-churn-probability` | range | |
+| `--engagement-level` | string | Read-only engagement classification calculated by the analytics process. |
 | `--invoice-due-date-day` | int | Day of the month used to calculate the customer-specific invoice due date. |
 | `--from-invoice-due-date-day` | range | |
 | `--to-invoice-due-date-day` | range | |
@@ -330,15 +333,11 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--notify-on-failed-payment` | bool | Whether to notify the customer when an automatic payment fails. |
 | `--show-paying-member-invoices` | bool | Whether this customer can view invoices of their paying member when one exists. |
 | `--enable-gocardless` | bool | Whether GoCardless regular payments are enabled for this customer. |
-| `--use-go-cardless-pro-payments` | bool | Internal GoCardless Pro integration flag; managed by payment integration setup. |
 | `--gocardless-contract-number` | string | External GoCardless mandate or contract identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-payment-method-id` | string | Stripe BACS payment-method identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-mandate-id` | string | Stripe BACS mandate identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-customer-token` | string | Stripe BACS customer token; security-sensitive integration credential not exposed to the agent. |
 | `--stripe-bacs-d-d-enabled` | bool | Whether Stripe BACS direct-debit payments are enabled for this customer. |
-| `--last-over-due-invoice-reminder` | DateTime | Timestamp of the last overdue-invoice reminder; maintained by reminder processing and not exposed to the agent. |
-| `--last-low-credit-reminder` | DateTime | Timestamp of the last low-credit reminder; maintained by reminder processing and not exposed to the agent. |
-| `--referer-guid` | string | Internal referral tracking identifier; not exposed to the agent. |
 | `--regular-payment-provider` | enum | Regular-payment provider selected for this customer; set by the supported payment flow rather than by manual provider assignment. |
 | `--regular-payment-contract-number` | string | External regular-payment contract or mandate identifier managed by the payment provider. |
 | `--card-number` | string | Read-only last four digits of the customer's payment card; supplied by the payment provider and not exposed to the agent. |
@@ -352,7 +351,6 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--ezeep-free-printing` | bool | Whether this customer can print for free through Ezeep. |
 | `--ezeep-blue-user-id` | string | External Ezeep Blue user ID used by the printing integration. |
 | `--ezeep-blue-free-printing` | bool | Whether this customer can print for free through Ezeep Blue. |
-| `--ezeep-blue-printing-enabled` | bool | Internal Ezeep Blue printing synchronization flag; managed by the integration. |
 | `--paper-cut-pay-as-you-print` | bool | Whether PaperCut pay-as-you-print is enabled for this customer. |
 | `--paper-cut-free-printing` | bool | Whether this customer can print for free through PaperCut. |
 | `--paper-cut-user-id` | string | External PaperCut user identifier used by the printing integration. |
@@ -372,8 +370,6 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--invoice-due-date-period` | int | Optional number of days after issue date before this customer's invoices are due. |
 | `--registration-date` | DateTime | Optional customer registration date. |
 | `--general-terms-accepted` | bool | Whether the customer has accepted the location's general terms and conditions. |
-| `--last-renewal` | DateTime | Timestamp used by allowance-renewal processing; maintained by the system and not exposed to the agent. |
-| `--last-invoice-attempt` | DateTime | Timestamp of the latest invoice-processing attempt; maintained by the system and not exposed to the agent. |
 | `--custom1` | string | Optional custom customer field 1; its meaning is configured by the location. |
 | `--custom2` | string | Optional custom customer field 2; its meaning is configured by the location. |
 | `--custom3` | string | Optional custom customer field 3; its meaning is configured by the location. |
@@ -404,30 +400,12 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--custom28` | string | Optional custom customer field 28; its meaning is configured by the location. |
 | `--custom29` | string | Optional custom customer field 29; its meaning is configured by the location. |
 | `--custom30` | string | Optional custom customer field 30; its meaning is configured by the location. |
-| `--next-invoice-local` | DateTime | Localized invoice schedule value derived by the application; not exposed to the agent. |
-| `--next-auto-invoice-local` | DateTime | Localized next automatic-invoice value derived by the application; not exposed to the agent. |
-| `--registration-date-local` | DateTime | Localized registration-date value derived by the application; not exposed to the agent. |
-| `--access-control-debounce-time` | DateTime | Internal access-control debounce timestamp; not exposed to the agent. |
-| `--office365-access-token` | string | Microsoft 365 OAuth access token; security-sensitive credential not exposed to the agent. |
-| `--office365-refresh-token` | string | Microsoft 365 OAuth refresh token; security-sensitive credential not exposed to the agent. |
-| `--zoom-access-token` | string | Zoom OAuth access token; security-sensitive credential not exposed to the agent. |
-| `--zoom-refresh-token` | string | Zoom OAuth refresh token; security-sensitive credential not exposed to the agent. |
 | `--zoom-user-id` | string | External Zoom user ID managed by the calendar integration. |
-| `--doordeck-private-key` | string | Doordeck private key; security-sensitive credential not exposed to the agent. |
-| `--doordeck-public-key` | string | Doordeck public key used by the access integration; not exposed through customer administration. |
 | `--doordeck-user-guid` | string | External Doordeck user ID managed by the access integration. |
 | `--office365-subscription-id` | string | Microsoft 365 calendar subscription ID managed by the calendar integration. |
-| `--salto-v2-access-token` | string | Salto access-control token; security-sensitive credential not exposed to the agent. |
-| `--stripe-a-c-h-bank-token` | string | Stripe ACH bank token; security-sensitive payment credential not exposed to the agent. |
-| `--stripe-a-c-h-customer-token` | string | Stripe ACH customer token; security-sensitive payment credential not exposed to the agent. |
-| `--has-accepted-stripe-a-c-h-agreement` | bool | Internal Stripe ACH agreement status; maintained by the payment flow and not exposed to the agent. |
-| `--has-verified-stripe-a-c-h-deposits` | bool | Internal Stripe ACH deposit-verification status; maintained by the payment flow and not exposed to the agent. |
 | `--purchase-order` | string | Optional purchase-order reference used for this customer's billing. |
 | `--sync-to-square` | bool | Internal Square synchronization flag; maintained by the integration and not exposed to the agent. |
 | `--notify-on-deliveries-email` | string | Email address for delivery notifications, limited to 254 characters. |
-| `--access-control-error-notification-sent` | bool | Internal marker that an access-control error notification was sent; not exposed to the agent. |
-| `--sync-to-paper-cut-due` | bool | Internal PaperCut synchronization marker; not exposed to the agent. |
-| `--google-api-token` | string | Google OAuth token; security-sensitive credential not exposed to the agent. |
 | `--google-subscription-id` | string | Google calendar subscription ID managed by the calendar integration. |
 | `--invoice-segregation-override` | bool | Whether customer-specific invoice-segregation settings override the location-level settings. |
 | `--invoice-segregate-contracts` | bool | Whether charges for contracts other than the main contract are invoiced separately from main-contract charges when invoice segregation is enabled. |
@@ -522,15 +500,11 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--notify-on-failed-payment` | bool | Whether to notify the customer when an automatic payment fails. |
 | `--show-paying-member-invoices` | bool | Whether this customer can view invoices of their paying member when one exists. |
 | `--enable-gocardless` | bool | Whether GoCardless regular payments are enabled for this customer. |
-| `--use-go-cardless-pro-payments` | bool | Internal GoCardless Pro integration flag; managed by payment integration setup. |
 | `--gocardless-contract-number` | string | External GoCardless mandate or contract identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-payment-method-id` | string | Stripe BACS payment-method identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-mandate-id` | string | Stripe BACS mandate identifier; managed by the payment integration and not exposed to the agent. |
 | `--stripe-bacs-d-d-customer-token` | string | Stripe BACS customer token; security-sensitive integration credential not exposed to the agent. |
 | `--stripe-bacs-d-d-enabled` | bool | Whether Stripe BACS direct-debit payments are enabled for this customer. |
-| `--last-over-due-invoice-reminder` | DateTime | Timestamp of the last overdue-invoice reminder; maintained by reminder processing and not exposed to the agent. |
-| `--last-low-credit-reminder` | DateTime | Timestamp of the last low-credit reminder; maintained by reminder processing and not exposed to the agent. |
-| `--referer-guid` | string | Internal referral tracking identifier; not exposed to the agent. |
 | `--regular-payment-provider` | enum | Regular-payment provider selected for this customer; set by the supported payment flow rather than by manual provider assignment. |
 | `--regular-payment-contract-number` | string | External regular-payment contract or mandate identifier managed by the payment provider. |
 | `--card-number` | string | Read-only last four digits of the customer's payment card; supplied by the payment provider and not exposed to the agent. |
@@ -544,7 +518,6 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--ezeep-free-printing` | bool | Whether this customer can print for free through Ezeep. |
 | `--ezeep-blue-user-id` | string | External Ezeep Blue user ID used by the printing integration. |
 | `--ezeep-blue-free-printing` | bool | Whether this customer can print for free through Ezeep Blue. |
-| `--ezeep-blue-printing-enabled` | bool | Internal Ezeep Blue printing synchronization flag; managed by the integration. |
 | `--paper-cut-pay-as-you-print` | bool | Whether PaperCut pay-as-you-print is enabled for this customer. |
 | `--paper-cut-free-printing` | bool | Whether this customer can print for free through PaperCut. |
 | `--paper-cut-user-id` | string | External PaperCut user identifier used by the printing integration. |
@@ -564,8 +537,6 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--invoice-due-date-period` | int | Optional number of days after issue date before this customer's invoices are due. |
 | `--registration-date` | DateTime | Optional customer registration date. |
 | `--general-terms-accepted` | bool | Whether the customer has accepted the location's general terms and conditions. |
-| `--last-renewal` | DateTime | Timestamp used by allowance-renewal processing; maintained by the system and not exposed to the agent. |
-| `--last-invoice-attempt` | DateTime | Timestamp of the latest invoice-processing attempt; maintained by the system and not exposed to the agent. |
 | `--custom1` | string | Optional custom customer field 1; its meaning is configured by the location. |
 | `--custom2` | string | Optional custom customer field 2; its meaning is configured by the location. |
 | `--custom3` | string | Optional custom customer field 3; its meaning is configured by the location. |
@@ -596,30 +567,12 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--custom28` | string | Optional custom customer field 28; its meaning is configured by the location. |
 | `--custom29` | string | Optional custom customer field 29; its meaning is configured by the location. |
 | `--custom30` | string | Optional custom customer field 30; its meaning is configured by the location. |
-| `--next-invoice-local` | DateTime | Localized invoice schedule value derived by the application; not exposed to the agent. |
-| `--next-auto-invoice-local` | DateTime | Localized next automatic-invoice value derived by the application; not exposed to the agent. |
-| `--registration-date-local` | DateTime | Localized registration-date value derived by the application; not exposed to the agent. |
-| `--access-control-debounce-time` | DateTime | Internal access-control debounce timestamp; not exposed to the agent. |
-| `--office365-access-token` | string | Microsoft 365 OAuth access token; security-sensitive credential not exposed to the agent. |
-| `--office365-refresh-token` | string | Microsoft 365 OAuth refresh token; security-sensitive credential not exposed to the agent. |
-| `--zoom-access-token` | string | Zoom OAuth access token; security-sensitive credential not exposed to the agent. |
-| `--zoom-refresh-token` | string | Zoom OAuth refresh token; security-sensitive credential not exposed to the agent. |
 | `--zoom-user-id` | string | External Zoom user ID managed by the calendar integration. |
-| `--doordeck-private-key` | string | Doordeck private key; security-sensitive credential not exposed to the agent. |
-| `--doordeck-public-key` | string | Doordeck public key used by the access integration; not exposed through customer administration. |
 | `--doordeck-user-guid` | string | External Doordeck user ID managed by the access integration. |
 | `--office365-subscription-id` | string | Microsoft 365 calendar subscription ID managed by the calendar integration. |
-| `--salto-v2-access-token` | string | Salto access-control token; security-sensitive credential not exposed to the agent. |
-| `--stripe-a-c-h-bank-token` | string | Stripe ACH bank token; security-sensitive payment credential not exposed to the agent. |
-| `--stripe-a-c-h-customer-token` | string | Stripe ACH customer token; security-sensitive payment credential not exposed to the agent. |
-| `--has-accepted-stripe-a-c-h-agreement` | bool | Internal Stripe ACH agreement status; maintained by the payment flow and not exposed to the agent. |
-| `--has-verified-stripe-a-c-h-deposits` | bool | Internal Stripe ACH deposit-verification status; maintained by the payment flow and not exposed to the agent. |
 | `--purchase-order` | string | Optional purchase-order reference used for this customer's billing. |
 | `--sync-to-square` | bool | Internal Square synchronization flag; maintained by the integration and not exposed to the agent. |
 | `--notify-on-deliveries-email` | string | Email address for delivery notifications, limited to 254 characters. |
-| `--access-control-error-notification-sent` | bool | Internal marker that an access-control error notification was sent; not exposed to the agent. |
-| `--sync-to-paper-cut-due` | bool | Internal PaperCut synchronization marker; not exposed to the agent. |
-| `--google-api-token` | string | Google OAuth token; security-sensitive credential not exposed to the agent. |
 | `--google-subscription-id` | string | Google calendar subscription ID managed by the calendar integration. |
 | `--invoice-segregation-override` | bool | Whether customer-specific invoice-segregation settings override the location-level settings. |
 | `--invoice-segregate-contracts` | bool | Whether charges for contracts other than the main contract are invoiced separately from main-contract charges when invoice segregation is enabled. |

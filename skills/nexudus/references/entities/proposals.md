@@ -22,7 +22,7 @@ Proposals support Search, Get, Create, Update, Delete.
 | `nexudus proposals list --id <id> --agent` | Filter by single ID |
 | `nexudus proposals list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus proposals list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus proposals list --reference <value> --proposal-status <value> --agent` | Filter proposals by properties |
+| `nexudus proposals list --responsible-full-name <value> --coworker-full-name <value> --agent` | Filter proposals by properties |
 | `nexudus proposals list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus proposals list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus proposals get <id> --agent` | Get single proposal |
@@ -35,22 +35,43 @@ Proposals support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--issued-by-id` | long | ID of the issued by linked to this record |
+| `--issued-by-name` | string | Issuing business name |
+| `--issued-by-currency-code` | string | Issuing business currency code |
 | `--responsible-id` | long | ID of the responsible linked to this record |
+| `--responsible-full-name` | string | Responsible person full name |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-type` | string | Coworker type |
+| `--coworker-full-name` | string | Coworker full name |
+| `--coworker-company-name` | string | Coworker company name |
+| `--coworker-billing-name` | string | Coworker billing name |
 | `--reference` | string | Proposal reference |
 | `--notes` | string | Optional notes or comments about this proposal |
 | `--proposal-status` | enum | Proposal status |
 | `--document-to-send-id` | long | ID of the document to send linked to this record |
 | `--document-to-sign-id` | long | ID of the document to sign linked to this record |
 | `--document-to-sign-html` | string | The document to sign html value for this proposal |
+| `--document-to-sign-binary-document-file-name` | string | Current file name of the document to sign binary document (read-only; upload via the corresponding URL field) |
 | `--new-document-to-sign-binary-document-url` | string | URL of a new file to upload as the document to sign binary document |
 | `--clear-document-to-sign-binary-document-file` | bool | Set to true to remove the current document to sign binary document file |
 | `--document-to-send-html` | string | The document to send html value for this proposal |
+| `--document-to-send-binary-document-file-name` | string | Current file name of the document to send binary document (read-only; upload via the corresponding URL field) |
 | `--new-document-to-send-binary-document-url` | string | URL of a new file to upload as the document to send binary document |
 | `--clear-document-to-send-binary-document-file` | bool | Set to true to remove the current document to send binary document file |
+| `--proposal-file-file-name` | string | Current file name of the proposal file (read-only; upload via the corresponding URL field) |
 | `--new-proposal-file-url` | string | URL of a new file to upload as the proposal file |
 | `--clear-proposal-file-file` | bool | Set to true to remove the current proposal file file |
 | `--tariff-id` | long | ID of the tariff linked to this record |
+| `--tariff-name` | string | Tariff name |
+| `--tariff-invoice-every` | int | Tariff invoice frequency |
+| `--from-tariff-invoice-every` | range | |
+| `--to-tariff-invoice-every` | range | |
+| `--tariff-invoice-every-weeks` | int | Tariff invoice frequency in weeks |
+| `--from-tariff-invoice-every-weeks` | range | |
+| `--to-tariff-invoice-every-weeks` | range | |
+| `--tariff-price` | decimal | Tariff price |
+| `--from-tariff-price` | range | |
+| `--to-tariff-price` | range | |
+| `--tariff-business-currency-code` | string | Tariff business currency code |
 | `--price` | decimal | Price override for the initial contract. Becomes read-only after creation; edit via ProposalContract |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -79,9 +100,15 @@ Proposals support Search, Get, Create, Update, Delete.
 | `--start-date-local` | DateTime | Date/time value for start date local |
 | `--from-start-date-local` | range | |
 | `--to-start-date-local` | range | |
+| `--sent-on` | DateTime | Date the proposal was sent |
+| `--from-sent-on` | range | |
+| `--to-sent-on` | range | |
 | `--sent-on-local` | DateTime | Date/time value for sent on local |
 | `--from-sent-on-local` | range | |
 | `--to-sent-on-local` | range | |
+| `--customer-last-opened-date` | DateTime | Date the customer last opened the proposal |
+| `--from-customer-last-opened-date` | range | |
+| `--to-customer-last-opened-date` | range | |
 | `--do-not-issue-invoice` | bool | If true, the first invoice is not issued automatically when the proposal is accepted |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

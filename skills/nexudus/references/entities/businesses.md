@@ -26,8 +26,13 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--name` | string | Display name of the business location |
 | `--default-language` | enum | Default language identifier for communications and UI |
 | `--space-website-language-id` | long | ID of the space website language linked to this record |
+| `--website-lang-culture` | string | Culture code (e.g. en-GB) for the business's public website |
+| `--root-location-id` | long | ID of the root location linked to this record |
 | `--website` | string | URL slug used for the business's public web address |
 | `--default-payment-gateway-id` | long | ID of the default payment gateway linked to this record |
+| `--next-invoice` | DateTime | Date of the next scheduled invoice run |
+| `--from-next-invoice` | range | |
+| `--to-next-invoice` | range | |
 | `--terms` | string | Terms and conditions text for this business |
 | `--short-intro` | string | Brief introduction shown on the business profile |
 | `--about` | string | Extended 'About Us' text for the business profile |
@@ -50,14 +55,20 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--from-last-welcome-email` | range | |
 | `--to-last-welcome-email` | range | |
 | `--country-id` | long | ID of the country linked to this record |
+| `--country-name` | string | Name of the country (resolved from CountryId) |
 | `--currency-id` | long | ID of the currency linked to this record |
+| `--currency-code` | string | ISO currency code (resolved from CurrencyId) |
 | `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
+| `--logo-file-name` | string | Current file name of the logo (read-only; upload via the corresponding URL field) |
 | `--new-logo-url` | string | URL of a new file to upload as the logo |
 | `--clear-logo-file` | bool | Set to true to remove the current logo file |
+| `--logo-dark-mode-file-name` | string | Current file name of the dark mode logo (read-only; upload via NewLogoDarkModeUrl) |
 | `--new-logo-dark-mode-url` | string | URL of a new file to upload as the dark mode logo |
 | `--clear-logo-dark-mode-file` | bool | Set to true to remove the current dark mode logo file |
+| `--banner-image-file-name` | string | Current file name of the banner image (read-only; upload via the corresponding URL field) |
 | `--new-banner-image-url` | string | URL of a new file to upload as the banner image |
 | `--clear-banner-image-file` | bool | Set to true to remove the current banner image file |
+| `--nex-io-banner-image-file-name` | string | Current file name of the nex io banner image (read-only; upload via the corresponding URL field) |
 | `--new-nex-io-banner-image-url` | string | URL of a new file to upload as the nex io banner image |
 | `--clear-nex-io-banner-image-file` | bool | Set to true to remove the current nex io banner image file |
 | `--discount-percentage` | decimal | The discount percentage value for this business |
@@ -96,6 +107,7 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--passport-channels` | string | Passport channels this business is listed under |
 | `--passport-only` | bool | Whether passport only is enabled |
 | `--passport-published` | bool | Whether this business is published and visible on Nexudus Passport |
+| `--passport-banner-file-name` | string | Current file name of the passport banner (read-only; upload via the corresponding URL field) |
 | `--new-passport-banner-url` | string | URL of a new file to upload as the passport banner |
 | `--clear-passport-banner-file` | bool | Set to true to remove the current passport banner file |
 | `--passport-name` | string | Display name shown on the Nexudus Passport listing |
@@ -178,6 +190,7 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--sat-closed` | bool | Whether the business is closed on Saturdays |
 | `--sun-closed` | bool | Whether the business is closed on Sundays |
 | `--same-opening` | bool | Whether all days share the same opening and closing times |
+| `--theme` | string | Name of the currently active website theme |
 | `--current-back-end-version` | int | The current back end version value for this business |
 | `--from-current-back-end-version` | range | |
 | `--to-current-back-end-version` | range | |
@@ -186,6 +199,9 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--default-payment-term` | int | The default payment term value for this business |
 | `--from-default-payment-term` | range | |
 | `--to-default-payment-term` | range | |
+| `--onboarding-tier` | string | Onboarding support tier for this business |
+| `--support-tier` | string | Customer support tier for this business |
+| `--support-url` | string | URL for the business's support portal |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

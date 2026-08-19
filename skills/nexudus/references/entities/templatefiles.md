@@ -29,6 +29,7 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 | `--name` | string | The name value for this template file |
 | `--title` | string | The title value for this template file |
 | `--description` | string | Free-text description of this template file |
+| `--picture-file-name` | string | Current file name of the picture (read-only; upload via the corresponding URL field) |
 | `--new-picture-url` | string | URL of a new file to upload as the picture |
 | `--clear-picture-file` | bool | Set to true to remove the current picture file |
 | `--permalink` | string | The permalink value for this template file |
@@ -36,6 +37,8 @@ TemplateFiles support Search, Get, Create, Update, Delete.
 | `--published` | bool | Whether published is enabled |
 | `--visibility` | enum | The visibility value for this template file |
 | `--password` | string | The password value for this template file |
+| `--is-custom` | bool | Whether is custom is enabled |
+| `--theme-name` | string | Display name of the linked theme (read-only) |
 | `--file-contents` | string | The file contents value for this template file |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

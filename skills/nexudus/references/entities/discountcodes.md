@@ -31,6 +31,8 @@ DiscountCodes support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Name of the business (location) this discount code belongs to |
+| `--business-currency-code` | string | Currency code of the business (e.g. USD, EUR) |
 | `--code` | string | The unique alphanumeric code customers enter to apply the discount |
 | `--description` | string | Human-readable description of what this discount code is for |
 | `--active` | bool | Whether this discount code is currently active and can be redeemed |

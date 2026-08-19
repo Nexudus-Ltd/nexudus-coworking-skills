@@ -26,7 +26,9 @@ EventWaitingAttendees support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
 | `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--calendar-event-name` | string | Display name of the linked calendar event (read-only) |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
 | `--full-name` | string | The full name value for this event waiting attendee |
 | `--email` | string | The email value for this event waiting attendee |
 | `--from-created-on` | range | |

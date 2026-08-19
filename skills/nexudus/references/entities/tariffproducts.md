@@ -12,7 +12,7 @@ TariffProducts support Search, Get, Create, Update, Delete.
 | `nexudus tariffproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus tariffproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus tariffproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus tariffproducts list --tariff-id <value> --product-id <value> --agent` | Filter tariffproducts by properties |
+| `nexudus tariffproducts list --tariff-name <value> --product-name <value> --agent` | Filter tariffproducts by properties |
 | `nexudus tariffproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tariffproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tariffproducts get <id> --agent` | Get single tariffproduct |
@@ -25,7 +25,13 @@ TariffProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--tariff-id` | long | ID of the tariff linked to this record |
+| `--tariff-name` | string | Tariff name |
 | `--product-id` | long | ID of the product linked to this record |
+| `--product-name` | string | Product name |
+| `--product-price` | decimal | Product price |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-business-currency-code` | string | Product business currency code |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

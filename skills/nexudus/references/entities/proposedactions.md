@@ -30,6 +30,8 @@ ProposedActions support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
 | `--coworker-id` | long | ID of the target coworker for this proposed action. |
+| `--coworker-full-name` | string | Full name of the target coworker. |
+| `--coworker-email` | string | Email address of the target coworker. |
 | `--ai-channel-session-id` | long | ID of the source AI channel session that triggered this proposed action (for session-based criteria). |
 | `--criteria-type` | string | Identifier of the criteria evaluator that produced this action (e.g. DueInvoiceCriteria, ContractExpiryCriteria). |
 | `--criteria-payload` | string | JSON-serialized context data from the criteria evaluation (e.g. invoice details, contract dates, support ticket summaries). |
@@ -43,6 +45,8 @@ ProposedActions support Search, Get, Create, Update, Delete.
 | `--priority` | enum | Priority level of the proposed action (Low, Medium, High, Critical). Used for inbox sorting and urgency indicators. |
 | `--status` | enum | Current lifecycle status: Pending (awaiting review), Approved, Rejected, Expired (not reviewed in time), AutoExecuted, Snoozed, Deferred, or AwaitingReply. |
 | `--reviewed-by-id` | long | ID of the operator who reviewed this proposed action. |
+| `--reviewed-by-full-name` | string | Full name of the operator who reviewed this action. |
+| `--reviewed-by-email` | string | Email address of the operator who reviewed this action. |
 | `--reviewed-on` | DateTime | Timestamp when the action was reviewed by an operator. |
 | `--from-reviewed-on` | range | |
 | `--to-reviewed-on` | range | |
@@ -63,8 +67,11 @@ ProposedActions support Search, Get, Create, Update, Delete.
 | `--from-deferral-count` | range | |
 | `--to-deferral-count` | range | |
 | `--email-account-id` | long | Email address of the sender account used for this action. |
+| `--email-account-display-name` | string | Internal notes for operator context (not sent to the customer). Used for InternalNote action types and operator annotations. |
+| `--email-account-email-address` | string | Email address of the sending account used for this outbound email action. |
 | `--internal-notes` | string | Internal notes added by operators for context or tracking purposes. |
 | `--help-desk-department-id` | long | ID of the help desk department to associate with this action (for HelpDesk channel actions). |
+| `--help-desk-department-name` | string | Name of the help desk department associated with this action. |
 | `--help-desk-priority` | enum | Priority level for the help desk ticket created from this action (Low, Normal, High, Critical). |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=BlogPosts -->
 
-A **BlogPost** represents an article published on the Members Portal. Articles can be used to share news, updates, or useful content with customers.
-
-Articles support scheduled publishing via `PublishDate` and automatic unpublishing via `UnpublishDate`. Setting a `PublishDate` in the past publishes the article immediately; setting a future date schedules it. Leaving `UnpublishDate` blank keeps the article published until it is manually unpublished or deleted.
-
-Each article has a `SummaryText` (short overview displayed at the top) and a `FullText` (the main body content). Articles can be organised into categories using the `BlogCategory` entity and can optionally allow customer comments.
-
-Visibility can be controlled with `OnlyForMembers` (customers with an active contract) and `OnlyForContacts` (customers without an active contract). Articles can also be featured on the Members Portal home page before login (`ShowInHomeBanner`) or after login (`ShowInHomePage`).
+A BlogPost is a location-specific article for the Members Portal, with HTML content, optional images and categories, scheduled publication, audience restrictions, home-page placement, and optional customer comments.
 
 BlogPosts support Search, Get, Create, Update, Delete.
 
@@ -22,7 +16,7 @@ BlogPosts support Search, Get, Create, Update, Delete.
 | `nexudus blogposts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus blogposts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus blogposts get <id> --agent` | Get single blogpost |
-| `nexudus blogposts create --business-id <value> --title <value> --comments-count <value> --agent` | Create blogpost |
+| `nexudus blogposts create --business-id <value> --title <value> --agent` | Create blogpost |
 | `nexudus blogposts update <id> --name "New Name" --agent` | Update blogpost |
 | `nexudus blogposts delete <id> --yes --agent` | Delete blogpost (no prompt) |
 
@@ -30,30 +24,33 @@ BlogPosts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--language-id` | long | ID of the language linked to this record |
-| `--posted-by-id` | long | ID of the posted by linked to this record |
-| `--title` | string | Article title |
-| `--summary` | string | Short overview displayed at the top of the article |
-| `--body` | string | Main body content of the article |
+| `--business-id` | long | ID of the location that owns this article. |
+| `--language-id` | long | ID of the optional location-specific language used for this article. |
+| `--posted-by-id` | long | ID of the user attributed as the author; creation assigns the currently authenticated user. |
+| `--posted-by-name` | string | Full name of the article author |
+| `--title` | string | Required title of the article. |
+| `--summary` | string | Optional short overview displayed with the article. |
+| `--body` | string | Optional HTML body content of the article. |
+| `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--large-image-file-name` | string | Current file name of the large image (read-only; upload via the corresponding URL field) |
 | `--new-large-image-url` | string | URL of a new file to upload as the large image |
 | `--clear-large-image-file` | bool | Set to true to remove the current large image file |
-| `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
+| `--publish-date` | DateTime | UTC date and time when the public article becomes available; it must be set, and a future value schedules publication. |
 | `--from-publish-date` | range | |
 | `--to-publish-date` | range | |
-| `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
-| `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
-| `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
+| `--show-in-home-banner` | bool | Whether to feature the article in the Members Portal home banner before sign-in. |
+| `--show-in-home-page` | bool | Whether to feature the article on the Members Portal home page after sign-in. |
+| `--unpublish-date` | DateTime | Optional UTC date and time recorded as the article's unpublish date; leave blank when no unpublish date is required. |
 | `--from-unpublish-date` | range | |
 | `--to-unpublish-date` | range | |
-| `--allow-comments` | bool | Whether customers can post comments on this article |
-| `--comments-count` | int | Number of comments on this article |
+| `--allow-comments` | bool | Whether customers can submit comments on this article. |
+| `--comments-count` | int | Read-only total number of comments, calculated from BlogPostComment records. |
 | `--from-comments-count` | range | |
 | `--to-comments-count` | range | |
-| `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
-| `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
+| `--only-for-contacts` | bool | Whether the article is restricted to contacts, meaning customers without an active contract. |
+| `--only-for-members` | bool | Whether the article is restricted to members, meaning customers with an active contract. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -72,53 +69,51 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--language-id` | long | ID of the language linked to this record |
-| `--posted-by-id` | long | ID of the posted by linked to this record |
-| `--title` | string, required | Article title |
-| `--summary` | string | Short overview displayed at the top of the article |
-| `--body` | string | Main body content of the article |
+| `--business-id` | long, required | ID of the location that owns this article. |
+| `--language-id` | long | ID of the optional location-specific language used for this article. |
+| `--posted-by-id` | long | ID of the user attributed as the author; creation assigns the currently authenticated user. |
+| `--title` | string, required | Required title of the article. |
+| `--summary` | string | Optional short overview displayed with the article. |
+| `--body` | string | Optional HTML body content of the article. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--new-large-image-url` | string | URL of a new file to upload as the large image |
 | `--clear-large-image-file` | bool | Set to true to remove the current large image file |
-| `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
-| `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
-| `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
-| `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
-| `--allow-comments` | bool | Whether customers can post comments on this article |
-| `--blog-categories` | list, repeat flag | List of blog categories linked to this record |
+| `--publish-date` | DateTime | UTC date and time when the public article becomes available; it must be set, and a future value schedules publication. |
+| `--show-in-home-banner` | bool | Whether to feature the article in the Members Portal home banner before sign-in. |
+| `--show-in-home-page` | bool | Whether to feature the article on the Members Portal home page after sign-in. |
+| `--unpublish-date` | DateTime | Optional UTC date and time recorded as the article's unpublish date; leave blank when no unpublish date is required. |
+| `--allow-comments` | bool | Whether customers can submit comments on this article. |
+| `--blog-categories` | list, repeat flag | List of location-specific blog category IDs assigned to this article; an empty list leaves it uncategorized. |
 | `--added-blog-categories` | list, repeat flag | The added blog categories value for this blog post |
 | `--removed-blog-categories` | list, repeat flag | The removed blog categories value for this blog post |
-| `--comments-count` | int, required | Number of comments on this article |
-| `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
-| `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
+| `--only-for-contacts` | bool | Whether the article is restricted to contacts, meaning customers without an active contract. |
+| `--only-for-members` | bool | Whether the article is restricted to members, meaning customers with an active contract. |
 
 #### BlogPost update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--language-id` | long | ID of the language linked to this record |
-| `--posted-by-id` | long | ID of the posted by linked to this record |
-| `--title` | string | Article title |
-| `--summary` | string | Short overview displayed at the top of the article |
-| `--body` | string | Main body content of the article |
+| `--business-id` | long | ID of the location that owns this article. |
+| `--language-id` | long | ID of the optional location-specific language used for this article. |
+| `--posted-by-id` | long | ID of the user attributed as the author; creation assigns the currently authenticated user. |
+| `--title` | string | Required title of the article. |
+| `--summary` | string | Optional short overview displayed with the article. |
+| `--body` | string | Optional HTML body content of the article. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--new-large-image-url` | string | URL of a new file to upload as the large image |
 | `--clear-large-image-file` | bool | Set to true to remove the current large image file |
-| `--publish-date` | DateTime | Date and time when the article is published. Past dates publish immediately; future dates schedule publication |
-| `--show-in-home-banner` | bool | Feature this article on the Members Portal home page before users log in |
-| `--show-in-home-page` | bool | Feature this article on the Members Portal home page after users log in |
-| `--unpublish-date` | DateTime | Date and time when the article is automatically unpublished. Leave blank to keep published indefinitely |
-| `--allow-comments` | bool | Whether customers can post comments on this article |
-| `--blog-categories` | list, repeat flag | List of blog categories linked to this record |
+| `--publish-date` | DateTime | UTC date and time when the public article becomes available; it must be set, and a future value schedules publication. |
+| `--show-in-home-banner` | bool | Whether to feature the article in the Members Portal home banner before sign-in. |
+| `--show-in-home-page` | bool | Whether to feature the article on the Members Portal home page after sign-in. |
+| `--unpublish-date` | DateTime | Optional UTC date and time recorded as the article's unpublish date; leave blank when no unpublish date is required. |
+| `--allow-comments` | bool | Whether customers can submit comments on this article. |
+| `--blog-categories` | list, repeat flag | List of location-specific blog category IDs assigned to this article; an empty list leaves it uncategorized. |
 | `--added-blog-categories` | list, repeat flag | The added blog categories value for this blog post |
 | `--removed-blog-categories` | list, repeat flag | The removed blog categories value for this blog post |
-| `--comments-count` | int | Number of comments on this article |
-| `--only-for-contacts` | bool | Restrict visibility to contacts (customers without an active contract) |
-| `--only-for-members` | bool | Restrict visibility to members (customers with an active contract) |
+| `--only-for-contacts` | bool | Whether the article is restricted to contacts, meaning customers without an active contract. |
+| `--only-for-members` | bool | Whether the article is restricted to members, meaning customers with an active contract. |
 
 #### BlogPost PII fields
 

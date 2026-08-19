@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=BlogCategories -->
 
-A **BlogCategory** groups blog posts into named categories within a location. Each category belongs to a single `Business` and has a `Title` used for display and filtering.
-
-Categories can optionally be associated with a `Language` to support multilingual blogs. Use the `BlogPosts`, `AddedBlogPosts`, and `RemovedBlogPosts` collections to manage which blog posts belong to the category.
+A blog category is a named grouping of blog posts for a location, used as a public blog filter and to show related posts.
 
 BlogCategories support Search, Get, Create, Update, Delete.
 
@@ -26,9 +24,9 @@ BlogCategories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--language-id` | long | ID of the language linked to this record |
-| `--title` | string | Category title |
+| `--business-id` | long | ID of the location this blog category belongs to. |
+| `--language-id` | long | ID of the optional location language this category is limited to; leave unset for a category available in every language. |
+| `--title` | string | Required category name shown in blog filters and used to group related blog posts. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -47,10 +45,10 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--language-id` | long | ID of the language linked to this record |
-| `--title` | string, required | Category title |
-| `--blog-posts` | list, repeat flag | List of blog posts linked to this record |
+| `--business-id` | long, required | ID of the location this blog category belongs to. |
+| `--language-id` | long | ID of the optional location language this category is limited to; leave unset for a category available in every language. |
+| `--title` | string, required | Required category name shown in blog filters and used to group related blog posts. |
+| `--blog-posts` | list, repeat flag | List of IDs of blog posts assigned to this category; when supplied on update, the list replaces the current assignments. |
 | `--added-blog-posts` | list, repeat flag | The added blog posts value for this blog category |
 | `--removed-blog-posts` | list, repeat flag | The removed blog posts value for this blog category |
 
@@ -58,10 +56,10 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--language-id` | long | ID of the language linked to this record |
-| `--title` | string | Category title |
-| `--blog-posts` | list, repeat flag | List of blog posts linked to this record |
+| `--business-id` | long | ID of the location this blog category belongs to. |
+| `--language-id` | long | ID of the optional location language this category is limited to; leave unset for a category available in every language. |
+| `--title` | string | Required category name shown in blog filters and used to group related blog posts. |
+| `--blog-posts` | list, repeat flag | List of IDs of blog posts assigned to this category; when supplied on update, the list replaces the current assignments. |
 | `--added-blog-posts` | list, repeat flag | The added blog posts value for this blog category |
 | `--removed-blog-posts` | list, repeat flag | The removed blog posts value for this blog category |
 

@@ -27,6 +27,7 @@ AudioFiles support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Name of the audio file |
 | `--description` | string | Description of the audio file |
+| `--audio-file-name` | string | Current file name of the audio (read-only; upload via the corresponding URL field) |
 | `--new-audio-url` | string | URL of a new file to upload as the audio |
 | `--clear-audio-file` | bool | Set to true to remove the current audio file |
 | `--file-size-bytes` | int | File size in bytes |

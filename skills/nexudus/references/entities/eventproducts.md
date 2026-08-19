@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=EventProducts -->
 
-An **EventProduct** links a product to a calendar event, allowing products to be sold as part of event registration (e.g. event tickets, catering add-ons).
+An Event Product (internally EventProduct) is a purchasable ticket or RSVP option for a calendar event, with its own price, capacity, availability window, and customer-targeting rules.
 
 EventProducts support Search, Get, Create, Update, Delete.
 
@@ -24,34 +24,41 @@ EventProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--calendar-event-id` | long | ID of the calendar event linked to this record |
-| `--name` | string | The name value for this event product |
-| `--description` | string | Free-text description of this event product |
-| `--ticket-notes` | string | The ticket notes value for this event product |
-| `--visible` | bool | Whether visible is enabled |
-| `--display-order` | int | The display order value for this event product |
+| `--calendar-event-id` | long | ID of the calendar event this ticket belongs to; the event's location determines the owning location for this record. |
+| `--name` | string | Required ticket name shown to customers on the Members Portal and app. |
+| `--description` | string | Optional short description of this ticket shown on the Members Portal and app. |
+| `--ticket-notes` | string | Optional HTML notes appended to the confirmation message sent to customers who purchase this ticket. |
+| `--visible` | bool | Whether customers can see and purchase this ticket from the Members Portal and app; when false the ticket is hidden from the storefront. |
+| `--display-order` | int | Display position of this ticket among the event's tickets; lower values appear first. |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
-| `--start-date` | DateTime | Date/time value for start date |
+| `--start-date` | DateTime | Start of the window during which this ticket is available for purchase; defaults to the event's publish date when created. |
 | `--from-start-date` | range | |
 | `--to-start-date` | range | |
-| `--end-date` | DateTime | Date/time value for end date |
+| `--end-date` | DateTime | End of the window during which this ticket is available for purchase; defaults to the event's start date when created. |
 | `--from-end-date` | range | |
 | `--to-end-date` | range | |
-| `--allocation` | int | The allocation value for this event product |
+| `--allocation` | int | Maximum number of tickets of this type that can be sold; null means unlimited (bounded only by the event's overall capacity). |
 | `--from-allocation` | range | |
 | `--to-allocation` | range | |
-| `--max-tickets-per-attendee` | int | The max tickets per attendee value for this event product |
+| `--max-tickets-per-attendee` | int | Maximum number of this ticket a single customer can purchase; null means no per-customer limit. |
 | `--from-max-tickets-per-attendee` | range | |
 | `--to-max-tickets-per-attendee` | range | |
-| `--price` | decimal | Unit price amount |
+| `--sales` | int | Read-only count of non-cancelled tickets sold for this product; computed from EventAttendee records and cannot be set directly. |
+| `--from-sales` | range | |
+| `--to-sales` | range | |
+| `--price` | decimal | Price charged per ticket in the selected currency; zero makes the ticket free (RSVP only). |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--only-for-contacts` | bool | Whether only for contacts is enabled |
-| `--only-for-members` | bool | Whether only for members is enabled |
+| `--currency-id` | long | ID of the ISO 4217 currency used for the ticket price. |
+| `--currency-code` | string | The currency code value for this event product |
+| `--tax-rate-id` | long | Optional ID of the tax rate applied when this ticket is invoiced. |
+| `--financial-account-id` | long | Optional ID of the financial account used to record ticket revenue. |
+| `--only-for-contacts` | bool | Whether this ticket is restricted to contacts (customers without an active contract); do not combine with OnlyForMembers. |
+| `--only-for-members` | bool | Whether this ticket is restricted to members (customers with an active contract); when Tariffs is non-empty the member must hold an active contract on one of those plans, and this must not be combined with OnlyForContacts. |
+| `--tariff-names` | string | Read-only comma-separated display names of the plans in the Tariffs collection; change the Tariffs collection instead. |
+| `--team-names` | string | Read-only comma-separated display names of the teams in the Teams collection; change the Teams collection instead. |
+| `--coworker-full-names` | string | Read-only comma-separated display names of the customers in the Members collection; change the Members collection instead. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -70,50 +77,74 @@ Default sort: `DisplayOrder` ascending. If no `--order-by` is specified, the API
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--calendar-event-id` | long, required | ID of the calendar event linked to this record |
-| `--name` | string, required | The name value for this event product |
-| `--description` | string | Free-text description of this event product |
-| `--ticket-notes` | string | The ticket notes value for this event product |
-| `--visible` | bool | Whether visible is enabled |
-| `--display-order` | int, required | The display order value for this event product |
-| `--start-date` | DateTime, required | Date/time value for start date |
-| `--end-date` | DateTime, required | Date/time value for end date |
-| `--allocation` | int | The allocation value for this event product |
-| `--max-tickets-per-attendee` | int | The max tickets per attendee value for this event product |
-| `--price` | decimal, required | Unit price amount |
-| `--currency-id` | long, required | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--calendar-event-id` | long, required | ID of the calendar event this ticket belongs to; the event's location determines the owning location for this record. |
+| `--name` | string, required | Required ticket name shown to customers on the Members Portal and app. |
+| `--description` | string | Optional short description of this ticket shown on the Members Portal and app. |
+| `--ticket-notes` | string | Optional HTML notes appended to the confirmation message sent to customers who purchase this ticket. |
+| `--visible` | bool | Whether customers can see and purchase this ticket from the Members Portal and app; when false the ticket is hidden from the storefront. |
+| `--display-order` | int, required | Display position of this ticket among the event's tickets; lower values appear first. |
+| `--start-date` | DateTime, required | Start of the window during which this ticket is available for purchase; defaults to the event's publish date when created. |
+| `--end-date` | DateTime, required | End of the window during which this ticket is available for purchase; defaults to the event's start date when created. |
+| `--allocation` | int | Maximum number of tickets of this type that can be sold; null means unlimited (bounded only by the event's overall capacity). |
+| `--max-tickets-per-attendee` | int | Maximum number of this ticket a single customer can purchase; null means no per-customer limit. |
+| `--price` | decimal, required | Price charged per ticket in the selected currency; zero makes the ticket free (RSVP only). |
+| `--currency-id` | long, required | ID of the ISO 4217 currency used for the ticket price. |
+| `--tax-rate-id` | long | Optional ID of the tax rate applied when this ticket is invoiced. |
+| `--financial-account-id` | long | Optional ID of the financial account used to record ticket revenue. |
+| `--only-for-contacts` | bool | Whether this ticket is restricted to contacts (customers without an active contract); do not combine with OnlyForMembers. |
+| `--only-for-members` | bool | Whether this ticket is restricted to members (customers with an active contract); when Tariffs is non-empty the member must hold an active contract on one of those plans, and this must not be combined with OnlyForContacts. |
+| `--tariffs` | list, repeat flag | List of plans whose active members can purchase this ticket when OnlyForMembers is true; an empty list allows members on any plan. |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this event product |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this event product |
-| `--only-for-contacts` | bool | Whether only for contacts is enabled |
-| `--only-for-members` | bool | Whether only for members is enabled |
+| `--members` | list, repeat flag | List of specific customers who can purchase this ticket regardless of their plan or contact status; an empty list means no per-customer restriction. |
+| `--added-members` | list, repeat flag |  |
+| `--removed-members` | list, repeat flag |  |
+| `--teams` | list, repeat flag | List of teams whose members can purchase this ticket; an empty list means no team restriction. |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
 
 #### EventProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--calendar-event-id` | long | ID of the calendar event linked to this record |
-| `--name` | string | The name value for this event product |
-| `--description` | string | Free-text description of this event product |
-| `--ticket-notes` | string | The ticket notes value for this event product |
-| `--visible` | bool | Whether visible is enabled |
-| `--display-order` | int | The display order value for this event product |
-| `--start-date` | DateTime | Date/time value for start date |
-| `--end-date` | DateTime | Date/time value for end date |
-| `--allocation` | int | The allocation value for this event product |
-| `--max-tickets-per-attendee` | int | The max tickets per attendee value for this event product |
-| `--price` | decimal | Unit price amount |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--calendar-event-id` | long | ID of the calendar event this ticket belongs to; the event's location determines the owning location for this record. |
+| `--name` | string | Required ticket name shown to customers on the Members Portal and app. |
+| `--description` | string | Optional short description of this ticket shown on the Members Portal and app. |
+| `--ticket-notes` | string | Optional HTML notes appended to the confirmation message sent to customers who purchase this ticket. |
+| `--visible` | bool | Whether customers can see and purchase this ticket from the Members Portal and app; when false the ticket is hidden from the storefront. |
+| `--display-order` | int | Display position of this ticket among the event's tickets; lower values appear first. |
+| `--start-date` | DateTime | Start of the window during which this ticket is available for purchase; defaults to the event's publish date when created. |
+| `--end-date` | DateTime | End of the window during which this ticket is available for purchase; defaults to the event's start date when created. |
+| `--allocation` | int | Maximum number of tickets of this type that can be sold; null means unlimited (bounded only by the event's overall capacity). |
+| `--max-tickets-per-attendee` | int | Maximum number of this ticket a single customer can purchase; null means no per-customer limit. |
+| `--price` | decimal | Price charged per ticket in the selected currency; zero makes the ticket free (RSVP only). |
+| `--currency-id` | long | ID of the ISO 4217 currency used for the ticket price. |
+| `--tax-rate-id` | long | Optional ID of the tax rate applied when this ticket is invoiced. |
+| `--financial-account-id` | long | Optional ID of the financial account used to record ticket revenue. |
+| `--only-for-contacts` | bool | Whether this ticket is restricted to contacts (customers without an active contract); do not combine with OnlyForMembers. |
+| `--only-for-members` | bool | Whether this ticket is restricted to members (customers with an active contract); when Tariffs is non-empty the member must hold an active contract on one of those plans, and this must not be combined with OnlyForContacts. |
+| `--tariffs` | list, repeat flag | List of plans whose active members can purchase this ticket when OnlyForMembers is true; an empty list allows members on any plan. |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this event product |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this event product |
-| `--only-for-contacts` | bool | Whether only for contacts is enabled |
-| `--only-for-members` | bool | Whether only for members is enabled |
+| `--members` | list, repeat flag | List of specific customers who can purchase this ticket regardless of their plan or contact status; an empty list means no per-customer restriction. |
+| `--added-members` | list, repeat flag |  |
+| `--removed-members` | list, repeat flag |  |
+| `--teams` | list, repeat flag | List of teams whose members can purchase this ticket; an empty list means no team restriction. |
+| `--added-teams` | list, repeat flag |  |
+| `--removed-teams` | list, repeat flag |  |
 
-**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
+#### EventProduct PII fields
+
+In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
+
+| Option | Category | Token example |
+| --- | --- | --- |
+| `--coworker-full-names` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+
+Example:
+
+`nexudus eventproducts update <id> --coworker-full-names "«PII:NAME:a3f2b1c9»" --agent`
+
+**List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`, `Members`, `AddedMembers`, `RemovedMembers`, `Teams`, `AddedTeams`, `RemovedTeams`
 
 <!-- END:GENERATED entity=EventProducts -->

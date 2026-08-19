@@ -13,7 +13,7 @@ InventoryAssets also support entity commands.
 | `nexudus inventoryassets list --id <id> --agent` | Filter by single ID |
 | `nexudus inventoryassets list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus inventoryassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus inventoryassets list --name <value> --agent` | Filter inventoryassets by properties |
+| `nexudus inventoryassets list --business-name <value> --name <value> --agent` | Filter inventoryassets by properties |
 | `nexudus inventoryassets list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus inventoryassets list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus inventoryassets get <id> --agent` | Get single inventoryasset |
@@ -27,16 +27,24 @@ InventoryAssets also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this asset; saving a linked resource or floor-plan desk can replace it with that linked record's location. |
+| `--business-name` | string | Name of the location this asset belongs to |
 | `--name` | string | Required display name of the physical asset, such as 'Standing Desk #3' or 'HP LaserJet'. |
 | `--description` | string | Optional free-text description of the asset. |
 | `--sku` | string | Optional stock-keeping unit code; when provided, it must be unique within the location. |
+| `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--value` | decimal | Optional monetary value of the asset in the owning location's currency. |
 | `--from-value` | range | |
 | `--to-value` | range | |
 | `--floor-plan-desk-id` | long | ID of the floor-plan desk linked to this asset; required when AssignToType is FloorPlanItem and it sets the asset's location from the desk's floor plan. |
+| `--floor-plan-desk-name` | string | Name of the linked floor-plan desk |
+| `--coworker-full-names` | string | Read-only comma-separated customer names projected from CoworkerInventoryAsset assignment records; change assignments through that entity instead. |
+| `--coworker-ids` | string | Read-only comma-separated customer IDs projected from CoworkerInventoryAsset assignment records; change assignments through that entity instead. |
+| `--coworker-start-dates` | string | Read-only comma-separated assignment start dates projected from CoworkerInventoryAsset records; each assignment requires a start date. |
+| `--coworker-end-dates` | string | Read-only comma-separated assignment end dates projected from CoworkerInventoryAsset records; an end date cannot precede its assignment start date. |
 | `--resource-id` | long | ID of the bookable resource linked to this asset; required when AssignToType is Resource and it sets the asset's location to the resource's location. |
+| `--resource-name` | string | Name of the linked bookable resource |
 | `--assign-to-type` | enum | Determines the asset scope: Location (1) needs no linked resource or desk, Resource (2) requires ResourceId, and FloorPlanItem (3) requires FloorPlanDeskId. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

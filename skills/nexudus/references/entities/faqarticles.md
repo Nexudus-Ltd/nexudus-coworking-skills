@@ -28,8 +28,10 @@ FaqArticles support Search, Get, Create, Update, Delete.
 | `--title` | string | The title value for this faq article |
 | `--summary-text` | string | The summary text value for this faq article |
 | `--full-text` | string | The full text value for this faq article |
+| `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--large-image-file-name` | string | Current file name of the large image (read-only; upload via the corresponding URL field) |
 | `--new-large-image-url` | string | URL of a new file to upload as the large image |
 | `--clear-large-image-file` | bool | Set to true to remove the current large image file |
 | `--active` | bool | Whether this faq article is currently active |

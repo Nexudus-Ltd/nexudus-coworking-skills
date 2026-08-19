@@ -14,7 +14,7 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 | `nexudus coworkermessages list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkermessages list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkermessages list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkermessages list --coworker-id <value> --email-account-id <value> --agent` | Filter coworkermessages by properties |
+| `nexudus coworkermessages list --coworker-full-name <value> --email-account-display-name <value> --agent` | Filter coworkermessages by properties |
 | `nexudus coworkermessages list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkermessages list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkermessages get <id> --agent` | Get single coworkermessage |
@@ -24,9 +24,17 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | Customer sending or receiving the message |
+| `--coworker-full-name` | string | Customer full name |
+| `--coworker-email` | string | Customer email address |
+| `--coworker-billing-name` | string | Customer billing name |
+| `--coworker-company-name` | string | Customer company name |
 | `--email-account-id` | long | Email account used to send or receive the message. If not set, the default email settings configured for the location are used |
+| `--email-account-display-name` | string | Email account display name |
+| `--email-account-email-address` | string | Email account email address |
 | `--subject` | string | Message subject |
 | `--body` | string | Message body |
+| `--is-new-message` | bool | Whether the message has not been read yet |
+| `--incoming` | bool | Whether the message was received from the customer (true) or sent to the customer (false) |
 | `--message-id` | int | Automated message template that triggered this message, if sent by the system |
 | `--from-message-id` | range | |
 | `--to-message-id` | range | |

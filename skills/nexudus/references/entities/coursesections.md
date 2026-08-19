@@ -22,7 +22,7 @@ CourseSections support Search, Get, Create, Update, Delete.
 | `nexudus coursesections list --id <id> --agent` | Filter by single ID |
 | `nexudus coursesections list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coursesections list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coursesections list --course-id <value> --title <value> --agent` | Filter coursesections by properties |
+| `nexudus coursesections list --course-id <value> --course-title <value> --agent` | Filter coursesections by properties |
 | `nexudus coursesections list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coursesections list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coursesections get <id> --agent` | Get single coursesection |
@@ -35,6 +35,7 @@ CourseSections support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-id` | long | ID of the course this section belongs to |
+| `--course-title` | string | Title of the parent course |
 | `--title` | string | Section title displayed to members |
 | `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
 | `--active` | bool | Whether the section is active and visible to enrolled members |
@@ -42,6 +43,7 @@ CourseSections support Search, Get, Create, Update, Delete.
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
 | `--unlock-type` | enum | When the section becomes available: Immediate (1), after the previous section is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--image-file-name` | string | Stored filename of the section thumbnail image (read-only; use --new-image-url to set) |
 | `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
 | `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
 | `--unlock-after-days` | int | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |

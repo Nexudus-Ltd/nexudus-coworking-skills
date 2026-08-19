@@ -13,7 +13,7 @@ CoworkerDeliveries also support entity commands.
 | `nexudus coworkerdeliveries list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerdeliveries list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerdeliveries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerdeliveries list --name <value> --collected <value> --agent` | Filter coworkerdeliveries by properties |
+| `nexudus coworkerdeliveries list --coworker-full-name <value> --name <value> --agent` | Filter coworkerdeliveries by properties |
 | `nexudus coworkerdeliveries list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerdeliveries list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerdeliveries get <id> --agent` | Get single coworkerdelivery |
@@ -28,27 +28,38 @@ CoworkerDeliveries also support entity commands.
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this delivery. Defaults to the current location when creating a delivery. |
 | `--coworker-id` | long | ID of the customer this delivery is for. Use either CoworkerId or ContractContactId to identify the recipient. |
+| `--coworker-coworker-type` | string | The coworker coworker type value for this coworker delivery |
+| `--coworker-full-name` | string | Full name of the customer the delivery is for |
+| `--coworker-email` | string | Email address of the customer the delivery is for |
+| `--coworker-billing-name` | string | Billing name of the customer the delivery is for |
+| `--coworker-company-name` | string | Company name of the customer the delivery is for |
+| `--coworker-team-names` | string | Team names the customer belongs to |
 | `--contract-contact-id` | long | ID of the contract contact receiving this delivery when it is not assigned to a customer. |
+| `--contract-contact-full-name` | string | Full name of the contract contact the delivery is for |
+| `--contract-contact-email` | string | Email address of the contract contact the delivery is for |
 | `--name` | string | Required short reference that identifies the delivery item. |
 | `--location` | string | Required physical storage location for the delivery, such as a mailroom shelf. |
 | `--received-by` | string | Name of the staff member who received the delivery. |
 | `--notes` | string | Free-text operational notes about the delivery. |
+| `--file-data-file-name` | string | Current file name of the file data (read-only; upload via the corresponding URL field) |
 | `--new-file-data-url` | string | URL of a new file to upload as the file data |
 | `--clear-file-data-file` | bool | Set to true to remove the current file data file |
+| `--signature-file-name` | string | Current file name of the signature (read-only; upload via the corresponding URL field) |
 | `--new-signature-url` | string | URL of a new file to upload as the signature |
 | `--clear-signature-file` | bool | Set to true to remove the current signature file |
+| `--scanned-file-data-file-name` | string | Current file name of the scanned file data (read-only; upload via the corresponding URL field) |
 | `--new-scanned-file-data-url` | string | URL of a new file to upload as the scanned file data |
 | `--clear-scanned-file-data-file` | bool | Set to true to remove the current scanned file data file |
+| `--forwarded-file-data-file-name` | string | Current file name of the forwarded file data (read-only; upload via the corresponding URL field) |
 | `--new-forwarded-file-data-url` | string | URL of a new file to upload as the forwarded file data |
 | `--clear-forwarded-file-data-file` | bool | Set to true to remove the current forwarded file data file |
+| `--processed` | bool | Whether all required virtual-office handling steps have been completed; it is calculated from the selected HandlingPreference and is not relevant for ordinary customer deliveries. |
 | `--collected` | bool | Whether the customer has collected the delivery; set CollectedOn when recording collection. |
 | `--requires-signature` | bool | Whether the customer must provide a signature when collecting the delivery. |
 | `--signed` | bool | Whether the customer has signed for the delivery; attach the signature through NewSignatureUrl when available. |
-| `--notified` | bool | Whether the system sent the delivery-received notification; maintained by delivery notification handlers. |
 | `--collected-on` | DateTime | Date and time the customer collected the delivery; record it when marking Collected as true. |
 | `--from-collected-on` | range | |
 | `--to-collected-on` | range | |
-| `--billed` | bool | Whether charges for delivery handling have been billed; maintained by the delivery processing workflow. |
 | `--delivery-type` | enum | Type of delivery item: Mail, Parcel, Check, Publicity, or Other. It selects the default handling preference for virtual-office customers. |
 | `--handling-preference` | enum | Virtual-office delivery workflow: StoreForCollection, Forward, OpenScanForward, OpenScanRecycle, OpenScanShred, OpenScanStoreForCollection, Recycle, ReturnToSender, Shred, DepositCheck, or Unknown. It is not relevant for customers without a virtual-office contract; for virtual-office customers it defaults from the active contract by delivery type, falling back to StoreForCollection. |
 | `--check-deposited` | bool | For a virtual-office DepositCheck workflow, whether the enclosed check has been deposited; record CheckDepositedOn when marking it complete. |
@@ -79,15 +90,6 @@ CoworkerDeliveries also support entity commands.
 | `--returned-to-sender-on` | DateTime | For a virtual-office return workflow, date and time the delivery was returned to the sender, recorded with ReturnedToSender. |
 | `--from-returned-to-sender-on` | range | |
 | `--to-returned-to-sender-on` | range | |
-| `--forwarding-address-unique-id` | string | Unique ID of the nominated forwarding address; defaults from the virtual-office contract and is managed by the delivery workflow. |
-| `--check-deposited-product-unique-id` | string | Unique ID of the product charge created for depositing a check; managed by the delivery workflow. |
-| `--forwarded-product-unique-id` | string | Unique ID of the product charge created for forwarding; managed by the delivery workflow. |
-| `--scanned-product-unique-id` | string | Unique ID of the product charge created for scanning; managed by the delivery workflow. |
-| `--recycled-product-unique-id` | string | Unique ID of the product charge created for recycling; managed by the delivery workflow. |
-| `--shredded-product-unique-id` | string | Unique ID of the product charge created for shredding; managed by the delivery workflow. |
-| `--stored-for-collection-product-unique-id` | string | Unique ID of the product charge created for storage for collection; managed by the delivery workflow. |
-| `--returned-to-sender-product-unique-id` | string | Unique ID of the product charge created for returning to sender; managed by the delivery workflow. |
-| `--collected-product-unique-id` | string | Unique ID of the product charge created for collection; managed by the delivery workflow. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -124,9 +126,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--collected` | bool | Whether the customer has collected the delivery; set CollectedOn when recording collection. |
 | `--requires-signature` | bool | Whether the customer must provide a signature when collecting the delivery. |
 | `--signed` | bool | Whether the customer has signed for the delivery; attach the signature through NewSignatureUrl when available. |
-| `--notified` | bool | Whether the system sent the delivery-received notification; maintained by delivery notification handlers. |
 | `--collected-on` | DateTime | Date and time the customer collected the delivery; record it when marking Collected as true. |
-| `--billed` | bool | Whether charges for delivery handling have been billed; maintained by the delivery processing workflow. |
 | `--delivery-type` | enum, required | Type of delivery item: Mail, Parcel, Check, Publicity, or Other. It selects the default handling preference for virtual-office customers. |
 | `--handling-preference` | enum | Virtual-office delivery workflow: StoreForCollection, Forward, OpenScanForward, OpenScanRecycle, OpenScanShred, OpenScanStoreForCollection, Recycle, ReturnToSender, Shred, DepositCheck, or Unknown. It is not relevant for customers without a virtual-office contract; for virtual-office customers it defaults from the active contract by delivery type, falling back to StoreForCollection. |
 | `--check-deposited` | bool | For a virtual-office DepositCheck workflow, whether the enclosed check has been deposited; record CheckDepositedOn when marking it complete. |
@@ -143,15 +143,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--shredded-on` | DateTime | For a virtual-office shredding workflow, date and time the delivery was shredded, recorded with Shredded. |
 | `--stored-for-collection-on` | DateTime | For a virtual-office collection workflow, date and time the delivery was placed in storage for collection, recorded with StoredForCollection. |
 | `--returned-to-sender-on` | DateTime | For a virtual-office return workflow, date and time the delivery was returned to the sender, recorded with ReturnedToSender. |
-| `--forwarding-address-unique-id` | string | Unique ID of the nominated forwarding address; defaults from the virtual-office contract and is managed by the delivery workflow. |
-| `--check-deposited-product-unique-id` | string | Unique ID of the product charge created for depositing a check; managed by the delivery workflow. |
-| `--forwarded-product-unique-id` | string | Unique ID of the product charge created for forwarding; managed by the delivery workflow. |
-| `--scanned-product-unique-id` | string | Unique ID of the product charge created for scanning; managed by the delivery workflow. |
-| `--recycled-product-unique-id` | string | Unique ID of the product charge created for recycling; managed by the delivery workflow. |
-| `--shredded-product-unique-id` | string | Unique ID of the product charge created for shredding; managed by the delivery workflow. |
-| `--stored-for-collection-product-unique-id` | string | Unique ID of the product charge created for storage for collection; managed by the delivery workflow. |
-| `--returned-to-sender-product-unique-id` | string | Unique ID of the product charge created for returning to sender; managed by the delivery workflow. |
-| `--collected-product-unique-id` | string | Unique ID of the product charge created for collection; managed by the delivery workflow. |
 
 #### CoworkerDelivery update options
 
@@ -175,9 +166,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--collected` | bool | Whether the customer has collected the delivery; set CollectedOn when recording collection. |
 | `--requires-signature` | bool | Whether the customer must provide a signature when collecting the delivery. |
 | `--signed` | bool | Whether the customer has signed for the delivery; attach the signature through NewSignatureUrl when available. |
-| `--notified` | bool | Whether the system sent the delivery-received notification; maintained by delivery notification handlers. |
 | `--collected-on` | DateTime | Date and time the customer collected the delivery; record it when marking Collected as true. |
-| `--billed` | bool | Whether charges for delivery handling have been billed; maintained by the delivery processing workflow. |
 | `--delivery-type` | enum | Type of delivery item: Mail, Parcel, Check, Publicity, or Other. It selects the default handling preference for virtual-office customers. |
 | `--handling-preference` | enum | Virtual-office delivery workflow: StoreForCollection, Forward, OpenScanForward, OpenScanRecycle, OpenScanShred, OpenScanStoreForCollection, Recycle, ReturnToSender, Shred, DepositCheck, or Unknown. It is not relevant for customers without a virtual-office contract; for virtual-office customers it defaults from the active contract by delivery type, falling back to StoreForCollection. |
 | `--check-deposited` | bool | For a virtual-office DepositCheck workflow, whether the enclosed check has been deposited; record CheckDepositedOn when marking it complete. |
@@ -194,15 +183,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--shredded-on` | DateTime | For a virtual-office shredding workflow, date and time the delivery was shredded, recorded with Shredded. |
 | `--stored-for-collection-on` | DateTime | For a virtual-office collection workflow, date and time the delivery was placed in storage for collection, recorded with StoredForCollection. |
 | `--returned-to-sender-on` | DateTime | For a virtual-office return workflow, date and time the delivery was returned to the sender, recorded with ReturnedToSender. |
-| `--forwarding-address-unique-id` | string | Unique ID of the nominated forwarding address; defaults from the virtual-office contract and is managed by the delivery workflow. |
-| `--check-deposited-product-unique-id` | string | Unique ID of the product charge created for depositing a check; managed by the delivery workflow. |
-| `--forwarded-product-unique-id` | string | Unique ID of the product charge created for forwarding; managed by the delivery workflow. |
-| `--scanned-product-unique-id` | string | Unique ID of the product charge created for scanning; managed by the delivery workflow. |
-| `--recycled-product-unique-id` | string | Unique ID of the product charge created for recycling; managed by the delivery workflow. |
-| `--shredded-product-unique-id` | string | Unique ID of the product charge created for shredding; managed by the delivery workflow. |
-| `--stored-for-collection-product-unique-id` | string | Unique ID of the product charge created for storage for collection; managed by the delivery workflow. |
-| `--returned-to-sender-product-unique-id` | string | Unique ID of the product charge created for returning to sender; managed by the delivery workflow. |
-| `--collected-product-unique-id` | string | Unique ID of the product charge created for collection; managed by the delivery workflow. |
 
 #### CoworkerDelivery PII fields
 

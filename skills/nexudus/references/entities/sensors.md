@@ -26,6 +26,7 @@ Sensors support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
 | `--canned-response-id` | long | ID of the canned response linked to this record |
+| `--canned-response-name` | string | Display name of the linked canned response (read-only) |
 | `--name` | string | The name value for this sensor |
 | `--reference` | string | The reference value for this sensor |
 | `--unit` | string | The unit value for this sensor |
@@ -52,6 +53,17 @@ Sensors support Search, Get, Create, Update, Delete.
 | `--api-key` | string | The api key value for this sensor |
 | `--username` | string | The username value for this sensor |
 | `--password` | string | The password value for this sensor |
+| `--received-data-on` | DateTime | Date/time value for received data on |
+| `--from-received-data-on` | range | |
+| `--to-received-data-on` | range | |
+| `--last-received-value` | string | The last received value value for this sensor |
+| `--last-value-triggered-action` | bool | Whether last value triggered action is enabled |
+| `--battery-level` | int | The battery level value for this sensor |
+| `--from-battery-level` | range | |
+| `--to-battery-level` | range | |
+| `--network-signal-strength` | int | The network signal strength value for this sensor |
+| `--from-network-signal-strength` | range | |
+| `--to-network-signal-strength` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerInvoices -->
 
-A **CoworkerInvoice** represents an invoice document issued to a customer. Invoices track amounts owed, payment status, billing details, and integration state with external accounting systems.
-
-Invoices can be in draft or final state. A draft invoice (`--draft true`) can still be modified before being finalised. Once finalised, an invoice number is assigned and the invoice can be sent to the customer.
-
-An invoice may also be a **credit note** (`--credit-note true`), which references the original invoice via `--original-invoice-guid` and represents a reversal or adjustment.
-
-Payment status is tracked via `--paid`, `--paid-amount`, and `--paid-on`. Partial payments are possible — compare `PaidAmount` against `TotalAmount` to determine outstanding balance. Refunds are tracked separately via `--refunded`, `--refunded-on`, and `--refunded-amount`.
+CoworkerInvoice records a customer billing document for a location, including charges, payment status, and invoice delivery.
 
 CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 
@@ -18,7 +12,7 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 | `nexudus coworkerinvoices list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerinvoices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerinvoices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerinvoices list --invoice-number <value> --bill-to-name <value> --agent` | Filter coworkerinvoices by properties |
+| `nexudus coworkerinvoices list --coworker-full-name <value> --invoice-number <value> --agent` | Filter coworkerinvoices by properties |
 | `nexudus coworkerinvoices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerinvoices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerinvoices get <id> --agent` | Get single coworkerinvoice |
@@ -28,66 +22,109 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--invoice-number` | string | Unique invoice number assigned when the invoice is finalised |
-| `--payment-reference` | string | Reference code used to match payments to this invoice |
-| `--bill-to-name` | string | Name of the person or company being billed |
-| `--bill-to-address` | string | Billing address on the invoice |
-| `--bill-to-city` | string | Billing city on the invoice |
-| `--bill-to-post-code` | string | Billing post code on the invoice |
-| `--bill-to-phone` | string | Billing phone number on the invoice |
-| `--bill-to-fax` | string | Billing fax number on the invoice |
-| `--bill-to-state` | string | Billing state or region on the invoice |
-| `--bill-to-country-id` | long | ID of the bill to country linked to this record |
-| `--bill-to-bank-account` | string | Bank account number on the invoice for payment |
-| `--bill-to-tax-id-number` | string | Tax identification number of the billed party |
-| `--purchase-order` | string | Customer purchase order number for this invoice |
-| `--due-date` | DateTime | Date by which payment is due |
+| `--coworker-id` | long | ID of the customer billed by this invoice. |
+| `--coworker-full-name` | string | Full name of the invoiced customer |
+| `--coworker-regular-payment-contract-number` | string | The coworker regular payment contract number value for this coworker invoice |
+| `--coworker-regular-payment-provider` | string | The coworker regular payment provider value for this coworker invoice |
+| `--coworker-card-number` | string | The coworker card number value for this coworker invoice |
+| `--coworker-go-cardless-contract-number` | string | The coworker go cardless contract number value for this coworker invoice |
+| `--coworker-enable-go-cardless-payments` | bool | Whether coworker enable go cardless payments is enabled |
+| `--coworker-billing-email` | string | Billing email address of the customer |
+| `--coworker-notify-on-new-invoice` | bool | Whether coworker notify on new invoice is enabled |
+| `--coworker-notify-on-new-payment` | bool | Whether coworker notify on new payment is enabled |
+| `--coworker-notify-on-failed-payment` | bool | Whether coworker notify on failed payment is enabled |
+| `--coworker-do-not-process-invoices-automatically` | bool | Whether coworker do not process invoices automatically is enabled |
+| `--coworker-company-name` | string | Company name of the invoiced customer |
+| `--coworker-team-names` | string | Team names the invoiced customer belongs to |
+| `--business-id` | long | ID of the location that owns and issues this invoice. |
+| `--business-name` | string | Name of the location that issued the invoice |
+| `--invoice-number` | string | Unique invoice number, assigned when the invoice is issued. |
+| `--payment-reference` | string | Payment reference used for reconciliation; normally follows the invoice number. |
+| `--bill-to-name` | string | Name of the person or organisation billed, captured on the invoice. |
+| `--bill-to-address` | string | Billing street address captured on the invoice. |
+| `--bill-to-city` | string | Billing city captured on the invoice. |
+| `--bill-to-post-code` | string | Billing postal or ZIP code captured on the invoice. |
+| `--bill-to-phone` | string | Optional billing phone number captured on the invoice. |
+| `--bill-to-fax` | string | Optional billing fax number captured on the invoice. |
+| `--bill-to-state` | string | Optional billing state, province, or region captured on the invoice. |
+| `--bill-to-country-id` | long | ID of the country in the billing address. |
+| `--bill-to-country-name` | string | Name of the billing country on the invoice |
+| `--bill-to-country-two-digits-code` | string | The bill to country two digits code value for this coworker invoice |
+| `--bill-to-bank-account` | string | Optional bank-account details printed for payment instructions. |
+| `--bill-to-tax-id-number` | string | Optional tax identification number of the billed party. |
+| `--purchase-order` | string | Optional customer purchase-order reference. |
+| `--description` | string | Read-only summary generated from the invoice lines; change lines instead. |
+| `--discount-amount` | decimal | Read-only stored invoice-level discount amount in the invoice currency; UpdateTotals does not recalculate it because line SubTotal values already include line discounts. |
+| `--from-discount-amount` | range | |
+| `--to-discount-amount` | range | |
+| `--due-date` | DateTime | Optional payment due date in the location's timezone. When an invoice is created, the system calculates it using the customer's due day or InvoiceDueDatePeriod first, then a due-date term configured for a plan on the invoice's contract lines, the contract-period-start setting, and finally the location default; customer and plan periods are capped at 365 days. If several plan due-date terms apply, it uses the earliest next due date. |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
-| `--invoice-from-date` | DateTime | Start date of the billing period covered by this invoice |
+| `--invoice-from-date` | DateTime | Read-only start of the contract billing period, calculated from the InvoicedPeriod of the contract being invoiced. |
 | `--from-invoice-from-date` | range | |
 | `--to-invoice-from-date` | range | |
-| `--invoice-to-date` | DateTime | End date of the billing period covered by this invoice |
+| `--invoice-to-date` | DateTime | Read-only end of the contract billing period, calculated from the billing period of the contract's associated plan. |
 | `--from-invoice-to-date` | range | |
 | `--to-invoice-to-date` | range | |
-| `--transaction-total-amount` | decimal | The transaction total amount value for this coworker invoice |
+| `--total-amount` | decimal | Read-only gross invoice total: sum of every line's SubTotal plus TaxAmount after each line is rounded, then rounded to the location's invoice decimal precision. |
+| `--from-total-amount` | range | |
+| `--to-total-amount` | range | |
+| `--paid-amount` | decimal | Read-only database total of all CoworkerLedgerEntry Credit values linked to this invoice; negative credit entries reduce the amount. |
+| `--from-paid-amount` | range | |
+| `--to-paid-amount` | range | |
+| `--transaction-total-amount` | decimal | Stored total to collect in the payment transaction currency, set to TotalAmount multiplied by Payments.ExchangeRate and rounded to two decimals; the outstanding balance proportionally subtracts net ledger credits. |
 | `--from-transaction-total-amount` | range | |
 | `--to-transaction-total-amount` | range | |
-| `--transaction-currency-id` | long | ID of the transaction currency linked to this record |
-| `--transaction-exchange-rate` | decimal | The transaction exchange rate value for this coworker invoice |
+| `--transaction-currency-id` | long | ID of the currency used to collect payment; defaults to the location's invoice currency unless Payments.Currency specifies a transaction currency. |
+| `--transaction-currency-code` | string | The transaction currency code value for this coworker invoice |
+| `--transaction-exchange-rate` | decimal | Fixed multiplier from invoice currency to transaction currency, copied from the location's Payments.ExchangeRate setting when invoice totals are updated. |
 | `--from-transaction-exchange-rate` | range | |
 | `--to-transaction-exchange-rate` | range | |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--draft` | bool | Whether the invoice is still a draft. Draft invoices can be modified before finalisation |
-| `--paid-on` | DateTime | Date the invoice was marked as fully paid |
+| `--currency-id` | long | ID of the currency used to state invoice amounts. |
+| `--currency-code` | string | ISO currency code (e.g. USD, EUR, GBP) |
+| `--tax-amount` | decimal | Read-only tax total: sum of every rounded invoice-line TaxAmount, then rounded to the location's invoice decimal precision. |
+| `--from-tax-amount` | range | |
+| `--to-tax-amount` | range | |
+| `--draft` | bool | Whether this invoice remains a draft rather than a final issued invoice. |
+| `--void` | bool | Whether this invoice has been voided or cancelled; voiding deletes all CoworkerLedgerEntry records associated with the invoice. |
+| `--waiting-for-invoice-number` | bool | Whether the invoice is awaiting its final sequential number. |
+| `--paid` | bool | Whether payments have marked the invoice as paid. |
+| `--sent` | bool | Whether the invoice has been sent to the customer. |
+| `--sent-on` | DateTime | Read-only date and time when the invoice was sent. |
+| `--from-sent-on` | range | |
+| `--to-sent-on` | range | |
+| `--paid-on` | DateTime | Date and time recorded as paid; it updates payment ledger dates. |
 | `--from-paid-on` | range | |
 | `--to-paid-on` | range | |
-| `--storecove-invoice-status` | enum | Status of e-invoicing transfer via Storecove |
-| `--billed` | bool | Whether billed is enabled |
-| `--do-not-apply-credit-automatically` | bool | Whether to skip automatic application of available credit to this invoice |
-| `--created-on-local` | DateTime | Date/time value for created on local |
-| `--from-created-on-local` | range | |
-| `--to-created-on-local` | range | |
-| `--due-date-local` | DateTime | Date/time value for due date local |
-| `--from-due-date-local` | range | |
-| `--to-due-date-local` | range | |
-| `--invoice-from-date-local` | DateTime | Date/time value for invoice from date local |
-| `--from-invoice-from-date-local` | range | |
-| `--to-invoice-from-date-local` | range | |
-| `--invoice-to-date-local` | DateTime | Date/time value for invoice to date local |
-| `--from-invoice-to-date-local` | range | |
-| `--to-invoice-to-date-local` | range | |
-| `--paid-on-local` | DateTime | Date/time value for paid on local |
-| `--from-paid-on-local` | range | |
-| `--to-paid-on-local` | range | |
-| `--refunded-on-local` | DateTime | Date/time value for refunded on local |
-| `--from-refunded-on-local` | range | |
-| `--to-refunded-on-local` | range | |
-| `--last-payment-attempt-local` | DateTime | Date/time value for last payment attempt local |
-| `--from-last-payment-attempt-local` | range | |
-| `--to-last-payment-attempt-local` | range | |
+| `--refunded` | bool | Whether all non-zero invoice lines have been refunded. |
+| `--xero-invoice-transferred` | bool | Whether the invoice has been transferred to Xero. |
+| `--xero-payment-transferred` | bool | Whether invoice payments have been transferred to Xero. |
+| `--quickbooks-invoice-transferred` | bool | Whether the invoice has been transferred to QuickBooks. |
+| `--quickbooks-payment-transferred` | bool | Whether invoice payments have been transferred to QuickBooks. |
+| `--moloni-invoice-transferred` | bool | Whether the invoice has been transferred to Moloni. |
+| `--moloni-payment-transferred` | bool | Whether invoice payments have been transferred to Moloni. |
+| `--storecove-invoice-status` | enum | Read-only Storecove transfer state: None, TransferFailed, Processing, ProcessingFailed, or Processed. |
+| `--auto-transfer-to-storecove` | bool | Whether the invoice is configured for automatic Storecove transfer. |
+| `--refunded-on` | DateTime | Read-only date and time when the invoice was refunded. |
+| `--from-refunded-on` | range | |
+| `--to-refunded-on` | range | |
+| `--credit-note` | bool | Whether this invoice is a credit note. |
+| `--original-invoice-guid` | string | Read-only unique ID of the original invoice related to this credit note. |
+| `--contract-guid` | string | Read-only unique ID of the customer plan contract that generated this invoice. |
+| `--last-payment-attempt` | DateTime | Read-only timestamp of the most recent automatic payment attempt. |
+| `--from-last-payment-attempt` | range | |
+| `--to-last-payment-attempt` | range | |
+| `--do-not-apply-credit-automatically` | bool | Whether credit resulting from crediting a paid invoice must not be automatically applied to future invoices; the operator can allocate the credit manually. |
+| `--received-amount` | decimal | Read-only database-maintained reporting amount for payments received; it is not calculated by invoice UpdateTotals. |
+| `--from-received-amount` | range | |
+| `--to-received-amount` | range | |
+| `--credited-amount` | decimal | Read-only database-maintained reporting amount for credit applied or issued; it is not calculated by invoice UpdateTotals. |
+| `--from-credited-amount` | range | |
+| `--to-credited-amount` | range | |
+| `--refunded-amount` | decimal | Read-only database-maintained reporting amount for refunds; it is not calculated by invoice UpdateTotals. |
+| `--from-refunded-amount` | range | |
+| `--to-refunded-amount` | range | |
+| `--auto-transfer-to-xero-or-quickbooks` | bool | Whether the invoice is configured for automatic Xero or QuickBooks transfer. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -106,40 +143,30 @@ Default sort: `InvoiceNumber` ascending. If no `--order-by` is specified, the AP
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--invoice-number` | string | Unique invoice number assigned when the invoice is finalised |
-| `--payment-reference` | string | Reference code used to match payments to this invoice |
-| `--bill-to-name` | string | Name of the person or company being billed |
-| `--bill-to-address` | string | Billing address on the invoice |
-| `--bill-to-city` | string | Billing city on the invoice |
-| `--bill-to-post-code` | string | Billing post code on the invoice |
-| `--bill-to-phone` | string | Billing phone number on the invoice |
-| `--bill-to-fax` | string | Billing fax number on the invoice |
-| `--bill-to-state` | string | Billing state or region on the invoice |
-| `--bill-to-country-id` | long | ID of the bill to country linked to this record |
-| `--bill-to-bank-account` | string | Bank account number on the invoice for payment |
-| `--bill-to-tax-id-number` | string | Tax identification number of the billed party |
-| `--purchase-order` | string | Customer purchase order number for this invoice |
-| `--due-date` | DateTime | Date by which payment is due |
-| `--invoice-from-date` | DateTime | Start date of the billing period covered by this invoice |
-| `--invoice-to-date` | DateTime | End date of the billing period covered by this invoice |
-| `--transaction-total-amount` | decimal | The transaction total amount value for this coworker invoice |
-| `--transaction-currency-id` | long | ID of the transaction currency linked to this record |
-| `--transaction-exchange-rate` | decimal | The transaction exchange rate value for this coworker invoice |
-| `--currency-id` | long | ID of the currency linked to this record |
-| `--draft` | bool | Whether the invoice is still a draft. Draft invoices can be modified before finalisation |
-| `--paid-on` | DateTime | Date the invoice was marked as fully paid |
-| `--storecove-invoice-status` | enum | Status of e-invoicing transfer via Storecove |
-| `--billed` | bool | Whether billed is enabled |
-| `--do-not-apply-credit-automatically` | bool | Whether to skip automatic application of available credit to this invoice |
-| `--created-on-local` | DateTime | Date/time value for created on local |
-| `--due-date-local` | DateTime | Date/time value for due date local |
-| `--invoice-from-date-local` | DateTime | Date/time value for invoice from date local |
-| `--invoice-to-date-local` | DateTime | Date/time value for invoice to date local |
-| `--paid-on-local` | DateTime | Date/time value for paid on local |
-| `--refunded-on-local` | DateTime | Date/time value for refunded on local |
-| `--last-payment-attempt-local` | DateTime | Date/time value for last payment attempt local |
+| `--coworker-id` | long | ID of the customer billed by this invoice. |
+| `--business-id` | long | ID of the location that owns and issues this invoice. |
+| `--invoice-number` | string | Unique invoice number, assigned when the invoice is issued. |
+| `--payment-reference` | string | Payment reference used for reconciliation; normally follows the invoice number. |
+| `--bill-to-name` | string | Name of the person or organisation billed, captured on the invoice. |
+| `--bill-to-address` | string | Billing street address captured on the invoice. |
+| `--bill-to-city` | string | Billing city captured on the invoice. |
+| `--bill-to-post-code` | string | Billing postal or ZIP code captured on the invoice. |
+| `--bill-to-phone` | string | Optional billing phone number captured on the invoice. |
+| `--bill-to-fax` | string | Optional billing fax number captured on the invoice. |
+| `--bill-to-state` | string | Optional billing state, province, or region captured on the invoice. |
+| `--bill-to-country-id` | long | ID of the country in the billing address. |
+| `--bill-to-bank-account` | string | Optional bank-account details printed for payment instructions. |
+| `--bill-to-tax-id-number` | string | Optional tax identification number of the billed party. |
+| `--purchase-order` | string | Optional customer purchase-order reference. |
+| `--due-date` | DateTime | Optional payment due date in the location's timezone. When an invoice is created, the system calculates it using the customer's due day or InvoiceDueDatePeriod first, then a due-date term configured for a plan on the invoice's contract lines, the contract-period-start setting, and finally the location default; customer and plan periods are capped at 365 days. If several plan due-date terms apply, it uses the earliest next due date. |
+| `--transaction-total-amount` | decimal | Stored total to collect in the payment transaction currency, set to TotalAmount multiplied by Payments.ExchangeRate and rounded to two decimals; the outstanding balance proportionally subtracts net ledger credits. |
+| `--transaction-currency-id` | long | ID of the currency used to collect payment; defaults to the location's invoice currency unless Payments.Currency specifies a transaction currency. |
+| `--transaction-exchange-rate` | decimal | Fixed multiplier from invoice currency to transaction currency, copied from the location's Payments.ExchangeRate setting when invoice totals are updated. |
+| `--currency-id` | long | ID of the currency used to state invoice amounts. |
+| `--draft` | bool | Whether this invoice remains a draft rather than a final issued invoice. |
+| `--paid-on` | DateTime | Date and time recorded as paid; it updates payment ledger dates. |
+| `--storecove-invoice-status` | enum | Read-only Storecove transfer state: None, TransferFailed, Processing, ProcessingFailed, or Processed. |
+| `--do-not-apply-credit-automatically` | bool | Whether credit resulting from crediting a paid invoice must not be automatically applied to future invoices; the operator can allocate the credit manually. |
 
 #### CoworkerInvoice PII fields
 

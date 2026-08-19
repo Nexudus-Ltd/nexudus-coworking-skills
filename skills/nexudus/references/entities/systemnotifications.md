@@ -46,6 +46,10 @@ SystemNotifications support Search, Get, Create, Update, Delete.
 | `--display-to-setting-integrations` | string | The display to setting integrations value for this system notification |
 | `--display-to-setting-general` | string | The display to setting general value for this system notification |
 | `--display-to-portal-version` | string | The display to portal version value for this system notification |
+| `--approved-by` | string | The approved by value for this system notification |
+| `--approved-on` | DateTime | Date/time value for approved on |
+| `--from-approved-on` | range | |
+| `--to-approved-on` | range | |
 | `--message-type` | enum | The message type value for this system notification |
 | `--has-button` | bool | Whether has button is enabled |
 | `--button-label` | string | The button label value for this system notification |

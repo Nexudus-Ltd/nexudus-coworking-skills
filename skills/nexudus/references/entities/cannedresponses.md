@@ -184,7 +184,7 @@ CannedResponses support Search, Get, Create, Update, Delete.
 | `nexudus cannedresponses list --id <id> --agent` | Filter by single ID |
 | `nexudus cannedresponses list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus cannedresponses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus cannedresponses list --name <value> --agent` | Filter cannedresponses by properties |
+| `nexudus cannedresponses list --business-name <value> --name <value> --agent` | Filter cannedresponses by properties |
 | `nexudus cannedresponses list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus cannedresponses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus cannedresponses get <id> --agent` | Get single cannedresponse |
@@ -197,6 +197,7 @@ CannedResponses support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Location name |
 | `--name` | string | Name of the message macro |
 | `--subject` | string | Subject line shown in the customer's inbox when the message macro is delivered |
 | `--message-text` | string | Body of the message macro; supports dynamic tokens (e.g. {salutations}) that Nexudus replaces with live data when the message is sent |

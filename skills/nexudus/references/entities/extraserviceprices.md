@@ -16,7 +16,7 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 | `nexudus extraserviceprices list --id <id> --agent` | Filter by single ID |
 | `nexudus extraserviceprices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus extraserviceprices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus extraserviceprices list --price <value> --agent` | Filter extraserviceprices by properties |
+| `nexudus extraserviceprices list --extra-service-name <value> --tariff-name <value> --agent` | Filter extraserviceprices by properties |
 | `nexudus extraserviceprices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus extraserviceprices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus extraserviceprices get <id> --agent` | Get single extraserviceprice |
@@ -29,7 +29,9 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--extra-service-id` | long | ID of the extra service linked to this record |
+| `--extra-service-name` | string | Name of the linked extra service |
 | `--tariff-id` | long | ID of the tariff linked to this record |
+| `--tariff-name` | string | Name of the linked tariff |
 | `--price` | decimal | Overriding price charged to members on the specified tariff |
 | `--from-price` | range | |
 | `--to-price` | range | |

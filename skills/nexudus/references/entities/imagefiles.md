@@ -12,7 +12,7 @@ ImageFiles support Search, Get, Create, Update, Delete.
 | `nexudus imagefiles list --id <id> --agent` | Filter by single ID |
 | `nexudus imagefiles list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus imagefiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus imagefiles list --business-id <value> --name <value> --agent` | Filter imagefiles by properties |
+| `nexudus imagefiles list --business-id <value> --business-name <value> --agent` | Filter imagefiles by properties |
 | `nexudus imagefiles list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus imagefiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus imagefiles get <id> --agent` | Get single imagefile |
@@ -25,9 +25,12 @@ ImageFiles support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Display name of the linked business (read-only) |
+| `--business-web-address` | string | The business web address value for this image file |
 | `--name` | string | The name value for this image file |
 | `--description` | string | Free-text description of this image file |
 | `--use-in-gallery` | bool | Whether use in gallery is enabled |
+| `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--file-size-bytes` | int | The file size bytes value for this image file |

@@ -25,7 +25,7 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | `nexudus crmopportunities list --id <id> --agent` | Filter by single ID |
 | `nexudus crmopportunities list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus crmopportunities list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus crmopportunities list --name <value> --notes <value> --agent` | Filter crmopportunities by properties |
+| `nexudus crmopportunities list --name <value> --crm-board-column-name <value> --agent` | Filter crmopportunities by properties |
 | `nexudus crmopportunities list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus crmopportunities list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmopportunities get <id> --agent` | Get single crmopportunity |
@@ -39,10 +39,32 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--name` | string | Optional tag to identify this opportunity, useful when the same customer appears in multiple boards |
 | `--crm-board-column-id` | long | ID of the crm board column linked to this record |
+| `--crm-board-column-name` | string | CRM stage name |
+| `--crm-board-column-crm-board-id` | int | CRM board ID |
+| `--from-crm-board-column-crm-board-id` | range | |
+| `--to-crm-board-column-crm-board-id` | range | |
+| `--crm-board-column-crm-board-name` | string | CRM board name |
+| `--crm-board-column-crm-board-business-id` | int | Business ID of the CRM board |
+| `--from-crm-board-column-crm-board-business-id` | range | |
+| `--to-crm-board-column-crm-board-business-id` | range | |
+| `--crm-board-column-crm-board-business-name` | string | Business name of the CRM board |
+| `--crm-board-column-crm-board-business-currency-id` | int | Currency ID of the CRM board's business |
+| `--from-crm-board-column-crm-board-business-currency-id` | range | |
+| `--to-crm-board-column-crm-board-business-currency-id` | range | |
+| `--crm-board-column-crm-board-business-currency-code` | string | Currency code of the CRM board's business |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-full-name` | string | Customer full name |
+| `--coworker-coworker-type` | string | Customer record type |
+| `--coworker-company-name` | string | Customer company name |
+| `--coworker-email` | string | Customer email address |
 | `--team-id` | long | ID of the team linked to this record |
+| `--team-name` | string | Team name |
+| `--team-description` | string | Team description |
+| `--team-profile-website` | string | Team profile website |
 | `--opportunity-type-id` | long | Opportunity type used to categorise and auto-populate general notes from a template |
+| `--opportunity-type-name` | string | Opportunity type name |
 | `--responsible-id` | long | Admin user responsible for managing this opportunity |
+| `--responsible-full-name` | string | Responsible admin full name |
 | `--referrer-id` | long | Customer who referred this opportunity |
 | `--agent-id` | long | External agent or broker who brought this opportunity |
 | `--notes` | string | General notes visible to admins when viewing the opportunity. Auto-populated from the opportunity type template if a type is assigned |
@@ -63,6 +85,9 @@ CrmOpportunities support Search, Get, Create, Update, Delete.
 | `--lost-on` | DateTime | Date when the opportunity was marked as lost |
 | `--from-lost-on` | range | |
 | `--to-lost-on` | range | |
+| `--crm-updated-on` | DateTime | Timestamp of the last CRM-related update to this opportunity |
+| `--from-crm-updated-on` | range | |
+| `--to-crm-updated-on` | range | |
 | `--position` | int | Display order of the opportunity within its current stage |
 | `--from-position` | range | |
 | `--to-position` | range | |

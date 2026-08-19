@@ -29,6 +29,15 @@ RadiusServers support Search, Get, Create, Update, Delete.
 | `--vendor` | enum | The vendor value for this radius server |
 | `--active` | bool | Whether this radius server is currently active |
 | `--description` | string | Free-text description of this radius server |
+| `--customer-id` | string | ID of the customer associated with this record |
+| `--network-id` | string | ID of the network associated with this record |
+| `--captive-portal-id` | string | ID of the captive portal associated with this record |
+| `--splash-page-id` | string | ID of the splash page associated with this record |
+| `--radius-ip1` | string | The radius ip1 value for this radius server |
+| `--radius-ip2` | string | The radius ip2 value for this radius server |
+| `--account-port` | string | The account port value for this radius server |
+| `--auth-port` | string | The auth port value for this radius server |
+| `--shared-secret` | string | The shared secret value for this radius server |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

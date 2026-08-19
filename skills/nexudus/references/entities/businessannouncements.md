@@ -22,7 +22,7 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 | `nexudus businessannouncements list --id <id> --agent` | Filter by single ID |
 | `nexudus businessannouncements list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus businessannouncements list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus businessannouncements list --name <value> --active <value> --agent` | Filter businessannouncements by properties |
+| `nexudus businessannouncements list --business-name <value> --name <value> --agent` | Filter businessannouncements by properties |
 | `nexudus businessannouncements list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus businessannouncements list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus businessannouncements get <id> --agent` | Get single businessannouncement |
@@ -35,8 +35,10 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Business name |
 | `--name` | string | Announcement title |
 | `--active` | bool | Whether the announcement is active and visible to customers |
+| `--image-file-name` | string | Current image file name |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--body` | string | Announcement body text (plain text only, no formatting) |

@@ -30,20 +30,35 @@ Visitors also support entity commands.
 | `--full-name` | string | Visitor's full name; required. |
 | `--email` | string | Visitor's email address; required and validated as an email address. |
 | `--coworker-id` | long | ID of the customer hosting this visitor; required. |
+| `--coworker-type` | string | Host coworker type |
+| `--coworker-full-name` | string | Host coworker full name |
+| `--coworker-company-name` | string | Host coworker company name |
+| `--coworker-billing-name` | string | Host coworker billing name |
+| `--coworker-email` | string | Host coworker email |
+| `--coworker-team-names` | string | Host coworker team names |
 | `--visitor-source` | enum | How the visitor was registered: Administrator for staff and Admin Agent registrations, Customer for registrations from the customer portal, app, or AI assistant, or NexIO for the reception tablet app; booking guests are synchronized from their booking. |
 | `--host-approval-status` | enum | Host approval workflow state: NotRequired, Requested, Rejected, AcceptedAndHold, or AcceptedAndGrant; manage pending approvals with the dedicated visitor approval tool. |
+| `--visitor-code` | string | System-generated visitor access code, created for eligible upcoming visits and used to locate the visitor at the location. |
 | `--checked-in-at` | string | Check-in location/value; use Arrived, ArrivalDate, and DepartureDate for the visitor's current visit status. |
 | `--notes` | string | Optional internal staff notes about the visitor, limited to 1,024 characters and not shown to the visitor. |
+| `--customer-notes` | string | Optional notes supplied by the hosting customer, limited to 1,024 characters; read-only for administrators. |
 | `--visit-reason` | string | Optional reason the visitor is coming to the location. |
 | `--company-name` | string | Optional company or organization the visitor represents. |
 | `--phone-number` | string | Optional phone number for contacting the visitor. |
 | `--expected-arrival` | DateTime | Expected arrival date and time, stored in UTC and required when creating a visitor. |
 | `--from-expected-arrival` | range | |
 | `--to-expected-arrival` | range | |
-| `--notified` | bool | Internal notification state set after the visitor has checked in. |
+| `--arrived` | bool | Whether the visitor is currently checked in; maintained by the visitor check-in and check-out workflow. |
+| `--arrival-date` | DateTime | UTC timestamp when the visitor checked in, maintained by the check-in workflow. |
+| `--from-arrival-date` | range | |
+| `--to-arrival-date` | range | |
+| `--departure-date` | DateTime | UTC timestamp when the visitor checked out, maintained by the check-out workflow. |
+| `--from-departure-date` | range | |
+| `--to-departure-date` | range | |
 | `--internal` | bool | Internal booking-visitor classification set when the visitor matches a customer and the location excludes known customers from visitor registration. |
 | `--is-tour` | bool | Whether this visit is a tour; tour requests from the public portal or AI assistant create tour visitors, which require a hosting customer and use the tour confirmation workflow. |
-| `--access-control-scheduled-job-id` | string | Internal identifier for the access-control scheduling job associated with this visitor. |
+| `--has-agreed-terms` | bool | Whether the visitor has accepted the applicable terms; maintained by the visitor-facing legal flow. |
+| `--tour-confirmed` | bool | Whether a tour visit has been confirmed; maintained by the dedicated tour confirmation workflow and set automatically on check-in. |
 | `--check-in-now` | bool | Whether to check the visitor in immediately when creating the record; also sets ArrivalDate to the current UTC time and clears any departure time. |
 | `--is-customer` | bool | Internal flag set for booking visitors whose email already belongs to a customer at the location. |
 | `--from-created-on` | range | |
@@ -76,10 +91,8 @@ Default sort: `ExpectedArrival` ascending. If no `--order-by` is specified, the 
 | `--company-name` | string | Optional company or organization the visitor represents. |
 | `--phone-number` | string | Optional phone number for contacting the visitor. |
 | `--expected-arrival` | DateTime, required | Expected arrival date and time, stored in UTC and required when creating a visitor. |
-| `--notified` | bool | Internal notification state set after the visitor has checked in. |
 | `--internal` | bool | Internal booking-visitor classification set when the visitor matches a customer and the location excludes known customers from visitor registration. |
 | `--is-tour` | bool | Whether this visit is a tour; tour requests from the public portal or AI assistant create tour visitors, which require a hosting customer and use the tour confirmation workflow. |
-| `--access-control-scheduled-job-id` | string | Internal identifier for the access-control scheduling job associated with this visitor. |
 | `--check-in-now` | bool | Whether to check the visitor in immediately when creating the record; also sets ArrivalDate to the current UTC time and clears any departure time. |
 | `--is-customer` | bool | Internal flag set for booking visitors whose email already belongs to a customer at the location. |
 
@@ -99,10 +112,8 @@ Default sort: `ExpectedArrival` ascending. If no `--order-by` is specified, the 
 | `--company-name` | string | Optional company or organization the visitor represents. |
 | `--phone-number` | string | Optional phone number for contacting the visitor. |
 | `--expected-arrival` | DateTime | Expected arrival date and time, stored in UTC and required when creating a visitor. |
-| `--notified` | bool | Internal notification state set after the visitor has checked in. |
 | `--internal` | bool | Internal booking-visitor classification set when the visitor matches a customer and the location excludes known customers from visitor registration. |
 | `--is-tour` | bool | Whether this visit is a tour; tour requests from the public portal or AI assistant create tour visitors, which require a hosting customer and use the tour confirmation workflow. |
-| `--access-control-scheduled-job-id` | string | Internal identifier for the access-control scheduling job associated with this visitor. |
 | `--is-customer` | bool | Internal flag set for booking visitors whose email already belongs to a customer at the location. |
 
 #### Visitor PII fields

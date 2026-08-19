@@ -13,7 +13,7 @@ BookingVisitors also support entity commands.
 | `nexudus bookingvisitors list --id <id> --agent` | Filter by single ID |
 | `nexudus bookingvisitors list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus bookingvisitors list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus bookingvisitors list --booking-id <value> --visitor-id <value> --agent` | Filter bookingvisitors by properties |
+| `nexudus bookingvisitors list --visitor-full-name <value> --agent` | Filter bookingvisitors by properties |
 | `nexudus bookingvisitors list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus bookingvisitors list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus bookingvisitors get <id> --agent` | Get single bookingvisitor |
@@ -28,6 +28,16 @@ BookingVisitors also support entity commands.
 | --- | --- | --- |
 | `--booking-id` | long | ID of the booking this visitor is attending. The booking determines this record's location; the visitor email must be unique within the booking and must not match the booking customer's email. |
 | `--visitor-id` | long | ID of the visitor attending the selected booking. The visitor is a location-scoped record; creating or updating the link may update access-control keys for customers with the same email. |
+| `--visitor-full-name` | string | Full name of the visitor. Read-only, resolved from the linked Visitor record. |
+| `--visitor-email` | string | Email address of the visitor. Read-only, resolved from the linked Visitor record. |
+| `--visitor-phone-number` | string | Phone number of the visitor. Read-only, resolved from the linked Visitor record. |
+| `--visitor-company-name` | string | Company name of the visitor. Read-only, resolved from the linked Visitor record. |
+| `--visitor-arrival-date` | DateTime | Date and time when the visitor arrived. Read-only, resolved from the linked Visitor record. |
+| `--from-visitor-arrival-date` | range | |
+| `--to-visitor-arrival-date` | range | |
+| `--visitor-departure-date` | DateTime | Date and time when the visitor departed. Read-only, resolved from the linked Visitor record. |
+| `--from-visitor-departure-date` | range | |
+| `--to-visitor-departure-date` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

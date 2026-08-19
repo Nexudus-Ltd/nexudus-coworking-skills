@@ -12,7 +12,7 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutassets list --id <id> --agent` | Filter by single ID |
 | `nexudus floorplanlayoutassets list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus floorplanlayoutassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus floorplanlayoutassets list --floor-plan-layout-id <value> --area-unique-id <value> --agent` | Filter floorplanlayoutassets by properties |
+| `nexudus floorplanlayoutassets list --floor-plan-layout-id <value> --floor-plan-layout-name <value> --agent` | Filter floorplanlayoutassets by properties |
 | `nexudus floorplanlayoutassets list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus floorplanlayoutassets list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutassets get <id> --agent` | Get single floorplanlayoutasset |
@@ -25,6 +25,7 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
 | `--area-unique-id` | string | ID of the area unique associated with this record |
 | `--asset-type` | string | The asset type value for this floor plan layout asset |
 | `--angle` | decimal | The angle value for this floor plan layout asset |

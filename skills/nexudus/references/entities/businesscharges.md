@@ -44,6 +44,19 @@ BusinessCharges support Search, Get, Create, Update, Delete.
 | `--tax-amount` | decimal | Tax amount applied to this charge |
 | `--from-tax-amount` | range | |
 | `--to-tax-amount` | range | |
+| `--invoiced` | bool | True once the charge has been added to an invoice |
+| `--invoiced-on` | DateTime | Date and time when the charge was included in an invoice. Set automatically by Nexudus |
+| `--from-invoiced-on` | range | |
+| `--to-invoiced-on` | range | |
+| `--approved-by-business` | bool | True when the business (location) has approved the charge. Both parties must approve before the charge can be invoiced |
+| `--approved-by-sender` | bool | True when Nexudus (the sender) has approved the charge. Both parties must approve before the charge can be invoiced |
+| `--recurrent` | bool | Set to true to make this a recurring charge. Use with --repeat-from and --repeat-until to define the recurrence window |
+| `--repeat-from` | DateTime | Start date of the recurrence window. Required when --recurrent is true |
+| `--from-repeat-from` | range | |
+| `--to-repeat-from` | range | |
+| `--repeat-until` | DateTime | End date of the recurrence window. The charge will not be issued after this date |
+| `--from-repeat-until` | range | |
+| `--to-repeat-until` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

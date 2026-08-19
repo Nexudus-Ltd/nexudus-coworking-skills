@@ -14,7 +14,7 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 | `nexudus businessbackgroundjobs list --id <id> --agent` | Filter by single ID |
 | `nexudus businessbackgroundjobs list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus businessbackgroundjobs list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus businessbackgroundjobs list --business-id <value> --user-id <value> --agent` | Filter businessbackgroundjobs by properties |
+| `nexudus businessbackgroundjobs list --business-id <value> --business-name <value> --agent` | Filter businessbackgroundjobs by properties |
 | `nexudus businessbackgroundjobs list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus businessbackgroundjobs list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus businessbackgroundjobs get <id> --agent` | Get single businessbackgroundjob |
@@ -24,7 +24,10 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Location name |
 | `--user-id` | long | ID of the user linked to this record |
+| `--user-full-name` | string | Full name of the user who triggered the job |
+| `--user-email` | string | Email of the user who triggered the job |
 | `--job-id` | string | Unique identifier (GUID) of the background job |
 | `--description` | string | Human-readable description of what the job does |
 | `--files` | string | Files associated with the job (e.g. import files) |

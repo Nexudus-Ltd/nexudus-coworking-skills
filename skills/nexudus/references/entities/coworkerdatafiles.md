@@ -18,7 +18,7 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 | `nexudus coworkerdatafiles list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerdatafiles list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerdatafiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerdatafiles list --name <value> --agent` | Filter coworkerdatafiles by properties |
+| `nexudus coworkerdatafiles list --business-name <value> --coworker-full-name <value> --agent` | Filter coworkerdatafiles by properties |
 | `nexudus coworkerdatafiles list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerdatafiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerdatafiles get <id> --agent` | Get single coworkerdatafile |
@@ -31,13 +31,20 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | Location ID |
+| `--business-name` | string | Location name |
 | `--coworker-id` | long | ID of the customer this file belongs to |
+| `--coworker-full-name` | string | Full name of the customer |
+| `--coworker-coworker-type` | string | Record type of the customer (Individual or Company) |
+| `--coworker-company-name` | string | Company name of the customer |
+| `--coworker-billing-name` | string | Billing name of the customer |
 | `--name` | string | Name of the file or document |
 | `--description` | string | Notes included in the email notification sent to the customer when the file is shared |
 | `--available-to-user` | bool | Whether the file is shared with the customer and visible on the Members Portal |
 | `--request-digital-signature` | bool | Whether to request a digital signature from the customer |
+| `--file-data-file-name` | string | Name of the uploaded file |
 | `--new-file-data-url` | string | URL of a new file to upload (replaces the existing file) |
 | `--clear-file-data-file` | bool | Set to true to remove the existing uploaded file |
+| `--signed-file-data-file-name` | string | Name of the signed copy of the document, created automatically after the customer signs it |
 | `--new-signed-file-data-url` | string | URL of a new signed file to upload (replaces the existing signed copy) |
 | `--clear-signed-file-data-file` | bool | Set to true to remove the existing signed copy |
 | `--extension` | string | File extension (e.g. pdf, docx, jpg) |

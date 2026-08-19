@@ -26,7 +26,7 @@ CoworkerIdentityChecks also support entity commands.
 | `nexudus coworkeridentitychecks list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkeridentitychecks list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkeridentitychecks list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkeridentitychecks list --name <value> --agent` | Filter coworkeridentitychecks by properties |
+| `nexudus coworkeridentitychecks list --business-name <value> --coworker-full-name <value> --agent` | Filter coworkeridentitychecks by properties |
 | `nexudus coworkeridentitychecks list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkeridentitychecks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkeridentitychecks get <id> --agent` | Get single coworkeridentitycheck |
@@ -40,7 +40,12 @@ CoworkerIdentityChecks also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Name of the location (business) this check belongs to |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-full-name` | string | Full name of the customer being verified |
+| `--coworker-type` | string | Type of the customer (e.g. Member, TeamMember) |
+| `--coworker-company-name` | string | Company name of the customer being verified |
+| `--coworker-billing-name` | string | Billing name of the customer being verified |
 | `--name` | string | Display name for this verification check |
 | `--identity-check-provider` | enum | How the check is performed: Manual (operator review) or StripeIdentity (Stripe-delegated) |
 | `--identity-document-type` | enum | Type of identity document used when VerificationType is IdDocument |
@@ -50,9 +55,16 @@ CoworkerIdentityChecks also support entity commands.
 | `--from-identity-document-expiration-date` | range | |
 | `--to-identity-document-expiration-date` | range | |
 | `--address-document-type` | enum | Type of address document used when VerificationType is Address |
+| `--verification-type` | enum | Whether this check verifies the customer's identity (IdDocument) or address (Address) |
 | `--description` | string | Free-text notes or details about this check |
+| `--verification-status` | enum | Current status of the verification (Pending, Submitted, Successful, Failed, or Cancelled) |
+| `--last-error` | string | Most recent error message if the check failed |
 | `--billed` | bool | Whether billed is enabled |
+| `--proposal-guid` | string | Unique identifier (GUID) for the proposal |
+| `--coworker-contract-guid` | string | Unique identifier (GUID) for the coworker contract |
+| `--contract-contact-guid` | string | Unique identifier (GUID) for the contract contact |
 | `--stripe-verification-session-id` | string | ID of the stripe verification session associated with this record |
+| `--identity-check-group-guid` | string | Unique identifier (GUID) for the identity check group |
 | `--identity-check-provider1` | enum | The identity check provider1 value for this coworker identity check |
 | `--verification-type1` | enum | The verification type1 value for this coworker identity check |
 | `--description1` | string | The description1 value for this coworker identity check |

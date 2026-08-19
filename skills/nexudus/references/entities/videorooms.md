@@ -27,6 +27,7 @@ VideoRooms support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | The name value for this video room |
 | `--description` | string | Free-text description of this video room |
+| `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--number-of-participants` | int | The number of participants value for this video room |

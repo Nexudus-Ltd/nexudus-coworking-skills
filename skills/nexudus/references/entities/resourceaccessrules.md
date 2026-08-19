@@ -85,6 +85,7 @@ ResourceAccessRules also support entity commands.
 | `--to-evaluation-order` | range | |
 | `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches |
 | `--cancellation-fee-product-id` | long | Product to charge for late cancellations when ChargeCancellationFee is true |
+| `--cancellation-fee-product-name` | string | Name of the cancellation fee product (read-only, resolved from CancellationFeeProductId). |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit) |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost) |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute |
@@ -99,6 +100,9 @@ ResourceAccessRules also support entity commands.
 | `--repeat-booking-period-limit-in-months` | int | Maximum time span (in months) over which a recurring booking series can extend under this rule |
 | `--from-repeat-booking-period-limit-in-months` | range | |
 | `--to-repeat-booking-period-limit-in-months` | range | |
+| `--tariff-names` | string | Read-only, comma-separated names of the plans this rule applies to |
+| `--team-names` | string | Read-only, comma-separated names of the teams this rule applies to |
+| `--coworker-full-names` | string | Read-only, comma-separated full names of the customers this rule applies to |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

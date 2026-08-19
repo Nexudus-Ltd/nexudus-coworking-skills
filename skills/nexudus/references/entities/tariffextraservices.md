@@ -12,7 +12,7 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 | `nexudus tariffextraservices list --id <id> --agent` | Filter by single ID |
 | `nexudus tariffextraservices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus tariffextraservices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus tariffextraservices list --uses-included <value> --agent` | Filter tariffextraservices by properties |
+| `nexudus tariffextraservices list --tariff-name <value> --extra-service-name <value> --agent` | Filter tariffextraservices by properties |
 | `nexudus tariffextraservices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tariffextraservices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tariffextraservices get <id> --agent` | Get single tariffextraservice |
@@ -25,7 +25,12 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--tariff-id` | long | ID of the plan linked to this record |
+| `--tariff-name` | string | Tariff name |
 | `--extra-service-id` | long | ID of the time credit type linked to this record. An ExtraService with IsBookingCredit = true associated with the type of resources this time credit is valid for.  |
+| `--extra-service-name` | string | Extra service name |
+| `--extra-service-charge-period` | string | Extra service charge period |
+| `--extra-service-is-booking-credit` | bool | Whether extra service is booking credit |
+| `--extra-service-is-printing-credit` | bool | Whether extra service is printing credit |
 | `--uses-included` | int | Number of uses included in the unit associated with the selected time credit type (ExtraService.ChargePeriod). ExtraServiceChargePeriod in this entity. Minutes = 1, Days = 2, Weeks = 3, Months = 4, Uses = 5, FourWeekMonths = 6 |
 | `--from-uses-included` | range | |
 | `--to-uses-included` | range | |

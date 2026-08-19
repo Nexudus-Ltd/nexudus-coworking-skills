@@ -16,7 +16,7 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 | `nexudus failedcheckins list --id <id> --agent` | Filter by single ID |
 | `nexudus failedcheckins list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus failedcheckins list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus failedcheckins list --coworker-id <value> --business-id <value> --agent` | Filter failedcheckins by properties |
+| `nexudus failedcheckins list --coworker-full-name <value> --business-name <value> --agent` | Filter failedcheckins by properties |
 | `nexudus failedcheckins list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus failedcheckins list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus failedcheckins get <id> --agent` | Get single failedcheckin |
@@ -29,10 +29,13 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-full-name` | string | Full name of the coworker at the time of the failed check-in |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Name of the location where the check-in was attempted |
 | `--checkin-attempt-time` | DateTime | Date and time when the check-in attempt occurred |
 | `--from-checkin-attempt-time` | range | |
 | `--to-checkin-attempt-time` | range | |
+| `--source` | enum | Method used to initiate the check-in attempt (e.g. manual, Wi-Fi, app) |
 | `--mac-addresses` | string | MAC addresses of the device used during the check-in attempt, if available |
 | `--teams-at-the-time-of-checkin` | string | Comma-separated list of teams the coworker belonged to at the time of the failed check-in |
 | `--tariff-at-the-time-of-checkin` | string | Name of the pricing plan (tariff) assigned to the coworker at the time of the failed check-in |

@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CommunityThreads -->
 
-A **CommunityThread** represents a conversation posted to the Discussion Board. Discussion boards are a community feature that allows customers to communicate on the Members Portal — they can start, follow, like, and reply to conversations, mention other customers, and receive notifications about new messages.
-
-Conversations can be assigned to a group (`CommunityGroupId`) to control who can see and contribute. Conversations not linked to any group are visible to all customers with access to the Discussion Boards page.
-
-Use `Tags` to help customers find relevant conversations. Set `Private` to `true` to limit visibility to only the customers explicitly mentioned in the message. Enable `InstantDelivery` to push notifications to followers immediately rather than waiting for the daily digest.
+A Discussion Board conversation is an opening message with replies that customers can follow; a community group or private guest list controls who can access it.
 
 CommunityThreads support Search, Get, Create, Update, Delete.
 
@@ -28,17 +24,19 @@ CommunityThreads support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location this conversation belongs to |
-| `--community-group-id` | long | ID of the group this conversation is assigned to; the group's access level (Public, Restricted, or Private) determines who can see and contribute to it |
-| `--user-id` | long | ID of the user account that posted this conversation |
-| `--coworker-id` | long | ID of the customer profile that posted this conversation |
-| `--subject` | string | Title or topic of the conversation |
-| `--message` | string | Body text of the opening message in this conversation |
-| `--instant-delivery` | bool | When true, sends notifications to followers immediately after posting instead of waiting for the daily digest |
-| `--tags` | string | Comma-separated tags to help customers find this conversation |
-| `--private` | bool | When true, the conversation is visible only to customers explicitly mentioned in the message |
-| `--include-zoom-invite` | bool | When true, attaches a Zoom meeting invite to this conversation |
-| `--zoom-event-data` | string | JSON payload containing Zoom meeting details attached to this conversation |
+| `--business-id` | long | ID of the location this Discussion Board conversation belongs to |
+| `--community-group-id` | long | Optional ID of the community group that controls access to this conversation; its Public, Restricted, or Private access level applies in addition to this thread's Private setting |
+| `--user-id` | long | ID of the user account that authors this conversation |
+| `--coworker-id` | long | Optional ID of the customer profile displayed as the author; when omitted on creation, Nexudus uses the author's matching customer profile at the location |
+| `--subject` | string | Required title or topic of the Discussion Board conversation |
+| `--message` | string | Required body text of the opening message in this conversation |
+| `--instant-delivery` | bool | Whether to notify followers about this new conversation immediately instead of waiting for their scheduled digest |
+| `--tags` | string | Comma-separated search tags that help customers find this conversation |
+| `--private` | bool | Whether this conversation is visible only to its author and the users in Guests; a private community group also restricts visibility regardless of this setting |
+| `--last-message-date` | DateTime | Read-only UTC date and time when this conversation or one of its replies was most recently posted |
+| `--from-last-message-date` | range | |
+| `--to-last-message-date` | range | |
+| `--include-zoom-invite` | bool | Whether to create a Zoom meeting and attach its invite when this conversation is created |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -57,39 +55,37 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the location this conversation belongs to |
-| `--community-group-id` | long | ID of the group this conversation is assigned to; the group's access level (Public, Restricted, or Private) determines who can see and contribute to it |
-| `--user-id` | long, required | ID of the user account that posted this conversation |
-| `--coworker-id` | long | ID of the customer profile that posted this conversation |
-| `--subject` | string, required | Title or topic of the conversation |
-| `--message` | string, required | Body text of the opening message in this conversation |
-| `--instant-delivery` | bool | When true, sends notifications to followers immediately after posting instead of waiting for the daily digest |
-| `--tags` | string | Comma-separated tags to help customers find this conversation |
-| `--private` | bool | When true, the conversation is visible only to customers explicitly mentioned in the message |
-| `--guests` | list, repeat flag | IDs of users mentioned or invited as guests in this conversation |
+| `--business-id` | long, required | ID of the location this Discussion Board conversation belongs to |
+| `--community-group-id` | long | Optional ID of the community group that controls access to this conversation; its Public, Restricted, or Private access level applies in addition to this thread's Private setting |
+| `--user-id` | long, required | ID of the user account that authors this conversation |
+| `--coworker-id` | long | Optional ID of the customer profile displayed as the author; when omitted on creation, Nexudus uses the author's matching customer profile at the location |
+| `--subject` | string, required | Required title or topic of the Discussion Board conversation |
+| `--message` | string, required | Required body text of the opening message in this conversation |
+| `--instant-delivery` | bool | Whether to notify followers about this new conversation immediately instead of waiting for their scheduled digest |
+| `--tags` | string | Comma-separated search tags that help customers find this conversation |
+| `--private` | bool | Whether this conversation is visible only to its author and the users in Guests; a private community group also restricts visibility regardless of this setting |
+| `--guests` | list, repeat flag | List of user IDs allowed to read this thread when Private is true; an assigned community group's members are added automatically when the thread is created |
 | `--added-guests` | list, repeat flag | User IDs to add as guests (used in partial updates) |
 | `--removed-guests` | list, repeat flag | User IDs to remove as guests (used in partial updates) |
-| `--include-zoom-invite` | bool | When true, attaches a Zoom meeting invite to this conversation |
-| `--zoom-event-data` | string | JSON payload containing Zoom meeting details attached to this conversation |
+| `--include-zoom-invite` | bool | Whether to create a Zoom meeting and attach its invite when this conversation is created |
 
 #### CommunityThread update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location this conversation belongs to |
-| `--community-group-id` | long | ID of the group this conversation is assigned to; the group's access level (Public, Restricted, or Private) determines who can see and contribute to it |
-| `--user-id` | long | ID of the user account that posted this conversation |
-| `--coworker-id` | long | ID of the customer profile that posted this conversation |
-| `--subject` | string | Title or topic of the conversation |
-| `--message` | string | Body text of the opening message in this conversation |
-| `--instant-delivery` | bool | When true, sends notifications to followers immediately after posting instead of waiting for the daily digest |
-| `--tags` | string | Comma-separated tags to help customers find this conversation |
-| `--private` | bool | When true, the conversation is visible only to customers explicitly mentioned in the message |
-| `--guests` | list, repeat flag | IDs of users mentioned or invited as guests in this conversation |
+| `--business-id` | long | ID of the location this Discussion Board conversation belongs to |
+| `--community-group-id` | long | Optional ID of the community group that controls access to this conversation; its Public, Restricted, or Private access level applies in addition to this thread's Private setting |
+| `--user-id` | long | ID of the user account that authors this conversation |
+| `--coworker-id` | long | Optional ID of the customer profile displayed as the author; when omitted on creation, Nexudus uses the author's matching customer profile at the location |
+| `--subject` | string | Required title or topic of the Discussion Board conversation |
+| `--message` | string | Required body text of the opening message in this conversation |
+| `--instant-delivery` | bool | Whether to notify followers about this new conversation immediately instead of waiting for their scheduled digest |
+| `--tags` | string | Comma-separated search tags that help customers find this conversation |
+| `--private` | bool | Whether this conversation is visible only to its author and the users in Guests; a private community group also restricts visibility regardless of this setting |
+| `--guests` | list, repeat flag | List of user IDs allowed to read this thread when Private is true; an assigned community group's members are added automatically when the thread is created |
 | `--added-guests` | list, repeat flag | User IDs to add as guests (used in partial updates) |
 | `--removed-guests` | list, repeat flag | User IDs to remove as guests (used in partial updates) |
-| `--include-zoom-invite` | bool | When true, attaches a Zoom meeting invite to this conversation |
-| `--zoom-event-data` | string | JSON payload containing Zoom meeting details attached to this conversation |
+| `--include-zoom-invite` | bool | Whether to create a Zoom meeting and attach its invite when this conversation is created |
 
 **List properties (only returned by `get`, not by `list`):** `Guests`, `AddedGuests`, `RemovedGuests`
 

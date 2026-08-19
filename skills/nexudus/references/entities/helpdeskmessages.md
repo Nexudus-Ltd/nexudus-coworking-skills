@@ -26,15 +26,26 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this support ticket; it is supplied from the agent context. |
 | `--coworker-id` | long | ID of the customer who opened this support ticket. |
+| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
 | `--help-desk-department-id` | long | Optional ID of the support department that receives the ticket and can trigger its task-list workflow. |
+| `--help-desk-department-name` | string | Display name of the linked help desk department (read-only) |
 | `--subject` | string | Required ticket subject, up to 254 characters. |
 | `--message-text` | string | Required initial message describing the customer's support request; multiline text is allowed. |
 | `--priority` | enum | Ticket urgency: Low, Normal, High, or Critical; new tickets default to Normal when no priority is supplied. |
+| `--ai-processing-result` | enum | Read-only result of the automatic AI reply attempt: NotProcessed, Responded, or NotResponded. |
+| `--support-issue-category` | enum | Read-only AI-generated issue category: Printing, WiFi, Access, Billing, Noise, HVAC, Cleaning, Booking, or Other; it remains empty until classified. |
 | `--closed` | bool | Whether the ticket is closed; closing records the closure time and reopening clears it. |
+| `--closed-on` | DateTime | Read-only UTC timestamp set when the ticket is closed and cleared when it is reopened. |
+| `--from-closed-on` | range | |
+| `--to-closed-on` | range | |
 | `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
+| `--owner-full-name` | string | Display name of the linked owner full (read-only) |
+| `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
+| `--first-response-time-in-minutes` | int | Read-only first-response duration for this ticket, measured in whole minutes. |
+| `--from-first-response-time-in-minutes` | range | |
+| `--to-first-response-time-in-minutes` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -63,7 +74,6 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage update options
 
@@ -79,7 +89,6 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage PII fields
 

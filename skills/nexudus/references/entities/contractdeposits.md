@@ -12,7 +12,7 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 | `nexudus contractdeposits list --id <id> --agent` | Filter by single ID |
 | `nexudus contractdeposits list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus contractdeposits list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus contractdeposits list --price <value> --refundable <value> --agent` | Filter contractdeposits by properties |
+| `nexudus contractdeposits list --product-name <value> --price <value> --agent` | Filter contractdeposits by properties |
 | `nexudus contractdeposits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus contractdeposits list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus contractdeposits get <id> --agent` | Get single contractdeposit |
@@ -25,12 +25,33 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-contract-id` | long | ID of the customer's contract; it determines this deposit's location, customer, plan, and invoice cycle. |
+| `--coworker-contract-quantity` | int | The coworker contract quantity value for this contract deposit |
+| `--from-coworker-contract-quantity` | range | |
+| `--to-coworker-contract-quantity` | range | |
+| `--coworker-contract-floor-plan-desk-ids` | string | The coworker contract floor plan desk ids value for this contract deposit |
+| `--coworker-contract-floor-plan-desk-names` | string | The coworker contract floor plan desk names value for this contract deposit |
+| `--coworker-contract-tariff-name` | string | Name of the tariff/plan associated with the parent contract |
+| `--coworker-contract-coworker-id` | int | ID of the coworker contract coworker associated with this record |
+| `--from-coworker-contract-coworker-id` | range | |
+| `--to-coworker-contract-coworker-id` | range | |
+| `--coworker-contract-coworker-full-name` | string | Full name of the member holding the parent contract |
+| `--coworker-contract-coworker-billing-name` | string | Billing name of the member holding the parent contract |
 | `--product-id` | long | ID of the location product charged for this deposit; its current price is used when Price is null. |
+| `--product-name` | string | Name of the product this deposit is based on |
+| `--product-price` | decimal | Default price of the underlying product (used when Price is not overridden) |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-currency-code` | string | ISO currency code of the underlying product |
 | `--notes` | string | Optional operator notes about this deposit. |
 | `--price` | decimal | Optional deposit amount in the location's currency; when null, the linked product's current price is used. |
 | `--from-price` | range | |
 | `--to-price` | range | |
 | `--refundable` | bool | Whether cancelling the contract makes this deposit eligible for the dedicated refund workflow, which creates a negative sale that can be included in a credit note. |
+| `--invoiced` | bool | Whether the invoicing process has charged this deposit; it is set during online checkout or when the contract's next eligible invoice is generated with IncludeSignupFee = true. |
+| `--credited` | bool | Whether the dedicated refund workflow has created a negative sale for this refundable deposit. |
+| `--invoiced-on` | DateTime | Read-only UTC date and time when the invoicing process charged this deposit. |
+| `--from-invoiced-on` | range | |
+| `--to-invoiced-on` | range | |
 | `--invoice-during-online-checkout` | bool | Whether this deposit is charged during the customer's online checkout instead of waiting for the contract's next eligible invoice. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

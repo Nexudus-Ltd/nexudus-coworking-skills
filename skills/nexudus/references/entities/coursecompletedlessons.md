@@ -16,7 +16,7 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 | `nexudus coursecompletedlessons list --id <id> --agent` | Filter by single ID |
 | `nexudus coursecompletedlessons list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coursecompletedlessons list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coursecompletedlessons list --course-lesson-id <value> --course-member-id <value> --agent` | Filter coursecompletedlessons by properties |
+| `nexudus coursecompletedlessons list --course-lesson-id <value> --course-lesson-title <value> --agent` | Filter coursecompletedlessons by properties |
 | `nexudus coursecompletedlessons list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coursecompletedlessons list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coursecompletedlessons get <id> --agent` | Get single coursecompletedlesson |
@@ -29,7 +29,11 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-lesson-id` | long | ID of the course lesson that was completed |
+| `--course-lesson-title` | string | Title of the completed lesson |
 | `--course-member-id` | long | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
+| `--course-member-coworker-full-name` | string | Full name of the member who completed the lesson |
+| `--course-member-coworker-company-name` | string | Company name of the member who completed the lesson |
+| `--course-member-coworker-team-names` | string | Comma-separated list of teams the member belongs to |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

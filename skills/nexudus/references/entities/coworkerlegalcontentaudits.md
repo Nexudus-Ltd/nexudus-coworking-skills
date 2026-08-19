@@ -26,8 +26,12 @@ CoworkerLegalContentAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `--coworker-id` | long | ID of the customer who accepted the legal content |
 | `--business-id` | long | ID of the location where the legal content was accepted |
 | `--name` | string | Name of the legal content document that was accepted |
+| `--legal-content-type` | enum | Type of legal document accepted: GeneralTerms, VisitorTerms, CheckoutTerms, PrivacyPolicy, CookiesPolicy, or TariffTerms |
+| `--tariff-unique-id` | string | Unique identifier of the pricing plan whose terms were accepted; only set when LegalContentType is TariffTerms |
+| `--legal-content-audit-unique-id` | string | Unique identifier of the specific version of the legal document that was in effect and accepted by the customer at the time of acceptance |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

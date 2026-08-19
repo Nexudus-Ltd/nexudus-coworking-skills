@@ -27,6 +27,7 @@ VideoFiles support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | The name value for this video file |
 | `--description` | string | Free-text description of this video file |
+| `--video-file-name` | string | Current file name of the video (read-only; upload via the corresponding URL field) |
 | `--new-video-url` | string | URL of a new file to upload as the video |
 | `--clear-video-file` | bool | Set to true to remove the current video file |
 | `--file-size-bytes` | int | The file size bytes value for this video file |

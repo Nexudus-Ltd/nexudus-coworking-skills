@@ -27,9 +27,21 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 | `--coworker-id` | long | ID of the customer assigned this pass |
 | `--business-id` | long | ID of the location that owns this pass |
 | `--time-pass-id` | long | ID of the pass definition to issue; it determines the included number of uses and default price |
+| `--time-pass-name` | string | Name of the linked time pass |
+| `--time-pass-currency-code` | string | Currency code of the linked time pass |
 | `--notes` | string | Optional internal notes about this issued pass |
 | `--purchase-order` | string | Optional purchase-order reference for this pass |
 | `--used` | bool | Whether the customer has used this pass; update-only operational status |
+| `--checked-in` | bool | Whether the customer currently has an open check-in using this pass; maintained by check-in processing |
+| `--used-date` | DateTime | UTC timestamp when this pass was used; maintained by check-in processing |
+| `--from-used-date` | range | |
+| `--to-used-date` | range | |
+| `--remaining-uses` | int | Remaining number of uses on this pass; initialized from the selected pass and consumed by check-ins unless pay-as-you-go |
+| `--from-remaining-uses` | range | |
+| `--to-remaining-uses` | range | |
+| `--total-uses` | int | Total number of included uses; calculated from the selected pass when issued |
+| `--from-total-uses` | range | |
+| `--to-total-uses` | range | |
 | `--free` | bool | Whether no charge is due for this issued pass; when true its calculated price is zero |
 | `--price` | decimal | Optional monetary price override for this issued pass; when omitted, the selected pass calculates the price for the customer |
 | `--from-price` | range | |
@@ -40,7 +52,12 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 | `--expire-date` | DateTime | Optional UTC expiration date and time; an expired pass is excluded from access-control updates |
 | `--from-expire-date` | range | |
 | `--to-expire-date` | range | |
-| `--tariff-time-pass-unique-id` | string | Internal GUID linking this pass to the plan allocation that created it; do not set or use this field |
+| `--invoiced` | bool | Whether this pass has been invoiced; maintained by invoicing processing |
+| `--invoice-date` | DateTime | UTC timestamp when this pass was invoiced; maintained by invoicing processing |
+| `--from-invoice-date` | range | |
+| `--to-invoice-date` | range | |
+| `--is-from-tariff` | bool | Whether this pass was granted by the customer's plan rather than issued manually or from a product purchase |
+| `--is-pay-as-you-go` | bool | Whether this is a pay-as-you-go pass; pay-as-you-go passes remain active even when no remaining uses are recorded |
 | `--coworker-product-unique-id` | string | Internal GUID linking this pass to the customer product purchase that created it; do not set or use this field |
 | `--coworker-contract-unique-id` | string | Internal GUID linking this pass to the customer contract that created it; do not set or use this field |
 | `--from-created-on` | range | |
@@ -71,7 +88,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--price` | decimal | Optional monetary price override for this issued pass; when omitted, the selected pass calculates the price for the customer |
 | `--create-multiple` | int, required | Number of identical passes to issue in this request, including this one; a customer cannot hold more than 500 passes |
 | `--expire-date` | DateTime | Optional UTC expiration date and time; an expired pass is excluded from access-control updates |
-| `--tariff-time-pass-unique-id` | string | Internal GUID linking this pass to the plan allocation that created it; do not set or use this field |
 | `--coworker-product-unique-id` | string | Internal GUID linking this pass to the customer product purchase that created it; do not set or use this field |
 | `--coworker-contract-unique-id` | string | Internal GUID linking this pass to the customer contract that created it; do not set or use this field |
 
@@ -88,7 +104,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--free` | bool | Whether no charge is due for this issued pass; when true its calculated price is zero |
 | `--price` | decimal | Optional monetary price override for this issued pass; when omitted, the selected pass calculates the price for the customer |
 | `--expire-date` | DateTime | Optional UTC expiration date and time; an expired pass is excluded from access-control updates |
-| `--tariff-time-pass-unique-id` | string | Internal GUID linking this pass to the plan allocation that created it; do not set or use this field |
 | `--coworker-product-unique-id` | string | Internal GUID linking this pass to the customer product purchase that created it; do not set or use this field |
 | `--coworker-contract-unique-id` | string | Internal GUID linking this pass to the customer contract that created it; do not set or use this field |
 

@@ -23,7 +23,7 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 | `nexudus producttimepasses list --id <id> --agent` | Filter by single ID |
 | `nexudus producttimepasses list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus producttimepasses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus producttimepasses list --passes-included <value> --agent` | Filter producttimepasses by properties |
+| `nexudus producttimepasses list --product-name <value> --time-pass-name <value> --agent` | Filter producttimepasses by properties |
 | `nexudus producttimepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus producttimepasses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus producttimepasses get <id> --agent` | Get single producttimepass |
@@ -36,16 +36,12 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--product-id` | long | ID of the product linked to this time pass record |
+| `--product-name` | string | Product name |
 | `--time-pass-id` | long | ID of the time pass linked to this record. The type of time pass determines how time is calculated: Day Pass (MinutesIncluded = null) gives calendar days of check-in access; Time Pass (MinutesIncluded set) gives instances worth MinutesIncluded minutes each |
+| `--time-pass-name` | string | Time pass name |
 | `--passes-included` | int | Number of passes included: for Day Passes this is the number of calendar days the customer can check in; for Time Passes this is the number of pass instances (each worth the TimePass's MinutesIncluded minutes). Total time = PassesIncluded × MinutesIncluded for time passes |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |
-| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--from-expire-time-in-months` | range | |
-| `--to-expire-time-in-months` | range | |
-| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--from-expire-time-in-weeks` | range | |
-| `--to-expire-time-in-weeks` | range | |
 | `--expiration-type` | enum | Expiration type for the released time pass: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
 | `--expires-in` | int | Number of periods (of ExpirationType) until the released time pass expires |
 | `--from-expires-in` | range | |
@@ -71,8 +67,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--product-id` | long, required | ID of the product linked to this time pass record |
 | `--time-pass-id` | long, required | ID of the time pass linked to this record. The type of time pass determines how time is calculated: Day Pass (MinutesIncluded = null) gives calendar days of check-in access; Time Pass (MinutesIncluded set) gives instances worth MinutesIncluded minutes each |
 | `--passes-included` | int, required | Number of passes included: for Day Passes this is the number of calendar days the customer can check in; for Time Passes this is the number of pass instances (each worth the TimePass's MinutesIncluded minutes). Total time = PassesIncluded × MinutesIncluded for time passes |
-| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--expiration-type` | enum | Expiration type for the released time pass: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
 | `--expires-in` | int | Number of periods (of ExpirationType) until the released time pass expires |
 
@@ -83,8 +77,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--product-id` | long | ID of the product linked to this time pass record |
 | `--time-pass-id` | long | ID of the time pass linked to this record. The type of time pass determines how time is calculated: Day Pass (MinutesIncluded = null) gives calendar days of check-in access; Time Pass (MinutesIncluded set) gives instances worth MinutesIncluded minutes each |
 | `--passes-included` | int | Number of passes included: for Day Passes this is the number of calendar days the customer can check in; for Time Passes this is the number of pass instances (each worth the TimePass's MinutesIncluded minutes). Total time = PassesIncluded × MinutesIncluded for time passes |
-| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--expiration-type` | enum | Expiration type for the released time pass: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
 | `--expires-in` | int | Number of periods (of ExpirationType) until the released time pass expires |
 

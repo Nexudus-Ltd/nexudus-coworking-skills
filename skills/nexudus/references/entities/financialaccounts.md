@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=FinancialAccounts -->
 
-A financial account represents a bookkeeping account used for categorising revenue and payments. Financial accounts can be assigned to Products, Event tickets (internally EventProducts), Passes (internall TimePasses), Resoruce rates (internall ExtraService), Plans (internally Tariffs) and Charges to control how income is tracked and reported. Each account has a Code (typically matching an external accounting system reference), a Name, and an type (AccountType) that determines where it appears: | AccountType | Value | Purpose | | ----------- | ----- | ------- | | Sales | 1 | Revenue from products, services and bookings | | Payments | 2 | Incoming payment receipts | | Deposits | 3 | Security deposits held against contracts | Important: Changing a financial account's details or reassigning it to different items has no effect on existing invoices. The financial account recorded on each invoice line is captured at the time the invoice is issued and is never updated retroactively.
+A financial account is a location-specific bookkeeping category used to track revenue, incoming payments, or security deposits when it is assigned to items and services sold by the location. Issued invoice lines retain a snapshot of the account's code and name, so later changes to or deletion of the account do not alter them.
 
 FinancialAccounts support Search, Get, Create, Update, Delete.
 
@@ -24,11 +24,11 @@ FinancialAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location linked to this record. Financial accounts can be used across locations  |
-| `--name` | string | Display name for this financial account |
-| `--code` | string | Short reference code, typically matching the account code in an external accounting system |
-| `--description` | string | Optional free-text description of the account's purpose |
-| `--account-type` | enum | Category of the account: Sales (1), Payments (2) or Deposits (3) |
+| `--business-id` | long | ID of the location that owns this financial account. |
+| `--name` | string | Required display name for this financial account, up to 150 characters. |
+| `--code` | string | Required accounting reference code, up to 50 characters and unique within the location; it can match an external accounting system's account code. |
+| `--description` | string | Optional free-text explanation of this account's purpose, up to 254 characters. |
+| `--account-type` | enum | Category that controls the account's use: Sales (1) for revenue, Payments (2) for incoming payments, or Deposits (3) for security deposits; defaults to Sales. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -47,21 +47,21 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the location linked to this record. Financial accounts can be used across locations  |
-| `--name` | string, required | Display name for this financial account |
-| `--code` | string, required | Short reference code, typically matching the account code in an external accounting system |
-| `--description` | string | Optional free-text description of the account's purpose |
-| `--account-type` | enum, required | Category of the account: Sales (1), Payments (2) or Deposits (3) |
+| `--business-id` | long, required | ID of the location that owns this financial account. |
+| `--name` | string, required | Required display name for this financial account, up to 150 characters. |
+| `--code` | string, required | Required accounting reference code, up to 50 characters and unique within the location; it can match an external accounting system's account code. |
+| `--description` | string | Optional free-text explanation of this account's purpose, up to 254 characters. |
+| `--account-type` | enum, required | Category that controls the account's use: Sales (1) for revenue, Payments (2) for incoming payments, or Deposits (3) for security deposits; defaults to Sales. |
 
 #### FinancialAccount update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location linked to this record. Financial accounts can be used across locations  |
-| `--name` | string | Display name for this financial account |
-| `--code` | string | Short reference code, typically matching the account code in an external accounting system |
-| `--description` | string | Optional free-text description of the account's purpose |
-| `--account-type` | enum | Category of the account: Sales (1), Payments (2) or Deposits (3) |
+| `--business-id` | long | ID of the location that owns this financial account. |
+| `--name` | string | Required display name for this financial account, up to 150 characters. |
+| `--code` | string | Required accounting reference code, up to 50 characters and unique within the location; it can match an external accounting system's account code. |
+| `--description` | string | Optional free-text explanation of this account's purpose, up to 254 characters. |
+| `--account-type` | enum | Category that controls the account's use: Sales (1) for revenue, Payments (2) for incoming payments, or Deposits (3) for security deposits; defaults to Sales. |
 
 ### FinancialAccount (key fields)
 

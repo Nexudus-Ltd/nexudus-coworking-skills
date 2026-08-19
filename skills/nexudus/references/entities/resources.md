@@ -13,7 +13,7 @@ Resources also support entity commands.
 | `nexudus resources list --id <id> --agent` | Filter by single ID |
 | `nexudus resources list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus resources list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus resources list --name <value> --visible <value> --agent` | Filter resources by properties |
+| `nexudus resources list --business-name <value> --name <value> --agent` | Filter resources by properties |
 | `nexudus resources list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus resources list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus resources get <id> --agent` | Get single resource |
@@ -27,10 +27,13 @@ Resources also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location where this resource is located. |
+| `--business-name` | string | Name of the location (read-only, resolved from BusinessId). |
 | `--name` | string | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
 | `--system-resource-type` | enum | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). AI agents use this value to guide customers asking for specific type of services to the right resource. Distinct from the custom ResourceType. |
 | `--resource-type-id` | long | ID of the resource type assigned to this resource. The resource inherits every applicable booking rate (ExtraService) whose ResourceTypes relationship includes this type; use a different resource type when a resource needs a different set of rates. |
+| `--resource-type-name` | string | Name of the resource type (read-only, resolved from ResourceTypeId). |
 | `--description` | string | Free-text description shown to users when viewing the resource details. |
+| `--picture-file-name` | string | Current file name of the picture (read-only; upload via the corresponding URL field) |
 | `--new-picture-url` | string | URL of a new file to upload as the picture |
 | `--clear-picture-file` | bool | Set to true to remove the current picture file |
 | `--email-confirmation-content` | string | Custom HTML or text included in booking confirmation emails for this resource. |
@@ -102,8 +105,6 @@ Resources also support entity commands.
 | `--to-min-booking-length` | range | |
 | `--shifts` | string | Comma-separated list of shifts defining when the resource is available. Each shift uses the format 'NAME: START_TIME->END_TIME' where NAME is a descriptive label (cannot contain colons), and times are in 24-hour HH:MM format. Example: 'FULL DAY (9AM - 6PM): 09:00->18:00, MORNING (9AM - 1PM): 09:00->13:00, AFTERNOON (1PM - 6PM): 13:00->18:00'. The shift name must NOT contain ':' as it breaks parsing. |
 | `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--kisi-group-id` | string | ID of the kisi group associated with this record |
-| `--access-control-group-id` | string | ID of the access control group associated with this record (deprecated) |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--from-longitude` | range | |
 | `--to-longitude` | range | |
@@ -124,7 +125,10 @@ Resources also support entity commands.
 | `--only-for-contacts` | bool | When true, only contacts (customers without an active contract for a plan) can book this resource. |
 | `--only-for-members` | bool | When true, only active members (customers with an active contract for a plan) can book this resource. |
 | `--only-for-invoicing-business` | bool | When true, only customers with a home location set to the resource's location can book this resource. |
+| `--sensor-last-value` | string | Last value reported by an IoT occupancy sensor attached to this resource (read-only). |
+| `--is-sensor-occupied` | bool | Whether the IoT sensor currently reports this resource as occupied (read-only). |
 | `--cancellation-fee-product-id` | long | ID of the product representing the cancellation fee linked to this resource |
+| `--cancellation-fee-product-name` | string | Name of the cancellation fee product (read-only, resolved from CancellationFeeProductId). |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
@@ -220,8 +224,6 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--added-linked-resources` | list, repeat flag | The added linked resources value for this resource |
 | `--removed-linked-resources` | list, repeat flag | The removed linked resources value for this resource |
 | `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--kisi-group-id` | string | ID of the kisi group associated with this record |
-| `--access-control-group-id` | string | ID of the access control group associated with this record (deprecated) |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
 | `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view in the admin panel. Use 'Visible' to control if the resource is visible in the Members Portal and the App |
@@ -315,8 +317,6 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--added-linked-resources` | list, repeat flag | The added linked resources value for this resource |
 | `--removed-linked-resources` | list, repeat flag | The removed linked resources value for this resource |
 | `--google-calendar-id` | string | ID of the google calendar associated with this record |
-| `--kisi-group-id` | string | ID of the kisi group associated with this record |
-| `--access-control-group-id` | string | ID of the access control group associated with this record (deprecated) |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
 | `--hide-in-calendar` | bool | When true, this resource does not appear on the booking calendar view in the admin panel. Use 'Visible' to control if the resource is visible in the Members Portal and the App |

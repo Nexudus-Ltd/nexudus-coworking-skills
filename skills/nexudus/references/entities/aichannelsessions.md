@@ -28,6 +28,13 @@ AiChannelSessions support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
 | `--coworker-id` | long | ID of the coworker linked to this session. Null for sessions with external contacts who are not members. |
+| `--coworker-coworker-type` | string | Whether the linked coworker is an individual or a company. |
+| `--coworker-full-name` | string | Full name of the coworker associated with this session. |
+| `--coworker-mobile-phone` | string | Mobile phone number of the coworker associated with this session. |
+| `--coworker-land-line` | string | Landline phone number of the coworker associated with this session. |
+| `--coworker-billing-name` | string | Billing name of the coworker associated with this session. |
+| `--coworker-company-name` | string | Company name of the coworker associated with this session. |
+| `--coworker-team-names` | string | Comma-separated list of team names the coworker belongs to. |
 | `--channel` | string | Communication channel for this session (e.g. Email, Chat, WhatsApp, Voice). |
 | `--external-identifier` | string | External contact identifier — email address for email sessions, phone number for WhatsApp or voice sessions. Used to identify non-member contacts and for proactive follow-up of dormant leads. |
 | `--chat-session` | string | Internal chat session identifier used by the AI platform for context tracking. |

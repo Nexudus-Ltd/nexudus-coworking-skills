@@ -12,7 +12,7 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 | `nexudus proposalschedules list --id <id> --agent` | Filter by single ID |
 | `nexudus proposalschedules list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus proposalschedules list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus proposalschedules list --price <value> --apply-on <value> --agent` | Filter proposalschedules by properties |
+| `nexudus proposalschedules list --proposal-tariff-name <value> --proposal-coworker-full-name <value> --agent` | Filter proposalschedules by properties |
 | `nexudus proposalschedules list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus proposalschedules list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus proposalschedules get <id> --agent` | Get single proposalschedule |
@@ -25,6 +25,15 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--proposal-id` | long | ID of the proposal linked to this record |
+| `--proposal-quantity` | int | Proposal quantity |
+| `--from-proposal-quantity` | range | |
+| `--to-proposal-quantity` | range | |
+| `--proposal-tariff-name` | string | Proposal tariff name |
+| `--proposal-coworker-id` | int | Proposal coworker ID |
+| `--from-proposal-coworker-id` | range | |
+| `--to-proposal-coworker-id` | range | |
+| `--proposal-coworker-full-name` | string | Proposal coworker full name |
+| `--proposal-coworker-billing-name` | string | Proposal coworker billing name |
 | `--notes` | string | Optional notes or comments about this proposal schedule |
 | `--price` | decimal | Scheduled price |
 | `--from-price` | range | |
@@ -32,6 +41,7 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 | `--apply-on` | DateTime | Date to apply |
 | `--from-apply-on` | range | |
 | `--to-apply-on` | range | |
+| `--applied` | bool | Whether the schedule has been applied |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

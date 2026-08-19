@@ -26,6 +26,7 @@ TaskItems support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--task-list-id` | long | ID of the task list linked to this record |
 | `--responsible-id` | long | ID of the responsible linked to this record |
+| `--responsible-full-name` | string | Display name of the linked responsible full (read-only) |
 | `--name` | string | The name value for this task item |
 | `--active` | bool | Whether this task item is currently active |
 | `--notify-by-email` | bool | Whether notify by email is enabled |

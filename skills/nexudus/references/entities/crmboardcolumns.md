@@ -19,7 +19,7 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 | `nexudus crmboardcolumns list --id <id> --agent` | Filter by single ID |
 | `nexudus crmboardcolumns list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus crmboardcolumns list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus crmboardcolumns list --name <value> --position <value> --agent` | Filter crmboardcolumns by properties |
+| `nexudus crmboardcolumns list --crm-board-name <value> --crm-board-business-name <value> --agent` | Filter crmboardcolumns by properties |
 | `nexudus crmboardcolumns list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus crmboardcolumns list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmboardcolumns get <id> --agent` | Get single crmboardcolumn |
@@ -32,6 +32,15 @@ CrmBoardColumns support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--crm-board-id` | long | ID of the crm board linked to this record |
+| `--crm-board-name` | string | Parent CRM board name |
+| `--crm-board-business-id` | int | Business ID of the parent CRM board |
+| `--from-crm-board-business-id` | range | |
+| `--to-crm-board-business-id` | range | |
+| `--crm-board-business-name` | string | Business name of the parent CRM board |
+| `--crm-board-business-currency-id` | int | Currency ID of the parent CRM board's business |
+| `--from-crm-board-business-currency-id` | range | |
+| `--to-crm-board-business-currency-id` | range | |
+| `--crm-board-business-currency-code` | string | Currency code of the parent CRM board's business |
 | `--name` | string | Stage name (e.g. 'Contract Signature', 'Keys Handout', 'Office Tour') |
 | `--position` | int | Display order of this stage within the board (0-based) |
 | `--from-position` | range | |

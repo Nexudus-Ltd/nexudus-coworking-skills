@@ -37,8 +37,10 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 | `--perk-url` | string | URL where customers are redirected when clicking the Claim button. If blank, no Claim button is shown. Must start with https:// |
 | `--summary-text` | string | Short description shown under the perk title on the Perks listing page of the Members Portal |
 | `--full-text` | string | Full description of the perk, displayed when a customer clicks on it from the Perks listing page |
+| `--image-file-name` | string | File name of the small image shown on the Perks listing page alongside other perks |
 | `--new-image-url` | string | URL of a new small image to upload for this perk |
 | `--clear-image-file` | bool | Set to true to remove the current small image from this perk |
+| `--large-image-file-name` | string | File name of the large image displayed under the perk title on the perk detail page |
 | `--new-large-image-url` | string | URL of a new large image to upload for this perk |
 | `--clear-large-image-file` | bool | Set to true to remove the current large image from this perk |
 | `--active` | bool | Whether this perk is published and visible to customers on the Members Portal. When false, the perk is only visible on the Admin Panel |

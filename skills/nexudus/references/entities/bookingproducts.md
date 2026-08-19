@@ -15,7 +15,7 @@ BookingProducts also support entity commands.
 | `nexudus bookingproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus bookingproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus bookingproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus bookingproducts list --quantity <value> --agent` | Filter bookingproducts by properties |
+| `nexudus bookingproducts list --product-name <value> --product-price <value> --agent` | Filter bookingproducts by properties |
 | `nexudus bookingproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus bookingproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus bookingproducts get <id> --agent` | Get single bookingproduct |
@@ -30,11 +30,15 @@ BookingProducts also support entity commands.
 | --- | --- | --- |
 | `--booking-id` | long | ID of the booking this product is associated to |
 | `--product-id` | long | ID of the product linked to this record |
+| `--product-name` | string | The name of the linked product |
+| `--product-price` | decimal | The unit price of the linked product |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-currency-code` | string | The currency code of the product price |
 | `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
 | `--quantity` | int | The number of units of this product to include in the booking |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -57,7 +61,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--product-id` | long, required | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
 | `--quantity` | int, required | The number of units of this product to include in the booking |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
 
 #### BookingProduct update options
 
@@ -67,7 +70,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--product-id` | long | ID of the product linked to this record |
 | `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
 | `--quantity` | int | The number of units of this product to include in the booking |
-| `--mrm-reminded` | bool | Whether mrm reminded is enabled |
 
 ### BookingProduct (key fields)
 

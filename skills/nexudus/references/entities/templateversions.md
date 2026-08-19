@@ -27,6 +27,7 @@ TemplateVersions support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | The name value for this template version |
 | `--description` | string | Free-text description of this template version |
+| `--current-theme-name` | string | Display name of the linked current theme (read-only) |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

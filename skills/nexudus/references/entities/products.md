@@ -13,7 +13,7 @@ Products also support entity commands.
 | `nexudus products list --id <id> --agent` | Filter by single ID |
 | `nexudus products list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus products list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus products list --name <value> --description <value> --agent` | Filter products by properties |
+| `nexudus products list --business-name <value> --name <value> --agent` | Filter products by properties |
 | `nexudus products list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus products list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus products get <id> --agent` | Get single product |
@@ -28,6 +28,7 @@ Products also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location linked to this product |
+| `--business-name` | string | Business name |
 | `--name` | string | Product name |
 | `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string | Product description |
@@ -50,6 +51,7 @@ Products also support entity commands.
 | `--to-price-for-ai` | range | |
 | `--sync-square` | bool | Sync to Square Point of Sale |
 | `--currency-id` | long | ID of the currency linked to this product |
+| `--currency-code` | string | Currency code |
 | `--tax-rate-id` | long | ID of the tax rate linked to this product |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this product |
 | `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this product |
@@ -61,10 +63,14 @@ Products also support entity commands.
 | `--starred` | bool | Mark the product as featured or highlighted |
 | `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |
 | `--allow-negative-stock` | bool | Allow sales to continue even when stock reaches zero |
+| `--current-stock` | int | Current stock level |
+| `--from-current-stock` | range | |
+| `--to-current-stock` | range | |
 | `--stock-alert-level` | int | Stock level at which a low-stock alert is triggered |
 | `--from-stock-alert-level` | range | |
 | `--to-stock-alert-level` | range | |
 | `--apply-pro-rating` | bool | Whether to pro-rate the price when the product is added or removed part-way through a billing period |
+| `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
 | `--invoice-coworker` | bool | Whether to invoice the customer directly rather than their company or team |

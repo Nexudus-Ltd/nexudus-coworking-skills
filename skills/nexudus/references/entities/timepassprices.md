@@ -12,7 +12,7 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 | `nexudus timepassprices list --id <id> --agent` | Filter by single ID |
 | `nexudus timepassprices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus timepassprices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus timepassprices list --price <value> --agent` | Filter timepassprices by properties |
+| `nexudus timepassprices list --time-pass-name <value> --tariff-name <value> --agent` | Filter timepassprices by properties |
 | `nexudus timepassprices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus timepassprices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus timepassprices get <id> --agent` | Get single timepassprice |
@@ -25,7 +25,9 @@ TimePassPrices support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--time-pass-id` | long | ID of the time pass linked to this record |
+| `--time-pass-name` | string | Time pass name |
 | `--tariff-id` | long | ID of the tariff linked to this record |
+| `--tariff-name` | string | Tariff name |
 | `--price` | decimal | Unit price amount |
 | `--from-price` | range | |
 | `--to-price` | range | |

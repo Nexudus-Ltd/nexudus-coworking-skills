@@ -31,7 +31,7 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | `nexudus courselessons list --id <id> --agent` | Filter by single ID |
 | `nexudus courselessons list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus courselessons list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus courselessons list --course-id <value> --section-id <value> --agent` | Filter courselessons by properties |
+| `nexudus courselessons list --course-id <value> --course-title <value> --agent` | Filter courselessons by properties |
 | `nexudus courselessons list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus courselessons list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus courselessons get <id> --agent` | Get single courselesson |
@@ -44,8 +44,16 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-id` | long | ID of the course this lesson belongs to |
+| `--course-title` | string | Title of the parent course |
 | `--section-id` | long | ID of the course section this lesson belongs to (optional; lessons without a section appear ungrouped) |
+| `--section-display-order` | int | Display order of the parent section |
+| `--from-section-display-order` | range | |
+| `--to-section-display-order` | range | |
+| `--section-title` | string | Title of the parent section |
 | `--instructor-id` | long | ID of the coworker attributed as instructor for this lesson (optional; overrides the course-level host for this lesson) |
+| `--instructor-full-name` | string | Instructor full name |
+| `--instructor-company-name` | string | Instructor company name |
+| `--instructor-team-names` | string | Comma-separated list of teams the instructor belongs to |
 | `--title` | string | Lesson title displayed to members |
 | `--summary-text` | string | Short summary shown in the lesson listing |
 | `--lesson-contents` | string | Full HTML or rich-text body of the lesson displayed to members when they open it |
@@ -54,6 +62,7 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
 | `--unlock-type` | enum | When the lesson becomes available: Immediate (1), after the previous lesson is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--image-file-name` | string | Stored filename of the lesson thumbnail image (read-only; use --new-image-url to set) |
 | `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
 | `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
 | `--unlock-after-days` | int | Number of days after enrolment before the lesson unlocks; only used when UnlockType is Timed (3) |

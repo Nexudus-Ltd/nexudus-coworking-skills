@@ -35,6 +35,7 @@ MarketPlaceApplications support Search, Get, Create, Update, Delete.
 | `--description` | string | Free-text description of this market place application |
 | `--notification-email` | string | The notification email value for this market place application |
 | `--notification-url` | string | The notification url value for this market place application |
+| `--logo-file-name` | string | Current file name of the logo (read-only; upload via the corresponding URL field) |
 | `--new-logo-url` | string | URL of a new file to upload as the logo |
 | `--clear-logo-file` | bool | Set to true to remove the current logo file |
 | `--from-created-on` | range | |

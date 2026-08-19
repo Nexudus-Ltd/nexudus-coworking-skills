@@ -12,7 +12,7 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | `nexudus contractproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus contractproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus contractproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus contractproducts list --quantity <value> --price <value> --agent` | Filter contractproducts by properties |
+| `nexudus contractproducts list --coworker-contract-coworker-full-name <value> --product-name <value> --agent` | Filter contractproducts by properties |
 | `nexudus contractproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus contractproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus contractproducts get <id> --agent` | Get single contractproduct |
@@ -25,7 +25,24 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-contract-id` | long | ID of the customer's contract; it determines the location and billing cycle that will receive this recurring product line. |
+| `--coworker-contract-quantity` | int | Quantity associated with the contract |
+| `--from-coworker-contract-quantity` | range | |
+| `--to-coworker-contract-quantity` | range | |
+| `--coworker-contract-floor-plan-desk-ids` | string | Floor plan desk IDs assigned to the contract |
+| `--coworker-contract-floor-plan-desk-names` | string | Floor plan desk names assigned to the contract |
+| `--coworker-contract-tariff-name` | string | Coworker contract tariff name |
+| `--coworker-contract-coworker-id` | int | ID of the member on the contract |
+| `--from-coworker-contract-coworker-id` | range | |
+| `--to-coworker-contract-coworker-id` | range | |
+| `--coworker-contract-coworker-full-name` | string | Contract coworker full name |
+| `--coworker-contract-coworker-billing-name` | string | Contract coworker billing name |
 | `--product-id` | long | ID of the location product billed on the contract's invoices; its current price is used when this line has no price override. |
+| `--product-name` | string | Product name |
+| `--product-price` | decimal | Product price |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-apply-pro-rating` | bool | Whether the underlying product applies pro-rating by default |
+| `--product-currency-code` | string | Product currency code |
 | `--notes` | string | Optional operator notes about this recurring product line. |
 | `--quantity` | int | Number of product units billed in each contract billing cycle; must be at least 1. |
 | `--from-quantity` | range | |

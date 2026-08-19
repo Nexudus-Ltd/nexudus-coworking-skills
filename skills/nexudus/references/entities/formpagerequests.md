@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=FormPageRequests -->
 
-A **FormPageRequest** represents a single submission of a form page by a customer. It groups all the answers provided in one form session and tracks which customer submitted it and when.
+A form request (FormPageRequest) sends a location's form to a customer and tracks its submission. Creating a request sends an invitation unless it is already submitted; submitted answers are stored as separate records.
 
 FormPageRequests support Search, Get, Create, Update, Delete.
 
@@ -12,7 +12,7 @@ FormPageRequests support Search, Get, Create, Update, Delete.
 | `nexudus formpagerequests list --id <id> --agent` | Filter by single ID |
 | `nexudus formpagerequests list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus formpagerequests list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus formpagerequests list --coworker-id <value> --form-page-id <value> --agent` | Filter formpagerequests by properties |
+| `nexudus formpagerequests list --coworker-id <value> --coworker-coworker-type <value> --agent` | Filter formpagerequests by properties |
 | `nexudus formpagerequests list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus formpagerequests list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus formpagerequests get <id> --agent` | Get single formpagerequest |
@@ -24,12 +24,19 @@ FormPageRequests support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--form-page-id` | long | ID of the form page linked to this record |
-| `--sent-on` | DateTime | Date/time value for sent on |
+| `--coworker-id` | long | ID of the customer invited to complete this form; cannot be changed after the request is created |
+| `--coworker-coworker-type` | string | The coworker coworker type value for this form page request |
+| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
+| `--coworker-company-name` | string | Display name of the linked coworker company (read-only) |
+| `--coworker-billing-name` | string | Display name of the linked coworker billing (read-only) |
+| `--coworker-email` | string | The coworker email value for this form page request |
+| `--form-page-id` | long | ID of the form sent to the customer; the form's location owns this request |
+| `--form-page-name` | string | Display name of the linked form page (read-only) |
+| `--form-page-business-name` | string | Display name of the linked form page business (read-only) |
+| `--sent-on` | DateTime | UTC timestamp set automatically when the request is created and the invitation is sent |
 | `--from-sent-on` | range | |
 | `--to-sent-on` | range | |
-| `--submitted` | bool | Whether submitted is enabled |
+| `--submitted` | bool | Whether the customer has submitted the form; set automatically by the public submission workflow |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -48,19 +55,13 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--form-page-id` | long, required | ID of the form page linked to this record |
-| `--sent-on` | DateTime | Date/time value for sent on |
-| `--submitted` | bool | Whether submitted is enabled |
+| `--coworker-id` | long, required | ID of the customer invited to complete this form; cannot be changed after the request is created |
+| `--form-page-id` | long, required | ID of the form sent to the customer; the form's location owns this request |
 
 #### FormPageRequest update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--form-page-id` | long | ID of the form page linked to this record |
-| `--sent-on` | DateTime | Date/time value for sent on |
-| `--submitted` | bool | Whether submitted is enabled |
 
 #### FormPageRequest PII fields
 

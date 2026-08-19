@@ -26,16 +26,27 @@ EventAttendees support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
 | `--calendar-event-id` | long | ID of the calendar event linked to this record |
+| `--calendar-event-name` | string | Display name of the linked calendar event (read-only) |
 | `--event-product-id` | long | ID of the event product linked to this record |
+| `--event-product-name` | string | Display name of the linked event product (read-only) |
+| `--event-product-price` | decimal | The event product price value for this event attendee |
+| `--from-event-product-price` | range | |
+| `--to-event-product-price` | range | |
+| `--event-product-currency-code` | string | The event product currency code value for this event attendee |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
 | `--full-name` | string | The full name value for this event attendee |
 | `--email` | string | The email value for this event attendee |
 | `--purchase-order` | string | The purchase order value for this event attendee |
+| `--attendee-code` | string | The attendee code value for this event attendee |
 | `--checked-in` | bool | Whether checked in is enabled |
 | `--checked-in-date` | DateTime | Date/time value for checked in date |
 | `--from-checked-in-date` | range | |
 | `--to-checked-in-date` | range | |
 | `--invoiced` | bool | Whether invoiced is enabled |
+| `--due-date` | DateTime | Date/time value for due date |
+| `--from-due-date` | range | |
+| `--to-due-date` | range | |
 | `--billed` | bool | Whether billed is enabled |
 | `--created-on-local` | DateTime | Date/time value for created on local |
 | `--from-created-on-local` | range | |

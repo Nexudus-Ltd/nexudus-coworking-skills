@@ -2,14 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerLedgerEntries -->
 
-A **CoworkerLedgerEntry** is an individual financial transaction line in a customer's ledger. Ledger entries record debits, credits, and the running balance between a location and a customer.
-
-Each entry can be linked to a `CoworkerInvoice` and carries a `PaymentGatewayName` that identifies which payment provider processed the transaction.
-
-The ledger balance reflects the net financial position between the location and the customer:
-- A **positive** balance means the customer owes money (unpaid invoices).
-- A **negative** balance means the customer has credited payments that will be applied to future invoices.
-- A balance of **0** means the account is settled with no outstanding invoices or credits.
+A CoworkerLedgerEntry, shown as a ledger entry, records a payment, charge, credit, or adjustment in a customer's financial ledger for a location and can be applied to an invoice.
 
 CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
@@ -19,11 +12,11 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 | `nexudus coworkerledgerentries list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerledgerentries list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerledgerentries list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerledgerentries list --description <value> --code <value> --agent` | Filter coworkerledgerentries by properties |
+| `nexudus coworkerledgerentries list --coworker-full-name <value> --description <value> --agent` | Filter coworkerledgerentries by properties |
 | `nexudus coworkerledgerentries list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerledgerentries list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerledgerentries get <id> --agent` | Get single coworkerledgerentry |
-| `nexudus coworkerledgerentries create --business-id <value> --coworker-id <value> --description <value> --code <value> --debit <value> --credit <value> --balance <value> --agent` | Create coworkerledgerentry |
+| `nexudus coworkerledgerentries create --business-id <value> --coworker-id <value> --description <value> --code <value> --debit <value> --credit <value> --agent` | Create coworkerledgerentry |
 | `nexudus coworkerledgerentries update <id> --name "New Name" --agent` | Update coworkerledgerentry |
 | `nexudus coworkerledgerentries delete <id> --yes --agent` | Delete coworkerledgerentry (no prompt) |
 
@@ -31,30 +24,46 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
-| `--description` | string | Free-text description of this coworker ledger entry |
-| `--code` | string | Ledger entry code |
-| `--debit` | decimal | Debit amount |
+| `--business-id` | long | ID of the location that owns this ledger entry. |
+| `--business-name` | string | Location name |
+| `--business-currency-code` | string | Location currency code |
+| `--coworker-id` | long | ID of the customer whose ledger contains this entry. |
+| `--coworker-full-name` | string | Coworker full name |
+| `--coworker-invoice-id` | long | Optional ID of the invoice this payment, charge, or credit is applied to. |
+| `--invoice-number` | string | Invoice number |
+| `--invoice-total-amount` | decimal | Invoice total amount |
+| `--from-invoice-total-amount` | range | |
+| `--to-invoice-total-amount` | range | |
+| `--coworker-invoice-bill-to-name` | string | Invoice bill-to name |
+| `--coworker-invoice-paid` | bool | Whether the invoice has been paid |
+| `--coworker-invoice-paid-on` | DateTime | Date the invoice was paid |
+| `--from-coworker-invoice-paid-on` | range | |
+| `--to-coworker-invoice-paid-on` | range | |
+| `--coworker-invoice-refunded` | bool | Whether the invoice has been refunded |
+| `--coworker-invoice-refunded-on` | DateTime | Date the invoice was refunded |
+| `--from-coworker-invoice-refunded-on` | range | |
+| `--to-coworker-invoice-refunded-on` | range | |
+| `--coworker-invoice-due-date` | DateTime | Invoice due date |
+| `--from-coworker-invoice-due-date` | range | |
+| `--to-coworker-invoice-due-date` | range | |
+| `--coworker-invoice-draft` | bool | Whether the invoice is a draft |
+| `--coworker-invoice-waiting-for-invoice-number` | bool | Whether the invoice is waiting to be assigned an invoice number |
+| `--description` | string | Required free-text explanation of the payment, charge, credit, or adjustment. |
+| `--code` | string | Required ledger reference code; payment and invoice workflows commonly generate codes such as PAYM-, CASH-, CRED-, REFD-, or INVC-. |
+| `--debit` | decimal | Debit amount in the location currency, rounded to two decimal places when saved; positive debits are invoice charges and negative debits are credit notes. Debit and Credit are mutually exclusive, so set the other amount to zero. |
 | `--from-debit` | range | |
 | `--to-debit` | range | |
-| `--credit` | decimal | Credit amount |
+| `--credit` | decimal | Credit amount in the location currency, rounded to two decimal places when saved; positive credits are received payments and negative credits are refunded payments. Credit and Debit are mutually exclusive, so set the other amount to zero. |
 | `--from-credit` | range | |
 | `--to-credit` | range | |
-| `--payment-gateway-name` | enum | Payment gateway name |
-| `--payment-method-number` | string | Payment method number |
-| `--transaction-date` | DateTime | Transaction date |
+| `--payment-gateway-name` | enum | Payment provider or payment method for this transaction; choosing a connected gateway such as Stripe or Spreedly attempts to collect payment and creation can fail if collection fails. Manual payments cannot use GoCardless, GoCardlessPro, StripeDirectDebit, Xero, Forte, or StripeACH. |
+| `--transaction-date` | DateTime | Date and time of the transaction in UTC; defaults to the current UTC time when omitted and cannot be before the location billing lock date. |
 | `--from-transaction-date` | range | |
 | `--to-transaction-date` | range | |
-| `--balance` | decimal | Account balance after this transaction. Read-only |
+| `--balance` | decimal | Read-only running ledger balance calculated by the database as cumulative credits minus debits, ordered by transaction date and entry ID. |
 | `--from-balance` | range | |
 | `--to-balance` | range | |
-| `--billed` | bool | Whether this entry has been billed |
-| `--transaction-date-local` | DateTime | Transaction date in the location's local time |
-| `--from-transaction-date-local` | range | |
-| `--to-transaction-date-local` | range | |
-| `--connected-transaction-guid` | string | Connected transaction GUID |
+| `--connected-transaction-guid` | string | Internal identifier linking related ledger transactions so that deletion can reverse the connected payment; hidden because it is managed by payment workflows. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -73,38 +82,30 @@ Default sort: `TransactionDate` ascending. If no `--order-by` is specified, the 
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
-| `--description` | string, required | Free-text description of this coworker ledger entry |
-| `--code` | string, required | Ledger entry code |
-| `--debit` | decimal, required | Debit amount |
-| `--credit` | decimal, required | Credit amount |
-| `--payment-gateway-name` | enum | Payment gateway name |
-| `--payment-method-number` | string | Payment method number |
-| `--transaction-date` | DateTime | Transaction date |
-| `--balance` | decimal, required | Account balance after this transaction. Read-only |
-| `--billed` | bool | Whether this entry has been billed |
-| `--transaction-date-local` | DateTime | Transaction date in the location's local time |
-| `--connected-transaction-guid` | string | Connected transaction GUID |
+| `--business-id` | long, required | ID of the location that owns this ledger entry. |
+| `--coworker-id` | long, required | ID of the customer whose ledger contains this entry. |
+| `--coworker-invoice-id` | long | Optional ID of the invoice this payment, charge, or credit is applied to. |
+| `--description` | string, required | Required free-text explanation of the payment, charge, credit, or adjustment. |
+| `--code` | string, required | Required ledger reference code; payment and invoice workflows commonly generate codes such as PAYM-, CASH-, CRED-, REFD-, or INVC-. |
+| `--debit` | decimal, required | Debit amount in the location currency, rounded to two decimal places when saved; positive debits are invoice charges and negative debits are credit notes. Debit and Credit are mutually exclusive, so set the other amount to zero. |
+| `--credit` | decimal, required | Credit amount in the location currency, rounded to two decimal places when saved; positive credits are received payments and negative credits are refunded payments. Credit and Debit are mutually exclusive, so set the other amount to zero. |
+| `--payment-gateway-name` | enum | Payment provider or payment method for this transaction; choosing a connected gateway such as Stripe or Spreedly attempts to collect payment and creation can fail if collection fails. Manual payments cannot use GoCardless, GoCardlessPro, StripeDirectDebit, Xero, Forte, or StripeACH. |
+| `--transaction-date` | DateTime | Date and time of the transaction in UTC; defaults to the current UTC time when omitted and cannot be before the location billing lock date. |
+| `--connected-transaction-guid` | string | Internal identifier linking related ledger transactions so that deletion can reverse the connected payment; hidden because it is managed by payment workflows. |
 
 #### CoworkerLedgerEntry update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
-| `--description` | string | Free-text description of this coworker ledger entry |
-| `--code` | string | Ledger entry code |
-| `--debit` | decimal | Debit amount |
-| `--credit` | decimal | Credit amount |
-| `--payment-method-number` | string | Payment method number |
-| `--transaction-date` | DateTime | Transaction date |
-| `--balance` | decimal | Account balance after this transaction. Read-only |
-| `--billed` | bool | Whether this entry has been billed |
-| `--transaction-date-local` | DateTime | Transaction date in the location's local time |
-| `--connected-transaction-guid` | string | Connected transaction GUID |
+| `--business-id` | long | ID of the location that owns this ledger entry. |
+| `--coworker-id` | long | ID of the customer whose ledger contains this entry. |
+| `--coworker-invoice-id` | long | Optional ID of the invoice this payment, charge, or credit is applied to. |
+| `--description` | string | Required free-text explanation of the payment, charge, credit, or adjustment. |
+| `--code` | string | Required ledger reference code; payment and invoice workflows commonly generate codes such as PAYM-, CASH-, CRED-, REFD-, or INVC-. |
+| `--debit` | decimal | Debit amount in the location currency, rounded to two decimal places when saved; positive debits are invoice charges and negative debits are credit notes. Debit and Credit are mutually exclusive, so set the other amount to zero. |
+| `--credit` | decimal | Credit amount in the location currency, rounded to two decimal places when saved; positive credits are received payments and negative credits are refunded payments. Credit and Debit are mutually exclusive, so set the other amount to zero. |
+| `--transaction-date` | DateTime | Date and time of the transaction in UTC; defaults to the current UTC time when omitted and cannot be before the location billing lock date. |
+| `--connected-transaction-guid` | string | Internal identifier linking related ledger transactions so that deletion can reverse the connected payment; hidden because it is managed by payment workflows. |
 
 #### CoworkerLedgerEntry PII fields
 

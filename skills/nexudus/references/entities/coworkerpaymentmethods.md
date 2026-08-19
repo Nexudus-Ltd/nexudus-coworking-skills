@@ -12,7 +12,7 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 | `nexudus coworkerpaymentmethods list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerpaymentmethods list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerpaymentmethods list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerpaymentmethods list --coworker-id <value> --business-id <value> --agent` | Filter coworkerpaymentmethods by properties |
+| `nexudus coworkerpaymentmethods list --business-name <value> --agent` | Filter coworkerpaymentmethods by properties |
 | `nexudus coworkerpaymentmethods list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerpaymentmethods list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerpaymentmethods get <id> --agent` | Get single coworkerpaymentmethod |
@@ -26,10 +26,13 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer whose payment method is stored; the customer must belong to a location the operator can access |
 | `--business-id` | long | ID of the location that uses this payment method when charging the customer |
+| `--business-name` | string | Location name |
+| `--business-currency-code` | string | Currency code of the location |
 | `--regular-payment-provider` | enum | Regular-payment provider for this method; only one method may exist for the same customer, location, and provider, and the Admin UI supports Stripe, StripeACH, StripeBACS, and GoCardless |
 | `--method-id` | string | Payment-provider method ID supplied by the provider, such as a Stripe payment method token; set it only for the matching provider flow |
 | `--customer-id` | string | Payment-provider customer ID supplied by the provider, such as a Stripe customer ID; set it only for the matching provider flow |
 | `--mandate-id` | string | Payment-provider mandate or bank-account identifier supplied by a direct-debit provider; GoCardless and StripeBACS use this field |
+| `--card-number` | string | Gateway-populated masked card value retained for display only; do not store or change a full card number here |
 | `--notes` | string | Optional internal notes about this customer payment method |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

@@ -18,7 +18,7 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 | `nexudus coworkertasks list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkertasks list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkertasks list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkertasks list --name <value> --completed <value> --agent` | Filter coworkertasks by properties |
+| `nexudus coworkertasks list --business-name <value> --coworker-full-name <value> --agent` | Filter coworkertasks by properties |
 | `nexudus coworkertasks list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkertasks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkertasks get <id> --agent` | Get single coworkertask |
@@ -31,16 +31,23 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Location name |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-full-name` | string | Customer full name |
+| `--coworker-company-name` | string | Customer company name |
+| `--coworker-team-names` | string | Customer team names |
 | `--name` | string | Task name |
 | `--notes` | string | Additional details or instructions for the task |
+| `--task-list-name` | string | Name of the task list this task belongs to |
 | `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
+| `--form-page-request-unique-id` | string | Unique identifier of the form page request that created this task |
 | `--completed` | bool | Whether the task has been marked as completed |
 | `--due-date` | DateTime | Due date for the task (UTC) |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
 | `--reminded` | bool | Whether a reminder has been sent for this task |
 | `--responsible-id` | long | ID of the responsible linked to this record |
+| `--responsible-full-name` | string | Responsible admin full name |
 | `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
 | `--display-to-everyone` | bool | Whether the task is visible to all admin users |
 | `--due-date-local` | DateTime | Due date for the task in the location's local timezone |

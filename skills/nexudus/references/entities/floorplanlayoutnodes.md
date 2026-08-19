@@ -12,7 +12,7 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutnodes list --id <id> --agent` | Filter by single ID |
 | `nexudus floorplanlayoutnodes list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus floorplanlayoutnodes list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus floorplanlayoutnodes list --floor-plan-layout-id <value> --node-key <value> --agent` | Filter floorplanlayoutnodes by properties |
+| `nexudus floorplanlayoutnodes list --floor-plan-layout-id <value> --floor-plan-layout-name <value> --agent` | Filter floorplanlayoutnodes by properties |
 | `nexudus floorplanlayoutnodes list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus floorplanlayoutnodes list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutnodes get <id> --agent` | Get single floorplanlayoutnode |
@@ -25,6 +25,7 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
 | `--node-key` | string | The node key value for this floor plan layout node |
 | `--pos-x` | int | The x value for this floor plan layout node |
 | `--from-pos-x` | range | |

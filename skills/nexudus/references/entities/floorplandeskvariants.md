@@ -12,7 +12,7 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 | `nexudus floorplandeskvariants list --id <id> --agent` | Filter by single ID |
 | `nexudus floorplandeskvariants list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus floorplandeskvariants list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus floorplandeskvariants list --floor-plan-desk-id <value> --coworker-id <value> --agent` | Filter floorplandeskvariants by properties |
+| `nexudus floorplandeskvariants list --floor-plan-desk-id <value> --floor-plan-desk-name <value> --agent` | Filter floorplandeskvariants by properties |
 | `nexudus floorplandeskvariants list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus floorplandeskvariants list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplandeskvariants get <id> --agent` | Get single floorplandeskvariant |
@@ -25,7 +25,25 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-desk-id` | long | ID of the required floor plan unit this variant configures; the unit determines the owning location |
+| `--floor-plan-desk-name` | string | Display name of the linked floor plan desk (read-only) |
+| `--floor-plan-desk-price` | decimal | The floor plan desk price value for this floor plan desk variant |
+| `--from-floor-plan-desk-price` | range | |
+| `--to-floor-plan-desk-price` | range | |
+| `--floor-plan-desk-floor-plan-id` | int | ID of the floor plan desk floor plan associated with this record |
+| `--from-floor-plan-desk-floor-plan-id` | range | |
+| `--to-floor-plan-desk-floor-plan-id` | range | |
+| `--floor-plan-desk-floor-plan-name` | string | Display name of the linked floor plan desk floor plan (read-only) |
+| `--floor-plan-desk-floor-plan-business-id` | int | ID of the floor plan desk floor plan business associated with this record |
+| `--from-floor-plan-desk-floor-plan-business-id` | range | |
+| `--to-floor-plan-desk-floor-plan-business-id` | range | |
+| `--floor-plan-desk-floor-plan-business-name` | string | Display name of the linked floor plan desk floor plan business (read-only) |
+| `--floor-plan-desk-floor-plan-business-currency-code` | string | The floor plan desk floor plan business currency code value for this floor plan desk variant |
 | `--coworker-id` | long | ID of the optional customer this variant is associated with |
+| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
+| `--coworker-company-name` | string | Display name of the linked coworker company (read-only) |
+| `--coworker-coworker-type` | string | The coworker coworker type value for this floor plan desk variant |
+| `--coworker-email` | string | The coworker email value for this floor plan desk variant |
+| `--coworker-team-names` | string | The coworker team names value for this floor plan desk variant |
 | `--name` | string | Required, non-empty display name for this alternate floor plan unit configuration |
 | `--size` | decimal | Optional floor area in square metres for this configuration |
 | `--from-size` | range | |
@@ -47,7 +65,9 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 | `--available-friday` | bool | Whether this configuration is marked available on Friday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
 | `--available-saturday` | bool | Whether this configuration is marked available on Saturday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
 | `--available-sunday` | bool | Whether this configuration is marked available on Sunday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
-| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained for legacy records; do not set it through floor plan administration |
+| `--coworker-contract-ids` | string | Read-only denormalized IDs of contracts linked to this configuration; update the contracts rather than this projection |
+| `--coworker-contract-full-names` | string | Read-only denormalized customer names from contracts linked to this configuration; update the contracts rather than this projection |
+| `--coworker-contract-start-dates` | string | Read-only denormalized start dates from contracts linked to this configuration; update the contracts rather than this projection |
 | `--available-from-time` | DateTime | Optional inclusive UTC start of this configuration's availability window; it must precede AvailableToTime when both are set |
 | `--from-available-from-time` | range | |
 | `--to-available-from-time` | range | |
@@ -87,7 +107,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--available-friday` | bool | Whether this configuration is marked available on Friday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
 | `--available-saturday` | bool | Whether this configuration is marked available on Saturday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
 | `--available-sunday` | bool | Whether this configuration is marked available on Sunday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
-| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained for legacy records; do not set it through floor plan administration |
 | `--available-from-time` | DateTime | Optional inclusive UTC start of this configuration's availability window; it must precede AvailableToTime when both are set |
 | `--available-to-time` | DateTime | Optional inclusive UTC end of this configuration's availability window; null means no end, and it must follow AvailableFromTime when both are set |
 
@@ -110,7 +129,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--available-friday` | bool | Whether this configuration is marked available on Friday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
 | `--available-saturday` | bool | Whether this configuration is marked available on Saturday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
 | `--available-sunday` | bool | Whether this configuration is marked available on Sunday; scheduling conflict checks treat matching enabled weekday flags as overlapping |
-| `--access-control-group-id` | string | Obsolete single-provider access-control group identifier retained for legacy records; do not set it through floor plan administration |
 | `--available-from-time` | DateTime | Optional inclusive UTC start of this configuration's availability window; it must precede AvailableToTime when both are set |
 | `--available-to-time` | DateTime | Optional inclusive UTC end of this configuration's availability window; null means no end, and it must follow AvailableFromTime when both are set |
 

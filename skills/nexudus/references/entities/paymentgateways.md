@@ -32,7 +32,9 @@ PaymentGateways support Search, Get, Create, Update, Delete.
 | `--name` | string | Display name for this payment gateway configuration |
 | `--payment-gateway-type` | enum | The payment provider to use (e.g. stripe, braintree, adyen). Determines which credentials are required |
 | `--attempt3d-secure` | bool | Whether attempt3d secure is enabled |
+| `--access-token` | string | API access token or secret key for authenticating with the payment provider |
 | `--configuration-xml` | string | Provider-specific configuration in XML format (e.g. merchant ID, additional keys) |
+| `--xml-response` | string | Last XML response returned by the payment provider |
 | `--transaction-fee` | decimal | Fee charged per transaction processed through this gateway |
 | `--from-transaction-fee` | range | |
 | `--to-transaction-fee` | range | |

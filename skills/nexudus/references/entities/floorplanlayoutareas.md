@@ -12,7 +12,7 @@ FloorPlanLayoutAreas support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutareas list --id <id> --agent` | Filter by single ID |
 | `nexudus floorplanlayoutareas list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus floorplanlayoutareas list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus floorplanlayoutareas list --floor-plan-layout-id <value> --name <value> --agent` | Filter floorplanlayoutareas by properties |
+| `nexudus floorplanlayoutareas list --floor-plan-layout-id <value> --floor-plan-layout-name <value> --agent` | Filter floorplanlayoutareas by properties |
 | `nexudus floorplanlayoutareas list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus floorplanlayoutareas list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutareas get <id> --agent` | Get single floorplanlayoutarea |
@@ -25,6 +25,7 @@ FloorPlanLayoutAreas support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
+| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
 | `--name` | string | The name value for this floor plan layout area |
 | `--contained-areas` | string | The contained areas value for this floor plan layout area |
 | `--nodes` | string | The nodes value for this floor plan layout area |

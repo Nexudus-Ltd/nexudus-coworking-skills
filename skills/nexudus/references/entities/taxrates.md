@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TaxRates -->
 
-Tax rates are percentages applied to products, plans (tariff entity), resource rates (ExtraService entity), event tickets (EventProduct entity) and charges for tax calculation, including standard, reduced, and exempt rates
+A tax rate is a location-specific percentage applied to products, plans, booking rates, event tickets, and charges; it can also carry a VAT exemption reason for compliance integrations.
 
 TaxRates support Search, Get, Create, Update, Delete.
 
@@ -24,12 +24,12 @@ TaxRates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this tax rate |
-| `--rate` | decimal | The rate value for this tax rate |
+| `--business-id` | long | ID of the location that owns this tax rate; tax-rate names must be unique within that location and can be used in other locations. |
+| `--name` | string | Required name used to identify this tax rate; it must be unique within the location. |
+| `--rate` | decimal | Tax percentage applied to net amounts, expressed as a whole percentage; for example, enter 20 for 20%. |
 | `--from-rate` | range | |
 | `--to-rate` | range | |
-| `--exemption-reason` | enum | Tax exemption reason code (e.g. M01-M99 for various exemptions, or None if no exemption applies) |
+| `--exemption-reason` | enum | Portuguese VAT exemption reason code used by compliance integrations; use None when no exemption code applies, otherwise select the applicable M-code. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -48,19 +48,19 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this tax rate |
-| `--rate` | decimal, required | The rate value for this tax rate |
-| `--exemption-reason` | enum, required | Tax exemption reason code (e.g. M01-M99 for various exemptions, or None if no exemption applies) |
+| `--business-id` | long, required | ID of the location that owns this tax rate; tax-rate names must be unique within that location and can be used in other locations. |
+| `--name` | string, required | Required name used to identify this tax rate; it must be unique within the location. |
+| `--rate` | decimal, required | Tax percentage applied to net amounts, expressed as a whole percentage; for example, enter 20 for 20%. |
+| `--exemption-reason` | enum, required | Portuguese VAT exemption reason code used by compliance integrations; use None when no exemption code applies, otherwise select the applicable M-code. |
 
 #### TaxRate update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this tax rate |
-| `--rate` | decimal | The rate value for this tax rate |
-| `--exemption-reason` | enum | Tax exemption reason code (e.g. M01-M99 for various exemptions, or None if no exemption applies) |
+| `--business-id` | long | ID of the location that owns this tax rate; tax-rate names must be unique within that location and can be used in other locations. |
+| `--name` | string | Required name used to identify this tax rate; it must be unique within the location. |
+| `--rate` | decimal | Tax percentage applied to net amounts, expressed as a whole percentage; for example, enter 20 for 20%. |
+| `--exemption-reason` | enum | Portuguese VAT exemption reason code used by compliance integrations; use None when no exemption code applies, otherwise select the applicable M-code. |
 
 #### TaxRate enum values
 

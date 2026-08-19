@@ -12,7 +12,7 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 | `nexudus floorplanlayoutopenings list --id <id> --agent` | Filter by single ID |
 | `nexudus floorplanlayoutopenings list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus floorplanlayoutopenings list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus floorplanlayoutopenings list --floor-plan-layout-edge-id <value> --opening-type <value> --agent` | Filter floorplanlayoutopenings by properties |
+| `nexudus floorplanlayoutopenings list --floor-plan-layout-edge-id <value> --floor-plan-layout-edge-name <value> --agent` | Filter floorplanlayoutopenings by properties |
 | `nexudus floorplanlayoutopenings list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus floorplanlayoutopenings list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus floorplanlayoutopenings get <id> --agent` | Get single floorplanlayoutopening |
@@ -25,6 +25,7 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-edge-id` | long | ID of the floor plan layout edge linked to this record |
+| `--floor-plan-layout-edge-name` | string | Display name of the linked floor plan layout edge (read-only) |
 | `--opening-type` | string | The opening type value for this floor plan layout opening |
 | `--floor-offset` | int | The floor offset value for this floor plan layout opening |
 | `--from-floor-offset` | range | |

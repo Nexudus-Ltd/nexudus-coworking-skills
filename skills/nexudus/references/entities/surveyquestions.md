@@ -12,7 +12,7 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 | `nexudus surveyquestions list --id <id> --agent` | Filter by single ID |
 | `nexudus surveyquestions list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus surveyquestions list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus surveyquestions list --survey-id <value> --text <value> --agent` | Filter surveyquestions by properties |
+| `nexudus surveyquestions list --survey-id <value> --survey-name <value> --agent` | Filter surveyquestions by properties |
 | `nexudus surveyquestions list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus surveyquestions list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus surveyquestions get <id> --agent` | Get single surveyquestion |
@@ -25,6 +25,7 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--survey-id` | long | ID of the survey linked to this record |
+| `--survey-name` | string | Display name of the linked survey (read-only) |
 | `--text` | string | The text value for this survey question |
 | `--description` | string | Free-text description of this survey question |
 | `--available-options` | string | The available options value for this survey question |

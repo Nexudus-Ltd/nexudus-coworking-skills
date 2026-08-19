@@ -14,7 +14,7 @@ CoworkerReminderAudits support Search, Get, Create, Update, Delete.
 | `nexudus coworkerreminderaudits list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerreminderaudits list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerreminderaudits list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerreminderaudits list --coworker-id <value> --reminder-id <value> --agent` | Filter coworkerreminderaudits by properties |
+| `nexudus coworkerreminderaudits list --coworker-full-name <value> --reminder-name <value> --agent` | Filter coworkerreminderaudits by properties |
 | `nexudus coworkerreminderaudits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerreminderaudits list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerreminderaudits get <id> --agent` | Get single coworkerreminderaudit |
@@ -27,7 +27,9 @@ CoworkerReminderAudits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer the reminder was sent to |
+| `--coworker-full-name` | string | Full name of the customer the reminder was sent to |
 | `--reminder-id` | long | ID of the reminder that was sent |
+| `--reminder-name` | string | Name of the reminder that was sent |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

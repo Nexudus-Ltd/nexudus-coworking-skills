@@ -12,7 +12,7 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 | `nexudus eloxxlockersaudits list --id <id> --agent` | Filter by single ID |
 | `nexudus eloxxlockersaudits list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus eloxxlockersaudits list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus eloxxlockersaudits list --business-id <value> --floor-plan-desk-id <value> --agent` | Filter eloxxlockersaudits by properties |
+| `nexudus eloxxlockersaudits list --business-id <value> --business-name <value> --agent` | Filter eloxxlockersaudits by properties |
 | `nexudus eloxxlockersaudits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus eloxxlockersaudits list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus eloxxlockersaudits get <id> --agent` | Get single eloxxlockersaudit |
@@ -25,8 +25,15 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Display name of the linked business (read-only) |
 | `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
+| `--floor-plan-desk-name` | string | Display name of the linked floor plan desk (read-only) |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-coworker-type` | string | The coworker coworker type value for this eloxx lockers audit |
+| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
+| `--coworker-billing-name` | string | Display name of the linked coworker billing (read-only) |
+| `--coworker-company-name` | string | Display name of the linked coworker company (read-only) |
+| `--coworker-team-names` | string | The coworker team names value for this eloxx lockers audit |
 | `--description` | string | Free-text description of this eloxx lockers audit |
 | `--action-by` | string | The action by value for this eloxx lockers audit |
 | `--action` | enum | The action value for this eloxx lockers audit |

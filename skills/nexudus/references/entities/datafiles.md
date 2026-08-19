@@ -29,6 +29,7 @@ DataFiles support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--name` | string | Display name of the file |
 | `--description` | string | Optional description of the file |
+| `--file-data-file-name` | string | Original filename of the uploaded file |
 | `--new-file-data-url` | string | Public URL pointing to the file to upload. Set during create or update to attach a new file |
 | `--clear-file-data-file` | bool | Set to true to remove the currently attached file |
 | `--file-size-bytes` | int | Size of the uploaded file in bytes |

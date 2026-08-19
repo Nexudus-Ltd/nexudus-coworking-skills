@@ -41,9 +41,15 @@ AccessTokens also support entity commands.
 | `--user-limit` | int | Optional minimum-one limit on users or devices permitted by the WiFi integration. |
 | `--from-user-limit` | range | |
 | `--to-user-limit` | range | |
+| `--minutes-left` | int | Read-only remaining WiFi minutes, initialized from MinutesIncluded when the token is created and reduced by network use. |
+| `--from-minutes-left` | range | |
+| `--to-minutes-left` | range | |
 | `--mac-address` | string | Optional comma-separated list of device MAC addresses associated with this token; stored in lowercase. |
 | `--booking-guid` | string | Internal GUID linking this token to the booking that created it; set by booking automation, not by operators. |
 | `--visitor-guid` | string | Internal GUID linking this token to the visitor that created it; set by visitor automation, not by operators. |
+| `--last-access` | DateTime | Read-only UTC date and time when the token last accessed the WiFi network. |
+| `--from-last-access` | range | |
+| `--to-last-access` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

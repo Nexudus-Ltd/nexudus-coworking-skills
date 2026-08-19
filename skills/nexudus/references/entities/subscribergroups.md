@@ -12,7 +12,7 @@ SubscriberGroups support Search, Get, Create, Update, Delete.
 | `nexudus subscribergroups list --id <id> --agent` | Filter by single ID |
 | `nexudus subscribergroups list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus subscribergroups list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus subscribergroups list --business-id <value> --name <value> --agent` | Filter subscribergroups by properties |
+| `nexudus subscribergroups list --business-id <value> --business-name <value> --agent` | Filter subscribergroups by properties |
 | `nexudus subscribergroups list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus subscribergroups list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus subscribergroups get <id> --agent` | Get single subscribergroup |
@@ -25,6 +25,7 @@ SubscriberGroups support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Display name of the linked business (read-only) |
 | `--name` | string | The name value for this subscriber group |
 | `--auto-add-members` | bool | Whether auto add members is enabled |
 | `--auto-add-contacts` | bool | Whether auto add contacts is enabled |
@@ -32,6 +33,7 @@ SubscriberGroups support Search, Get, Create, Update, Delete.
 | `--auto-add-events` | bool | Whether auto add events is enabled |
 | `--auto-add-visitors` | bool | Whether auto add visitors is enabled |
 | `--auto-add-paying-members` | bool | Whether auto add paying members is enabled |
+| `--auto-membership` | bool | Whether auto membership is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

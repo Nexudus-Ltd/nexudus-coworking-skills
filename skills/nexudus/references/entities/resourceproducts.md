@@ -12,7 +12,7 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 | `nexudus resourceproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus resourceproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus resourceproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus resourceproducts list --visible <value> --agent` | Filter resourceproducts by properties |
+| `nexudus resourceproducts list --resource-name <value> --product-name <value> --agent` | Filter resourceproducts by properties |
 | `nexudus resourceproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus resourceproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus resourceproducts get <id> --agent` | Get single resourceproduct |
@@ -25,7 +25,13 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--resource-id` | long | ID of the resource linked to this record |
+| `--resource-name` | string | Resource name |
 | `--product-id` | long | ID of the product linked to this record |
+| `--product-name` | string | Product name |
+| `--product-price` | decimal | Product price |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-currency-code` | string | Product currency code |
 | `--invoice-in-minutes` | bool | Whether to invoice in minutes |
 | `--request-quantity` | bool | Whether to request quantity |
 | `--visible` | bool | Whether the resource product is visible |

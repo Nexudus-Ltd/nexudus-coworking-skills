@@ -12,7 +12,7 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 | `nexudus documenttemplates list --id <id> --agent` | Filter by single ID |
 | `nexudus documenttemplates list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus documenttemplates list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus documenttemplates list --business-id <value> --name <value> --agent` | Filter documenttemplates by properties |
+| `nexudus documenttemplates list --business-id <value> --business-name <value> --agent` | Filter documenttemplates by properties |
 | `nexudus documenttemplates list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus documenttemplates list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus documenttemplates get <id> --agent` | Get single documenttemplate |
@@ -25,8 +25,10 @@ DocumentTemplates support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Display name of the linked business (read-only) |
 | `--name` | string | The name value for this document template |
 | `--document` | string | The document value for this document template |
+| `--binary-document-file-name` | string | Current file name of the binary document (read-only; upload via the corresponding URL field) |
 | `--new-binary-document-url` | string | URL of a new file to upload as the binary document |
 | `--clear-binary-document-file` | bool | Set to true to remove the current binary document file |
 | `--template-output-format` | enum | The template output format value for this document template |

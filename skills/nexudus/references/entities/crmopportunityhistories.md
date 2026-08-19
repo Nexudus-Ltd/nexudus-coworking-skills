@@ -14,7 +14,7 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | `nexudus crmopportunityhistories list --id <id> --agent` | Filter by single ID |
 | `nexudus crmopportunityhistories list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus crmopportunityhistories list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus crmopportunityhistories list --from-time <value> --to-time <value> --agent` | Filter crmopportunityhistories by properties |
+| `nexudus crmopportunityhistories list --old-crm-board-column-name <value> --from-time <value> --agent` | Filter crmopportunityhistories by properties |
 | `nexudus crmopportunityhistories list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus crmopportunityhistories list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmopportunityhistories get <id> --agent` | Get single crmopportunityhistory |
@@ -28,6 +28,7 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--crm-opportunity-id` | long | The opportunity this history entry belongs to |
 | `--old-crm-board-column-id` | long | CRM stage the opportunity moved from (null for the initial placement) |
+| `--old-crm-board-column-name` | string | Name of the previous CRM stage |
 | `--from-time` | DateTime | When the opportunity entered the previous stage |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -35,7 +36,9 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
 | `--new-crm-board-column-id` | long | CRM stage the opportunity moved to |
+| `--new-crm-board-column-name` | string | Name of the new CRM stage |
 | `--user-id` | long | Admin user who triggered the stage transition (null if moved automatically) |
+| `--user-full-name` | string | Full name of the admin user who triggered the transition |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

@@ -12,7 +12,7 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `nexudus coworkercontracts list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkercontracts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkercontracts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkercontracts list --start-date <value> --price <value> --agent` | Filter coworkercontracts by properties |
+| `nexudus coworkercontracts list --coworker-full-name <value> --tariff-name <value> --agent` | Filter coworkercontracts by properties |
 | `nexudus coworkercontracts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkercontracts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkercontracts get <id> --agent` | Get single coworkercontract |
@@ -25,9 +25,29 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--issued-by-id` | long | ID of the location that issued this contract; it is supplied from the agent's current location context. |
+| `--issued-by-name` | string | Name of the business issuing this contract |
 | `--coworker-id` | long | ID of the customer this contract belongs to; a customer with an active contract is a Member, while one without an active contract is a Contact. |
+| `--coworker-coworker-type` | string | The coworker coworker type value for this coworker contract |
+| `--coworker-full-name` | string | Full name of the customer holding this contract |
+| `--coworker-company-name` | string | Company name of the customer holding this contract |
+| `--coworker-billing-name` | string | Billing name of the customer holding this contract |
+| `--coworker-email` | string | Email address of the customer holding this contract |
+| `--coworker-active` | bool | Whether coworker active is enabled |
 | `--tariff-id` | long | ID of the plan assigned to this contract; its billing interval, price override rules, policies, and plan-based access or eligibility govern the customer. |
+| `--tariff-name` | string | Name of the plan this contract is for |
+| `--tariff-invoice-every` | int | The tariff invoice every value for this coworker contract |
+| `--from-tariff-invoice-every` | range | |
+| `--to-tariff-invoice-every` | range | |
+| `--tariff-invoice-every-weeks` | int | The tariff invoice every weeks value for this coworker contract |
+| `--from-tariff-invoice-every-weeks` | range | |
+| `--to-tariff-invoice-every-weeks` | range | |
+| `--tariff-price` | decimal | Default price of the plan. Used when the contract has no fixed Price override |
+| `--from-tariff-price` | range | |
+| `--to-tariff-price` | range | |
+| `--tariff-currency-code` | string | Currency code of the plan |
+| `--tariff-is-virtual-office` | bool | Whether the plan assigned to this contract is a virtual office plan |
 | `--next-tariff-id` | long | ID of the plan scheduled to replace the current plan at a future renewal; leave empty when no change is scheduled. |
+| `--next-tariff-name` | string | Name of the next plan the contract will switch to |
 | `--notes` | string | Free-text internal notes about this customer contract. |
 | `--start-date` | DateTime | Date when the contract begins; it is used to calculate billing and any minimum contract term. |
 | `--from-start-date` | range | |
@@ -41,9 +61,6 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--invoiced-period` | DateTime | System-maintained UTC cutoff for the most recently invoiced contract period; do not set it manually. |
 | `--from-invoiced-period` | range | |
 | `--to-invoiced-period` | range | |
-| `--contract-term` | DateTime | System-calculated UTC end of the minimum contract term; change the plan or start date instead. |
-| `--from-contract-term` | range | |
-| `--to-contract-term` | range | |
 | `--price` | decimal | Optional per-unit price override for this contract; when empty, the assigned plan's price is used before applying quantity. |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -53,14 +70,17 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--quantity` | int | Number of plan units on the contract, at least 1; it multiplies price, included time, and contract value. |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
+| `--active` | bool | Whether the contract is currently active; this is system-managed status and cannot be changed directly. |
+| `--main-contract` | bool | Whether this is the customer's main contract; use the dedicated set-main-contract action to change it. |
+| `--cancelled` | bool | Whether the contract has been cancelled; use the dedicated cancellation action rather than changing this status. |
 | `--purchase-order` | string | Customer purchase-order reference for this contract. |
 | `--include-signup-fee` | bool | Whether the next eligible invoice includes the plan's sign-up fee. |
 | `--invoice-advanced-cycles` | bool | Whether invoices include charges from future billing cycles when the plan permits them. |
 | `--apply-pro-rating` | bool | Whether the contract's initial charges are prorated for a partial billing period. |
-| `--next-auto-invoice` | DateTime | System-calculated UTC date when automatic additional-charge invoicing next runs; it follows the plan's auto-invoice settings. |
-| `--from-next-auto-invoice` | range | |
-| `--to-next-auto-invoice` | range | |
 | `--price-plan-terms-accepted` | bool | Whether the customer accepted the assigned plan's terms and conditions. |
+| `--price-plan-terms-accepted-on` | DateTime | Timestamp recorded when the customer accepted the plan terms; it is an audit value and cannot be changed directly. |
+| `--from-price-plan-terms-accepted-on` | range | |
+| `--to-price-plan-terms-accepted-on` | range | |
 | `--cancellation-date` | DateTime | Optional UTC date on which the contract ends; cancellation policy and invoicing determine the earliest allowed date. |
 | `--from-cancellation-date` | range | |
 | `--to-cancellation-date` | range | |
@@ -82,27 +102,10 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--address-checks-due-on` | DateTime | Optional UTC date when address verification is due for this contract. |
 | `--from-address-checks-due-on` | range | |
 | `--to-address-checks-due-on` | range | |
-| `--start-date-local` | DateTime | Location-timezone projection of StartDate, generated for display and reporting; change StartDate instead. |
-| `--from-start-date-local` | range | |
-| `--to-start-date-local` | range | |
-| `--renewal-date-local` | DateTime | Location-timezone projection of the system-calculated RenewalDate; do not set it directly. |
-| `--from-renewal-date-local` | range | |
-| `--to-renewal-date-local` | range | |
-| `--next-auto-invoice-local` | DateTime | Location-timezone projection of the system-calculated NextAutoInvoice date; do not set it directly. |
-| `--from-next-auto-invoice-local` | range | |
-| `--to-next-auto-invoice-local` | range | |
-| `--price-plan-terms-accepted-on-local` | DateTime | Location-timezone projection of the plan-terms acceptance timestamp; it is an audit value. |
-| `--from-price-plan-terms-accepted-on-local` | range | |
-| `--to-price-plan-terms-accepted-on-local` | range | |
-| `--cancellation-date-local` | DateTime | Location-timezone projection of CancellationDate, generated for display; change CancellationDate instead. |
-| `--from-cancellation-date-local` | range | |
-| `--to-cancellation-date-local` | range | |
-| `--contract-term-local` | DateTime | Location-timezone projection of the system-calculated ContractTerm; do not set it directly. |
-| `--from-contract-term-local` | range | |
-| `--to-contract-term-local` | range | |
-| `--invoiced-period-local` | DateTime | Location-timezone projection of the system-maintained InvoicedPeriod cutoff; do not set it directly. |
-| `--from-invoiced-period-local` | range | |
-| `--to-invoiced-period-local` | range | |
+| `--floor-plan-desk-ids` | string | Read-only denormalized IDs of assigned floor-plan units; update Desks rather than this projection. |
+| `--floor-plan-desk-names` | string | Read-only denormalized names of assigned floor-plan units; update Desks rather than this projection. |
+| `--floor-plan-desk-variant-ids` | string | Read-only denormalized IDs of assigned floor-plan unit variants; update Variants rather than this projection. |
+| `--floor-plan-desk-variant-names` | string | Read-only denormalized names of assigned floor-plan unit variants; update Variants rather than this projection. |
 | `--po-box-number` | string | Post-office box number associated with this contract. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -131,7 +134,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--billing-day` | int, required | Day of each month to bill this contract, from 1 through 28; scheduled monthly price changes must use this day. |
 | `--renewal-date` | DateTime | System-calculated UTC date of the next plan invoice, derived from the plan, billing day, and cancellation settings. |
 | `--invoiced-period` | DateTime | System-maintained UTC cutoff for the most recently invoiced contract period; do not set it manually. |
-| `--contract-term` | DateTime | System-calculated UTC end of the minimum contract term; change the plan or start date instead. |
 | `--price` | decimal | Optional per-unit price override for this contract; when empty, the assigned plan's price is used before applying quantity. |
 | `--value` | decimal | Optional per-unit contract value used for value calculations; when empty, the effective contract price is used. |
 | `--desks` | list, repeat flag | List of IDs of floor-plan units assigned to this contract; each unit must belong to a location the user can access. |
@@ -145,7 +147,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--include-signup-fee` | bool | Whether the next eligible invoice includes the plan's sign-up fee. |
 | `--invoice-advanced-cycles` | bool | Whether invoices include charges from future billing cycles when the plan permits them. |
 | `--apply-pro-rating` | bool | Whether the contract's initial charges are prorated for a partial billing period. |
-| `--next-auto-invoice` | DateTime | System-calculated UTC date when automatic additional-charge invoicing next runs; it follows the plan's auto-invoice settings. |
 | `--price-plan-terms-accepted` | bool | Whether the customer accepted the assigned plan's terms and conditions. |
 | `--cancellation-date` | DateTime | Optional UTC date on which the contract ends; cancellation policy and invoicing determine the earliest allowed date. |
 | `--cancellation-limit-days` | int | Optional minimum cancellation notice in days before the next billing day; when empty, the assigned plan's cancellation notice applies. |
@@ -160,13 +161,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--delivery-instructions` | string | Free-text instructions for handling deliveries received for this contract. |
 | `--identity-checks-due-on` | DateTime | Optional UTC date when identity verification is due for this contract. |
 | `--address-checks-due-on` | DateTime | Optional UTC date when address verification is due for this contract. |
-| `--start-date-local` | DateTime | Location-timezone projection of StartDate, generated for display and reporting; change StartDate instead. |
-| `--renewal-date-local` | DateTime | Location-timezone projection of the system-calculated RenewalDate; do not set it directly. |
-| `--next-auto-invoice-local` | DateTime | Location-timezone projection of the system-calculated NextAutoInvoice date; do not set it directly. |
-| `--price-plan-terms-accepted-on-local` | DateTime | Location-timezone projection of the plan-terms acceptance timestamp; it is an audit value. |
-| `--cancellation-date-local` | DateTime | Location-timezone projection of CancellationDate, generated for display; change CancellationDate instead. |
-| `--contract-term-local` | DateTime | Location-timezone projection of the system-calculated ContractTerm; do not set it directly. |
-| `--invoiced-period-local` | DateTime | Location-timezone projection of the system-maintained InvoicedPeriod cutoff; do not set it directly. |
 | `--po-box-number` | string | Post-office box number associated with this contract. |
 | `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 
@@ -183,7 +177,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--billing-day` | int | Day of each month to bill this contract, from 1 through 28; scheduled monthly price changes must use this day. |
 | `--renewal-date` | DateTime | System-calculated UTC date of the next plan invoice, derived from the plan, billing day, and cancellation settings. |
 | `--invoiced-period` | DateTime | System-maintained UTC cutoff for the most recently invoiced contract period; do not set it manually. |
-| `--contract-term` | DateTime | System-calculated UTC end of the minimum contract term; change the plan or start date instead. |
 | `--price` | decimal | Optional per-unit price override for this contract; when empty, the assigned plan's price is used before applying quantity. |
 | `--value` | decimal | Optional per-unit contract value used for value calculations; when empty, the effective contract price is used. |
 | `--desks` | list, repeat flag | List of IDs of floor-plan units assigned to this contract; each unit must belong to a location the user can access. |
@@ -197,7 +190,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--include-signup-fee` | bool | Whether the next eligible invoice includes the plan's sign-up fee. |
 | `--invoice-advanced-cycles` | bool | Whether invoices include charges from future billing cycles when the plan permits them. |
 | `--apply-pro-rating` | bool | Whether the contract's initial charges are prorated for a partial billing period. |
-| `--next-auto-invoice` | DateTime | System-calculated UTC date when automatic additional-charge invoicing next runs; it follows the plan's auto-invoice settings. |
 | `--price-plan-terms-accepted` | bool | Whether the customer accepted the assigned plan's terms and conditions. |
 | `--cancellation-date` | DateTime | Optional UTC date on which the contract ends; cancellation policy and invoicing determine the earliest allowed date. |
 | `--cancellation-limit-days` | int | Optional minimum cancellation notice in days before the next billing day; when empty, the assigned plan's cancellation notice applies. |
@@ -212,13 +204,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--delivery-instructions` | string | Free-text instructions for handling deliveries received for this contract. |
 | `--identity-checks-due-on` | DateTime | Optional UTC date when identity verification is due for this contract. |
 | `--address-checks-due-on` | DateTime | Optional UTC date when address verification is due for this contract. |
-| `--start-date-local` | DateTime | Location-timezone projection of StartDate, generated for display and reporting; change StartDate instead. |
-| `--renewal-date-local` | DateTime | Location-timezone projection of the system-calculated RenewalDate; do not set it directly. |
-| `--next-auto-invoice-local` | DateTime | Location-timezone projection of the system-calculated NextAutoInvoice date; do not set it directly. |
-| `--price-plan-terms-accepted-on-local` | DateTime | Location-timezone projection of the plan-terms acceptance timestamp; it is an audit value. |
-| `--cancellation-date-local` | DateTime | Location-timezone projection of CancellationDate, generated for display; change CancellationDate instead. |
-| `--contract-term-local` | DateTime | Location-timezone projection of the system-calculated ContractTerm; do not set it directly. |
-| `--invoiced-period-local` | DateTime | Location-timezone projection of the system-maintained InvoicedPeriod cutoff; do not set it directly. |
 | `--po-box-number` | string | Post-office box number associated with this contract. |
 | `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 

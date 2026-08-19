@@ -12,7 +12,7 @@ UserMessages support Search, Get (no Create or Delete via API).
 | `nexudus usermessages list --id <id> --agent` | Filter by single ID |
 | `nexudus usermessages list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus usermessages list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus usermessages list --business-id <value> --header <value> --agent` | Filter usermessages by properties |
+| `nexudus usermessages list --business-id <value> --from-name <value> --agent` | Filter usermessages by properties |
 | `nexudus usermessages list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus usermessages list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus usermessages get <id> --agent` | Get single usermessage |
@@ -22,8 +22,11 @@ UserMessages support Search, Get (no Create or Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--from-name` | string | Display name of the linked from (read-only) |
+| `--from-user-id` | long | ID of the from user linked to this record |
 | `--header` | string | The header value for this user message |
 | `--body` | string | The body value for this user message |
+| `--is-read` | bool | Whether is read is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

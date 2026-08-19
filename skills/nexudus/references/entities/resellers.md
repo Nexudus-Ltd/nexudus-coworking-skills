@@ -12,7 +12,7 @@ Resellers support Search, Get, Create, Update, Delete.
 | `nexudus resellers list --id <id> --agent` | Filter by single ID |
 | `nexudus resellers list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus resellers list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus resellers list --name <value> --profile-is-public <value> --agent` | Filter resellers by properties |
+| `nexudus resellers list --name <value> --user-id <value> --agent` | Filter resellers by properties |
 | `nexudus resellers list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus resellers list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus resellers get <id> --agent` | Get single reseller |
@@ -25,9 +25,24 @@ Resellers support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--name` | string | The name value for this reseller |
+| `--user-id` | long | ID of the user linked to this record |
+| `--user-full-name` | string | Display name of the linked user full (read-only) |
+| `--user-email` | string | The user email value for this reseller |
+| `--currency-id` | long | ID of the currency linked to this record |
+| `--currency-code` | string | The currency code value for this reseller |
+| `--agreed-terms-on` | DateTime | Date/time value for agreed terms on |
+| `--from-agreed-terms-on` | range | |
+| `--to-agreed-terms-on` | range | |
+| `--approved` | bool | Whether approved is enabled |
+| `--auto-approve-payouts` | bool | Whether auto approve payouts is enabled |
+| `--next-payout-date` | DateTime | Date/time value for next payout date |
+| `--from-next-payout-date` | range | |
+| `--to-next-payout-date` | range | |
 | `--profile-is-public` | bool | Whether profile is public is enabled |
+| `--avatar-file-name` | string | Current file name of the avatar (read-only; upload via the corresponding URL field) |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
+| `--logo-file-name` | string | Current file name of the logo (read-only; upload via the corresponding URL field) |
 | `--new-logo-url` | string | URL of a new file to upload as the logo |
 | `--clear-logo-file` | bool | Set to true to remove the current logo file |
 | `--area` | string | The area value for this reseller |
@@ -40,6 +55,7 @@ Resellers support Search, Get, Create, Update, Delete.
 | `--testimonial1-author` | string | The testimonial1 author value for this reseller |
 | `--testimonial2` | string | The testimonial2 value for this reseller |
 | `--testimonial2-author` | string | The testimonial2 author value for this reseller |
+| `--stripe-account-id` | string | ID of the stripe account associated with this record |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

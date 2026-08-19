@@ -36,6 +36,13 @@ WebHooks support Search, Get, Create, Update, Delete.
 | `--description` | string | Optional description of the webhook's purpose |
 | `--u-r-l` | string | The endpoint URL that receives the HTTP POST payload when the webhook fires |
 | `--active` | bool | Whether the webhook is enabled and will fire when the configured action occurs |
+| `--last-error` | string | Error message from the most recent failed delivery attempt |
+| `--error-count` | int | Number of consecutive delivery failures since the last successful call |
+| `--from-error-count` | range | |
+| `--to-error-count` | range | |
+| `--last-trigger` | DateTime | Date and time the webhook last fired successfully |
+| `--from-last-trigger` | range | |
+| `--to-last-trigger` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

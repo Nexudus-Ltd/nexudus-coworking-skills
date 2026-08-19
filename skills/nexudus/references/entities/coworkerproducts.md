@@ -12,7 +12,7 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `nexudus coworkerproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerproducts list --price <value> --agent` | Filter coworkerproducts by properties |
+| `nexudus coworkerproducts list --coworker-full-name <value> --product-name <value> --agent` | Filter coworkerproducts by properties |
 | `nexudus coworkerproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerproducts get <id> --agent` | Get single coworkerproduct |
@@ -25,10 +25,26 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer purchasing this product; the customer must be accessible at the selected location. |
+| `--coworker-type` | string | Coworker type |
+| `--coworker-full-name` | string | Coworker full name |
+| `--coworker-company-name` | string | Coworker company name |
+| `--coworker-billing-name` | string | Coworker billing name |
+| `--coworker-email` | string | Coworker email |
 | `--business-id` | long | ID of the location that owns and issues this product sale; set automatically from the tool's location context. |
 | `--product-id` | long | ID of the product being sold; the product must be available to the selected customer at this location. |
+| `--product-name` | string | Product name |
+| `--product-price` | decimal | Product price |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-apply-pro-rating` | bool | Whether the sold product is configured to prorate the price of this sale based on the prorating rules of the customer's main contract, adjusting the price based on the number of days left until the next invoice date (RenewalDate) |
+| `--product-currency-code` | string | Product currency code |
+| `--product-financial-account-id` | int | Financial account ID configured for the product. Read-only, resolved from the linked Product record. |
+| `--from-product-financial-account-id` | range | |
+| `--to-product-financial-account-id` | range | |
 | `--notes` | string | Optional internal notes about this product sale. |
 | `--purchase-order` | string | Optional customer purchase-order reference for this sale. |
+| `--order-number` | string | Read-only order reference assigned by the purchasing workflow. |
+| `--activated` | bool | Whether included benefits have been activated and granted to the customer; controlled by activation processing. |
 | `--activate-now` | bool | Whether to activate included passes, time credit, and booking credit immediately, before the sale is invoiced or paid. |
 | `--invoice-this-coworker` | bool | Whether to invoice this customer directly instead of the paying customer in their team. |
 | `--price` | decimal | Optional unit-price override in the product currency; when omitted, the product's current price is used, then multiplied by Quantity. |
@@ -57,9 +73,16 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `--due-date` | DateTime | Optional date and time by which payment is due; benefits can auto-activate when it has passed and the discounted price is zero. |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
+| `--invoiced` | bool | Whether this sale has been included on an invoice; set by the invoicing process. |
+| `--invoiced-on` | DateTime | Read-only date and time when the invoicing process invoiced this sale. |
+| `--from-invoiced-on` | range | |
+| `--to-invoiced-on` | range | |
+| `--from-tariff` | bool | Internal flag showing the sale was created from a plan; manage the originating contract or ContractProduct instead. |
+| `--booking-unique-id` | string | Internal GUID link to the booking that generated this sale; manage the booking rather than setting this field. |
 | `--mrm-reminded` | bool | Internal reminder-processing flag set after product reminders are handled. |
 | `--apply-pro-rating` | bool | Whether the sale price is prorated against the customer's main contract billing period; the product's prorating setting can also apply. |
-| `--proposal-unique-id` | string | Internal GUID link to the proposal that created this sale; manage the proposal instead. |
+| `--coworker-contract-unique-id` | string | Internal GUID link to the contract that generated this sale; manage the originating contract instead. |
+| `--contract-deposit-unique-id` | string | Internal GUID link to the contract deposit that generated this sale; manage the originating deposit instead. |
 | `--discount-amount` | decimal | Monetary discount amount applied to this sale in the invoice currency. |
 | `--from-discount-amount` | range | |
 | `--to-discount-amount` | range | |
@@ -101,7 +124,6 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--due-date` | DateTime | Optional date and time by which payment is due; benefits can auto-activate when it has passed and the discounted price is zero. |
 | `--mrm-reminded` | bool | Internal reminder-processing flag set after product reminders are handled. |
 | `--apply-pro-rating` | bool | Whether the sale price is prorated against the customer's main contract billing period; the product's prorating setting can also apply. |
-| `--proposal-unique-id` | string | Internal GUID link to the proposal that created this sale; manage the proposal instead. |
 | `--discount-amount` | decimal, required | Monetary discount amount applied to this sale in the invoice currency. |
 | `--refundable` | bool | Whether the deposit represented by this sale is refunded when its connected contract is cancelled; applies only to deposit products. |
 
@@ -127,7 +149,6 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--due-date` | DateTime | Optional date and time by which payment is due; benefits can auto-activate when it has passed and the discounted price is zero. |
 | `--mrm-reminded` | bool | Internal reminder-processing flag set after product reminders are handled. |
 | `--apply-pro-rating` | bool | Whether the sale price is prorated against the customer's main contract billing period; the product's prorating setting can also apply. |
-| `--proposal-unique-id` | string | Internal GUID link to the proposal that created this sale; manage the proposal instead. |
 | `--discount-amount` | decimal | Monetary discount amount applied to this sale in the invoice currency. |
 | `--refundable` | bool | Whether the deposit represented by this sale is refunded when its connected contract is cancelled; applies only to deposit products. |
 

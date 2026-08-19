@@ -12,7 +12,7 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | `nexudus proposalproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus proposalproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus proposalproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus proposalproducts list --quantity <value> --price <value> --agent` | Filter proposalproducts by properties |
+| `nexudus proposalproducts list --proposal-coworker-full-name <value> --product-name <value> --agent` | Filter proposalproducts by properties |
 | `nexudus proposalproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus proposalproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus proposalproducts get <id> --agent` | Get single proposalproduct |
@@ -25,7 +25,18 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--proposal-id` | long | ID of the proposal linked to this record |
+| `--proposal-coworker-id` | int | Proposal coworker ID |
+| `--from-proposal-coworker-id` | range | |
+| `--to-proposal-coworker-id` | range | |
+| `--proposal-coworker-email` | string | Proposal coworker email |
+| `--proposal-coworker-full-name` | string | Proposal coworker full name |
 | `--product-id` | long | ID of the product linked to this record |
+| `--product-name` | string | Product name |
+| `--product-price` | decimal | Product price |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-apply-pro-rating` | bool | Whether product applies pro-rating |
+| `--product-business-currency-code` | string | Product business currency code |
 | `--quantity` | int | Number of units |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |

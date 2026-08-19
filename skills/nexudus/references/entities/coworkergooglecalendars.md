@@ -18,7 +18,7 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 | `nexudus coworkergooglecalendars list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkergooglecalendars list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkergooglecalendars list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkergooglecalendars list --name <value> --agent` | Filter coworkergooglecalendars by properties |
+| `nexudus coworkergooglecalendars list --coworker-full-name <value> --name <value> --agent` | Filter coworkergooglecalendars by properties |
 | `nexudus coworkergooglecalendars list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkergooglecalendars list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkergooglecalendars get <id> --agent` | Get single coworkergooglecalendar |
@@ -32,6 +32,7 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Google Calendar push-notification watch target for this connection |
 | `--coworker-id` | long | ID of the customer who connected their Google Calendar |
+| `--coworker-full-name` | string | Full name of the customer who connected their Google Calendar |
 | `--name` | string | Display name of the connected Google Calendar |
 | `--subscription-id` | string | Google push-notification channel ID used to receive calendar change notifications |
 | `--calendar-id` | string | Google Calendar ID of the customer's connected calendar (e.g. user@gmail.com or a secondary calendar ID) |

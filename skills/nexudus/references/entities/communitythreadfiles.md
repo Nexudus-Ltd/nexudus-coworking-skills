@@ -27,6 +27,7 @@ CommunityThreadFiles support Search, Get, Create, Update, Delete.
 | `--community-thread-id` | long | ID of the conversation this file is attached to |
 | `--name` | string | Display name of the attached file |
 | `--description` | string | Optional description of the attached file |
+| `--file-data-file-name` | string | Stored filename of the uploaded file |
 | `--new-file-data-url` | string | URL of a new file to upload and attach to this record |
 | `--clear-file-data-file` | bool | When true, removes the currently attached file |
 | `--from-created-on` | range | |

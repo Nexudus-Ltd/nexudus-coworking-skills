@@ -12,7 +12,7 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 | `nexudus tariffsignupproducts list --id <id> --agent` | Filter by single ID |
 | `nexudus tariffsignupproducts list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus tariffsignupproducts list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus tariffsignupproducts list --price <value> --agent` | Filter tariffsignupproducts by properties |
+| `nexudus tariffsignupproducts list --tariff-name <value> --product-name <value> --agent` | Filter tariffsignupproducts by properties |
 | `nexudus tariffsignupproducts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tariffsignupproducts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tariffsignupproducts get <id> --agent` | Get single tariffsignupproduct |
@@ -25,7 +25,13 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--tariff-id` | long | ID of the tariff linked to this record |
+| `--tariff-name` | string | Tariff name |
 | `--product-id` | long | ID of the product linked to this record |
+| `--product-name` | string | Product name |
+| `--product-price` | decimal | Product price |
+| `--from-product-price` | range | |
+| `--to-product-price` | range | |
+| `--product-currency-code` | string | Product currency code |
 | `--price` | decimal | Signup product price override |
 | `--from-price` | range | |
 | `--to-price` | range | |

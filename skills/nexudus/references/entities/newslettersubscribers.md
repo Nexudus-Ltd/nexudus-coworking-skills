@@ -31,6 +31,8 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 | `--email` | string | The email value for this news letter subscriber |
 | `--visit-reason` | string | The visit reason value for this news letter subscriber |
 | `--active` | bool | Whether this news letter subscriber is currently active |
+| `--viewed` | bool | Whether viewed is enabled |
+| `--clicked` | bool | Whether clicked is enabled |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

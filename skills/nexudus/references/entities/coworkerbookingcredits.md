@@ -12,7 +12,7 @@ CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 | `nexudus coworkerbookingcredits list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerbookingcredits list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerbookingcredits list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerbookingcredits list --coworker-id <value> --business-id <value> --agent` | Filter coworkerbookingcredits by properties |
+| `nexudus coworkerbookingcredits list --business-name <value> --tariff-booking-credit-name <value> --agent` | Filter coworkerbookingcredits by properties |
 | `nexudus coworkerbookingcredits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerbookingcredits list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerbookingcredits get <id> --agent` | Get single coworkerbookingcredit |
@@ -25,8 +25,16 @@ CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer this booking credit belongs to |
+| `--coworker-full-name` | string | Full name of the customer this booking credit belongs to |
 | `--business-id` | long | ID of the location that issued and owns this booking credit |
+| `--business-name` | string | Location name |
+| `--business-currency-code` | string | Currency code of the location |
 | `--description` | string | Optional operator-facing label or description for this booking credit |
+| `--tariff-booking-credit-id` | long | Read-only ID of the plan booking-credit definition that created this credit, if applicable |
+| `--tariff-booking-credit-name` | string | Name of the plan credit template that originated this credit |
+| `--remaining-credit` | decimal | Read-only monetary amount still available; the system initializes it from TotalCredit and changes it through credit use or an adjustment |
+| `--from-remaining-credit` | range | |
+| `--to-remaining-credit` | range | |
 | `--total-credit` | decimal | Total monetary amount assigned when this credit is created; it sets the initial RemainingCredit |
 | `--from-total-credit` | range | |
 | `--to-total-credit` | range | |
@@ -39,6 +47,8 @@ CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 | `--cane-be-used-for-bookings` | bool | Whether this credit can pay for bookings; use ElegibleResourceTypes to limit eligible resource types |
 | `--cane-be-used-for-events` | bool | Whether this credit can pay for event sign-ups; use EventCategories to limit eligible event categories |
 | `--is-universal-credit` | bool | Whether this credit can pay for products, plans, passes, and eligible charges; use the eligibility lists and AppliesToCharges to restrict those uses |
+| `--coworker-product-unique-id` | string | Internal unique ID linking this credit to the product purchase that created it |
+| `--use-credit-price` | bool | System-calculated flag indicating whether any eligible resource type has a booking rate with a credit price |
 | `--coworker-contract-unique-id` | string | Internal unique ID linking this credit to the contract that originated it |
 | `--applies-to-charges` | bool | Whether this universal credit can pay for one-off charges in addition to products, plans, and passes |
 | `--from-created-on` | range | |

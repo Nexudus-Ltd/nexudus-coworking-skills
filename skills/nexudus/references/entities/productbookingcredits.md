@@ -19,7 +19,7 @@ ProductBookingCredits support Search, Get, Create, Update, Delete.
 | `nexudus productbookingcredits list --id <id> --agent` | Filter by single ID |
 | `nexudus productbookingcredits list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus productbookingcredits list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus productbookingcredits list --name <value> --credit <value> --agent` | Filter productbookingcredits by properties |
+| `nexudus productbookingcredits list --name <value> --product-name <value> --agent` | Filter productbookingcredits by properties |
 | `nexudus productbookingcredits list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus productbookingcredits list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus productbookingcredits get <id> --agent` | Get single productbookingcredit |
@@ -33,15 +33,11 @@ ProductBookingCredits support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--name` | string | Credit name |
 | `--product-id` | long | ID of the product linked to this record |
+| `--product-name` | string | Product name |
+| `--product-business-currency-code` | string | Product business currency code |
 | `--credit` | decimal | Credit amount that will be released to the customer's account as a CoworkerBookingCredit. Release timing depends on purchase method: admin sales can release before payment (ActivateNow), member purchases release immediately (unless Store.AlwaysInvoice is set), and contact purchases release after payment |
 | `--from-credit` | range | |
 | `--to-credit` | range | |
-| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--from-expire-time-in-months` | range | |
-| `--to-expire-time-in-months` | range | |
-| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--from-expire-time-in-weeks` | range | |
-| `--to-expire-time-in-weeks` | range | |
 | `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with ElegibleResourceTypes |
 | `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with EventCategories |
 | `--expiration-type` | enum | Expiration type: PricePlan (expires at end of billing period of the main contract - customer must have a main contract), Day, Week, Month, Year, or LastDayOfMonth |
@@ -80,8 +76,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this product booking credit |
 | `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this product booking credit |
 | `--credit` | decimal, required | Credit amount that will be released to the customer's account as a CoworkerBookingCredit. Release timing depends on purchase method: admin sales can release before payment (ActivateNow), member purchases release immediately (unless Store.AlwaysInvoice is set), and contact purchases release after payment |
-| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with ElegibleResourceTypes |
 | `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with EventCategories |
 | `--event-categories` | list, repeat flag | List of event categories this credit is valid for. If empty and CaneBeUsedForEvents is true, the credit is valid for all events |
@@ -111,8 +105,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this product booking credit |
 | `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this product booking credit |
 | `--credit` | decimal | Credit amount that will be released to the customer's account as a CoworkerBookingCredit. Release timing depends on purchase method: admin sales can release before payment (ActivateNow), member purchases release immediately (unless Store.AlwaysInvoice is set), and contact purchases release after payment |
-| `--expire-time-in-months` | int | Expiration period in months (legacy field, use ExpiresIn with ExpirationType instead) |
-| `--expire-time-in-weeks` | int | Expiration period in weeks (legacy field, use ExpiresIn with ExpirationType instead) |
 | `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types with ElegibleResourceTypes |
 | `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with EventCategories |
 | `--event-categories` | list, repeat flag | List of event categories this credit is valid for. If empty and CaneBeUsedForEvents is true, the credit is valid for all events |

@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Languages -->
 
-A **Language** represents a supported language in the system. Languages are used for localising the user interface, email templates, and customer-facing content.
+A Language is a location's supported interface and customer-facing content language, identified by its culture code and translation tokens.
 
 Languages support Search, Get, Create, Update, Delete.
 
@@ -12,7 +12,7 @@ Languages support Search, Get, Create, Update, Delete.
 | `nexudus languages list --id <id> --agent` | Filter by single ID |
 | `nexudus languages list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus languages list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus languages list --business-id <value> --name <value> --agent` | Filter languages by properties |
+| `nexudus languages list --business-id <value> --business-name <value> --agent` | Filter languages by properties |
 | `nexudus languages list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus languages list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus languages get <id> --agent` | Get single language |
@@ -24,11 +24,12 @@ Languages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this language |
-| `--culture` | string | The culture value for this language |
-| `--active` | bool | Whether this language is currently active |
-| `--display-order` | int | The display order value for this language |
+| `--business-id` | long | ID of the location that owns this language |
+| `--business-name` | string | Display name of the linked business (read-only) |
+| `--name` | string | Required display name for this language |
+| `--culture` | string | Required unique culture code used to match the language for a request, such as en or es |
+| `--active` | bool | Whether this language is included in the location's active language list |
+| `--display-order` | int | Integer sort order for this language in the location's active language list; lower values appear first |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
 | `--from-created-on` | range | |
@@ -49,20 +50,20 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this language |
-| `--culture` | string, required | The culture value for this language |
-| `--active` | bool | Whether this language is currently active |
-| `--display-order` | int, required | The display order value for this language |
+| `--business-id` | long, required | ID of the location that owns this language |
+| `--name` | string, required | Required display name for this language |
+| `--culture` | string, required | Required unique culture code used to match the language for a request, such as en or es |
+| `--active` | bool | Whether this language is included in the location's active language list |
+| `--display-order` | int, required | Integer sort order for this language in the location's active language list; lower values appear first |
 
 #### Language update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this language |
-| `--culture` | string | The culture value for this language |
-| `--active` | bool | Whether this language is currently active |
-| `--display-order` | int | The display order value for this language |
+| `--business-id` | long | ID of the location that owns this language |
+| `--name` | string | Required display name for this language |
+| `--culture` | string | Required unique culture code used to match the language for a request, such as en or es |
+| `--active` | bool | Whether this language is included in the location's active language list |
+| `--display-order` | int | Integer sort order for this language in the location's active language list; lower values appear first |
 
 <!-- END:GENERATED entity=Languages -->

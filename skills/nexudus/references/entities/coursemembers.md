@@ -19,7 +19,7 @@ CourseMembers support Search, Get, Create, Update, Delete.
 | `nexudus coursemembers list --id <id> --agent` | Filter by single ID |
 | `nexudus coursemembers list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coursemembers list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coursemembers list --course-id <value> --coworker-id <value> --agent` | Filter coursemembers by properties |
+| `nexudus coursemembers list --course-id <value> --course-title <value> --agent` | Filter coursemembers by properties |
 | `nexudus coursemembers list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coursemembers list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coursemembers get <id> --agent` | Get single coursemember |
@@ -32,7 +32,18 @@ CourseMembers support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-id` | long | ID of the course the member is enrolled in |
+| `--course-title` | string | Title of the course |
 | `--coworker-id` | long | ID of the customer enrolled in the course |
+| `--coworker-coworker-type` | string | Whether the enrolled customer is an Individual (1) or a Company (2) |
+| `--coworker-full-name` | string | Full name of the enrolled customer |
+| `--coworker-company-name` | string | Company name of the enrolled customer |
+| `--coworker-team-names` | string | Comma-separated list of teams the enrolled customer belongs to |
+| `--coworker-billing-name` | string | Billing name of the enrolled customer |
+| `--last-completed-lesson-id` | long | ID of the most recently completed lesson for this member |
+| `--last-completed-lesson-title` | string | Title of the most recently completed lesson |
+| `--last-access` | DateTime | Date and time the member last accessed the course |
+| `--from-last-access` | range | |
+| `--to-last-access` | range | |
 | `--approved` | bool | Whether the member has been approved to access the course content |
 | `--blocked` | bool | Whether the member has been blocked from accessing the course |
 | `--from-created-on` | range | |

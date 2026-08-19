@@ -16,7 +16,7 @@ BookingAvailabilityExceptions also support entity commands.
 | `nexudus bookingavailabilityexceptions list --id <id> --agent` | Filter by single ID |
 | `nexudus bookingavailabilityexceptions list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus bookingavailabilityexceptions list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus bookingavailabilityexceptions list --from-time <value> --to-time <value> --agent` | Filter bookingavailabilityexceptions by properties |
+| `nexudus bookingavailabilityexceptions list --business-name <value> --from-time <value> --agent` | Filter bookingavailabilityexceptions by properties |
 | `nexudus bookingavailabilityexceptions list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus bookingavailabilityexceptions list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus bookingavailabilityexceptions get <id> --agent` | Get single bookingavailabilityexception |
@@ -30,6 +30,7 @@ BookingAvailabilityExceptions also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Name of the location |
 | `--from-time` | DateTime | Start date/time of the blocked period |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -39,6 +40,8 @@ BookingAvailabilityExceptions also support entity commands.
 | `--message` | string | Message shown to users who attempt to book a blocked resource |
 | `--active` | bool | Whether this exception is currently enforced |
 | `--every-year` | bool | Whether this exception recurs annually on the same dates |
+| `--resource-ids` | string | Comma-separated IDs of blocked resources |
+| `--resource-names` | string | Names of the blocked resources |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

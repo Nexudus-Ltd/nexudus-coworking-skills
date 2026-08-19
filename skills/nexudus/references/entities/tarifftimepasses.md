@@ -12,7 +12,7 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 | `nexudus tarifftimepasses list --id <id> --agent` | Filter by single ID |
 | `nexudus tarifftimepasses list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus tarifftimepasses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus tarifftimepasses list --passes-included <value> --agent` | Filter tarifftimepasses by properties |
+| `nexudus tarifftimepasses list --tariff-name <value> --time-pass-name <value> --agent` | Filter tarifftimepasses by properties |
 | `nexudus tarifftimepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tarifftimepasses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tarifftimepasses get <id> --agent` | Get single tarifftimepass |
@@ -25,7 +25,9 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--tariff-id` | long | ID of the plan linked to this record |
+| `--tariff-name` | string | Tariff name |
 | `--time-pass-id` | long | ID of the pass linked to this record |
+| `--time-pass-name` | string | Time pass name |
 | `--passes-included` | int | Number of passes included |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |

@@ -12,7 +12,7 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | `nexudus coworkerextraservices list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerextraservices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerextraservices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerextraservices list --price <value> --agent` | Filter coworkerextraservices by properties |
+| `nexudus coworkerextraservices list --extra-service-name <value> --description <value> --agent` | Filter coworkerextraservices by properties |
 | `nexudus coworkerextraservices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerextraservices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerextraservices get <id> --agent` | Get single coworkerextraservice |
@@ -27,7 +27,14 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | `--coworker-id` | long | ID of the customer who owns this time credit or booking charge. |
 | `--business-id` | long | ID of the location that issued this record; it is required and cannot be changed after creation. |
 | `--extra-service-id` | long | ID of the booking rate that defines this record's eligible resource types, currency, and credit type. |
+| `--extra-service-name` | string | Name of the linked extra service |
+| `--extra-service-currency-code` | string | Currency code of the linked extra service (e.g., USD, EUR) |
+| `--extra-service-is-printing-credit` | bool | True if the linked extra service is a printing credit (PaperCut/Ezeep). False for booking time credit |
+| `--description` | string | Read-only description generated for the assigned booking rate or credit. |
 | `--notes` | string | Optional internal notes about this time credit or booking charge. |
+| `--remaining-uses` | int | Read-only unused credit remaining, in the unit selected by ChargePeriod; it is reduced when the credit is used. |
+| `--from-remaining-uses` | range | |
+| `--to-remaining-uses` | range | |
 | `--total-uses` | int | Total credit granted, in the ChargePeriod unit; it must be at least RemainingUses and is set only when creating a manual credit. |
 | `--from-total-uses` | range | |
 | `--to-total-uses` | range | |
@@ -35,6 +42,18 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | `--price` | decimal | Optional monetary amount charged in the booking rate's currency; when omitted, the server calculates it from the rate and TotalUses. |
 | `--from-price` | range | |
 | `--to-price` | range | |
+| `--last-minute-price-adjustment` | decimal | Read-only monetary adjustment calculated for a last-minute booking. |
+| `--from-last-minute-price-adjustment` | range | |
+| `--to-last-minute-price-adjustment` | range | |
+| `--dynamic-price-adjustment` | decimal | Read-only monetary adjustment calculated by demand-based pricing. |
+| `--from-dynamic-price-adjustment` | range | |
+| `--to-dynamic-price-adjustment` | range | |
+| `--price-factor-last-minute` | decimal | Read-only price multiplier calculated for a last-minute booking. |
+| `--from-price-factor-last-minute` | range | |
+| `--to-price-factor-last-minute` | range | |
+| `--price-factor-demand` | decimal | Read-only price multiplier calculated by demand-based pricing. |
+| `--from-price-factor-demand` | range | |
+| `--to-price-factor-demand` | range | |
 | `--valid-from` | DateTime | Optional UTC date and time when credit becomes usable; blank means it can be used immediately. |
 | `--from-valid-from` | range | |
 | `--to-valid-from` | range | |
@@ -46,7 +65,28 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | `--to-due-date` | range | |
 | `--purchase-order` | string | Optional customer purchase-order reference for invoicing. |
 | `--charge-period` | enum | Unit used for TotalUses and RemainingUses: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths. |
+| `--invoiced` | bool | Whether this booking charge has been added to an invoice; invoiced records have billing update restrictions. |
+| `--invoice-date` | DateTime | Read-only UTC date and time when this charge was invoiced. |
+| `--from-invoice-date` | range | |
+| `--to-invoice-date` | range | |
+| `--is-from-tariff` | bool | Whether this credit was automatically provisioned from the customer's plan; plan-provisioned credits cannot be deleted directly. |
+| `--booking-unique-id` | string | Internal booking identifier that links a generated booking charge to its source booking; reverse or change the booking instead. |
+| `--automatically-added` | bool | Whether the record was created automatically for a booking rather than as a manually assigned credit; automatic records are not eligible credit. |
 | `--invoice-this-coworker` | bool | Whether to invoice this customer directly rather than their team or company paying customer. |
+| `--discount-code` | string | Read-only discount-code text applied to this charge. |
+| `--discount-amount` | decimal | Read-only monetary amount discounted from Price in the booking rate's currency. |
+| `--from-discount-amount` | range | |
+| `--to-discount-amount` | range | |
+| `--booking-id` | int | Read-only internal numeric ID of the booking that generated this charge; use the Booking entity instead. |
+| `--from-booking-id` | range | |
+| `--to-booking-id` | range | |
+| `--booking-from-time` | DateTime | Read-only UTC start time copied from the source booking; update the booking instead. |
+| `--from-booking-from-time` | range | |
+| `--to-booking-from-time` | range | |
+| `--booking-to-time` | DateTime | Read-only UTC end time copied from the source booking; update the booking instead. |
+| `--from-booking-to-time` | range | |
+| `--to-booking-to-time` | range | |
+| `--booking-resource-name` | string | Read-only resource name copied from the source booking; update the booking instead. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

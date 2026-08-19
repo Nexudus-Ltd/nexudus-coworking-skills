@@ -13,7 +13,7 @@ Teams also support entity commands.
 | `nexudus teams list --id <id> --agent` | Filter by single ID |
 | `nexudus teams list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus teams list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus teams list --name <value> --agent` | Filter teams by properties |
+| `nexudus teams list --business-name <value> --name <value> --agent` | Filter teams by properties |
 | `nexudus teams list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus teams list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus teams get <id> --agent` | Get single team |
@@ -27,13 +27,19 @@ Teams also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location this team belongs to |
+| `--business-name` | string | Business name |
 | `--name` | string | Required team name, unique within the location and limited to 254 characters |
 | `--description` | string | Optional internal description of the team |
 | `--tunnel-private-group-id` | string | Optional private network or VLAN group identifier used by supported access-control and WiFi integrations |
 | `--create-single-invoice-for-team` | bool | Whether the designated paying customer receives consolidated invoices for the other team members; requires a paying customer who belongs to the team |
 | `--use-special-prices` | bool | Whether members use the designated paying customer's special prices |
 | `--paying-member-id` | long | ID of the customer who pays for this team; required and must be a team member when consolidated invoices or credit pooling is enabled |
+| `--paying-member-full-name` | string | Paying member full name |
+| `--paying-member-coworker-type` | string | Paying member coworker type |
+| `--paying-member-billing-name` | string | Paying member billing name |
+| `--paying-member-company-name` | string | Paying member company name |
 | `--default-member-tariff-id` | long | Optional ID of the plan proposed as the default for team members when a customer is added to the team by a team administrator. |
+| `--default-member-tariff-name` | string | Default member tariff name |
 | `--max-team-member-count` | decimal | Optional maximum number of customers for this team |
 | `--from-max-team-member-count` | range | |
 | `--to-max-team-member-count` | range | |
@@ -59,12 +65,16 @@ Teams also support entity commands.
 | `--google-maps-link` | string | Optional Google Maps URL displayed on the public team profile, limited to 1024 characters |
 | `--profile-is-public` | bool | Whether this team's profile can appear in the public directory |
 | `--has-community-group` | bool | Whether Nexudus automatically creates and maintains a discussion-board community group for this team |
+| `--team-logo-file-name` | string | Current file name of the team logo (read-only; upload via the corresponding URL field) |
 | `--new-team-logo-url` | string | URL of a new file to upload as the team logo |
 | `--clear-team-logo-file` | bool | Set to true to remove the current team logo file |
+| `--team-image1-file-name` | string | Current file name of the team image1 (read-only; upload via the corresponding URL field) |
 | `--new-team-image1-url` | string | URL of a new file to upload as the team image1 |
 | `--clear-team-image1-file` | bool | Set to true to remove the current team image1 file |
+| `--team-image2-file-name` | string | Current file name of the team image2 (read-only; upload via the corresponding URL field) |
 | `--new-team-image2-url` | string | URL of a new file to upload as the team image2 |
 | `--clear-team-image2-file` | bool | Set to true to remove the current team image2 file |
+| `--team-image3-file-name` | string | Current file name of the team image3 (read-only; upload via the corresponding URL field) |
 | `--new-team-image3-url` | string | URL of a new file to upload as the team image3 |
 | `--clear-team-image3-file` | bool | Set to true to remove the current team image3 file |
 | `--twitter` | string | Optional X or Twitter profile URL, limited to 254 characters |
@@ -79,6 +89,13 @@ Teams also support entity commands.
 | `--vimeo` | string | Optional Vimeo profile URL, limited to 254 characters |
 | `--tumblr` | string | Optional Tumblr profile URL, limited to 254 characters |
 | `--blogger` | string | Optional Blogger profile URL, limited to 254 characters |
+| `--active-contracts` | int | Read-only count of active contracts across the team's members, refreshed after membership and contract changes |
+| `--from-active-contracts` | range | |
+| `--to-active-contracts` | range | |
+| `--avg-churn-probability` | decimal | Read-only average churn probability predicted by the analytics process for the team's customers |
+| `--from-avg-churn-probability` | range | |
+| `--to-avg-churn-probability` | range | |
+| `--engagement-level` | string | Read-only engagement classification calculated by the analytics process for the team |
 | `--disable-attendance-dashboard` | bool | Whether to hide this team's attendance dashboard from its customers |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
@@ -233,8 +250,6 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 | `--vimeo` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
 | `--tumblr` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
 | `--blogger` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
-| `--coworker-full-names` | `NAME` | `«PII:NAME:a3f2b1c9»` |
-| `--coworker-billing-names` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 
 Example:
 

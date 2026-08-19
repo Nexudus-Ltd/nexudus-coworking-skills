@@ -47,23 +47,17 @@ ExtraServices also support entity commands.
 | `--default-price` | bool | Whether this rate is preferred when multiple valid rates match the same resource and charge period |
 | `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
 | `--currency-id` | long | ID of the currency used for prices charged by this resource rate |
+| `--currency-code` | string | Currency code |
 | `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
 | `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
 | `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
-| `--from-time` | int | Legacy start hour restriction; manage availability through time slots instead |
-| `--from-from-time` | range | |
-| `--to-from-time` | range | |
-| `--to-time` | int | Legacy end hour restriction; manage availability through time slots instead |
-| `--from-to-time` | range | |
-| `--to-to-time` | range | |
 | `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--from-min-length` | range | |
 | `--to-min-length` | range | |
 | `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
 | `--from-max-length` | range | |
 | `--to-max-length` | range | |
-| `--only-within-available-times` | bool | Legacy availability enforcement flag; availability is determined by the configured time slots |
 | `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
 | `--from-fixed-cost-length` | range | |
 | `--to-fixed-cost-length` | range | |
@@ -97,6 +91,7 @@ ExtraServices also support entity commands.
 | `--apply-to` | DateTime | Optional date and time until which this rate is valid, exclusive |
 | `--from-apply-to` | range | |
 | `--to-apply-to` | range | |
+| `--resource-type-names` | string | Read-only resource type names generated from ResourceTypes |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -135,11 +130,8 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
 | `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
 | `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
-| `--from-time` | int | Legacy start hour restriction; manage availability through time slots instead |
-| `--to-time` | int | Legacy end hour restriction; manage availability through time slots instead |
 | `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
-| `--only-within-available-times` | bool | Legacy availability enforcement flag; availability is determined by the configured time slots |
 | `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
 | `--fixed-cost-price` | decimal | Fixed amount charged for the initial FixedCostLength minutes; requires FixedCostLength |
 | `--tariffs` | list, repeat flag | List of plans whose active members can use this rate; empty means no plan restriction |
@@ -187,11 +179,8 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
 | `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
 | `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
-| `--from-time` | int | Legacy start hour restriction; manage availability through time slots instead |
-| `--to-time` | int | Legacy end hour restriction; manage availability through time slots instead |
 | `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
-| `--only-within-available-times` | bool | Legacy availability enforcement flag; availability is determined by the configured time slots |
 | `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
 | `--fixed-cost-price` | decimal | Fixed amount charged for the initial FixedCostLength minutes; requires FixedCostLength |
 | `--tariffs` | list, repeat flag | List of plans whose active members can use this rate; empty means no plan restriction |

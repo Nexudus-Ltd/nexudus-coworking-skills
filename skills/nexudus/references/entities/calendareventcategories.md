@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CalendarEventCategories -->
 
-A **CalendarEventCategory** groups events by type or theme within a location. Categories appear as filters on the Events page of the Members Portal, letting customers quickly find relevant events. Events that share the same category are also shown as related events when a customer views the detail page of a specific event.
-
-Assign categories to events via the `EventCategories` list on the `CalendarEvent` entity.
+An event category (CalendarEventCategory) groups related events at a location. Customers can use categories to filter events in the Members Portal, and events in the same category are shown as related events.
 
 CalendarEventCategories support Search, Get, Create, Update, Delete.
 
@@ -26,8 +24,8 @@ CalendarEventCategories support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | The location this event category belongs to |
-| `--title` | string | Category name shown as a filter on the Members Portal |
+| `--business-id` | long | ID of the location that owns this event category; the Admin Tool normally supplies it from the current location context |
+| `--title` | string | Nonempty name of this event category, used to group related events |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -46,9 +44,9 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | The location this event category belongs to |
-| `--title` | string, required | Category name shown as a filter on the Members Portal |
-| `--calendar-events` | list, repeat flag | IDs of events assigned to this category |
+| `--business-id` | long, required | ID of the location that owns this event category; the Admin Tool normally supplies it from the current location context |
+| `--title` | string, required | Nonempty name of this event category, used to group related events |
+| `--calendar-events` | list, repeat flag | List of CalendarEvent IDs assigned to this category; when supplied on update, it replaces all current assignments, and an empty list removes every assigned event |
 | `--added-calendar-events` | list, repeat flag | The added calendar events value for this calendar event category |
 | `--removed-calendar-events` | list, repeat flag | The removed calendar events value for this calendar event category |
 
@@ -56,9 +54,9 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | The location this event category belongs to |
-| `--title` | string | Category name shown as a filter on the Members Portal |
-| `--calendar-events` | list, repeat flag | IDs of events assigned to this category |
+| `--business-id` | long | ID of the location that owns this event category; the Admin Tool normally supplies it from the current location context |
+| `--title` | string | Nonempty name of this event category, used to group related events |
+| `--calendar-events` | list, repeat flag | List of CalendarEvent IDs assigned to this category; when supplied on update, it replaces all current assignments, and an empty list removes every assigned event |
 | `--added-calendar-events` | list, repeat flag | The added calendar events value for this calendar event category |
 | `--removed-calendar-events` | list, repeat flag | The removed calendar events value for this calendar event category |
 

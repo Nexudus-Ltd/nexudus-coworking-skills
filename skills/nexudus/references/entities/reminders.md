@@ -12,7 +12,7 @@ Reminders support Search, Get, Create, Update, Delete.
 | `nexudus reminders list --id <id> --agent` | Filter by single ID |
 | `nexudus reminders list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus reminders list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus reminders list --business-id <value> --name <value> --agent` | Filter reminders by properties |
+| `nexudus reminders list --business-id <value> --business-name <value> --agent` | Filter reminders by properties |
 | `nexudus reminders list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus reminders list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus reminders get <id> --agent` | Get single reminder |
@@ -25,6 +25,7 @@ Reminders support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Display name of the linked business (read-only) |
 | `--name` | string | The name value for this reminder |
 | `--for-all-contacts` | bool | Whether for all contacts is enabled |
 | `--for-all-members` | bool | Whether for all members is enabled |
@@ -38,7 +39,9 @@ Reminders support Search, Get, Create, Update, Delete.
 | `--from-days-after-signup` | range | |
 | `--to-days-after-signup` | range | |
 | `--product-id` | long | ID of the product linked to this record |
+| `--product-name` | string | Display name of the linked product (read-only) |
 | `--survey-id` | long | ID of the survey linked to this record |
+| `--survey-name` | string | Display name of the linked survey (read-only) |
 | `--days-after-renewal` | int | The days after renewal value for this reminder |
 | `--from-days-after-renewal` | range | |
 | `--to-days-after-renewal` | range | |
@@ -48,6 +51,7 @@ Reminders support Search, Get, Create, Update, Delete.
 | `--reminder-action` | enum | The reminder action value for this reminder |
 | `--email` | string | The email value for this reminder |
 | `--canned-response-id` | long | ID of the canned response linked to this record |
+| `--canned-response-name` | string | Display name of the linked canned response (read-only) |
 | `--next-process-time` | DateTime | Date/time value for next process time |
 | `--from-next-process-time` | range | |
 | `--to-next-process-time` | range | |

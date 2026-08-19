@@ -23,7 +23,7 @@ CoworkerIdentityCheckDocuments also support entity commands.
 | `nexudus coworkeridentitycheckdocuments list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkeridentitycheckdocuments list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkeridentitycheckdocuments list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkeridentitycheckdocuments list --name <value> --agent` | Filter coworkeridentitycheckdocuments by properties |
+| `nexudus coworkeridentitycheckdocuments list --coworker-full-name <value> --coworker-identity-check-name <value> --agent` | Filter coworkeridentitycheckdocuments by properties |
 | `nexudus coworkeridentitycheckdocuments list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkeridentitycheckdocuments list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkeridentitycheckdocuments get <id> --agent` | Get single coworkeridentitycheckdocument |
@@ -37,14 +37,32 @@ CoworkerIdentityCheckDocuments also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the coworker linked to this record |
+| `--coworker-full-name` | string | Full name of the customer this document belongs to |
+| `--coworker-type` | string | Type of the customer (e.g. Member, TeamMember) |
+| `--coworker-company-name` | string | Company name of the customer |
+| `--coworker-billing-name` | string | Billing name of the customer |
 | `--coworker-identity-check-id` | long | ID of the coworker identity check linked to this record |
+| `--coworker-identity-check-name` | string | Name of the parent identity or address check |
+| `--coworker-identity-check-verification-type` | string | Verification type of the parent check (IdDocument or Address) |
+| `--coworker-identity-check-business-name` | string | Location (business) name from the parent check |
+| `--coworker-identity-check-identity-document-type` | string | Identity document type from the parent check (e.g. Passport, DriversLicense) |
+| `--coworker-identity-check-identity-document-number` | string | Document number from the parent check |
+| `--coworker-identity-check-identity-document-issued-by` | string | Issuing authority from the parent check |
+| `--coworker-identity-check-identity-document-expiration-date` | DateTime | Document expiration date from the parent check |
+| `--from-coworker-identity-check-identity-document-expiration-date` | range | |
+| `--to-coworker-identity-check-identity-document-expiration-date` | range | |
+| `--coworker-identity-check-address-document-type` | string | Address document type from the parent check (e.g. LeaseRentalAgreement, VoterCard) |
 | `--name` | string | Display name for this document record |
+| `--photo-file-name` | string | Current file name of the photo (read-only; upload via the corresponding URL field) |
 | `--new-photo-url` | string | URL of a new file to upload as the photo |
 | `--clear-photo-file` | bool | Set to true to remove the current photo file |
+| `--document-file-name` | string | Current file name of the document (read-only; upload via the corresponding URL field) |
 | `--new-document-url` | string | URL of a new file to upload as the document |
 | `--clear-document-file` | bool | Set to true to remove the current document file |
+| `--additional-document-file-name` | string | Current file name of the additional document (read-only; upload via the corresponding URL field) |
 | `--new-additional-document-url` | string | URL of a new file to upload as the additional document |
 | `--clear-additional-document-file` | bool | Set to true to remove the current additional document file |
+| `--verification-status` | enum | Current review status of this document (Pending, Submitted, Successful, Failed, or Cancelled) |
 | `--notes` | string | Free-text notes or reviewer comments about this document |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

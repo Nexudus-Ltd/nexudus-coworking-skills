@@ -13,7 +13,7 @@ CoworkerInventoryAssets also support entity commands.
 | `nexudus coworkerinventoryassets list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkerinventoryassets list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkerinventoryassets list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkerinventoryassets list --coworker-id <value> --business-id <value> --agent` | Filter coworkerinventoryassets by properties |
+| `nexudus coworkerinventoryassets list --coworker-full-name <value> --inventory-asset-name <value> --agent` | Filter coworkerinventoryassets by properties |
 | `nexudus coworkerinventoryassets list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkerinventoryassets list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkerinventoryassets get <id> --agent` | Get single coworkerinventoryasset |
@@ -27,8 +27,19 @@ CoworkerInventoryAssets also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer receiving the equipment item; the customer must be accessible to the current user. |
+| `--coworker-type` | string | Type of the linked coworker (e.g. Member, Team Member) |
+| `--coworker-full-name` | string | Full name of the linked coworker |
+| `--coworker-billing-name` | string | Billing name of the linked coworker |
+| `--coworker-company-name` | string | Company name of the linked coworker |
+| `--coworker-team-names` | string | Comma-separated team names the linked coworker belongs to |
 | `--business-id` | long | ID of the location where this customer equipment assignment applies. |
 | `--inventory-asset-id` | long | ID of the equipment item assigned to the customer; a customer cannot have more than one active assignment for the same item. |
+| `--inventory-asset-name` | string | Name of the linked inventory asset |
+| `--inventory-asset-sku` | string | SKU code of the linked inventory asset |
+| `--inventory-asset-value` | decimal | Monetary value of the linked inventory asset |
+| `--from-inventory-asset-value` | range | |
+| `--to-inventory-asset-value` | range | |
+| `--inventory-asset-unique-id` | string | Unique identifier (e.g. serial number) of the linked inventory asset |
 | `--notes` | string | Optional internal notes about this customer equipment assignment. |
 | `--assigned-from` | DateTime | Required assignment start date and time; the server rejects the record when it is not supplied. |
 | `--from-assigned-from` | range | |

@@ -27,8 +27,26 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--user-id` | long | ID of the user linked to this record |
 | `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
+| `--ai-channel-session-external-identifier` | string | External identifier of the AI channel session linked to this message. Email address for email sessions, phone number for WhatsApp, etc. |
+| `--ai-channel-session-coworker-id` | int | ID of the customer linked to the AI channel session |
+| `--from-ai-channel-session-coworker-id` | range | |
+| `--to-ai-channel-session-coworker-id` | range | |
+| `--ai-channel-session-coworker-coworker-type` | string | The type of the customer linked to the AI channel session (e.g. Individual or Company) |
+| `--ai-channel-session-coworker-full-name` | string | Full name of the customer linked to the AI channel session |
+| `--ai-channel-session-coworker-mobile-phone` | string | Mobile phone number of the customer linked to the AI channel session |
+| `--ai-channel-session-coworker-land-line` | string | Landline phone number of the customer linked to the AI channel session |
+| `--ai-channel-session-coworker-billing-name` | string | Billing name of the customer linked to the AI channel session |
+| `--ai-channel-session-coworker-company-name` | string | Company name of the customer linked to the AI channel session (if the customer is a company) |
+| `--ai-channel-session-coworker-team-names` | string | Comma-separated list of team names that the customer linked to the AI channel session belongs to |
 | `--action` | enum | The action value for this open ai chat message |
 | `--content` | string | The content value for this open ai chat message |
+| `--chat-session` | string | The chat session value for this open ai chat message |
+| `--responder-name` | string | Display name of the linked responder (read-only) |
+| `--chat-message-role` | string | The chat message role value for this open ai chat message |
+| `--rating` | int | The rating value for this open ai chat message |
+| `--from-rating` | range | |
+| `--to-rating` | range | |
+| `--channel` | string | The AI channel through which this message was sent (e.g. Email, Chat, WhatsApp) |
 | `--coworker-message-id` | long | ID of the customer message linked to this AI chat message, if the message was part of a customer communication thread |
 | `--help-desk-message-id` | long | ID of the help desk ticket linked to this AI chat message, if the message was part of a support ticket conversation |
 | `--help-desk-comment-id` | long | ID of the help desk comment linked to this AI chat message, if the message was a reply on a support ticket |

@@ -32,6 +32,12 @@ NewsLetters support Search, Get, Create, Update, Delete.
 | `--language` | enum | The language value for this news letter |
 | `--news-letter-contents` | string | The news letter contents value for this news letter |
 | `--news-letter-design` | string | The news letter design value for this news letter |
+| `--clicks` | int | The clicks value for this news letter |
+| `--from-clicks` | range | |
+| `--to-clicks` | range | |
+| `--opens` | int | The opens value for this news letter |
+| `--from-opens` | range | |
+| `--to-opens` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

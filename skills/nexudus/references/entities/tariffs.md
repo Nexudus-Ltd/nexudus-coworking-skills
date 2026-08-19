@@ -25,6 +25,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Business name |
 | `--name` | string | Plan name |
 | `--system-tariff-type` | enum | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
 | `--price` | decimal | Recurring price charged per billing cycle. Can be overriden per contract. |
@@ -43,15 +44,14 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--use-time-passes` | bool | Whether this plan uses time passes for check-in access |
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
-| `--sign-up-fee` | decimal | Legacy field. Do not use. Use TariffSignupProducts instead. |
-| `--from-sign-up-fee` | range | |
-| `--to-sign-up-fee` | range | |
 | `--currency-id` | long | ID of the currency linked to this record |
+| `--currency-code` | string | Currency code |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
 | `--exempt-tax-rate-id` | long | Tax-exempt rate applied when applicable |
 | `--financial-account-id` | long | Financial account used for revenue tracking |
 | `--terms-and-conditions` | string | Terms and conditions text that members must accept when signing up |
+| `--contract-document-file-name` | string | File name of the contract document template |
 | `--new-contract-document-url` | string | URL to upload a new contract document template |
 | `--clear-contract-document-file` | bool | Set to true to remove the uploaded contract document file |
 | `--cancellation-period` | int | Number of days' notice required before a contract can be cancelled |
@@ -166,6 +166,12 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--booking-due-date-day-of-month` | int | Day of the month used when BookingDueDateStrategy is NextNthOfMonth |
 | `--from-booking-due-date-day-of-month` | range | |
 | `--to-booking-due-date-day-of-month` | range | |
+| `--total-sign-up-price` | decimal | Calculated total price at sign-up including the plan price and sign-up fee |
+| `--from-total-sign-up-price` | range | |
+| `--to-total-sign-up-price` | range | |
+| `--total-price` | decimal | Calculated total recurring price per billing cycle |
+| `--from-total-price` | range | |
+| `--to-total-price` | range | |
 | `--is-virtual-office` | bool | Whether this is a virtual office plan with mail handling features |
 | `--wait-for-identity-checks-to-activate` | bool | Whether to keep the contract on hold until all required identity checks are completed |
 | `--request-address-identity-check` | bool | Whether to request an address identity check from members signing up to this plan |
@@ -186,6 +192,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--to-aml-check-score-threshold` | range | |
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
+| `--form-page-name` | string | Form page name |
 | `--delivery-preferences-mail` | enum | Handling preferences customers on this plan can select for mail deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-parcels` | enum | Handling preferences customers on this plan can select for parcel deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-checks` | enum | Handling preferences customers on this plan can select for check deliveries (virtual office). Only included values are visible to the customer. |
@@ -235,7 +242,6 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--use-time-passes` | bool | Whether this plan uses time passes for check-in access |
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
-| `--sign-up-fee` | decimal | Legacy field. Do not use. Use TariffSignupProducts instead. |
 | `--currency-id` | long, required | ID of the currency linked to this record |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
@@ -360,7 +366,6 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--use-time-passes` | bool | Whether this plan uses time passes for check-in access |
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
-| `--sign-up-fee` | decimal | Legacy field. Do not use. Use TariffSignupProducts instead. |
 | `--currency-id` | long | ID of the currency linked to this record |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |

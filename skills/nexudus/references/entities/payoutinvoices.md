@@ -12,6 +12,7 @@ PayoutInvoices support Search, Get, Create, Update, Delete.
 | `nexudus payoutinvoices list --id <id> --agent` | Filter by single ID |
 | `nexudus payoutinvoices list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus payoutinvoices list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
+| `nexudus payoutinvoices list --invoice-id <value> --invoice-invoice-number <value> --agent` | Filter payoutinvoices by properties |
 | `nexudus payoutinvoices list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus payoutinvoices list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus payoutinvoices get <id> --agent` | Get single payoutinvoice |
@@ -23,6 +24,21 @@ PayoutInvoices support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `--invoice-id` | long | ID of the invoice linked to this record |
+| `--invoice-invoice-number` | string | The invoice invoice number value for this payout invoice |
+| `--invoice-reseller-amount` | decimal | The invoice reseller amount value for this payout invoice |
+| `--from-invoice-reseller-amount` | range | |
+| `--to-invoice-reseller-amount` | range | |
+| `--invoice-created-on` | string | The invoice created on value for this payout invoice |
+| `--invoice-currency-code` | string | The invoice currency code value for this payout invoice |
+| `--invoice-business-id` | int | ID of the invoice business associated with this record |
+| `--from-invoice-business-id` | range | |
+| `--to-invoice-business-id` | range | |
+| `--invoice-business-name` | string | Display name of the linked invoice business (read-only) |
+| `--reseller-payout-id` | long | ID of the reseller payout linked to this record |
+| `--amount` | decimal | The amount value for this payout invoice |
+| `--from-amount` | range | |
+| `--to-amount` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

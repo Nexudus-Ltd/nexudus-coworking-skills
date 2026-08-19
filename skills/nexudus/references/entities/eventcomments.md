@@ -27,6 +27,7 @@ EventComments support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--calendar-event-id` | long | ID of the calendar event linked to this record |
 | `--posted-by-id` | long | ID of the posted by linked to this record |
+| `--posted-by-full-name` | string | Display name of the linked posted by full (read-only) |
 | `--title` | string | The title value for this event comment |
 | `--text` | string | The text value for this event comment |
 | `--published` | bool | Whether published is enabled |

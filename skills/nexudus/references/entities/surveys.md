@@ -12,7 +12,7 @@ Surveys support Search, Get, Create, Update, Delete.
 | `nexudus surveys list --id <id> --agent` | Filter by single ID |
 | `nexudus surveys list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus surveys list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus surveys list --business-id <value> --name <value> --agent` | Filter surveys by properties |
+| `nexudus surveys list --business-id <value> --business-name <value> --agent` | Filter surveys by properties |
 | `nexudus surveys list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus surveys list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus surveys get <id> --agent` | Get single survey |
@@ -25,6 +25,7 @@ Surveys support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--business-name` | string | Display name of the linked business (read-only) |
 | `--name` | string | The name value for this survey |
 | `--description` | string | Free-text description of this survey |
 | `--active` | bool | Whether this survey is currently active |
@@ -42,6 +43,7 @@ Surveys support Search, Get, Create, Update, Delete.
 | `--start-date` | DateTime | Date/time value for start date |
 | `--from-start-date` | range | |
 | `--to-start-date` | range | |
+| `--scheduled-job-id` | string | ID of the scheduled job associated with this record |
 | `--only-for-contacts` | bool | Whether only for contacts is enabled |
 | `--only-for-members` | bool | Whether only for members is enabled |
 | `--from-created-on` | range | |

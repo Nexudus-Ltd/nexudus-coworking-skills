@@ -25,6 +25,7 @@ EmailQueueItemAttachments support Search, Get, Update (no Create or Delete via A
 | `--email-queue-item-id` | long | ID of the email queue item linked to this record |
 | `--name` | string | The name value for this email queue item attachment |
 | `--extension` | string | The extension value for this email queue item attachment |
+| `--binary-file-name` | string | Current file name of the binary (read-only; upload via the corresponding URL field) |
 | `--new-binary-url` | string | URL of a new file to upload as the binary |
 | `--clear-binary-file` | bool | Set to true to remove the current binary file |
 | `--from-created-on` | range | |

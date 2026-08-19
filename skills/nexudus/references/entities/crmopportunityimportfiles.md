@@ -12,7 +12,7 @@ CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 | `nexudus crmopportunityimportfiles list --id <id> --agent` | Filter by single ID |
 | `nexudus crmopportunityimportfiles list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus crmopportunityimportfiles list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus crmopportunityimportfiles list --business-id <value> --new-file-data-url <value> --agent` | Filter crmopportunityimportfiles by properties |
+| `nexudus crmopportunityimportfiles list --business-id <value> --file-data-file-name <value> --agent` | Filter crmopportunityimportfiles by properties |
 | `nexudus crmopportunityimportfiles list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus crmopportunityimportfiles list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus crmopportunityimportfiles get <id> --agent` | Get single crmopportunityimportfile |
@@ -25,6 +25,7 @@ CrmOpportunityImportFiles support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
+| `--file-data-file-name` | string | Current file name of the file data (read-only; upload via the corresponding URL field) |
 | `--new-file-data-url` | string | URL of a new file to upload as the file data |
 | `--clear-file-data-file` | bool | Set to true to remove the current file data file |
 | `--name` | string | The name value for this crm opportunity import file |

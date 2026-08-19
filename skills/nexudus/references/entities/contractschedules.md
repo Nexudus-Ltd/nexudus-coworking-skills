@@ -12,7 +12,7 @@ ContractSchedules support Search, Get, Create, Update, Delete.
 | `nexudus contractschedules list --id <id> --agent` | Filter by single ID |
 | `nexudus contractschedules list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus contractschedules list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus contractschedules list --price <value> --apply-on <value> --agent` | Filter contractschedules by properties |
+| `nexudus contractschedules list --coworker-contract-coworker-full-name <value> --price <value> --agent` | Filter contractschedules by properties |
 | `nexudus contractschedules list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus contractschedules list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus contractschedules get <id> --agent` | Get single contractschedule |
@@ -25,6 +25,17 @@ ContractSchedules support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
+| `--coworker-contract-quantity` | int | The coworker contract quantity value for this contract schedule |
+| `--from-coworker-contract-quantity` | range | |
+| `--to-coworker-contract-quantity` | range | |
+| `--coworker-contract-floor-plan-desk-ids` | string | The coworker contract floor plan desk ids value for this contract schedule |
+| `--coworker-contract-floor-plan-desk-names` | string | The coworker contract floor plan desk names value for this contract schedule |
+| `--coworker-contract-tariff-name` | string | Name of the tariff/plan associated with the parent contract |
+| `--coworker-contract-coworker-id` | int | ID of the coworker contract coworker associated with this record |
+| `--from-coworker-contract-coworker-id` | range | |
+| `--to-coworker-contract-coworker-id` | range | |
+| `--coworker-contract-coworker-full-name` | string | Full name of the member holding the parent contract |
+| `--coworker-contract-coworker-billing-name` | string | Billing name of the member holding the parent contract |
 | `--notes` | string | Optional notes or internal comments about this scheduled price change |
 | `--price` | decimal | The new contract price to apply on the scheduled date |
 | `--from-price` | range | |
@@ -35,6 +46,7 @@ ContractSchedules support Search, Get, Create, Update, Delete.
 | `--apply-on-local` | DateTime | Date/time value for apply on local |
 | `--from-apply-on-local` | range | |
 | `--to-apply-on-local` | range | |
+| `--applied` | bool | True once the price change has been applied to the contract. The record becomes read-only after this point |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

@@ -32,9 +32,13 @@ Users support Search, Get, Create, Update, Delete.
 | `--new-password` | string | The new password value for this user |
 | `--password` | string | The password value for this user |
 | `--password-salt` | string | The password salt value for this user |
+| `--avatar-file-name` | string | Current file name of the avatar (read-only; upload via the corresponding URL field) |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
 | `--application-id` | long | ID of the application linked to this record |
+| `--passport-number` | string | The passport number value for this user |
+| `--passport-card-number` | string | The passport card number value for this user |
+| `--enable-passport-access` | bool | Whether enable passport access is enabled |
 | `--active` | bool | Whether this user is currently active |
 | `--is-admin` | bool | Whether is admin is enabled |
 | `--a-p-i-access` | bool | Whether api access is enabled |
@@ -59,8 +63,10 @@ Users support Search, Get, Create, Update, Delete.
 | `--on-plaform-invoices` | bool | Whether on plaform invoices is enabled |
 | `--receive-community-digest` | bool | Whether receive community digest is enabled |
 | `--receive-every-message` | bool | Whether receive every message is enabled |
+| `--two-factor-enabled` | bool | Whether two factor enabled is enabled |
 | `--two-factor-secret` | string | The two factor secret value for this user |
 | `--email-call-back-guid` | string | Unique identifier (GUID) for the email call back |
+| `--default-business-id` | long | ID of the default business linked to this record |
 | `--last-help-visited` | int | The last help visited value for this user |
 | `--from-last-help-visited` | range | |
 | `--to-last-help-visited` | range | |
