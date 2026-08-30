@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=LegalContentAudits -->
 
-A **LegalContentAudit** records when a customer has accepted or acknowledged legal content such as terms and conditions, privacy policies, or cookie policies.
+A LegalContentAudit is a read-only version history of legal content for a location, including general, checkout, visitor, privacy, cookie, and plan terms.
 
 LegalContentAudits support Search, Get, Create, Update, Delete.
 
@@ -24,13 +24,13 @@ LegalContentAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
+| `--business-id` | long | ID of the location whose legal content version is recorded. |
 | `--business-name` | string | Display name of the linked business (read-only) |
-| `--name` | string | Display name of the linked  (read-only) |
-| `--content` | string | The content value for this legal content audit |
-| `--author` | string | The author value for this legal content audit |
-| `--tariff-unique-id` | string | ID of the tariff unique associated with this record |
-| `--legal-content-type` | enum | The legal content type value for this legal content audit |
+| `--name` | string | System-generated version label using the next version number and the location-local creation date. |
+| `--content` | string | Snapshot of the legal content text when this version was created. |
+| `--author` | string | User name or system account recorded as creating this legal content version. |
+| `--tariff-unique-id` | string | Unique ID of the plan whose terms this version snapshots; null for location-wide legal content. |
+| `--legal-content-type` | enum | Type of legal content snapshot: GeneralTerms, VisitorTerms, CheckoutTerms, PrivacyPolicy, CookiesPolicy, or TariffTerms. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

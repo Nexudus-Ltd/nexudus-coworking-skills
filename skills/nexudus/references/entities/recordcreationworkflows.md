@@ -34,9 +34,6 @@ RecordCreationWorkflows support Search, Get, Create, Update, Delete.
 | `--source-key` | string | Stable key of the source template |
 | `--source-revision` | string | Revision of the source template when copied |
 | `--is-default` | bool | Whether this is the default published workflow for its entity |
-| `--allow-form-launch` | bool | Whether users can launch this workflow from entity creation |
-| `--allow-chat-launch` | bool | Whether users can launch this workflow from chat |
-| `--allow-url-launch` | bool | Whether users can launch this workflow from its dedicated URL |
 | `--draft-version-id` | long | Current mutable draft version |
 | `--published-version-id` | long | Current immutable published version |
 | `--created-by-user-id` | long | User who created the workflow |
@@ -73,9 +70,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--source-key` | string | Stable key of the source template |
 | `--source-revision` | string | Revision of the source template when copied |
 | `--is-default` | bool | Whether this is the default published workflow for its entity |
-| `--allow-form-launch` | bool | Whether users can launch this workflow from entity creation |
-| `--allow-chat-launch` | bool | Whether users can launch this workflow from chat |
-| `--allow-url-launch` | bool | Whether users can launch this workflow from its dedicated URL |
 | `--draft-version-id` | long | Current mutable draft version |
 | `--published-version-id` | long | Current immutable published version |
 | `--created-by-user-id` | long, required | User who created the workflow |
@@ -95,9 +89,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--source-key` | string | Stable key of the source template |
 | `--source-revision` | string | Revision of the source template when copied |
 | `--is-default` | bool | Whether this is the default published workflow for its entity |
-| `--allow-form-launch` | bool | Whether users can launch this workflow from entity creation |
-| `--allow-chat-launch` | bool | Whether users can launch this workflow from chat |
-| `--allow-url-launch` | bool | Whether users can launch this workflow from its dedicated URL |
 | `--draft-version-id` | long | Current mutable draft version |
 | `--published-version-id` | long | Current immutable published version |
 | `--created-by-user-id` | long | User who created the workflow |

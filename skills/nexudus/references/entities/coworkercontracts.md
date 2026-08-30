@@ -107,6 +107,13 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--floor-plan-desk-variant-ids` | string | Read-only denormalized IDs of assigned floor-plan unit variants; update Variants rather than this projection. |
 | `--floor-plan-desk-variant-names` | string | Read-only denormalized names of assigned floor-plan unit variants; update Variants rather than this projection. |
 | `--po-box-number` | string | Post-office box number associated with this contract. |
+| `--in-paused-period` | bool | Whether the contract is currently within a recorded pause period; it is calculated from pause-period records. |
+| `--in-paused-period-from` | DateTime | Calculated UTC start of the active or upcoming pause period; manage pause records instead. |
+| `--from-in-paused-period-from` | range | |
+| `--to-in-paused-period-from` | range | |
+| `--in-paused-period-until` | DateTime | Calculated UTC end of the active or upcoming pause period; manage pause records instead. |
+| `--from-in-paused-period-until` | range | |
+| `--to-in-paused-period-until` | range | |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

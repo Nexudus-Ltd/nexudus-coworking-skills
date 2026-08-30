@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=NewsLetters -->
 
-A **NewsLetter** represents an email newsletter that can be sent to subscribers. Each newsletter has content, a subject line, and can target specific subscriber groups or segments.
+A newsletter is a location-scoped email campaign with a subject and HTML body, sent through a separate command to active subscribers in the selected language.
 
 NewsLetters support Search, Get, Create, Update, Delete.
 
@@ -24,18 +24,18 @@ NewsLetters support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this news letter |
-| `--last-sent` | DateTime | Date/time value for last sent |
+| `--business-id` | long | ID of the location that owns this newsletter. |
+| `--name` | string | Email subject line shown to newsletter recipients. |
+| `--last-sent` | DateTime | UTC date and time when a newsletter send was last initiated; set by the send command. |
 | `--from-last-sent` | range | |
 | `--to-last-sent` | range | |
-| `--language` | enum | The language value for this news letter |
-| `--news-letter-contents` | string | The news letter contents value for this news letter |
-| `--news-letter-design` | string | The news letter design value for this news letter |
-| `--clicks` | int | The clicks value for this news letter |
+| `--language` | enum | Language edition and recipient-language filter: EnglishUS, Spanish, or EnglishUK. |
+| `--news-letter-contents` | string | HTML email body; sending adds unsubscribe and engagement-tracking links and replaces supported recipient tokens. |
+| `--news-letter-design` | string | Optional newsletter design data; current send processing uses NewsLetterContents as the email body. |
+| `--clicks` | int | Read-only count of tracked recipient link-click activities for this newsletter. |
 | `--from-clicks` | range | |
 | `--to-clicks` | range | |
-| `--opens` | int | The opens value for this news letter |
+| `--opens` | int | Read-only count of tracked recipient open activities for this newsletter. |
 | `--from-opens` | range | |
 | `--to-opens` | range | |
 | `--from-created-on` | range | |
@@ -56,23 +56,21 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this news letter |
-| `--last-sent` | DateTime | Date/time value for last sent |
-| `--language` | enum, required | The language value for this news letter |
-| `--news-letter-contents` | string | The news letter contents value for this news letter |
-| `--news-letter-design` | string | The news letter design value for this news letter |
+| `--business-id` | long, required | ID of the location that owns this newsletter. |
+| `--name` | string, required | Email subject line shown to newsletter recipients. |
+| `--language` | enum, required | Language edition and recipient-language filter: EnglishUS, Spanish, or EnglishUK. |
+| `--news-letter-contents` | string | HTML email body; sending adds unsubscribe and engagement-tracking links and replaces supported recipient tokens. |
+| `--news-letter-design` | string | Optional newsletter design data; current send processing uses NewsLetterContents as the email body. |
 
 #### NewsLetter update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this news letter |
-| `--last-sent` | DateTime | Date/time value for last sent |
-| `--language` | enum | The language value for this news letter |
-| `--news-letter-contents` | string | The news letter contents value for this news letter |
-| `--news-letter-design` | string | The news letter design value for this news letter |
+| `--business-id` | long | ID of the location that owns this newsletter. |
+| `--name` | string | Email subject line shown to newsletter recipients. |
+| `--language` | enum | Language edition and recipient-language filter: EnglishUS, Spanish, or EnglishUK. |
+| `--news-letter-contents` | string | HTML email body; sending adds unsubscribe and engagement-tracking links and replaces supported recipient tokens. |
+| `--news-letter-design` | string | Optional newsletter design data; current send processing uses NewsLetterContents as the email body. |
 
 #### NewsLetter enum values
 

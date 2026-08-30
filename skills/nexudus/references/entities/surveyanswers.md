@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=SurveyAnswers -->
 
-A **SurveyAnswer** stores a customer's response to a single survey question, recording the answer text, numeric value, or selected option.
+A survey answer (SurveyAnswer) is a read-only customer response to one survey question. Answers are created by the public survey submission workflow and can be reviewed with their survey run and question.
 
 SurveyAnswers support Search, Get, Create, Update, Delete.
 
@@ -24,11 +24,11 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-run-id` | long | ID of the survey run linked to this record |
-| `--survey-question-id` | long | ID of the survey question linked to this record |
+| `--survey-run-id` | long | ID of the survey run that contains this submitted answer |
+| `--survey-question-id` | long | ID of the survey question answered by the customer; the question's survey location owns this answer |
 | `--survey-question-text` | string | The survey question text value for this survey answer |
 | `--survey-question-survey-name` | string | Display name of the linked survey question survey (read-only) |
-| `--value` | string | The value value for this survey answer |
+| `--value` | string | Customer's submitted answer text; for a Binary question this is the stored filename rather than file content |
 | `--file-value-file-name` | string | Current file name of the file value (read-only; upload via the corresponding URL field) |
 | `--new-file-value-url` | string | URL of a new file to upload as the file value |
 | `--clear-file-value-file` | bool | Set to true to remove the current file value file |
@@ -50,9 +50,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-run-id` | long | ID of the survey run linked to this record |
-| `--survey-question-id` | long, required | ID of the survey question linked to this record |
-| `--value` | string | The value value for this survey answer |
+| `--survey-run-id` | long | ID of the survey run that contains this submitted answer |
+| `--survey-question-id` | long, required | ID of the survey question answered by the customer; the question's survey location owns this answer |
 | `--new-file-value-url` | string | URL of a new file to upload as the file value |
 | `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 
@@ -60,9 +59,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-run-id` | long | ID of the survey run linked to this record |
-| `--survey-question-id` | long | ID of the survey question linked to this record |
-| `--value` | string | The value value for this survey answer |
+| `--survey-run-id` | long | ID of the survey run that contains this submitted answer |
+| `--survey-question-id` | long | ID of the survey question answered by the customer; the question's survey location owns this answer |
 | `--new-file-value-url` | string | URL of a new file to upload as the file value |
 | `--clear-file-value-file` | bool | Set to true to remove the current file value file |
 

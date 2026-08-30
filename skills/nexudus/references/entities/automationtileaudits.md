@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=AutomationTileAudits -->
 
-An **AutomationTileAudit** is a log entry recorded each time an `AutomationTile` is scanned or tapped. It captures the outcome (success or failure), the action that was triggered, and the identity of the user who scanned the tile.
-
-Use this entity to review tile usage history, troubleshoot scanning failures, and track which customers are interacting with specific tiles.
+An automation tile audit is a system-generated, read-only record of a customer scan at a location, including the configured action, outcome, customer identity, and result message.
 
 AutomationTileAudits support Search, Get, Create, Update, Delete.
 
@@ -26,11 +24,12 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--automation-tile-id` | long | ID of the automation tile linked to this record |
-| `--description` | string | Human-readable description of what happened when the tile was scanned |
-| `--action-by` | string | Name or identifier of the customer who scanned the tile |
-| `--action` | enum | The action that was triggered when the tile was scanned (matches the tile's configured action) |
-| `--tile-audit-type` | enum | Outcome of the scan: Success or Failure |
+| `--automation-tile-id` | long | ID of the automation tile that was scanned and whose location determines access to this audit entry. |
+| `--automation-tile-name` | string |  |
+| `--description` | string | Required system-generated message describing the result of the tile scan. |
+| `--action-by` | string | System-generated customer identity in the format FullName (Email) #CustomerId for the person who scanned the tile. |
+| `--action` | enum | System-generated action configured on the scanned tile, recorded when the scan is processed. |
+| `--tile-audit-type` | enum | System-generated outcome of the scan: Success when the action completed, or Failure when processing was rejected or failed. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -49,21 +48,21 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--automation-tile-id` | long, required | ID of the automation tile linked to this record |
-| `--description` | string, required | Human-readable description of what happened when the tile was scanned |
-| `--action-by` | string | Name or identifier of the customer who scanned the tile |
-| `--action` | enum, required | The action that was triggered when the tile was scanned (matches the tile's configured action) |
-| `--tile-audit-type` | enum, required | Outcome of the scan: Success or Failure |
+| `--automation-tile-id` | long, required | ID of the automation tile that was scanned and whose location determines access to this audit entry. |
+| `--description` | string, required | Required system-generated message describing the result of the tile scan. |
+| `--action-by` | string | System-generated customer identity in the format FullName (Email) #CustomerId for the person who scanned the tile. |
+| `--action` | enum, required | System-generated action configured on the scanned tile, recorded when the scan is processed. |
+| `--tile-audit-type` | enum, required | System-generated outcome of the scan: Success when the action completed, or Failure when processing was rejected or failed. |
 
 #### AutomationTileAudit update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--automation-tile-id` | long | ID of the automation tile linked to this record |
-| `--description` | string | Human-readable description of what happened when the tile was scanned |
-| `--action-by` | string | Name or identifier of the customer who scanned the tile |
-| `--action` | enum | The action that was triggered when the tile was scanned (matches the tile's configured action) |
-| `--tile-audit-type` | enum | Outcome of the scan: Success or Failure |
+| `--automation-tile-id` | long | ID of the automation tile that was scanned and whose location determines access to this audit entry. |
+| `--description` | string | Required system-generated message describing the result of the tile scan. |
+| `--action-by` | string | System-generated customer identity in the format FullName (Email) #CustomerId for the person who scanned the tile. |
+| `--action` | enum | System-generated action configured on the scanned tile, recorded when the scan is processed. |
+| `--tile-audit-type` | enum | System-generated outcome of the scan: Success when the action completed, or Failure when processing was rejected or failed. |
 
 ### AutomationTileAudit (key fields)
 

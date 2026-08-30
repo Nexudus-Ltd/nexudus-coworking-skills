@@ -2,17 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=BusinessAnnouncements -->
 
-A **BusinessAnnouncement** is a notification displayed to customers on the members portal and mobile app. Announcements support plain text only (no bold, italics, or lists) and can include an optional image and a call-to-action button.
-
-Use `ActiveFrom` and `ActiveTo` to schedule when the announcement is visible. Use `OnlyForContacts` and `OnlyForMembers` to control the audience:
-
-| OnlyForContacts | OnlyForMembers | Audience                                     |
-| --------------- | -------------- | -------------------------------------------- |
-| false           | false          | All customers (contacts and members)         |
-| true            | false          | Contacts only (no active contract)           |
-| false           | true           | Members only (with an active contract)       |
-
-Announcement images should ideally be 600x350 pixels (12:7 aspect ratio). Set `NewImageUrl` to a URL to upload a new image, or set `ClearImage` to true to remove the current image.
+A BusinessAnnouncement is a location announcement shown to customers in the Members Portal and app, with optional plain-text content, image, and call-to-action button. Its public availability is scheduled by UTC ActiveFrom and ActiveTo values.
 
 BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
@@ -34,27 +24,26 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
+| `--business-id` | long | ID of the location where this announcement is published; a network location makes it available to locations in that network. |
 | `--business-name` | string | Business name |
-| `--name` | string | Announcement title |
-| `--active` | bool | Whether the announcement is active and visible to customers |
+| `--name` | string | Required title displayed with the announcement. |
 | `--image-file-name` | string | Current image file name |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--body` | string | Announcement body text (plain text only, no formatting) |
-| `--show-button` | bool | Whether to display a call-to-action button in the announcement |
-| `--button-label` | string | Text displayed on the call-to-action button |
-| `--button-url` | string | URL the call-to-action button redirects to (must start with https://) |
-| `--send-push-notification` | bool | Whether to send a push notification to customers when the announcement is published |
-| `--push-notification-text` | string | Text of the push notification sent to customers |
-| `--active-from` | DateTime | Date from which the announcement is visible to customers (publish from) |
+| `--body` | string | Plain-text announcement body; HTML formatting is not supported. |
+| `--show-button` | bool | Whether to display the optional call-to-action button with this announcement. |
+| `--button-label` | string | Text displayed on the call-to-action button when ShowButton is enabled. |
+| `--button-url` | string | Destination URL for the call-to-action button when ShowButton is enabled. |
+| `--send-push-notification` | bool | Whether this announcement is configured to send a push notification; scheduling is currently driven by ActiveFrom on create or update. |
+| `--push-notification-text` | string | Text configured for the announcement's push notification. |
+| `--active-from` | DateTime | UTC publish-from date and time; the active query requires this value to be strictly earlier than the current UTC time, and create or update schedules its push job at this time. |
 | `--from-active-from` | range | |
 | `--to-active-from` | range | |
-| `--active-to` | DateTime | Date until which the announcement is visible to customers (publish to) |
+| `--active-to` | DateTime | Optional UTC publish-until date and time; an announcement remains active only while this value is strictly later than the current UTC time. |
 | `--from-active-to` | range | |
 | `--to-active-to` | range | |
-| `--only-for-contacts` | bool | Restrict announcement visibility to contacts (customers without an active contract) |
-| `--only-for-members` | bool | Restrict announcement visibility to members (customers with an active contract) |
+| `--only-for-contacts` | bool | Whether the announcement is marked for contacts, meaning customers without an active contract; the current active-announcement query does not apply this audience flag. |
+| `--only-for-members` | bool | Whether the announcement is marked for members, meaning customers with an active contract; the current active-announcement query does not apply this audience flag. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -73,44 +62,42 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | Announcement title |
-| `--active` | bool | Whether the announcement is active and visible to customers |
+| `--business-id` | long, required | ID of the location where this announcement is published; a network location makes it available to locations in that network. |
+| `--name` | string, required | Required title displayed with the announcement. |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--body` | string | Announcement body text (plain text only, no formatting) |
-| `--show-button` | bool | Whether to display a call-to-action button in the announcement |
-| `--button-label` | string | Text displayed on the call-to-action button |
-| `--button-url` | string | URL the call-to-action button redirects to (must start with https://) |
-| `--send-push-notification` | bool | Whether to send a push notification to customers when the announcement is published |
-| `--push-notification-text` | string | Text of the push notification sent to customers |
-| `--active-from` | DateTime | Date from which the announcement is visible to customers (publish from) |
-| `--active-to` | DateTime | Date until which the announcement is visible to customers (publish to) |
-| `--only-for-contacts` | bool | Restrict announcement visibility to contacts (customers without an active contract) |
-| `--only-for-members` | bool | Restrict announcement visibility to members (customers with an active contract) |
+| `--body` | string | Plain-text announcement body; HTML formatting is not supported. |
+| `--show-button` | bool | Whether to display the optional call-to-action button with this announcement. |
+| `--button-label` | string | Text displayed on the call-to-action button when ShowButton is enabled. |
+| `--button-url` | string | Destination URL for the call-to-action button when ShowButton is enabled. |
+| `--send-push-notification` | bool | Whether this announcement is configured to send a push notification; scheduling is currently driven by ActiveFrom on create or update. |
+| `--push-notification-text` | string | Text configured for the announcement's push notification. |
+| `--active-from` | DateTime | UTC publish-from date and time; the active query requires this value to be strictly earlier than the current UTC time, and create or update schedules its push job at this time. |
+| `--active-to` | DateTime | Optional UTC publish-until date and time; an announcement remains active only while this value is strictly later than the current UTC time. |
+| `--only-for-contacts` | bool | Whether the announcement is marked for contacts, meaning customers without an active contract; the current active-announcement query does not apply this audience flag. |
+| `--only-for-members` | bool | Whether the announcement is marked for members, meaning customers with an active contract; the current active-announcement query does not apply this audience flag. |
 
 #### BusinessAnnouncement update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Announcement title |
-| `--active` | bool | Whether the announcement is active and visible to customers |
+| `--business-id` | long | ID of the location where this announcement is published; a network location makes it available to locations in that network. |
+| `--name` | string | Required title displayed with the announcement. |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--body` | string | Announcement body text (plain text only, no formatting) |
-| `--show-button` | bool | Whether to display a call-to-action button in the announcement |
-| `--button-label` | string | Text displayed on the call-to-action button |
-| `--button-url` | string | URL the call-to-action button redirects to (must start with https://) |
-| `--send-push-notification` | bool | Whether to send a push notification to customers when the announcement is published |
-| `--push-notification-text` | string | Text of the push notification sent to customers |
-| `--active-from` | DateTime | Date from which the announcement is visible to customers (publish from) |
-| `--active-to` | DateTime | Date until which the announcement is visible to customers (publish to) |
-| `--only-for-contacts` | bool | Restrict announcement visibility to contacts (customers without an active contract) |
-| `--only-for-members` | bool | Restrict announcement visibility to members (customers with an active contract) |
+| `--body` | string | Plain-text announcement body; HTML formatting is not supported. |
+| `--show-button` | bool | Whether to display the optional call-to-action button with this announcement. |
+| `--button-label` | string | Text displayed on the call-to-action button when ShowButton is enabled. |
+| `--button-url` | string | Destination URL for the call-to-action button when ShowButton is enabled. |
+| `--send-push-notification` | bool | Whether this announcement is configured to send a push notification; scheduling is currently driven by ActiveFrom on create or update. |
+| `--push-notification-text` | string | Text configured for the announcement's push notification. |
+| `--active-from` | DateTime | UTC publish-from date and time; the active query requires this value to be strictly earlier than the current UTC time, and create or update schedules its push job at this time. |
+| `--active-to` | DateTime | Optional UTC publish-until date and time; an announcement remains active only while this value is strictly later than the current UTC time. |
+| `--only-for-contacts` | bool | Whether the announcement is marked for contacts, meaning customers without an active contract; the current active-announcement query does not apply this audience flag. |
+| `--only-for-members` | bool | Whether the announcement is marked for members, meaning customers with an active contract; the current active-announcement query does not apply this audience flag. |
 
 ### BusinessAnnouncement (key fields)
 
-`Id`, `BusinessName`, `Name`, `Active`, `Body`
+`Id`, `BusinessName`, `Name`, `Body`
 
 <!-- END:GENERATED entity=BusinessAnnouncements -->

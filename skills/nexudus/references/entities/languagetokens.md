@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=LanguageTokens -->
 
-A **LanguageToken** represents a translatable text string in the system. Each token has a key and a translated value for a specific language, enabling full localisation of the platform.
+A language token is a location-specific translation of a Members Portal text key for one language, with optional HTML formatting.
 
 LanguageTokens support Search, Get, Create, Update, Delete.
 
@@ -24,9 +24,9 @@ LanguageTokens support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--language-id` | long | ID of the language linked to this record |
-| `--name` | string | The name value for this language token |
-| `--value` | string | The value value for this language token |
+| `--language-id` | long | ID of the language that owns this translation; its location determines access to the token |
+| `--name` | string | Required unique token key within the selected language; this is the source text or identifier requested by the Members Portal |
+| `--value` | string | Optional translated rich-text value displayed in the Members Portal; HTML markup is supported |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -45,16 +45,16 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--language-id` | long, required | ID of the language linked to this record |
-| `--name` | string, required | The name value for this language token |
-| `--value` | string | The value value for this language token |
+| `--language-id` | long, required | ID of the language that owns this translation; its location determines access to the token |
+| `--name` | string, required | Required unique token key within the selected language; this is the source text or identifier requested by the Members Portal |
+| `--value` | string | Optional translated rich-text value displayed in the Members Portal; HTML markup is supported |
 
 #### LanguageToken update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--language-id` | long | ID of the language linked to this record |
-| `--name` | string | The name value for this language token |
-| `--value` | string | The value value for this language token |
+| `--language-id` | long | ID of the language that owns this translation; its location determines access to the token |
+| `--name` | string | Required unique token key within the selected language; this is the source text or identifier requested by the Members Portal |
+| `--value` | string | Optional translated rich-text value displayed in the Members Portal; HTML markup is supported |
 
 <!-- END:GENERATED entity=LanguageTokens -->

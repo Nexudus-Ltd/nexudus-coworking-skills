@@ -45,9 +45,11 @@ TimePasses also support entity commands.
 | `--currency-id` | long | ID of the ISO 4217 currency used for the pass price and plan-specific special prices. |
 | `--currency-code` | string | Currency code |
 | `--tax-rate-id` | long | Optional ID of the standard tax rate applied when this pass is invoiced. |
+| `--tax-rate-name` | string |  |
 | `--reduced-tax-rate-id` | long | Optional ID of the reduced tax rate applied when the customer qualifies for reduced taxation. |
 | `--exempt-tax-rate-id` | long | Optional ID of the tax rate applied when the customer is tax exempt. |
 | `--financial-account-id` | long | Optional ID of the financial account used to record pass revenue. |
+| `--financial-account-name` | string |  |
 | `--kisi-group-id` | string | Optional external Kisi access-control group ID assigned to customers using this pass. |
 | `--door-guard-group-id` | string | Optional external DoorGuard access-control group ID assigned to customers using this pass. |
 | `--allow-network-checkin` | bool | Whether a customer holding this pass can check in to the location's connected IT network. |

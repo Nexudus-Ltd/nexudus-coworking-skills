@@ -2,15 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CommunityPerks -->
 
-A **CommunityPerk** represents a perk, discount, or benefit that a location offers to its customers in partnership with other businesses.
-
-Perks can be discounts, free trials, or any other benefit negotiated with a partner business — for example, 50% off a car rental or a free hot drink at a nearby café. They are published on the Members Portal where customers can view and claim them.
-
-Use `Active` to control visibility — when `false`, the perk is only visible on the Admin Panel. Use `ShowInHomePage` to feature a perk on the Members Portal home page after users log in.
-
-Availability can be restricted via `OnlyForContacts` and `OnlyForMembers`. If neither flag is set, the perk is available to all customers. Use `Tariffs` to further restrict access to customers on specific pricing plans.
-
-Which perks are listed in a location is also controlled by the `Access.Data.Perks` **BusinessSetting**, whose value is an `eDataVisibilityCriteria` enum integer. This determines which locations' perks are visible to customers at a given location — for example `ThisLocationOnly` (7) shows only perks belonging to the current location, while `AllLocations` (3) shows perks from all locations in the network.
+A CommunityPerk represents a perk, discount, or benefit that a location offers to its customers in partnership with other businesses. Perks can be discounts, free trials, or any other benefit negotiated with a partner business — for example, 50% off a car rental or a free hot drink at a nearby café. They are published on the Members Portal where customers can view and claim them. Use Active to control visibility — when false, the perk is only visible on the Admin Panel. Use ShowInHomePage to feature a perk on the Members Portal home page after users log in. Availability can be restricted via OnlyForContacts and OnlyForMembers. If neither flag is set, the perk is available to all customers. Use Tariffs to further restrict access to customers on specific pricing plans. Which perks are listed in a location is also controlled by the Access.Data.Perks BusinessSetting, whose value is an eDataVisibilityCriteria enum integer. This determines which locations' perks are visible to customers at a given location — for example ThisLocationOnly (7) shows only perks belonging to the current location, while AllLocations (3) shows perks from all locations in the network.
 
 CommunityPerks support Search, Get, Create, Update, Delete.
 
@@ -34,7 +26,7 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the location this perk belongs to |
 | `--title` | string | Name of the perk as displayed on the Members Portal and the Admin Panel |
-| `--perk-url` | string | URL where customers are redirected when clicking the Claim button. If blank, no Claim button is shown. Must start with https:// |
+| `--perk-url` | string | Optional URL opened when a customer uses the Claim button; leave blank to omit the button |
 | `--summary-text` | string | Short description shown under the perk title on the Perks listing page of the Members Portal |
 | `--full-text` | string | Full description of the perk, displayed when a customer clicks on it from the Perks listing page |
 | `--image-file-name` | string | File name of the small image shown on the Perks listing page alongside other perks |
@@ -52,8 +44,8 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 | `--click-count` | int | Number of times customers have clicked on this perk |
 | `--from-click-count` | range | |
 | `--to-click-count` | range | |
-| `--only-for-contacts` | bool | Whether this perk is only available to contacts. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
-| `--only-for-members` | bool | Whether this perk is only available to members. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
+| `--only-for-contacts` | bool | Whether to exclude members and show this perk only to contacts, who have no active contract; do not set this and OnlyForMembers together |
+| `--only-for-members` | bool | Whether to exclude contacts and show this perk only to members, who have an active contract; do not set this and OnlyForContacts together |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -74,7 +66,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long, required | ID of the location this perk belongs to |
 | `--title` | string, required | Name of the perk as displayed on the Members Portal and the Admin Panel |
-| `--perk-url` | string | URL where customers are redirected when clicking the Claim button. If blank, no Claim button is shown. Must start with https:// |
+| `--perk-url` | string | Optional URL opened when a customer uses the Claim button; leave blank to omit the button |
 | `--summary-text` | string | Short description shown under the perk title on the Perks listing page of the Members Portal |
 | `--full-text` | string | Full description of the perk, displayed when a customer clicks on it from the Perks listing page |
 | `--new-image-url` | string | URL of a new small image to upload for this perk |
@@ -86,9 +78,9 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--display-order` | int, required | Position of this perk in the list relative to other perks. Lower values appear first |
 | `--show-in-home-page` | bool | Whether to feature this perk on the Members Portal home page after users log in |
 | `--click-count` | int, required | Number of times customers have clicked on this perk |
-| `--only-for-contacts` | bool | Whether this perk is only available to contacts. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
-| `--only-for-members` | bool | Whether this perk is only available to members. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
-| `--tariffs` | list, repeat flag | IDs of the pricing plans (tariffs) whose members can see and claim this perk. Leave empty to make the perk available regardless of pricing plan |
+| `--only-for-contacts` | bool | Whether to exclude members and show this perk only to contacts, who have no active contract; do not set this and OnlyForMembers together |
+| `--only-for-members` | bool | Whether to exclude contacts and show this perk only to members, who have an active contract; do not set this and OnlyForContacts together |
+| `--tariffs` | list, repeat flag | List of plan IDs eligible for this perk when a customer is a member; an empty list does not restrict members by plan, and contacts are not checked against this list |
 | `--added-tariffs` | list, repeat flag | IDs of pricing plans to add to this perk's allowed tariffs |
 | `--removed-tariffs` | list, repeat flag | IDs of pricing plans to remove from this perk's allowed tariffs |
 
@@ -98,7 +90,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long | ID of the location this perk belongs to |
 | `--title` | string | Name of the perk as displayed on the Members Portal and the Admin Panel |
-| `--perk-url` | string | URL where customers are redirected when clicking the Claim button. If blank, no Claim button is shown. Must start with https:// |
+| `--perk-url` | string | Optional URL opened when a customer uses the Claim button; leave blank to omit the button |
 | `--summary-text` | string | Short description shown under the perk title on the Perks listing page of the Members Portal |
 | `--full-text` | string | Full description of the perk, displayed when a customer clicks on it from the Perks listing page |
 | `--new-image-url` | string | URL of a new small image to upload for this perk |
@@ -110,9 +102,9 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--display-order` | int | Position of this perk in the list relative to other perks. Lower values appear first |
 | `--show-in-home-page` | bool | Whether to feature this perk on the Members Portal home page after users log in |
 | `--click-count` | int | Number of times customers have clicked on this perk |
-| `--only-for-contacts` | bool | Whether this perk is only available to contacts. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
-| `--only-for-members` | bool | Whether this perk is only available to members. Set both OnlyForContacts and OnlyForMembers to false to make the perk available to all customers |
-| `--tariffs` | list, repeat flag | IDs of the pricing plans (tariffs) whose members can see and claim this perk. Leave empty to make the perk available regardless of pricing plan |
+| `--only-for-contacts` | bool | Whether to exclude members and show this perk only to contacts, who have no active contract; do not set this and OnlyForMembers together |
+| `--only-for-members` | bool | Whether to exclude contacts and show this perk only to members, who have an active contract; do not set this and OnlyForContacts together |
+| `--tariffs` | list, repeat flag | List of plan IDs eligible for this perk when a customer is a member; an empty list does not restrict members by plan, and contacts are not checked against this list |
 | `--added-tariffs` | list, repeat flag | IDs of pricing plans to add to this perk's allowed tariffs |
 | `--removed-tariffs` | list, repeat flag | IDs of pricing plans to remove from this perk's allowed tariffs |
 

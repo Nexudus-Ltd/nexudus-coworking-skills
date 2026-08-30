@@ -53,7 +53,9 @@ EventProducts support Search, Get, Create, Update, Delete.
 | `--currency-id` | long | ID of the ISO 4217 currency used for the ticket price. |
 | `--currency-code` | string | The currency code value for this event product |
 | `--tax-rate-id` | long | Optional ID of the tax rate applied when this ticket is invoiced. |
+| `--tax-rate-name` | string |  |
 | `--financial-account-id` | long | Optional ID of the financial account used to record ticket revenue. |
+| `--financial-account-name` | string |  |
 | `--only-for-contacts` | bool | Whether this ticket is restricted to contacts (customers without an active contract); do not combine with OnlyForMembers. |
 | `--only-for-members` | bool | Whether this ticket is restricted to members (customers with an active contract); when Tariffs is non-empty the member must hold an active contract on one of those plans, and this must not be combined with OnlyForContacts. |
 | `--tariff-names` | string | Read-only comma-separated display names of the plans in the Tariffs collection; change the Tariffs collection instead. |

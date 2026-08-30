@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Sensors -->
 
-A **Sensor** represents a physical IoT sensor deployed in a location for monitoring environmental conditions or occupancy. Sensors can detect presence, count people, measure temperature, humidity, noise, CO2 levels, and other metrics.
+A sensor is an IoT device for a location that receives or polls environmental and occupancy readings, and can use changed readings to update availability, manage bookings, and send alerts.
 
 Sensors support Search, Get, Create, Update, Delete.
 
@@ -24,44 +24,40 @@ Sensors support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--canned-response-id` | long | ID of the canned response linked to this record |
+| `--business-id` | long | ID of the required location that owns this sensor. |
+| `--canned-response-id` | long | ID of the optional email template used by sensor alert actions. |
 | `--canned-response-name` | string | Display name of the linked canned response (read-only) |
-| `--name` | string | The name value for this sensor |
-| `--reference` | string | The reference value for this sensor |
-| `--unit` | string | The unit value for this sensor |
-| `--active` | bool | Whether this sensor is currently active |
-| `--sensor-type` | enum | The sensor type value for this sensor |
-| `--data-strategy` | enum | The data strategy value for this sensor |
-| `--payload-data-path` | string | The payload data path value for this sensor |
-| `--action-trigger-function` | string | The action trigger function value for this sensor |
-| `--value-function` | string | The value function value for this sensor |
-| `--action-send-email-alert` | bool | Whether action send email alert is enabled |
-| `--alert-email-address` | string | The alert email address value for this sensor |
-| `--webhook-url` | string | The webhook url value for this sensor |
-| `--action-update-desk-availability` | bool | Whether action update desk availability is enabled |
-| `--action-update-resource-availability` | bool | Whether action update resource availability is enabled |
-| `--action-update-booking-occupancy` | bool | Whether action update booking occupancy is enabled |
-| `--action-send-customer-email-alert` | bool | Whether action send customer email alert is enabled |
-| `--action-booking-start` | bool | Whether action booking start is enabled |
-| `--action-booking-terminate` | bool | Whether action booking terminate is enabled |
-| `--action-check-in-or-out` | bool | Whether action check in or out is enabled |
-| `--action-make-http-request` | bool | Whether action make http request is enabled |
-| `--show-in-now-dashboard` | bool | Whether show in now dashboard is enabled |
-| `--show-in-portal` | bool | Whether show in portal is enabled |
-| `--shared-secret` | string | The shared secret value for this sensor |
-| `--api-key` | string | The api key value for this sensor |
-| `--username` | string | The username value for this sensor |
-| `--password` | string | The password value for this sensor |
-| `--received-data-on` | DateTime | Date/time value for received data on |
+| `--name` | string | Required non-empty display name for the sensor; together with Unit it identifies the sensor within the location. |
+| `--reference` | string | Required unique integration reference used to find this sensor within its location; set it when creating the sensor and do not change it later. |
+| `--unit` | string | Optional unit label for the sensor reading, such as C, percent, or people; together with Name it identifies the sensor within the location. |
+| `--active` | bool | Whether the sensor accepts incoming data and can be polled; inactive sensors do neither. |
+| `--sensor-type` | enum | Kind of reading produced by the device: PresenceDetection, PeopleCounter, Temperature, Humidity, Light, Noise, CO2, VolatileOrganicCompounds, HarmfulParticulates, Touch, Water, AtmosphericPressure, Power, OpenClosed, or Other; presence values are normalized to 0 or 1. |
+| `--data-strategy` | enum | How readings reach Nexudus: Polling fetches data from PayloadDataPath, while Endpoint, DisruptiveTechnologies, and Pressac receive data through their integrations. |
+| `--payload-data-path` | string | URL fetched for a Polling sensor to obtain its payload; polling does nothing when this value is empty. |
+| `--action-trigger-function` | string | Optional Flee expression that decides whether a changed reading runs enabled actions; leave empty to run actions for every changed reading, and use payload and sensor as the available context variables. |
+| `--value-function` | string | Optional Flee expression that extracts the sensor reading from the incoming payload; leave empty to use payload["value"]. |
+| `--action-send-email-alert` | bool | Whether a changed reading that triggers actions sends an operator email alert; repeated alerts are suppressed until a non-triggering reading occurs. |
+| `--alert-email-address` | string | Optional email address that receives operator sensor alerts when ActionSendEmailAlert is enabled; must be a valid email address. |
+| `--webhook-url` | string | Optional destination URL used by the HTTP request action; it is also logged as the polling source for diagnostics. |
+| `--action-update-desk-availability` | bool | Whether triggering readings update availability for the linked floor plan desks. |
+| `--action-update-resource-availability` | bool | Whether triggering readings update availability for the linked bookable resources. |
+| `--action-update-booking-occupancy` | bool | Whether triggering readings update occupancy for current bookings on linked resources. |
+| `--action-send-customer-email-alert` | bool | Whether a changed reading that triggers actions sends a customer alert email; repeated alerts are suppressed until a non-triggering reading occurs. |
+| `--action-booking-start` | bool | Whether triggering readings automatically start pending bookings on linked resources. |
+| `--action-booking-terminate` | bool | Whether triggering readings automatically terminate active bookings on linked resources. |
+| `--action-check-in-or-out` | bool | Whether triggering readings automatically check customers in or out. |
+| `--action-make-http-request` | bool | Whether triggering readings send an HTTP request to WebhookUrl. |
+| `--show-in-now-dashboard` | bool | Whether the sensor is shown in the Now dashboard for live monitoring. |
+| `--show-in-portal` | bool | Whether this active sensor is included in customer portal and app sensor data. |
+| `--received-data-on` | DateTime | Read-only UTC date and time when the last valid reading was received; it is set during data ingestion. |
 | `--from-received-data-on` | range | |
 | `--to-received-data-on` | range | |
-| `--last-received-value` | string | The last received value value for this sensor |
-| `--last-value-triggered-action` | bool | Whether last value triggered action is enabled |
-| `--battery-level` | int | The battery level value for this sensor |
+| `--last-received-value` | string | Read-only most recent valid reading after ValueFunction processing; change the device payload or ValueFunction instead. |
+| `--last-value-triggered-action` | bool | Whether the most recent changed reading passed ActionTriggerFunction and ran enabled actions; it is set during data ingestion. |
+| `--battery-level` | int | Read-only battery level reported by the device when available; it is maintained by sensor data ingestion. |
 | `--from-battery-level` | range | |
 | `--to-battery-level` | range | |
-| `--network-signal-strength` | int | The network signal strength value for this sensor |
+| `--network-signal-strength` | int | Read-only network signal strength reported by the device when available; it is maintained by sensor data ingestion. |
 | `--from-network-signal-strength` | range | |
 | `--to-network-signal-strength` | range | |
 | `--from-created-on` | range | |
@@ -82,78 +78,70 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--desks` | list, repeat flag | List of desks linked to this record |
+| `--business-id` | long, required | ID of the required location that owns this sensor. |
+| `--desks` | list, repeat flag | List of floor plan desks whose occupancy and latest sensor value this sensor can update; an empty list means no desks are affected. |
 | `--added-desks` | list, repeat flag | The added desks value for this sensor |
 | `--removed-desks` | list, repeat flag | The removed desks value for this sensor |
-| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--resources` | list, repeat flag | List of bookable resources whose availability, occupancy, and latest sensor value this sensor can update; an empty list means no resources are affected. |
 | `--added-resources` | list, repeat flag | The added resources value for this sensor |
 | `--removed-resources` | list, repeat flag | The removed resources value for this sensor |
-| `--canned-response-id` | long | ID of the canned response linked to this record |
-| `--name` | string, required | The name value for this sensor |
-| `--reference` | string, required | The reference value for this sensor |
-| `--unit` | string | The unit value for this sensor |
-| `--active` | bool | Whether this sensor is currently active |
-| `--sensor-type` | enum, required | The sensor type value for this sensor |
-| `--data-strategy` | enum, required | The data strategy value for this sensor |
-| `--payload-data-path` | string | The payload data path value for this sensor |
-| `--action-trigger-function` | string | The action trigger function value for this sensor |
-| `--value-function` | string | The value function value for this sensor |
-| `--action-send-email-alert` | bool | Whether action send email alert is enabled |
-| `--alert-email-address` | string | The alert email address value for this sensor |
-| `--webhook-url` | string | The webhook url value for this sensor |
-| `--action-update-desk-availability` | bool | Whether action update desk availability is enabled |
-| `--action-update-resource-availability` | bool | Whether action update resource availability is enabled |
-| `--action-update-booking-occupancy` | bool | Whether action update booking occupancy is enabled |
-| `--action-send-customer-email-alert` | bool | Whether action send customer email alert is enabled |
-| `--action-booking-start` | bool | Whether action booking start is enabled |
-| `--action-booking-terminate` | bool | Whether action booking terminate is enabled |
-| `--action-check-in-or-out` | bool | Whether action check in or out is enabled |
-| `--action-make-http-request` | bool | Whether action make http request is enabled |
-| `--show-in-now-dashboard` | bool | Whether show in now dashboard is enabled |
-| `--show-in-portal` | bool | Whether show in portal is enabled |
-| `--shared-secret` | string | The shared secret value for this sensor |
-| `--api-key` | string | The api key value for this sensor |
-| `--username` | string | The username value for this sensor |
-| `--password` | string | The password value for this sensor |
+| `--canned-response-id` | long | ID of the optional email template used by sensor alert actions. |
+| `--name` | string, required | Required non-empty display name for the sensor; together with Unit it identifies the sensor within the location. |
+| `--reference` | string, required | Required unique integration reference used to find this sensor within its location; set it when creating the sensor and do not change it later. |
+| `--unit` | string | Optional unit label for the sensor reading, such as C, percent, or people; together with Name it identifies the sensor within the location. |
+| `--active` | bool | Whether the sensor accepts incoming data and can be polled; inactive sensors do neither. |
+| `--sensor-type` | enum, required | Kind of reading produced by the device: PresenceDetection, PeopleCounter, Temperature, Humidity, Light, Noise, CO2, VolatileOrganicCompounds, HarmfulParticulates, Touch, Water, AtmosphericPressure, Power, OpenClosed, or Other; presence values are normalized to 0 or 1. |
+| `--data-strategy` | enum, required | How readings reach Nexudus: Polling fetches data from PayloadDataPath, while Endpoint, DisruptiveTechnologies, and Pressac receive data through their integrations. |
+| `--payload-data-path` | string | URL fetched for a Polling sensor to obtain its payload; polling does nothing when this value is empty. |
+| `--action-trigger-function` | string | Optional Flee expression that decides whether a changed reading runs enabled actions; leave empty to run actions for every changed reading, and use payload and sensor as the available context variables. |
+| `--value-function` | string | Optional Flee expression that extracts the sensor reading from the incoming payload; leave empty to use payload["value"]. |
+| `--action-send-email-alert` | bool | Whether a changed reading that triggers actions sends an operator email alert; repeated alerts are suppressed until a non-triggering reading occurs. |
+| `--alert-email-address` | string | Optional email address that receives operator sensor alerts when ActionSendEmailAlert is enabled; must be a valid email address. |
+| `--webhook-url` | string | Optional destination URL used by the HTTP request action; it is also logged as the polling source for diagnostics. |
+| `--action-update-desk-availability` | bool | Whether triggering readings update availability for the linked floor plan desks. |
+| `--action-update-resource-availability` | bool | Whether triggering readings update availability for the linked bookable resources. |
+| `--action-update-booking-occupancy` | bool | Whether triggering readings update occupancy for current bookings on linked resources. |
+| `--action-send-customer-email-alert` | bool | Whether a changed reading that triggers actions sends a customer alert email; repeated alerts are suppressed until a non-triggering reading occurs. |
+| `--action-booking-start` | bool | Whether triggering readings automatically start pending bookings on linked resources. |
+| `--action-booking-terminate` | bool | Whether triggering readings automatically terminate active bookings on linked resources. |
+| `--action-check-in-or-out` | bool | Whether triggering readings automatically check customers in or out. |
+| `--action-make-http-request` | bool | Whether triggering readings send an HTTP request to WebhookUrl. |
+| `--show-in-now-dashboard` | bool | Whether the sensor is shown in the Now dashboard for live monitoring. |
+| `--show-in-portal` | bool | Whether this active sensor is included in customer portal and app sensor data. |
 
 #### Sensor update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--desks` | list, repeat flag | List of desks linked to this record |
+| `--business-id` | long | ID of the required location that owns this sensor. |
+| `--desks` | list, repeat flag | List of floor plan desks whose occupancy and latest sensor value this sensor can update; an empty list means no desks are affected. |
 | `--added-desks` | list, repeat flag | The added desks value for this sensor |
 | `--removed-desks` | list, repeat flag | The removed desks value for this sensor |
-| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--resources` | list, repeat flag | List of bookable resources whose availability, occupancy, and latest sensor value this sensor can update; an empty list means no resources are affected. |
 | `--added-resources` | list, repeat flag | The added resources value for this sensor |
 | `--removed-resources` | list, repeat flag | The removed resources value for this sensor |
-| `--canned-response-id` | long | ID of the canned response linked to this record |
-| `--name` | string | The name value for this sensor |
-| `--unit` | string | The unit value for this sensor |
-| `--active` | bool | Whether this sensor is currently active |
-| `--sensor-type` | enum | The sensor type value for this sensor |
-| `--data-strategy` | enum | The data strategy value for this sensor |
-| `--payload-data-path` | string | The payload data path value for this sensor |
-| `--action-trigger-function` | string | The action trigger function value for this sensor |
-| `--value-function` | string | The value function value for this sensor |
-| `--action-send-email-alert` | bool | Whether action send email alert is enabled |
-| `--alert-email-address` | string | The alert email address value for this sensor |
-| `--webhook-url` | string | The webhook url value for this sensor |
-| `--action-update-desk-availability` | bool | Whether action update desk availability is enabled |
-| `--action-update-resource-availability` | bool | Whether action update resource availability is enabled |
-| `--action-update-booking-occupancy` | bool | Whether action update booking occupancy is enabled |
-| `--action-send-customer-email-alert` | bool | Whether action send customer email alert is enabled |
-| `--action-booking-start` | bool | Whether action booking start is enabled |
-| `--action-booking-terminate` | bool | Whether action booking terminate is enabled |
-| `--action-check-in-or-out` | bool | Whether action check in or out is enabled |
-| `--action-make-http-request` | bool | Whether action make http request is enabled |
-| `--show-in-now-dashboard` | bool | Whether show in now dashboard is enabled |
-| `--show-in-portal` | bool | Whether show in portal is enabled |
-| `--shared-secret` | string | The shared secret value for this sensor |
-| `--api-key` | string | The api key value for this sensor |
-| `--username` | string | The username value for this sensor |
-| `--password` | string | The password value for this sensor |
+| `--canned-response-id` | long | ID of the optional email template used by sensor alert actions. |
+| `--name` | string | Required non-empty display name for the sensor; together with Unit it identifies the sensor within the location. |
+| `--unit` | string | Optional unit label for the sensor reading, such as C, percent, or people; together with Name it identifies the sensor within the location. |
+| `--active` | bool | Whether the sensor accepts incoming data and can be polled; inactive sensors do neither. |
+| `--sensor-type` | enum | Kind of reading produced by the device: PresenceDetection, PeopleCounter, Temperature, Humidity, Light, Noise, CO2, VolatileOrganicCompounds, HarmfulParticulates, Touch, Water, AtmosphericPressure, Power, OpenClosed, or Other; presence values are normalized to 0 or 1. |
+| `--data-strategy` | enum | How readings reach Nexudus: Polling fetches data from PayloadDataPath, while Endpoint, DisruptiveTechnologies, and Pressac receive data through their integrations. |
+| `--payload-data-path` | string | URL fetched for a Polling sensor to obtain its payload; polling does nothing when this value is empty. |
+| `--action-trigger-function` | string | Optional Flee expression that decides whether a changed reading runs enabled actions; leave empty to run actions for every changed reading, and use payload and sensor as the available context variables. |
+| `--value-function` | string | Optional Flee expression that extracts the sensor reading from the incoming payload; leave empty to use payload["value"]. |
+| `--action-send-email-alert` | bool | Whether a changed reading that triggers actions sends an operator email alert; repeated alerts are suppressed until a non-triggering reading occurs. |
+| `--alert-email-address` | string | Optional email address that receives operator sensor alerts when ActionSendEmailAlert is enabled; must be a valid email address. |
+| `--webhook-url` | string | Optional destination URL used by the HTTP request action; it is also logged as the polling source for diagnostics. |
+| `--action-update-desk-availability` | bool | Whether triggering readings update availability for the linked floor plan desks. |
+| `--action-update-resource-availability` | bool | Whether triggering readings update availability for the linked bookable resources. |
+| `--action-update-booking-occupancy` | bool | Whether triggering readings update occupancy for current bookings on linked resources. |
+| `--action-send-customer-email-alert` | bool | Whether a changed reading that triggers actions sends a customer alert email; repeated alerts are suppressed until a non-triggering reading occurs. |
+| `--action-booking-start` | bool | Whether triggering readings automatically start pending bookings on linked resources. |
+| `--action-booking-terminate` | bool | Whether triggering readings automatically terminate active bookings on linked resources. |
+| `--action-check-in-or-out` | bool | Whether triggering readings automatically check customers in or out. |
+| `--action-make-http-request` | bool | Whether triggering readings send an HTTP request to WebhookUrl. |
+| `--show-in-now-dashboard` | bool | Whether the sensor is shown in the Now dashboard for live monitoring. |
+| `--show-in-portal` | bool | Whether this active sensor is included in customer portal and app sensor data. |
 
 **List properties (only returned by `get`, not by `list`):** `Desks`, `AddedDesks`, `RemovedDesks`, `Resources`, `AddedResources`, `RemovedResources`
 

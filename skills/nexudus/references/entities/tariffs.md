@@ -47,9 +47,11 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--currency-id` | long | ID of the currency linked to this record |
 | `--currency-code` | string | Currency code |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
+| `--tax-rate-name` | string |  |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
 | `--exempt-tax-rate-id` | long | Tax-exempt rate applied when applicable |
 | `--financial-account-id` | long | Financial account used for revenue tracking |
+| `--financial-account-name` | string |  |
 | `--terms-and-conditions` | string | Terms and conditions text that members must accept when signing up |
 | `--contract-document-file-name` | string | File name of the contract document template |
 | `--new-contract-document-url` | string | URL to upload a new contract document template |

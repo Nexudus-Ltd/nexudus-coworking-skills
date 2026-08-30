@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=SurveyQuestions -->
 
-A **SurveyQuestion** defines a single question within a survey, including its type (text, boolean, long text, date, dropdown, or binary), label, and display order.
+A survey question (SurveyQuestion) is an ordered question within a location's customer survey. It defines the customer-facing label, explanation, input type, optional choices, and whether the question is shown.
 
 SurveyQuestions support Search, Get, Create, Update, Delete.
 
@@ -24,17 +24,17 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-id` | long | ID of the survey linked to this record |
+| `--survey-id` | long | ID of the survey that contains this question; the survey's location determines access to the question |
 | `--survey-name` | string | Display name of the linked survey (read-only) |
-| `--text` | string | The text value for this survey question |
-| `--description` | string | Free-text description of this survey question |
-| `--available-options` | string | The available options value for this survey question |
-| `--active` | bool | Whether this survey question is currently active |
-| `--display-order` | int | The display order value for this survey question |
+| `--text` | string | Required question label shown to customers |
+| `--description` | string | Required explanatory text shown below the question to customers |
+| `--available-options` | string | Comma-separated choices for a Dropdown question; leave empty for other question types |
+| `--active` | bool | Whether this question appears in the customer-facing survey |
+| `--display-order` | int | Integer position for displaying this question; lower values appear first and the system renumbers questions after create or update |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
-| `--allow-multiple-options` | bool | Whether allow multiple options is enabled |
-| `--question-type` | enum | The question type value for this survey question |
+| `--allow-multiple-options` | bool | Whether customers can select more than one choice for a Dropdown question |
+| `--question-type` | enum | Controls the customer input: Text, Boolean (Yes/No), LongText, Date, Dropdown, or Binary file upload; defaults to Text |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -53,27 +53,27 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-id` | long, required | ID of the survey linked to this record |
-| `--text` | string, required | The text value for this survey question |
-| `--description` | string, required | Free-text description of this survey question |
-| `--available-options` | string | The available options value for this survey question |
-| `--active` | bool | Whether this survey question is currently active |
-| `--display-order` | int, required | The display order value for this survey question |
-| `--allow-multiple-options` | bool | Whether allow multiple options is enabled |
-| `--question-type` | enum, required | The question type value for this survey question |
+| `--survey-id` | long, required | ID of the survey that contains this question; the survey's location determines access to the question |
+| `--text` | string, required | Required question label shown to customers |
+| `--description` | string, required | Required explanatory text shown below the question to customers |
+| `--available-options` | string | Comma-separated choices for a Dropdown question; leave empty for other question types |
+| `--active` | bool | Whether this question appears in the customer-facing survey |
+| `--display-order` | int, required | Integer position for displaying this question; lower values appear first and the system renumbers questions after create or update |
+| `--allow-multiple-options` | bool | Whether customers can select more than one choice for a Dropdown question |
+| `--question-type` | enum, required | Controls the customer input: Text, Boolean (Yes/No), LongText, Date, Dropdown, or Binary file upload; defaults to Text |
 
 #### SurveyQuestion update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--survey-id` | long | ID of the survey linked to this record |
-| `--text` | string | The text value for this survey question |
-| `--description` | string | Free-text description of this survey question |
-| `--available-options` | string | The available options value for this survey question |
-| `--active` | bool | Whether this survey question is currently active |
-| `--display-order` | int | The display order value for this survey question |
-| `--allow-multiple-options` | bool | Whether allow multiple options is enabled |
-| `--question-type` | enum | The question type value for this survey question |
+| `--survey-id` | long | ID of the survey that contains this question; the survey's location determines access to the question |
+| `--text` | string | Required question label shown to customers |
+| `--description` | string | Required explanatory text shown below the question to customers |
+| `--available-options` | string | Comma-separated choices for a Dropdown question; leave empty for other question types |
+| `--active` | bool | Whether this question appears in the customer-facing survey |
+| `--display-order` | int | Integer position for displaying this question; lower values appear first and the system renumbers questions after create or update |
+| `--allow-multiple-options` | bool | Whether customers can select more than one choice for a Dropdown question |
+| `--question-type` | enum | Controls the customer input: Text, Boolean (Yes/No), LongText, Date, Dropdown, or Binary file upload; defaults to Text |
 
 #### SurveyQuestion enum values
 

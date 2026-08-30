@@ -26,6 +26,7 @@ FormPages support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this form page; the Admin Tool normally supplies it from the current location context |
 | `--business-name` | string | Display name of the linked business (read-only) |
+| `--business-web-address` | string |  |
 | `--name` | string | Required name used by administrators to identify this form page |
 | `--description` | string | Required free-text description explaining the purpose of this form |
 | `--active` | bool | Whether this form is active and available for use |

@@ -2,25 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=AutomationTiles -->
 
-An **AutomationTile** represents a physical NFC chip and QR code tile that triggers actions in a Nexudus-powered coworking space. Each tile is linked to a single action (e.g. check-in, booking, door unlock, HTTP request) that fires when a customer scans or taps the tile.
-
-The `Action` field determines what happens when the tile is scanned. Some actions require additional data in `ActionParameters`:
-
-| Action | ActionParameters format |
-| --- | --- |
-| CheckIn / CheckOut / EventCheckIn | Not required |
-| BookingCheckIn / ResourceCleaned / ShowNewBookingForm | Resource ID |
-| BookResource | Resource ID `\|` default booking length in minutes (default 60) |
-| BookDesk | Desk (floor plan item) ID `\|` default booking length in minutes (default 480) |
-| ExtendBookingBy | Number of minutes to extend |
-| RequestUrl | Target URL for the HTTP POST request |
-| RedirectUrl | URL to redirect the user to |
-| UnlockAct365Door / UnlockDoorDeckDoor / UnlockKisiDoor | Door ID from the access-control provider |
-| SmartLock | Smartalock locker bank ID |
-
-Tiles can optionally be geo-fenced to restrict scanning to a physical area around the tile's installed location. Enable `EnableGeofence`, set `Latitude`/`Longitude`, and choose a `GeofencePrecission` level. `MaxDistanceMeters` overrides the precision preset with a custom radius.
-
-Set `CheckCustomerIn` to also check the customer into the space when they scan the tile, regardless of the tile's primary action.
+An automation tile is a physical NFC or QR-code tile at a location that runs a configured action when a customer scans it, optionally restricting use by bookings, plans, passes, desks or offices, and geofencing.
 
 AutomationTiles support Search, Get, Create, Update, Delete.
 
@@ -42,25 +24,23 @@ AutomationTiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Tile name used to identify it in the admin panel |
-| `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
-| `--action` | enum | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
-| `--action-parameters` | string | Parameters for the selected action. Format depends on the action type — e.g. a resource ID, a URL, or a resource ID|duration pair |
-| `--enable-geofence` | bool | Whether to restrict the tile to a geographic area. When enabled, the tile only works if the user is within the configured radius of the tile's coordinates |
-| `--check-customer-in` | bool | Whether to also check the customer into the space when they scan the tile, regardless of the primary action |
-| `--longitude` | decimal | Longitude of the tile's installed location. Used for geofencing |
+| `--business-id` | long | ID of the location that owns this automation tile. |
+| `--name` | string | Name shown to customers when they scan the tile. |
+| `--tile-number` | string | Unique GUID assigned automatically when the tile is created; it identifies the tile in its QR-code and scan URL. |
+| `--action` | enum | Action performed when a customer scans the tile: None disables it; values also support check-in/out, booking and event actions, resource cleaning, HTTPS requests or redirects, and configured access-control or locker systems. |
+| `--action-parameters` | string | Action-specific value: use a resource or desk ID, optionally followed by | and booking duration in minutes; a resource ID optionally followed by | and desk ID for booking check-in or the booking form; minutes for ExtendBookingBy; or the relevant door, locker, or URL ID. RequestUrl must start with https. |
+| `--enable-geofence` | bool | Whether tile use is restricted to the geographic area configured by its coordinates and radius or precision. |
+| `--check-customer-in` | bool | Whether to check the customer in at the tile's location before running a non-CheckIn or non-CheckOut action. |
+| `--longitude` | decimal | Longitude coordinate of the tile for geographic restriction when EnableGeofence is enabled. |
 | `--from-longitude` | range | |
 | `--to-longitude` | range | |
-| `--latitude` | decimal | Latitude of the tile's installed location. Used for geofencing |
+| `--latitude` | decimal | Latitude coordinate of the tile for geographic restriction when EnableGeofence is enabled. |
 | `--from-latitude` | range | |
 | `--to-latitude` | range | |
-| `--geofence-precission` | enum | Geofence precision level: Low, Medium, High, or VeryHigh. Higher precision requires the user to be closer to the tile coordinates |
-| `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
+| `--geofence-precission` | enum | Geofence precision setting: Low, Medium, High, or VeryHigh; use with the tile coordinates when EnableGeofence is enabled. |
+| `--max-distance-meters` | int | Optional geofence radius in meters from the tile coordinates; use it when EnableGeofence is enabled. |
 | `--from-max-distance-meters` | range | |
 | `--to-max-distance-meters` | range | |
-| `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
-| `--error-message` | string | Custom error message shown to the user when the tile action fails |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -79,29 +59,26 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | Tile name used to identify it in the admin panel |
-| `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
-| `--action` | enum, required | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
-| `--action-parameters` | string | Parameters for the selected action. Format depends on the action type — e.g. a resource ID, a URL, or a resource ID|duration pair |
-| `--enable-geofence` | bool | Whether to restrict the tile to a geographic area. When enabled, the tile only works if the user is within the configured radius of the tile's coordinates |
-| `--check-customer-in` | bool | Whether to also check the customer into the space when they scan the tile, regardless of the primary action |
-| `--longitude` | decimal | Longitude of the tile's installed location. Used for geofencing |
-| `--latitude` | decimal | Latitude of the tile's installed location. Used for geofencing |
-| `--geofence-precission` | enum, required | Geofence precision level: Low, Medium, High, or VeryHigh. Higher precision requires the user to be closer to the tile coordinates |
-| `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
-| `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
-| `--error-message` | string | Custom error message shown to the user when the tile action fails |
-| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--business-id` | long, required | ID of the location that owns this automation tile. |
+| `--name` | string, required | Name shown to customers when they scan the tile. |
+| `--action` | enum, required | Action performed when a customer scans the tile: None disables it; values also support check-in/out, booking and event actions, resource cleaning, HTTPS requests or redirects, and configured access-control or locker systems. |
+| `--action-parameters` | string | Action-specific value: use a resource or desk ID, optionally followed by | and booking duration in minutes; a resource ID optionally followed by | and desk ID for booking check-in or the booking form; minutes for ExtendBookingBy; or the relevant door, locker, or URL ID. RequestUrl must start with https. |
+| `--enable-geofence` | bool | Whether tile use is restricted to the geographic area configured by its coordinates and radius or precision. |
+| `--check-customer-in` | bool | Whether to check the customer in at the tile's location before running a non-CheckIn or non-CheckOut action. |
+| `--longitude` | decimal | Longitude coordinate of the tile for geographic restriction when EnableGeofence is enabled. |
+| `--latitude` | decimal | Latitude coordinate of the tile for geographic restriction when EnableGeofence is enabled. |
+| `--geofence-precission` | enum, required | Geofence precision setting: Low, Medium, High, or VeryHigh; use with the tile coordinates when EnableGeofence is enabled. |
+| `--max-distance-meters` | int | Optional geofence radius in meters from the tile coordinates; use it when EnableGeofence is enabled. |
+| `--resources` | list, repeat flag | List of resources for which the customer must have a current booking to use this tile; an empty list imposes no resource-booking restriction. |
 | `--added-resources` | list, repeat flag | The added resources value for this automation tile |
 | `--removed-resources` | list, repeat flag | The removed resources value for this automation tile |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--tariffs` | list, repeat flag | List of plans the customer must hold through an active contract to use this tile; an empty list imposes no plan restriction. |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this automation tile |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this automation tile |
-| `--time-passes` | list, repeat flag | List of time passes linked to this record |
+| `--time-passes` | list, repeat flag | List of passes the customer must hold to use this tile; an empty list imposes no pass restriction. |
 | `--added-time-passes` | list, repeat flag | The added time passes value for this automation tile |
 | `--removed-time-passes` | list, repeat flag | The removed time passes value for this automation tile |
-| `--floor-plan-desks` | list, repeat flag | List of floor plan desks linked to this record |
+| `--floor-plan-desks` | list, repeat flag | List of desks or offices the customer or their paying member must hold through an active contract to use this tile; an empty list imposes no desk restriction. |
 | `--added-floor-plan-desks` | list, repeat flag | The added floor plan desks value for this automation tile |
 | `--removed-floor-plan-desks` | list, repeat flag | The removed floor plan desks value for this automation tile |
 
@@ -109,29 +86,26 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Tile name used to identify it in the admin panel |
-| `--tile-number` | string | Unique tile identifier (GUID) auto-assigned on creation. Used to generate the QR code and NFC URL |
-| `--action` | enum | Action triggered when the tile is scanned: None, CheckIn, CheckOut, BookingCheckIn, EventCheckIn, ExtendBookingBy, RequestUrl, RedirectUrl, ResourceCleaned, BookResource, BookDesk, ShowNewBookingForm, UnlockAct365Door, UnlockDoorDeckDoor, UnlockKisiDoor, SmartLock, etc. |
-| `--action-parameters` | string | Parameters for the selected action. Format depends on the action type — e.g. a resource ID, a URL, or a resource ID|duration pair |
-| `--enable-geofence` | bool | Whether to restrict the tile to a geographic area. When enabled, the tile only works if the user is within the configured radius of the tile's coordinates |
-| `--check-customer-in` | bool | Whether to also check the customer into the space when they scan the tile, regardless of the primary action |
-| `--longitude` | decimal | Longitude of the tile's installed location. Used for geofencing |
-| `--latitude` | decimal | Latitude of the tile's installed location. Used for geofencing |
-| `--geofence-precission` | enum | Geofence precision level: Low, Medium, High, or VeryHigh. Higher precision requires the user to be closer to the tile coordinates |
-| `--max-distance-meters` | int | Custom maximum distance in meters from the tile's coordinates. Overrides the precision preset when set |
-| `--success-message` | string | Custom message shown to the user when the tile action completes successfully |
-| `--error-message` | string | Custom error message shown to the user when the tile action fails |
-| `--resources` | list, repeat flag | List of resources linked to this record |
+| `--business-id` | long | ID of the location that owns this automation tile. |
+| `--name` | string | Name shown to customers when they scan the tile. |
+| `--action` | enum | Action performed when a customer scans the tile: None disables it; values also support check-in/out, booking and event actions, resource cleaning, HTTPS requests or redirects, and configured access-control or locker systems. |
+| `--action-parameters` | string | Action-specific value: use a resource or desk ID, optionally followed by | and booking duration in minutes; a resource ID optionally followed by | and desk ID for booking check-in or the booking form; minutes for ExtendBookingBy; or the relevant door, locker, or URL ID. RequestUrl must start with https. |
+| `--enable-geofence` | bool | Whether tile use is restricted to the geographic area configured by its coordinates and radius or precision. |
+| `--check-customer-in` | bool | Whether to check the customer in at the tile's location before running a non-CheckIn or non-CheckOut action. |
+| `--longitude` | decimal | Longitude coordinate of the tile for geographic restriction when EnableGeofence is enabled. |
+| `--latitude` | decimal | Latitude coordinate of the tile for geographic restriction when EnableGeofence is enabled. |
+| `--geofence-precission` | enum | Geofence precision setting: Low, Medium, High, or VeryHigh; use with the tile coordinates when EnableGeofence is enabled. |
+| `--max-distance-meters` | int | Optional geofence radius in meters from the tile coordinates; use it when EnableGeofence is enabled. |
+| `--resources` | list, repeat flag | List of resources for which the customer must have a current booking to use this tile; an empty list imposes no resource-booking restriction. |
 | `--added-resources` | list, repeat flag | The added resources value for this automation tile |
 | `--removed-resources` | list, repeat flag | The removed resources value for this automation tile |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--tariffs` | list, repeat flag | List of plans the customer must hold through an active contract to use this tile; an empty list imposes no plan restriction. |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this automation tile |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this automation tile |
-| `--time-passes` | list, repeat flag | List of time passes linked to this record |
+| `--time-passes` | list, repeat flag | List of passes the customer must hold to use this tile; an empty list imposes no pass restriction. |
 | `--added-time-passes` | list, repeat flag | The added time passes value for this automation tile |
 | `--removed-time-passes` | list, repeat flag | The removed time passes value for this automation tile |
-| `--floor-plan-desks` | list, repeat flag | List of floor plan desks linked to this record |
+| `--floor-plan-desks` | list, repeat flag | List of desks or offices the customer or their paying member must hold through an active contract to use this tile; an empty list imposes no desk restriction. |
 | `--added-floor-plan-desks` | list, repeat flag | The added floor plan desks value for this automation tile |
 | `--removed-floor-plan-desks` | list, repeat flag | The removed floor plan desks value for this automation tile |
 

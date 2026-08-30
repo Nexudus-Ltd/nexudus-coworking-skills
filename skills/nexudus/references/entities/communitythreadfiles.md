@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CommunityThreadFiles -->
 
-A **CommunityThreadFile** is a file or image attached to a `CommunityThread` conversation on the Discussion Board. When starting a conversation, customers can optionally include a picture or file alongside the opening message.
+A CommunityThreadFile is a file or image attached to a CommunityThread conversation on the Discussion Board. When starting a conversation, customers can optionally include a picture or file alongside the opening message.
 
 CommunityThreadFiles support Search, Get, Create, Update, Delete.
 

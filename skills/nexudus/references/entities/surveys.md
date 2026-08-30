@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Surveys -->
 
-A **Survey** defines a questionnaire that can be delivered to customers on a schedule or triggered by specific events. Surveys support configurable delivery frequency and can target specific customer segments.
+A survey (Survey) is a location-specific questionnaire sent to selected customers on a recurring schedule. It defines delivery timing, customer eligibility, and the questions customers can answer.
 
 Surveys support Search, Get, Create, Update, Delete.
 
@@ -16,7 +16,7 @@ Surveys support Search, Get, Create, Update, Delete.
 | `nexudus surveys list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus surveys list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus surveys get <id> --agent` | Get single survey |
-| `nexudus surveys create --business-id <value> --name <value> --description <value> --next-delivery-date <value> --delivery-rate <value> --delivery-frequency <value> --delivery-rate-maximum <value> --delivery-frequency-maximum <value> --agent` | Create survey |
+| `nexudus surveys create --business-id <value> --name <value> --description <value> --next-delivery-date <value> --delivery-rate <value> --delivery-frequency <value> --delivery-rate-maximum <value> --agent` | Create survey |
 | `nexudus surveys update <id> --name "New Name" --agent` | Update survey |
 | `nexudus surveys delete <id> --yes --agent` | Delete survey (no prompt) |
 
@@ -24,28 +24,27 @@ Surveys support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
+| `--business-id` | long | ID of the location that owns this survey; the Admin Tool normally supplies it from the current location context |
 | `--business-name` | string | Display name of the linked business (read-only) |
-| `--name` | string | The name value for this survey |
-| `--description` | string | Free-text description of this survey |
-| `--active` | bool | Whether this survey is currently active |
-| `--next-delivery-date` | DateTime | Date/time value for next delivery date |
+| `--business-web-address` | string |  |
+| `--name` | string | Required name used by administrators to identify this survey |
+| `--description` | string | Required free-text description explaining the purpose of this survey |
+| `--active` | bool | Whether this survey is eligible for scheduled delivery when its next delivery date is due |
+| `--next-delivery-date` | DateTime | UTC date and time when the next scheduled delivery is due; the system advances it by the delivery rate after a delivery |
 | `--from-next-delivery-date` | range | |
 | `--to-next-delivery-date` | range | |
-| `--delivery-rate` | int | The delivery rate value for this survey |
+| `--delivery-rate` | int | Positive number of delivery-frequency units between scheduled deliveries; a value of zero prevents scheduled delivery |
 | `--from-delivery-rate` | range | |
 | `--to-delivery-rate` | range | |
-| `--delivery-frequency` | enum | The delivery frequency value for this survey |
-| `--delivery-rate-maximum` | int | The delivery rate maximum value for this survey |
+| `--delivery-frequency` | enum | Unit used by DeliveryRate and the delivery cap: Weeks, Months, or Years; defaults to Weeks |
+| `--delivery-rate-maximum` | int | Maximum number of DeliveryFrequency units after StartDate for scheduled deliveries; zero means no end date |
 | `--from-delivery-rate-maximum` | range | |
 | `--to-delivery-rate-maximum` | range | |
-| `--delivery-frequency-maximum` | enum | The delivery frequency maximum value for this survey |
-| `--start-date` | DateTime | Date/time value for start date |
+| `--start-date` | DateTime | Optional UTC date and time from which the delivery cap is measured; without it, the delivery cap does not apply |
 | `--from-start-date` | range | |
 | `--to-start-date` | range | |
-| `--scheduled-job-id` | string | ID of the scheduled job associated with this record |
-| `--only-for-contacts` | bool | Whether only for contacts is enabled |
-| `--only-for-members` | bool | Whether only for members is enabled |
+| `--only-for-contacts` | bool | Whether delivery is restricted to contacts without an active contract; when enabled with OnlyForMembers, both restrictions apply and no customer can qualify |
+| `--only-for-members` | bool | Whether delivery is restricted to members with an active contract; when Tariffs is non-empty, the contract must be on one of those plans |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -64,19 +63,18 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this survey |
-| `--description` | string, required | Free-text description of this survey |
-| `--active` | bool | Whether this survey is currently active |
-| `--next-delivery-date` | DateTime, required | Date/time value for next delivery date |
-| `--delivery-rate` | int, required | The delivery rate value for this survey |
-| `--delivery-frequency` | enum, required | The delivery frequency value for this survey |
-| `--delivery-rate-maximum` | int, required | The delivery rate maximum value for this survey |
-| `--delivery-frequency-maximum` | enum, required | The delivery frequency maximum value for this survey |
-| `--start-date` | DateTime | Date/time value for start date |
-| `--only-for-contacts` | bool | Whether only for contacts is enabled |
-| `--only-for-members` | bool | Whether only for members is enabled |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--business-id` | long, required | ID of the location that owns this survey; the Admin Tool normally supplies it from the current location context |
+| `--name` | string, required | Required name used by administrators to identify this survey |
+| `--description` | string, required | Required free-text description explaining the purpose of this survey |
+| `--active` | bool | Whether this survey is eligible for scheduled delivery when its next delivery date is due |
+| `--next-delivery-date` | DateTime, required | UTC date and time when the next scheduled delivery is due; the system advances it by the delivery rate after a delivery |
+| `--delivery-rate` | int, required | Positive number of delivery-frequency units between scheduled deliveries; a value of zero prevents scheduled delivery |
+| `--delivery-frequency` | enum, required | Unit used by DeliveryRate and the delivery cap: Weeks, Months, or Years; defaults to Weeks |
+| `--delivery-rate-maximum` | int, required | Maximum number of DeliveryFrequency units after StartDate for scheduled deliveries; zero means no end date |
+| `--start-date` | DateTime | Optional UTC date and time from which the delivery cap is measured; without it, the delivery cap does not apply |
+| `--only-for-contacts` | bool | Whether delivery is restricted to contacts without an active contract; when enabled with OnlyForMembers, both restrictions apply and no customer can qualify |
+| `--only-for-members` | bool | Whether delivery is restricted to members with an active contract; when Tariffs is non-empty, the contract must be on one of those plans |
+| `--tariffs` | list, repeat flag | List of plans eligible for member-only delivery; when OnlyForMembers is enabled, an empty list allows every member, otherwise the customer needs an active contract on one of these plans |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this survey |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this survey |
 
@@ -84,19 +82,18 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this survey |
-| `--description` | string | Free-text description of this survey |
-| `--active` | bool | Whether this survey is currently active |
-| `--next-delivery-date` | DateTime | Date/time value for next delivery date |
-| `--delivery-rate` | int | The delivery rate value for this survey |
-| `--delivery-frequency` | enum | The delivery frequency value for this survey |
-| `--delivery-rate-maximum` | int | The delivery rate maximum value for this survey |
-| `--delivery-frequency-maximum` | enum | The delivery frequency maximum value for this survey |
-| `--start-date` | DateTime | Date/time value for start date |
-| `--only-for-contacts` | bool | Whether only for contacts is enabled |
-| `--only-for-members` | bool | Whether only for members is enabled |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
+| `--business-id` | long | ID of the location that owns this survey; the Admin Tool normally supplies it from the current location context |
+| `--name` | string | Required name used by administrators to identify this survey |
+| `--description` | string | Required free-text description explaining the purpose of this survey |
+| `--active` | bool | Whether this survey is eligible for scheduled delivery when its next delivery date is due |
+| `--next-delivery-date` | DateTime | UTC date and time when the next scheduled delivery is due; the system advances it by the delivery rate after a delivery |
+| `--delivery-rate` | int | Positive number of delivery-frequency units between scheduled deliveries; a value of zero prevents scheduled delivery |
+| `--delivery-frequency` | enum | Unit used by DeliveryRate and the delivery cap: Weeks, Months, or Years; defaults to Weeks |
+| `--delivery-rate-maximum` | int | Maximum number of DeliveryFrequency units after StartDate for scheduled deliveries; zero means no end date |
+| `--start-date` | DateTime | Optional UTC date and time from which the delivery cap is measured; without it, the delivery cap does not apply |
+| `--only-for-contacts` | bool | Whether delivery is restricted to contacts without an active contract; when enabled with OnlyForMembers, both restrictions apply and no customer can qualify |
+| `--only-for-members` | bool | Whether delivery is restricted to members with an active contract; when Tariffs is non-empty, the contract must be on one of those plans |
+| `--tariffs` | list, repeat flag | List of plans eligible for member-only delivery; when OnlyForMembers is enabled, an empty list allows every member, otherwise the customer needs an active contract on one of these plans |
 | `--added-tariffs` | list, repeat flag | The added tariffs value for this survey |
 | `--removed-tariffs` | list, repeat flag | The removed tariffs value for this survey |
 
@@ -107,6 +104,5 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | Option | Valid values |
 | ------ | ------------ |
 | `--delivery-frequency` | `1` Weeks, `2` Months, `3` Years |
-| `--delivery-frequency-maximum` | `1` Weeks, `2` Months, `3` Years |
 
 <!-- END:GENERATED entity=Surveys -->

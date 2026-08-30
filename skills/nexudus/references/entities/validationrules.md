@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ValidationRules -->
 
-A **ValidationRule** defines a custom business rule that validates data before it is saved. Rules can be applied to various record types (coworkers, bookings, contracts, visitors, etc.) and enforce custom conditions beyond the standard field validations.
+A validation rule is a location-scoped custom expression evaluated when selected records are created or updated; a false result blocks the save with its configured error message.
 
 ValidationRules support Search, Get, Create, Update, Delete.
 
@@ -24,13 +24,13 @@ ValidationRules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this validation rule |
-| `--record-type` | enum | The record type value for this validation rule |
-| `--active` | bool | Whether this validation rule is currently active |
-| `--formula` | string | The formula value for this validation rule |
-| `--description` | string | Free-text description of this validation rule |
-| `--error-message` | string | The error message value for this validation rule |
+| `--business-id` | long | ID of the location that owns this rule; a rule on a network location is also evaluated for records in its child locations |
+| `--name` | string | Required internal name for this rule; it is returned as the failure message when ErrorMessage is null |
+| `--record-type` | enum | Record type this rule evaluates: Coworker (customer), Booking, CoworkerContract, Visitor, CoworkerProduct, ProposalContract, CoworkerInvoice, Teams, or EventAttendees |
+| `--active` | bool | Whether this rule is evaluated when a matching record is created or updated; only active rules are selected for evaluation |
+| `--formula` | string | Required Flee expression that returns true to allow the record and false to reject it; use record, isCreate, isUpdate, user, and the available CustomFunctions as evaluation context |
+| `--description` | string | Optional internal notes explaining this rule; not shown to customers |
+| `--error-message` | string | Message returned when Formula evaluates to false; when null, the rule Name is returned instead |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -49,25 +49,25 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this validation rule |
-| `--record-type` | enum, required | The record type value for this validation rule |
-| `--active` | bool | Whether this validation rule is currently active |
-| `--formula` | string, required | The formula value for this validation rule |
-| `--description` | string | Free-text description of this validation rule |
-| `--error-message` | string | The error message value for this validation rule |
+| `--business-id` | long, required | ID of the location that owns this rule; a rule on a network location is also evaluated for records in its child locations |
+| `--name` | string, required | Required internal name for this rule; it is returned as the failure message when ErrorMessage is null |
+| `--record-type` | enum, required | Record type this rule evaluates: Coworker (customer), Booking, CoworkerContract, Visitor, CoworkerProduct, ProposalContract, CoworkerInvoice, Teams, or EventAttendees |
+| `--active` | bool | Whether this rule is evaluated when a matching record is created or updated; only active rules are selected for evaluation |
+| `--formula` | string, required | Required Flee expression that returns true to allow the record and false to reject it; use record, isCreate, isUpdate, user, and the available CustomFunctions as evaluation context |
+| `--description` | string | Optional internal notes explaining this rule; not shown to customers |
+| `--error-message` | string | Message returned when Formula evaluates to false; when null, the rule Name is returned instead |
 
 #### ValidationRule update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this validation rule |
-| `--record-type` | enum | The record type value for this validation rule |
-| `--active` | bool | Whether this validation rule is currently active |
-| `--formula` | string | The formula value for this validation rule |
-| `--description` | string | Free-text description of this validation rule |
-| `--error-message` | string | The error message value for this validation rule |
+| `--business-id` | long | ID of the location that owns this rule; a rule on a network location is also evaluated for records in its child locations |
+| `--name` | string | Required internal name for this rule; it is returned as the failure message when ErrorMessage is null |
+| `--record-type` | enum | Record type this rule evaluates: Coworker (customer), Booking, CoworkerContract, Visitor, CoworkerProduct, ProposalContract, CoworkerInvoice, Teams, or EventAttendees |
+| `--active` | bool | Whether this rule is evaluated when a matching record is created or updated; only active rules are selected for evaluation |
+| `--formula` | string | Required Flee expression that returns true to allow the record and false to reject it; use record, isCreate, isUpdate, user, and the available CustomFunctions as evaluation context |
+| `--description` | string | Optional internal notes explaining this rule; not shown to customers |
+| `--error-message` | string | Message returned when Formula evaluates to false; when null, the rule Name is returned instead |
 
 #### ValidationRule enum values
 

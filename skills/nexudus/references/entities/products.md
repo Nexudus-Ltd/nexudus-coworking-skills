@@ -53,9 +53,11 @@ Products also support entity commands.
 | `--currency-id` | long | ID of the currency linked to this product |
 | `--currency-code` | string | Currency code |
 | `--tax-rate-id` | long | ID of the tax rate linked to this product |
+| `--tax-rate-name` | string |  |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this product |
 | `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this product |
 | `--financial-account-id` | long | ID of the financial account linked to this product |
+| `--financial-account-name` | string |  |
 | `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
