@@ -70,17 +70,17 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--geofence-precission` | enum, required | Geofence precision setting: Low, Medium, High, or VeryHigh; use with the tile coordinates when EnableGeofence is enabled. |
 | `--max-distance-meters` | int | Optional geofence radius in meters from the tile coordinates; use it when EnableGeofence is enabled. |
 | `--resources` | list, repeat flag | List of resources for which the customer must have a current booking to use this tile; an empty list imposes no resource-booking restriction. |
-| `--added-resources` | list, repeat flag | The added resources value for this automation tile |
-| `--removed-resources` | list, repeat flag | The removed resources value for this automation tile |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--tariffs` | list, repeat flag | List of plans the customer must hold through an active contract to use this tile; an empty list imposes no plan restriction. |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this automation tile |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this automation tile |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--time-passes` | list, repeat flag | List of passes the customer must hold to use this tile; an empty list imposes no pass restriction. |
-| `--added-time-passes` | list, repeat flag | The added time passes value for this automation tile |
-| `--removed-time-passes` | list, repeat flag | The removed time passes value for this automation tile |
+| `--added-time-passes` | list, repeat flag | IDs added to the TimePasses relationship. |
+| `--removed-time-passes` | list, repeat flag | IDs removed from the TimePasses relationship. |
 | `--floor-plan-desks` | list, repeat flag | List of desks or offices the customer or their paying member must hold through an active contract to use this tile; an empty list imposes no desk restriction. |
-| `--added-floor-plan-desks` | list, repeat flag | The added floor plan desks value for this automation tile |
-| `--removed-floor-plan-desks` | list, repeat flag | The removed floor plan desks value for this automation tile |
+| `--added-floor-plan-desks` | list, repeat flag | IDs added to the FloorPlanDesks relationship. |
+| `--removed-floor-plan-desks` | list, repeat flag | IDs removed from the FloorPlanDesks relationship. |
 
 #### AutomationTile update options
 
@@ -97,17 +97,17 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--geofence-precission` | enum | Geofence precision setting: Low, Medium, High, or VeryHigh; use with the tile coordinates when EnableGeofence is enabled. |
 | `--max-distance-meters` | int | Optional geofence radius in meters from the tile coordinates; use it when EnableGeofence is enabled. |
 | `--resources` | list, repeat flag | List of resources for which the customer must have a current booking to use this tile; an empty list imposes no resource-booking restriction. |
-| `--added-resources` | list, repeat flag | The added resources value for this automation tile |
-| `--removed-resources` | list, repeat flag | The removed resources value for this automation tile |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--tariffs` | list, repeat flag | List of plans the customer must hold through an active contract to use this tile; an empty list imposes no plan restriction. |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this automation tile |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this automation tile |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--time-passes` | list, repeat flag | List of passes the customer must hold to use this tile; an empty list imposes no pass restriction. |
-| `--added-time-passes` | list, repeat flag | The added time passes value for this automation tile |
-| `--removed-time-passes` | list, repeat flag | The removed time passes value for this automation tile |
+| `--added-time-passes` | list, repeat flag | IDs added to the TimePasses relationship. |
+| `--removed-time-passes` | list, repeat flag | IDs removed from the TimePasses relationship. |
 | `--floor-plan-desks` | list, repeat flag | List of desks or offices the customer or their paying member must hold through an active contract to use this tile; an empty list imposes no desk restriction. |
-| `--added-floor-plan-desks` | list, repeat flag | The added floor plan desks value for this automation tile |
-| `--removed-floor-plan-desks` | list, repeat flag | The removed floor plan desks value for this automation tile |
+| `--added-floor-plan-desks` | list, repeat flag | IDs added to the FloorPlanDesks relationship. |
+| `--removed-floor-plan-desks` | list, repeat flag | IDs removed from the FloorPlanDesks relationship. |
 
 ### AutomationTile (key fields)
 

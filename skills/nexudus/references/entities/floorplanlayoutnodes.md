@@ -25,7 +25,7 @@ FloorPlanLayoutNodes support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
-| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
+| `--floor-plan-layout-name` | string | Display value for FloorPlanLayout.Name. |
 | `--node-key` | string | The node key value for this floor plan layout node |
 | `--pos-x` | int | The x value for this floor plan layout node |
 | `--from-pos-x` | range | |

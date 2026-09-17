@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=RadiusServers -->
 
-A **RadiusServer** configures a RADIUS authentication server used for Wi-Fi access control. Each server defines the vendor type, connection settings, and shared secret for authenticating customer devices on the network.
+A RADIUS server is a hosted Wi-Fi authentication network that a location rents through the built-in provider integration, so customers sign in to the Wi-Fi with their Nexudus account and their network sessions become check-ins. Creating a record is not a settings change: the backend calls the provider to build a real network, a captive portal for the selected Vendor, and an authentication endpoint, then stores the returned network, portal, splash-page, IP, port and shared-secret values as read-only fields the operator copies into their wireless controller. It fails unless the location has a RADIUS licence key configured. Deleting a record deletes the network and captive portal at the provider and cannot be undone. Only the first active server of a location is used, an active server is billed monthly, and a server that is not active is skipped by the 15-minute synchronisation. The record alone does not grant anyone Wi-Fi access; that depends on each customer allowing network check-in and holding a pass that allows it.
 
 RadiusServers support Search, Get, Create, Update, Delete.
 
@@ -24,20 +24,18 @@ RadiusServers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this radius server |
-| `--vendor` | enum | The vendor value for this radius server |
-| `--active` | bool | Whether this radius server is currently active |
-| `--description` | string | Free-text description of this radius server |
-| `--customer-id` | string | ID of the customer associated with this record |
-| `--network-id` | string | ID of the network associated with this record |
-| `--captive-portal-id` | string | ID of the captive portal associated with this record |
-| `--splash-page-id` | string | ID of the splash page associated with this record |
-| `--radius-ip1` | string | The radius ip1 value for this radius server |
-| `--radius-ip2` | string | The radius ip2 value for this radius server |
-| `--account-port` | string | The account port value for this radius server |
-| `--auth-port` | string | The auth port value for this radius server |
-| `--shared-secret` | string | The shared secret value for this radius server |
+| `--business-id` | long | ID of the location that owns this RADIUS server. The location's RADIUS licence key setting decides whether the server can be provisioned at all, and its country selects the hosting region: US, AU, or Europe for everywhere else. |
+| `--name` | string | Operator-facing label for this server in the location's list. The provider-side network and captive portal are named automatically from the location name and the creation date, so this value is not sent to the provider. |
+| `--vendor` | enum | Wireless hardware or controller the captive portal is built for, such as Meraki_Sign_On, Ubiquiti_Networks, MikroTik or Ruckus_Wireless; use Other when the vendor is not listed. It is applied only while the captive portal is provisioned during creation, so changing it afterwards does not rebuild the portal and the admin form disables it once the record exists. |
+| `--active` | bool | Whether this server is included in the RADIUS synchronisation that runs every 15 minutes to import provider accounting data as customer check-ins. Only the first active server of a location is used, and an active server also adds a RADIUS line to the location's monthly invoice. Set false to stop syncing and billing without tearing down the provisioned network. |
+| `--description` | string | Optional free-text note about this server. It is not shown on the admin form and is not sent to the provider. |
+| `--network-id` | string | Read-only identifier of the hosted RADIUS network created by the provider when this record was saved. Deleting the record deletes that network at the provider; it cannot be set or changed. |
+| `--captive-portal-id` | string | Read-only identifier of the captive portal created alongside the network at creation time, using the selected Vendor. Deleting the record deletes the portal at the provider; it cannot be set or changed. |
+| `--splash-page-id` | string | Read-only public identifier the provider generates for the captive portal's splash page. It appears in the customer-facing Wi-Fi login URL and cannot be set or changed. |
+| `--radius-ip1` | string | Read-only primary RADIUS server IP address supplied by the provider at creation. The operator enters it in the wireless controller's RADIUS settings; it cannot be set or changed here. |
+| `--radius-ip2` | string | Read-only backup RADIUS server IP address supplied by the provider at creation, used when the primary address is unreachable. It cannot be set or changed here. |
+| `--account-port` | string | Read-only RADIUS accounting port supplied by the provider at creation. The wireless controller sends accounting packets here, which become customer check-ins on the next synchronisation. |
+| `--auth-port` | string | Read-only RADIUS authentication port supplied by the provider at creation. The wireless controller sends authentication requests here. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -56,21 +54,21 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this radius server |
-| `--vendor` | enum, required | The vendor value for this radius server |
-| `--active` | bool | Whether this radius server is currently active |
-| `--description` | string | Free-text description of this radius server |
+| `--business-id` | long, required | ID of the location that owns this RADIUS server. The location's RADIUS licence key setting decides whether the server can be provisioned at all, and its country selects the hosting region: US, AU, or Europe for everywhere else. |
+| `--name` | string, required | Operator-facing label for this server in the location's list. The provider-side network and captive portal are named automatically from the location name and the creation date, so this value is not sent to the provider. |
+| `--vendor` | enum, required | Wireless hardware or controller the captive portal is built for, such as Meraki_Sign_On, Ubiquiti_Networks, MikroTik or Ruckus_Wireless; use Other when the vendor is not listed. It is applied only while the captive portal is provisioned during creation, so changing it afterwards does not rebuild the portal and the admin form disables it once the record exists. |
+| `--active` | bool | Whether this server is included in the RADIUS synchronisation that runs every 15 minutes to import provider accounting data as customer check-ins. Only the first active server of a location is used, and an active server also adds a RADIUS line to the location's monthly invoice. Set false to stop syncing and billing without tearing down the provisioned network. |
+| `--description` | string | Optional free-text note about this server. It is not shown on the admin form and is not sent to the provider. |
 
 #### RadiusServer update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this radius server |
-| `--vendor` | enum | The vendor value for this radius server |
-| `--active` | bool | Whether this radius server is currently active |
-| `--description` | string | Free-text description of this radius server |
+| `--business-id` | long | ID of the location that owns this RADIUS server. The location's RADIUS licence key setting decides whether the server can be provisioned at all, and its country selects the hosting region: US, AU, or Europe for everywhere else. |
+| `--name` | string | Operator-facing label for this server in the location's list. The provider-side network and captive portal are named automatically from the location name and the creation date, so this value is not sent to the provider. |
+| `--vendor` | enum | Wireless hardware or controller the captive portal is built for, such as Meraki_Sign_On, Ubiquiti_Networks, MikroTik or Ruckus_Wireless; use Other when the vendor is not listed. It is applied only while the captive portal is provisioned during creation, so changing it afterwards does not rebuild the portal and the admin form disables it once the record exists. |
+| `--active` | bool | Whether this server is included in the RADIUS synchronisation that runs every 15 minutes to import provider accounting data as customer check-ins. Only the first active server of a location is used, and an active server also adds a RADIUS line to the location's monthly invoice. Set false to stop syncing and billing without tearing down the provisioned network. |
+| `--description` | string | Optional free-text note about this server. It is not shown on the admin form and is not sent to the provider. |
 
 #### RadiusServer enum values
 

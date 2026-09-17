@@ -25,23 +25,23 @@ ContractDeposits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-contract-id` | long | ID of the customer's contract; it determines this deposit's location, customer, plan, and invoice cycle. |
-| `--coworker-contract-quantity` | int | The coworker contract quantity value for this contract deposit |
+| `--coworker-contract-quantity` | int | Display value for CoworkerContract.Quantity. |
 | `--from-coworker-contract-quantity` | range | |
 | `--to-coworker-contract-quantity` | range | |
-| `--coworker-contract-floor-plan-desk-ids` | string | The coworker contract floor plan desk ids value for this contract deposit |
-| `--coworker-contract-floor-plan-desk-names` | string | The coworker contract floor plan desk names value for this contract deposit |
-| `--coworker-contract-tariff-name` | string | Name of the tariff/plan associated with the parent contract |
-| `--coworker-contract-coworker-id` | int | ID of the coworker contract coworker associated with this record |
+| `--coworker-contract-floor-plan-desk-ids` | string | Display value for CoworkerContract.FloorPlanDeskIds. |
+| `--coworker-contract-floor-plan-desk-names` | string | Display value for CoworkerContract.FloorPlanDeskNames. |
+| `--coworker-contract-tariff-name` | string | Display value for CoworkerContract.Tariff.Name. |
+| `--coworker-contract-coworker-id` | int | Display value for CoworkerContract.Coworker.Id. |
 | `--from-coworker-contract-coworker-id` | range | |
 | `--to-coworker-contract-coworker-id` | range | |
-| `--coworker-contract-coworker-full-name` | string | Full name of the member holding the parent contract |
-| `--coworker-contract-coworker-billing-name` | string | Billing name of the member holding the parent contract |
+| `--coworker-contract-coworker-full-name` | string | Display value for CoworkerContract.Coworker.FullName. |
+| `--coworker-contract-coworker-billing-name` | string | Display value for CoworkerContract.Coworker.BillingName. |
 | `--product-id` | long | ID of the location product charged for this deposit; its current price is used when Price is null. |
-| `--product-name` | string | Name of the product this deposit is based on |
-| `--product-price` | decimal | Default price of the underlying product (used when Price is not overridden) |
+| `--product-name` | string | Display value for Product.Name. |
+| `--product-price` | decimal | Display value for Product.Price. |
 | `--from-product-price` | range | |
 | `--to-product-price` | range | |
-| `--product-currency-code` | string | ISO currency code of the underlying product |
+| `--product-currency-code` | string | Display value for Product.Currency.Code. |
 | `--notes` | string | Optional operator notes about this deposit. |
 | `--price` | decimal | Optional deposit amount in the location's currency; when null, the linked product's current price is used. |
 | `--from-price` | range | |

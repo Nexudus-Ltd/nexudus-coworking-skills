@@ -25,29 +25,29 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--issued-by-id` | long | ID of the location that issued this contract; it is supplied from the agent's current location context. |
-| `--issued-by-name` | string | Name of the business issuing this contract |
+| `--issued-by-name` | string | Display value for IssuedBy.Name. |
 | `--coworker-id` | long | ID of the customer this contract belongs to; a customer with an active contract is a Member, while one without an active contract is a Contact. |
-| `--coworker-coworker-type` | string | The coworker coworker type value for this coworker contract |
-| `--coworker-full-name` | string | Full name of the customer holding this contract |
-| `--coworker-company-name` | string | Company name of the customer holding this contract |
-| `--coworker-billing-name` | string | Billing name of the customer holding this contract |
-| `--coworker-email` | string | Email address of the customer holding this contract |
-| `--coworker-active` | bool | Whether coworker active is enabled |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-active` | bool | Display value for Coworker.Active. |
 | `--tariff-id` | long | ID of the plan assigned to this contract; its billing interval, price override rules, policies, and plan-based access or eligibility govern the customer. |
-| `--tariff-name` | string | Name of the plan this contract is for |
-| `--tariff-invoice-every` | int | The tariff invoice every value for this coworker contract |
+| `--tariff-name` | string | Display value for Tariff.Name. |
+| `--tariff-invoice-every` | int | Display value for Tariff.InvoiceEvery. |
 | `--from-tariff-invoice-every` | range | |
 | `--to-tariff-invoice-every` | range | |
-| `--tariff-invoice-every-weeks` | int | The tariff invoice every weeks value for this coworker contract |
+| `--tariff-invoice-every-weeks` | int | Display value for Tariff.InvoiceEveryWeeks. |
 | `--from-tariff-invoice-every-weeks` | range | |
 | `--to-tariff-invoice-every-weeks` | range | |
-| `--tariff-price` | decimal | Default price of the plan. Used when the contract has no fixed Price override |
+| `--tariff-price` | decimal | Display value for Tariff.Price. |
 | `--from-tariff-price` | range | |
 | `--to-tariff-price` | range | |
-| `--tariff-currency-code` | string | Currency code of the plan |
-| `--tariff-is-virtual-office` | bool | Whether the plan assigned to this contract is a virtual office plan |
+| `--tariff-currency-code` | string | Display value for Tariff.Currency.Code. |
+| `--tariff-is-virtual-office` | bool | Display value for Tariff.IsVirtualOffice. |
 | `--next-tariff-id` | long | ID of the plan scheduled to replace the current plan at a future renewal; leave empty when no change is scheduled. |
-| `--next-tariff-name` | string | Name of the next plan the contract will switch to |
+| `--next-tariff-name` | string | Display value for NextTariff.Name. |
 | `--notes` | string | Free-text internal notes about this customer contract. |
 | `--start-date` | DateTime | Date when the contract begins; it is used to calculate billing and any minimum contract term. |
 | `--from-start-date` | range | |
@@ -61,6 +61,9 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--invoiced-period` | DateTime | System-maintained UTC cutoff for the most recently invoiced contract period; do not set it manually. |
 | `--from-invoiced-period` | range | |
 | `--to-invoiced-period` | range | |
+| `--contract-term` | DateTime | System-calculated UTC end of the minimum contract term; change the plan or start date instead. |
+| `--from-contract-term` | range | |
+| `--to-contract-term` | range | |
 | `--price` | decimal | Optional per-unit price override for this contract; when empty, the assigned plan's price is used before applying quantity. |
 | `--from-price` | range | |
 | `--to-price` | range | |
@@ -102,10 +105,19 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--address-checks-due-on` | DateTime | Optional UTC date when address verification is due for this contract. |
 | `--from-address-checks-due-on` | range | |
 | `--to-address-checks-due-on` | range | |
+| `--proposal-unique-id` | string | Integration-managed identifier of the source proposal; it is read-only and cannot be changed through contract administration. |
+| `--proposal-contract-unique-id` | string | Integration-managed identifier of the related proposal contract; it is read-only and cannot be changed through contract administration. |
+| `--course-member-unique-id` | string | Integration-managed identifier of the related course member; it is read-only and cannot be changed through contract administration. |
 | `--floor-plan-desk-ids` | string | Read-only denormalized IDs of assigned floor-plan units; update Desks rather than this projection. |
 | `--floor-plan-desk-names` | string | Read-only denormalized names of assigned floor-plan units; update Desks rather than this projection. |
 | `--floor-plan-desk-variant-ids` | string | Read-only denormalized IDs of assigned floor-plan unit variants; update Variants rather than this projection. |
 | `--floor-plan-desk-variant-names` | string | Read-only denormalized names of assigned floor-plan unit variants; update Variants rather than this projection. |
+| `--price-with-products-and-deposits` | decimal | System-calculated total including the contract price, products, deposits, and quantity; update the contributing records instead. |
+| `--from-price-with-products-and-deposits` | range | |
+| `--to-price-with-products-and-deposits` | range | |
+| `--price-with-products` | decimal | System-calculated total including the contract price, products, and quantity; update the contributing records instead. |
+| `--from-price-with-products` | range | |
+| `--to-price-with-products` | range | |
 | `--po-box-number` | string | Post-office box number associated with this contract. |
 | `--in-paused-period` | bool | Whether the contract is currently within a recorded pause period; it is calculated from pause-period records. |
 | `--in-paused-period-from` | DateTime | Calculated UTC start of the active or upcoming pause period; manage pause records instead. |
@@ -141,14 +153,15 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--billing-day` | int, required | Day of each month to bill this contract, from 1 through 28; scheduled monthly price changes must use this day. |
 | `--renewal-date` | DateTime | System-calculated UTC date of the next plan invoice, derived from the plan, billing day, and cancellation settings. |
 | `--invoiced-period` | DateTime | System-maintained UTC cutoff for the most recently invoiced contract period; do not set it manually. |
+| `--contract-term` | DateTime | System-calculated UTC end of the minimum contract term; change the plan or start date instead. |
 | `--price` | decimal | Optional per-unit price override for this contract; when empty, the assigned plan's price is used before applying quantity. |
 | `--value` | decimal | Optional per-unit contract value used for value calculations; when empty, the effective contract price is used. |
 | `--desks` | list, repeat flag | List of IDs of floor-plan units assigned to this contract; each unit must belong to a location the user can access. |
-| `--added-desks` | list, repeat flag | The added desks value for this coworker contract |
-| `--removed-desks` | list, repeat flag | The removed desks value for this coworker contract |
+| `--added-desks` | list, repeat flag | IDs added to the Desks relationship. |
+| `--removed-desks` | list, repeat flag | IDs removed from the Desks relationship. |
 | `--variants` | list, repeat flag | List of IDs of floor-plan unit variants assigned to this contract; each variant's unit must belong to a location the user can access and connected to any of the desks/units associated with the contract. |
-| `--added-variants` | list, repeat flag | The added variants value for this coworker contract |
-| `--removed-variants` | list, repeat flag | The removed variants value for this coworker contract |
+| `--added-variants` | list, repeat flag | IDs added to the Variants relationship. |
+| `--removed-variants` | list, repeat flag | IDs removed from the Variants relationship. |
 | `--quantity` | int, required | Number of plan units on the contract, at least 1; it multiplies price, included time, and contract value. |
 | `--purchase-order` | string | Customer purchase-order reference for this contract. |
 | `--include-signup-fee` | bool | Whether the next eligible invoice includes the plan's sign-up fee. |
@@ -184,14 +197,15 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--billing-day` | int | Day of each month to bill this contract, from 1 through 28; scheduled monthly price changes must use this day. |
 | `--renewal-date` | DateTime | System-calculated UTC date of the next plan invoice, derived from the plan, billing day, and cancellation settings. |
 | `--invoiced-period` | DateTime | System-maintained UTC cutoff for the most recently invoiced contract period; do not set it manually. |
+| `--contract-term` | DateTime | System-calculated UTC end of the minimum contract term; change the plan or start date instead. |
 | `--price` | decimal | Optional per-unit price override for this contract; when empty, the assigned plan's price is used before applying quantity. |
 | `--value` | decimal | Optional per-unit contract value used for value calculations; when empty, the effective contract price is used. |
 | `--desks` | list, repeat flag | List of IDs of floor-plan units assigned to this contract; each unit must belong to a location the user can access. |
-| `--added-desks` | list, repeat flag | The added desks value for this coworker contract |
-| `--removed-desks` | list, repeat flag | The removed desks value for this coworker contract |
+| `--added-desks` | list, repeat flag | IDs added to the Desks relationship. |
+| `--removed-desks` | list, repeat flag | IDs removed from the Desks relationship. |
 | `--variants` | list, repeat flag | List of IDs of floor-plan unit variants assigned to this contract; each variant's unit must belong to a location the user can access and connected to any of the desks/units associated with the contract. |
-| `--added-variants` | list, repeat flag | The added variants value for this coworker contract |
-| `--removed-variants` | list, repeat flag | The removed variants value for this coworker contract |
+| `--added-variants` | list, repeat flag | IDs added to the Variants relationship. |
+| `--removed-variants` | list, repeat flag | IDs removed from the Variants relationship. |
 | `--quantity` | int | Number of plan units on the contract, at least 1; it multiplies price, included time, and contract value. |
 | `--purchase-order` | string | Customer purchase-order reference for this contract. |
 | `--include-signup-fee` | bool | Whether the next eligible invoice includes the plan's sign-up fee. |

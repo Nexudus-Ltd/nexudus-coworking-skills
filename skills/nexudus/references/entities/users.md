@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Users -->
 
-A **User** represents an administrator or staff member who can sign in to the Nexudus admin panel. Users are assigned roles that control their permissions and can be associated with one or more business locations.
+A User represents an administrator or staff member who can sign in to the Nexudus admin panel. Users are assigned roles that control their permissions and can be associated with one or more business locations.
 
 Users support Search, Get, Create, Update, Delete.
 
@@ -16,7 +16,7 @@ Users support Search, Get, Create, Update, Delete.
 | `nexudus users list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus users list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus users get <id> --agent` | Get single user |
-| `nexudus users create --full-name <value> --email <value> --language <value> --password-salt <value> --last-help-visited <value> --invalid-login-attempts <value> --agent` | Create user |
+| `nexudus users create --full-name <value> --email <value> --last-help-visited <value> --invalid-login-attempts <value> --agent` | Create user |
 | `nexudus users update <id> --name "New Name" --agent` | Update user |
 | `nexudus users delete <id> --yes --agent` | Delete user (no prompt) |
 
@@ -24,76 +24,68 @@ Users support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--full-name` | string | The full name value for this user |
-| `--email` | string | The email value for this user |
-| `--access-token` | string | The access token value for this user |
-| `--language` | enum | The language value for this user |
-| `--preferred-language-id` | long | ID of the preferred language linked to this record |
-| `--new-password` | string | The new password value for this user |
-| `--password` | string | The password value for this user |
-| `--password-salt` | string | The password salt value for this user |
+| `--full-name` | string | Required full name shown for this staff account. |
+| `--email` | string | Required valid email address used to identify and sign in to this staff account. |
+| `--preferred-language-id` | long | ID of the optional location language used for this account's preferred interface and content language. |
 | `--avatar-file-name` | string | Current file name of the avatar (read-only; upload via the corresponding URL field) |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
-| `--application-id` | long | ID of the application linked to this record |
-| `--passport-number` | string | The passport number value for this user |
-| `--passport-card-number` | string | The passport card number value for this user |
-| `--enable-passport-access` | bool | Whether enable passport access is enabled |
-| `--active` | bool | Whether this user is currently active |
-| `--is-admin` | bool | Whether is admin is enabled |
-| `--a-p-i-access` | bool | Whether api access is enabled |
-| `--validated` | bool | Whether validated is enabled |
-| `--must-reset-password` | bool | Whether must reset password is enabled |
-| `--last-access` | DateTime | Date/time value for last access |
+| `--application-id` | long | ID of the optional marketplace application whose integration uses this account. |
+| `--passport-number` | string | Read-only Nexudus Passport identifier; the platform verifies that it is unique. |
+| `--passport-card-number` | string | Read-only Nexudus Passport card code; it must be a valid unused Passport card. |
+| `--enable-passport-access` | bool | Whether this account is eligible for Nexudus Passport access; the platform enables it on user creation. |
+| `--active` | bool | Whether this staff account is active; notification recipient queries generally require an active account. |
+| `--is-admin` | bool | Whether this account has administrator access in addition to any permissions granted through UserRoles. |
+| `--a-p-i-access` | bool | Whether this account may authenticate for API access. |
+| `--validated` | bool | Whether the platform marks this account as validated. |
+| `--must-reset-password` | bool | Whether the user must reset their sign-in password; the platform sets this when it generates a password. |
+| `--last-access` | DateTime | Read-only UTC timestamp of the latest account access, rounded down to the nearest 15 minutes. |
 | `--from-last-access` | range | |
 | `--to-last-access` | range | |
-| `--devices` | string | The devices value for this user |
-| `--on-new-email` | bool | Whether on new email is enabled |
-| `--on-help-desk-msg` | bool | Whether on help desk msg is enabled |
-| `--on-new-wall-post` | bool | Whether on new wall post is enabled |
-| `--on-new-member` | bool | Whether on new member is enabled |
-| `--on-profile-changes` | bool | Whether on profile changes is enabled |
-| `--on-new-blog-comment` | bool | Whether on new blog comment is enabled |
-| `--on-new-event-comment` | bool | Whether on new event comment is enabled |
-| `--on-tariff-change` | bool | Whether on tariff change is enabled |
-| `--on-booking-change` | bool | Whether on booking change is enabled |
-| `--on-tentative-booking-change` | bool | Whether on tentative booking change is enabled |
-| `--on-purchases` | bool | Whether on purchases is enabled |
-| `--on-visitor-registration` | bool | Whether on visitor registration is enabled |
-| `--on-plaform-invoices` | bool | Whether on plaform invoices is enabled |
-| `--receive-community-digest` | bool | Whether receive community digest is enabled |
-| `--receive-every-message` | bool | Whether receive every message is enabled |
-| `--two-factor-enabled` | bool | Whether two factor enabled is enabled |
-| `--two-factor-secret` | string | The two factor secret value for this user |
-| `--email-call-back-guid` | string | Unique identifier (GUID) for the email call back |
-| `--default-business-id` | long | ID of the default business linked to this record |
-| `--last-help-visited` | int | The last help visited value for this user |
+| `--on-new-email` | bool | Whether to notify this active user about new internal messages for their locations. |
+| `--on-help-desk-msg` | bool | Whether to notify this active user about new help desk messages for their locations. |
+| `--on-new-wall-post` | bool | Whether to notify this active user about new community wall posts for their locations. |
+| `--on-new-member` | bool | Whether to notify this active user when a new customer profile is created for their locations. |
+| `--on-profile-changes` | bool | Whether to notify this user about customer profile changes. |
+| `--on-new-blog-comment` | bool | Whether to notify this active user with a customer profile at the location about new blog comments. |
+| `--on-new-event-comment` | bool | Whether to notify this active user with a customer profile at the location about new calendar-event comments. |
+| `--on-tariff-change` | bool | Whether to notify this active user about plan changes; virtual-office plans instead use OnVirtualOfficeTariffChange. |
+| `--on-booking-change` | bool | Whether to notify this active user about booking changes for their locations. |
+| `--on-tentative-booking-change` | bool | Whether to notify this active user about tentative booking changes for their locations. |
+| `--on-purchases` | bool | Whether to notify this active user about purchases for their locations. |
+| `--on-visitor-registration` | bool | Whether to notify this user when visitors register at their locations. |
+| `--on-plaform-invoices` | bool | Whether to notify this user about Nexudus platform invoices for their locations. |
+| `--receive-community-digest` | bool | Whether this user is subscribed to scheduled community-board digest emails; new accounts inherit the location digest setting. |
+| `--receive-every-message` | bool | Whether this user receives an email for each new community-board message instead of only digest notifications. |
+| `--two-factor-enabled` | bool | Read-only indicator of whether two-factor authentication is enabled for this account. |
+| `--default-business-id` | long | Read-only ID of the user's default location; the platform falls back to the first linked location when it is empty. |
+| `--last-help-visited` | int | Internal identifier of the last help page viewed by this user. |
 | `--from-last-help-visited` | range | |
 | `--to-last-help-visited` | range | |
-| `--last-received-community-thread-date` | DateTime | Date/time value for last received community thread date |
+| `--last-received-community-thread-date` | DateTime | Internal timestamp of the latest community thread included in this user's notification tracking. |
 | `--from-last-received-community-thread-date` | range | |
 | `--to-last-received-community-thread-date` | range | |
-| `--last-received-community-message-date` | DateTime | Date/time value for last received community message date |
+| `--last-received-community-message-date` | DateTime | Internal timestamp of the latest community message included in this user's notification tracking. |
 | `--from-last-received-community-message-date` | range | |
 | `--to-last-received-community-message-date` | range | |
-| `--next-community-digest` | DateTime | Date/time value for next community digest |
+| `--next-community-digest` | DateTime | Internal timestamp for this user's next scheduled community digest. |
 | `--from-next-community-digest` | range | |
 | `--to-next-community-digest` | range | |
-| `--support-team-user-email` | string | The support team user email value for this user |
-| `--invalid-login-attempts` | int | The invalid login attempts value for this user |
+| `--support-team-user-email` | string | Internal support-team routing email associated with this account. |
+| `--invalid-login-attempts` | int | Internal count of failed login attempts; the platform resets it after a successful password change and applies its lockout threshold. |
 | `--from-invalid-login-attempts` | range | |
 | `--to-invalid-login-attempts` | range | |
-| `--last-login-attempt` | DateTime | Date/time value for last login attempt |
+| `--last-login-attempt` | DateTime | Internal timestamp of the most recent failed login attempt, used with InvalidLoginAttempts for lockout handling. |
 | `--from-last-login-attempt` | range | |
 | `--to-last-login-attempt` | range | |
-| `--on-access-control-errors` | bool | Whether on access control errors is enabled |
-| `--next-help-desk-message-reminder` | DateTime | Date/time value for next help desk message reminder |
+| `--on-access-control-errors` | bool | Whether to notify this user about access-control errors for their locations. |
+| `--next-help-desk-message-reminder` | DateTime | Timestamp of the next help desk message reminder for this user. |
 | `--from-next-help-desk-message-reminder` | range | |
 | `--to-next-help-desk-message-reminder` | range | |
-| `--on-member-removed-from-team` | bool | Whether on member removed from team is enabled |
-| `--on-virtual-office-tariff-change` | bool | Whether on virtual office tariff change is enabled |
-| `--on-virtual-office-delivery-preference-update` | bool | Whether on virtual office delivery preference update is enabled |
-| `--on-identity-check-update` | bool | Whether on identity check update is enabled |
+| `--on-member-removed-from-team` | bool | Whether to notify this user when a customer is removed from a team. |
+| `--on-virtual-office-tariff-change` | bool | Whether to notify this active user about virtual-office plan changes for their locations. |
+| `--on-virtual-office-delivery-preference-update` | bool | Whether to notify this user when a virtual-office customer updates delivery preferences. |
+| `--on-identity-check-update` | bool | Whether to notify this user when a customer's identity-check status changes. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -112,125 +104,107 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--full-name` | string, required | The full name value for this user |
-| `--email` | string, required | The email value for this user |
-| `--access-token` | string | The access token value for this user |
-| `--language` | enum, required | The language value for this user |
-| `--preferred-language-id` | long | ID of the preferred language linked to this record |
-| `--new-password` | string | The new password value for this user |
-| `--password` | string | The password value for this user |
-| `--password-salt` | string, required | The password salt value for this user |
+| `--full-name` | string, required | Required full name shown for this staff account. |
+| `--email` | string, required | Required valid email address used to identify and sign in to this staff account. |
+| `--preferred-language-id` | long | ID of the optional location language used for this account's preferred interface and content language. |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
-| `--application-id` | long | ID of the application linked to this record |
-| `--active` | bool | Whether this user is currently active |
-| `--is-admin` | bool | Whether is admin is enabled |
-| `--a-p-i-access` | bool | Whether api access is enabled |
-| `--validated` | bool | Whether validated is enabled |
-| `--must-reset-password` | bool | Whether must reset password is enabled |
-| `--last-access` | DateTime | Date/time value for last access |
-| `--devices` | string | The devices value for this user |
-| `--on-new-email` | bool | Whether on new email is enabled |
-| `--on-help-desk-msg` | bool | Whether on help desk msg is enabled |
-| `--on-new-wall-post` | bool | Whether on new wall post is enabled |
-| `--on-new-member` | bool | Whether on new member is enabled |
-| `--on-profile-changes` | bool | Whether on profile changes is enabled |
-| `--on-new-blog-comment` | bool | Whether on new blog comment is enabled |
-| `--on-new-event-comment` | bool | Whether on new event comment is enabled |
-| `--on-tariff-change` | bool | Whether on tariff change is enabled |
-| `--on-booking-change` | bool | Whether on booking change is enabled |
-| `--on-tentative-booking-change` | bool | Whether on tentative booking change is enabled |
-| `--on-purchases` | bool | Whether on purchases is enabled |
-| `--on-visitor-registration` | bool | Whether on visitor registration is enabled |
-| `--on-plaform-invoices` | bool | Whether on plaform invoices is enabled |
-| `--receive-community-digest` | bool | Whether receive community digest is enabled |
-| `--receive-every-message` | bool | Whether receive every message is enabled |
-| `--two-factor-secret` | string | The two factor secret value for this user |
-| `--email-call-back-guid` | string | Unique identifier (GUID) for the email call back |
-| `--businesses` | list, repeat flag | List of businesses linked to this record |
-| `--added-businesses` | list, repeat flag | The added businesses value for this user |
-| `--removed-businesses` | list, repeat flag | The removed businesses value for this user |
-| `--user-roles` | list, repeat flag | List of user roles linked to this record |
-| `--added-user-roles` | list, repeat flag | The added user roles value for this user |
-| `--removed-user-roles` | list, repeat flag | The removed user roles value for this user |
-| `--chat-rooms` | list, repeat flag | List of chat rooms linked to this record |
-| `--added-chat-rooms` | list, repeat flag | The added chat rooms value for this user |
-| `--removed-chat-rooms` | list, repeat flag | The removed chat rooms value for this user |
-| `--last-help-visited` | int, required | The last help visited value for this user |
-| `--last-received-community-thread-date` | DateTime | Date/time value for last received community thread date |
-| `--last-received-community-message-date` | DateTime | Date/time value for last received community message date |
-| `--next-community-digest` | DateTime | Date/time value for next community digest |
-| `--support-team-user-email` | string | The support team user email value for this user |
-| `--invalid-login-attempts` | int, required | The invalid login attempts value for this user |
-| `--last-login-attempt` | DateTime | Date/time value for last login attempt |
-| `--on-access-control-errors` | bool | Whether on access control errors is enabled |
-| `--next-help-desk-message-reminder` | DateTime | Date/time value for next help desk message reminder |
-| `--on-member-removed-from-team` | bool | Whether on member removed from team is enabled |
-| `--on-virtual-office-tariff-change` | bool | Whether on virtual office tariff change is enabled |
-| `--on-virtual-office-delivery-preference-update` | bool | Whether on virtual office delivery preference update is enabled |
-| `--on-identity-check-update` | bool | Whether on identity check update is enabled |
+| `--application-id` | long | ID of the optional marketplace application whose integration uses this account. |
+| `--active` | bool | Whether this staff account is active; notification recipient queries generally require an active account. |
+| `--is-admin` | bool | Whether this account has administrator access in addition to any permissions granted through UserRoles. |
+| `--a-p-i-access` | bool | Whether this account may authenticate for API access. |
+| `--validated` | bool | Whether the platform marks this account as validated. |
+| `--must-reset-password` | bool | Whether the user must reset their sign-in password; the platform sets this when it generates a password. |
+| `--last-access` | DateTime | Read-only UTC timestamp of the latest account access, rounded down to the nearest 15 minutes. |
+| `--on-new-email` | bool | Whether to notify this active user about new internal messages for their locations. |
+| `--on-help-desk-msg` | bool | Whether to notify this active user about new help desk messages for their locations. |
+| `--on-new-wall-post` | bool | Whether to notify this active user about new community wall posts for their locations. |
+| `--on-new-member` | bool | Whether to notify this active user when a new customer profile is created for their locations. |
+| `--on-profile-changes` | bool | Whether to notify this user about customer profile changes. |
+| `--on-new-blog-comment` | bool | Whether to notify this active user with a customer profile at the location about new blog comments. |
+| `--on-new-event-comment` | bool | Whether to notify this active user with a customer profile at the location about new calendar-event comments. |
+| `--on-tariff-change` | bool | Whether to notify this active user about plan changes; virtual-office plans instead use OnVirtualOfficeTariffChange. |
+| `--on-booking-change` | bool | Whether to notify this active user about booking changes for their locations. |
+| `--on-tentative-booking-change` | bool | Whether to notify this active user about tentative booking changes for their locations. |
+| `--on-purchases` | bool | Whether to notify this active user about purchases for their locations. |
+| `--on-visitor-registration` | bool | Whether to notify this user when visitors register at their locations. |
+| `--on-plaform-invoices` | bool | Whether to notify this user about Nexudus platform invoices for their locations. |
+| `--receive-community-digest` | bool | Whether this user is subscribed to scheduled community-board digest emails; new accounts inherit the location digest setting. |
+| `--receive-every-message` | bool | Whether this user receives an email for each new community-board message instead of only digest notifications. |
+| `--businesses` | list, repeat flag | List of locations this staff account can access; the account is included in location-scoped user queries only when linked to that location. |
+| `--added-businesses` | list, repeat flag | IDs added to the Businesses relationship. |
+| `--removed-businesses` | list, repeat flag | IDs removed from the Businesses relationship. |
+| `--user-roles` | list, repeat flag | List of location-scoped user roles that grant this account permissions; administrator access may grant permissions independently. |
+| `--added-user-roles` | list, repeat flag | IDs added to the UserRoles relationship. |
+| `--removed-user-roles` | list, repeat flag | IDs removed from the UserRoles relationship. |
+| `--added-chat-rooms` | list, repeat flag | IDs added to the ChatRooms relationship. |
+| `--removed-chat-rooms` | list, repeat flag | IDs removed from the ChatRooms relationship. |
+| `--last-help-visited` | int, required | Internal identifier of the last help page viewed by this user. |
+| `--last-received-community-thread-date` | DateTime | Internal timestamp of the latest community thread included in this user's notification tracking. |
+| `--last-received-community-message-date` | DateTime | Internal timestamp of the latest community message included in this user's notification tracking. |
+| `--next-community-digest` | DateTime | Internal timestamp for this user's next scheduled community digest. |
+| `--support-team-user-email` | string | Internal support-team routing email associated with this account. |
+| `--invalid-login-attempts` | int, required | Internal count of failed login attempts; the platform resets it after a successful password change and applies its lockout threshold. |
+| `--last-login-attempt` | DateTime | Internal timestamp of the most recent failed login attempt, used with InvalidLoginAttempts for lockout handling. |
+| `--on-access-control-errors` | bool | Whether to notify this user about access-control errors for their locations. |
+| `--next-help-desk-message-reminder` | DateTime | Timestamp of the next help desk message reminder for this user. |
+| `--on-member-removed-from-team` | bool | Whether to notify this user when a customer is removed from a team. |
+| `--on-virtual-office-tariff-change` | bool | Whether to notify this active user about virtual-office plan changes for their locations. |
+| `--on-virtual-office-delivery-preference-update` | bool | Whether to notify this user when a virtual-office customer updates delivery preferences. |
+| `--on-identity-check-update` | bool | Whether to notify this user when a customer's identity-check status changes. |
 
 #### User update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--full-name` | string | The full name value for this user |
-| `--email` | string | The email value for this user |
-| `--access-token` | string | The access token value for this user |
-| `--language` | enum | The language value for this user |
-| `--preferred-language-id` | long | ID of the preferred language linked to this record |
-| `--new-password` | string | The new password value for this user |
-| `--password` | string | The password value for this user |
-| `--password-salt` | string | The password salt value for this user |
+| `--full-name` | string | Required full name shown for this staff account. |
+| `--email` | string | Required valid email address used to identify and sign in to this staff account. |
+| `--preferred-language-id` | long | ID of the optional location language used for this account's preferred interface and content language. |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
-| `--application-id` | long | ID of the application linked to this record |
-| `--active` | bool | Whether this user is currently active |
-| `--is-admin` | bool | Whether is admin is enabled |
-| `--a-p-i-access` | bool | Whether api access is enabled |
-| `--validated` | bool | Whether validated is enabled |
-| `--must-reset-password` | bool | Whether must reset password is enabled |
-| `--last-access` | DateTime | Date/time value for last access |
-| `--devices` | string | The devices value for this user |
-| `--on-new-email` | bool | Whether on new email is enabled |
-| `--on-help-desk-msg` | bool | Whether on help desk msg is enabled |
-| `--on-new-wall-post` | bool | Whether on new wall post is enabled |
-| `--on-new-member` | bool | Whether on new member is enabled |
-| `--on-profile-changes` | bool | Whether on profile changes is enabled |
-| `--on-new-blog-comment` | bool | Whether on new blog comment is enabled |
-| `--on-new-event-comment` | bool | Whether on new event comment is enabled |
-| `--on-tariff-change` | bool | Whether on tariff change is enabled |
-| `--on-booking-change` | bool | Whether on booking change is enabled |
-| `--on-tentative-booking-change` | bool | Whether on tentative booking change is enabled |
-| `--on-purchases` | bool | Whether on purchases is enabled |
-| `--on-visitor-registration` | bool | Whether on visitor registration is enabled |
-| `--on-plaform-invoices` | bool | Whether on plaform invoices is enabled |
-| `--receive-community-digest` | bool | Whether receive community digest is enabled |
-| `--receive-every-message` | bool | Whether receive every message is enabled |
-| `--two-factor-secret` | string | The two factor secret value for this user |
-| `--email-call-back-guid` | string | Unique identifier (GUID) for the email call back |
-| `--businesses` | list, repeat flag | List of businesses linked to this record |
-| `--added-businesses` | list, repeat flag | The added businesses value for this user |
-| `--removed-businesses` | list, repeat flag | The removed businesses value for this user |
-| `--user-roles` | list, repeat flag | List of user roles linked to this record |
-| `--added-user-roles` | list, repeat flag | The added user roles value for this user |
-| `--removed-user-roles` | list, repeat flag | The removed user roles value for this user |
-| `--chat-rooms` | list, repeat flag | List of chat rooms linked to this record |
-| `--added-chat-rooms` | list, repeat flag | The added chat rooms value for this user |
-| `--removed-chat-rooms` | list, repeat flag | The removed chat rooms value for this user |
-| `--last-help-visited` | int | The last help visited value for this user |
-| `--last-received-community-thread-date` | DateTime | Date/time value for last received community thread date |
-| `--last-received-community-message-date` | DateTime | Date/time value for last received community message date |
-| `--next-community-digest` | DateTime | Date/time value for next community digest |
-| `--support-team-user-email` | string | The support team user email value for this user |
-| `--invalid-login-attempts` | int | The invalid login attempts value for this user |
-| `--last-login-attempt` | DateTime | Date/time value for last login attempt |
-| `--on-access-control-errors` | bool | Whether on access control errors is enabled |
-| `--next-help-desk-message-reminder` | DateTime | Date/time value for next help desk message reminder |
-| `--on-member-removed-from-team` | bool | Whether on member removed from team is enabled |
-| `--on-virtual-office-tariff-change` | bool | Whether on virtual office tariff change is enabled |
-| `--on-virtual-office-delivery-preference-update` | bool | Whether on virtual office delivery preference update is enabled |
-| `--on-identity-check-update` | bool | Whether on identity check update is enabled |
+| `--application-id` | long | ID of the optional marketplace application whose integration uses this account. |
+| `--active` | bool | Whether this staff account is active; notification recipient queries generally require an active account. |
+| `--is-admin` | bool | Whether this account has administrator access in addition to any permissions granted through UserRoles. |
+| `--a-p-i-access` | bool | Whether this account may authenticate for API access. |
+| `--validated` | bool | Whether the platform marks this account as validated. |
+| `--must-reset-password` | bool | Whether the user must reset their sign-in password; the platform sets this when it generates a password. |
+| `--last-access` | DateTime | Read-only UTC timestamp of the latest account access, rounded down to the nearest 15 minutes. |
+| `--on-new-email` | bool | Whether to notify this active user about new internal messages for their locations. |
+| `--on-help-desk-msg` | bool | Whether to notify this active user about new help desk messages for their locations. |
+| `--on-new-wall-post` | bool | Whether to notify this active user about new community wall posts for their locations. |
+| `--on-new-member` | bool | Whether to notify this active user when a new customer profile is created for their locations. |
+| `--on-profile-changes` | bool | Whether to notify this user about customer profile changes. |
+| `--on-new-blog-comment` | bool | Whether to notify this active user with a customer profile at the location about new blog comments. |
+| `--on-new-event-comment` | bool | Whether to notify this active user with a customer profile at the location about new calendar-event comments. |
+| `--on-tariff-change` | bool | Whether to notify this active user about plan changes; virtual-office plans instead use OnVirtualOfficeTariffChange. |
+| `--on-booking-change` | bool | Whether to notify this active user about booking changes for their locations. |
+| `--on-tentative-booking-change` | bool | Whether to notify this active user about tentative booking changes for their locations. |
+| `--on-purchases` | bool | Whether to notify this active user about purchases for their locations. |
+| `--on-visitor-registration` | bool | Whether to notify this user when visitors register at their locations. |
+| `--on-plaform-invoices` | bool | Whether to notify this user about Nexudus platform invoices for their locations. |
+| `--receive-community-digest` | bool | Whether this user is subscribed to scheduled community-board digest emails; new accounts inherit the location digest setting. |
+| `--receive-every-message` | bool | Whether this user receives an email for each new community-board message instead of only digest notifications. |
+| `--businesses` | list, repeat flag | List of locations this staff account can access; the account is included in location-scoped user queries only when linked to that location. |
+| `--added-businesses` | list, repeat flag | IDs added to the Businesses relationship. |
+| `--removed-businesses` | list, repeat flag | IDs removed from the Businesses relationship. |
+| `--user-roles` | list, repeat flag | List of location-scoped user roles that grant this account permissions; administrator access may grant permissions independently. |
+| `--added-user-roles` | list, repeat flag | IDs added to the UserRoles relationship. |
+| `--removed-user-roles` | list, repeat flag | IDs removed from the UserRoles relationship. |
+| `--added-chat-rooms` | list, repeat flag | IDs added to the ChatRooms relationship. |
+| `--removed-chat-rooms` | list, repeat flag | IDs removed from the ChatRooms relationship. |
+| `--last-help-visited` | int | Internal identifier of the last help page viewed by this user. |
+| `--last-received-community-thread-date` | DateTime | Internal timestamp of the latest community thread included in this user's notification tracking. |
+| `--last-received-community-message-date` | DateTime | Internal timestamp of the latest community message included in this user's notification tracking. |
+| `--next-community-digest` | DateTime | Internal timestamp for this user's next scheduled community digest. |
+| `--support-team-user-email` | string | Internal support-team routing email associated with this account. |
+| `--invalid-login-attempts` | int | Internal count of failed login attempts; the platform resets it after a successful password change and applies its lockout threshold. |
+| `--last-login-attempt` | DateTime | Internal timestamp of the most recent failed login attempt, used with InvalidLoginAttempts for lockout handling. |
+| `--on-access-control-errors` | bool | Whether to notify this user about access-control errors for their locations. |
+| `--next-help-desk-message-reminder` | DateTime | Timestamp of the next help desk message reminder for this user. |
+| `--on-member-removed-from-team` | bool | Whether to notify this user when a customer is removed from a team. |
+| `--on-virtual-office-tariff-change` | bool | Whether to notify this active user about virtual-office plan changes for their locations. |
+| `--on-virtual-office-delivery-preference-update` | bool | Whether to notify this user when a virtual-office customer updates delivery preferences. |
+| `--on-identity-check-update` | bool | Whether to notify this user when a customer's identity-check status changes. |
 
 #### User PII fields
 
@@ -247,12 +221,6 @@ Example:
 
 `nexudus users update <id> --full-name "«PII:NAME:a3f2b1c9»" --agent`
 
-**List properties (only returned by `get`, not by `list`):** `Businesses`, `AddedBusinesses`, `RemovedBusinesses`, `UserRoles`, `AddedUserRoles`, `RemovedUserRoles`, `ChatRooms`, `AddedChatRooms`, `RemovedChatRooms`
-
-#### User enum values
-
-| Option | Valid values |
-| ------ | ------------ |
-| `--language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
+**List properties (only returned by `get`, not by `list`):** `Businesses`, `AddedBusinesses`, `RemovedBusinesses`, `UserRoles`, `AddedUserRoles`, `RemovedUserRoles`, `AddedChatRooms`, `RemovedChatRooms`
 
 <!-- END:GENERATED entity=Users -->

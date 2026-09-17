@@ -36,9 +36,9 @@ ProductTimePasses support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--product-id` | long | ID of the product linked to this time pass record |
-| `--product-name` | string | Product name |
+| `--product-name` | string | Display value for Product.Name. |
 | `--time-pass-id` | long | ID of the time pass linked to this record. The type of time pass determines how time is calculated: Day Pass (MinutesIncluded = null) gives calendar days of check-in access; Time Pass (MinutesIncluded set) gives instances worth MinutesIncluded minutes each |
-| `--time-pass-name` | string | Time pass name |
+| `--time-pass-name` | string | Display value for TimePass.Name. |
 | `--passes-included` | int | Number of passes included: for Day Passes this is the number of calendar days the customer can check in; for Time Passes this is the number of pass instances (each worth the TimePass's MinutesIncluded minutes). Total time = PassesIncluded × MinutesIncluded for time passes |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |

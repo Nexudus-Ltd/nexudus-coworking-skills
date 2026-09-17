@@ -25,11 +25,11 @@ FloorplanLayoutTransitions support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
-| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
-| `--floor-plan-layout-floor-level` | int | The floor plan layout floor level value for this floorplan layout transition |
+| `--floor-plan-layout-name` | string | Display value for FloorPlanLayout.Name. |
+| `--floor-plan-layout-floor-level` | int | Display value for FloorPlanLayout.FloorLevel. |
 | `--from-floor-plan-layout-floor-level` | range | |
 | `--to-floor-plan-layout-floor-level` | range | |
-| `--floor-plan-layout-unique-id` | string | ID of the floor plan layout unique associated with this record |
+| `--floor-plan-layout-unique-id` | string | Display value for FloorPlanLayout.UniqueId. |
 | `--area-unique-id` | string | ID of the area unique associated with this record |
 | `--name` | string | The name value for this floorplan layout transition |
 | `--transition-type` | string | The transition type value for this floorplan layout transition |

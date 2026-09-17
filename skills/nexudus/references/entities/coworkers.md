@@ -71,7 +71,7 @@ Coworkers also support entity commands.
 | `--blogger` | string | Customer's Blogger profile or handle, limited to 254 characters. |
 | `--profile-is-public` | bool | Whether the customer's profile is visible in the public member directory. |
 | `--invoicing-business-id` | long | ID of the location that owns this customer (their home location) and issues their invoices unless invoice split by location is enabled; defaults to the current location when omitted on create. |
-| `--invoicing-business-name` | string | The name of the customer home location |
+| `--invoicing-business-name` | string | Display value for InvoicingBusiness.Name. |
 | `--billing-email` | string | Email address to receive this customer's invoices, limited to 254 characters. |
 | `--billing-name` | string | Legal or trading name printed on invoices; when empty, invoices use the company name for Company customers or FullName otherwise. |
 | `--billing-address` | string | Billing street address; when empty, invoices use the contact address. |
@@ -131,14 +131,14 @@ Coworkers also support entity commands.
 | `--show-alert` | bool | Whether an alert should be shown when staff open this customer's record. |
 | `--alert-note` | string | Alert message displayed to staff when ShowAlert is enabled. |
 | `--user-id` | long | ID of the optional user account linked to this customer; update-only because creating the account uses CreateUser. |
-| `--user-full-name` | string | Display name of the linked user full (read-only) |
-| `--user-is-admin` | bool | Whether user is admin is enabled |
-| `--user-last-access` | DateTime | Date/time value for user last access |
+| `--user-full-name` | string | Display value for User.FullName. |
+| `--user-is-admin` | bool | Display value for User.IsAdmin. |
+| `--user-last-access` | DateTime | Display value for User.LastAccess. |
 | `--from-user-last-access` | range | |
 | `--to-user-last-access` | range | |
-| `--user-active` | bool | Whether user active is enabled |
-| `--user-receive-community-digest` | bool | Whether user receive community digest is enabled |
-| `--user-receive-every-message` | bool | Whether user receive every message is enabled |
+| `--user-active` | bool | Display value for User.Active. |
+| `--user-receive-community-digest` | bool | Display value for User.ReceiveCommunityDigest. |
+| `--user-receive-every-message` | bool | Display value for User.ReceiveEveryMessage. |
 | `--active` | bool | Whether this customer record is active. |
 | `--next-auto-invoice` | DateTime | Next scheduled automatic-invoice date; recalculated from active contracts and maintained by invoicing processing. |
 | `--from-next-auto-invoice` | range | |
@@ -269,11 +269,11 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | --- | --- | --- |
 | `--coworker-type` | enum, required | Whether this customer record represents an Individual or a Company. |
 | `--businesses` | list, repeat flag | List of location IDs where this customer is registered; replacing the list replaces all registrations. |
-| `--added-businesses` | list, repeat flag | The added businesses value for this coworker |
-| `--removed-businesses` | list, repeat flag | The removed businesses value for this coworker |
+| `--added-businesses` | list, repeat flag | IDs added to the Businesses relationship. |
+| `--removed-businesses` | list, repeat flag | IDs removed from the Businesses relationship. |
 | `--teams` | list, repeat flag | List of team IDs this customer belongs to; replacing the list replaces all team memberships. |
-| `--added-teams` | list, repeat flag | The added teams value for this coworker |
-| `--removed-teams` | list, repeat flag | The removed teams value for this coworker |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--full-name` | string, required | Customer's full name; required and limited to 254 characters. |
 | `--salutation` | string | Optional preferred form of address, such as 'Dr Adrian'; include how the customer wants to be addressed and never use a title alone, limited to 254 characters. |
 | `--gender` | enum, required | Optional customer gender: NotSet, Male, Female, Other, or RatherNotSay. |
@@ -437,11 +437,11 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | --- | --- | --- |
 | `--coworker-type` | enum | Whether this customer record represents an Individual or a Company. |
 | `--businesses` | list, repeat flag | List of location IDs where this customer is registered; replacing the list replaces all registrations. |
-| `--added-businesses` | list, repeat flag | The added businesses value for this coworker |
-| `--removed-businesses` | list, repeat flag | The removed businesses value for this coworker |
+| `--added-businesses` | list, repeat flag | IDs added to the Businesses relationship. |
+| `--removed-businesses` | list, repeat flag | IDs removed from the Businesses relationship. |
 | `--teams` | list, repeat flag | List of team IDs this customer belongs to; replacing the list replaces all team memberships. |
-| `--added-teams` | list, repeat flag | The added teams value for this coworker |
-| `--removed-teams` | list, repeat flag | The removed teams value for this coworker |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--full-name` | string | Customer's full name; required and limited to 254 characters. |
 | `--salutation` | string | Optional preferred form of address, such as 'Dr Adrian'; include how the customer wants to be addressed and never use a title alone, limited to 254 characters. |
 | `--gender` | enum | Optional customer gender: NotSet, Male, Female, Other, or RatherNotSay. |

@@ -29,9 +29,9 @@ FailedCheckins support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-full-name` | string | Full name of the coworker at the time of the failed check-in |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Name of the location where the check-in was attempted |
+| `--business-name` | string | Display value for Business.Name. |
 | `--checkin-attempt-time` | DateTime | Date and time when the check-in attempt occurred |
 | `--from-checkin-attempt-time` | range | |
 | `--to-checkin-attempt-time` | range | |

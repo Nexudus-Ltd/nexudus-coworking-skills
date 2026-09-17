@@ -30,11 +30,11 @@ BookingProducts also support entity commands.
 | --- | --- | --- |
 | `--booking-id` | long | ID of the booking this product is associated to |
 | `--product-id` | long | ID of the product linked to this record |
-| `--product-name` | string | The name of the linked product |
-| `--product-price` | decimal | The unit price of the linked product |
+| `--product-name` | string | Display value for Product.Name. |
+| `--product-price` | decimal | Display value for Product.Price. |
 | `--from-product-price` | range | |
 | `--to-product-price` | range | |
-| `--product-currency-code` | string | The currency code of the product price |
+| `--product-currency-code` | string | Display value for Product.Currency.Code. |
 | `--invoice-in-minutes` | bool | Whether to invoice this product based on the booking duration in minutes |
 | `--quantity` | int | The number of units of this product to include in the booking |
 | `--from-quantity` | range | |

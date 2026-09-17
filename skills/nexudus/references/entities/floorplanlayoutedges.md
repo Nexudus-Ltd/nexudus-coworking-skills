@@ -25,7 +25,7 @@ FloorPlanLayoutEdges support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
-| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
+| `--floor-plan-layout-name` | string | Display value for FloorPlanLayout.Name. |
 | `--edge-key` | string | The edge key value for this floor plan layout edge |
 | `--source` | string | The source value for this floor plan layout edge |
 | `--target` | string | The target value for this floor plan layout edge |

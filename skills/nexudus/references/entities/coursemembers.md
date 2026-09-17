@@ -32,15 +32,15 @@ CourseMembers support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-id` | long | ID of the course the member is enrolled in |
-| `--course-title` | string | Title of the course |
+| `--course-title` | string | Display value for Course.Title. |
 | `--coworker-id` | long | ID of the customer enrolled in the course |
-| `--coworker-coworker-type` | string | Whether the enrolled customer is an Individual (1) or a Company (2) |
-| `--coworker-full-name` | string | Full name of the enrolled customer |
-| `--coworker-company-name` | string | Company name of the enrolled customer |
-| `--coworker-team-names` | string | Comma-separated list of teams the enrolled customer belongs to |
-| `--coworker-billing-name` | string | Billing name of the enrolled customer |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
 | `--last-completed-lesson-id` | long | ID of the most recently completed lesson for this member |
-| `--last-completed-lesson-title` | string | Title of the most recently completed lesson |
+| `--last-completed-lesson-title` | string | Display value for LastCompletedLesson.Title. |
 | `--last-access` | DateTime | Date and time the member last accessed the course |
 | `--from-last-access` | range | |
 | `--to-last-access` | range | |

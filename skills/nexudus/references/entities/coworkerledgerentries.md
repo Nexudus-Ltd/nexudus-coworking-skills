@@ -25,29 +25,29 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this ledger entry. |
-| `--business-name` | string | Location name |
-| `--business-currency-code` | string | Location currency code |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-currency-code` | string | Display value for Business.Currency.Code. |
 | `--coworker-id` | long | ID of the customer whose ledger contains this entry. |
-| `--coworker-full-name` | string | Coworker full name |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--coworker-invoice-id` | long | Optional ID of the invoice this payment, charge, or credit is applied to. |
-| `--invoice-number` | string | Invoice number |
-| `--invoice-total-amount` | decimal | Invoice total amount |
+| `--invoice-number` | string | Display value for CoworkerInvoice.InvoiceNumber. |
+| `--invoice-total-amount` | decimal | Display value for CoworkerInvoice.TotalAmount. |
 | `--from-invoice-total-amount` | range | |
 | `--to-invoice-total-amount` | range | |
-| `--coworker-invoice-bill-to-name` | string | Invoice bill-to name |
-| `--coworker-invoice-paid` | bool | Whether the invoice has been paid |
-| `--coworker-invoice-paid-on` | DateTime | Date the invoice was paid |
+| `--coworker-invoice-bill-to-name` | string | Display value for CoworkerInvoice.BillToName. |
+| `--coworker-invoice-paid` | bool | Display value for CoworkerInvoice.Paid. |
+| `--coworker-invoice-paid-on` | DateTime | Display value for CoworkerInvoice.PaidOn. |
 | `--from-coworker-invoice-paid-on` | range | |
 | `--to-coworker-invoice-paid-on` | range | |
-| `--coworker-invoice-refunded` | bool | Whether the invoice has been refunded |
-| `--coworker-invoice-refunded-on` | DateTime | Date the invoice was refunded |
+| `--coworker-invoice-refunded` | bool | Display value for CoworkerInvoice.Refunded. |
+| `--coworker-invoice-refunded-on` | DateTime | Display value for CoworkerInvoice.RefundedOn. |
 | `--from-coworker-invoice-refunded-on` | range | |
 | `--to-coworker-invoice-refunded-on` | range | |
-| `--coworker-invoice-due-date` | DateTime | Invoice due date |
+| `--coworker-invoice-due-date` | DateTime | Display value for CoworkerInvoice.DueDate. |
 | `--from-coworker-invoice-due-date` | range | |
 | `--to-coworker-invoice-due-date` | range | |
-| `--coworker-invoice-draft` | bool | Whether the invoice is a draft |
-| `--coworker-invoice-waiting-for-invoice-number` | bool | Whether the invoice is waiting to be assigned an invoice number |
+| `--coworker-invoice-draft` | bool | Display value for CoworkerInvoice.Draft. |
+| `--coworker-invoice-waiting-for-invoice-number` | bool | Display value for CoworkerInvoice.WaitingForInvoiceNumber. |
 | `--description` | string | Required free-text explanation of the payment, charge, credit, or adjustment. |
 | `--code` | string | Required ledger reference code; payment and invoice workflows commonly generate codes such as PAYM-, CASH-, CRED-, REFD-, or INVC-. |
 | `--debit` | decimal | Debit amount in the location currency, rounded to two decimal places when saved; positive debits are invoice charges and negative debits are credit notes. Debit and Credit are mutually exclusive, so set the other amount to zero. |

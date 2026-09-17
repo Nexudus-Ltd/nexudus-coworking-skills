@@ -2,17 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerIdentityCheckDocuments -->
 
-A **CoworkerIdentityCheckDocument** represents a document submitted as part of a `CoworkerIdentityCheck` for a customer. Each document record can hold up to three files, corresponding to different sides or aspects of the verification evidence:
-
-| File slot | Field prefix | Purpose |
-| --------- | ------------ | ------- |
-| Face photo | `Photo` | A photograph of the customer's face |
-| Front | `Document` | The front side of the identity or address document |
-| Back | `AdditionalDocument` | The back side or a supplementary page of the document |
-
-Which slots are required depends on the `VerificationType` and document type configured on the parent `CoworkerIdentityCheck`.
-
-The `VerificationStatus` tracks the review state of this individual document through the same lifecycle used by `CoworkerIdentityCheck`: `Pending` → `Submitted` → `Successful` or `Failed` (or `Cancelled`).
+ID check evidence holds the files submitted for a customer's identity or address check; its submission status contributes to the parent check's verification lifecycle.
 
 CoworkerIdentityCheckDocuments support Search, Get, Create, Update, Delete.
 CoworkerIdentityCheckDocuments also support entity commands.
@@ -36,23 +26,23 @@ CoworkerIdentityCheckDocuments also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-full-name` | string | Full name of the customer this document belongs to |
-| `--coworker-type` | string | Type of the customer (e.g. Member, TeamMember) |
-| `--coworker-company-name` | string | Company name of the customer |
-| `--coworker-billing-name` | string | Billing name of the customer |
-| `--coworker-identity-check-id` | long | ID of the coworker identity check linked to this record |
-| `--coworker-identity-check-name` | string | Name of the parent identity or address check |
-| `--coworker-identity-check-verification-type` | string | Verification type of the parent check (IdDocument or Address) |
-| `--coworker-identity-check-business-name` | string | Location (business) name from the parent check |
-| `--coworker-identity-check-identity-document-type` | string | Identity document type from the parent check (e.g. Passport, DriversLicense) |
-| `--coworker-identity-check-identity-document-number` | string | Document number from the parent check |
-| `--coworker-identity-check-identity-document-issued-by` | string | Issuing authority from the parent check |
-| `--coworker-identity-check-identity-document-expiration-date` | DateTime | Document expiration date from the parent check |
+| `--coworker-id` | long | ID of the customer whose ID check evidence this is. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-identity-check-id` | long | ID of the parent customer ID check; it determines which evidence files are required and owns the document status. |
+| `--coworker-identity-check-name` | string | Display value for CoworkerIdentityCheck.Name. |
+| `--coworker-identity-check-verification-type` | string | Display value for CoworkerIdentityCheck.VerificationType. |
+| `--coworker-identity-check-business-name` | string | Display value for CoworkerIdentityCheck.Business.Name. |
+| `--coworker-identity-check-identity-document-type` | string | Display value for CoworkerIdentityCheck.IdentityDocumentType. |
+| `--coworker-identity-check-identity-document-number` | string | Display value for CoworkerIdentityCheck.IdentityDocumentNumber. |
+| `--coworker-identity-check-identity-document-issued-by` | string | Display value for CoworkerIdentityCheck.IdentityDocumentIssuedBy. |
+| `--coworker-identity-check-identity-document-expiration-date` | DateTime | Display value for CoworkerIdentityCheck.IdentityDocumentExpirationDate. |
 | `--from-coworker-identity-check-identity-document-expiration-date` | range | |
 | `--to-coworker-identity-check-identity-document-expiration-date` | range | |
-| `--coworker-identity-check-address-document-type` | string | Address document type from the parent check (e.g. LeaseRentalAgreement, VoterCard) |
-| `--name` | string | Display name for this document record |
+| `--coworker-identity-check-address-document-type` | string | Display value for CoworkerIdentityCheck.AddressDocumentType. |
+| `--name` | string | Required operator-facing label for this ID check evidence record. |
 | `--photo-file-name` | string | Current file name of the photo (read-only; upload via the corresponding URL field) |
 | `--new-photo-url` | string | URL of a new file to upload as the photo |
 | `--clear-photo-file` | bool | Set to true to remove the current photo file |
@@ -62,8 +52,8 @@ CoworkerIdentityCheckDocuments also support entity commands.
 | `--additional-document-file-name` | string | Current file name of the additional document (read-only; upload via the corresponding URL field) |
 | `--new-additional-document-url` | string | URL of a new file to upload as the additional document |
 | `--clear-additional-document-file` | bool | Set to true to remove the current additional document file |
-| `--verification-status` | enum | Current review status of this document (Pending, Submitted, Successful, Failed, or Cancelled) |
-| `--notes` | string | Free-text notes or reviewer comments about this document |
+| `--verification-status` | enum | Read-only document status: Pending, Submitted, Successful, Failed, or Cancelled; uploading evidence sets it to Submitted. |
+| `--notes` | string | Optional free-text reviewer notes about this ID check evidence. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -82,31 +72,31 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--coworker-identity-check-id` | long, required | ID of the coworker identity check linked to this record |
-| `--name` | string, required | Display name for this document record |
+| `--coworker-id` | long, required | ID of the customer whose ID check evidence this is. |
+| `--coworker-identity-check-id` | long, required | ID of the parent customer ID check; it determines which evidence files are required and owns the document status. |
+| `--name` | string, required | Required operator-facing label for this ID check evidence record. |
 | `--new-photo-url` | string | URL of a new file to upload as the photo |
 | `--clear-photo-file` | bool | Set to true to remove the current photo file |
 | `--new-document-url` | string | URL of a new file to upload as the document |
 | `--clear-document-file` | bool | Set to true to remove the current document file |
 | `--new-additional-document-url` | string | URL of a new file to upload as the additional document |
 | `--clear-additional-document-file` | bool | Set to true to remove the current additional document file |
-| `--notes` | string | Free-text notes or reviewer comments about this document |
+| `--notes` | string | Optional free-text reviewer notes about this ID check evidence. |
 
 #### CoworkerIdentityCheckDocument update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-identity-check-id` | long | ID of the coworker identity check linked to this record |
-| `--name` | string | Display name for this document record |
+| `--coworker-id` | long | ID of the customer whose ID check evidence this is. |
+| `--coworker-identity-check-id` | long | ID of the parent customer ID check; it determines which evidence files are required and owns the document status. |
+| `--name` | string | Required operator-facing label for this ID check evidence record. |
 | `--new-photo-url` | string | URL of a new file to upload as the photo |
 | `--clear-photo-file` | bool | Set to true to remove the current photo file |
 | `--new-document-url` | string | URL of a new file to upload as the document |
 | `--clear-document-file` | bool | Set to true to remove the current document file |
 | `--new-additional-document-url` | string | URL of a new file to upload as the additional document |
 | `--clear-additional-document-file` | bool | Set to true to remove the current additional document file |
-| `--notes` | string | Free-text notes or reviewer comments about this document |
+| `--notes` | string | Optional free-text reviewer notes about this ID check evidence. |
 
 #### CoworkerIdentityCheckDocument PII fields
 

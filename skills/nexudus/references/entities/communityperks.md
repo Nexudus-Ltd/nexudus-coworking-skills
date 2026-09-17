@@ -16,7 +16,7 @@ CommunityPerks support Search, Get, Create, Update, Delete.
 | `nexudus communityperks list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus communityperks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus communityperks get <id> --agent` | Get single communityperk |
-| `nexudus communityperks create --business-id <value> --title <value> --display-order <value> --click-count <value> --agent` | Create communityperk |
+| `nexudus communityperks create --business-id <value> --title <value> --display-order <value> --agent` | Create communityperk |
 | `nexudus communityperks update <id> --name "New Name" --agent` | Update communityperk |
 | `nexudus communityperks delete <id> --yes --agent` | Delete communityperk (no prompt) |
 
@@ -77,12 +77,11 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--group-name` | string | Group or category this perk belongs to, used to organise perks on the Members Portal |
 | `--display-order` | int, required | Position of this perk in the list relative to other perks. Lower values appear first |
 | `--show-in-home-page` | bool | Whether to feature this perk on the Members Portal home page after users log in |
-| `--click-count` | int, required | Number of times customers have clicked on this perk |
 | `--only-for-contacts` | bool | Whether to exclude members and show this perk only to contacts, who have no active contract; do not set this and OnlyForMembers together |
 | `--only-for-members` | bool | Whether to exclude contacts and show this perk only to members, who have an active contract; do not set this and OnlyForContacts together |
 | `--tariffs` | list, repeat flag | List of plan IDs eligible for this perk when a customer is a member; an empty list does not restrict members by plan, and contacts are not checked against this list |
-| `--added-tariffs` | list, repeat flag | IDs of pricing plans to add to this perk's allowed tariffs |
-| `--removed-tariffs` | list, repeat flag | IDs of pricing plans to remove from this perk's allowed tariffs |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 
 #### CommunityPerk update options
 
@@ -101,12 +100,11 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--group-name` | string | Group or category this perk belongs to, used to organise perks on the Members Portal |
 | `--display-order` | int | Position of this perk in the list relative to other perks. Lower values appear first |
 | `--show-in-home-page` | bool | Whether to feature this perk on the Members Portal home page after users log in |
-| `--click-count` | int | Number of times customers have clicked on this perk |
 | `--only-for-contacts` | bool | Whether to exclude members and show this perk only to contacts, who have no active contract; do not set this and OnlyForMembers together |
 | `--only-for-members` | bool | Whether to exclude contacts and show this perk only to members, who have an active contract; do not set this and OnlyForContacts together |
 | `--tariffs` | list, repeat flag | List of plan IDs eligible for this perk when a customer is a member; an empty list does not restrict members by plan, and contacts are not checked against this list |
-| `--added-tariffs` | list, repeat flag | IDs of pricing plans to add to this perk's allowed tariffs |
-| `--removed-tariffs` | list, repeat flag | IDs of pricing plans to remove from this perk's allowed tariffs |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 
 ### CommunityPerk (key fields)
 

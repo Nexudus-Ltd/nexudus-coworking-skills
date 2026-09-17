@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=OpportunityTypes -->
 
-An **OpportunityType** defines a category for CRM opportunities, such as 'New Member', 'Event Booking', or 'Office Rental'. Types help classify and filter sales pipeline items.
+An opportunity type (OpportunityType) is a location-scoped category applied to CRM opportunities, such as 'New Member', 'Event Booking' or 'Office Rental', used to classify and filter them. A type can also carry a notes template that pre-fills the notes of opportunities created with it.
 
 OpportunityTypes support Search, Get, Create, Update, Delete.
 
@@ -24,9 +24,9 @@ OpportunityTypes support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this opportunity type |
-| `--notes-template` | string | The notes template value for this opportunity type |
+| `--business-id` | long | ID of the location that owns this opportunity type; required, supplied from the current location when creating, and only opportunity types from locations the user is linked to are returned. |
+| `--name` | string | Required localized name of this opportunity category (up to 254 characters), such as 'New Member', 'Event Booking' or 'Office Rental'; it identifies the type when classifying an opportunity and is what opportunity lists show as the type name. |
+| `--notes-template` | string | Optional boilerplate note text copied into the Notes of an opportunity that uses this type: the admin UI pre-fills it only when the opportunity's notes are still empty, and the opportunity CSV importer replaces the imported notes with it whenever it is not blank. Plain multi-line text copied verbatim, with no merge fields or placeholder substitution. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -45,16 +45,16 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this opportunity type |
-| `--notes-template` | string | The notes template value for this opportunity type |
+| `--business-id` | long, required | ID of the location that owns this opportunity type; required, supplied from the current location when creating, and only opportunity types from locations the user is linked to are returned. |
+| `--name` | string, required | Required localized name of this opportunity category (up to 254 characters), such as 'New Member', 'Event Booking' or 'Office Rental'; it identifies the type when classifying an opportunity and is what opportunity lists show as the type name. |
+| `--notes-template` | string | Optional boilerplate note text copied into the Notes of an opportunity that uses this type: the admin UI pre-fills it only when the opportunity's notes are still empty, and the opportunity CSV importer replaces the imported notes with it whenever it is not blank. Plain multi-line text copied verbatim, with no merge fields or placeholder substitution. |
 
 #### OpportunityType update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this opportunity type |
-| `--notes-template` | string | The notes template value for this opportunity type |
+| `--business-id` | long | ID of the location that owns this opportunity type; required, supplied from the current location when creating, and only opportunity types from locations the user is linked to are returned. |
+| `--name` | string | Required localized name of this opportunity category (up to 254 characters), such as 'New Member', 'Event Booking' or 'Office Rental'; it identifies the type when classifying an opportunity and is what opportunity lists show as the type name. |
+| `--notes-template` | string | Optional boilerplate note text copied into the Notes of an opportunity that uses this type: the admin UI pre-fills it only when the opportunity's notes are still empty, and the opportunity CSV importer replaces the imported notes with it whenever it is not blank. Plain multi-line text copied verbatim, with no merge fields or placeholder substitution. |
 
 <!-- END:GENERATED entity=OpportunityTypes -->

@@ -47,8 +47,8 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 | `--business-id` | long, required | ID of the location that owns this event category; the Admin Tool normally supplies it from the current location context |
 | `--title` | string, required | Nonempty name of this event category, used to group related events |
 | `--calendar-events` | list, repeat flag | List of CalendarEvent IDs assigned to this category; when supplied on update, it replaces all current assignments, and an empty list removes every assigned event |
-| `--added-calendar-events` | list, repeat flag | The added calendar events value for this calendar event category |
-| `--removed-calendar-events` | list, repeat flag | The removed calendar events value for this calendar event category |
+| `--added-calendar-events` | list, repeat flag | IDs added to the CalendarEvents relationship. |
+| `--removed-calendar-events` | list, repeat flag | IDs removed from the CalendarEvents relationship. |
 
 #### CalendarEventCategory update options
 
@@ -57,8 +57,8 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 | `--business-id` | long | ID of the location that owns this event category; the Admin Tool normally supplies it from the current location context |
 | `--title` | string | Nonempty name of this event category, used to group related events |
 | `--calendar-events` | list, repeat flag | List of CalendarEvent IDs assigned to this category; when supplied on update, it replaces all current assignments, and an empty list removes every assigned event |
-| `--added-calendar-events` | list, repeat flag | The added calendar events value for this calendar event category |
-| `--removed-calendar-events` | list, repeat flag | The removed calendar events value for this calendar event category |
+| `--added-calendar-events` | list, repeat flag | IDs added to the CalendarEvents relationship. |
+| `--removed-calendar-events` | list, repeat flag | IDs removed from the CalendarEvents relationship. |
 
 ### CalendarEventCategory (key fields)
 

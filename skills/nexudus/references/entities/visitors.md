@@ -30,12 +30,12 @@ Visitors also support entity commands.
 | `--full-name` | string | Visitor's full name; required. |
 | `--email` | string | Visitor's email address; required and validated as an email address. |
 | `--coworker-id` | long | ID of the customer hosting this visitor; required. |
-| `--coworker-type` | string | Host coworker type |
-| `--coworker-full-name` | string | Host coworker full name |
-| `--coworker-company-name` | string | Host coworker company name |
-| `--coworker-billing-name` | string | Host coworker billing name |
-| `--coworker-email` | string | Host coworker email |
-| `--coworker-team-names` | string | Host coworker team names |
+| `--coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--visitor-source` | enum | How the visitor was registered: Administrator for staff and Admin Agent registrations, Customer for registrations from the customer portal, app, or AI assistant, or NexIO for the reception tablet app; booking guests are synchronized from their booking. |
 | `--host-approval-status` | enum | Host approval workflow state: NotRequired, Requested, Rejected, AcceptedAndHold, or AcceptedAndGrant; manage pending approvals with the dedicated visitor approval tool. |
 | `--visitor-code` | string | System-generated visitor access code, created for eligible upcoming visits and used to locate the visitor at the location. |

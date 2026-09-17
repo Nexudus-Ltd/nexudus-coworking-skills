@@ -27,9 +27,9 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | `--coworker-id` | long | ID of the customer who owns this time credit or booking charge. |
 | `--business-id` | long | ID of the location that issued this record; it is required and cannot be changed after creation. |
 | `--extra-service-id` | long | ID of the booking rate that defines this record's eligible resource types, currency, and credit type. |
-| `--extra-service-name` | string | Name of the linked extra service |
-| `--extra-service-currency-code` | string | Currency code of the linked extra service (e.g., USD, EUR) |
-| `--extra-service-is-printing-credit` | bool | True if the linked extra service is a printing credit (PaperCut/Ezeep). False for booking time credit |
+| `--extra-service-name` | string | Display value for ExtraService.Name. |
+| `--extra-service-currency-code` | string | Display value for ExtraService.Currency.Code. |
+| `--extra-service-is-printing-credit` | bool | Display value for ExtraService.IsPrintingCredit. |
 | `--description` | string | Read-only description generated for the assigned booking rate or credit. |
 | `--notes` | string | Optional internal notes about this time credit or booking charge. |
 | `--remaining-uses` | int | Read-only unused credit remaining, in the unit selected by ChargePeriod; it is reduced when the credit is used. |

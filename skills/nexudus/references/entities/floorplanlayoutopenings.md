@@ -25,7 +25,7 @@ FloorPlanLayoutOpenings support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-edge-id` | long | ID of the floor plan layout edge linked to this record |
-| `--floor-plan-layout-edge-name` | string | Display name of the linked floor plan layout edge (read-only) |
+| `--floor-plan-layout-edge-name` | string | Display value for FloorPlanLayoutEdge.Name. |
 | `--opening-type` | string | The opening type value for this floor plan layout opening |
 | `--floor-offset` | int | The floor offset value for this floor plan layout opening |
 | `--from-floor-offset` | range | |

@@ -65,8 +65,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--tags` | string | Comma-separated search tags that help customers find this conversation |
 | `--private` | bool | Whether this conversation is visible only to its author and the users in Guests; a private community group also restricts visibility regardless of this setting |
 | `--guests` | list, repeat flag | List of user IDs allowed to read this thread when Private is true; an assigned community group's members are added automatically when the thread is created |
-| `--added-guests` | list, repeat flag | User IDs to add as guests (used in partial updates) |
-| `--removed-guests` | list, repeat flag | User IDs to remove as guests (used in partial updates) |
+| `--added-guests` | list, repeat flag | IDs added to the Guests relationship. |
+| `--removed-guests` | list, repeat flag | IDs removed from the Guests relationship. |
 | `--include-zoom-invite` | bool | Whether to create a Zoom meeting and attach its invite when this conversation is created |
 
 #### CommunityThread update options
@@ -83,8 +83,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--tags` | string | Comma-separated search tags that help customers find this conversation |
 | `--private` | bool | Whether this conversation is visible only to its author and the users in Guests; a private community group also restricts visibility regardless of this setting |
 | `--guests` | list, repeat flag | List of user IDs allowed to read this thread when Private is true; an assigned community group's members are added automatically when the thread is created |
-| `--added-guests` | list, repeat flag | User IDs to add as guests (used in partial updates) |
-| `--removed-guests` | list, repeat flag | User IDs to remove as guests (used in partial updates) |
+| `--added-guests` | list, repeat flag | IDs added to the Guests relationship. |
+| `--removed-guests` | list, repeat flag | IDs removed from the Guests relationship. |
 | `--include-zoom-invite` | bool | Whether to create a Zoom meeting and attach its invite when this conversation is created |
 
 **List properties (only returned by `get`, not by `list`):** `Guests`, `AddedGuests`, `RemovedGuests`

@@ -27,31 +27,31 @@ CoworkerInvoiceHistories support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-invoice-id` | long | ID of the coworker invoice linked to this record |
-| `--coworker-invoice-coworker-id` | int | ID of the coworker invoice coworker associated with this record |
+| `--coworker-invoice-coworker-id` | int | Display value for CoworkerInvoice.Coworker.Id. |
 | `--from-coworker-invoice-coworker-id` | range | |
 | `--to-coworker-invoice-coworker-id` | range | |
-| `--coworker-invoice-business-id` | int | ID of the coworker invoice business associated with this record |
+| `--coworker-invoice-business-id` | int | Display value for CoworkerInvoice.Business.Id. |
 | `--from-coworker-invoice-business-id` | range | |
 | `--to-coworker-invoice-business-id` | range | |
-| `--coworker-invoice-business-currency-code` | string | The coworker invoice business currency code value for this coworker invoice history |
-| `--coworker-full-name` | string | Full name of the customer who owns the invoice |
-| `--invoice-total-amount` | decimal | Total amount of the related customer invoice |
+| `--coworker-invoice-business-currency-code` | string | Display value for CoworkerInvoice.Business.Currency.Code. |
+| `--coworker-full-name` | string | Display value for CoworkerInvoice.Coworker.FullName. |
+| `--invoice-total-amount` | decimal | Display value for CoworkerInvoice.TotalAmount. |
 | `--from-invoice-total-amount` | range | |
 | `--to-invoice-total-amount` | range | |
-| `--invoice-number` | string | Invoice number of the related customer invoice |
-| `--coworker-invoice-bill-to-name` | string | Display name of the linked coworker invoice bill to (read-only) |
-| `--invoice-paid` | bool | Whether the related customer invoice has been fully paid |
-| `--coworker-invoice-paid-on` | DateTime | Date/time value for coworker invoice paid on |
+| `--invoice-number` | string | Display value for CoworkerInvoice.InvoiceNumber. |
+| `--coworker-invoice-bill-to-name` | string | Display value for CoworkerInvoice.BillToName. |
+| `--invoice-paid` | bool | Display value for CoworkerInvoice.Paid. |
+| `--coworker-invoice-paid-on` | DateTime | Display value for CoworkerInvoice.PaidOn. |
 | `--from-coworker-invoice-paid-on` | range | |
 | `--to-coworker-invoice-paid-on` | range | |
-| `--coworker-invoice-refunded` | bool | Whether coworker invoice refunded is enabled |
-| `--coworker-invoice-refunded-on` | DateTime | Date/time value for coworker invoice refunded on |
+| `--coworker-invoice-refunded` | bool | Display value for CoworkerInvoice.Refunded. |
+| `--coworker-invoice-refunded-on` | DateTime | Display value for CoworkerInvoice.RefundedOn. |
 | `--from-coworker-invoice-refunded-on` | range | |
 | `--to-coworker-invoice-refunded-on` | range | |
-| `--coworker-invoice-due-date` | DateTime | Date/time value for coworker invoice due date |
+| `--coworker-invoice-due-date` | DateTime | Display value for CoworkerInvoice.DueDate. |
 | `--from-coworker-invoice-due-date` | range | |
 | `--to-coworker-invoice-due-date` | range | |
-| `--invoice-draft` | bool | Whether the related customer invoice is still in draft |
+| `--invoice-draft` | bool | Display value for CoworkerInvoice.Draft. |
 | `--name` | string | Short title of the history entry (e.g. 'Invoice sent', 'Payment received') |
 | `--description` | string | Detailed description of the activity or event recorded by this history entry |
 | `--is-problem` | bool | Flags this history entry as an error or issue (e.g. a failed payment attempt or e-invoicing error) |

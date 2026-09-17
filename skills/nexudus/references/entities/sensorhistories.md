@@ -25,7 +25,7 @@ SensorHistories support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--sensor-id` | long | ID of the required sensor that recorded this reading; the sensor determines the owning location. |
-| `--sensor-name` | string |  |
+| `--sensor-name` | string | Display value for Sensor.Name. |
 | `--value` | string | Optional recorded sensor reading as text, using the value produced by the sensor's configured value function when one is configured. |
 | `--observed-on` | DateTime | Required date and time when the sensor reading was observed. |
 | `--from-observed-on` | range | |

@@ -25,8 +25,8 @@ Surveys support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this survey; the Admin Tool normally supplies it from the current location context |
-| `--business-name` | string | Display name of the linked business (read-only) |
-| `--business-web-address` | string |  |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-web-address` | string | Display value for Business.WebAddress. |
 | `--name` | string | Required name used by administrators to identify this survey |
 | `--description` | string | Required free-text description explaining the purpose of this survey |
 | `--active` | bool | Whether this survey is eligible for scheduled delivery when its next delivery date is due |
@@ -75,8 +75,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--only-for-contacts` | bool | Whether delivery is restricted to contacts without an active contract; when enabled with OnlyForMembers, both restrictions apply and no customer can qualify |
 | `--only-for-members` | bool | Whether delivery is restricted to members with an active contract; when Tariffs is non-empty, the contract must be on one of those plans |
 | `--tariffs` | list, repeat flag | List of plans eligible for member-only delivery; when OnlyForMembers is enabled, an empty list allows every member, otherwise the customer needs an active contract on one of these plans |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this survey |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this survey |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 
 #### Survey update options
 
@@ -94,8 +94,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--only-for-contacts` | bool | Whether delivery is restricted to contacts without an active contract; when enabled with OnlyForMembers, both restrictions apply and no customer can qualify |
 | `--only-for-members` | bool | Whether delivery is restricted to members with an active contract; when Tariffs is non-empty, the contract must be on one of those plans |
 | `--tariffs` | list, repeat flag | List of plans eligible for member-only delivery; when OnlyForMembers is enabled, an empty list allows every member, otherwise the customer needs an active contract on one of these plans |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this survey |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this survey |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 
 **List properties (only returned by `get`, not by `list`):** `Tariffs`, `AddedTariffs`, `RemovedTariffs`
 

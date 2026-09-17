@@ -26,7 +26,7 @@ HelpDeskComments support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--help-desk-message-id` | long | ID of the support ticket this reply or note belongs to; it determines the owning location and a new comment reopens the ticket. |
 | `--coworker-id` | long | ID of the customer or staff member who authored this comment; the author determines the notification path. |
-| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--message-text` | string | Required multiline text of the customer reply or staff note. |
 | `--internal` | bool | Whether this is an internal staff note; when true it is not sent to the customer. |
 | `--image-file-name` | string | Current file name of the image (read-only; upload via the corresponding URL field) |

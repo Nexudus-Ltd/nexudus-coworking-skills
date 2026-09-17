@@ -27,8 +27,8 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 | `--coworker-id` | long | ID of the customer assigned this pass |
 | `--business-id` | long | ID of the location that owns this pass |
 | `--time-pass-id` | long | ID of the pass definition to issue; it determines the included number of uses and default price |
-| `--time-pass-name` | string | Name of the linked time pass |
-| `--time-pass-currency-code` | string | Currency code of the linked time pass |
+| `--time-pass-name` | string | Display value for TimePass.Name. |
+| `--time-pass-currency-code` | string | Display value for TimePass.Currency.Code. |
 | `--notes` | string | Optional internal notes about this issued pass |
 | `--purchase-order` | string | Optional purchase-order reference for this pass |
 | `--used` | bool | Whether the customer has used this pass; update-only operational status |

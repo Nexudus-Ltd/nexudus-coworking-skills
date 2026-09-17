@@ -28,7 +28,7 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--crm-opportunity-id` | long | The opportunity this history entry belongs to |
 | `--old-crm-board-column-id` | long | CRM stage the opportunity moved from (null for the initial placement) |
-| `--old-crm-board-column-name` | string | Name of the previous CRM stage |
+| `--old-crm-board-column-name` | string | Display value for OldCrmBoardColumn.Name. |
 | `--from-time` | DateTime | When the opportunity entered the previous stage |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -36,9 +36,9 @@ CrmOpportunityHistories support Search, Get, Create, Update, Delete.
 | `--from-to-time` | range | |
 | `--to-to-time` | range | |
 | `--new-crm-board-column-id` | long | CRM stage the opportunity moved to |
-| `--new-crm-board-column-name` | string | Name of the new CRM stage |
+| `--new-crm-board-column-name` | string | Display value for NewCrmBoardColumn.Name. |
 | `--user-id` | long | Admin user who triggered the stage transition (null if moved automatically) |
-| `--user-full-name` | string | Full name of the admin user who triggered the transition |
+| `--user-full-name` | string | Display value for User.FullName. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

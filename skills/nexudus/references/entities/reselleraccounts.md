@@ -25,24 +25,24 @@ ResellerAccounts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--reseller-id` | long | ID of the reseller linked to this record |
-| `--reseller-currency-id` | int | ID of the reseller currency associated with this record |
+| `--reseller-currency-id` | int | Display value for Reseller.Currency.Id. |
 | `--from-reseller-currency-id` | range | |
 | `--to-reseller-currency-id` | range | |
-| `--reseller-currency-code` | string | The reseller currency code value for this reseller account |
+| `--reseller-currency-code` | string | Display value for Reseller.Currency.Code. |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Display name of the linked business (read-only) |
-| `--business-pre-auth-id` | string | ID of the business pre auth associated with this record |
-| `--business-last4-digits` | string | The business last4 digits value for this reseller account |
-| `--business-pre-auth-last-error` | string | The business pre auth last error value for this reseller account |
-| `--business-suspended` | bool | Whether business suspended is enabled |
-| `--business-next-invoice` | DateTime | Date/time value for business next invoice |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-pre-auth-id` | string | Display value for Business.PreAuthId. |
+| `--business-last4-digits` | string | Display value for Business.Last4Digits. |
+| `--business-pre-auth-last-error` | string | Display value for Business.PreAuthLastError. |
+| `--business-suspended` | bool | Display value for Business.Suspended. |
+| `--business-next-invoice` | DateTime | Display value for Business.NextInvoice. |
 | `--from-business-next-invoice` | range | |
 | `--to-business-next-invoice` | range | |
-| `--business-trial-expire-date` | DateTime | Date/time value for business trial expire date |
+| `--business-trial-expire-date` | DateTime | Display value for Business.TrialExpireDate. |
 | `--from-business-trial-expire-date` | range | |
 | `--to-business-trial-expire-date` | range | |
-| `--business-support-tier` | string | The business support tier value for this reseller account |
-| `--business-on-boarding-tier` | string | The business on boarding tier value for this reseller account |
+| `--business-support-tier` | string | Display value for Business.SupportTier. |
+| `--business-on-boarding-tier` | string | Display value for Business.OnBoardingTier. |
 | `--approved` | bool | Whether approved is enabled |
 | `--comission-percentage` | decimal | The comission percentage value for this reseller account |
 | `--from-comission-percentage` | range | |

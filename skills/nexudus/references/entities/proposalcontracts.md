@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ProposalContracts -->
 
-A **ProposalContract** links a contract configuration to a proposal, defining the pricing plan and terms that will be applied if the proposal is accepted by the customer.
+A ProposalContract is one quoted contract inside a proposal. It carries the same plan, unit, price, date, and quantity settings as a customer contract and becomes a real contract for the customer when the proposal is accepted. One is created automatically with the proposal from the proposal's own contract fields; add more to quote several contracts in a single offer. Changes to the plan, units, price, or dates of an existing proposal belong here rather than on the proposal itself.
 
 ProposalContracts support Search, Get, Create, Update, Delete.
 
@@ -24,50 +24,50 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long | ID of the proposal linked to this record |
-| `--proposal-coworker-id` | int | Proposal coworker ID |
+| `--proposal-id` | long | ID of the proposal this quoted contract belongs to; required, and the proposal's issuing location owns this record. |
+| `--proposal-coworker-id` | int | Display value for Proposal.Coworker.Id. |
 | `--from-proposal-coworker-id` | range | |
 | `--to-proposal-coworker-id` | range | |
-| `--proposal-coworker-email` | string | Proposal coworker email |
-| `--proposal-coworker-full-name` | string | Proposal coworker full name |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--tariff-name` | string | Tariff name |
-| `--tariff-invoice-every` | int | Tariff invoice frequency |
+| `--proposal-coworker-email` | string | Display value for Proposal.Coworker.Email. |
+| `--proposal-coworker-full-name` | string | Display value for Proposal.Coworker.FullName. |
+| `--tariff-id` | long | ID of the plan quoted by this contract; required, and its billing interval, price, and policies govern the contract the customer receives on acceptance. |
+| `--tariff-name` | string | Display value for Tariff.Name. |
+| `--tariff-invoice-every` | int | Display value for Tariff.InvoiceEvery. |
 | `--from-tariff-invoice-every` | range | |
 | `--to-tariff-invoice-every` | range | |
-| `--tariff-invoice-every-weeks` | int | Tariff invoice frequency in weeks |
+| `--tariff-invoice-every-weeks` | int | Display value for Tariff.InvoiceEveryWeeks. |
 | `--from-tariff-invoice-every-weeks` | range | |
 | `--to-tariff-invoice-every-weeks` | range | |
-| `--tariff-price` | decimal | Tariff price |
+| `--tariff-price` | decimal | Display value for Tariff.Price. |
 | `--from-tariff-price` | range | |
 | `--to-tariff-price` | range | |
-| `--tariff-business-currency-code` | string | Tariff business currency code |
-| `--price` | decimal | Price override |
+| `--tariff-business-currency-code` | string | Display value for Tariff.Business.Currency.Code. |
+| `--price` | decimal | Optional per-unit price override for this quoted contract, in the issuing location's currency; when empty the plan's own price is used before quantity is applied. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--start-date` | DateTime | Contract start date |
+| `--start-date` | DateTime | Date the contract starts once the proposal is accepted; when empty, acceptance starts it the day after the proposal is accepted. |
 | `--from-start-date` | range | |
 | `--to-start-date` | range | |
-| `--cancellation-limit-days` | int | Cancellation limit in days |
+| `--cancellation-limit-days` | int | Optional minimum cancellation notice, in days before the next billing day; when empty the plan's own notice period applies. |
 | `--from-cancellation-limit-days` | range | |
 | `--to-cancellation-limit-days` | range | |
-| `--contract-term` | DateTime | Contract term end date |
+| `--contract-term` | DateTime | Optional end date of the minimum contract term, carried onto the customer contract on acceptance; when empty the contract derives its own term from the plan's default term and start date. |
 | `--from-contract-term` | range | |
 | `--to-contract-term` | range | |
-| `--cancellation-date` | DateTime | Cancellation date |
+| `--cancellation-date` | DateTime | Optional date on which the contract ends; leave it empty for an open-ended contract. |
 | `--from-cancellation-date` | range | |
 | `--to-cancellation-date` | range | |
-| `--billing-day` | int | Billing day of month |
+| `--billing-day` | int | Day of the month, from 1 to 28, on which the contract is invoiced after acceptance. |
 | `--from-billing-day` | range | |
 | `--to-billing-day` | range | |
-| `--quantity` | int | Number of units |
+| `--quantity` | int | Number of plan units on this quoted contract, at least 1; it multiplies the unit price. |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--discount-code-id` | long | ID of the discount code linked to this record |
-| `--floor-plan-desk-ids` | string | Floor plan desk IDs |
-| `--floor-plan-desk-names` | string | Floor plan desk names |
-| `--floor-plan-desk-variant-ids` | string | Floor plan desk variant IDs |
-| `--floor-plan-desk-variant-names` | string | Floor plan desk variant names |
+| `--discount-code-id` | long | Optional ID of a discount code carried onto the customer contract when the proposal is accepted. |
+| `--floor-plan-desk-ids` | string | Read-only denormalized IDs of the assigned floor-plan units; change Desks rather than this projection. |
+| `--floor-plan-desk-names` | string | Read-only denormalized names of the assigned floor-plan units; change Desks rather than this projection. |
+| `--floor-plan-desk-variant-ids` | string | Read-only denormalized IDs of the assigned floor-plan unit packages; change Variants rather than this projection. |
+| `--floor-plan-desk-variant-names` | string | Read-only denormalized names of the assigned floor-plan unit packages; change Variants rather than this projection. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -86,43 +86,43 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long, required | ID of the proposal linked to this record |
-| `--tariff-id` | long, required | ID of the tariff linked to this record |
-| `--desks` | list, repeat flag | List of desks linked to this record |
-| `--added-desks` | list, repeat flag | The added desks value for this proposal contract |
-| `--removed-desks` | list, repeat flag | The removed desks value for this proposal contract |
-| `--variants` | list, repeat flag | List of variants linked to this record |
-| `--added-variants` | list, repeat flag | The added variants value for this proposal contract |
-| `--removed-variants` | list, repeat flag | The removed variants value for this proposal contract |
-| `--price` | decimal | Price override |
-| `--start-date` | DateTime | Contract start date |
-| `--cancellation-limit-days` | int | Cancellation limit in days |
-| `--contract-term` | DateTime | Contract term end date |
-| `--cancellation-date` | DateTime | Cancellation date |
-| `--billing-day` | int, required | Billing day of month |
-| `--quantity` | int, required | Number of units |
-| `--discount-code-id` | long | ID of the discount code linked to this record |
+| `--proposal-id` | long, required | ID of the proposal this quoted contract belongs to; required, and the proposal's issuing location owns this record. |
+| `--tariff-id` | long, required | ID of the plan quoted by this contract; required, and its billing interval, price, and policies govern the contract the customer receives on acceptance. |
+| `--desks` | list, repeat flag | List of IDs of the floor-plan units assigned to this quoted contract; each unit must belong to a location the user can access, an empty list means no unit is attached, and these are the units the customer receives on acceptance. |
+| `--added-desks` | list, repeat flag | IDs added to the Desks relationship. |
+| `--removed-desks` | list, repeat flag | IDs removed from the Desks relationship. |
+| `--variants` | list, repeat flag | List of IDs of the floor-plan unit packages assigned to this quoted contract; each package must belong to one of the units listed in Desks and to a location the user can access. |
+| `--added-variants` | list, repeat flag | IDs added to the Variants relationship. |
+| `--removed-variants` | list, repeat flag | IDs removed from the Variants relationship. |
+| `--price` | decimal | Optional per-unit price override for this quoted contract, in the issuing location's currency; when empty the plan's own price is used before quantity is applied. |
+| `--start-date` | DateTime | Date the contract starts once the proposal is accepted; when empty, acceptance starts it the day after the proposal is accepted. |
+| `--cancellation-limit-days` | int | Optional minimum cancellation notice, in days before the next billing day; when empty the plan's own notice period applies. |
+| `--contract-term` | DateTime | Optional end date of the minimum contract term, carried onto the customer contract on acceptance; when empty the contract derives its own term from the plan's default term and start date. |
+| `--cancellation-date` | DateTime | Optional date on which the contract ends; leave it empty for an open-ended contract. |
+| `--billing-day` | int, required | Day of the month, from 1 to 28, on which the contract is invoiced after acceptance. |
+| `--quantity` | int, required | Number of plan units on this quoted contract, at least 1; it multiplies the unit price. |
+| `--discount-code-id` | long | Optional ID of a discount code carried onto the customer contract when the proposal is accepted. |
 
 #### ProposalContract update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long | ID of the proposal linked to this record |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--desks` | list, repeat flag | List of desks linked to this record |
-| `--added-desks` | list, repeat flag | The added desks value for this proposal contract |
-| `--removed-desks` | list, repeat flag | The removed desks value for this proposal contract |
-| `--variants` | list, repeat flag | List of variants linked to this record |
-| `--added-variants` | list, repeat flag | The added variants value for this proposal contract |
-| `--removed-variants` | list, repeat flag | The removed variants value for this proposal contract |
-| `--price` | decimal | Price override |
-| `--start-date` | DateTime | Contract start date |
-| `--cancellation-limit-days` | int | Cancellation limit in days |
-| `--contract-term` | DateTime | Contract term end date |
-| `--cancellation-date` | DateTime | Cancellation date |
-| `--billing-day` | int | Billing day of month |
-| `--quantity` | int | Number of units |
-| `--discount-code-id` | long | ID of the discount code linked to this record |
+| `--proposal-id` | long | ID of the proposal this quoted contract belongs to; required, and the proposal's issuing location owns this record. |
+| `--tariff-id` | long | ID of the plan quoted by this contract; required, and its billing interval, price, and policies govern the contract the customer receives on acceptance. |
+| `--desks` | list, repeat flag | List of IDs of the floor-plan units assigned to this quoted contract; each unit must belong to a location the user can access, an empty list means no unit is attached, and these are the units the customer receives on acceptance. |
+| `--added-desks` | list, repeat flag | IDs added to the Desks relationship. |
+| `--removed-desks` | list, repeat flag | IDs removed from the Desks relationship. |
+| `--variants` | list, repeat flag | List of IDs of the floor-plan unit packages assigned to this quoted contract; each package must belong to one of the units listed in Desks and to a location the user can access. |
+| `--added-variants` | list, repeat flag | IDs added to the Variants relationship. |
+| `--removed-variants` | list, repeat flag | IDs removed from the Variants relationship. |
+| `--price` | decimal | Optional per-unit price override for this quoted contract, in the issuing location's currency; when empty the plan's own price is used before quantity is applied. |
+| `--start-date` | DateTime | Date the contract starts once the proposal is accepted; when empty, acceptance starts it the day after the proposal is accepted. |
+| `--cancellation-limit-days` | int | Optional minimum cancellation notice, in days before the next billing day; when empty the plan's own notice period applies. |
+| `--contract-term` | DateTime | Optional end date of the minimum contract term, carried onto the customer contract on acceptance; when empty the contract derives its own term from the plan's default term and start date. |
+| `--cancellation-date` | DateTime | Optional date on which the contract ends; leave it empty for an open-ended contract. |
+| `--billing-day` | int | Day of the month, from 1 to 28, on which the contract is invoiced after acceptance. |
+| `--quantity` | int | Number of plan units on this quoted contract, at least 1; it multiplies the unit price. |
+| `--discount-code-id` | long | Optional ID of a discount code carried onto the customer contract when the proposal is accepted. |
 
 #### ProposalContract PII fields
 

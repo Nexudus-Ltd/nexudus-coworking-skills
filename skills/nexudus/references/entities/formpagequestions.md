@@ -25,7 +25,7 @@ FormPageQuestions support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--form-page-id` | long | ID of the form that contains this question; the form's location determines access to the question |
-| `--form-page-name` | string | Display name of the linked form page (read-only) |
+| `--form-page-name` | string | Display value for FormPage.Name. |
 | `--text` | string | Required question label shown to customers |
 | `--description` | string | Required explanatory text shown below the question to customers |
 | `--available-options` | string | Comma-separated choices for a Dropdown question; leave empty for other question types |

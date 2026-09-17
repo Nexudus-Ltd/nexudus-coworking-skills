@@ -27,7 +27,7 @@ BlogPosts support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the location that owns this article. |
 | `--language-id` | long | ID of the optional location-specific language used for this article. |
 | `--posted-by-id` | long | ID of the user attributed as the author; creation assigns the currently authenticated user. |
-| `--posted-by-name` | string | Full name of the article author |
+| `--posted-by-name` | string | Display value for PostedBy.FullName. |
 | `--title` | string | Required title of the article. |
 | `--summary` | string | Optional short overview displayed with the article. |
 | `--body` | string | Optional HTML body content of the article. |
@@ -85,8 +85,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--unpublish-date` | DateTime | Optional UTC date and time recorded as the article's unpublish date; leave blank when no unpublish date is required. |
 | `--allow-comments` | bool | Whether customers can submit comments on this article. |
 | `--blog-categories` | list, repeat flag | List of location-specific blog category IDs assigned to this article; an empty list leaves it uncategorized. |
-| `--added-blog-categories` | list, repeat flag | The added blog categories value for this blog post |
-| `--removed-blog-categories` | list, repeat flag | The removed blog categories value for this blog post |
+| `--added-blog-categories` | list, repeat flag | IDs added to the BlogCategories relationship. |
+| `--removed-blog-categories` | list, repeat flag | IDs removed from the BlogCategories relationship. |
 | `--only-for-contacts` | bool | Whether the article is restricted to contacts, meaning customers without an active contract. |
 | `--only-for-members` | bool | Whether the article is restricted to members, meaning customers with an active contract. |
 
@@ -110,8 +110,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--unpublish-date` | DateTime | Optional UTC date and time recorded as the article's unpublish date; leave blank when no unpublish date is required. |
 | `--allow-comments` | bool | Whether customers can submit comments on this article. |
 | `--blog-categories` | list, repeat flag | List of location-specific blog category IDs assigned to this article; an empty list leaves it uncategorized. |
-| `--added-blog-categories` | list, repeat flag | The added blog categories value for this blog post |
-| `--removed-blog-categories` | list, repeat flag | The removed blog categories value for this blog post |
+| `--added-blog-categories` | list, repeat flag | IDs added to the BlogCategories relationship. |
+| `--removed-blog-categories` | list, repeat flag | IDs removed from the BlogCategories relationship. |
 | `--only-for-contacts` | bool | Whether the article is restricted to contacts, meaning customers without an active contract. |
 | `--only-for-members` | bool | Whether the article is restricted to members, meaning customers with an active contract. |
 

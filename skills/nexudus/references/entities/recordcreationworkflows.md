@@ -37,11 +37,11 @@ RecordCreationWorkflows support Search, Get, Create, Update, Delete.
 | `--draft-version-id` | long | Current mutable draft version |
 | `--published-version-id` | long | Current immutable published version |
 | `--created-by-user-id` | long | User who created the workflow |
-| `--created-by-user-full-name` | string | Full name of the user who created the workflow |
-| `--created-by-user-email` | string | Email address of the user who created the workflow |
+| `--created-by-user-full-name` | string | Display value for CreatedByUser.FullName. |
+| `--created-by-user-email` | string | Display value for CreatedByUser.Email. |
 | `--updated-by-user-id` | long | User who last updated the workflow |
-| `--updated-by-user-full-name` | string | Full name of the user who last updated the workflow |
-| `--updated-by-user-email` | string | Email address of the user who last updated the workflow |
+| `--updated-by-user-full-name` | string | Display value for UpdatedByUser.FullName. |
+| `--updated-by-user-email` | string | Display value for UpdatedByUser.Email. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

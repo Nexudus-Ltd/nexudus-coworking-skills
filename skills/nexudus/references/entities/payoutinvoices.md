@@ -25,16 +25,16 @@ PayoutInvoices support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--invoice-id` | long | ID of the invoice linked to this record |
-| `--invoice-invoice-number` | string | The invoice invoice number value for this payout invoice |
-| `--invoice-reseller-amount` | decimal | The invoice reseller amount value for this payout invoice |
+| `--invoice-invoice-number` | string | Display value for Invoice.InvoiceNumber. |
+| `--invoice-reseller-amount` | decimal | Display value for Invoice.ResellerAmount. |
 | `--from-invoice-reseller-amount` | range | |
 | `--to-invoice-reseller-amount` | range | |
-| `--invoice-created-on` | string | The invoice created on value for this payout invoice |
-| `--invoice-currency-code` | string | The invoice currency code value for this payout invoice |
-| `--invoice-business-id` | int | ID of the invoice business associated with this record |
+| `--invoice-created-on` | string | Display value for Invoice.CreatedOn. |
+| `--invoice-currency-code` | string | Display value for Invoice.Currency.Code. |
+| `--invoice-business-id` | int | Display value for Invoice.Business.Id. |
 | `--from-invoice-business-id` | range | |
 | `--to-invoice-business-id` | range | |
-| `--invoice-business-name` | string | Display name of the linked invoice business (read-only) |
+| `--invoice-business-name` | string | Display value for Invoice.Business.Name. |
 | `--reseller-payout-id` | long | ID of the reseller payout linked to this record |
 | `--amount` | decimal | The amount value for this payout invoice |
 | `--from-amount` | range | |

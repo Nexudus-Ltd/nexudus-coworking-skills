@@ -60,8 +60,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--description` | string | Full description of the application shown on the detail page |
 | `--install-url` | string, required | URL that Nexudus calls when a location installs this application |
 | `--required-roles` | list, repeat flag | List of required roles linked to this record |
-| `--added-required-roles` | list, repeat flag | Roles to add to the required roles list (used in partial updates) |
-| `--removed-required-roles` | list, repeat flag | Roles to remove from the required roles list (used in partial updates) |
+| `--added-required-roles` | list, repeat flag | IDs added to the RequiredRoles relationship. |
+| `--removed-required-roles` | list, repeat flag | IDs removed from the RequiredRoles relationship. |
 
 #### Application update options
 
@@ -75,8 +75,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--description` | string | Full description of the application shown on the detail page |
 | `--install-url` | string | URL that Nexudus calls when a location installs this application |
 | `--required-roles` | list, repeat flag | List of required roles linked to this record |
-| `--added-required-roles` | list, repeat flag | Roles to add to the required roles list (used in partial updates) |
-| `--removed-required-roles` | list, repeat flag | Roles to remove from the required roles list (used in partial updates) |
+| `--added-required-roles` | list, repeat flag | IDs added to the RequiredRoles relationship. |
+| `--removed-required-roles` | list, repeat flag | IDs removed from the RequiredRoles relationship. |
 
 **List properties (only returned by `get`, not by `list`):** `RequiredRoles`, `AddedRequiredRoles`, `RemovedRequiredRoles`
 

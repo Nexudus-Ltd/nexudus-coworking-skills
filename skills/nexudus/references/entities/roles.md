@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Roles -->
 
-A **Role** defines a set of permissions that can be assigned to administrators. Roles control what areas of the system a user can access and what actions they can perform.
+A Role is a system-wide, read-only named permission definition used by UserRole permission groups to control user access across their accessible locations.
 
 Roles support Search, Get (no Create or Delete via API).
 
@@ -21,7 +21,7 @@ Roles support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--name` | string | The name value for this role |
+| `--name` | string | Unique required name of this system role, used when evaluating user permissions. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

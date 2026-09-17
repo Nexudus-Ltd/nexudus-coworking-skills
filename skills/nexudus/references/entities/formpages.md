@@ -25,19 +25,19 @@ FormPages support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this form page; the Admin Tool normally supplies it from the current location context |
-| `--business-name` | string | Display name of the linked business (read-only) |
-| `--business-web-address` | string |  |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-web-address` | string | Display value for Business.WebAddress. |
 | `--name` | string | Required name used by administrators to identify this form page |
 | `--description` | string | Required free-text description explaining the purpose of this form |
 | `--active` | bool | Whether this form is active and available for use |
 | `--crm-board-column-id` | long | ID of the optional CRM board column that receives customers when they submit this form |
-| `--crm-board-column-name` | string | Display name of the linked crm board column (read-only) |
-| `--crm-board-column-crm-board-id` | int | ID of the crm board column crm board associated with this record |
+| `--crm-board-column-name` | string | Display value for CrmBoardColumn.Name. |
+| `--crm-board-column-crm-board-id` | int | Display value for CrmBoardColumn.CrmBoard.Id. |
 | `--from-crm-board-column-crm-board-id` | range | |
 | `--to-crm-board-column-crm-board-id` | range | |
-| `--crm-board-column-crm-board-name` | string | Display name of the linked crm board column crm board (read-only) |
+| `--crm-board-column-crm-board-name` | string | Display value for CrmBoardColumn.CrmBoard.Name. |
 | `--responsible-id` | long | ID of the optional user assigned an email-notified customer task when this form is submitted |
-| `--responsible-full-name` | string | Display name of the linked responsible full (read-only) |
+| `--responsible-full-name` | string | Display value for Responsible.FullName. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

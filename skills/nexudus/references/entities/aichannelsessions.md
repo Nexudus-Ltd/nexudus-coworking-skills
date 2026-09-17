@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=AiChannelSessions -->
 
-An **AiChannelSession** represents a conversation session between a customer (or external contact) and the AI agent across any channel (email, chat, WhatsApp, voice, etc.).
-
-Each session groups all messages in a single conversation and links to a specific `Coworker` (if the contact is a member) or an `ExternalIdentifier` (email address, phone number, etc.) for non-members. Sessions are the primary tracking mechanism for AI-powered interactions and serve as the source for proactive outbound messaging when `ExternalIdentifier` is used to follow up with dormant leads.
+An AiChannelSession is one conversation between a contact and the AI, on whichever channel it happened — the web chat widget, email, WhatsApp or a voice call. It links to a Coworker when the contact is a member, and otherwise identifies them by ExternalIdentifier. The transcript lives in OpenAiChatMessage records sharing this record’s ChatSession GUID. Custom fields named Nexudus.Ai.VisitorId, Nexudus.Ai.CoworkerId, Nexudus.Ai.CoworkerContractId, Nexudus.Ai.CoworkerProductId and Nexudus.Ai.BookingId record what the conversation produced, so they are how you tell which conversations converted into a tour, a signup, a contract, a day pass or a booking. This entity is read-only: conversations are written by the inbound message pipeline and the proactive outreach engine, never by hand.
 
 AiChannelSessions support Search, Get, Create, Update, Delete.
 
@@ -26,24 +24,24 @@ AiChannelSessions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this session. Null for sessions with external contacts who are not members. |
-| `--coworker-coworker-type` | string | Whether the linked coworker is an individual or a company. |
-| `--coworker-full-name` | string | Full name of the coworker associated with this session. |
-| `--coworker-mobile-phone` | string | Mobile phone number of the coworker associated with this session. |
-| `--coworker-land-line` | string | Landline phone number of the coworker associated with this session. |
-| `--coworker-billing-name` | string | Billing name of the coworker associated with this session. |
-| `--coworker-company-name` | string | Company name of the coworker associated with this session. |
-| `--coworker-team-names` | string | Comma-separated list of team names the coworker belongs to. |
-| `--channel` | string | Communication channel for this session (e.g. Email, Chat, WhatsApp, Voice). |
-| `--external-identifier` | string | External contact identifier — email address for email sessions, phone number for WhatsApp or voice sessions. Used to identify non-member contacts and for proactive follow-up of dormant leads. |
-| `--chat-session` | string | Internal chat session identifier used by the AI platform for context tracking. |
-| `--external-thread-id` | string | External thread identifier from the channel provider (e.g. WhatsApp conversation ID, email thread ID) used for message threading. |
-| `--last-activity-utc` | DateTime | Timestamp of the last activity in this session (last message sent or received). Used by proactive criteria to detect dormant sessions. |
+| `--business-id` | long | ID of the location that owns this conversation. Set from the location the inbound message arrived at, or from the location whose agent started the outreach. |
+| `--coworker-id` | long | ID of the customer this conversation is with. Empty when the contact is not a member yet, in which case ExternalIdentifier holds their email address or phone number. |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-mobile-phone` | string | Display value for Coworker.MobilePhone. |
+| `--coworker-land-line` | string | Display value for Coworker.LandLine. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
+| `--channel` | string | Channel the conversation runs on, stored as text: Chat for the web widget, Email, WhatsApp or Voice for inbound contact; proactive outreach also writes CoworkerMessage and HelpDesk. Determines how ExternalIdentifier is interpreted. |
+| `--external-identifier` | string | How the outside contact is addressed on this channel: an email address for Email, a phone number for WhatsApp and Voice. It is how a conversation is matched to an incoming reply, and how dormant non-member leads are followed up. |
+| `--chat-session` | string | GUID that groups the conversation’s messages. Every OpenAiChatMessage in this conversation carries the same value, so it is the key to reading the transcript. |
+| `--external-thread-id` | string | Threading key from the channel provider — the email In-Reply-To/References header, or the WhatsApp conversation ID — used to attach later replies to this same conversation. |
+| `--last-activity-utc` | DateTime | UTC time of the most recent message in either direction. Drives conversation ordering, session expiry, and the dormant-lead follow-up agent. |
 | `--from-last-activity-utc` | range | |
 | `--to-last-activity-utc` | range | |
-| `--subject` | string | Subject line for the conversation, typically set from the first email or inferred from conversation context. |
-| `--escalation-status` | enum | Current escalation state of this session — None, Pending (awaiting human review), Active (human is handling), or Resolved. |
+| `--subject` | string | Conversation subject, taken from the first email or inferred from the opening messages. On the Email channel a different subject from the same address starts a new conversation rather than continuing this one. |
+| `--escalation-status` | enum | How far this conversation has been handed over to a person: None while the AI is handling it alone; Pending once the AI escalates and a help desk ticket is waiting; Active once someone comments on that ticket or an operator takes the thread; Resolved when the ticket is closed. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -56,35 +54,35 @@ AiChannelSessions support Search, Get, Create, Update, Delete.
 | `--order-by <property>` | Property name to sort by |
 | `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
 
-Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
+Default sort: `LastActivityUtc` descending. If no `--order-by` is specified, the API returns results ordered by `LastActivityUtc` (descending).
 
 #### AiChannelSession create options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this session. Null for sessions with external contacts who are not members. |
-| `--channel` | string, required | Communication channel for this session (e.g. Email, Chat, WhatsApp, Voice). |
-| `--external-identifier` | string, required | External contact identifier — email address for email sessions, phone number for WhatsApp or voice sessions. Used to identify non-member contacts and for proactive follow-up of dormant leads. |
-| `--chat-session` | string | Internal chat session identifier used by the AI platform for context tracking. |
-| `--external-thread-id` | string | External thread identifier from the channel provider (e.g. WhatsApp conversation ID, email thread ID) used for message threading. |
-| `--last-activity-utc` | DateTime | Timestamp of the last activity in this session (last message sent or received). Used by proactive criteria to detect dormant sessions. |
-| `--subject` | string | Subject line for the conversation, typically set from the first email or inferred from conversation context. |
-| `--escalation-status` | enum, required | Current escalation state of this session — None, Pending (awaiting human review), Active (human is handling), or Resolved. |
+| `--business-id` | long, required | ID of the location that owns this conversation. Set from the location the inbound message arrived at, or from the location whose agent started the outreach. |
+| `--coworker-id` | long | ID of the customer this conversation is with. Empty when the contact is not a member yet, in which case ExternalIdentifier holds their email address or phone number. |
+| `--channel` | string, required | Channel the conversation runs on, stored as text: Chat for the web widget, Email, WhatsApp or Voice for inbound contact; proactive outreach also writes CoworkerMessage and HelpDesk. Determines how ExternalIdentifier is interpreted. |
+| `--external-identifier` | string, required | How the outside contact is addressed on this channel: an email address for Email, a phone number for WhatsApp and Voice. It is how a conversation is matched to an incoming reply, and how dormant non-member leads are followed up. |
+| `--chat-session` | string | GUID that groups the conversation’s messages. Every OpenAiChatMessage in this conversation carries the same value, so it is the key to reading the transcript. |
+| `--external-thread-id` | string | Threading key from the channel provider — the email In-Reply-To/References header, or the WhatsApp conversation ID — used to attach later replies to this same conversation. |
+| `--last-activity-utc` | DateTime | UTC time of the most recent message in either direction. Drives conversation ordering, session expiry, and the dormant-lead follow-up agent. |
+| `--subject` | string | Conversation subject, taken from the first email or inferred from the opening messages. On the Email channel a different subject from the same address starts a new conversation rather than continuing this one. |
+| `--escalation-status` | enum, required | How far this conversation has been handed over to a person: None while the AI is handling it alone; Pending once the AI escalates and a help desk ticket is waiting; Active once someone comments on that ticket or an operator takes the thread; Resolved when the ticket is closed. |
 
 #### AiChannelSession update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this session. Null for sessions with external contacts who are not members. |
-| `--channel` | string | Communication channel for this session (e.g. Email, Chat, WhatsApp, Voice). |
-| `--external-identifier` | string | External contact identifier — email address for email sessions, phone number for WhatsApp or voice sessions. Used to identify non-member contacts and for proactive follow-up of dormant leads. |
-| `--chat-session` | string | Internal chat session identifier used by the AI platform for context tracking. |
-| `--external-thread-id` | string | External thread identifier from the channel provider (e.g. WhatsApp conversation ID, email thread ID) used for message threading. |
-| `--last-activity-utc` | DateTime | Timestamp of the last activity in this session (last message sent or received). Used by proactive criteria to detect dormant sessions. |
-| `--subject` | string | Subject line for the conversation, typically set from the first email or inferred from conversation context. |
-| `--escalation-status` | enum | Current escalation state of this session — None, Pending (awaiting human review), Active (human is handling), or Resolved. |
+| `--business-id` | long | ID of the location that owns this conversation. Set from the location the inbound message arrived at, or from the location whose agent started the outreach. |
+| `--coworker-id` | long | ID of the customer this conversation is with. Empty when the contact is not a member yet, in which case ExternalIdentifier holds their email address or phone number. |
+| `--channel` | string | Channel the conversation runs on, stored as text: Chat for the web widget, Email, WhatsApp or Voice for inbound contact; proactive outreach also writes CoworkerMessage and HelpDesk. Determines how ExternalIdentifier is interpreted. |
+| `--external-identifier` | string | How the outside contact is addressed on this channel: an email address for Email, a phone number for WhatsApp and Voice. It is how a conversation is matched to an incoming reply, and how dormant non-member leads are followed up. |
+| `--chat-session` | string | GUID that groups the conversation’s messages. Every OpenAiChatMessage in this conversation carries the same value, so it is the key to reading the transcript. |
+| `--external-thread-id` | string | Threading key from the channel provider — the email In-Reply-To/References header, or the WhatsApp conversation ID — used to attach later replies to this same conversation. |
+| `--last-activity-utc` | DateTime | UTC time of the most recent message in either direction. Drives conversation ordering, session expiry, and the dormant-lead follow-up agent. |
+| `--subject` | string | Conversation subject, taken from the first email or inferred from the opening messages. On the Email channel a different subject from the same address starts a new conversation rather than continuing this one. |
+| `--escalation-status` | enum | How far this conversation has been handed over to a person: None while the AI is handling it alone; Pending once the AI escalates and a help desk ticket is waiting; Active once someone comments on that ticket or an operator takes the thread; Resolved when the ticket is closed. |
 
 #### AiChannelSession PII fields
 

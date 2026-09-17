@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ProposalContractSchedules -->
 
-A **ProposalContractSchedule** defines the billing schedule for a contract within a proposal, specifying payment frequency, amounts, and timing.
+A ProposalContractSchedule is a future price change on one quoted contract inside a proposal: a new unit price and the date it takes effect. Each one becomes a scheduled price change on the customer's real contract when the proposal is accepted. This is where scheduled price changes are managed once a proposal has been created.
 
 ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
@@ -24,24 +24,24 @@ ProposalContractSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-contract-id` | long | ID of the proposal contract linked to this record |
-| `--proposal-contract-quantity` | int | Proposal contract quantity |
+| `--proposal-contract-id` | long | ID of the quoted contract this price change belongs to; required, and the issuing location of that contract's proposal owns this record. |
+| `--proposal-contract-quantity` | int | Display value for ProposalContract.Quantity. |
 | `--from-proposal-contract-quantity` | range | |
 | `--to-proposal-contract-quantity` | range | |
-| `--proposal-contract-tariff-name` | string | Proposal contract tariff name |
-| `--proposal-contract-coworker-id` | int | Proposal contract coworker ID |
+| `--proposal-contract-tariff-name` | string | Display value for ProposalContract.Tariff.Name. |
+| `--proposal-contract-coworker-id` | int | Display value for ProposalContract.Proposal.Coworker.Id. |
 | `--from-proposal-contract-coworker-id` | range | |
 | `--to-proposal-contract-coworker-id` | range | |
-| `--proposal-contract-coworker-full-name` | string | Proposal contract coworker full name |
-| `--proposal-contract-coworker-billing-name` | string | Proposal contract coworker billing name |
-| `--notes` | string | Optional notes or comments about this proposal contract schedule |
-| `--price` | decimal | Scheduled price |
+| `--proposal-contract-coworker-full-name` | string | Display value for ProposalContract.Proposal.Coworker.FullName. |
+| `--proposal-contract-coworker-billing-name` | string | Display value for ProposalContract.Proposal.Coworker.BillingName. |
+| `--notes` | string | Free-text note explaining the price change; it is carried onto the customer contract's schedule on acceptance. |
+| `--price` | decimal | New per-unit price that takes effect on ApplyOn, in the issuing location's currency. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--apply-on` | DateTime | Date to apply |
+| `--apply-on` | DateTime | Date the new price takes effect; required, and each price change on the same quoted contract needs its own date. |
 | `--from-apply-on` | range | |
 | `--to-apply-on` | range | |
-| `--applied` | bool | Whether the schedule has been applied |
+| `--applied` | bool | Read-only flag recording whether this price change has already been applied; the billing run sets it and it is not changed through proposal administration. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -60,19 +60,19 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-contract-id` | long, required | ID of the proposal contract linked to this record |
-| `--notes` | string | Optional notes or comments about this proposal contract schedule |
-| `--price` | decimal | Scheduled price |
-| `--apply-on` | DateTime, required | Date to apply |
+| `--proposal-contract-id` | long, required | ID of the quoted contract this price change belongs to; required, and the issuing location of that contract's proposal owns this record. |
+| `--notes` | string | Free-text note explaining the price change; it is carried onto the customer contract's schedule on acceptance. |
+| `--price` | decimal | New per-unit price that takes effect on ApplyOn, in the issuing location's currency. |
+| `--apply-on` | DateTime, required | Date the new price takes effect; required, and each price change on the same quoted contract needs its own date. |
 
 #### ProposalContractSchedule update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-contract-id` | long | ID of the proposal contract linked to this record |
-| `--notes` | string | Optional notes or comments about this proposal contract schedule |
-| `--price` | decimal | Scheduled price |
-| `--apply-on` | DateTime | Date to apply |
+| `--proposal-contract-id` | long | ID of the quoted contract this price change belongs to; required, and the issuing location of that contract's proposal owns this record. |
+| `--notes` | string | Free-text note explaining the price change; it is carried onto the customer contract's schedule on acceptance. |
+| `--price` | decimal | New per-unit price that takes effect on ApplyOn, in the issuing location's currency. |
+| `--apply-on` | DateTime | Date the new price takes effect; required, and each price change on the same quoted contract needs its own date. |
 
 #### ProposalContractSchedule PII fields
 

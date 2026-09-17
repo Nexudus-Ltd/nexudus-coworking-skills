@@ -35,18 +35,18 @@ ContractContacts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-contract-id` | long | ID of the coworker contract linked to this record |
-| `--coworker-contract-quantity` | int | The coworker contract quantity value for this contract contact |
+| `--coworker-contract-quantity` | int | Display value for CoworkerContract.Quantity. |
 | `--from-coworker-contract-quantity` | range | |
 | `--to-coworker-contract-quantity` | range | |
-| `--coworker-contract-floor-plan-desk-ids` | string | The coworker contract floor plan desk ids value for this contract contact |
-| `--coworker-contract-floor-plan-desk-names` | string | The coworker contract floor plan desk names value for this contract contact |
-| `--coworker-contract-tariff-name` | string | Plan name of the associated virtual office contract |
+| `--coworker-contract-floor-plan-desk-ids` | string | Display value for CoworkerContract.FloorPlanDeskIds. |
+| `--coworker-contract-floor-plan-desk-names` | string | Display value for CoworkerContract.FloorPlanDeskNames. |
+| `--coworker-contract-tariff-name` | string | Display value for CoworkerContract.Tariff.Name. |
 | `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-full-name` | string | Full name of the linked coworker |
-| `--coworker-company-name` | string | Company name of the linked coworker |
-| `--coworker-billing-name` | string | Billing name of the linked coworker |
-| `--coworker-email` | string | Email address of the linked coworker |
-| `--coworker-active` | bool | Whether coworker active is enabled |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-active` | bool | Display value for Coworker.Active. |
 | `--email` | string | Email address of the contact. Used when the contact is not linked to a coworker record |
 | `--full-name` | string | Full name of the contact. Used when the contact is not linked to a coworker record |
 | `--date-of-birth` | DateTime | Date of birth. Used for identity verification purposes |
@@ -57,7 +57,7 @@ ContractContacts support Search, Get, Create, Update, Delete.
 | `--city-name` | string | City name |
 | `--state` | string | State or province |
 | `--country-id` | long | ID of the country linked to this record |
-| `--country-name` | string | Country name |
+| `--country-name` | string | Display value for Country.Name. |
 | `--phone-number` | string | Phone number |
 | `--notes` | string | Optional notes or comments about this contract contact |
 | `--contract-contact-type` | enum | Role of this contact: Director (a company director), CompanyAlias (a trading name), or NominatedRecipient (authorised to receive mail on behalf of the company) |

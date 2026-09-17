@@ -24,25 +24,25 @@ FormPageAnswers support Search, Get, Create, Update (no Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--form-page-request-id` | long | ID of the form request that contains this submitted answer |
-| `--form-page-request-coworker-full-name` | string | Display name of the linked form page request coworker full (read-only) |
-| `--form-page-request-coworker-id` | int | ID of the form page request coworker associated with this record |
+| `--form-page-request-coworker-full-name` | string | Display value for FormPageRequest.Coworker.FullName. |
+| `--form-page-request-coworker-id` | int | Display value for FormPageRequest.Coworker.Id. |
 | `--from-form-page-request-coworker-id` | range | |
 | `--to-form-page-request-coworker-id` | range | |
-| `--form-page-request-coworker-email` | string | The form page request coworker email value for this form page answer |
+| `--form-page-request-coworker-email` | string | Display value for FormPageRequest.Coworker.Email. |
 | `--form-page-question-id` | long | ID of the form question answered by the customer; the question's form location owns this answer |
-| `--form-page-question-text` | string | The form page question text value for this form page answer |
-| `--form-page-question-question-type` | string | The form page question question type value for this form page answer |
-| `--form-page-question-display-order` | int | The form page question display order value for this form page answer |
+| `--form-page-question-text` | string | Display value for FormPageQuestion.Text. |
+| `--form-page-question-question-type` | string | Display value for FormPageQuestion.QuestionType. |
+| `--form-page-question-display-order` | int | Display value for FormPageQuestion.DisplayOrder. |
 | `--from-form-page-question-display-order` | range | |
 | `--to-form-page-question-display-order` | range | |
-| `--form-page-question-form-page-name` | string | Display name of the linked form page question form page (read-only) |
-| `--form-page-question-form-page-id` | int | ID of the form page question form page associated with this record |
+| `--form-page-question-form-page-name` | string | Display value for FormPageQuestion.FormPage.Name. |
+| `--form-page-question-form-page-id` | int | Display value for FormPageQuestion.FormPage.Id. |
 | `--from-form-page-question-form-page-id` | range | |
 | `--to-form-page-question-form-page-id` | range | |
-| `--form-page-question-form-page-business-id` | int | ID of the form page question form page business associated with this record |
+| `--form-page-question-form-page-business-id` | int | Display value for FormPageQuestion.FormPage.Business.Id. |
 | `--from-form-page-question-form-page-business-id` | range | |
 | `--to-form-page-question-form-page-business-id` | range | |
-| `--form-page-question-form-page-business-name` | string | Display name of the linked form page question form page business (read-only) |
+| `--form-page-question-form-page-business-name` | string | Display value for FormPageQuestion.FormPage.Business.Name. |
 | `--value` | string | Customer's submitted answer text; for a Binary question this is the stored filename rather than file content |
 | `--file-value-file-name` | string | Current file name of the file value (read-only; upload via the corresponding URL field) |
 | `--new-file-value-url` | string | URL of a new file to upload as the file value |

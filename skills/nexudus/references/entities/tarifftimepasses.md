@@ -25,9 +25,9 @@ TariffTimePasses support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--tariff-id` | long | ID of the plan linked to this record |
-| `--tariff-name` | string | Tariff name |
+| `--tariff-name` | string | Display value for Tariff.Name. |
 | `--time-pass-id` | long | ID of the pass linked to this record |
-| `--time-pass-name` | string | Time pass name |
+| `--time-pass-name` | string | Display value for TimePass.Name. |
 | `--passes-included` | int | Number of passes included |
 | `--from-passes-included` | range | |
 | `--to-passes-included` | range | |

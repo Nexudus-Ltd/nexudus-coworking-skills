@@ -25,7 +25,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Business name |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | Plan name |
 | `--system-tariff-type` | enum | Category of the plan: FullTimePrivateOffice, PartTimePrivateOffice, FullTimeDedicatedDesk, PartTimeDedicatedDesk, FullTimeHotDesk, PartTimeHotDesk, FullTimeOther, PartTimeOther, Storage, VirtualOffice, Virtual, or Other |
 | `--price` | decimal | Recurring price charged per billing cycle. Can be overriden per contract. |
@@ -45,13 +45,13 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--description` | string | Plan description shown to customers |
 | `--invoice-line-display-as` | string | Custom text shown on the invoice line instead of the plan name |
 | `--currency-id` | long | ID of the currency linked to this record |
-| `--currency-code` | string | Currency code |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--tax-rate-id` | long | Standard tax rate applied to charges on this plan |
-| `--tax-rate-name` | string |  |
+| `--tax-rate-name` | string | Display value for TaxRate.Name. |
 | `--reduced-tax-rate-id` | long | Reduced tax rate applied when applicable |
 | `--exempt-tax-rate-id` | long | Tax-exempt rate applied when applicable |
 | `--financial-account-id` | long | Financial account used for revenue tracking |
-| `--financial-account-name` | string |  |
+| `--financial-account-name` | string | Display value for FinancialAccount.Name. |
 | `--terms-and-conditions` | string | Terms and conditions text that members must accept when signing up |
 | `--contract-document-file-name` | string | File name of the contract document template |
 | `--new-contract-document-url` | string | URL to upload a new contract document template |
@@ -194,7 +194,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--to-aml-check-score-threshold` | range | |
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
-| `--form-page-name` | string | Form page name |
+| `--form-page-name` | string | Display value for FormPage.Name. |
 | `--delivery-preferences-mail` | enum | Handling preferences customers on this plan can select for mail deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-parcels` | enum | Handling preferences customers on this plan can select for parcel deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-checks` | enum | Handling preferences customers on this plan can select for check deliveries (virtual office). Only included values are visible to the customer. |
@@ -213,6 +213,8 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--from-maximum-addresses` | range | |
 | `--to-maximum-addresses` | range | |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
+| `--address-check-document-types` | string | Document types accepted as proof of address in identity checks for customers on this plan. |
+| `--identity-check-document-types` | string | Document types accepted as proof of identity in identity checks for customers on this plan. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -317,29 +319,29 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
 | `--products-store` | list, repeat flag | Product IDs for mail stored for collection (virtual office) |
-| `--added-products-store` | list, repeat flag | The added products store value for this tariff |
-| `--removed-products-store` | list, repeat flag | The removed products store value for this tariff |
+| `--added-products-store` | list, repeat flag | IDs added to the ProductsStore relationship. |
+| `--removed-products-store` | list, repeat flag | IDs removed from the ProductsStore relationship. |
 | `--products-forward` | list, repeat flag | Product IDs for mail forwarding (virtual office) |
-| `--added-products-forward` | list, repeat flag | The added products forward value for this tariff |
-| `--removed-products-forward` | list, repeat flag | The removed products forward value for this tariff |
+| `--added-products-forward` | list, repeat flag | IDs added to the ProductsForward relationship. |
+| `--removed-products-forward` | list, repeat flag | IDs removed from the ProductsForward relationship. |
 | `--products-recycle` | list, repeat flag | Product IDs for mail recycling (virtual office) |
-| `--added-products-recycle` | list, repeat flag | The added products recycle value for this tariff |
-| `--removed-products-recycle` | list, repeat flag | The removed products recycle value for this tariff |
+| `--added-products-recycle` | list, repeat flag | IDs added to the ProductsRecycle relationship. |
+| `--removed-products-recycle` | list, repeat flag | IDs removed from the ProductsRecycle relationship. |
 | `--products-shred` | list, repeat flag | Product IDs for mail shredding (virtual office) |
-| `--added-products-shred` | list, repeat flag | The added products shred value for this tariff |
-| `--removed-products-shred` | list, repeat flag | The removed products shred value for this tariff |
+| `--added-products-shred` | list, repeat flag | IDs added to the ProductsShred relationship. |
+| `--removed-products-shred` | list, repeat flag | IDs removed from the ProductsShred relationship. |
 | `--products-scan` | list, repeat flag | Product IDs for mail scanning (virtual office) |
-| `--added-products-scan` | list, repeat flag | The added products scan value for this tariff |
-| `--removed-products-scan` | list, repeat flag | The removed products scan value for this tariff |
+| `--added-products-scan` | list, repeat flag | IDs added to the ProductsScan relationship. |
+| `--removed-products-scan` | list, repeat flag | IDs removed from the ProductsScan relationship. |
 | `--products-return` | list, repeat flag | Product IDs for returning mail to sender (virtual office) |
-| `--added-products-return` | list, repeat flag | The added products return value for this tariff |
-| `--removed-products-return` | list, repeat flag | The removed products return value for this tariff |
+| `--added-products-return` | list, repeat flag | IDs added to the ProductsReturn relationship. |
+| `--removed-products-return` | list, repeat flag | IDs removed from the ProductsReturn relationship. |
 | `--products-deposit` | list, repeat flag | Product IDs for check deposits (virtual office) |
-| `--added-products-deposit` | list, repeat flag | The added products deposit value for this tariff |
-| `--removed-products-deposit` | list, repeat flag | The removed products deposit value for this tariff |
+| `--added-products-deposit` | list, repeat flag | IDs added to the ProductsDeposit relationship. |
+| `--removed-products-deposit` | list, repeat flag | IDs removed from the ProductsDeposit relationship. |
 | `--products-collect` | list, repeat flag | Product IDs for mail collection (virtual office) |
-| `--added-products-collect` | list, repeat flag | The added products collect value for this tariff |
-| `--removed-products-collect` | list, repeat flag | The removed products collect value for this tariff |
+| `--added-products-collect` | list, repeat flag | IDs added to the ProductsCollect relationship. |
+| `--removed-products-collect` | list, repeat flag | IDs removed from the ProductsCollect relationship. |
 | `--delivery-preferences-mail` | enum, required | Handling preferences customers on this plan can select for mail deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-parcels` | enum, required | Handling preferences customers on this plan can select for parcel deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-checks` | enum, required | Handling preferences customers on this plan can select for check deliveries (virtual office). Only included values are visible to the customer. |
@@ -350,6 +352,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |
 | `--maximum-addresses` | int | Maximum number of forwarding addresses allowed (virtual office) |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
+| `--address-check-document-types` | string | Document types accepted as proof of address in identity checks for customers on this plan. |
+| `--identity-check-document-types` | string | Document types accepted as proof of identity in identity checks for customers on this plan. |
 
 #### Tariff update options
 
@@ -441,29 +445,29 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--send-onboarding-form-by-email` | bool | Whether to email the onboarding form to new members signing up to this plan |
 | `--form-page-id` | long | ID of the onboarding form page sent to new members |
 | `--products-store` | list, repeat flag | Product IDs for mail stored for collection (virtual office) |
-| `--added-products-store` | list, repeat flag | The added products store value for this tariff |
-| `--removed-products-store` | list, repeat flag | The removed products store value for this tariff |
+| `--added-products-store` | list, repeat flag | IDs added to the ProductsStore relationship. |
+| `--removed-products-store` | list, repeat flag | IDs removed from the ProductsStore relationship. |
 | `--products-forward` | list, repeat flag | Product IDs for mail forwarding (virtual office) |
-| `--added-products-forward` | list, repeat flag | The added products forward value for this tariff |
-| `--removed-products-forward` | list, repeat flag | The removed products forward value for this tariff |
+| `--added-products-forward` | list, repeat flag | IDs added to the ProductsForward relationship. |
+| `--removed-products-forward` | list, repeat flag | IDs removed from the ProductsForward relationship. |
 | `--products-recycle` | list, repeat flag | Product IDs for mail recycling (virtual office) |
-| `--added-products-recycle` | list, repeat flag | The added products recycle value for this tariff |
-| `--removed-products-recycle` | list, repeat flag | The removed products recycle value for this tariff |
+| `--added-products-recycle` | list, repeat flag | IDs added to the ProductsRecycle relationship. |
+| `--removed-products-recycle` | list, repeat flag | IDs removed from the ProductsRecycle relationship. |
 | `--products-shred` | list, repeat flag | Product IDs for mail shredding (virtual office) |
-| `--added-products-shred` | list, repeat flag | The added products shred value for this tariff |
-| `--removed-products-shred` | list, repeat flag | The removed products shred value for this tariff |
+| `--added-products-shred` | list, repeat flag | IDs added to the ProductsShred relationship. |
+| `--removed-products-shred` | list, repeat flag | IDs removed from the ProductsShred relationship. |
 | `--products-scan` | list, repeat flag | Product IDs for mail scanning (virtual office) |
-| `--added-products-scan` | list, repeat flag | The added products scan value for this tariff |
-| `--removed-products-scan` | list, repeat flag | The removed products scan value for this tariff |
+| `--added-products-scan` | list, repeat flag | IDs added to the ProductsScan relationship. |
+| `--removed-products-scan` | list, repeat flag | IDs removed from the ProductsScan relationship. |
 | `--products-return` | list, repeat flag | Product IDs for returning mail to sender (virtual office) |
-| `--added-products-return` | list, repeat flag | The added products return value for this tariff |
-| `--removed-products-return` | list, repeat flag | The removed products return value for this tariff |
+| `--added-products-return` | list, repeat flag | IDs added to the ProductsReturn relationship. |
+| `--removed-products-return` | list, repeat flag | IDs removed from the ProductsReturn relationship. |
 | `--products-deposit` | list, repeat flag | Product IDs for check deposits (virtual office) |
-| `--added-products-deposit` | list, repeat flag | The added products deposit value for this tariff |
-| `--removed-products-deposit` | list, repeat flag | The removed products deposit value for this tariff |
+| `--added-products-deposit` | list, repeat flag | IDs added to the ProductsDeposit relationship. |
+| `--removed-products-deposit` | list, repeat flag | IDs removed from the ProductsDeposit relationship. |
 | `--products-collect` | list, repeat flag | Product IDs for mail collection (virtual office) |
-| `--added-products-collect` | list, repeat flag | The added products collect value for this tariff |
-| `--removed-products-collect` | list, repeat flag | The removed products collect value for this tariff |
+| `--added-products-collect` | list, repeat flag | IDs added to the ProductsCollect relationship. |
+| `--removed-products-collect` | list, repeat flag | IDs removed from the ProductsCollect relationship. |
 | `--delivery-preferences-mail` | enum | Handling preferences customers on this plan can select for mail deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-parcels` | enum | Handling preferences customers on this plan can select for parcel deliveries (virtual office). Only included values are visible to the customer. |
 | `--delivery-preferences-checks` | enum | Handling preferences customers on this plan can select for check deliveries (virtual office). Only included values are visible to the customer. |
@@ -474,6 +478,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |
 | `--maximum-addresses` | int | Maximum number of forwarding addresses allowed (virtual office) |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
+| `--address-check-document-types` | string | Document types accepted as proof of address in identity checks for customers on this plan. |
+| `--identity-check-document-types` | string | Document types accepted as proof of identity in identity checks for customers on this plan. |
 
 #### Tariff PII fields
 

@@ -52,8 +52,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--description` | string, required | Required localized text explaining the purpose or scope of this support department. |
 | `--active` | bool | Whether customers can select this support department when submitting a support ticket; inactive departments are not offered to customers. |
 | `--managers` | list, repeat flag | List of user IDs for managers notified about new tickets and comments assigned to this support department. |
-| `--added-managers` | list, repeat flag | The added managers value for this help desk department |
-| `--removed-managers` | list, repeat flag | The removed managers value for this help desk department |
+| `--added-managers` | list, repeat flag | IDs added to the Managers relationship. |
+| `--removed-managers` | list, repeat flag | IDs removed from the Managers relationship. |
 | `--task-list-id` | long | Optional ID of the task list automatically added to the customer when a ticket is created or updated for this support department. |
 
 #### HelpDeskDepartment update options
@@ -65,8 +65,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--description` | string | Required localized text explaining the purpose or scope of this support department. |
 | `--active` | bool | Whether customers can select this support department when submitting a support ticket; inactive departments are not offered to customers. |
 | `--managers` | list, repeat flag | List of user IDs for managers notified about new tickets and comments assigned to this support department. |
-| `--added-managers` | list, repeat flag | The added managers value for this help desk department |
-| `--removed-managers` | list, repeat flag | The removed managers value for this help desk department |
+| `--added-managers` | list, repeat flag | IDs added to the Managers relationship. |
+| `--removed-managers` | list, repeat flag | IDs removed from the Managers relationship. |
 | `--task-list-id` | long | Optional ID of the task list automatically added to the customer when a ticket is created or updated for this support department. |
 
 **List properties (only returned by `get`, not by `list`):** `Managers`, `AddedManagers`, `RemovedManagers`

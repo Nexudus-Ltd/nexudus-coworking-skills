@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerTasks -->
 
-A **CoworkerTask** represents a to-do item that can be assigned to an admin user. Tasks help space managers and staff track daily operations such as onboarding steps, maintenance requests, or follow-ups.
-
-Each task is linked to a customer (`CoworkerId`) and assigned to a responsible admin (`ResponsibleId`). The responsible admin receives a notification on the Admin Panel and can mark the task as completed once done.
-
-Tasks can optionally be grouped into task lists (`TaskListName`). Task lists standardise and partially automate admin processes — for example, a series of onboarding tasks (access card handout, locker keys, welcome tour) each assigned to a different admin.
-
-Use `NotifyByEmail` to send an email reminder to the responsible admin when the task is due. Use `DisplayToEveryone` to make the task visible to all admin users, not just the responsible one.
+A task is an operational to-do item for a customer, assigned to an admin user with optional due-date email reminders and visibility to the wider admin team.
 
 CoworkerTasks support Search, Get, Create, Update, Delete.
 
@@ -30,29 +24,23 @@ CoworkerTasks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Location name |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-full-name` | string | Customer full name |
-| `--coworker-company-name` | string | Customer company name |
-| `--coworker-team-names` | string | Customer team names |
-| `--name` | string | Task name |
-| `--notes` | string | Additional details or instructions for the task |
-| `--task-list-name` | string | Name of the task list this task belongs to |
-| `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
-| `--form-page-request-unique-id` | string | Unique identifier of the form page request that created this task |
-| `--completed` | bool | Whether the task has been marked as completed |
-| `--due-date` | DateTime | Due date for the task (UTC) |
+| `--business-id` | long | ID of the location that owns this task. |
+| `--business-name` | string | Display value for Business.Name. |
+| `--coworker-id` | long | ID of the customer this task concerns. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
+| `--name` | string | Required task title. |
+| `--notes` | string | Optional instructions or context for completing the task. |
+| `--task-list-name` | string | Read-only name of the task list from which this task was created, when applicable. |
+| `--completed` | bool | Whether the task is complete; completed tasks are excluded from reminder processing and each user's active-task list. |
+| `--due-date` | DateTime | Optional due date and time stored in UTC; an email reminder becomes eligible at or after this time when notifications are enabled. |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
-| `--reminded` | bool | Whether a reminder has been sent for this task |
-| `--responsible-id` | long | ID of the responsible linked to this record |
-| `--responsible-full-name` | string | Responsible admin full name |
-| `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
-| `--display-to-everyone` | bool | Whether the task is visible to all admin users |
-| `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
-| `--from-due-date-local` | range | |
-| `--to-due-date-local` | range | |
+| `--responsible-id` | long | ID of the admin user responsible for completing this task; required when creating a task. |
+| `--responsible-full-name` | string | Display value for Responsible.FullName. |
+| `--notify-by-email` | bool | Whether to send the responsible admin an email reminder once the due date is reached; no reminder is sent without a due date. |
+| `--display-to-everyone` | bool | Whether the task appears in every admin user's active-task list instead of only the responsible admin's list. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -71,35 +59,29 @@ Default sort: `DueDate` ascending. If no `--order-by` is specified, the API retu
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--name` | string, required | Task name |
-| `--notes` | string | Additional details or instructions for the task |
-| `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
-| `--completed` | bool | Whether the task has been marked as completed |
-| `--due-date` | DateTime | Due date for the task (UTC) |
-| `--reminded` | bool | Whether a reminder has been sent for this task |
-| `--responsible-id` | long, required | ID of the responsible linked to this record |
-| `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
-| `--display-to-everyone` | bool | Whether the task is visible to all admin users |
-| `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
+| `--business-id` | long, required | ID of the location that owns this task. |
+| `--coworker-id` | long, required | ID of the customer this task concerns. |
+| `--name` | string, required | Required task title. |
+| `--notes` | string | Optional instructions or context for completing the task. |
+| `--completed` | bool | Whether the task is complete; completed tasks are excluded from reminder processing and each user's active-task list. |
+| `--due-date` | DateTime | Optional due date and time stored in UTC; an email reminder becomes eligible at or after this time when notifications are enabled. |
+| `--responsible-id` | long, required | ID of the admin user responsible for completing this task; required when creating a task. |
+| `--notify-by-email` | bool | Whether to send the responsible admin an email reminder once the due date is reached; no reminder is sent without a due date. |
+| `--display-to-everyone` | bool | Whether the task appears in every admin user's active-task list instead of only the responsible admin's list. |
 
 #### CoworkerTask update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--name` | string | Task name |
-| `--notes` | string | Additional details or instructions for the task |
-| `--task-item-unique-id` | string | Unique identifier of the task item within a task list |
-| `--completed` | bool | Whether the task has been marked as completed |
-| `--due-date` | DateTime | Due date for the task (UTC) |
-| `--reminded` | bool | Whether a reminder has been sent for this task |
-| `--responsible-id` | long | ID of the responsible linked to this record |
-| `--notify-by-email` | bool | Whether to notify the responsible admin by email when the task is due |
-| `--display-to-everyone` | bool | Whether the task is visible to all admin users |
-| `--due-date-local` | DateTime | Due date for the task in the location's local timezone |
+| `--business-id` | long | ID of the location that owns this task. |
+| `--coworker-id` | long | ID of the customer this task concerns. |
+| `--name` | string | Required task title. |
+| `--notes` | string | Optional instructions or context for completing the task. |
+| `--completed` | bool | Whether the task is complete; completed tasks are excluded from reminder processing and each user's active-task list. |
+| `--due-date` | DateTime | Optional due date and time stored in UTC; an email reminder becomes eligible at or after this time when notifications are enabled. |
+| `--responsible-id` | long | ID of the admin user responsible for completing this task; required when creating a task. |
+| `--notify-by-email` | bool | Whether to send the responsible admin an email reminder once the due date is reached; no reminder is sent without a due date. |
+| `--display-to-everyone` | bool | Whether the task appears in every admin user's active-task list instead of only the responsible admin's list. |
 
 #### CoworkerTask PII fields
 

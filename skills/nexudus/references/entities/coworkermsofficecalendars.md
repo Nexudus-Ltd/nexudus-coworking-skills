@@ -32,7 +32,7 @@ CoworkerMsOfficeCalendars support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Microsoft Graph push-notification watch target for this connection |
 | `--coworker-id` | long | ID of the customer who connected their Office 365 Calendar |
-| `--coworker-full-name` | string | Full name of the customer who connected their Office 365 Calendar |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--name` | string | Display name of the connected Office 365 Calendar |
 | `--subscription-id` | string | Microsoft Graph push-notification subscription ID used to receive calendar change notifications |
 | `--calendar-id` | string | Microsoft Graph calendar ID of the customer's connected Office 365 calendar |

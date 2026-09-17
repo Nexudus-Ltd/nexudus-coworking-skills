@@ -27,36 +27,36 @@ Bookings also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--resource-id` | long | ID of the resource being reserved; it determines the booking location and availability rules. |
-| `--resource-name` | string | Resource name |
-| `--resource-allocation` | int | Resource allocation |
+| `--resource-name` | string | Display value for Resource.Name. |
+| `--resource-allocation` | int | Display value for Resource.Allocation. |
 | `--from-resource-allocation` | range | |
 | `--to-resource-allocation` | range | |
-| `--resource-hide-in-calendar` | bool | Resource hidden in calendar |
-| `--resource-no-return-policy` | int | The resource no return policy value for this booking |
+| `--resource-hide-in-calendar` | bool | Display value for Resource.HideInCalendar. |
+| `--resource-no-return-policy` | int | Display value for Resource.NoReturnPolicy. |
 | `--from-resource-no-return-policy` | range | |
 | `--to-resource-no-return-policy` | range | |
-| `--resource-no-return-policy-all-resources` | int | The resource no return policy all resources value for this booking |
+| `--resource-no-return-policy-all-resources` | int | Display value for Resource.NoReturnPolicyAllResources. |
 | `--from-resource-no-return-policy-all-resources` | range | |
 | `--to-resource-no-return-policy-all-resources` | range | |
-| `--resource-no-return-policy-all-users` | int | The resource no return policy all users value for this booking |
+| `--resource-no-return-policy-all-users` | int | Display value for Resource.NoReturnPolicyAllUsers. |
 | `--from-resource-no-return-policy-all-users` | range | |
 | `--to-resource-no-return-policy-all-users` | range | |
-| `--resource-resource-type-id` | int | Resource type ID |
+| `--resource-resource-type-id` | int | Display value for Resource.ResourceType.Id. |
 | `--from-resource-resource-type-id` | range | |
 | `--to-resource-resource-type-id` | range | |
-| `--resource-resource-type-name` | string | Resource type name |
+| `--resource-resource-type-name` | string | Display value for Resource.ResourceType.Name. |
 | `--floor-plan-desk-id` | long | Optional ID of the floor-plan unit assigned within the selected resource. The unit must be connected to this resource |
-| `--floor-plan-desk-name` | string | Floor plan desk name |
+| `--floor-plan-desk-name` | string | Display value for FloorPlanDesk.Name. |
 | `--coworker-id` | long | Optional ID of the customer this booking is for. |
-| `--coworker-coworker-type` | string | The coworker coworker type value for this booking |
-| `--coworker-full-name` | string | Coworker full name |
-| `--coworker-mobile-phone` | string | The coworker mobile phone value for this booking |
-| `--coworker-land-line` | string | The coworker land line value for this booking |
-| `--coworker-billing-name` | string | Coworker billing name |
-| `--coworker-company-name` | string | Coworker company name |
-| `--coworker-team-names` | string | Coworker team names |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-mobile-phone` | string | Display value for Coworker.MobilePhone. |
+| `--coworker-land-line` | string | Display value for Coworker.LandLine. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--extra-service-id` | long | Optional ID of the rate used to price this booking. Set it only to a rate linked to the selected resource's ResourceType. When no rate is provided, the system calculates an applicable rate automatically. |
-| `--extra-service-name` | string | Extra service name |
+| `--extra-service-name` | string | Display value for ExtraService.Name. |
 | `--from-time` | DateTime | Booking start date and time in UTC. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -137,6 +137,7 @@ Bookings also support entity commands.
 | `--coworker-checked-out-at` | DateTime | UTC date and time when the customer checked out from this booking. |
 | `--from-coworker-checked-out-at` | range | |
 | `--to-coworker-checked-out-at` | range | |
+| `--booking-source` | enum | Read-only record of which channel created this booking, such as the admin panel, Members Portal, public API, CLI, SDK, or an automation tile. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

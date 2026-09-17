@@ -43,12 +43,12 @@ ProductExtraServices also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--product-id` | long | ID of the product linked to this record |
-| `--product-name` | string | Product name |
+| `--product-name` | string | Display value for Product.Name. |
 | `--extra-service-id` | long | ID of the extra service linked to this record. Check IsPrintingCredit to determine if UsesIncluded represents booking time or printing credits. Check ChargePeriod to determine the unit of UsesIncluded (Minutes, Days, Weeks, Months, Uses, or FourWeekMonths) |
-| `--extra-service-name` | string | Extra service name |
-| `--extra-service-charge-period` | enum | Charge period of the linked extra service |
-| `--extra-service-is-booking-credit` | bool | Benefit is booking credit |
-| `--extra-service-is-printing-credit` | bool | Benefit is printing credit |
+| `--extra-service-name` | string | Display value for ExtraService.Name. |
+| `--extra-service-charge-period` | enum | Display value for ExtraService.ChargePeriod. |
+| `--extra-service-is-booking-credit` | bool | Display value for ExtraService.IsBookingCredit. |
+| `--extra-service-is-printing-credit` | bool | Display value for ExtraService.IsPrintingCredit. |
 | `--uses-included` | int | Number of uses included. The unit depends on the ChargePeriod of the linked ExtraService: Minutes (1) = minutes of booking time, Days (2) = days, Weeks (3) = weeks, Months (4) = months, Uses (5) = individual uses (e.g., print credits), FourWeekMonths (6) = 4-week periods. For printing credits, the extra service should have ChargePeriod = Uses (5). |
 | `--from-uses-included` | range | |
 | `--to-uses-included` | range | |

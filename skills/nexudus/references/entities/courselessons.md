@@ -44,16 +44,16 @@ CourseLessons support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-id` | long | ID of the course this lesson belongs to |
-| `--course-title` | string | Title of the parent course |
+| `--course-title` | string | Display value for Course.Title. |
 | `--section-id` | long | ID of the course section this lesson belongs to (optional; lessons without a section appear ungrouped) |
-| `--section-display-order` | int | Display order of the parent section |
+| `--section-display-order` | int | Display value for Section.DisplayOrder. |
 | `--from-section-display-order` | range | |
 | `--to-section-display-order` | range | |
-| `--section-title` | string | Title of the parent section |
+| `--section-title` | string | Display value for Section.Title. |
 | `--instructor-id` | long | ID of the coworker attributed as instructor for this lesson (optional; overrides the course-level host for this lesson) |
-| `--instructor-full-name` | string | Instructor full name |
-| `--instructor-company-name` | string | Instructor company name |
-| `--instructor-team-names` | string | Comma-separated list of teams the instructor belongs to |
+| `--instructor-full-name` | string | Display value for Instructor.FullName. |
+| `--instructor-company-name` | string | Display value for Instructor.CompanyName. |
+| `--instructor-team-names` | string | Display value for Instructor.TeamNames. |
 | `--title` | string | Lesson title displayed to members |
 | `--summary-text` | string | Short summary shown in the lesson listing |
 | `--lesson-contents` | string | Full HTML or rich-text body of the lesson displayed to members when they open it |

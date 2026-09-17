@@ -27,37 +27,37 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 | --- | --- | --- |
 | `--description` | string | Optional description or note for this credit use entry |
 | `--coworker-booking-credit-id` | long | ID of the booking credit that was consumed |
-| `--coworker-booking-credit-business-currency-code` | string | Currency code of the location associated with the booking credit. Read-only, resolved from the linked CoworkerBookingCredit record. |
-| `--coworker-booking-credit-coworker-id` | int | ID of the customer who owns the booking credit. Read-only, resolved from the linked CoworkerBookingCredit record. |
+| `--coworker-booking-credit-business-currency-code` | string | Display value for CoworkerBookingCredit.Business.Currency.Code. |
+| `--coworker-booking-credit-coworker-id` | int | Display value for CoworkerBookingCredit.Coworker.Id. |
 | `--from-coworker-booking-credit-coworker-id` | range | |
 | `--to-coworker-booking-credit-coworker-id` | range | |
-| `--coworker-booking-credit-description` | string | Description of the booking credit. Read-only, resolved from the linked CoworkerBookingCredit record. |
-| `--coworker-booking-credit-tariff-booking-credit-name` | string | Name of the plan's booking credit configuration that provided this credit. Read-only, resolved from the linked CoworkerBookingCredit record. |
-| `--coworker-booking-credit-expire-date` | DateTime | Expiration date of the booking credit. Read-only, resolved from the linked CoworkerBookingCredit record. |
+| `--coworker-booking-credit-description` | string | Display value for CoworkerBookingCredit.Description. |
+| `--coworker-booking-credit-tariff-booking-credit-name` | string | Display value for CoworkerBookingCredit.TariffBookingCredit.Name. |
+| `--coworker-booking-credit-expire-date` | DateTime | Display value for CoworkerBookingCredit.ExpireDate. |
 | `--from-coworker-booking-credit-expire-date` | range | |
 | `--to-coworker-booking-credit-expire-date` | range | |
-| `--coworker-booking-credit-remaining-credit` | decimal | Remaining credit balance after this use. Read-only, resolved from the linked CoworkerBookingCredit record. |
+| `--coworker-booking-credit-remaining-credit` | decimal | Display value for CoworkerBookingCredit.RemainingCredit. |
 | `--from-coworker-booking-credit-remaining-credit` | range | |
 | `--to-coworker-booking-credit-remaining-credit` | range | |
-| `--coworker-booking-credit-coworker-product-unique-id` | string | Unique ID (GUID) of the product sale that provided this credit. Read-only, resolved from the linked CoworkerBookingCredit record. |
+| `--coworker-booking-credit-coworker-product-unique-id` | string | Display value for CoworkerBookingCredit.CoworkerProductUniqueId. |
 | `--booking-id` | long | ID of the booking this credit was applied to, if the credit was used for a booking |
-| `--booking-from-time` | DateTime | Start time of the booking |
+| `--booking-from-time` | DateTime | Display value for Booking.FromTime. |
 | `--from-booking-from-time` | range | |
 | `--to-booking-from-time` | range | |
-| `--booking-to-time` | DateTime | End time of the booking |
+| `--booking-to-time` | DateTime | Display value for Booking.ToTime. |
 | `--from-booking-to-time` | range | |
 | `--to-booking-to-time` | range | |
-| `--booking-resource-name` | string | Name of the resource that was booked |
+| `--booking-resource-name` | string | Display value for Booking.Resource.Name. |
 | `--coworker-invoice-line-id` | long | ID of the invoice line this credit was applied to, if the credit was used against an invoice |
-| `--coworker-invoice-line-coworker-invoice-id` | int | ID of the invoice containing the linked invoice line |
+| `--coworker-invoice-line-coworker-invoice-id` | int | Display value for CoworkerInvoiceLine.CoworkerInvoice.Id. |
 | `--from-coworker-invoice-line-coworker-invoice-id` | range | |
 | `--to-coworker-invoice-line-coworker-invoice-id` | range | |
-| `--coworker-invoice-line-coworker-invoice-invoice-number` | string | Invoice number of the invoice containing the linked invoice line |
+| `--coworker-invoice-line-coworker-invoice-invoice-number` | string | Display value for CoworkerInvoiceLine.CoworkerInvoice.InvoiceNumber. |
 | `--event-attendee-id` | long | ID of the event attendance record this credit was applied to, if the credit was used for an event |
-| `--event-attendee-calendar-event-name` | string | Name of the calendar event the credit was used for |
-| `--event-attendee-event-product-name` | string | Name of the event ticket product purchased by the attendee |
-| `--event-attendee-full-name` | string | Full name of the event attendee |
-| `--event-attendee-email` | string | Email address of the event attendee |
+| `--event-attendee-calendar-event-name` | string | Display value for EventAttendee.CalendarEvent.Name. |
+| `--event-attendee-event-product-name` | string | Display value for EventAttendee.EventProduct.Name. |
+| `--event-attendee-full-name` | string | Display value for EventAttendee.FullName. |
+| `--event-attendee-email` | string | Display value for EventAttendee.Email. |
 | `--credit-used` | decimal | Amount of credit consumed by this entry |
 | `--from-credit-used` | range | |
 | `--to-credit-used` | range | |

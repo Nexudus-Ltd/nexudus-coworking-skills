@@ -25,7 +25,7 @@ LegalContentAudits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location whose legal content version is recorded. |
-| `--business-name` | string | Display name of the linked business (read-only) |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | System-generated version label using the next version number and the location-local creation date. |
 | `--content` | string | Snapshot of the legal content text when this version was created. |
 | `--author` | string | User name or system account recorded as creating this legal content version. |

@@ -23,14 +23,14 @@ CoworkerInvoiceLines support Search, Get, Update (no Create or Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-invoice-id` | long | ID of the invoice that contains this line; it determines the customer, location, currency, and payment state. |
-| `--invoice-number` | string | Invoice number of the parent invoice |
-| `--invoice-paid` | bool | Whether the parent invoice has been fully paid |
-| `--coworker-invoice-paid-on` | DateTime | Date/time value for coworker invoice paid on |
+| `--invoice-number` | string | Display value for CoworkerInvoice.InvoiceNumber. |
+| `--invoice-paid` | bool | Display value for CoworkerInvoice.Paid. |
+| `--coworker-invoice-paid-on` | DateTime | Display value for CoworkerInvoice.PaidOn. |
 | `--from-coworker-invoice-paid-on` | range | |
 | `--to-coworker-invoice-paid-on` | range | |
-| `--invoice-credit-note` | bool | Whether the parent invoice is a credit note |
-| `--invoice-currency-code` | string | Currency code of the parent invoice (e.g. USD, EUR) |
-| `--coworker-invoice-due-date` | DateTime | Date/time value for coworker invoice due date |
+| `--invoice-credit-note` | bool | Display value for CoworkerInvoice.CreditNote. |
+| `--invoice-currency-code` | string | Display value for CoworkerInvoice.Currency.Code. |
+| `--coworker-invoice-due-date` | DateTime | Display value for CoworkerInvoice.DueDate. |
 | `--from-coworker-invoice-due-date` | range | |
 | `--to-coworker-invoice-due-date` | range | |
 | `--description` | string | Required line-item description; shown on the invoice unless DisplayAs supplies replacement printed text. |
@@ -79,6 +79,9 @@ CoworkerInvoiceLines support Search, Get, Update (no Create or Delete via API).
 | `--tariff-name` | string | Read-only name of the plan associated with this line. |
 | `--financial-account-code` | string | Financial-account code that categorises this line's revenue for accounting. |
 | `--financial-account-name` | string | Financial-account name that categorises this line's revenue for accounting. |
+| `--financial-account-type` | int | Type of the financial account (1 Sales, 2 Payments, 3 Deposits) captured when the line was created |
+| `--from-financial-account-type` | range | |
+| `--to-financial-account-type` | range | |
 | `--issued-by-unique-id` | string | GUID of the entity that issued this line, such as the issuing contract or location; retain for provenance rather than setting manually. |
 | `--cancelled-coworker-invoice-line-unique-id` | string | GUID of the original line cancelled by this line; maintained by cancellation workflows and used when reversing cancellation. |
 | `--position` | int | Read-only display order assigned when invoice lines are ordered. |

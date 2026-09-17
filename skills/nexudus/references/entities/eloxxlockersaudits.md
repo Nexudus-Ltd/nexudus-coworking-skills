@@ -25,15 +25,15 @@ EloxxLockersAudits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Display name of the linked business (read-only) |
+| `--business-name` | string | Display value for Business.Name. |
 | `--floor-plan-desk-id` | long | ID of the floor plan desk linked to this record |
-| `--floor-plan-desk-name` | string | Display name of the linked floor plan desk (read-only) |
+| `--floor-plan-desk-name` | string | Display value for FloorPlanDesk.Name. |
 | `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-coworker-type` | string | The coworker coworker type value for this eloxx lockers audit |
-| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
-| `--coworker-billing-name` | string | Display name of the linked coworker billing (read-only) |
-| `--coworker-company-name` | string | Display name of the linked coworker company (read-only) |
-| `--coworker-team-names` | string | The coworker team names value for this eloxx lockers audit |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--description` | string | Free-text description of this eloxx lockers audit |
 | `--action-by` | string | The action by value for this eloxx lockers audit |
 | `--action` | enum | The action value for this eloxx lockers audit |

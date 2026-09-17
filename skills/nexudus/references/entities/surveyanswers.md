@@ -26,8 +26,8 @@ SurveyAnswers support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--survey-run-id` | long | ID of the survey run that contains this submitted answer |
 | `--survey-question-id` | long | ID of the survey question answered by the customer; the question's survey location owns this answer |
-| `--survey-question-text` | string | The survey question text value for this survey answer |
-| `--survey-question-survey-name` | string | Display name of the linked survey question survey (read-only) |
+| `--survey-question-text` | string | Display value for SurveyQuestion.Text. |
+| `--survey-question-survey-name` | string | Display value for SurveyQuestion.Survey.Name. |
 | `--value` | string | Customer's submitted answer text; for a Binary question this is the stored filename rather than file content |
 | `--file-value-file-name` | string | Current file name of the file value (read-only; upload via the corresponding URL field) |
 | `--new-file-value-url` | string | URL of a new file to upload as the file value |

@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=UserRoles -->
 
-A **UserRole** links a user to a role, granting that user the permissions defined by the role for a specific business location.
+A User Role is a permission group that assigns one or more global Roles to user accounts across every location they can access; its associated location is organisational only.
 
 UserRoles support Search, Get, Create, Update, Delete.
 
@@ -24,9 +24,9 @@ UserRoles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Display name of the linked business (read-only) |
-| `--name` | string | The name value for this user role |
+| `--business-id` | long | ID of the organisational location associated with this User Role; keep it at the top-most root location where possible, as it does not limit the permissions granted. |
+| `--business-name` | string | Display value for Business.Name. |
+| `--name` | string | Required name of this permission group, unique within its organisational location. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -45,27 +45,27 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this user role |
-| `--roles` | list, repeat flag | List of roles linked to this record |
-| `--added-roles` | list, repeat flag | The added roles value for this user role |
-| `--removed-roles` | list, repeat flag | The removed roles value for this user role |
-| `--users` | list, repeat flag | List of users linked to this record |
-| `--added-users` | list, repeat flag | The added users value for this user role |
-| `--removed-users` | list, repeat flag | The removed users value for this user role |
+| `--business-id` | long, required | ID of the organisational location associated with this User Role; keep it at the top-most root location where possible, as it does not limit the permissions granted. |
+| `--name` | string, required | Required name of this permission group, unique within its organisational location. |
+| `--roles` | list, repeat flag | List of global Role IDs that define this permission group's permissions; an empty list grants no Role permissions. |
+| `--added-roles` | list, repeat flag | IDs added to the Roles relationship. |
+| `--removed-roles` | list, repeat flag | IDs removed from the Roles relationship. |
+| `--users` | list, repeat flag | List of User IDs assigned to this permission group; an empty list assigns the group to no users, and an update replaces the complete assignment list. |
+| `--added-users` | list, repeat flag | IDs added to the Users relationship. |
+| `--removed-users` | list, repeat flag | IDs removed from the Users relationship. |
 
 #### UserRole update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this user role |
-| `--roles` | list, repeat flag | List of roles linked to this record |
-| `--added-roles` | list, repeat flag | The added roles value for this user role |
-| `--removed-roles` | list, repeat flag | The removed roles value for this user role |
-| `--users` | list, repeat flag | List of users linked to this record |
-| `--added-users` | list, repeat flag | The added users value for this user role |
-| `--removed-users` | list, repeat flag | The removed users value for this user role |
+| `--business-id` | long | ID of the organisational location associated with this User Role; keep it at the top-most root location where possible, as it does not limit the permissions granted. |
+| `--name` | string | Required name of this permission group, unique within its organisational location. |
+| `--roles` | list, repeat flag | List of global Role IDs that define this permission group's permissions; an empty list grants no Role permissions. |
+| `--added-roles` | list, repeat flag | IDs added to the Roles relationship. |
+| `--removed-roles` | list, repeat flag | IDs removed from the Roles relationship. |
+| `--users` | list, repeat flag | List of User IDs assigned to this permission group; an empty list assigns the group to no users, and an update replaces the complete assignment list. |
+| `--added-users` | list, repeat flag | IDs added to the Users relationship. |
+| `--removed-users` | list, repeat flag | IDs removed from the Users relationship. |
 
 **List properties (only returned by `get`, not by `list`):** `Roles`, `AddedRoles`, `RemovedRoles`, `Users`, `AddedUsers`, `RemovedUsers`
 

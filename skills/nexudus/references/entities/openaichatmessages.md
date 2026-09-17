@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=OpenAiChatMessages -->
 
-An **OpenAiChatMessage** records a message in an AI-powered chat conversation. Each message tracks the content, the associated customer or operator, and the action type.
+An OpenAiChatMessage is a single turn in an AI conversation — what the contact said, what the AI answered, a tool the AI ran, or a message an operator pushed into the thread. Messages belong to an AiChannelSession and share its ChatSession GUID, so filtering by conversation and ordering by creation time reproduces the transcript. This entity is read-only: turns are written by the AI pipeline as the conversation happens and are never edited afterwards.
 
 OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
@@ -24,32 +24,32 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--user-id` | long | ID of the user linked to this record |
-| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
-| `--ai-channel-session-external-identifier` | string | External identifier of the AI channel session linked to this message. Email address for email sessions, phone number for WhatsApp, etc. |
-| `--ai-channel-session-coworker-id` | int | ID of the customer linked to the AI channel session |
+| `--business-id` | long | ID of the location that owns this message, inherited from its conversation. |
+| `--user-id` | long | ID of the platform user this message is attributed to. Set for messages exchanged inside an authenticated session; empty for anonymous web-chat and inbound email or WhatsApp contacts. |
+| `--ai-channel-session-id` | long | ID of the conversation this message belongs to. Filter on it to read one conversation’s transcript in order. |
+| `--ai-channel-session-external-identifier` | string | Display value for AiChannelSession.ExternalIdentifier. |
+| `--ai-channel-session-coworker-id` | int | Display value for AiChannelSession.Coworker.Id. |
 | `--from-ai-channel-session-coworker-id` | range | |
 | `--to-ai-channel-session-coworker-id` | range | |
-| `--ai-channel-session-coworker-coworker-type` | string | The type of the customer linked to the AI channel session (e.g. Individual or Company) |
-| `--ai-channel-session-coworker-full-name` | string | Full name of the customer linked to the AI channel session |
-| `--ai-channel-session-coworker-mobile-phone` | string | Mobile phone number of the customer linked to the AI channel session |
-| `--ai-channel-session-coworker-land-line` | string | Landline phone number of the customer linked to the AI channel session |
-| `--ai-channel-session-coworker-billing-name` | string | Billing name of the customer linked to the AI channel session |
-| `--ai-channel-session-coworker-company-name` | string | Company name of the customer linked to the AI channel session (if the customer is a company) |
-| `--ai-channel-session-coworker-team-names` | string | Comma-separated list of team names that the customer linked to the AI channel session belongs to |
-| `--action` | enum | The action value for this open ai chat message |
-| `--content` | string | The content value for this open ai chat message |
-| `--chat-session` | string | The chat session value for this open ai chat message |
-| `--responder-name` | string | Display name of the linked responder (read-only) |
-| `--chat-message-role` | string | The chat message role value for this open ai chat message |
-| `--rating` | int | The rating value for this open ai chat message |
+| `--ai-channel-session-coworker-coworker-type` | string | Display value for AiChannelSession.Coworker.CoworkerType. |
+| `--ai-channel-session-coworker-full-name` | string | Display value for AiChannelSession.Coworker.FullName. |
+| `--ai-channel-session-coworker-mobile-phone` | string | Display value for AiChannelSession.Coworker.MobilePhone. |
+| `--ai-channel-session-coworker-land-line` | string | Display value for AiChannelSession.Coworker.LandLine. |
+| `--ai-channel-session-coworker-billing-name` | string | Display value for AiChannelSession.Coworker.BillingName. |
+| `--ai-channel-session-coworker-company-name` | string | Display value for AiChannelSession.Coworker.CompanyName. |
+| `--ai-channel-session-coworker-team-names` | string | Display value for AiChannelSession.Coworker.TeamNames. |
+| `--action` | enum | What this message was, beyond its role: Operator for ordinary AI or operator turns; OutboundCoworkerMessage and OutboundHelpDesk for AI replies delivered as a customer message or a help desk ticket; InboundCoworkerReply and InboundHelpDeskReply for the customer answering through those channels. Use it with the CoworkerMessage, HelpDeskMessage and HelpDeskComment links to show where a turn actually happened. |
+| `--content` | string | Message body. User and assistant turns hold the text shown to people, in Markdown or HTML depending on channel; Tool turns hold a serialised tool result, and the assistant turn that requests tools holds a JSON array of tool calls rather than prose. |
+| `--chat-session` | string | GUID of the conversation, matching AiChannelSession.ChatSession. Identical for every message in the same conversation. |
+| `--responder-name` | string | Which internal responder produced the message, such as CompleteWithTools, KbOpenAiResponder or ProactiveExecutionEngine. Useful for tracing why the AI answered the way it did; empty for messages that came from a person. |
+| `--chat-message-role` | string | Conversation role: User for the contact, Assistant for the AI, Tool for a tool result, System for prompt scaffolding, and operator-outbound for a message an operator sent into the thread. A transcript normally shows only User, Assistant and operator-outbound. |
+| `--rating` | int | Feedback the recipient left on this answer through the members portal. Empty when nobody rated it. |
 | `--from-rating` | range | |
 | `--to-rating` | range | |
-| `--channel` | string | The AI channel through which this message was sent (e.g. Email, Chat, WhatsApp) |
-| `--coworker-message-id` | long | ID of the customer message linked to this AI chat message, if the message was part of a customer communication thread |
-| `--help-desk-message-id` | long | ID of the help desk ticket linked to this AI chat message, if the message was part of a support ticket conversation |
-| `--help-desk-comment-id` | long | ID of the help desk comment linked to this AI chat message, if the message was a reply on a support ticket |
+| `--channel` | string | Channel this turn travelled on, stored as text and matching its conversation: Chat, Email, WhatsApp, Voice, CoworkerMessage or HelpDesk. |
+| `--coworker-message-id` | long | ID of the customer message this turn was delivered as or came from, when the AI replied over the CoworkerMessage channel. |
+| `--help-desk-message-id` | long | ID of the help desk ticket this turn created or belongs to, set when the conversation was escalated to the help desk. |
+| `--help-desk-comment-id` | long | ID of the help desk comment this turn came from, set when the customer or an operator replied on the escalated ticket. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -62,33 +62,33 @@ OpenAiChatMessages support Search, Get, Create, Update, Delete.
 | `--order-by <property>` | Property name to sort by |
 | `--dir <0\|1>` | Sort direction: 0 = ascending, 1 = descending |
 
-Default sort: `Id` ascending. If no `--order-by` is specified, the API returns results ordered by `Id` (ascending).
+Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API returns results ordered by `CreatedOn` (ascending).
 
 #### OpenAiChatMessage create options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--user-id` | long | ID of the user linked to this record |
-| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
-| `--action` | enum, required | The action value for this open ai chat message |
-| `--content` | string, required | The content value for this open ai chat message |
-| `--coworker-message-id` | long | ID of the customer message linked to this AI chat message, if the message was part of a customer communication thread |
-| `--help-desk-message-id` | long | ID of the help desk ticket linked to this AI chat message, if the message was part of a support ticket conversation |
-| `--help-desk-comment-id` | long | ID of the help desk comment linked to this AI chat message, if the message was a reply on a support ticket |
+| `--business-id` | long, required | ID of the location that owns this message, inherited from its conversation. |
+| `--user-id` | long | ID of the platform user this message is attributed to. Set for messages exchanged inside an authenticated session; empty for anonymous web-chat and inbound email or WhatsApp contacts. |
+| `--ai-channel-session-id` | long | ID of the conversation this message belongs to. Filter on it to read one conversation’s transcript in order. |
+| `--action` | enum, required | What this message was, beyond its role: Operator for ordinary AI or operator turns; OutboundCoworkerMessage and OutboundHelpDesk for AI replies delivered as a customer message or a help desk ticket; InboundCoworkerReply and InboundHelpDeskReply for the customer answering through those channels. Use it with the CoworkerMessage, HelpDeskMessage and HelpDeskComment links to show where a turn actually happened. |
+| `--content` | string, required | Message body. User and assistant turns hold the text shown to people, in Markdown or HTML depending on channel; Tool turns hold a serialised tool result, and the assistant turn that requests tools holds a JSON array of tool calls rather than prose. |
+| `--coworker-message-id` | long | ID of the customer message this turn was delivered as or came from, when the AI replied over the CoworkerMessage channel. |
+| `--help-desk-message-id` | long | ID of the help desk ticket this turn created or belongs to, set when the conversation was escalated to the help desk. |
+| `--help-desk-comment-id` | long | ID of the help desk comment this turn came from, set when the customer or an operator replied on the escalated ticket. |
 
 #### OpenAiChatMessage update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--user-id` | long | ID of the user linked to this record |
-| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
-| `--action` | enum | The action value for this open ai chat message |
-| `--content` | string | The content value for this open ai chat message |
-| `--coworker-message-id` | long | ID of the customer message linked to this AI chat message, if the message was part of a customer communication thread |
-| `--help-desk-message-id` | long | ID of the help desk ticket linked to this AI chat message, if the message was part of a support ticket conversation |
-| `--help-desk-comment-id` | long | ID of the help desk comment linked to this AI chat message, if the message was a reply on a support ticket |
+| `--business-id` | long | ID of the location that owns this message, inherited from its conversation. |
+| `--user-id` | long | ID of the platform user this message is attributed to. Set for messages exchanged inside an authenticated session; empty for anonymous web-chat and inbound email or WhatsApp contacts. |
+| `--ai-channel-session-id` | long | ID of the conversation this message belongs to. Filter on it to read one conversation’s transcript in order. |
+| `--action` | enum | What this message was, beyond its role: Operator for ordinary AI or operator turns; OutboundCoworkerMessage and OutboundHelpDesk for AI replies delivered as a customer message or a help desk ticket; InboundCoworkerReply and InboundHelpDeskReply for the customer answering through those channels. Use it with the CoworkerMessage, HelpDeskMessage and HelpDeskComment links to show where a turn actually happened. |
+| `--content` | string | Message body. User and assistant turns hold the text shown to people, in Markdown or HTML depending on channel; Tool turns hold a serialised tool result, and the assistant turn that requests tools holds a JSON array of tool calls rather than prose. |
+| `--coworker-message-id` | long | ID of the customer message this turn was delivered as or came from, when the AI replied over the CoworkerMessage channel. |
+| `--help-desk-message-id` | long | ID of the help desk ticket this turn created or belongs to, set when the conversation was escalated to the help desk. |
+| `--help-desk-comment-id` | long | ID of the help desk comment this turn came from, set when the customer or an operator replied on the escalated ticket. |
 
 #### OpenAiChatMessage PII fields
 

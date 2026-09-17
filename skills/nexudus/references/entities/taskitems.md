@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TaskItems -->
 
-A **TaskItem** represents an individual task or to-do item that can be assigned to staff or customers. Tasks can be organised into lists, have due dates, and track completion status.
+A task is one step of a task list: a template that is copied into a customer task, due a set number of hours later, every time the list is applied to a customer.
 
 TaskItems support Search, Get, Create, Update, Delete.
 
@@ -24,14 +24,14 @@ TaskItems support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--task-list-id` | long | ID of the task list linked to this record |
-| `--responsible-id` | long | ID of the responsible linked to this record |
-| `--responsible-full-name` | string | Display name of the linked responsible full (read-only) |
-| `--name` | string | The name value for this task item |
-| `--active` | bool | Whether this task item is currently active |
-| `--notify-by-email` | bool | Whether notify by email is enabled |
-| `--display-to-everyone` | bool | Whether display to everyone is enabled |
-| `--delay-in-hours` | int | The delay in hours value for this task item |
+| `--task-list-id` | long | ID of the task list this task belongs to; it is required, and it also decides the owning location because a task has no location of its own |
+| `--responsible-id` | long | ID of the admin user accountable for this task; it is required, and it is copied onto every customer task created from this one unless the workflow applying the list supplies its own responsible user |
+| `--responsible-full-name` | string | Display value for Responsible.FullName. |
+| `--name` | string | Title of the task, copied onto every customer task created from this one; required |
+| `--active` | bool | Whether this task is copied when its task list is applied to a customer; an inactive task is skipped, and customer tasks already created from it are left alone |
+| `--notify-by-email` | bool | Whether the responsible admin user is emailed about the customer tasks created from this one; it is copied onto each of them, notifying the responsible user when the task is assigned and again when it falls due. Saving this template task never emails anybody |
+| `--display-to-everyone` | bool | Whether customer tasks created from this one appear in every admin user's active task list at the location instead of only the responsible user's |
+| `--delay-in-hours` | int | Whole hours between the task list being applied and the resulting customer task falling due, counted in UTC from the moment it is applied: 0 is due immediately and 48 is due two days later; a negative value back-dates the due date, and this is also the default order of the tasks in a list |
 | `--from-delay-in-hours` | range | |
 | `--to-delay-in-hours` | range | |
 | `--from-created-on` | range | |
@@ -52,25 +52,25 @@ Default sort: `DelayInHours` ascending. If no `--order-by` is specified, the API
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--task-list-id` | long, required | ID of the task list linked to this record |
-| `--responsible-id` | long, required | ID of the responsible linked to this record |
-| `--name` | string, required | The name value for this task item |
-| `--active` | bool | Whether this task item is currently active |
-| `--notify-by-email` | bool | Whether notify by email is enabled |
-| `--display-to-everyone` | bool | Whether display to everyone is enabled |
-| `--delay-in-hours` | int, required | The delay in hours value for this task item |
+| `--task-list-id` | long, required | ID of the task list this task belongs to; it is required, and it also decides the owning location because a task has no location of its own |
+| `--responsible-id` | long, required | ID of the admin user accountable for this task; it is required, and it is copied onto every customer task created from this one unless the workflow applying the list supplies its own responsible user |
+| `--name` | string, required | Title of the task, copied onto every customer task created from this one; required |
+| `--active` | bool | Whether this task is copied when its task list is applied to a customer; an inactive task is skipped, and customer tasks already created from it are left alone |
+| `--notify-by-email` | bool | Whether the responsible admin user is emailed about the customer tasks created from this one; it is copied onto each of them, notifying the responsible user when the task is assigned and again when it falls due. Saving this template task never emails anybody |
+| `--display-to-everyone` | bool | Whether customer tasks created from this one appear in every admin user's active task list at the location instead of only the responsible user's |
+| `--delay-in-hours` | int, required | Whole hours between the task list being applied and the resulting customer task falling due, counted in UTC from the moment it is applied: 0 is due immediately and 48 is due two days later; a negative value back-dates the due date, and this is also the default order of the tasks in a list |
 
 #### TaskItem update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--task-list-id` | long | ID of the task list linked to this record |
-| `--responsible-id` | long | ID of the responsible linked to this record |
-| `--name` | string | The name value for this task item |
-| `--active` | bool | Whether this task item is currently active |
-| `--notify-by-email` | bool | Whether notify by email is enabled |
-| `--display-to-everyone` | bool | Whether display to everyone is enabled |
-| `--delay-in-hours` | int | The delay in hours value for this task item |
+| `--task-list-id` | long | ID of the task list this task belongs to; it is required, and it also decides the owning location because a task has no location of its own |
+| `--responsible-id` | long | ID of the admin user accountable for this task; it is required, and it is copied onto every customer task created from this one unless the workflow applying the list supplies its own responsible user |
+| `--name` | string | Title of the task, copied onto every customer task created from this one; required |
+| `--active` | bool | Whether this task is copied when its task list is applied to a customer; an inactive task is skipped, and customer tasks already created from it are left alone |
+| `--notify-by-email` | bool | Whether the responsible admin user is emailed about the customer tasks created from this one; it is copied onto each of them, notifying the responsible user when the task is assigned and again when it falls due. Saving this template task never emails anybody |
+| `--display-to-everyone` | bool | Whether customer tasks created from this one appear in every admin user's active task list at the location instead of only the responsible user's |
+| `--delay-in-hours` | int | Whole hours between the task list being applied and the resulting customer task falling due, counted in UTC from the moment it is applied: 0 is due immediately and 48 is due two days later; a negative value back-dates the due date, and this is also the default order of the tasks in a list |
 
 #### TaskItem PII fields
 

@@ -30,7 +30,7 @@ BookingAvailabilityExceptions also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Name of the location |
+| `--business-name` | string | Display value for Business.Name. |
 | `--from-time` | DateTime | Start date/time of the blocked period |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -62,8 +62,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long, required | ID of the business linked to this record |
 | `--resources` | list, repeat flag | List of resources linked to this record |
-| `--added-resources` | list, repeat flag | The added resources value for this booking availability exception |
-| `--removed-resources` | list, repeat flag | The removed resources value for this booking availability exception |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--from-time` | DateTime, required | Start date/time of the blocked period |
 | `--to-time` | DateTime, required | End date/time of the blocked period |
 | `--message` | string, required | Message shown to users who attempt to book a blocked resource |
@@ -76,8 +76,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
 | `--resources` | list, repeat flag | List of resources linked to this record |
-| `--added-resources` | list, repeat flag | The added resources value for this booking availability exception |
-| `--removed-resources` | list, repeat flag | The removed resources value for this booking availability exception |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--from-time` | DateTime | Start date/time of the blocked period |
 | `--to-time` | DateTime | End date/time of the blocked period |
 | `--message` | string | Message shown to users who attempt to book a blocked resource |

@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=WebHooks -->
 
-A **WebHook** sends an HTTP POST request to a specified URL whenever a particular event occurs within a location. Webhooks let external systems react to changes in real time without polling the API.
-
-Each webhook is scoped to a single location (`BusinessId`) and is configured with an `Action` that identifies the triggering event (e.g. `CoworkerCreate`, `BookingCreate`, `CoworkerInvoicePaid`). Only one action can be assigned per webhook record — create separate webhook records if you need to react to multiple events.
-
-Nexudus will POST a JSON payload to the configured `URL` every time the selected action fires. If the endpoint returns a non-2xx response, the error is recorded in `LastError` and `ErrorCount` is incremented. A webhook is automatically disabled after repeated failures.
-
-Set `Active` to `false` to pause delivery without deleting the webhook. Use `LastTrigger` and `LastError` to monitor delivery health.
+A webhook makes Nexudus send an HTTP POST with a JSON payload to an external URL whenever one chosen event happens in a location, so other systems can react in real time without polling the API. Each record has exactly one Action, so a separate webhook is needed per event, and a webhook registered on a network parent location also receives events from that parent's child locations. Delivery is signed with the location's Webhooks.SharedSecret setting when one is configured, retried with an increasing delay after each failure, and skipped when the same record would be sent with an identical payload twice. Delivery health is visible in LastTrigger, LastError and ErrorCount; the webhook is deactivated automatically once ErrorCount passes 10 or the URL does not start with http, and it is deleted automatically if the endpoint answers 410 Gone. Set Active to false to pause delivery without deleting the record.
 
 WebHooks support Search, Get, Create, Update, Delete.
 
@@ -30,17 +24,17 @@ WebHooks support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location this webhook belongs to |
-| `--name` | string | Display name for the webhook |
-| `--action` | enum | The event that triggers this webhook (e.g. CoworkerCreate, BookingCreate, CoworkerInvoicePaid) |
-| `--description` | string | Optional description of the webhook's purpose |
-| `--u-r-l` | string | The endpoint URL that receives the HTTP POST payload when the webhook fires |
-| `--active` | bool | Whether the webhook is enabled and will fire when the configured action occurs |
-| `--last-error` | string | Error message from the most recent failed delivery attempt |
-| `--error-count` | int | Number of consecutive delivery failures since the last successful call |
+| `--business-id` | long | ID of the location that owns this webhook. Events raised in this location trigger it, and a webhook registered on a network parent location also receives events from that parent's child locations. |
+| `--name` | string | Display name used to identify this webhook in the location's webhook list; it is not sent to the endpoint. |
+| `--action` | enum | The single event that triggers this webhook, such as CoworkerCreate, BookingCreate or CoworkerInvoicePaid. Only one action per webhook, so create a separate record for each event you need. Defaults to None, which never fires, so always set this explicitly. |
+| `--description` | string | Optional free-text note describing the webhook's purpose. It is not shown in the admin form and is not sent to the endpoint. |
+| `--u-r-l` | string | Endpoint that receives the HTTP POST JSON payload when the webhook fires, up to 1024 characters. It must start with http or https; any other value records an error and deactivates the webhook on the first delivery attempt. |
+| `--active` | bool | Whether the webhook is enabled and will fire when its action occurs. Set false to pause delivery without deleting the record. Nexudus sets it to false automatically once ErrorCount passes 10, or when the URL does not start with http. |
+| `--last-error` | string | Message from the most recent failed delivery attempt, cleared at the start of each new attempt. Read-only diagnostic written by the delivery service; fix the endpoint rather than trying to change this value. |
+| `--error-count` | int | Consecutive failed delivery attempts. Reset to 0 after a successful call, incremented on each failure, and the webhook is deactivated once it passes 10. Read-only diagnostic written by the delivery service. |
 | `--from-error-count` | range | |
 | `--to-error-count` | range | |
-| `--last-trigger` | DateTime | Date and time the webhook last fired successfully |
+| `--last-trigger` | DateTime | UTC date and time of the most recent delivery attempt, recorded when the attempt starts rather than when it succeeds; check LastError and ErrorCount to tell whether that attempt succeeded. Read-only diagnostic written by the delivery service. |
 | `--from-last-trigger` | range | |
 | `--to-last-trigger` | range | |
 | `--from-created-on` | range | |
@@ -61,23 +55,23 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the location this webhook belongs to |
-| `--name` | string, required | Display name for the webhook |
-| `--action` | enum, required | The event that triggers this webhook (e.g. CoworkerCreate, BookingCreate, CoworkerInvoicePaid) |
-| `--description` | string | Optional description of the webhook's purpose |
-| `--u-r-l` | string, required | The endpoint URL that receives the HTTP POST payload when the webhook fires |
-| `--active` | bool | Whether the webhook is enabled and will fire when the configured action occurs |
+| `--business-id` | long, required | ID of the location that owns this webhook. Events raised in this location trigger it, and a webhook registered on a network parent location also receives events from that parent's child locations. |
+| `--name` | string, required | Display name used to identify this webhook in the location's webhook list; it is not sent to the endpoint. |
+| `--action` | enum, required | The single event that triggers this webhook, such as CoworkerCreate, BookingCreate or CoworkerInvoicePaid. Only one action per webhook, so create a separate record for each event you need. Defaults to None, which never fires, so always set this explicitly. |
+| `--description` | string | Optional free-text note describing the webhook's purpose. It is not shown in the admin form and is not sent to the endpoint. |
+| `--u-r-l` | string, required | Endpoint that receives the HTTP POST JSON payload when the webhook fires, up to 1024 characters. It must start with http or https; any other value records an error and deactivates the webhook on the first delivery attempt. |
+| `--active` | bool | Whether the webhook is enabled and will fire when its action occurs. Set false to pause delivery without deleting the record. Nexudus sets it to false automatically once ErrorCount passes 10, or when the URL does not start with http. |
 
 #### WebHook update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the location this webhook belongs to |
-| `--name` | string | Display name for the webhook |
-| `--action` | enum | The event that triggers this webhook (e.g. CoworkerCreate, BookingCreate, CoworkerInvoicePaid) |
-| `--description` | string | Optional description of the webhook's purpose |
-| `--u-r-l` | string | The endpoint URL that receives the HTTP POST payload when the webhook fires |
-| `--active` | bool | Whether the webhook is enabled and will fire when the configured action occurs |
+| `--business-id` | long | ID of the location that owns this webhook. Events raised in this location trigger it, and a webhook registered on a network parent location also receives events from that parent's child locations. |
+| `--name` | string | Display name used to identify this webhook in the location's webhook list; it is not sent to the endpoint. |
+| `--action` | enum | The single event that triggers this webhook, such as CoworkerCreate, BookingCreate or CoworkerInvoicePaid. Only one action per webhook, so create a separate record for each event you need. Defaults to None, which never fires, so always set this explicitly. |
+| `--description` | string | Optional free-text note describing the webhook's purpose. It is not shown in the admin form and is not sent to the endpoint. |
+| `--u-r-l` | string | Endpoint that receives the HTTP POST JSON payload when the webhook fires, up to 1024 characters. It must start with http or https; any other value records an error and deactivates the webhook on the first delivery attempt. |
+| `--active` | bool | Whether the webhook is enabled and will fire when its action occurs. Set false to pause delivery without deleting the record. Nexudus sets it to false automatically once ErrorCount passes 10, or when the URL does not start with http. |
 
 ### WebHook (key fields)
 

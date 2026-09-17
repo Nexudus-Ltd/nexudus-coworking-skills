@@ -39,8 +39,8 @@ RecordCreationWorkflowVersions support Search, Get, Create, Update, Delete.
 | `--from-published-on` | range | |
 | `--to-published-on` | range | |
 | `--published-by-user-id` | long | User who published this version |
-| `--published-by-user-full-name` | string | Full name of the user who published this version |
-| `--published-by-user-email` | string | Email address of the user who published this version |
+| `--published-by-user-full-name` | string | Display value for PublishedByUser.FullName. |
+| `--published-by-user-email` | string | Display value for PublishedByUser.Email. |
 | `--concurrency-token` | string | Optimistic concurrency token changed on every draft save |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

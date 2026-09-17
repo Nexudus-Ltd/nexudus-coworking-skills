@@ -25,24 +25,24 @@ ContractProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-contract-id` | long | ID of the customer's contract; it determines the location and billing cycle that will receive this recurring product line. |
-| `--coworker-contract-quantity` | int | Quantity associated with the contract |
+| `--coworker-contract-quantity` | int | Display value for CoworkerContract.Quantity. |
 | `--from-coworker-contract-quantity` | range | |
 | `--to-coworker-contract-quantity` | range | |
-| `--coworker-contract-floor-plan-desk-ids` | string | Floor plan desk IDs assigned to the contract |
-| `--coworker-contract-floor-plan-desk-names` | string | Floor plan desk names assigned to the contract |
-| `--coworker-contract-tariff-name` | string | Coworker contract tariff name |
-| `--coworker-contract-coworker-id` | int | ID of the member on the contract |
+| `--coworker-contract-floor-plan-desk-ids` | string | Display value for CoworkerContract.FloorPlanDeskIds. |
+| `--coworker-contract-floor-plan-desk-names` | string | Display value for CoworkerContract.FloorPlanDeskNames. |
+| `--coworker-contract-tariff-name` | string | Display value for CoworkerContract.Tariff.Name. |
+| `--coworker-contract-coworker-id` | int | Display value for CoworkerContract.Coworker.Id. |
 | `--from-coworker-contract-coworker-id` | range | |
 | `--to-coworker-contract-coworker-id` | range | |
-| `--coworker-contract-coworker-full-name` | string | Contract coworker full name |
-| `--coworker-contract-coworker-billing-name` | string | Contract coworker billing name |
+| `--coworker-contract-coworker-full-name` | string | Display value for CoworkerContract.Coworker.FullName. |
+| `--coworker-contract-coworker-billing-name` | string | Display value for CoworkerContract.Coworker.BillingName. |
 | `--product-id` | long | ID of the location product billed on the contract's invoices; its current price is used when this line has no price override. |
-| `--product-name` | string | Product name |
-| `--product-price` | decimal | Product price |
+| `--product-name` | string | Display value for Product.Name. |
+| `--product-price` | decimal | Display value for Product.Price. |
 | `--from-product-price` | range | |
 | `--to-product-price` | range | |
-| `--product-apply-pro-rating` | bool | Whether the underlying product applies pro-rating by default |
-| `--product-currency-code` | string | Product currency code |
+| `--product-apply-pro-rating` | bool | Display value for Product.ApplyProRating. |
+| `--product-currency-code` | string | Display value for Product.Currency.Code. |
 | `--notes` | string | Optional operator notes about this recurring product line. |
 | `--quantity` | int | Number of product units billed in each contract billing cycle; must be at least 1. |
 | `--from-quantity` | range | |

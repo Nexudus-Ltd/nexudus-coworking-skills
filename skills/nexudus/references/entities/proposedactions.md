@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ProposedActions -->
 
-A **ProposedAction** is an AI-generated recommendation for proactive outreach to a customer, surfaced in an operator action inbox for review and approval.
-
-The system identifies opportunities through criteria evaluators (e.g. overdue invoices, contract expirations, support patterns, dormant leads) and proposes actions with AI-composed draft content. Operators can approve, edit, reject, or snooze each proposal. Over time, high-confidence criteria can be promoted to auto-execute mode.
-
-**Workflow:** Pending → Approved/Rejected/Snoozed/Deferred → Executed (on approval) → AwaitingReply (for channels expecting responses). Actions auto-expire if not reviewed within their expiry window.
+A ProposedAction is an AI-generated recommendation waiting in the operator AI Inbox, produced when one of the proactive agents spots an opportunity such as an overdue invoice, an expiring contract, a run of support tickets, a spike in one issue category or a gap in the FAQ. Each one carries a drafted message or an internal alert, a confidence score and a review deadline. Records are created by the proactive agents, never by hand, and cannot be deleted. Fields such as the drafted subject and body, the delivery channel and the review notes may be edited before the action goes out. Its lifecycle, however, is driven by the review operations: use the approve and reject commands (PROPOSEDACTION_APPROVE, PROPOSEDACTION_REJECT), which also deliver the message, rather than writing Status directly — setting Status by hand marks an action as handled without ever sending it. Which agents run and how they behave is configured through ProactiveActionConfig.
 
 ProposedActions support Search, Get, Create, Update, Delete.
 
@@ -28,51 +24,54 @@ ProposedActions support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the target coworker for this proposed action. |
-| `--coworker-full-name` | string | Full name of the target coworker. |
-| `--coworker-email` | string | Email address of the target coworker. |
-| `--ai-channel-session-id` | long | ID of the source AI channel session that triggered this proposed action (for session-based criteria). |
-| `--criteria-type` | string | Identifier of the criteria evaluator that produced this action (e.g. DueInvoiceCriteria, ContractExpiryCriteria). |
-| `--criteria-payload` | string | JSON-serialized context data from the criteria evaluation (e.g. invoice details, contract dates, support ticket summaries). |
-| `--action-type` | enum | Type of proposed action: DraftMessage (compose outbound message), VoiceOutreach (initiate voice call), InternalNote (operator notification), or TaskReminder. |
-| `--channel` | enum | Proposed delivery channel for the action (Email, Voice, CoworkerMessage, HelpDesk, WhatsApp). |
-| `--draft-subject` | string | AI-composed subject line for the proposed outbound message. |
-| `--draft-body` | string | AI-composed message body or call script content for the proposed action. |
-| `--confidence` | decimal | AI confidence score (0.0–1.0) indicating how appropriate this action is. High-confidence actions may auto-execute if configured. |
+| `--business-id` | long | ID of the location that owns this proposed action. Set from the location whose agents produced it. |
+| `--coworker-id` | long | ID of the customer this action targets. Empty for internal alerts and for leads that have no customer record yet. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--ai-channel-session-id` | long | ID of the AI conversation that triggered this action. Only set for criteria that evaluate conversations, such as unanswered-question and dormant-lead detection. |
+| `--criteria-type` | string | Identifier of the agent that produced this action, matching a criteria evaluator name such as DueInvoiceCriteria, ContractExpiryCriteria, SupportPatternCriteria, SupportIssueCategoryCriteria or MissingFaqCriteria. Behaviour for each is configured through ProactiveActionConfig. |
+| `--criteria-payload` | string | Read-only JSON snapshot of the evidence the criteria evaluator collected (for example invoice amounts and due dates, contract dates, support ticket summaries, or a drafted FAQ article). Shape varies per criteria type; returned by the detail operation only. |
+| `--action-type` | enum | What the action does once approved: DraftMessage sends a composed message to the customer, VoiceOutreach places an AI call, InternalNote raises an operator-only alert with no customer contact, TaskReminder records a follow-up. InternalNote actions have no customer target and no delivery channel. |
+| `--channel` | enum | How an approved action reaches the customer: Email for an AI-tracked email conversation, Voice for an outbound AI call, CoworkerMessage for a message sent from a connected email account, HelpDesk to raise a ticket, or WhatsApp. Operators can change the channel at approval time. Ignored for InternalNote actions. |
+| `--draft-subject` | string | AI-composed subject line for the proposed message. Operators may edit it before approving; for internal alerts it doubles as the alert headline. |
+| `--draft-body` | string | AI-composed message body, call script, or — for internal alerts — the alert text itself. Operators may edit it before approving. |
+| `--confidence` | decimal | AI confidence in this recommendation, on a 0.0–1.0 scale (not a percentage). When the matching ProactiveActionConfig enables auto-execution, an action at or above its AutoExecuteMinConfidence skips the review inbox. |
 | `--from-confidence` | range | |
 | `--to-confidence` | range | |
-| `--priority` | enum | Priority level of the proposed action (Low, Medium, High, Critical). Used for inbox sorting and urgency indicators. |
-| `--status` | enum | Current lifecycle status: Pending (awaiting review), Approved, Rejected, Expired (not reviewed in time), AutoExecuted, Snoozed, Deferred, or AwaitingReply. |
-| `--reviewed-by-id` | long | ID of the operator who reviewed this proposed action. |
-| `--reviewed-by-full-name` | string | Full name of the operator who reviewed this action. |
-| `--reviewed-by-email` | string | Email address of the operator who reviewed this action. |
-| `--reviewed-on` | DateTime | Timestamp when the action was reviewed by an operator. |
+| `--priority` | enum | Urgency assigned by the agent that raised the action: Low, Medium, High or Critical. Drives inbox ordering and the urgency indicator; it does not change delivery behaviour. |
+| `--status` | enum | Where the action sits in its lifecycle: Pending awaits review; Snoozed is hidden until its wake time; Approved has been accepted for delivery; AutoExecuted was sent without review because confidence cleared the configured threshold; Deferred is approved but waiting for the recipient's next calling window; AwaitingReply has sent a WhatsApp opt-in template and is waiting on the customer; Rejected was dismissed; Expired passed its review deadline unattended. Change it through the approve, reject and snooze operations rather than by writing this field. |
+| `--reviewed-by-id` | long | ID of the operator who last reviewed this action. Empty while it is still awaiting review or when the system expired it unattended. |
+| `--reviewed-by-full-name` | string | Display value for ReviewedBy.FullName. |
+| `--reviewed-by-email` | string | Display value for ReviewedBy.Email. |
+| `--reviewed-on` | DateTime | UTC time an operator last approved, rejected or snoozed this action. |
 | `--from-reviewed-on` | range | |
 | `--to-reviewed-on` | range | |
-| `--review-notes` | string | Operator notes added during review (e.g. reason for rejection, edits made before approval). |
-| `--executed-on` | DateTime | Timestamp when the approved action was actually sent or executed. |
+| `--review-notes` | string | Notes recorded when an operator approves, rejects or snoozes the action. The system also appends here when it expires an action, for example because no calling window was available. |
+| `--executed-on` | DateTime | UTC time the approved action was actually delivered or the outbound call placed. Empty while the action is still queued or deferred. |
 | `--from-executed-on` | range | |
 | `--to-executed-on` | range | |
-| `--outcome-session-id` | long | ID of the resulting AI channel session created when the action was executed (for tracking conversation outcomes). |
-| `--expires-on` | DateTime | Unique key to prevent duplicate proposals for the same trigger (e.g. "invoice:123:reminder:1" for first invoice reminder). Format is "criteria-type:{identifier}:{tier}". |
+| `--outcome-session-id` | long | ID of the AI conversation created when this action was delivered. Use it to follow the reply thread, escalated tickets and messages that came out of the outreach. |
+| `--expires-on` | DateTime | UTC review deadline, defaulting to three days after the action is created. A Pending action past this point is moved to Expired; for a Snoozed action this instead holds the wake time set by the snooze duration. |
 | `--from-expires-on` | range | |
 | `--to-expires-on` | range | |
-| `--deduplication-key` | string | Planned execution time for the action (e.g. to respect business hours or timezone preferences). |
-| `--scheduled-execution-time` | DateTime | Operator-provided reason for deferring this action to a later time. |
+| `--deduplication-key` | string | Read-only key that prevents duplicate proposals for the same trigger, shaped as "criteria-type:{identifier}:{tier}" (for example "invoice:123:reminder:1"). A new proposal is suppressed while a non-expired action with the same key exists inside the criteria's cooldown window. |
+| `--scheduled-execution-time` | DateTime | UTC time a Deferred action becomes due, set automatically to the recipient's next calling window when approval lands outside permitted outbound hours. |
 | `--from-scheduled-execution-time` | range | |
 | `--to-scheduled-execution-time` | range | |
-| `--deferral-reason` | string | Number of times this action has been deferred. Used to prevent indefinite postponement. |
-| `--deferral-count` | int | ID of the email account to use as the sender for email-based actions. |
+| `--deferral-reason` | string | System-written explanation of why delivery was postponed, recorded when an approved action falls outside the recipient's permitted calling hours. |
+| `--deferral-count` | int | Number of times delivery has been postponed for calling hours. Counts up from zero and helps spot actions that keep missing their window. |
 | `--from-deferral-count` | range | |
 | `--to-deferral-count` | range | |
-| `--email-account-id` | long | Email address of the sender account used for this action. |
-| `--email-account-display-name` | string | Internal notes for operator context (not sent to the customer). Used for InternalNote action types and operator annotations. |
-| `--email-account-email-address` | string | Email address of the sending account used for this outbound email action. |
-| `--internal-notes` | string | Internal notes added by operators for context or tracking purposes. |
-| `--help-desk-department-id` | long | ID of the help desk department to associate with this action (for HelpDesk channel actions). |
-| `--help-desk-department-name` | string | Name of the help desk department associated with this action. |
-| `--help-desk-priority` | enum | Priority level for the help desk ticket created from this action (Low, Normal, High, Critical). |
+| `--email-account-id` | long | ID of the connected email account used as the sender when an approved action goes out over the CoworkerMessage channel. Empty means the location's default outgoing mail settings are used and customer replies are not tracked back into the AI conversation. |
+| `--email-account-display-name` | string | Display value for EmailAccount.DisplayName. |
+| `--email-account-email-address` | string | Display value for EmailAccount.EmailAddress. |
+| `--internal-notes` | string | Internal context carried onto the help desk ticket created when a HelpDesk-channel action is approved. Visible to operators only, never to the customer. |
+| `--help-desk-department-id` | long | ID of the help desk department the ticket is filed under when a HelpDesk-channel action is approved. Empty leaves the ticket unassigned. |
+| `--help-desk-department-name` | string | Display value for HelpDeskDepartment.Name. |
+| `--help-desk-priority` | enum | Priority applied to the help desk ticket created when a HelpDesk-channel action is approved (Low, Normal, High, Critical). Empty for actions on any other channel. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -91,63 +90,61 @@ Default sort: `CreatedOn` descending. If no `--order-by` is specified, the API r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the target coworker for this proposed action. |
-| `--ai-channel-session-id` | long | ID of the source AI channel session that triggered this proposed action (for session-based criteria). |
-| `--criteria-type` | string, required | Identifier of the criteria evaluator that produced this action (e.g. DueInvoiceCriteria, ContractExpiryCriteria). |
-| `--criteria-payload` | string | JSON-serialized context data from the criteria evaluation (e.g. invoice details, contract dates, support ticket summaries). |
-| `--action-type` | enum, required | Type of proposed action: DraftMessage (compose outbound message), VoiceOutreach (initiate voice call), InternalNote (operator notification), or TaskReminder. |
-| `--channel` | enum, required | Proposed delivery channel for the action (Email, Voice, CoworkerMessage, HelpDesk, WhatsApp). |
-| `--draft-subject` | string | AI-composed subject line for the proposed outbound message. |
-| `--draft-body` | string | AI-composed message body or call script content for the proposed action. |
-| `--confidence` | decimal, required | AI confidence score (0.0–1.0) indicating how appropriate this action is. High-confidence actions may auto-execute if configured. |
-| `--priority` | enum, required | Priority level of the proposed action (Low, Medium, High, Critical). Used for inbox sorting and urgency indicators. |
-| `--status` | enum, required | Current lifecycle status: Pending (awaiting review), Approved, Rejected, Expired (not reviewed in time), AutoExecuted, Snoozed, Deferred, or AwaitingReply. |
-| `--reviewed-by-id` | long | ID of the operator who reviewed this proposed action. |
-| `--reviewed-on` | DateTime | Timestamp when the action was reviewed by an operator. |
-| `--review-notes` | string | Operator notes added during review (e.g. reason for rejection, edits made before approval). |
-| `--executed-on` | DateTime | Timestamp when the approved action was actually sent or executed. |
-| `--outcome-session-id` | long | ID of the resulting AI channel session created when the action was executed (for tracking conversation outcomes). |
-| `--expires-on` | DateTime | Unique key to prevent duplicate proposals for the same trigger (e.g. "invoice:123:reminder:1" for first invoice reminder). Format is "criteria-type:{identifier}:{tier}". |
-| `--deduplication-key` | string | Planned execution time for the action (e.g. to respect business hours or timezone preferences). |
-| `--scheduled-execution-time` | DateTime | Operator-provided reason for deferring this action to a later time. |
-| `--deferral-reason` | string | Number of times this action has been deferred. Used to prevent indefinite postponement. |
-| `--deferral-count` | int, required | ID of the email account to use as the sender for email-based actions. |
-| `--email-account-id` | long | Email address of the sender account used for this action. |
-| `--internal-notes` | string | Internal notes added by operators for context or tracking purposes. |
-| `--help-desk-department-id` | long | ID of the help desk department to associate with this action (for HelpDesk channel actions). |
-| `--help-desk-priority` | enum | Priority level for the help desk ticket created from this action (Low, Normal, High, Critical). |
+| `--business-id` | long, required | ID of the location that owns this proposed action. Set from the location whose agents produced it. |
+| `--coworker-id` | long | ID of the customer this action targets. Empty for internal alerts and for leads that have no customer record yet. |
+| `--ai-channel-session-id` | long | ID of the AI conversation that triggered this action. Only set for criteria that evaluate conversations, such as unanswered-question and dormant-lead detection. |
+| `--criteria-type` | string, required | Identifier of the agent that produced this action, matching a criteria evaluator name such as DueInvoiceCriteria, ContractExpiryCriteria, SupportPatternCriteria, SupportIssueCategoryCriteria or MissingFaqCriteria. Behaviour for each is configured through ProactiveActionConfig. |
+| `--action-type` | enum, required | What the action does once approved: DraftMessage sends a composed message to the customer, VoiceOutreach places an AI call, InternalNote raises an operator-only alert with no customer contact, TaskReminder records a follow-up. InternalNote actions have no customer target and no delivery channel. |
+| `--channel` | enum, required | How an approved action reaches the customer: Email for an AI-tracked email conversation, Voice for an outbound AI call, CoworkerMessage for a message sent from a connected email account, HelpDesk to raise a ticket, or WhatsApp. Operators can change the channel at approval time. Ignored for InternalNote actions. |
+| `--draft-subject` | string | AI-composed subject line for the proposed message. Operators may edit it before approving; for internal alerts it doubles as the alert headline. |
+| `--draft-body` | string | AI-composed message body, call script, or — for internal alerts — the alert text itself. Operators may edit it before approving. |
+| `--confidence` | decimal, required | AI confidence in this recommendation, on a 0.0–1.0 scale (not a percentage). When the matching ProactiveActionConfig enables auto-execution, an action at or above its AutoExecuteMinConfidence skips the review inbox. |
+| `--priority` | enum, required | Urgency assigned by the agent that raised the action: Low, Medium, High or Critical. Drives inbox ordering and the urgency indicator; it does not change delivery behaviour. |
+| `--status` | enum, required | Where the action sits in its lifecycle: Pending awaits review; Snoozed is hidden until its wake time; Approved has been accepted for delivery; AutoExecuted was sent without review because confidence cleared the configured threshold; Deferred is approved but waiting for the recipient's next calling window; AwaitingReply has sent a WhatsApp opt-in template and is waiting on the customer; Rejected was dismissed; Expired passed its review deadline unattended. Change it through the approve, reject and snooze operations rather than by writing this field. |
+| `--reviewed-by-id` | long | ID of the operator who last reviewed this action. Empty while it is still awaiting review or when the system expired it unattended. |
+| `--reviewed-on` | DateTime | UTC time an operator last approved, rejected or snoozed this action. |
+| `--review-notes` | string | Notes recorded when an operator approves, rejects or snoozes the action. The system also appends here when it expires an action, for example because no calling window was available. |
+| `--executed-on` | DateTime | UTC time the approved action was actually delivered or the outbound call placed. Empty while the action is still queued or deferred. |
+| `--outcome-session-id` | long | ID of the AI conversation created when this action was delivered. Use it to follow the reply thread, escalated tickets and messages that came out of the outreach. |
+| `--expires-on` | DateTime | UTC review deadline, defaulting to three days after the action is created. A Pending action past this point is moved to Expired; for a Snoozed action this instead holds the wake time set by the snooze duration. |
+| `--deduplication-key` | string | Read-only key that prevents duplicate proposals for the same trigger, shaped as "criteria-type:{identifier}:{tier}" (for example "invoice:123:reminder:1"). A new proposal is suppressed while a non-expired action with the same key exists inside the criteria's cooldown window. |
+| `--scheduled-execution-time` | DateTime | UTC time a Deferred action becomes due, set automatically to the recipient's next calling window when approval lands outside permitted outbound hours. |
+| `--deferral-reason` | string | System-written explanation of why delivery was postponed, recorded when an approved action falls outside the recipient's permitted calling hours. |
+| `--deferral-count` | int, required | Number of times delivery has been postponed for calling hours. Counts up from zero and helps spot actions that keep missing their window. |
+| `--email-account-id` | long | ID of the connected email account used as the sender when an approved action goes out over the CoworkerMessage channel. Empty means the location's default outgoing mail settings are used and customer replies are not tracked back into the AI conversation. |
+| `--internal-notes` | string | Internal context carried onto the help desk ticket created when a HelpDesk-channel action is approved. Visible to operators only, never to the customer. |
+| `--help-desk-department-id` | long | ID of the help desk department the ticket is filed under when a HelpDesk-channel action is approved. Empty leaves the ticket unassigned. |
+| `--help-desk-priority` | enum | Priority applied to the help desk ticket created when a HelpDesk-channel action is approved (Low, Normal, High, Critical). Empty for actions on any other channel. |
 
 #### ProposedAction update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the target coworker for this proposed action. |
-| `--ai-channel-session-id` | long | ID of the source AI channel session that triggered this proposed action (for session-based criteria). |
-| `--criteria-type` | string | Identifier of the criteria evaluator that produced this action (e.g. DueInvoiceCriteria, ContractExpiryCriteria). |
-| `--criteria-payload` | string | JSON-serialized context data from the criteria evaluation (e.g. invoice details, contract dates, support ticket summaries). |
-| `--action-type` | enum | Type of proposed action: DraftMessage (compose outbound message), VoiceOutreach (initiate voice call), InternalNote (operator notification), or TaskReminder. |
-| `--channel` | enum | Proposed delivery channel for the action (Email, Voice, CoworkerMessage, HelpDesk, WhatsApp). |
-| `--draft-subject` | string | AI-composed subject line for the proposed outbound message. |
-| `--draft-body` | string | AI-composed message body or call script content for the proposed action. |
-| `--confidence` | decimal | AI confidence score (0.0–1.0) indicating how appropriate this action is. High-confidence actions may auto-execute if configured. |
-| `--priority` | enum | Priority level of the proposed action (Low, Medium, High, Critical). Used for inbox sorting and urgency indicators. |
-| `--status` | enum | Current lifecycle status: Pending (awaiting review), Approved, Rejected, Expired (not reviewed in time), AutoExecuted, Snoozed, Deferred, or AwaitingReply. |
-| `--reviewed-by-id` | long | ID of the operator who reviewed this proposed action. |
-| `--reviewed-on` | DateTime | Timestamp when the action was reviewed by an operator. |
-| `--review-notes` | string | Operator notes added during review (e.g. reason for rejection, edits made before approval). |
-| `--executed-on` | DateTime | Timestamp when the approved action was actually sent or executed. |
-| `--outcome-session-id` | long | ID of the resulting AI channel session created when the action was executed (for tracking conversation outcomes). |
-| `--expires-on` | DateTime | Unique key to prevent duplicate proposals for the same trigger (e.g. "invoice:123:reminder:1" for first invoice reminder). Format is "criteria-type:{identifier}:{tier}". |
-| `--deduplication-key` | string | Planned execution time for the action (e.g. to respect business hours or timezone preferences). |
-| `--scheduled-execution-time` | DateTime | Operator-provided reason for deferring this action to a later time. |
-| `--deferral-reason` | string | Number of times this action has been deferred. Used to prevent indefinite postponement. |
-| `--deferral-count` | int | ID of the email account to use as the sender for email-based actions. |
-| `--email-account-id` | long | Email address of the sender account used for this action. |
-| `--internal-notes` | string | Internal notes added by operators for context or tracking purposes. |
-| `--help-desk-department-id` | long | ID of the help desk department to associate with this action (for HelpDesk channel actions). |
-| `--help-desk-priority` | enum | Priority level for the help desk ticket created from this action (Low, Normal, High, Critical). |
+| `--business-id` | long | ID of the location that owns this proposed action. Set from the location whose agents produced it. |
+| `--coworker-id` | long | ID of the customer this action targets. Empty for internal alerts and for leads that have no customer record yet. |
+| `--ai-channel-session-id` | long | ID of the AI conversation that triggered this action. Only set for criteria that evaluate conversations, such as unanswered-question and dormant-lead detection. |
+| `--criteria-type` | string | Identifier of the agent that produced this action, matching a criteria evaluator name such as DueInvoiceCriteria, ContractExpiryCriteria, SupportPatternCriteria, SupportIssueCategoryCriteria or MissingFaqCriteria. Behaviour for each is configured through ProactiveActionConfig. |
+| `--action-type` | enum | What the action does once approved: DraftMessage sends a composed message to the customer, VoiceOutreach places an AI call, InternalNote raises an operator-only alert with no customer contact, TaskReminder records a follow-up. InternalNote actions have no customer target and no delivery channel. |
+| `--channel` | enum | How an approved action reaches the customer: Email for an AI-tracked email conversation, Voice for an outbound AI call, CoworkerMessage for a message sent from a connected email account, HelpDesk to raise a ticket, or WhatsApp. Operators can change the channel at approval time. Ignored for InternalNote actions. |
+| `--draft-subject` | string | AI-composed subject line for the proposed message. Operators may edit it before approving; for internal alerts it doubles as the alert headline. |
+| `--draft-body` | string | AI-composed message body, call script, or — for internal alerts — the alert text itself. Operators may edit it before approving. |
+| `--confidence` | decimal | AI confidence in this recommendation, on a 0.0–1.0 scale (not a percentage). When the matching ProactiveActionConfig enables auto-execution, an action at or above its AutoExecuteMinConfidence skips the review inbox. |
+| `--priority` | enum | Urgency assigned by the agent that raised the action: Low, Medium, High or Critical. Drives inbox ordering and the urgency indicator; it does not change delivery behaviour. |
+| `--status` | enum | Where the action sits in its lifecycle: Pending awaits review; Snoozed is hidden until its wake time; Approved has been accepted for delivery; AutoExecuted was sent without review because confidence cleared the configured threshold; Deferred is approved but waiting for the recipient's next calling window; AwaitingReply has sent a WhatsApp opt-in template and is waiting on the customer; Rejected was dismissed; Expired passed its review deadline unattended. Change it through the approve, reject and snooze operations rather than by writing this field. |
+| `--reviewed-by-id` | long | ID of the operator who last reviewed this action. Empty while it is still awaiting review or when the system expired it unattended. |
+| `--reviewed-on` | DateTime | UTC time an operator last approved, rejected or snoozed this action. |
+| `--review-notes` | string | Notes recorded when an operator approves, rejects or snoozes the action. The system also appends here when it expires an action, for example because no calling window was available. |
+| `--executed-on` | DateTime | UTC time the approved action was actually delivered or the outbound call placed. Empty while the action is still queued or deferred. |
+| `--outcome-session-id` | long | ID of the AI conversation created when this action was delivered. Use it to follow the reply thread, escalated tickets and messages that came out of the outreach. |
+| `--expires-on` | DateTime | UTC review deadline, defaulting to three days after the action is created. A Pending action past this point is moved to Expired; for a Snoozed action this instead holds the wake time set by the snooze duration. |
+| `--deduplication-key` | string | Read-only key that prevents duplicate proposals for the same trigger, shaped as "criteria-type:{identifier}:{tier}" (for example "invoice:123:reminder:1"). A new proposal is suppressed while a non-expired action with the same key exists inside the criteria's cooldown window. |
+| `--scheduled-execution-time` | DateTime | UTC time a Deferred action becomes due, set automatically to the recipient's next calling window when approval lands outside permitted outbound hours. |
+| `--deferral-reason` | string | System-written explanation of why delivery was postponed, recorded when an approved action falls outside the recipient's permitted calling hours. |
+| `--deferral-count` | int | Number of times delivery has been postponed for calling hours. Counts up from zero and helps spot actions that keep missing their window. |
+| `--email-account-id` | long | ID of the connected email account used as the sender when an approved action goes out over the CoworkerMessage channel. Empty means the location's default outgoing mail settings are used and customer replies are not tracked back into the AI conversation. |
+| `--internal-notes` | string | Internal context carried onto the help desk ticket created when a HelpDesk-channel action is approved. Visible to operators only, never to the customer. |
+| `--help-desk-department-id` | long | ID of the help desk department the ticket is filed under when a HelpDesk-channel action is approved. Empty leaves the ticket unassigned. |
+| `--help-desk-priority` | enum | Priority applied to the help desk ticket created when a HelpDesk-channel action is approved (Low, Normal, High, Critical). Empty for actions on any other channel. |
 
 #### ProposedAction PII fields
 
@@ -157,6 +154,8 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 | --- | --- | --- |
 | `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--coworker-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
+| `--coworker-company-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
+| `--coworker-billing-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--reviewed-by-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--reviewed-by-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
 

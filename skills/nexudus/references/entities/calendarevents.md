@@ -36,7 +36,7 @@ CalendarEvents support Search, Get, Create, Update, Delete.
 | `--location` | string | Venue or room name displayed on the event page; changing it notifies registered attendees. |
 | `--venue-address` | string | Street address of the event venue. |
 | `--resource-id` | long | Optional ID of the bookable resource held for this event; it blocks that resource from being booked during the event's start and end times. |
-| `--resource-name` | string |  |
+| `--resource-name` | string | Display value for Resource.Name. |
 | `--start-date` | DateTime | Event start date and time in UTC; must be before EndDate. |
 | `--from-start-date` | range | |
 | `--to-start-date` | range | |
@@ -89,7 +89,7 @@ CalendarEvents support Search, Get, Create, Update, Delete.
 | `--has-event-form` | bool | Whether a form is linked to this event that attendees are asked to complete; the system sets this automatically from FormPage. |
 | `--send-event-form-by-email` | bool | Whether the linked event form is sent to attendees by email, including follow-up reminders. |
 | `--form-page-id` | long | Optional ID of the form page attendees are asked to complete for this event. |
-| `--form-page-name` | string | Name of the linked form page |
+| `--form-page-name` | string | Display value for FormPage.Name. |
 | `--tariff-names` | string | Read-only display names of the plans this event is restricted to; change the Tariffs collection instead. |
 | `--team-names` | string | Read-only display names of the teams this event is restricted to; change the Teams collection instead. |
 | `--coworker-full-names` | string | Read-only display names of the customers this event is restricted to; change the Members collection instead. |
@@ -127,8 +127,8 @@ Default sort: `StartDate` ascending. If no `--order-by` is specified, the API re
 | `--end-date` | DateTime, required | Event end date and time in UTC; must be after StartDate. |
 | `--allocation` | int | Maximum total number of attendees for the event; leave empty for unlimited. The effective capacity is the lower of this value and the sum of the ticket products' allocations. |
 | `--event-categories` | list, repeat flag | List of category IDs for this event; an empty list means the event has no categories. |
-| `--added-event-categories` | list, repeat flag | The added event categories value for this calendar event |
-| `--removed-event-categories` | list, repeat flag | The removed event categories value for this calendar event |
+| `--added-event-categories` | list, repeat flag | IDs added to the EventCategories relationship. |
+| `--removed-event-categories` | list, repeat flag | IDs removed from the EventCategories relationship. |
 | `--publish-date` | DateTime | UTC date and time the event becomes visible on the Members Portal; the system rounds it down to the nearest 15 minutes. Leave empty to keep the event unpublished. |
 | `--show-in-home-banner` | bool | Whether this event is displayed in the home page banner on the Members Portal. |
 | `--show-in-home-page` | bool | Whether this event is displayed on the Members Portal home page. |
@@ -165,14 +165,14 @@ Default sort: `StartDate` ascending. If no `--order-by` is specified, the API re
 | `--send-event-form-by-email` | bool | Whether the linked event form is sent to attendees by email, including follow-up reminders. |
 | `--form-page-id` | long | Optional ID of the form page attendees are asked to complete for this event. |
 | `--tariffs` | list, repeat flag | List of plan IDs that restrict this event to members subscribed to those plans; an empty list means no plan restriction. |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--members` | list, repeat flag | List of customer IDs that restrict this event to those specific customers; an empty list means no customer restriction. |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 | `--teams` | list, repeat flag | List of team IDs that restrict this event to customers belonging to those teams; an empty list means no team restriction. |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 
 #### CalendarEvent update options
 
@@ -194,8 +194,8 @@ Default sort: `StartDate` ascending. If no `--order-by` is specified, the API re
 | `--end-date` | DateTime | Event end date and time in UTC; must be after StartDate. |
 | `--allocation` | int | Maximum total number of attendees for the event; leave empty for unlimited. The effective capacity is the lower of this value and the sum of the ticket products' allocations. |
 | `--event-categories` | list, repeat flag | List of category IDs for this event; an empty list means the event has no categories. |
-| `--added-event-categories` | list, repeat flag | The added event categories value for this calendar event |
-| `--removed-event-categories` | list, repeat flag | The removed event categories value for this calendar event |
+| `--added-event-categories` | list, repeat flag | IDs added to the EventCategories relationship. |
+| `--removed-event-categories` | list, repeat flag | IDs removed from the EventCategories relationship. |
 | `--publish-date` | DateTime | UTC date and time the event becomes visible on the Members Portal; the system rounds it down to the nearest 15 minutes. Leave empty to keep the event unpublished. |
 | `--show-in-home-banner` | bool | Whether this event is displayed in the home page banner on the Members Portal. |
 | `--show-in-home-page` | bool | Whether this event is displayed on the Members Portal home page. |
@@ -229,14 +229,14 @@ Default sort: `StartDate` ascending. If no `--order-by` is specified, the API re
 | `--send-event-form-by-email` | bool | Whether the linked event form is sent to attendees by email, including follow-up reminders. |
 | `--form-page-id` | long | Optional ID of the form page attendees are asked to complete for this event. |
 | `--tariffs` | list, repeat flag | List of plan IDs that restrict this event to members subscribed to those plans; an empty list means no plan restriction. |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--members` | list, repeat flag | List of customer IDs that restrict this event to those specific customers; an empty list means no customer restriction. |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 | `--teams` | list, repeat flag | List of team IDs that restrict this event to customers belonging to those teams; an empty list means no team restriction. |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 
 #### CalendarEvent PII fields
 

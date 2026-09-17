@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerInvoices -->
 
-CoworkerInvoice records a customer billing document for a location, including charges, payment status, and invoice delivery.
+A CoworkerInvoice is the bill a location issues to one of its customers (member, contact or team) for plans, bookings, products, passes and other charges, including totals, payment status, credits and invoice delivery. THIS IS THE DEFAULT INVOICE ENTITY: when an operator says 'invoice', 'invoices', 'unpaid invoices', 'overdue invoices', 'invoice 1042', 'send the invoice' or 'credit note', they mean a CoworkerInvoice — use the coworker_invoice_* tools and do not ask which kind of invoice they meant. The separate Invoice entity (invoice_* tools) is the platform bill Nexudus issues to the operator and is almost never what an operator is asking about. Call this record an 'invoice' when speaking to the operator; never say 'CoworkerInvoice'.
 
 CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 
@@ -23,21 +23,21 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer billed by this invoice. |
-| `--coworker-full-name` | string | Full name of the invoiced customer |
-| `--coworker-regular-payment-contract-number` | string | The coworker regular payment contract number value for this coworker invoice |
-| `--coworker-regular-payment-provider` | string | The coworker regular payment provider value for this coworker invoice |
-| `--coworker-card-number` | string | The coworker card number value for this coworker invoice |
-| `--coworker-go-cardless-contract-number` | string | The coworker go cardless contract number value for this coworker invoice |
-| `--coworker-enable-go-cardless-payments` | bool | Whether coworker enable go cardless payments is enabled |
-| `--coworker-billing-email` | string | Billing email address of the customer |
-| `--coworker-notify-on-new-invoice` | bool | Whether coworker notify on new invoice is enabled |
-| `--coworker-notify-on-new-payment` | bool | Whether coworker notify on new payment is enabled |
-| `--coworker-notify-on-failed-payment` | bool | Whether coworker notify on failed payment is enabled |
-| `--coworker-do-not-process-invoices-automatically` | bool | Whether coworker do not process invoices automatically is enabled |
-| `--coworker-company-name` | string | Company name of the invoiced customer |
-| `--coworker-team-names` | string | Team names the invoiced customer belongs to |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-regular-payment-contract-number` | string | Display value for Coworker.RegularPaymentContractNumber. |
+| `--coworker-regular-payment-provider` | string | Display value for Coworker.RegularPaymentProvider. |
+| `--coworker-card-number` | string | Display value for Coworker.CardNumber. |
+| `--coworker-go-cardless-contract-number` | string | Display value for Coworker.GoCardlessContractNumber. |
+| `--coworker-enable-go-cardless-payments` | bool | Display value for Coworker.EnableGoCardlessPayments. |
+| `--coworker-billing-email` | string | Display value for Coworker.BillingEmail. |
+| `--coworker-notify-on-new-invoice` | bool | Display value for Coworker.NotifyOnNewInvoice. |
+| `--coworker-notify-on-new-payment` | bool | Display value for Coworker.NotifyOnNewPayment. |
+| `--coworker-notify-on-failed-payment` | bool | Display value for Coworker.NotifyOnFailedPayment. |
+| `--coworker-do-not-process-invoices-automatically` | bool | Display value for Coworker.DoNotProcessInvoicesAutomatically. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--business-id` | long | ID of the location that owns and issues this invoice. |
-| `--business-name` | string | Name of the location that issued the invoice |
+| `--business-name` | string | Display value for Business.Name. |
 | `--invoice-number` | string | Unique invoice number, assigned when the invoice is issued. |
 | `--payment-reference` | string | Payment reference used for reconciliation; normally follows the invoice number. |
 | `--bill-to-name` | string | Name of the person or organisation billed, captured on the invoice. |
@@ -48,8 +48,8 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 | `--bill-to-fax` | string | Optional billing fax number captured on the invoice. |
 | `--bill-to-state` | string | Optional billing state, province, or region captured on the invoice. |
 | `--bill-to-country-id` | long | ID of the country in the billing address. |
-| `--bill-to-country-name` | string | Name of the billing country on the invoice |
-| `--bill-to-country-two-digits-code` | string | The bill to country two digits code value for this coworker invoice |
+| `--bill-to-country-name` | string | Display value for BillToCountry.Name. |
+| `--bill-to-country-two-digits-code` | string | Display value for BillToCountry.TwoDigitsCode. |
 | `--bill-to-bank-account` | string | Optional bank-account details printed for payment instructions. |
 | `--bill-to-tax-id-number` | string | Optional tax identification number of the billed party. |
 | `--purchase-order` | string | Optional customer purchase-order reference. |
@@ -76,12 +76,12 @@ CoworkerInvoices support Search, Get, Update (no Create or Delete via API).
 | `--from-transaction-total-amount` | range | |
 | `--to-transaction-total-amount` | range | |
 | `--transaction-currency-id` | long | ID of the currency used to collect payment; defaults to the location's invoice currency unless Payments.Currency specifies a transaction currency. |
-| `--transaction-currency-code` | string | The transaction currency code value for this coworker invoice |
+| `--transaction-currency-code` | string | Display value for TransactionCurrency.Code. |
 | `--transaction-exchange-rate` | decimal | Fixed multiplier from invoice currency to transaction currency, copied from the location's Payments.ExchangeRate setting when invoice totals are updated. |
 | `--from-transaction-exchange-rate` | range | |
 | `--to-transaction-exchange-rate` | range | |
 | `--currency-id` | long | ID of the currency used to state invoice amounts. |
-| `--currency-code` | string | ISO currency code (e.g. USD, EUR, GBP) |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--tax-amount` | decimal | Read-only tax total: sum of every rounded invoice-line TaxAmount, then rounded to the location's invoice decimal precision. |
 | `--from-tax-amount` | range | |
 | `--to-tax-amount` | range | |

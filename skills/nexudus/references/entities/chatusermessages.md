@@ -47,8 +47,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--from-user-id` | long, required | ID of the from user linked to this record |
 | `--to-users` | list, repeat flag | List of to users linked to this record |
-| `--added-to-users` | list, repeat flag | The added to users value for this chat user message |
-| `--removed-to-users` | list, repeat flag | The removed to users value for this chat user message |
+| `--added-to-users` | list, repeat flag | IDs added to the ToUsers relationship. |
+| `--removed-to-users` | list, repeat flag | IDs removed from the ToUsers relationship. |
 | `--chat-text` | string | The chat text value for this chat user message |
 | `--delievered` | bool | Whether delievered is enabled |
 
@@ -58,8 +58,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--from-user-id` | long | ID of the from user linked to this record |
 | `--to-users` | list, repeat flag | List of to users linked to this record |
-| `--added-to-users` | list, repeat flag | The added to users value for this chat user message |
-| `--removed-to-users` | list, repeat flag | The removed to users value for this chat user message |
+| `--added-to-users` | list, repeat flag | IDs added to the ToUsers relationship. |
+| `--removed-to-users` | list, repeat flag | IDs removed from the ToUsers relationship. |
 | `--chat-text` | string | The chat text value for this chat user message |
 | `--delievered` | bool | Whether delievered is enabled |
 

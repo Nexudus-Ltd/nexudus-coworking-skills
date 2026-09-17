@@ -26,7 +26,7 @@ Sensors support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--business-id` | long | ID of the required location that owns this sensor. |
 | `--canned-response-id` | long | ID of the optional email template used by sensor alert actions. |
-| `--canned-response-name` | string | Display name of the linked canned response (read-only) |
+| `--canned-response-name` | string | Display value for CannedResponse.Name. |
 | `--name` | string | Required non-empty display name for the sensor; together with Unit it identifies the sensor within the location. |
 | `--reference` | string | Required unique integration reference used to find this sensor within its location; set it when creating the sensor and do not change it later. |
 | `--unit` | string | Optional unit label for the sensor reading, such as C, percent, or people; together with Name it identifies the sensor within the location. |
@@ -80,11 +80,11 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long, required | ID of the required location that owns this sensor. |
 | `--desks` | list, repeat flag | List of floor plan desks whose occupancy and latest sensor value this sensor can update; an empty list means no desks are affected. |
-| `--added-desks` | list, repeat flag | The added desks value for this sensor |
-| `--removed-desks` | list, repeat flag | The removed desks value for this sensor |
+| `--added-desks` | list, repeat flag | IDs added to the Desks relationship. |
+| `--removed-desks` | list, repeat flag | IDs removed from the Desks relationship. |
 | `--resources` | list, repeat flag | List of bookable resources whose availability, occupancy, and latest sensor value this sensor can update; an empty list means no resources are affected. |
-| `--added-resources` | list, repeat flag | The added resources value for this sensor |
-| `--removed-resources` | list, repeat flag | The removed resources value for this sensor |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--canned-response-id` | long | ID of the optional email template used by sensor alert actions. |
 | `--name` | string, required | Required non-empty display name for the sensor; together with Unit it identifies the sensor within the location. |
 | `--reference` | string, required | Required unique integration reference used to find this sensor within its location; set it when creating the sensor and do not change it later. |
@@ -115,11 +115,11 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long | ID of the required location that owns this sensor. |
 | `--desks` | list, repeat flag | List of floor plan desks whose occupancy and latest sensor value this sensor can update; an empty list means no desks are affected. |
-| `--added-desks` | list, repeat flag | The added desks value for this sensor |
-| `--removed-desks` | list, repeat flag | The removed desks value for this sensor |
+| `--added-desks` | list, repeat flag | IDs added to the Desks relationship. |
+| `--removed-desks` | list, repeat flag | IDs removed from the Desks relationship. |
 | `--resources` | list, repeat flag | List of bookable resources whose availability, occupancy, and latest sensor value this sensor can update; an empty list means no resources are affected. |
-| `--added-resources` | list, repeat flag | The added resources value for this sensor |
-| `--removed-resources` | list, repeat flag | The removed resources value for this sensor |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--canned-response-id` | long | ID of the optional email template used by sensor alert actions. |
 | `--name` | string | Required non-empty display name for the sensor; together with Unit it identifies the sensor within the location. |
 | `--unit` | string | Optional unit label for the sensor reading, such as C, percent, or people; together with Name it identifies the sensor within the location. |

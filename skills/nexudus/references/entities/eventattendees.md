@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=EventAttendees -->
 
-An **EventAttendee** records a customer's registration for a calendar event. Each record links a customer to an event and tracks attendance details such as check-in status and whether the attendee was invoiced.
+An EventAttendee is an event ticket registration for a customer, linking the customer and ticket type to an event while tracking check-in, invoicing, and cancellation status.
 
 EventAttendees support Search, Get, Create, Update, Delete.
 
@@ -24,45 +24,41 @@ EventAttendees support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--calendar-event-id` | long | ID of the calendar event linked to this record |
-| `--calendar-event-name` | string | Display name of the linked calendar event (read-only) |
-| `--event-product-id` | long | ID of the event product linked to this record |
-| `--event-product-name` | string | Display name of the linked event product (read-only) |
-| `--event-product-price` | decimal | The event product price value for this event attendee |
+| `--business-id` | long | ID of the location that owns this event registration. |
+| `--calendar-event-id` | long | ID of the event this registration is for; it cannot be changed after creation. |
+| `--calendar-event-name` | string | Display value for CalendarEvent.Name. |
+| `--event-product-id` | long | ID of the ticket type purchased for the event; it cannot be changed after creation. |
+| `--event-product-name` | string | Display value for EventProduct.Name. |
+| `--event-product-price` | decimal | Display value for EventProduct.Price. |
 | `--from-event-product-price` | range | |
 | `--to-event-product-price` | range | |
-| `--event-product-currency-code` | string | The event product currency code value for this event attendee |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
-| `--full-name` | string | The full name value for this event attendee |
-| `--email` | string | The email value for this event attendee |
-| `--purchase-order` | string | The purchase order value for this event attendee |
-| `--attendee-code` | string | The attendee code value for this event attendee |
-| `--checked-in` | bool | Whether checked in is enabled |
-| `--checked-in-date` | DateTime | Date/time value for checked in date |
+| `--event-product-currency-code` | string | Display value for EventProduct.Currency.Code. |
+| `--coworker-id` | long | Optional ID of the customer who purchased the ticket; a customer is created from the attendee name and email when none is supplied. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--full-name` | string | Full name of the person registered to attend; required. |
+| `--email` | string | Email address of the person registered to attend; required. |
+| `--purchase-order` | string | Optional purchase-order reference for this ticket registration. |
+| `--attendee-code` | string | Read-only five-digit code generated for an unchecked-in attendee and used to find the registration at check-in. |
+| `--checked-in` | bool | Whether the attendee has checked in to the event. |
+| `--checked-in-date` | DateTime | Date and time in UTC when the attendee checked in; clear it when reversing a check-in. |
 | `--from-checked-in-date` | range | |
 | `--to-checked-in-date` | range | |
-| `--invoiced` | bool | Whether invoiced is enabled |
-| `--due-date` | DateTime | Date/time value for due date |
+| `--invoiced` | bool | Whether this ticket registration is treated as invoiced when it is created; this value cannot be changed later. |
+| `--due-date` | DateTime | Read-only payment due date associated with this ticket registration, when available. |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
-| `--billed` | bool | Whether billed is enabled |
-| `--created-on-local` | DateTime | Date/time value for created on local |
-| `--from-created-on-local` | range | |
-| `--to-created-on-local` | range | |
-| `--checked-in-date-local` | DateTime | Date/time value for checked in date local |
-| `--from-checked-in-date-local` | range | |
-| `--to-checked-in-date-local` | range | |
-| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
+| `--coworker-invoice-id` | int | Read-only ID of the invoice containing this ticket registration, populated by the invoicing process. |
 | `--from-coworker-invoice-id` | range | |
 | `--to-coworker-invoice-id` | range | |
-| `--coworker-invoice-number` | string | The coworker invoice number value for this event attendee |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--zoom-event-data` | string | The zoom event data value for this event attendee |
-| `--zoom-participant-id` | string | ID of the zoom participant associated with this record |
-| `--is-sent` | bool | Whether is sent is enabled |
+| `--coworker-invoice-number` | string | Read-only invoice number containing this ticket registration, populated by the invoicing process. |
+| `--coworker-invoice-paid` | bool | Whether the associated invoice has been paid; read-only and populated by the invoicing process. |
+| `--cancelled` | bool | Whether this ticket registration has been cancelled; cancelling an invoiced ticket can also cancel or refund its invoice through the cancellation workflow. |
+| `--cancellation-reason` | enum | Reason for cancellation: Unknown, BadPreviousExperience, CantAttend, NoLongerNeeded, TooExpensive, or Other. |
+| `--cancelled-on` | DateTime | Date and time in UTC when the ticket was cancelled, normally set by the cancellation workflow. |
+| `--from-cancelled-on` | range | |
+| `--to-cancelled-on` | range | |
+| `--cancelled-by` | string | Name of the user or customer recorded as cancelling the ticket, normally set by the cancellation workflow. |
+| `--cancellation-reason-details` | string | Optional cancellation explanation, limited to 255 characters; use it especially when CancellationReason is Other. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -81,50 +77,38 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--calendar-event-id` | long, required | ID of the calendar event linked to this record |
-| `--event-product-id` | long, required | ID of the event product linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--full-name` | string, required | The full name value for this event attendee |
-| `--email` | string, required | The email value for this event attendee |
-| `--purchase-order` | string | The purchase order value for this event attendee |
-| `--checked-in` | bool | Whether checked in is enabled |
-| `--checked-in-date` | DateTime | Date/time value for checked in date |
-| `--invoiced` | bool | Whether invoiced is enabled |
-| `--billed` | bool | Whether billed is enabled |
-| `--created-on-local` | DateTime | Date/time value for created on local |
-| `--checked-in-date-local` | DateTime | Date/time value for checked in date local |
-| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
-| `--coworker-invoice-number` | string | The coworker invoice number value for this event attendee |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--zoom-event-data` | string | The zoom event data value for this event attendee |
-| `--zoom-participant-id` | string | ID of the zoom participant associated with this record |
-| `--is-sent` | bool | Whether is sent is enabled |
+| `--business-id` | long, required | ID of the location that owns this event registration. |
+| `--calendar-event-id` | long, required | ID of the event this registration is for; it cannot be changed after creation. |
+| `--event-product-id` | long, required | ID of the ticket type purchased for the event; it cannot be changed after creation. |
+| `--coworker-id` | long | Optional ID of the customer who purchased the ticket; a customer is created from the attendee name and email when none is supplied. |
+| `--full-name` | string, required | Full name of the person registered to attend; required. |
+| `--email` | string, required | Email address of the person registered to attend; required. |
+| `--purchase-order` | string | Optional purchase-order reference for this ticket registration. |
+| `--checked-in` | bool | Whether the attendee has checked in to the event. |
+| `--checked-in-date` | DateTime | Date and time in UTC when the attendee checked in; clear it when reversing a check-in. |
+| `--invoiced` | bool | Whether this ticket registration is treated as invoiced when it is created; this value cannot be changed later. |
+| `--cancelled` | bool | Whether this ticket registration has been cancelled; cancelling an invoiced ticket can also cancel or refund its invoice through the cancellation workflow. |
+| `--cancellation-reason` | enum | Reason for cancellation: Unknown, BadPreviousExperience, CantAttend, NoLongerNeeded, TooExpensive, or Other. |
+| `--cancelled-on` | DateTime | Date and time in UTC when the ticket was cancelled, normally set by the cancellation workflow. |
+| `--cancelled-by` | string | Name of the user or customer recorded as cancelling the ticket, normally set by the cancellation workflow. |
+| `--cancellation-reason-details` | string | Optional cancellation explanation, limited to 255 characters; use it especially when CancellationReason is Other. |
 
 #### EventAttendee update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--calendar-event-id` | long | ID of the calendar event linked to this record |
-| `--event-product-id` | long | ID of the event product linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--full-name` | string | The full name value for this event attendee |
-| `--email` | string | The email value for this event attendee |
-| `--purchase-order` | string | The purchase order value for this event attendee |
-| `--checked-in` | bool | Whether checked in is enabled |
-| `--checked-in-date` | DateTime | Date/time value for checked in date |
-| `--billed` | bool | Whether billed is enabled |
-| `--created-on-local` | DateTime | Date/time value for created on local |
-| `--checked-in-date-local` | DateTime | Date/time value for checked in date local |
-| `--coworker-invoice-id` | int | ID of the coworker invoice associated with this record |
-| `--coworker-invoice-number` | string | The coworker invoice number value for this event attendee |
-| `--coworker-invoice-paid` | bool | Whether coworker invoice paid is enabled |
-| `--reminded` | bool | Whether reminded is enabled |
-| `--zoom-event-data` | string | The zoom event data value for this event attendee |
-| `--zoom-participant-id` | string | ID of the zoom participant associated with this record |
-| `--is-sent` | bool | Whether is sent is enabled |
+| `--business-id` | long | ID of the location that owns this event registration. |
+| `--coworker-id` | long | Optional ID of the customer who purchased the ticket; a customer is created from the attendee name and email when none is supplied. |
+| `--full-name` | string | Full name of the person registered to attend; required. |
+| `--email` | string | Email address of the person registered to attend; required. |
+| `--purchase-order` | string | Optional purchase-order reference for this ticket registration. |
+| `--checked-in` | bool | Whether the attendee has checked in to the event. |
+| `--checked-in-date` | DateTime | Date and time in UTC when the attendee checked in; clear it when reversing a check-in. |
+| `--cancelled` | bool | Whether this ticket registration has been cancelled; cancelling an invoiced ticket can also cancel or refund its invoice through the cancellation workflow. |
+| `--cancellation-reason` | enum | Reason for cancellation: Unknown, BadPreviousExperience, CantAttend, NoLongerNeeded, TooExpensive, or Other. |
+| `--cancelled-on` | DateTime | Date and time in UTC when the ticket was cancelled, normally set by the cancellation workflow. |
+| `--cancelled-by` | string | Name of the user or customer recorded as cancelling the ticket, normally set by the cancellation workflow. |
+| `--cancellation-reason-details` | string | Optional cancellation explanation, limited to 255 characters; use it especially when CancellationReason is Other. |
 
 #### EventAttendee PII fields
 

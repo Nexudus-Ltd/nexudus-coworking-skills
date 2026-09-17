@@ -25,7 +25,7 @@ BusinessAnnouncements support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location where this announcement is published; a network location makes it available to locations in that network. |
-| `--business-name` | string | Business name |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | Required title displayed with the announcement. |
 | `--image-file-name` | string | Current image file name |
 | `--new-image-url` | string | URL of a new image to upload (ideal size 600x350 pixels, 12:7 aspect ratio) |

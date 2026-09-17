@@ -25,7 +25,7 @@ SurveyQuestions support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--survey-id` | long | ID of the survey that contains this question; the survey's location determines access to the question |
-| `--survey-name` | string | Display name of the linked survey (read-only) |
+| `--survey-name` | string | Display value for Survey.Name. |
 | `--text` | string | Required question label shown to customers |
 | `--description` | string | Required explanatory text shown below the question to customers |
 | `--available-options` | string | Comma-separated choices for a Dropdown question; leave empty for other question types |

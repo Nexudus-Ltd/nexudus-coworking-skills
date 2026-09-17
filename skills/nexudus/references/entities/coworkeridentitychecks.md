@@ -2,20 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerIdentityChecks -->
 
-A **CoworkerIdentityCheck** represents a manual or Stripe Identity-based verification of a customer's identity or address. Each check is linked to a `Coworker` and a `Business` (location).
-
-The `VerificationType` determines the nature of the check:
-
-| VerificationType | Purpose |
-| ---------------- | ------- |
-| IdDocument (1)   | Verifies the customer's identity using an official document (passport, driver's license, ID card, etc.) |
-| Address (2)      | Verifies the customer's address using a supporting document (lease agreement, insurance policy, voter card, etc.) |
-
-When `VerificationType` is `IdDocument`, use `IdentityDocumentType` to specify the document kind, along with `IdentityDocumentNumber`, `IdentityDocumentIssuedBy`, and `IdentityDocumentExpirationDate`. When `VerificationType` is `Address`, use `AddressDocumentType` instead.
-
-`IdentityCheckProvider` controls how the check is performed: `Manual` (1) means the operator reviews documents directly, while `StripeIdentity` (2) delegates verification to Stripe Identity.
-
-The `VerificationStatus` tracks progress through the check lifecycle: `Pending` → `Submitted` → `Successful` or `Failed` (or `Cancelled`).
+Customer ID checks verify a customer's identity or address for a location through operator-reviewed documents or Stripe Identity, and track progress from pending through completion.
 
 CoworkerIdentityChecks support Search, Get, Create, Update, Delete.
 CoworkerIdentityChecks also support entity commands.
@@ -30,7 +17,7 @@ CoworkerIdentityChecks also support entity commands.
 | `nexudus coworkeridentitychecks list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkeridentitychecks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkeridentitychecks get <id> --agent` | Get single coworkeridentitycheck |
-| `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --identity-check-provider <value> --identity-document-type <value> --address-document-type <value> --agent` | Create coworkeridentitycheck |
+| `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --identity-check-provider <value> --identity-document-type <value> --address-document-type <value> --verification-type <value> --agent` | Create coworkeridentitycheck |
 | `nexudus coworkeridentitychecks update <id> --name "New Name" --agent` | Update coworkeridentitycheck |
 | `nexudus coworkeridentitychecks delete <id> --yes --agent` | Delete coworkeridentitycheck (no prompt) |
 | `nexudus coworkeridentitychecks run-command <key> <ids> --agent` | Run entity command |
@@ -39,38 +26,34 @@ CoworkerIdentityChecks also support entity commands.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Name of the location (business) this check belongs to |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--coworker-full-name` | string | Full name of the customer being verified |
-| `--coworker-type` | string | Type of the customer (e.g. Member, TeamMember) |
-| `--coworker-company-name` | string | Company name of the customer being verified |
-| `--coworker-billing-name` | string | Billing name of the customer being verified |
-| `--name` | string | Display name for this verification check |
-| `--identity-check-provider` | enum | How the check is performed: Manual (operator review) or StripeIdentity (Stripe-delegated) |
-| `--identity-document-type` | enum | Type of identity document used when VerificationType is IdDocument |
-| `--identity-document-number` | string | Number or identifier on the identity document |
-| `--identity-document-issued-by` | string | Authority or organisation that issued the identity document |
-| `--identity-document-expiration-date` | DateTime | Expiration date of the identity document |
+| `--business-id` | long | ID of the location that owns this identity check. |
+| `--business-name` | string | Display value for Business.Name. |
+| `--coworker-id` | long | ID of the customer whose identity or address is being verified. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--name` | string | Required operator-facing label for this verification check. |
+| `--identity-check-provider` | enum | How the check is performed: Manual for operator-reviewed documents, or StripeIdentity for a Stripe Identity session. |
+| `--identity-document-type` | enum | Identity document type when VerificationType is IdDocument: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. |
+| `--identity-document-number` | string | Optional number or identifier printed on the identity document. |
+| `--identity-document-issued-by` | string | Optional authority or organization that issued the identity document. |
+| `--identity-document-expiration-date` | DateTime | Optional expiration date recorded on the identity document. |
 | `--from-identity-document-expiration-date` | range | |
 | `--to-identity-document-expiration-date` | range | |
-| `--address-document-type` | enum | Type of address document used when VerificationType is Address |
-| `--verification-type` | enum | Whether this check verifies the customer's identity (IdDocument) or address (Address) |
-| `--description` | string | Free-text notes or details about this check |
-| `--verification-status` | enum | Current status of the verification (Pending, Submitted, Successful, Failed, or Cancelled) |
-| `--last-error` | string | Most recent error message if the check failed |
-| `--billed` | bool | Whether billed is enabled |
-| `--proposal-guid` | string | Unique identifier (GUID) for the proposal |
-| `--coworker-contract-guid` | string | Unique identifier (GUID) for the coworker contract |
-| `--contract-contact-guid` | string | Unique identifier (GUID) for the contract contact |
-| `--stripe-verification-session-id` | string | ID of the stripe verification session associated with this record |
-| `--identity-check-group-guid` | string | Unique identifier (GUID) for the identity check group |
-| `--identity-check-provider1` | enum | The identity check provider1 value for this coworker identity check |
-| `--verification-type1` | enum | The verification type1 value for this coworker identity check |
-| `--description1` | string | The description1 value for this coworker identity check |
-| `--identity-check-provider2` | enum | The identity check provider2 value for this coworker identity check |
-| `--verification-type2` | enum | The verification type2 value for this coworker identity check |
-| `--description2` | string | The description2 value for this coworker identity check |
+| `--address-document-type` | enum | Address document type when VerificationType is Address: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, or Other. |
+| `--verification-type` | enum | Purpose of the check: IdDocument for identity verification or Address for address verification. |
+| `--description` | string | Optional free-text notes describing this verification check. |
+| `--verification-status` | enum | Read-only verification lifecycle status: Pending, Submitted, Successful, Failed, or Cancelled; manual checks derive it from their document records. |
+| `--last-error` | string | Read-only most recent error message reported when the verification fails. |
+| `--identity-check-provider1` | enum | Optional provider for a second check created with this request: Manual or StripeIdentity; requires VerificationType1. |
+| `--verification-type1` | enum | Optional purpose for a second check created with this request: IdDocument or Address; requires IdentityCheckProvider1. |
+| `--description1` | string | Optional notes for the second check created with this request; used only with VerificationType1. |
+| `--identity-check-provider2` | enum | Optional provider for a third check created with this request: Manual or StripeIdentity; requires VerificationType2. |
+| `--verification-type2` | enum | Optional purpose for a third check created with this request: IdDocument or Address; requires IdentityCheckProvider2. |
+| `--description2` | string | Optional notes for the third check created with this request; used only with VerificationType2. |
+| `--address-check-document-types` | string | Document types accepted as proof of address for this check, used when VerificationType is Address. |
+| `--identity-check-document-types` | string | Document types accepted as proof of identity for this check, used when VerificationType is IdDocument. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -89,41 +72,43 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--name` | string, required | Display name for this verification check |
-| `--identity-check-provider` | enum, required | How the check is performed: Manual (operator review) or StripeIdentity (Stripe-delegated) |
-| `--identity-document-type` | enum, required | Type of identity document used when VerificationType is IdDocument |
-| `--identity-document-number` | string | Number or identifier on the identity document |
-| `--identity-document-issued-by` | string | Authority or organisation that issued the identity document |
-| `--identity-document-expiration-date` | DateTime | Expiration date of the identity document |
-| `--address-document-type` | enum, required | Type of address document used when VerificationType is Address |
-| `--description` | string | Free-text notes or details about this check |
-| `--billed` | bool | Whether billed is enabled |
-| `--stripe-verification-session-id` | string | ID of the stripe verification session associated with this record |
-| `--identity-check-provider1` | enum | The identity check provider1 value for this coworker identity check |
-| `--verification-type1` | enum | The verification type1 value for this coworker identity check |
-| `--description1` | string | The description1 value for this coworker identity check |
-| `--identity-check-provider2` | enum | The identity check provider2 value for this coworker identity check |
-| `--verification-type2` | enum | The verification type2 value for this coworker identity check |
-| `--description2` | string | The description2 value for this coworker identity check |
+| `--business-id` | long, required | ID of the location that owns this identity check. |
+| `--coworker-id` | long, required | ID of the customer whose identity or address is being verified. |
+| `--name` | string, required | Required operator-facing label for this verification check. |
+| `--identity-check-provider` | enum, required | How the check is performed: Manual for operator-reviewed documents, or StripeIdentity for a Stripe Identity session. |
+| `--identity-document-type` | enum, required | Identity document type when VerificationType is IdDocument: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. |
+| `--identity-document-number` | string | Optional number or identifier printed on the identity document. |
+| `--identity-document-issued-by` | string | Optional authority or organization that issued the identity document. |
+| `--identity-document-expiration-date` | DateTime | Optional expiration date recorded on the identity document. |
+| `--address-document-type` | enum, required | Address document type when VerificationType is Address: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, or Other. |
+| `--verification-type` | enum, required | Purpose of the check: IdDocument for identity verification or Address for address verification. |
+| `--description` | string | Optional free-text notes describing this verification check. |
+| `--identity-check-provider1` | enum | Optional provider for a second check created with this request: Manual or StripeIdentity; requires VerificationType1. |
+| `--verification-type1` | enum | Optional purpose for a second check created with this request: IdDocument or Address; requires IdentityCheckProvider1. |
+| `--description1` | string | Optional notes for the second check created with this request; used only with VerificationType1. |
+| `--identity-check-provider2` | enum | Optional provider for a third check created with this request: Manual or StripeIdentity; requires VerificationType2. |
+| `--verification-type2` | enum | Optional purpose for a third check created with this request: IdDocument or Address; requires IdentityCheckProvider2. |
+| `--description2` | string | Optional notes for the third check created with this request; used only with VerificationType2. |
+| `--address-check-document-types` | string | Document types accepted as proof of address for this check, used when VerificationType is Address. |
+| `--identity-check-document-types` | string | Document types accepted as proof of identity for this check, used when VerificationType is IdDocument. |
 
 #### CoworkerIdentityCheck update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--name` | string | Display name for this verification check |
-| `--identity-check-provider` | enum | How the check is performed: Manual (operator review) or StripeIdentity (Stripe-delegated) |
-| `--identity-document-type` | enum | Type of identity document used when VerificationType is IdDocument |
-| `--identity-document-number` | string | Number or identifier on the identity document |
-| `--identity-document-issued-by` | string | Authority or organisation that issued the identity document |
-| `--identity-document-expiration-date` | DateTime | Expiration date of the identity document |
-| `--address-document-type` | enum | Type of address document used when VerificationType is Address |
-| `--description` | string | Free-text notes or details about this check |
-| `--billed` | bool | Whether billed is enabled |
-| `--stripe-verification-session-id` | string | ID of the stripe verification session associated with this record |
+| `--business-id` | long | ID of the location that owns this identity check. |
+| `--coworker-id` | long | ID of the customer whose identity or address is being verified. |
+| `--name` | string | Required operator-facing label for this verification check. |
+| `--identity-check-provider` | enum | How the check is performed: Manual for operator-reviewed documents, or StripeIdentity for a Stripe Identity session. |
+| `--identity-document-type` | enum | Identity document type when VerificationType is IdDocument: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. |
+| `--identity-document-number` | string | Optional number or identifier printed on the identity document. |
+| `--identity-document-issued-by` | string | Optional authority or organization that issued the identity document. |
+| `--identity-document-expiration-date` | DateTime | Optional expiration date recorded on the identity document. |
+| `--address-document-type` | enum | Address document type when VerificationType is Address: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, or Other. |
+| `--verification-type` | enum | Purpose of the check: IdDocument for identity verification or Address for address verification. |
+| `--description` | string | Optional free-text notes describing this verification check. |
+| `--address-check-document-types` | string | Document types accepted as proof of address for this check, used when VerificationType is Address. |
+| `--identity-check-document-types` | string | Document types accepted as proof of identity for this check, used when VerificationType is IdDocument. |
 
 #### CoworkerIdentityCheck PII fields
 
@@ -150,5 +135,6 @@ Example:
 | `--identity-check-provider` | `1` Manual, `2` StripeIdentity |
 | `--identity-document-type` | `1` Passport, `2` DriversLicense, `3` IdCard, `4` UniformedServiceId, `5` CertificateOfNaturalization, `6` AccessCard, `7` MatriculaConsular, `8` ResidentCard, `9` UniversityId, `10` NEXUSCard, `99` Other |
 | `--address-document-type` | `1` Passport, `2` DriversLicense, `3` IdCard, `4` LeaseRentalAgreement, `5` InsurancePolicy, `6` Mortgage, `7` VehicleRegistrationCard, `8` VoterCard, `9` BankStatement, `99` Other |
+| `--verification-type` | `1` IdDocument, `2` Address |
 
 <!-- END:GENERATED entity=CoworkerIdentityChecks -->

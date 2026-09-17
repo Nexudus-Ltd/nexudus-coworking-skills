@@ -25,14 +25,14 @@ FormPageRequests support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer invited to complete this form; cannot be changed after the request is created |
-| `--coworker-coworker-type` | string | The coworker coworker type value for this form page request |
-| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
-| `--coworker-company-name` | string | Display name of the linked coworker company (read-only) |
-| `--coworker-billing-name` | string | Display name of the linked coworker billing (read-only) |
-| `--coworker-email` | string | The coworker email value for this form page request |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
 | `--form-page-id` | long | ID of the form sent to the customer; the form's location owns this request |
-| `--form-page-name` | string | Display name of the linked form page (read-only) |
-| `--form-page-business-name` | string | Display name of the linked form page business (read-only) |
+| `--form-page-name` | string | Display value for FormPage.Name. |
+| `--form-page-business-name` | string | Display value for FormPage.Business.Name. |
 | `--sent-on` | DateTime | UTC timestamp set automatically when the request is created and the invitation is sent |
 | `--from-sent-on` | range | |
 | `--to-sent-on` | range | |

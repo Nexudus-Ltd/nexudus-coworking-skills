@@ -25,7 +25,7 @@ AutomationTileAudits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--automation-tile-id` | long | ID of the automation tile that was scanned and whose location determines access to this audit entry. |
-| `--automation-tile-name` | string |  |
+| `--automation-tile-name` | string | Display value for AutomationTile.Name. |
 | `--description` | string | Required system-generated message describing the result of the tile scan. |
 | `--action-by` | string | System-generated customer identity in the format FullName (Email) #CustomerId for the person who scanned the tile. |
 | `--action` | enum | System-generated action configured on the scanned tile, recorded when the scan is processed. |

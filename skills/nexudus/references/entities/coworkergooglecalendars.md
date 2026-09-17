@@ -32,7 +32,7 @@ CoworkerGoogleCalendars support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--resource-id` | long | ID of the Nexudus resource (room or desk) used as the Google Calendar push-notification watch target for this connection |
 | `--coworker-id` | long | ID of the customer who connected their Google Calendar |
-| `--coworker-full-name` | string | Full name of the customer who connected their Google Calendar |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--name` | string | Display name of the connected Google Calendar |
 | `--subscription-id` | string | Google push-notification channel ID used to receive calendar change notifications |
 | `--calendar-id` | string | Google Calendar ID of the customer's connected calendar (e.g. user@gmail.com or a secondary calendar ID) |

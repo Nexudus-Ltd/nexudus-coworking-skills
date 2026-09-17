@@ -57,8 +57,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--archived` | bool | Whether this workspace is archived and hidden from active lists |
 | `--description` | string | Free-text description of this workspace |
 | `--members` | list, repeat flag | List of members linked to this record |
-| `--added-members` | list, repeat flag | The added members value for this workspace |
-| `--removed-members` | list, repeat flag | The removed members value for this workspace |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 
 #### Workspace update options
 
@@ -72,8 +72,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--archived` | bool | Whether this workspace is archived and hidden from active lists |
 | `--description` | string | Free-text description of this workspace |
 | `--members` | list, repeat flag | List of members linked to this record |
-| `--added-members` | list, repeat flag | The added members value for this workspace |
-| `--removed-members` | list, repeat flag | The removed members value for this workspace |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 
 **List properties (only returned by `get`, not by `list`):** `Members`, `AddedMembers`, `RemovedMembers`
 

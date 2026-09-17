@@ -49,8 +49,8 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 | `--language-id` | long | ID of the optional location language this category is limited to; leave unset for a category available in every language. |
 | `--title` | string, required | Required category name shown in blog filters and used to group related blog posts. |
 | `--blog-posts` | list, repeat flag | List of IDs of blog posts assigned to this category; when supplied on update, the list replaces the current assignments. |
-| `--added-blog-posts` | list, repeat flag | The added blog posts value for this blog category |
-| `--removed-blog-posts` | list, repeat flag | The removed blog posts value for this blog category |
+| `--added-blog-posts` | list, repeat flag | IDs added to the BlogPosts relationship. |
+| `--removed-blog-posts` | list, repeat flag | IDs removed from the BlogPosts relationship. |
 
 #### BlogCategory update options
 
@@ -60,8 +60,8 @@ Default sort: `Title` ascending. If no `--order-by` is specified, the API return
 | `--language-id` | long | ID of the optional location language this category is limited to; leave unset for a category available in every language. |
 | `--title` | string | Required category name shown in blog filters and used to group related blog posts. |
 | `--blog-posts` | list, repeat flag | List of IDs of blog posts assigned to this category; when supplied on update, the list replaces the current assignments. |
-| `--added-blog-posts` | list, repeat flag | The added blog posts value for this blog category |
-| `--removed-blog-posts` | list, repeat flag | The removed blog posts value for this blog category |
+| `--added-blog-posts` | list, repeat flag | IDs added to the BlogPosts relationship. |
+| `--removed-blog-posts` | list, repeat flag | IDs removed from the BlogPosts relationship. |
 
 ### BlogCategory (key fields)
 

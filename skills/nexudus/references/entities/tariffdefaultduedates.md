@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TariffDefaultDueDates -->
 
-A TariffDefaultDueDate configures the default invoice due date settings for a pricing plan (tariff). This controls when invoices generated for customers on this plan are due for payment.
+A plan due date overrides a location's default invoice due date for invoices that include specific plans. Operators manage these under Settings, alongside the location-wide default due date. It is consulted after the customer's own invoice due date settings and before the location default, and when several plan due dates match one invoice the one producing the earliest due date wins.
 
 TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
@@ -24,11 +24,11 @@ TariffDefaultDueDates support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--auto-collect-on` | int | Day of month to auto collect |
+| `--business-id` | long | ID of the location that owns this plan due date. A rule also applies to invoices issued by locations further down the same network, because the lookup walks from the invoice location up to its root location. |
+| `--auto-collect-on` | int | Day of the FOLLOWING month the invoice becomes due, in the location time zone at the start of that day; -1 means its last day. Takes precedence over AutoCollectAfter, so leave this empty to date the due date from the invoice instead. Keep it at 28 or less so it exists in every month. |
 | `--from-auto-collect-on` | range | |
 | `--to-auto-collect-on` | range | |
-| `--auto-collect-after` | int | Days after invoice to auto collect |
+| `--auto-collect-after` | int | Number of days after the invoice date the invoice becomes due; 0 means due immediately. Capped at 365 when the due date is calculated. Used only when AutoCollectOn is empty. |
 | `--from-auto-collect-after` | range | |
 | `--to-auto-collect-after` | range | |
 | `--from-created-on` | range | |
@@ -49,23 +49,23 @@ Default sort: `CreatedOn` descending. If no `--order-by` is specified, the API r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this tariff default due date |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this tariff default due date |
-| `--auto-collect-on` | int | Day of month to auto collect |
-| `--auto-collect-after` | int | Days after invoice to auto collect |
+| `--business-id` | long, required | ID of the location that owns this plan due date. A rule also applies to invoices issued by locations further down the same network, because the lookup walks from the invoice location up to its root location. |
+| `--tariffs` | list, repeat flag | List of plan IDs this due date applies to. An invoice matches when any of its contracts is on one of these plans. An empty list is not a disabled rule: it matches every invoice at the location, acting as a location-wide override of the default due date in Settings. |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
+| `--auto-collect-on` | int | Day of the FOLLOWING month the invoice becomes due, in the location time zone at the start of that day; -1 means its last day. Takes precedence over AutoCollectAfter, so leave this empty to date the due date from the invoice instead. Keep it at 28 or less so it exists in every month. |
+| `--auto-collect-after` | int | Number of days after the invoice date the invoice becomes due; 0 means due immediately. Capped at 365 when the due date is calculated. Used only when AutoCollectOn is empty. |
 
 #### TariffDefaultDueDate update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--tariffs` | list, repeat flag | List of tariffs linked to this record |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this tariff default due date |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this tariff default due date |
-| `--auto-collect-on` | int | Day of month to auto collect |
-| `--auto-collect-after` | int | Days after invoice to auto collect |
+| `--business-id` | long | ID of the location that owns this plan due date. A rule also applies to invoices issued by locations further down the same network, because the lookup walks from the invoice location up to its root location. |
+| `--tariffs` | list, repeat flag | List of plan IDs this due date applies to. An invoice matches when any of its contracts is on one of these plans. An empty list is not a disabled rule: it matches every invoice at the location, acting as a location-wide override of the default due date in Settings. |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
+| `--auto-collect-on` | int | Day of the FOLLOWING month the invoice becomes due, in the location time zone at the start of that day; -1 means its last day. Takes precedence over AutoCollectAfter, so leave this empty to date the due date from the invoice instead. Keep it at 28 or less so it exists in every month. |
+| `--auto-collect-after` | int | Number of days after the invoice date the invoice becomes due; 0 means due immediately. Capped at 365 when the due date is calculated. Used only when AutoCollectOn is empty. |
 
 ### TariffDefaultDueDate (key fields)
 

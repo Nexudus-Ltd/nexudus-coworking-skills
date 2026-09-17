@@ -27,9 +27,9 @@ Checkins also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer checking in. The customer must be active; the system first uses an eligible customer or shared pass, then can fall back to an eligible pay-as-you-go pass when the location allows it. |
-| `--coworker-full-name` | string | Full name of the checked-in customer |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--business-id` | long | ID of the location where the customer checked in. The Admin Agent supplies the current location for create and update operations. |
-| `--business-name` | string | Name of the location where the check-in takes place |
+| `--business-name` | string | Display value for Business.Name. |
 | `--source` | enum | Read-only origin of the check-in: Manual, DoorAccess, NetworkActivity, Tile, Sensor, or Booking. New manual records default to Manual. |
 | `--from-time` | DateTime | Check-in start date and time, stored in UTC and rounded to the nearest 15 minutes. It must be earlier than ToTime when a checkout time is provided. |
 | `--from-from-time` | range | |

@@ -25,7 +25,7 @@ Languages support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this language |
-| `--business-name` | string | Display name of the linked business (read-only) |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | Required display name for this language |
 | `--culture` | string | Required unique culture code used to match the language for a request, such as en or es |
 | `--active` | bool | Whether this language is included in the location's active language list |

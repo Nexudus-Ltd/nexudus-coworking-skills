@@ -36,14 +36,14 @@ Courses support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the Location this course belongs to |
-| `--business-name` | string | Location name |
-| `--business-address` | string | Location address |
-| `--business-town-city` | string | Location town or city |
-| `--business-postal-code` | string | Location postal code |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-address` | string | Display value for Business.Address. |
+| `--business-town-city` | string | Display value for Business.TownCity. |
+| `--business-postal-code` | string | Display value for Business.PostalCode. |
 | `--host-id` | long | ID of the coworker or administrator who hosts this course |
-| `--host-full-name` | string | Host full name |
-| `--host-company-name` | string | Host company name |
-| `--host-team-names` | string | Comma-separated list of teams the host belongs to |
+| `--host-full-name` | string | Display value for Host.FullName. |
+| `--host-company-name` | string | Display value for Host.CompanyName. |
+| `--host-team-names` | string | Display value for Host.TeamNames. |
 | `--title` | string | Course title displayed on the Members Portal |
 | `--summary-text` | string | Short summary displayed under the course title on the Members Portal (up to ~400 characters) |
 | `--full-description` | string | Full course description shown in the 'What's this course about?' section when customers open the course |
@@ -64,17 +64,17 @@ Courses support Search, Get, Create, Update, Delete.
 | `--show-in-home-page` | bool | Whether the course is featured on the Members Portal home page |
 | `--visibility` | enum | Access control for the course: Public (1), Hidden from listing but accessible via link (2), Private/invite-only (3), or Paid via TariffId (4) |
 | `--tariff-id` | long | ID of the pricing plan (tariff) required to access this course when Visibility is Paid |
-| `--tariff-name` | string | Pricing plan name |
-| `--tariff-invoice-every` | int | Billing frequency of the pricing plan (in months) |
+| `--tariff-name` | string | Display value for Tariff.Name. |
+| `--tariff-invoice-every` | int | Display value for Tariff.InvoiceEvery. |
 | `--from-tariff-invoice-every` | range | |
 | `--to-tariff-invoice-every` | range | |
-| `--tariff-invoice-every-weeks` | int | Billing frequency of the pricing plan (in weeks) |
+| `--tariff-invoice-every-weeks` | int | Display value for Tariff.InvoiceEveryWeeks. |
 | `--from-tariff-invoice-every-weeks` | range | |
 | `--to-tariff-invoice-every-weeks` | range | |
-| `--tariff-price` | decimal | Price of the pricing plan |
+| `--tariff-price` | decimal | Display value for Tariff.Price. |
 | `--from-tariff-price` | range | |
 | `--to-tariff-price` | range | |
-| `--tariff-currency-code` | string | Currency code of the pricing plan (e.g. USD, GBP) |
+| `--tariff-currency-code` | string | Display value for Tariff.Currency.Code. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

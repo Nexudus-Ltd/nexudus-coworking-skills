@@ -2,17 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=AuditTrailEntries -->
 
-Represents a read-only log of entity creations and modifications by users or the system. Useful for troubleshooting issues or finding out when an entity was created and what modifications were made to it.
-
-Creation entries (`AuditType = 1`) do not record the values for the individual fields. To infer the initial values, look at the first update entry for that entity and read the `OldValue` for each property.
-
-Use `AuditTrailEntry_EntityId` to search by the integer ID of the audited record.
-
-Not all entities are fully audited. These are the ones currently supported by the `AuditTrailEntry_EntityShortName` filter:
-
-Charge, ContractSchedule, CoworkerBookingCredit, CoworkerContract, CoworkerExtraService, CoworkerInvoice, CoworkerLedgerEntry, CoworkerPaymentMethod, CoworkerProduct, FinancialAccount, CoworkerTask, CrmOpportunity, Booking, Checkin, Coworker, CoworkerIdentityCheck, Resource, Team, Visitor, Business, BusinessSetting, FloorPlanDesk, User.
-
-The `AuditType` field uses the `eAuditType` enum: `1` = Create, `2` = Update, `3` = Delete.
+AuditTrailEntry is a read-only location activity log for audited record creations, updates, and deletions, including the field values recorded for updates.
 
 AuditTrailEntries support Search, Get (no Create or Delete via API).
 
@@ -31,15 +21,15 @@ AuditTrailEntries support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--entity-short-name` | string | Short name of the audited entity type (e.g. Coworker, Booking, Charge) |
-| `--description` | string | Human-readable description of the audit trail entry |
-| `--property-name` | string | Name of the property that was changed |
-| `--audit-type` | enum | Type of audit action: 1 = Create, 2 = Update, 3 = Delete |
-| `--old-value` | string | Previous value of the property before the change |
-| `--new-value` | string | New value of the property after the change |
-| `--action-by` | string | User or system account that performed the action |
-| `--entity-id` | int | Integer ID of the audited record |
+| `--business-id` | long | ID of the location where the audited record belongs. |
+| `--entity-short-name` | string | Internal type name of the audited record, such as Coworker, Booking, or Charge. |
+| `--description` | string | System-generated, human-readable summary of the audited action and the account that performed it. |
+| `--property-name` | string | Display name of the entity field changed by an update, or the audited entity name for a creation or deletion. |
+| `--audit-type` | enum | Audited action: Create (1), Update (2), or Delete (3). |
+| `--old-value` | string | Display-formatted value of the changed field before an update; blank for creation records. |
+| `--new-value` | string | Display-formatted value of the changed field after an update; blank for creation records. |
+| `--action-by` | string | Username recorded for the action, with the IP address in parentheses when available. |
+| `--entity-id` | int | Integer ID of the audited record; combine it with EntityShortName to identify the record type. |
 | `--from-entity-id` | range | |
 | `--to-entity-id` | range | |
 | `--from-created-on` | range | |

@@ -26,7 +26,7 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--name` | string | Display name of the business location |
 | `--default-language` | enum | Default language identifier for communications and UI |
 | `--space-website-language-id` | long | ID of the space website language linked to this record |
-| `--website-lang-culture` | string | Culture code (e.g. en-GB) for the business's public website |
+| `--website-lang-culture` | string | Display value for SpaceWebsiteLanguage.Culture. |
 | `--root-location-id` | long | ID of the root location linked to this record |
 | `--website` | string | URL slug used for the business's public web address |
 | `--default-payment-gateway-id` | long | ID of the default payment gateway linked to this record |
@@ -55,9 +55,9 @@ Businesses support Search, Get, Update (no Create or Delete via API).
 | `--from-last-welcome-email` | range | |
 | `--to-last-welcome-email` | range | |
 | `--country-id` | long | ID of the country linked to this record |
-| `--country-name` | string | Name of the country (resolved from CountryId) |
+| `--country-name` | string | Display value for Country.Name. |
 | `--currency-id` | long | ID of the currency linked to this record |
-| `--currency-code` | string | ISO currency code (resolved from CurrencyId) |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--simple-time-zone-id` | long | ID of the simple time zone linked to this record |
 | `--logo-file-name` | string | Current file name of the logo (read-only; upload via the corresponding URL field) |
 | `--new-logo-url` | string | URL of a new file to upload as the logo |

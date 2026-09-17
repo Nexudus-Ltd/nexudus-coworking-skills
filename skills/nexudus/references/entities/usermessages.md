@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=UserMessages -->
 
-A **UserMessage** represents a direct message sent between administrators or from the system to an administrator within the platform.
+A UserMessage represents a direct message sent between administrators or from the system to an administrator within the platform.
 
 UserMessages support Search, Get (no Create or Delete via API).
 

@@ -28,7 +28,7 @@ Products also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location linked to this product |
-| `--business-name` | string | Business name |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | Product name |
 | `--system-product-type` | enum | Category of the product: DayPass, CreditBundle, Stationery, BookingFeature, BookingProducts, or Other |
 | `--description` | string | Product description |
@@ -51,13 +51,13 @@ Products also support entity commands.
 | `--to-price-for-ai` | range | |
 | `--sync-square` | bool | Sync to Square Point of Sale |
 | `--currency-id` | long | ID of the currency linked to this product |
-| `--currency-code` | string | Currency code |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--tax-rate-id` | long | ID of the tax rate linked to this product |
-| `--tax-rate-name` | string |  |
+| `--tax-rate-name` | string | Display value for TaxRate.Name. |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate linked to this product |
 | `--exempt-tax-rate-id` | long | ID of the exempt tax rate linked to this product |
 | `--financial-account-id` | long | ID of the financial account linked to this product |
-| `--financial-account-name` | string |  |
+| `--financial-account-name` | string | Display value for FinancialAccount.Name. |
 | `--available-as` | enum | Controls whether the product can be sold as a one-off purchase, a recurring charge, or both (RecurrentOrOneOff, OnlyRecurrent, OnlyOneOff) |
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
@@ -121,8 +121,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
 | `--tariffs` | list, repeat flag | List of tariffs linked to this product |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this product |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this product |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
 | `--starred` | bool | Mark the product as featured or highlighted |
 | `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |
@@ -164,8 +164,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--only-for-contacts` | bool | Restrict purchase to contacts (customers without an active contract) |
 | `--only-for-members` | bool | Restrict purchase to customers with an active contract (members) |
 | `--tariffs` | list, repeat flag | List of tariffs linked to this product |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this product |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this product |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--archived` | bool | Whether the product is archived. Archived products cannot be sold but existing charges remain active |
 | `--starred` | bool | Mark the product as featured or highlighted |
 | `--track-stock` | bool | Enable stock tracking for this product. When enabled, each sale reduces the stock count |

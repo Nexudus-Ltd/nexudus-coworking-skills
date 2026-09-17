@@ -25,13 +25,13 @@ ResourceProducts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--resource-id` | long | ID of the resource linked to this record |
-| `--resource-name` | string | Resource name |
+| `--resource-name` | string | Display value for Resource.Name. |
 | `--product-id` | long | ID of the product linked to this record |
-| `--product-name` | string | Product name |
-| `--product-price` | decimal | Product price |
+| `--product-name` | string | Display value for Product.Name. |
+| `--product-price` | decimal | Display value for Product.Price. |
 | `--from-product-price` | range | |
 | `--to-product-price` | range | |
-| `--product-currency-code` | string | Product currency code |
+| `--product-currency-code` | string | Display value for Product.Currency.Code. |
 | `--invoice-in-minutes` | bool | Whether to invoice in minutes |
 | `--request-quantity` | bool | Whether to request quantity |
 | `--visible` | bool | Whether the resource product is visible |

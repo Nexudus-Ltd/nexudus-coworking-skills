@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ProposalSchedules -->
 
-A **ProposalSchedule** defines the overall timeline and milestones for a proposal, including validity period and follow-up dates.
+A ProposalSchedule is a future price change quoted on a proposal: a new unit price and the date it takes effect. Schedules are copied into the quoted contract at the moment the proposal is created, and become the customer contract's own scheduled price changes when the proposal is accepted, so a schedule added to a proposal that already has its quoted contract must be added to that contract instead.
 
 ProposalSchedules support Search, Get, Create, Update, Delete.
 
@@ -24,24 +24,24 @@ ProposalSchedules support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long | ID of the proposal linked to this record |
-| `--proposal-quantity` | int | Proposal quantity |
+| `--proposal-id` | long | ID of the proposal this price change belongs to; required, and the proposal's issuing location owns this record. |
+| `--proposal-quantity` | int | Display value for Proposal.Quantity. |
 | `--from-proposal-quantity` | range | |
 | `--to-proposal-quantity` | range | |
-| `--proposal-tariff-name` | string | Proposal tariff name |
-| `--proposal-coworker-id` | int | Proposal coworker ID |
+| `--proposal-tariff-name` | string | Display value for Proposal.Tariff.Name. |
+| `--proposal-coworker-id` | int | Display value for Proposal.Coworker.Id. |
 | `--from-proposal-coworker-id` | range | |
 | `--to-proposal-coworker-id` | range | |
-| `--proposal-coworker-full-name` | string | Proposal coworker full name |
-| `--proposal-coworker-billing-name` | string | Proposal coworker billing name |
-| `--notes` | string | Optional notes or comments about this proposal schedule |
-| `--price` | decimal | Scheduled price |
+| `--proposal-coworker-full-name` | string | Display value for Proposal.Coworker.FullName. |
+| `--proposal-coworker-billing-name` | string | Display value for Proposal.Coworker.BillingName. |
+| `--notes` | string | Free-text note explaining the price change; it is copied onto the quoted contract's schedule. |
+| `--price` | decimal | New per-unit price that takes effect on ApplyOn, in the issuing location's currency. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--apply-on` | DateTime | Date to apply |
+| `--apply-on` | DateTime | Date the new price takes effect; required, and each price change on the same proposal needs its own date. |
 | `--from-apply-on` | range | |
 | `--to-apply-on` | range | |
-| `--applied` | bool | Whether the schedule has been applied |
+| `--applied` | bool | Read-only flag recording whether this price change has already been applied; the billing run sets it and it is not changed through proposal administration. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -60,19 +60,19 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long, required | ID of the proposal linked to this record |
-| `--notes` | string | Optional notes or comments about this proposal schedule |
-| `--price` | decimal | Scheduled price |
-| `--apply-on` | DateTime, required | Date to apply |
+| `--proposal-id` | long, required | ID of the proposal this price change belongs to; required, and the proposal's issuing location owns this record. |
+| `--notes` | string | Free-text note explaining the price change; it is copied onto the quoted contract's schedule. |
+| `--price` | decimal | New per-unit price that takes effect on ApplyOn, in the issuing location's currency. |
+| `--apply-on` | DateTime, required | Date the new price takes effect; required, and each price change on the same proposal needs its own date. |
 
 #### ProposalSchedule update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long | ID of the proposal linked to this record |
-| `--notes` | string | Optional notes or comments about this proposal schedule |
-| `--price` | decimal | Scheduled price |
-| `--apply-on` | DateTime | Date to apply |
+| `--proposal-id` | long | ID of the proposal this price change belongs to; required, and the proposal's issuing location owns this record. |
+| `--notes` | string | Free-text note explaining the price change; it is copied onto the quoted contract's schedule. |
+| `--price` | decimal | New per-unit price that takes effect on ApplyOn, in the issuing location's currency. |
+| `--apply-on` | DateTime | Date the new price takes effect; required, and each price change on the same proposal needs its own date. |
 
 #### ProposalSchedule PII fields
 

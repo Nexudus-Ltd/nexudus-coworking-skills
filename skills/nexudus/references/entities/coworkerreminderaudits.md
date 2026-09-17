@@ -27,9 +27,9 @@ CoworkerReminderAudits support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer the reminder was sent to |
-| `--coworker-full-name` | string | Full name of the customer the reminder was sent to |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--reminder-id` | long | ID of the reminder that was sent |
-| `--reminder-name` | string | Name of the reminder that was sent |
+| `--reminder-name` | string | Display value for Reminder.Name. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

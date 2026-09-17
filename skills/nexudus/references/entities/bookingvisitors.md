@@ -28,14 +28,14 @@ BookingVisitors also support entity commands.
 | --- | --- | --- |
 | `--booking-id` | long | ID of the booking this visitor is attending. The booking determines this record's location; the visitor email must be unique within the booking and must not match the booking customer's email. |
 | `--visitor-id` | long | ID of the visitor attending the selected booking. The visitor is a location-scoped record; creating or updating the link may update access-control keys for customers with the same email. |
-| `--visitor-full-name` | string | Full name of the visitor. Read-only, resolved from the linked Visitor record. |
-| `--visitor-email` | string | Email address of the visitor. Read-only, resolved from the linked Visitor record. |
-| `--visitor-phone-number` | string | Phone number of the visitor. Read-only, resolved from the linked Visitor record. |
-| `--visitor-company-name` | string | Company name of the visitor. Read-only, resolved from the linked Visitor record. |
-| `--visitor-arrival-date` | DateTime | Date and time when the visitor arrived. Read-only, resolved from the linked Visitor record. |
+| `--visitor-full-name` | string | Display value for Visitor.FullName. |
+| `--visitor-email` | string | Display value for Visitor.Email. |
+| `--visitor-phone-number` | string | Display value for Visitor.PhoneNumber. |
+| `--visitor-company-name` | string | Display value for Visitor.CompanyName. |
+| `--visitor-arrival-date` | DateTime | Display value for Visitor.ArrivalDate. |
 | `--from-visitor-arrival-date` | range | |
 | `--to-visitor-arrival-date` | range | |
-| `--visitor-departure-date` | DateTime | Date and time when the visitor departed. Read-only, resolved from the linked Visitor record. |
+| `--visitor-departure-date` | DateTime | Display value for Visitor.DepartureDate. |
 | `--from-visitor-departure-date` | range | |
 | `--to-visitor-departure-date` | range | |
 | `--from-created-on` | range | |

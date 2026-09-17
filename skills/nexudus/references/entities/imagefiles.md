@@ -25,8 +25,8 @@ ImageFiles support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Display name of the linked business (read-only) |
-| `--business-web-address` | string | The business web address value for this image file |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-web-address` | string | Display value for Business.WebAddress. |
 | `--name` | string | The name value for this image file |
 | `--description` | string | Free-text description of this image file |
 | `--use-in-gallery` | bool | Whether use in gallery is enabled |

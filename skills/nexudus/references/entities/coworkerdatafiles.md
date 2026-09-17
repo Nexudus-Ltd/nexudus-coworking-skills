@@ -2,13 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerDataFiles -->
 
-A **CoworkerDataFile** is a file attached to a customer's record. Files can be kept internal or shared with the customer on the Members Portal.
-
-When a file is shared (`AvailableToUser = true`), the customer receives an email notification and can view or download the file from the Files tab under My Activity on the Members Portal.
-
-You can request a digital signature (`RequestDigitalSignature = true`) — once the customer signs the document, a signed copy is automatically stored in `SignedFileDataFileName`. The notes in `Description` are included in the email notification sent to the customer.
-
-Supported formats include .pdf, .docx, .xlsx, .jpg, .png, and other common types (max 10 MB). Files can be linked to a document template, a proposal, or a coworker contract via the respective GUID fields.
+A customer file is a document attached to a customer's record that can remain internal, be shared through the Members Portal, or be sent for digital signature.
 
 CoworkerDataFiles support Search, Get, Create, Update, Delete.
 
@@ -30,31 +24,30 @@ CoworkerDataFiles support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | Location ID |
-| `--business-name` | string | Location name |
-| `--coworker-id` | long | ID of the customer this file belongs to |
-| `--coworker-full-name` | string | Full name of the customer |
-| `--coworker-coworker-type` | string | Record type of the customer (Individual or Company) |
-| `--coworker-company-name` | string | Company name of the customer |
-| `--coworker-billing-name` | string | Billing name of the customer |
-| `--name` | string | Name of the file or document |
-| `--description` | string | Notes included in the email notification sent to the customer when the file is shared |
-| `--available-to-user` | bool | Whether the file is shared with the customer and visible on the Members Portal |
-| `--request-digital-signature` | bool | Whether to request a digital signature from the customer |
+| `--business-id` | long | ID of the location this customer file belongs to; it is supplied from the admin context when creating the record. |
+| `--business-name` | string | Display value for Business.Name. |
+| `--coworker-id` | long | ID of the customer this file belongs to. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--name` | string | Required name displayed for the customer file or document. |
+| `--description` | string | Optional notes for the customer file; included in the notification sent when a new file is shared or sent for signature. |
+| `--available-to-user` | bool | Whether the customer can view and download the file in the Members Portal; creating a shared file sends the new-file notification. |
+| `--request-digital-signature` | bool | Whether to request a digital signature from the customer; requires a portal-enabled customer, enabled Dropbox Sign integration, and valid signatories. |
 | `--file-data-file-name` | string | Name of the uploaded file |
 | `--new-file-data-url` | string | URL of a new file to upload (replaces the existing file) |
 | `--clear-file-data-file` | bool | Set to true to remove the existing uploaded file |
 | `--signed-file-data-file-name` | string | Name of the signed copy of the document, created automatically after the customer signs it |
 | `--new-signed-file-data-url` | string | URL of a new signed file to upload (replaces the existing signed copy) |
 | `--clear-signed-file-data-file` | bool | Set to true to remove the existing signed copy |
-| `--extension` | string | File extension (e.g. pdf, docx, jpg) |
-| `--billed` | bool | Whether the customer has been billed for this file |
-| `--signed` | bool | Whether the customer has signed this document |
-| `--esign-identifier` | string | Identifier used by the digital signature provider to track this document |
-| `--document-template-guid` | string | GUID of the document template used to generate this file |
-| `--notify-when-signed-email` | string | Email address to notify when the customer signs the document |
-| `--proposal-guid` | string | GUID of the proposal linked to this file |
-| `--coworker-contract-guid` | string | GUID of the coworker contract linked to this file |
+| `--extension` | string | File extension for the stored document, such as .pdf, .docx, or .jpg. |
+| `--billed` | bool | Whether the location has billed for this file's digital signature request. |
+| `--signed` | bool | Whether the customer has signed the document; this status is updated by the digital signature provider. |
+| `--document-template-guid` | string | Unique ID of the document template used to generate the file; required when CoworkerContractGuid is set. |
+| `--notify-when-signed-email` | string | Email address to notify after the customer signs; when omitted for a signature request, it defaults to the creating user's email when available. |
+| `--proposal-guid` | string | Unique ID of the proposal this file supports; proposal workflows use it to locate their generated documents. |
+| `--coworker-contract-guid` | string | Unique ID of the customer's contract used to generate a contract document; requires DocumentTemplateGuid. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -73,47 +66,43 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | Location ID |
-| `--coworker-id` | long, required | ID of the customer this file belongs to |
-| `--name` | string, required | Name of the file or document |
-| `--description` | string | Notes included in the email notification sent to the customer when the file is shared |
-| `--available-to-user` | bool | Whether the file is shared with the customer and visible on the Members Portal |
-| `--request-digital-signature` | bool | Whether to request a digital signature from the customer |
+| `--business-id` | long, required | ID of the location this customer file belongs to; it is supplied from the admin context when creating the record. |
+| `--coworker-id` | long, required | ID of the customer this file belongs to. |
+| `--name` | string, required | Required name displayed for the customer file or document. |
+| `--description` | string | Optional notes for the customer file; included in the notification sent when a new file is shared or sent for signature. |
+| `--available-to-user` | bool | Whether the customer can view and download the file in the Members Portal; creating a shared file sends the new-file notification. |
+| `--request-digital-signature` | bool | Whether to request a digital signature from the customer; requires a portal-enabled customer, enabled Dropbox Sign integration, and valid signatories. |
 | `--new-file-data-url` | string | URL of a new file to upload (replaces the existing file) |
 | `--clear-file-data-file` | bool | Set to true to remove the existing uploaded file |
 | `--new-signed-file-data-url` | string | URL of a new signed file to upload (replaces the existing signed copy) |
 | `--clear-signed-file-data-file` | bool | Set to true to remove the existing signed copy |
-| `--extension` | string | File extension (e.g. pdf, docx, jpg) |
-| `--billed` | bool | Whether the customer has been billed for this file |
-| `--signed` | bool | Whether the customer has signed this document |
-| `--esign-identifier` | string | Identifier used by the digital signature provider to track this document |
-| `--document-template-guid` | string | GUID of the document template used to generate this file |
-| `--notify-when-signed-email` | string | Email address to notify when the customer signs the document |
-| `--proposal-guid` | string | GUID of the proposal linked to this file |
-| `--coworker-contract-guid` | string | GUID of the coworker contract linked to this file |
+| `--extension` | string | File extension for the stored document, such as .pdf, .docx, or .jpg. |
+| `--billed` | bool | Whether the location has billed for this file's digital signature request. |
+| `--document-template-guid` | string | Unique ID of the document template used to generate the file; required when CoworkerContractGuid is set. |
+| `--notify-when-signed-email` | string | Email address to notify after the customer signs; when omitted for a signature request, it defaults to the creating user's email when available. |
+| `--proposal-guid` | string | Unique ID of the proposal this file supports; proposal workflows use it to locate their generated documents. |
+| `--coworker-contract-guid` | string | Unique ID of the customer's contract used to generate a contract document; requires DocumentTemplateGuid. |
 
 #### CoworkerDataFile update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | Location ID |
-| `--coworker-id` | long | ID of the customer this file belongs to |
-| `--name` | string | Name of the file or document |
-| `--description` | string | Notes included in the email notification sent to the customer when the file is shared |
-| `--available-to-user` | bool | Whether the file is shared with the customer and visible on the Members Portal |
-| `--request-digital-signature` | bool | Whether to request a digital signature from the customer |
+| `--business-id` | long | ID of the location this customer file belongs to; it is supplied from the admin context when creating the record. |
+| `--coworker-id` | long | ID of the customer this file belongs to. |
+| `--name` | string | Required name displayed for the customer file or document. |
+| `--description` | string | Optional notes for the customer file; included in the notification sent when a new file is shared or sent for signature. |
+| `--available-to-user` | bool | Whether the customer can view and download the file in the Members Portal; creating a shared file sends the new-file notification. |
+| `--request-digital-signature` | bool | Whether to request a digital signature from the customer; requires a portal-enabled customer, enabled Dropbox Sign integration, and valid signatories. |
 | `--new-file-data-url` | string | URL of a new file to upload (replaces the existing file) |
 | `--clear-file-data-file` | bool | Set to true to remove the existing uploaded file |
 | `--new-signed-file-data-url` | string | URL of a new signed file to upload (replaces the existing signed copy) |
 | `--clear-signed-file-data-file` | bool | Set to true to remove the existing signed copy |
-| `--extension` | string | File extension (e.g. pdf, docx, jpg) |
-| `--billed` | bool | Whether the customer has been billed for this file |
-| `--signed` | bool | Whether the customer has signed this document |
-| `--esign-identifier` | string | Identifier used by the digital signature provider to track this document |
-| `--document-template-guid` | string | GUID of the document template used to generate this file |
-| `--notify-when-signed-email` | string | Email address to notify when the customer signs the document |
-| `--proposal-guid` | string | GUID of the proposal linked to this file |
-| `--coworker-contract-guid` | string | GUID of the coworker contract linked to this file |
+| `--extension` | string | File extension for the stored document, such as .pdf, .docx, or .jpg. |
+| `--billed` | bool | Whether the location has billed for this file's digital signature request. |
+| `--document-template-guid` | string | Unique ID of the document template used to generate the file; required when CoworkerContractGuid is set. |
+| `--notify-when-signed-email` | string | Email address to notify after the customer signs; when omitted for a signature request, it defaults to the creating user's email when available. |
+| `--proposal-guid` | string | Unique ID of the proposal this file supports; proposal workflows use it to locate their generated documents. |
+| `--coworker-contract-guid` | string | Unique ID of the customer's contract used to generate a contract document; requires DocumentTemplateGuid. |
 
 #### CoworkerDataFile PII fields
 

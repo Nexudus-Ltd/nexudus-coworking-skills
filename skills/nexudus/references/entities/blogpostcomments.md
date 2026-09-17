@@ -29,7 +29,7 @@ BlogPostComments support Search, Get, Create, Update, Delete.
 | `--business-id` | long | ID of the business linked to this record |
 | `--blog-post-id` | long | ID of the blog post linked to this record |
 | `--posted-by-id` | long | ID of the posted by linked to this record |
-| `--posted-by-name` | string | Full name of the coworker who posted the comment |
+| `--posted-by-name` | string | Display value for PostedBy.FullName. |
 | `--title` | string | Comment title |
 | `--text` | string | Comment body text |
 | `--published` | bool | Whether the comment is published and visible to readers |

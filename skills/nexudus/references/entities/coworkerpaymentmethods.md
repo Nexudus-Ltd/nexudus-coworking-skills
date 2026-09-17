@@ -26,8 +26,8 @@ CoworkerPaymentMethods support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer whose payment method is stored; the customer must belong to a location the operator can access |
 | `--business-id` | long | ID of the location that uses this payment method when charging the customer |
-| `--business-name` | string | Location name |
-| `--business-currency-code` | string | Currency code of the location |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-currency-code` | string | Display value for Business.Currency.Code. |
 | `--regular-payment-provider` | enum | Regular-payment provider for this method; only one method may exist for the same customer, location, and provider, and the Admin UI supports Stripe, StripeACH, StripeBACS, and GoCardless |
 | `--method-id` | string | Payment-provider method ID supplied by the provider, such as a Stripe payment method token; set it only for the matching provider flow |
 | `--customer-id` | string | Payment-provider customer ID supplied by the provider, such as a Stripe customer ID; set it only for the matching provider flow |

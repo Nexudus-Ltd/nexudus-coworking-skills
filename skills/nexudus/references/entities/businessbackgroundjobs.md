@@ -24,10 +24,10 @@ BusinessBackgroundJobs support Search, Get (no Create or Delete via API).
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Location name |
+| `--business-name` | string | Display value for Business.Name. |
 | `--user-id` | long | ID of the user linked to this record |
-| `--user-full-name` | string | Full name of the user who triggered the job |
-| `--user-email` | string | Email of the user who triggered the job |
+| `--user-full-name` | string | Display value for User.FullName. |
+| `--user-email` | string | Display value for User.Email. |
 | `--job-id` | string | Unique identifier (GUID) of the background job |
 | `--description` | string | Human-readable description of what the job does |
 | `--files` | string | Files associated with the job (e.g. import files) |

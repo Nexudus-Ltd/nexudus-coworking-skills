@@ -28,15 +28,15 @@ CoworkerDeliveries also support entity commands.
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this delivery. Defaults to the current location when creating a delivery. |
 | `--coworker-id` | long | ID of the customer this delivery is for. Use either CoworkerId or ContractContactId to identify the recipient. |
-| `--coworker-coworker-type` | string | The coworker coworker type value for this coworker delivery |
-| `--coworker-full-name` | string | Full name of the customer the delivery is for |
-| `--coworker-email` | string | Email address of the customer the delivery is for |
-| `--coworker-billing-name` | string | Billing name of the customer the delivery is for |
-| `--coworker-company-name` | string | Company name of the customer the delivery is for |
-| `--coworker-team-names` | string | Team names the customer belongs to |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--contract-contact-id` | long | ID of the contract contact receiving this delivery when it is not assigned to a customer. |
-| `--contract-contact-full-name` | string | Full name of the contract contact the delivery is for |
-| `--contract-contact-email` | string | Email address of the contract contact the delivery is for |
+| `--contract-contact-full-name` | string | Display value for ContractContact.FullName. |
+| `--contract-contact-email` | string | Display value for ContractContact.Email. |
 | `--name` | string | Required short reference that identifies the delivery item. |
 | `--location` | string | Required physical storage location for the delivery, such as a mailroom shelf. |
 | `--received-by` | string | Name of the staff member who received the delivery. |

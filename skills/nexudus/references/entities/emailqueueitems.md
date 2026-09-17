@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=EmailQueueItems -->
 
-An **EmailQueueItem** represents a single email queued for delivery. Each record tracks the sender, recipient, subject, body, and delivery status of an outgoing email message.
+An EmailQueueItem is a read-only outgoing email delivery record for a location, tracking its recipients, content, sender, attempts, and delivery result.
 
 EmailQueueItems support Search, Get (no Create or Delete via API).
 
@@ -21,26 +21,25 @@ EmailQueueItems support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--email-account-id` | long | ID of the email account linked to this record |
-| `--from-user-id` | long | ID of the from user linked to this record |
-| `--header` | string | The header value for this email queue item |
-| `--body` | string | The body value for this email queue item |
-| `--from-email` | string | The from email value for this email queue item |
-| `--to-emails` | string | The to emails value for this email queue item |
-| `--c-c-emails` | string | The cc emails value for this email queue item |
-| `--c-c-o-emails` | string | The cco emails value for this email queue item |
-| `--sent` | bool | Whether sent is enabled |
-| `--sent-attempts` | int | The sent attempts value for this email queue item |
+| `--business-id` | long | ID of the location that owns this queued email. |
+| `--email-account-id` | long | Optional ID of the email account whose outgoing server and sender details are used instead of the location's default email settings. |
+| `--from-user-id` | long | Optional ID of the staff user recorded as the sender of this email. |
+| `--header` | string | Email subject line, limited to 1,024 characters. |
+| `--body` | string | Localized HTML content sent as the email body. |
+| `--from-email` | string | Optional reply-to email address; when empty, the selected email account or location email settings provide it. |
+| `--to-emails` | string | Required recipient email addresses, separated with semicolons. |
+| `--c-c-emails` | string | Optional carbon-copy recipient email addresses, separated with semicolons. |
+| `--c-c-o-emails` | string | Optional blind-carbon-copy recipient email addresses, separated with semicolons. |
+| `--sent` | bool | Whether the system has completed a send attempt; this can be true even when Delivered is false. |
+| `--sent-attempts` | int | Number of send attempts made by the email delivery process; retrying through the queue command resets it to zero. |
 | `--from-sent-attempts` | range | |
 | `--to-sent-attempts` | range | |
-| `--delivered` | bool | Whether delivered is enabled |
-| `--last-send-error` | string | The last send error value for this email queue item |
-| `--send-date` | DateTime | Date/time value for send date |
+| `--delivered` | bool | Whether the most recent send attempt was accepted successfully by the email delivery process. |
+| `--last-send-error` | string | Most recently recorded delivery error, including provider-reported bounces; empty when no error is currently recorded. |
+| `--send-date` | DateTime | UTC date and time when the system last completed a send attempt; empty until an attempt is made. |
 | `--from-send-date` | range | |
 | `--to-send-date` | range | |
-| `--queued` | bool | Whether queued is enabled |
-| `--from-name` | string | The from name value for this email queue item |
+| `--from-name` | string | Optional sender display name that overrides the selected email account or location email settings. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

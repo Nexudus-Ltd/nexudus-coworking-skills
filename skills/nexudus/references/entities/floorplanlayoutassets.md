@@ -25,7 +25,7 @@ FloorPlanLayoutAssets support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-layout-id` | long | ID of the floor plan layout linked to this record |
-| `--floor-plan-layout-name` | string | Display name of the linked floor plan layout (read-only) |
+| `--floor-plan-layout-name` | string | Display value for FloorPlanLayout.Name. |
 | `--area-unique-id` | string | ID of the area unique associated with this record |
 | `--asset-type` | string | The asset type value for this floor plan layout asset |
 | `--angle` | decimal | The angle value for this floor plan layout asset |

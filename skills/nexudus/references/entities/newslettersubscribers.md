@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=NewsLetterSubscribers -->
 
-A **NewsLetterSubscriber** represents a person subscribed to receive newsletters. Subscribers can be customers, leads, or external contacts and have a preferred language for communications.
+A newsletter subscriber (NewsLetterSubscriber) is an email address held at a location that can be sent newsletters; it is identified by that email, is only mailed while Active, may belong to any number of newsletter subscriber groups, and carries open and click tracking for the last newsletter sent.
 
 NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 
@@ -16,7 +16,7 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 | `nexudus newslettersubscribers list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus newslettersubscribers list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus newslettersubscribers get <id> --agent` | Get single newslettersubscriber |
-| `nexudus newslettersubscribers create --business-id <value> --name <value> --language <value> --email <value> --agent` | Create newslettersubscriber |
+| `nexudus newslettersubscribers create --business-id <value> --name <value> --email <value> --agent` | Create newslettersubscriber |
 | `nexudus newslettersubscribers update <id> --name "New Name" --agent` | Update newslettersubscriber |
 | `nexudus newslettersubscribers delete <id> --yes --agent` | Delete newslettersubscriber (no prompt) |
 
@@ -24,15 +24,14 @@ NewsLetterSubscribers support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this news letter subscriber |
-| `--company-name` | string | The company name value for this news letter subscriber |
-| `--language` | enum | The language value for this news letter subscriber |
-| `--email` | string | The email value for this news letter subscriber |
-| `--visit-reason` | string | The visit reason value for this news letter subscriber |
-| `--active` | bool | Whether this news letter subscriber is currently active |
-| `--viewed` | bool | Whether viewed is enabled |
-| `--clicked` | bool | Whether clicked is enabled |
+| `--business-id` | long | ID of the location that owns this newsletter subscriber; the email address only has to be unique within this location, and a newsletter reaches only the subscribers of the location that owns it. |
+| `--name` | string | Required full name of the subscriber, shown as Full name in the admin and used for the {fullname}, {firstname}, and {lastname} newsletter merge tokens; public sign-ups that supply no name fall back to the email address. |
+| `--company-name` | string | Optional company or organization name for the subscriber, available to newsletter content through the {companyname} merge token. |
+| `--email` | string | Required email address the newsletter is delivered to, validated as an email address and unique per location; it is also the key used to find a subscriber when subscribing, unsubscribing, or adding to a group, and a send collapses duplicate email addresses so only one copy goes out. |
+| `--visit-reason` | string | Optional free-text note recording why or how the subscriber was added, shown as Reason for the visit; it comes from a public newsletter sign-up form or is supplied by the system, for example when a customer checks in, and re-subscribing the same email overwrites it. |
+| `--active` | bool | Whether the subscriber is still subscribed; only active subscribers are included when a newsletter is sent, unsubscribing sets it to false, and it defaults to false on create, so set it to true when adding a subscriber who should receive newsletters. |
+| `--viewed` | bool | Whether this subscriber opened the most recently sent newsletter, not whether they have ever opened one; read-only, set by the open-tracking pixel and reset to false for every recipient each time a newsletter is sent. |
+| `--clicked` | bool | Whether this subscriber clicked a link in the most recently sent newsletter, not whether they have ever clicked one; read-only, set by the click-tracking redirect and reset to false for every recipient each time a newsletter is sent. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -51,31 +50,29 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | The name value for this news letter subscriber |
-| `--company-name` | string | The company name value for this news letter subscriber |
-| `--language` | enum, required | The language value for this news letter subscriber |
-| `--email` | string, required | The email value for this news letter subscriber |
-| `--visit-reason` | string | The visit reason value for this news letter subscriber |
-| `--active` | bool | Whether this news letter subscriber is currently active |
-| `--groups` | list, repeat flag | List of groups linked to this record |
-| `--added-groups` | list, repeat flag | The added groups value for this news letter subscriber |
-| `--removed-groups` | list, repeat flag | The removed groups value for this news letter subscriber |
+| `--business-id` | long, required | ID of the location that owns this newsletter subscriber; the email address only has to be unique within this location, and a newsletter reaches only the subscribers of the location that owns it. |
+| `--name` | string, required | Required full name of the subscriber, shown as Full name in the admin and used for the {fullname}, {firstname}, and {lastname} newsletter merge tokens; public sign-ups that supply no name fall back to the email address. |
+| `--company-name` | string | Optional company or organization name for the subscriber, available to newsletter content through the {companyname} merge token. |
+| `--email` | string, required | Required email address the newsletter is delivered to, validated as an email address and unique per location; it is also the key used to find a subscriber when subscribing, unsubscribing, or adding to a group, and a send collapses duplicate email addresses so only one copy goes out. |
+| `--visit-reason` | string | Optional free-text note recording why or how the subscriber was added, shown as Reason for the visit; it comes from a public newsletter sign-up form or is supplied by the system, for example when a customer checks in, and re-subscribing the same email overwrites it. |
+| `--active` | bool | Whether the subscriber is still subscribed; only active subscribers are included when a newsletter is sent, unsubscribing sets it to false, and it defaults to false on create, so set it to true when adding a subscriber who should receive newsletters. |
+| `--groups` | list, repeat flag | List of newsletter subscriber group IDs this subscriber belongs to, and the side of the relationship that persists group membership, so set it here rather than from the group; an empty list still receives newsletters sent to the whole location but no group-targeted ones, and a group with smart-group criteria drops a subscriber who stops matching on its 12-hourly update. |
+| `--added-groups` | list, repeat flag | IDs added to the Groups relationship. |
+| `--removed-groups` | list, repeat flag | IDs removed from the Groups relationship. |
 
 #### NewsLetterSubscriber update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | The name value for this news letter subscriber |
-| `--company-name` | string | The company name value for this news letter subscriber |
-| `--language` | enum | The language value for this news letter subscriber |
-| `--email` | string | The email value for this news letter subscriber |
-| `--visit-reason` | string | The visit reason value for this news letter subscriber |
-| `--active` | bool | Whether this news letter subscriber is currently active |
-| `--groups` | list, repeat flag | List of groups linked to this record |
-| `--added-groups` | list, repeat flag | The added groups value for this news letter subscriber |
-| `--removed-groups` | list, repeat flag | The removed groups value for this news letter subscriber |
+| `--business-id` | long | ID of the location that owns this newsletter subscriber; the email address only has to be unique within this location, and a newsletter reaches only the subscribers of the location that owns it. |
+| `--name` | string | Required full name of the subscriber, shown as Full name in the admin and used for the {fullname}, {firstname}, and {lastname} newsletter merge tokens; public sign-ups that supply no name fall back to the email address. |
+| `--company-name` | string | Optional company or organization name for the subscriber, available to newsletter content through the {companyname} merge token. |
+| `--email` | string | Required email address the newsletter is delivered to, validated as an email address and unique per location; it is also the key used to find a subscriber when subscribing, unsubscribing, or adding to a group, and a send collapses duplicate email addresses so only one copy goes out. |
+| `--visit-reason` | string | Optional free-text note recording why or how the subscriber was added, shown as Reason for the visit; it comes from a public newsletter sign-up form or is supplied by the system, for example when a customer checks in, and re-subscribing the same email overwrites it. |
+| `--active` | bool | Whether the subscriber is still subscribed; only active subscribers are included when a newsletter is sent, unsubscribing sets it to false, and it defaults to false on create, so set it to true when adding a subscriber who should receive newsletters. |
+| `--groups` | list, repeat flag | List of newsletter subscriber group IDs this subscriber belongs to, and the side of the relationship that persists group membership, so set it here rather than from the group; an empty list still receives newsletters sent to the whole location but no group-targeted ones, and a group with smart-group criteria drops a subscriber who stops matching on its 12-hourly update. |
+| `--added-groups` | list, repeat flag | IDs added to the Groups relationship. |
+| `--removed-groups` | list, repeat flag | IDs removed from the Groups relationship. |
 
 #### NewsLetterSubscriber PII fields
 
@@ -91,11 +88,5 @@ Example:
 `nexudus newslettersubscribers update <id> --company-name "«PII:NAME:a3f2b1c9»" --agent`
 
 **List properties (only returned by `get`, not by `list`):** `Groups`, `AddedGroups`, `RemovedGroups`
-
-#### NewsLetterSubscriber enum values
-
-| Option | Valid values |
-| ------ | ------------ |
-| `--language` | `1` EnglishUS, `2` Spanish, `3` EnglishUK |
 
 <!-- END:GENERATED entity=NewsLetterSubscribers -->

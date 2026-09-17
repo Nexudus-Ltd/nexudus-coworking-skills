@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CrmBoards -->
 
-A **CrmBoard** represents a Customer Relationship Management board used to automate processes and communication with current and potential customers.
-
-Each board represents a common sales or operational scenario (e.g. onboarding new members, offboarding cancellations, or managing a sales pipeline). Boards contain CRM stages (`CrmBoardColumn` entity) that define the steps opportunities move through, and each stage can trigger actions such as sending message macros or creating task lists.
-
-Nexudus provides built-in templates (e.g. sales pipeline with or without digital signature) that can be used as-is or customised by adding, removing, or editing stages. Boards can also be built from scratch.
+A CRM board is a location-scoped workflow, such as a sales pipeline or customer onboarding process, that organizes opportunities into stages managed as separate CRM stage records.
 
 CrmBoards support Search, Get, Create, Update, Delete.
 
@@ -28,9 +24,9 @@ CrmBoards support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
-| `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
+| `--business-id` | long | ID of the location that owns this CRM board. |
+| `--name` | string | Required unique name that identifies this CRM workflow board, such as Sales Pipeline or Onboarding. |
+| `--archived` | bool | Whether this board is archived; changing it from false to true archives its opportunities, and automated CRM triggers generally ignore its stages. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -49,17 +45,17 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--name` | string, required | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
-| `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
+| `--business-id` | long, required | ID of the location that owns this CRM board. |
+| `--name` | string, required | Required unique name that identifies this CRM workflow board, such as Sales Pipeline or Onboarding. |
+| `--archived` | bool | Whether this board is archived; changing it from false to true archives its opportunities, and automated CRM triggers generally ignore its stages. |
 
 #### CrmBoard update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--name` | string | Board name identifying the CRM process (e.g. 'Sales Pipeline', 'Onboarding') |
-| `--archived` | bool | Whether the board is archived. Archived boards are hidden from the active board list but retain their data |
+| `--business-id` | long | ID of the location that owns this CRM board. |
+| `--name` | string | Required unique name that identifies this CRM workflow board, such as Sales Pipeline or Onboarding. |
+| `--archived` | bool | Whether this board is archived; changing it from false to true archives its opportunities, and automated CRM triggers generally ignore its stages. |
 
 ### CrmBoard (key fields)
 

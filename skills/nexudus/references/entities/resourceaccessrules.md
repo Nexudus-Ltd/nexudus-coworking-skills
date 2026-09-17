@@ -85,7 +85,7 @@ ResourceAccessRules also support entity commands.
 | `--to-evaluation-order` | range | |
 | `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches |
 | `--cancellation-fee-product-id` | long | Product to charge for late cancellations when ChargeCancellationFee is true |
-| `--cancellation-fee-product-name` | string | Name of the cancellation fee product (read-only, resolved from CancellationFeeProductId). |
+| `--cancellation-fee-product-name` | string | Display value for CancellationFeeProduct.Name. |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit) |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost) |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute |
@@ -123,8 +123,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long, required | ID of the location linked to this rule |
 | `--resources` | list, repeat flag | List of specific resources this rule applies to. When empty and BusinessId is set, applies to all resources in that location and all child locations. When one or more resources are specified, applies only to those specific resources |
-| `--added-resources` | list, repeat flag | The added resources value for this resource access rule |
-| `--removed-resources` | list, repeat flag | The removed resources value for this resource access rule |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--name` | string, required | Rule name |
 | `--active` | bool | Whether this rule is currently active and evaluated during booking |
 | `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers) |
@@ -147,26 +147,26 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--reject-with-message` | string | Message shown to the user when their booking is rejected by this rule |
 | `--only-for-members` | bool | When true, this rule applies only to active members (coworkers with a plan) |
 | `--tariffs` | list, repeat flag | List of pricing plans this rule applies to. When set, the rule only fires for customers on one of these plans |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource access rule |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource access rule |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--allowed-tariffs` | list, repeat flag | Only customers on one of these pricing plans are allowed to book when the rule applies to them |
-| `--added-allowed-tariffs` | list, repeat flag | The added allowed tariffs value for this resource access rule |
-| `--removed-allowed-tariffs` | list, repeat flag | The removed allowed tariffs value for this resource access rule |
+| `--added-allowed-tariffs` | list, repeat flag | IDs added to the AllowedTariffs relationship. |
+| `--removed-allowed-tariffs` | list, repeat flag | IDs removed from the AllowedTariffs relationship. |
 | `--members` | list, repeat flag | Specific customers this rule applies to. When set, the rule only fires for these customers |
-| `--added-members` | list, repeat flag | The added members value for this resource access rule |
-| `--removed-members` | list, repeat flag | The removed members value for this resource access rule |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 | `--teams` | list, repeat flag | Teams this rule applies to. When set, the rule only fires for members of one of these teams |
-| `--added-teams` | list, repeat flag | The added teams value for this resource access rule |
-| `--removed-teams` | list, repeat flag | The removed teams value for this resource access rule |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--allowed-teams` | list, repeat flag | Only members of one of these teams are allowed to book when the rule applies to them |
-| `--added-allowed-teams` | list, repeat flag | The added allowed teams value for this resource access rule |
-| `--removed-allowed-teams` | list, repeat flag | The removed allowed teams value for this resource access rule |
+| `--added-allowed-teams` | list, repeat flag | IDs added to the AllowedTeams relationship. |
+| `--removed-allowed-teams` | list, repeat flag | IDs removed from the AllowedTeams relationship. |
 | `--event-categories` | list, repeat flag | The rule applies only to customers who have attended (checked in to) an event in one of these categories |
-| `--added-event-categories` | list, repeat flag | The added event categories value for this resource access rule |
-| `--removed-event-categories` | list, repeat flag | The removed event categories value for this resource access rule |
+| `--added-event-categories` | list, repeat flag | IDs added to the EventCategories relationship. |
+| `--removed-event-categories` | list, repeat flag | IDs removed from the EventCategories relationship. |
 | `--courses` | list, repeat flag | The rule applies only to customers who have completed one of these courses |
-| `--added-courses` | list, repeat flag | The added courses value for this resource access rule |
-| `--removed-courses` | list, repeat flag | The removed courses value for this resource access rule |
+| `--added-courses` | list, repeat flag | IDs added to the Courses relationship. |
+| `--removed-courses` | list, repeat flag | IDs removed from the Courses relationship. |
 | `--evaluation-order` | int, required | Order in which this rule is evaluated relative to other rules on the same resource. Lower values are evaluated first |
 | `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches |
 | `--cancellation-fee-product-id` | long | Product to charge for late cancellations when ChargeCancellationFee is true |
@@ -185,8 +185,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | --- | --- | --- |
 | `--business-id` | long | ID of the location linked to this rule |
 | `--resources` | list, repeat flag | List of specific resources this rule applies to. When empty and BusinessId is set, applies to all resources in that location and all child locations. When one or more resources are specified, applies only to those specific resources |
-| `--added-resources` | list, repeat flag | The added resources value for this resource access rule |
-| `--removed-resources` | list, repeat flag | The removed resources value for this resource access rule |
+| `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
+| `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
 | `--name` | string | Rule name |
 | `--active` | bool | Whether this rule is currently active and evaluated during booking |
 | `--only-for-contacts` | bool | When true, this rule applies only to contacts (non-member customers) |
@@ -209,26 +209,26 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--reject-with-message` | string | Message shown to the user when their booking is rejected by this rule |
 | `--only-for-members` | bool | When true, this rule applies only to active members (coworkers with a plan) |
 | `--tariffs` | list, repeat flag | List of pricing plans this rule applies to. When set, the rule only fires for customers on one of these plans |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource access rule |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource access rule |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--allowed-tariffs` | list, repeat flag | Only customers on one of these pricing plans are allowed to book when the rule applies to them |
-| `--added-allowed-tariffs` | list, repeat flag | The added allowed tariffs value for this resource access rule |
-| `--removed-allowed-tariffs` | list, repeat flag | The removed allowed tariffs value for this resource access rule |
+| `--added-allowed-tariffs` | list, repeat flag | IDs added to the AllowedTariffs relationship. |
+| `--removed-allowed-tariffs` | list, repeat flag | IDs removed from the AllowedTariffs relationship. |
 | `--members` | list, repeat flag | Specific customers this rule applies to. When set, the rule only fires for these customers |
-| `--added-members` | list, repeat flag | The added members value for this resource access rule |
-| `--removed-members` | list, repeat flag | The removed members value for this resource access rule |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 | `--teams` | list, repeat flag | Teams this rule applies to. When set, the rule only fires for members of one of these teams |
-| `--added-teams` | list, repeat flag | The added teams value for this resource access rule |
-| `--removed-teams` | list, repeat flag | The removed teams value for this resource access rule |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--allowed-teams` | list, repeat flag | Only members of one of these teams are allowed to book when the rule applies to them |
-| `--added-allowed-teams` | list, repeat flag | The added allowed teams value for this resource access rule |
-| `--removed-allowed-teams` | list, repeat flag | The removed allowed teams value for this resource access rule |
+| `--added-allowed-teams` | list, repeat flag | IDs added to the AllowedTeams relationship. |
+| `--removed-allowed-teams` | list, repeat flag | IDs removed from the AllowedTeams relationship. |
 | `--event-categories` | list, repeat flag | The rule applies only to customers who have attended (checked in to) an event in one of these categories |
-| `--added-event-categories` | list, repeat flag | The added event categories value for this resource access rule |
-| `--removed-event-categories` | list, repeat flag | The removed event categories value for this resource access rule |
+| `--added-event-categories` | list, repeat flag | IDs added to the EventCategories relationship. |
+| `--removed-event-categories` | list, repeat flag | IDs removed from the EventCategories relationship. |
 | `--courses` | list, repeat flag | The rule applies only to customers who have completed one of these courses |
-| `--added-courses` | list, repeat flag | The added courses value for this resource access rule |
-| `--removed-courses` | list, repeat flag | The removed courses value for this resource access rule |
+| `--added-courses` | list, repeat flag | IDs added to the Courses relationship. |
+| `--removed-courses` | list, repeat flag | IDs removed from the Courses relationship. |
 | `--evaluation-order` | int | Order in which this rule is evaluated relative to other rules on the same resource. Lower values are evaluated first |
 | `--stop-evaluation-if-rule-is-met` | bool | When true, no further rules are evaluated after this one matches |
 | `--cancellation-fee-product-id` | long | Product to charge for late cancellations when ChargeCancellationFee is true |

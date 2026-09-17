@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TariffSignupProducts -->
 
-A **TariffSignupProduct** links a product to a pricing plan (tariff) as a one-time sign-up charge. Products linked this way are automatically added to a customer's first invoice when they join the plan.
+A sign-up product (internally TariffSignupProduct) attaches a one-off deposit or sign-up fee to a plan (internally tariff). Creating a contract on that plan copies every sign-up product into a contract deposit (ContractDeposit), carrying over its price, refundable flag and online-checkout flag, and flags the contract to include the sign-up fee on its first eligible invoice. Sign-up product prices count towards the plan's total sign-up price but not towards its recurring total price. Changes here affect only contracts created afterwards; contracts that already exist keep the deposits they were created with. Recurring add-ons belong on plan components (TariffProduct) instead.
 
 TariffSignupProducts support Search, Get, Create, Update, Delete.
 
@@ -24,19 +24,19 @@ TariffSignupProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--tariff-name` | string | Tariff name |
-| `--product-id` | long | ID of the product linked to this record |
-| `--product-name` | string | Product name |
-| `--product-price` | decimal | Product price |
+| `--tariff-id` | long | ID of the plan this sign-up fee belongs to; required, and it determines the owning location. Every contract created afterwards on that plan gets a matching deposit. |
+| `--tariff-name` | string | Display value for Tariff.Name. |
+| `--product-id` | long | ID of the product charged as the sign-up fee or deposit; required, and its own current price is used whenever Price is left null, so reuse an existing product rather than creating a duplicate. |
+| `--product-name` | string | Display value for Product.Name. |
+| `--product-price` | decimal | Display value for Product.Price. |
 | `--from-product-price` | range | |
 | `--to-product-price` | range | |
-| `--product-currency-code` | string | Product currency code |
-| `--price` | decimal | Signup product price override |
+| `--product-currency-code` | string | Display value for Product.Currency.Code. |
+| `--price` | decimal | Optional amount charged for this sign-up fee, in the location's currency; when null the linked product's own current price is used instead. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--refundable` | bool | Whether the signup product is refundable |
-| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
+| `--refundable` | bool | Whether the deposit created from this sign-up fee is refunded when the contract ends, producing an unpaid credit note that can also be used to offset exit or damage fees. |
+| `--invoice-during-online-checkout` | bool | Whether this fee is charged during the customer's online checkout instead of waiting for the contract's first eligible invoice. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -55,21 +55,21 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required | ID of the tariff linked to this record |
-| `--product-id` | long, required | ID of the product linked to this record |
-| `--price` | decimal | Signup product price override |
-| `--refundable` | bool | Whether the signup product is refundable |
-| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
+| `--tariff-id` | long, required | ID of the plan this sign-up fee belongs to; required, and it determines the owning location. Every contract created afterwards on that plan gets a matching deposit. |
+| `--product-id` | long, required | ID of the product charged as the sign-up fee or deposit; required, and its own current price is used whenever Price is left null, so reuse an existing product rather than creating a duplicate. |
+| `--price` | decimal | Optional amount charged for this sign-up fee, in the location's currency; when null the linked product's own current price is used instead. |
+| `--refundable` | bool | Whether the deposit created from this sign-up fee is refunded when the contract ends, producing an unpaid credit note that can also be used to offset exit or damage fees. |
+| `--invoice-during-online-checkout` | bool | Whether this fee is charged during the customer's online checkout instead of waiting for the contract's first eligible invoice. |
 
 #### TariffSignupProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--product-id` | long | ID of the product linked to this record |
-| `--price` | decimal | Signup product price override |
-| `--refundable` | bool | Whether the signup product is refundable |
-| `--invoice-during-online-checkout` | bool | Whether invoice during online checkout is enabled |
+| `--tariff-id` | long | ID of the plan this sign-up fee belongs to; required, and it determines the owning location. Every contract created afterwards on that plan gets a matching deposit. |
+| `--product-id` | long | ID of the product charged as the sign-up fee or deposit; required, and its own current price is used whenever Price is left null, so reuse an existing product rather than creating a duplicate. |
+| `--price` | decimal | Optional amount charged for this sign-up fee, in the location's currency; when null the linked product's own current price is used instead. |
+| `--refundable` | bool | Whether the deposit created from this sign-up fee is refunded when the contract ends, producing an unpaid credit note that can also be used to offset exit or damage fees. |
+| `--invoice-during-online-checkout` | bool | Whether this fee is charged during the customer's online checkout instead of waiting for the contract's first eligible invoice. |
 
 ### TariffSignupProduct (key fields)
 

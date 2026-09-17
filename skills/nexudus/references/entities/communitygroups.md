@@ -25,7 +25,7 @@ CommunityGroups support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location this community group belongs to |
-| `--business-name` | string | Location name |
+| `--business-name` | string | Display value for Business.Name. |
 | `--user-id` | long | ID of the user account that administers this group; the administrator can always view and post in it |
 | `--name` | string | Required display name of the community group |
 | `--description` | string | Optional description of the community group's purpose shown to customers |
@@ -54,8 +54,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--description` | string | Optional description of the community group's purpose shown to customers |
 | `--group-access` | enum, required | Access level for conversations assigned to this group: Restricted (1) lets all customers view but only the administrator and members post; Public (2) lets all customers view and post; Private (3) lets only the administrator and members view and post |
 | `--members` | list, repeat flag | List of user IDs whose customers are group members; they can post in Restricted groups and view and post in Private groups, while the administrator always has access |
-| `--added-members` | list, repeat flag | Customer IDs to add as members (used in partial updates) |
-| `--removed-members` | list, repeat flag | Customer IDs to remove as members (used in partial updates) |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 
 #### CommunityGroup update options
 
@@ -67,8 +67,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--description` | string | Optional description of the community group's purpose shown to customers |
 | `--group-access` | enum | Access level for conversations assigned to this group: Restricted (1) lets all customers view but only the administrator and members post; Public (2) lets all customers view and post; Private (3) lets only the administrator and members view and post |
 | `--members` | list, repeat flag | List of user IDs whose customers are group members; they can post in Restricted groups and view and post in Private groups, while the administrator always has access |
-| `--added-members` | list, repeat flag | Customer IDs to add as members (used in partial updates) |
-| `--removed-members` | list, repeat flag | Customer IDs to remove as members (used in partial updates) |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 
 ### CommunityGroup (key fields)
 

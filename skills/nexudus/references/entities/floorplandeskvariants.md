@@ -25,25 +25,25 @@ FloorPlanDeskVariants support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-desk-id` | long | ID of the required floor plan unit this variant configures; the unit determines the owning location |
-| `--floor-plan-desk-name` | string | Display name of the linked floor plan desk (read-only) |
-| `--floor-plan-desk-price` | decimal | The floor plan desk price value for this floor plan desk variant |
+| `--floor-plan-desk-name` | string | Display value for FloorPlanDesk.Name. |
+| `--floor-plan-desk-price` | decimal | Display value for FloorPlanDesk.Price. |
 | `--from-floor-plan-desk-price` | range | |
 | `--to-floor-plan-desk-price` | range | |
-| `--floor-plan-desk-floor-plan-id` | int | ID of the floor plan desk floor plan associated with this record |
+| `--floor-plan-desk-floor-plan-id` | int | Display value for FloorPlanDesk.FloorPlan.Id. |
 | `--from-floor-plan-desk-floor-plan-id` | range | |
 | `--to-floor-plan-desk-floor-plan-id` | range | |
-| `--floor-plan-desk-floor-plan-name` | string | Display name of the linked floor plan desk floor plan (read-only) |
-| `--floor-plan-desk-floor-plan-business-id` | int | ID of the floor plan desk floor plan business associated with this record |
+| `--floor-plan-desk-floor-plan-name` | string | Display value for FloorPlanDesk.FloorPlan.Name. |
+| `--floor-plan-desk-floor-plan-business-id` | int | Display value for FloorPlanDesk.FloorPlan.Business.Id. |
 | `--from-floor-plan-desk-floor-plan-business-id` | range | |
 | `--to-floor-plan-desk-floor-plan-business-id` | range | |
-| `--floor-plan-desk-floor-plan-business-name` | string | Display name of the linked floor plan desk floor plan business (read-only) |
-| `--floor-plan-desk-floor-plan-business-currency-code` | string | The floor plan desk floor plan business currency code value for this floor plan desk variant |
+| `--floor-plan-desk-floor-plan-business-name` | string | Display value for FloorPlanDesk.FloorPlan.Business.Name. |
+| `--floor-plan-desk-floor-plan-business-currency-code` | string | Display value for FloorPlanDesk.FloorPlan.Business.Currency.Code. |
 | `--coworker-id` | long | ID of the optional customer this variant is associated with |
-| `--coworker-full-name` | string | Display name of the linked coworker full (read-only) |
-| `--coworker-company-name` | string | Display name of the linked coworker company (read-only) |
-| `--coworker-coworker-type` | string | The coworker coworker type value for this floor plan desk variant |
-| `--coworker-email` | string | The coworker email value for this floor plan desk variant |
-| `--coworker-team-names` | string | The coworker team names value for this floor plan desk variant |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--name` | string | Required, non-empty display name for this alternate floor plan unit configuration |
 | `--size` | decimal | Optional floor area in square metres for this configuration |
 | `--from-size` | range | |

@@ -25,34 +25,34 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--resource-id` | long | ID of the resource that was reserved; it determines the cancelled booking's location. |
-| `--resource-name` | string | Resource name |
-| `--resource-allocation` | int | The resource allocation value for this cancelled booking |
+| `--resource-name` | string | Display value for Resource.Name. |
+| `--resource-allocation` | int | Display value for Resource.Allocation. |
 | `--from-resource-allocation` | range | |
 | `--to-resource-allocation` | range | |
-| `--resource-hide-in-calendar` | bool | Whether resource hide in calendar is enabled |
-| `--resource-no-return-policy` | int | The resource no return policy value for this cancelled booking |
+| `--resource-hide-in-calendar` | bool | Display value for Resource.HideInCalendar. |
+| `--resource-no-return-policy` | int | Display value for Resource.NoReturnPolicy. |
 | `--from-resource-no-return-policy` | range | |
 | `--to-resource-no-return-policy` | range | |
-| `--resource-no-return-policy-all-resources` | int | The resource no return policy all resources value for this cancelled booking |
+| `--resource-no-return-policy-all-resources` | int | Display value for Resource.NoReturnPolicyAllResources. |
 | `--from-resource-no-return-policy-all-resources` | range | |
 | `--to-resource-no-return-policy-all-resources` | range | |
-| `--resource-no-return-policy-all-users` | int | The resource no return policy all users value for this cancelled booking |
+| `--resource-no-return-policy-all-users` | int | Display value for Resource.NoReturnPolicyAllUsers. |
 | `--from-resource-no-return-policy-all-users` | range | |
 | `--to-resource-no-return-policy-all-users` | range | |
-| `--resource-resource-type-id` | int | ID of the resource resource type associated with this record |
+| `--resource-resource-type-id` | int | Display value for Resource.ResourceType.Id. |
 | `--from-resource-resource-type-id` | range | |
 | `--to-resource-resource-type-id` | range | |
-| `--resource-resource-type-name` | string | Display name of the linked resource resource type (read-only) |
+| `--resource-resource-type-name` | string | Display value for Resource.ResourceType.Name. |
 | `--floor-plan-desk-id` | long | Optional ID of the floor-plan unit assigned within the resource when the booking was cancelled. |
-| `--floor-plan-desk-name` | string | Display name of the linked floor plan desk (read-only) |
+| `--floor-plan-desk-name` | string | Display value for FloorPlanDesk.Name. |
 | `--coworker-id` | long | Optional ID of the customer whose booking was cancelled. |
-| `--coworker-coworker-type` | string | The coworker coworker type value for this cancelled booking |
-| `--coworker-full-name` | string | Coworker full name |
-| `--coworker-billing-name` | string | Coworker billing name |
-| `--coworker-company-name` | string | Coworker company name |
-| `--coworker-team-names` | string | The coworker team names value for this cancelled booking |
+| `--coworker-coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--extra-service-id` | long | Optional ID of the booking rate used when the cancelled booking was priced. |
-| `--extra-service-name` | string | Extra service name |
+| `--extra-service-name` | string | Display value for ExtraService.Name. |
 | `--from-time` | DateTime | UTC date and time when the cancelled booking began. |
 | `--from-from-time` | range | |
 | `--to-from-time` | range | |
@@ -105,6 +105,7 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `--coworker-invoice-draft` | bool | Whether the invoice associated with the original booking is a draft. |
 | `--coworker-invoice-void` | bool | Whether the invoice associated with the original booking has been voided. |
 | `--coworker-invoice-credit-note` | bool | Whether the invoice associated with the original booking is a credit note. |
+| `--coworker-extra-service-currency-code` | string | Read-only system-calculated currency code for the customer rate entitlement used by the original booking. |
 | `--include-zoom-invite` | bool | Whether the original booking included a Zoom meeting invitation. |
 | `--checked-in-at` | DateTime | UTC date and time when the original booking was checked in through the booking workflow. |
 | `--from-checked-in-at` | range | |
@@ -142,6 +143,7 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking (before it was cancelled) |
 | `--from-coworker-checked-out-at` | range | |
 | `--to-coworker-checked-out-at` | range | |
+| `--booking-source` | enum | Read-only record of which channel created the booking before it was cancelled, such as the admin panel, Members Portal, public API, CLI, SDK, or an automation tile. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

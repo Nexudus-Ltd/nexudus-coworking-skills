@@ -27,19 +27,19 @@ Teams also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location this team belongs to |
-| `--business-name` | string | Business name |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | Required team name, unique within the location and limited to 254 characters |
 | `--description` | string | Optional internal description of the team |
 | `--tunnel-private-group-id` | string | Optional private network or VLAN group identifier used by supported access-control and WiFi integrations |
 | `--create-single-invoice-for-team` | bool | Whether the designated paying customer receives consolidated invoices for the other team members; requires a paying customer who belongs to the team |
 | `--use-special-prices` | bool | Whether members use the designated paying customer's special prices |
 | `--paying-member-id` | long | ID of the customer who pays for this team; required and must be a team member when consolidated invoices or credit pooling is enabled |
-| `--paying-member-full-name` | string | Paying member full name |
-| `--paying-member-coworker-type` | string | Paying member coworker type |
-| `--paying-member-billing-name` | string | Paying member billing name |
-| `--paying-member-company-name` | string | Paying member company name |
+| `--paying-member-full-name` | string | Display value for PayingMember.FullName. |
+| `--paying-member-coworker-type` | string | Display value for PayingMember.CoworkerType. |
+| `--paying-member-billing-name` | string | Display value for PayingMember.BillingName. |
+| `--paying-member-company-name` | string | Display value for PayingMember.CompanyName. |
 | `--default-member-tariff-id` | long | Optional ID of the plan proposed as the default for team members when a customer is added to the team by a team administrator. |
-| `--default-member-tariff-name` | string | Default member tariff name |
+| `--default-member-tariff-name` | string | Display value for DefaultMemberTariff.Name. |
 | `--max-team-member-count` | decimal | Optional maximum number of customers for this team |
 | `--from-max-team-member-count` | range | |
 | `--to-max-team-member-count` | range | |
@@ -120,11 +120,11 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--description` | string | Optional internal description of the team |
 | `--tunnel-private-group-id` | string | Optional private network or VLAN group identifier used by supported access-control and WiFi integrations |
 | `--team-members` | list, repeat flag | List of customer IDs belonging to this team; the paying customer must be included when consolidated invoices or credit pooling is enabled |
-| `--added-team-members` | list, repeat flag | The added team members value for this team |
-| `--removed-team-members` | list, repeat flag | The removed team members value for this team |
+| `--added-team-members` | list, repeat flag | IDs added to the TeamMembers relationship. |
+| `--removed-team-members` | list, repeat flag | IDs removed from the TeamMembers relationship. |
 | `--team-administrators` | list, repeat flag | List of customer IDs designated as team administrators |
-| `--added-team-administrators` | list, repeat flag | The added team administrators value for this team |
-| `--removed-team-administrators` | list, repeat flag | The removed team administrators value for this team |
+| `--added-team-administrators` | list, repeat flag | IDs added to the TeamAdministrators relationship. |
+| `--removed-team-administrators` | list, repeat flag | IDs removed from the TeamAdministrators relationship. |
 | `--create-single-invoice-for-team` | bool | Whether the designated paying customer receives consolidated invoices for the other team members; requires a paying customer who belongs to the team |
 | `--use-special-prices` | bool | Whether members use the designated paying customer's special prices |
 | `--paying-member-id` | long | ID of the customer who pays for this team; required and must be a team member when consolidated invoices or credit pooling is enabled |
@@ -166,8 +166,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--blogger` | string | Optional Blogger profile URL, limited to 254 characters |
 | `--disable-attendance-dashboard` | bool | Whether to hide this team's attendance dashboard from its customers |
 | `--extra-services` | list, repeat flag | List of booking rate IDs linked to this team |
-| `--added-extra-services` | list, repeat flag | The added extra services value for this team |
-| `--removed-extra-services` | list, repeat flag | The removed extra services value for this team |
+| `--added-extra-services` | list, repeat flag | IDs added to the ExtraServices relationship. |
+| `--removed-extra-services` | list, repeat flag | IDs removed from the ExtraServices relationship. |
 
 #### Team update options
 
@@ -178,11 +178,11 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--description` | string | Optional internal description of the team |
 | `--tunnel-private-group-id` | string | Optional private network or VLAN group identifier used by supported access-control and WiFi integrations |
 | `--team-members` | list, repeat flag | List of customer IDs belonging to this team; the paying customer must be included when consolidated invoices or credit pooling is enabled |
-| `--added-team-members` | list, repeat flag | The added team members value for this team |
-| `--removed-team-members` | list, repeat flag | The removed team members value for this team |
+| `--added-team-members` | list, repeat flag | IDs added to the TeamMembers relationship. |
+| `--removed-team-members` | list, repeat flag | IDs removed from the TeamMembers relationship. |
 | `--team-administrators` | list, repeat flag | List of customer IDs designated as team administrators |
-| `--added-team-administrators` | list, repeat flag | The added team administrators value for this team |
-| `--removed-team-administrators` | list, repeat flag | The removed team administrators value for this team |
+| `--added-team-administrators` | list, repeat flag | IDs added to the TeamAdministrators relationship. |
+| `--removed-team-administrators` | list, repeat flag | IDs removed from the TeamAdministrators relationship. |
 | `--create-single-invoice-for-team` | bool | Whether the designated paying customer receives consolidated invoices for the other team members; requires a paying customer who belongs to the team |
 | `--use-special-prices` | bool | Whether members use the designated paying customer's special prices |
 | `--paying-member-id` | long | ID of the customer who pays for this team; required and must be a team member when consolidated invoices or credit pooling is enabled |
@@ -224,8 +224,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--blogger` | string | Optional Blogger profile URL, limited to 254 characters |
 | `--disable-attendance-dashboard` | bool | Whether to hide this team's attendance dashboard from its customers |
 | `--extra-services` | list, repeat flag | List of booking rate IDs linked to this team |
-| `--added-extra-services` | list, repeat flag | The added extra services value for this team |
-| `--removed-extra-services` | list, repeat flag | The removed extra services value for this team |
+| `--added-extra-services` | list, repeat flag | IDs added to the ExtraServices relationship. |
+| `--removed-extra-services` | list, repeat flag | IDs removed from the ExtraServices relationship. |
 
 #### Team PII fields
 

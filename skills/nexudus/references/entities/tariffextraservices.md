@@ -25,12 +25,12 @@ TariffExtraServices support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--tariff-id` | long | ID of the plan linked to this record |
-| `--tariff-name` | string | Tariff name |
+| `--tariff-name` | string | Display value for Tariff.Name. |
 | `--extra-service-id` | long | ID of the time credit type linked to this record. An ExtraService with IsBookingCredit = true associated with the type of resources this time credit is valid for.  |
-| `--extra-service-name` | string | Extra service name |
-| `--extra-service-charge-period` | string | Extra service charge period |
-| `--extra-service-is-booking-credit` | bool | Whether extra service is booking credit |
-| `--extra-service-is-printing-credit` | bool | Whether extra service is printing credit |
+| `--extra-service-name` | string | Display value for ExtraService.Name. |
+| `--extra-service-charge-period` | string | Display value for ExtraService.ChargePeriod. |
+| `--extra-service-is-booking-credit` | bool | Display value for ExtraService.IsBookingCredit. |
+| `--extra-service-is-printing-credit` | bool | Display value for ExtraService.IsPrintingCredit. |
 | `--uses-included` | int | Number of uses included in the unit associated with the selected time credit type (ExtraService.ChargePeriod). ExtraServiceChargePeriod in this entity. Minutes = 1, Days = 2, Weeks = 3, Months = 4, Uses = 5, FourWeekMonths = 6 |
 | `--from-uses-included` | range | |
 | `--to-uses-included` | range | |

@@ -26,10 +26,10 @@ Resellers support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--name` | string | The name value for this reseller |
 | `--user-id` | long | ID of the user linked to this record |
-| `--user-full-name` | string | Display name of the linked user full (read-only) |
-| `--user-email` | string | The user email value for this reseller |
+| `--user-full-name` | string | Display value for User.FullName. |
+| `--user-email` | string | Display value for User.Email. |
 | `--currency-id` | long | ID of the currency linked to this record |
-| `--currency-code` | string | The currency code value for this reseller |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--agreed-terms-on` | DateTime | Date/time value for agreed terms on |
 | `--from-agreed-terms-on` | range | |
 | `--to-agreed-terms-on` | range | |

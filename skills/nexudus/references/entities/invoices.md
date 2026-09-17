@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Invoices -->
 
-An **Invoice** represents a bill issued by Nexudus to the operator (the business running the coworking space). Invoices are generated automatically by the billing engine or can be created manually via the API.
-
-Each invoice captures a snapshot of the billing details at issuance time — bill-to address, currency, tax amounts, and line items. Once issued, the invoice record is immutable with respect to these captured values; changes to the underlying financial accounts, products or customer details do not retroactively update existing invoices.
-
-Invoices support `list`, `get`, and `create` operations. They cannot be updated or deleted through the API.
+An Invoice is the PLATFORM bill Nexudus issues to the operator (the business running the coworking space) for their own Nexudus subscription and usage. It is NOT the invoice a location issues to its customers — those are CoworkerInvoice records, served by the coworker_invoice_* tools, and are what an operator means by 'invoice' unless they explicitly say otherwise. Select the invoice_* tools only when the request explicitly names the Nexudus subscription or platform bill (for example 'my Nexudus invoice', 'our subscription invoice', 'what Nexudus charges us'). A customer name, team name or bare invoice number is not such a signal, and the two entities share no records and no numbering sequence. Each platform invoice captures a snapshot of the billing details at issuance time — bill-to address, currency, tax amounts, and line items — and is immutable with respect to those values; later changes to financial accounts, products or operator details do not update existing invoices. Platform invoices support list, get, and create operations. They cannot be updated or deleted through the API.
 
 Invoices support Search, Get, Update (no Create or Delete via API).
 
@@ -36,7 +32,7 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 | `--bill-to-phone` | string | Billing phone number, captured at invoice time |
 | `--bill-to-fax` | string | Billing fax number, captured at invoice time |
 | `--bill-to-country-id` | long | ID of the bill to country linked to this record |
-| `--bill-to-country-name` | string | Display name of the billing country (read-only, resolved from BillToCountryId) |
+| `--bill-to-country-name` | string | Display value for BillToCountry.Name. |
 | `--description` | string | Free-text description or notes for this invoice |
 | `--discount-amount` | decimal | Total discount applied to the invoice, in the invoice currency |
 | `--from-discount-amount` | range | |
@@ -60,7 +56,7 @@ Invoices support Search, Get, Update (no Create or Delete via API).
 | `--from-total-amount` | range | |
 | `--to-total-amount` | range | |
 | `--currency-id` | long | ID of the currency linked to this record |
-| `--currency-code` | string | ISO 4217 currency code (e.g. USD, EUR), resolved from CurrencyId |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--tax-amount` | decimal | Total tax amount calculated for the invoice |
 | `--from-tax-amount` | range | |
 | `--to-tax-amount` | range | |

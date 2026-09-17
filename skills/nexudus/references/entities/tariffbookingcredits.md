@@ -26,8 +26,8 @@ TariffBookingCredits support Search, Get, Create, Update, Delete.
 | --- | --- | --- |
 | `--name` | string | Credit name |
 | `--tariff-id` | long | ID of the plan linked to this record |
-| `--tariff-name` | string | Tariff name |
-| `--tariff-business-currency-code` | string | Tariff business currency code |
+| `--tariff-name` | string | Display value for Tariff.Name. |
+| `--tariff-business-currency-code` | string | Display value for Tariff.Business.Currency.Code. |
 | `--credit` | decimal | Credit amount |
 | `--from-credit` | range | |
 | `--to-credit` | range | |
@@ -57,25 +57,25 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--name` | string, required | Credit name |
 | `--tariff-id` | long, required | ID of the plan linked to this record |
 | `--elegible-resource-types` | list, repeat flag | List of the IDs of the resource types this booking credit can be used for |
-| `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this tariff booking credit |
-| `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this tariff booking credit |
+| `--added-elegible-resource-types` | list, repeat flag | IDs added to the ElegibleResourceTypes relationship. |
+| `--removed-elegible-resource-types` | list, repeat flag | IDs removed from the ElegibleResourceTypes relationship. |
 | `--elegible-products` | list, repeat flag | List of the IDs of the products this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-elegible-products` | list, repeat flag | The added elegible products value for this tariff booking credit |
-| `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this tariff booking credit |
+| `--added-elegible-products` | list, repeat flag | IDs added to the ElegibleProducts relationship. |
+| `--removed-elegible-products` | list, repeat flag | IDs removed from the ElegibleProducts relationship. |
 | `--elegible-tariffs` | list, repeat flag | List of the IDs of the plans this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this tariff booking credit |
-| `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this tariff booking credit |
+| `--added-elegible-tariffs` | list, repeat flag | IDs added to the ElegibleTariffs relationship. |
+| `--removed-elegible-tariffs` | list, repeat flag | IDs removed from the ElegibleTariffs relationship. |
 | `--credit` | decimal, required | Credit amount |
 | `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types using elegible-resource-types |
 | `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with ElegibleResourceTypes |
 | `--event-categories` | list, repeat flag | List of the IDs of the event categories this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-event-categories` | list, repeat flag | The added event categories value for this tariff booking credit |
-| `--removed-event-categories` | list, repeat flag | The removed event categories value for this tariff booking credit |
+| `--added-event-categories` | list, repeat flag | IDs added to the EventCategories relationship. |
+| `--removed-event-categories` | list, repeat flag | IDs removed from the EventCategories relationship. |
 | `--service-renewal-time` | enum, required | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 | `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
 | `--elegible-passes` | list, repeat flag | List of the IDs of the passes this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this tariff booking credit |
-| `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this tariff booking credit |
+| `--added-elegible-passes` | list, repeat flag | IDs added to the ElegiblePasses relationship. |
+| `--removed-elegible-passes` | list, repeat flag | IDs removed from the ElegiblePasses relationship. |
 | `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 #### TariffBookingCredit update options
@@ -85,25 +85,25 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--name` | string | Credit name |
 | `--tariff-id` | long | ID of the plan linked to this record |
 | `--elegible-resource-types` | list, repeat flag | List of the IDs of the resource types this booking credit can be used for |
-| `--added-elegible-resource-types` | list, repeat flag | The added elegible resource types value for this tariff booking credit |
-| `--removed-elegible-resource-types` | list, repeat flag | The removed elegible resource types value for this tariff booking credit |
+| `--added-elegible-resource-types` | list, repeat flag | IDs added to the ElegibleResourceTypes relationship. |
+| `--removed-elegible-resource-types` | list, repeat flag | IDs removed from the ElegibleResourceTypes relationship. |
 | `--elegible-products` | list, repeat flag | List of the IDs of the products this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-elegible-products` | list, repeat flag | The added elegible products value for this tariff booking credit |
-| `--removed-elegible-products` | list, repeat flag | The removed elegible products value for this tariff booking credit |
+| `--added-elegible-products` | list, repeat flag | IDs added to the ElegibleProducts relationship. |
+| `--removed-elegible-products` | list, repeat flag | IDs removed from the ElegibleProducts relationship. |
 | `--elegible-tariffs` | list, repeat flag | List of the IDs of the plans this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-elegible-tariffs` | list, repeat flag | The added elegible tariffs value for this tariff booking credit |
-| `--removed-elegible-tariffs` | list, repeat flag | The removed elegible tariffs value for this tariff booking credit |
+| `--added-elegible-tariffs` | list, repeat flag | IDs added to the ElegibleTariffs relationship. |
+| `--removed-elegible-tariffs` | list, repeat flag | IDs removed from the ElegibleTariffs relationship. |
 | `--credit` | decimal | Credit amount |
 | `--can-be-used-for-bookings` | bool | Whether this credit can be used to pay for bookings. Restrict to specific resource types using elegible-resource-types |
 | `--can-be-used-for-events` | bool | Whether this credit can be used to pay for event sign-ups. Restrict to specific categories with ElegibleResourceTypes |
 | `--event-categories` | list, repeat flag | List of the IDs of the event categories this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-event-categories` | list, repeat flag | The added event categories value for this tariff booking credit |
-| `--removed-event-categories` | list, repeat flag | The removed event categories value for this tariff booking credit |
+| `--added-event-categories` | list, repeat flag | IDs added to the EventCategories relationship. |
+| `--removed-event-categories` | list, repeat flag | IDs removed from the EventCategories relationship. |
 | `--service-renewal-time` | enum | How often will this credit amount will expire and be issued again. Most common option is TariffMonth, which follows the plan renewal cycle. |
 | `--is-universal-credit` | bool | Whether this is a universal credit applicable to products, time passes and other charges. Restrict with ElegibleProducts, ElegiblePasses and AppliesToCharges; if all are empty the credit applies to all products, passes and charges |
 | `--elegible-passes` | list, repeat flag | List of the IDs of the passes this booking credit can be used for. Applies only when IsUniversalCredit is true. |
-| `--added-elegible-passes` | list, repeat flag | The added elegible passes value for this tariff booking credit |
-| `--removed-elegible-passes` | list, repeat flag | The removed elegible passes value for this tariff booking credit |
+| `--added-elegible-passes` | list, repeat flag | IDs added to the ElegiblePasses relationship. |
+| `--removed-elegible-passes` | list, repeat flag | IDs removed from the ElegiblePasses relationship. |
 | `--applies-to-charges` | bool | Whether this universal credit applies to other charges |
 
 ### TariffBookingCredit (key fields)

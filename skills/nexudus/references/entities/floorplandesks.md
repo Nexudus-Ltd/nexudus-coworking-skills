@@ -25,56 +25,56 @@ FloorPlanDesks support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--floor-plan-id` | long | ID of the required floor plan that owns this unit and determines its location |
-| `--floor-plan-name` | string | Floor plan name |
-| `--floor-plan-business-id` | int | ID of the location that owns the floor plan |
+| `--floor-plan-name` | string | Display value for FloorPlan.Name. |
+| `--floor-plan-business-id` | int | Display value for FloorPlan.Business.Id. |
 | `--from-floor-plan-business-id` | range | |
 | `--to-floor-plan-business-id` | range | |
-| `--floor-plan-business-currency-code` | string | Currency code of the location |
-| `--floor-plan-business-name` | string | Location name |
-| `--floor-plan-capacity` | int | Maximum capacity of the floor plan |
+| `--floor-plan-business-currency-code` | string | Display value for FloorPlan.Business.Currency.Code. |
+| `--floor-plan-business-name` | string | Display value for FloorPlan.Business.Name. |
+| `--floor-plan-capacity` | int | Display value for FloorPlan.Capacity. |
 | `--from-floor-plan-capacity` | range | |
 | `--to-floor-plan-capacity` | range | |
 | `--coworker-id` | long | ID of the optional customer occupying this unit; normally assign occupancy through a contract, and the customer cannot be changed while contracts are linked |
-| `--coworker-full-name` | string | Full name of the assigned customer |
-| `--coworker-company-name` | string | Company name of the assigned customer |
-| `--coworker-coworker-type` | enum | Record type of the assigned customer (Individual or Company) |
-| `--coworker-email` | string | Email address of the assigned customer |
-| `--coworker-team-names` | string | Names of the teams the assigned customer belongs to |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-coworker-type` | enum | Display value for Coworker.CoworkerType. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--sensor-id` | long | ID of the optional IoT sensor whose latest reading and occupancy action are reported for this unit |
-| `--sensor-name` | string | Sensor name |
-| `--sensor-unit` | string | Unit of measurement reported by the sensor (e.g. °C, ppm) |
-| `--sensor-sensor-type` | enum | Type of the linked sensor (e.g. PresenceDetection, PeopleCounter, Temperature) |
-| `--sensor-last-received-value` | string | Most recent raw value reported by the sensor |
-| `--sensor-last-value-triggered-action` | bool | Whether the last sensor reading triggered a configured automation action |
+| `--sensor-name` | string | Display value for Sensor.Name. |
+| `--sensor-unit` | string | Display value for Sensor.Unit. |
+| `--sensor-sensor-type` | enum | Display value for Sensor.SensorType. |
+| `--sensor-last-received-value` | string | Display value for Sensor.LastReceivedValue. |
+| `--sensor-last-value-triggered-action` | bool | Display value for Sensor.LastValueTriggeredAction. |
 | `--name` | string | Required, non-empty display name of the floor plan unit, such as 'Office 3' or 'Hot Desk 12' |
 | `--item-type` | enum | Type of unit: Office, DedicatedDesk, HotDesk, Other, or Room; AI private-office recommendations include only Office units |
 | `--resource-id` | long | ID of the optional bookable resource connected to this unit so customers can book it through a floor plan view |
-| `--resource-name` | string | Linked resource name |
-| `--resource-resource-type-name` | string | Resource type name of the linked resource |
-| `--resource-allocation` | int | Maximum simultaneous bookings allowed for the linked resource |
+| `--resource-name` | string | Display value for Resource.Name. |
+| `--resource-resource-type-name` | string | Display value for Resource.ResourceType.Name. |
+| `--resource-allocation` | int | Display value for Resource.Allocation. |
 | `--from-resource-allocation` | range | |
 | `--to-resource-allocation` | range | |
-| `--resource-projector` | bool | Whether the linked resource has a projector |
-| `--resource-internet` | bool | Whether the linked resource provides internet access |
-| `--resource-conference-phone` | bool | Whether the linked resource has a conference phone |
-| `--resource-standard-phone` | bool | Whether the linked resource has a standard phone |
-| `--resource-white-board` | bool | Whether the linked resource has a whiteboard |
-| `--resource-large-display` | bool | Whether the linked resource has a large display or TV screen |
-| `--resource-catering` | bool | Whether the linked resource offers catering services |
-| `--resource-tea-and-coffee` | bool | Whether the linked resource provides tea and coffee |
-| `--resource-drinks` | bool | Whether the linked resource provides drinks |
-| `--resource-security-lock` | bool | Whether the linked resource has a security lock |
-| `--resource-c-c-t-v` | bool | Whether the linked resource is covered by CCTV |
-| `--resource-voice-recorder` | bool | Whether the linked resource has a voice recorder |
-| `--resource-air-conditioning` | bool | Whether the linked resource has air conditioning |
-| `--resource-heating` | bool | Whether the linked resource has heating |
-| `--resource-natural-light` | bool | Whether the linked resource has natural light |
-| `--resource-standing-desk` | bool | Whether the linked resource has a standing desk |
-| `--resource-quiet-zone` | bool | Whether the linked resource is in a quiet zone |
-| `--resource-wireless-charger` | bool | Whether the linked resource has a wireless charger |
-| `--resource-privacy-screen` | bool | Whether the linked resource has a privacy screen |
-| `--resource-soundproof` | bool | Whether the linked resource is soundproofed |
-| `--resource-shifts` | string | Shift schedule defined on the linked resource |
+| `--resource-projector` | bool | Display value for Resource.Projector. |
+| `--resource-internet` | bool | Display value for Resource.Internet. |
+| `--resource-conference-phone` | bool | Display value for Resource.ConferencePhone. |
+| `--resource-standard-phone` | bool | Display value for Resource.StandardPhone. |
+| `--resource-white-board` | bool | Display value for Resource.WhiteBoard. |
+| `--resource-large-display` | bool | Display value for Resource.LargeDisplay. |
+| `--resource-catering` | bool | Display value for Resource.Catering. |
+| `--resource-tea-and-coffee` | bool | Display value for Resource.TeaAndCoffee. |
+| `--resource-drinks` | bool | Display value for Resource.Drinks. |
+| `--resource-security-lock` | bool | Display value for Resource.SecurityLock. |
+| `--resource-c-c-t-v` | bool | Display value for Resource.CCTV. |
+| `--resource-voice-recorder` | bool | Display value for Resource.VoiceRecorder. |
+| `--resource-air-conditioning` | bool | Display value for Resource.AirConditioning. |
+| `--resource-heating` | bool | Display value for Resource.Heating. |
+| `--resource-natural-light` | bool | Display value for Resource.NaturalLight. |
+| `--resource-standing-desk` | bool | Display value for Resource.StandingDesk. |
+| `--resource-quiet-zone` | bool | Display value for Resource.QuietZone. |
+| `--resource-wireless-charger` | bool | Display value for Resource.WirelessCharger. |
+| `--resource-privacy-screen` | bool | Display value for Resource.PrivacyScreen. |
+| `--resource-soundproof` | bool | Display value for Resource.Soundproof. |
+| `--resource-shifts` | string | Display value for Resource.Shifts. |
 | `--size` | decimal | Floor area stored in square metres; the Admin UI may display and convert it to square feet, and a linked layout area can overwrite it when SizeIsLinkedToArea is true |
 | `--from-size` | range | |
 | `--to-size` | range | |

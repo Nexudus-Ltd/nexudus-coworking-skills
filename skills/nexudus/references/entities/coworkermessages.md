@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerMessages -->
 
-A message sent to or received from a customer. These can be sent using the default email settings associated with the location or via any of the connected email accounts.
-
-Messages can be composed directly from a customer's record in the Admin Panel. Use `Incoming` to distinguish messages received from a customer from messages sent to them.
+A customer message (CoworkerMessage) records an incoming or outgoing email communication associated with a customer; operators can create outbound messages and inspect message history by customer or connected email account.
 
 CoworkerMessages support Search, Get (no Create or Delete via API).
 
@@ -23,24 +21,18 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | Customer sending or receiving the message |
-| `--coworker-full-name` | string | Customer full name |
-| `--coworker-email` | string | Customer email address |
-| `--coworker-billing-name` | string | Customer billing name |
-| `--coworker-company-name` | string | Customer company name |
-| `--email-account-id` | long | Email account used to send or receive the message. If not set, the default email settings configured for the location are used |
-| `--email-account-display-name` | string | Email account display name |
-| `--email-account-email-address` | string | Email account email address |
-| `--subject` | string | Message subject |
-| `--body` | string | Message body |
-| `--is-new-message` | bool | Whether the message has not been read yet |
-| `--incoming` | bool | Whether the message was received from the customer (true) or sent to the customer (false) |
-| `--message-id` | int | Automated message template that triggered this message, if sent by the system |
-| `--from-message-id` | range | |
-| `--to-message-id` | range | |
-| `--reminder-unique-id` | string | Unique identifier of the reminder that triggered this message, if any |
-| `--ai-channel-session-id` | long | ID of the AI channel session linked to this message. Sessions group all messages in a conversation and link it to a specific user and AI channel (e.g. email, chat, WhatsApp) |
-| `--rfc-message-id` | string | RFC 5322 Message-ID header value for email messages, used to track email threads and replies |
+| `--coworker-id` | long | ID of the customer who sent or received this message; location access is determined through the customer's InvoicingBusiness. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-email` | string | Display value for Coworker.Email. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--email-account-id` | long | ID of the optional connected email account used to send or receive this message; when omitted, the customer's location default email settings are used. |
+| `--email-account-display-name` | string | Display value for EmailAccount.DisplayName. |
+| `--email-account-email-address` | string | Display value for EmailAccount.EmailAddress. |
+| `--subject` | string | Message subject, limited to 254 characters. |
+| `--body` | string | HTML message body; canned-response tokens are expanded for the customer before an outgoing email is queued. |
+| `--is-new-message` | bool | Whether the message is unread; the system clears this flag when the message is updated. |
+| `--incoming` | bool | Whether the message was received from the customer (true) rather than sent to the customer (false); inbound messages are created by the email integration. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

@@ -35,17 +35,17 @@ ContractPausedPeriods support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-contract-id` | long | ID of the customer contract being frozen |
-| `--coworker-contract-quantity` | int | Quantity set on the frozen contract |
+| `--coworker-contract-quantity` | int | Display value for CoworkerContract.Quantity. |
 | `--from-coworker-contract-quantity` | range | |
 | `--to-coworker-contract-quantity` | range | |
-| `--coworker-contract-floor-plan-desk-ids` | string | Comma-separated IDs of the floor plan desks assigned to the frozen contract |
-| `--coworker-contract-floor-plan-desk-names` | string | Comma-separated names of the floor plan desks assigned to the frozen contract |
-| `--coworker-contract-tariff-name` | string | Name of the pricing plan (tariff) the frozen contract is for |
-| `--coworker-contract-coworker-id` | int | ID of the customer holding the frozen contract |
+| `--coworker-contract-floor-plan-desk-ids` | string | Display value for CoworkerContract.FloorPlanDeskIds. |
+| `--coworker-contract-floor-plan-desk-names` | string | Display value for CoworkerContract.FloorPlanDeskNames. |
+| `--coworker-contract-tariff-name` | string | Display value for CoworkerContract.Tariff.Name. |
+| `--coworker-contract-coworker-id` | int | Display value for CoworkerContract.Coworker.Id. |
 | `--from-coworker-contract-coworker-id` | range | |
 | `--to-coworker-contract-coworker-id` | range | |
-| `--coworker-contract-coworker-full-name` | string | Full name of the customer holding the frozen contract |
-| `--coworker-contract-coworker-billing-name` | string | Billing name of the customer holding the frozen contract |
+| `--coworker-contract-coworker-full-name` | string | Display value for CoworkerContract.Coworker.FullName. |
+| `--coworker-contract-coworker-billing-name` | string | Display value for CoworkerContract.Coworker.BillingName. |
 | `--notes` | string | Optional notes or reason for this freeze period |
 | `--pause-from` | DateTime | UTC date when the freeze starts. Always falls on the first day of a billing cycle |
 | `--from-pause-from` | range | |

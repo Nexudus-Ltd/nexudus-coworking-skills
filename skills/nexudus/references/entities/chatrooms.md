@@ -53,8 +53,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--active` | bool | Whether this chat room is currently active |
 | `--last-agent-visit` | DateTime | Date/time value for last agent visit |
 | `--users` | list, repeat flag | List of users linked to this record |
-| `--added-users` | list, repeat flag | The added users value for this chat room |
-| `--removed-users` | list, repeat flag | The removed users value for this chat room |
+| `--added-users` | list, repeat flag | IDs added to the Users relationship. |
+| `--removed-users` | list, repeat flag | IDs removed from the Users relationship. |
 
 #### ChatRoom update options
 
@@ -65,8 +65,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--active` | bool | Whether this chat room is currently active |
 | `--last-agent-visit` | DateTime | Date/time value for last agent visit |
 | `--users` | list, repeat flag | List of users linked to this record |
-| `--added-users` | list, repeat flag | The added users value for this chat room |
-| `--removed-users` | list, repeat flag | The removed users value for this chat room |
+| `--added-users` | list, repeat flag | IDs added to the Users relationship. |
+| `--removed-users` | list, repeat flag | IDs removed from the Users relationship. |
 
 **List properties (only returned by `get`, not by `list`):** `Users`, `AddedUsers`, `RemovedUsers`
 

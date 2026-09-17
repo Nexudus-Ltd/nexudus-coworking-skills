@@ -29,11 +29,11 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-lesson-id` | long | ID of the course lesson that was completed |
-| `--course-lesson-title` | string | Title of the completed lesson |
+| `--course-lesson-title` | string | Display value for CourseLesson.Title. |
 | `--course-member-id` | long | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
-| `--course-member-coworker-full-name` | string | Full name of the member who completed the lesson |
-| `--course-member-coworker-company-name` | string | Company name of the member who completed the lesson |
-| `--course-member-coworker-team-names` | string | Comma-separated list of teams the member belongs to |
+| `--course-member-coworker-full-name` | string | Display value for CourseMember.Coworker.FullName. |
+| `--course-member-coworker-company-name` | string | Display value for CourseMember.Coworker.CompanyName. |
+| `--course-member-coworker-team-names` | string | Display value for CourseMember.Coworker.TeamNames. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

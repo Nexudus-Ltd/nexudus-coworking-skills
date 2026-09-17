@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=ProposalProducts -->
 
-A **ProposalProduct** links a product to a proposal, defining additional items or services included in the offer with their pricing and recurrence settings.
+A ProposalProduct is one extra item quoted alongside the plan in a proposal: an add-on product, a plan component, or a refundable deposit. IsDeposit and IsContractProduct decide what happens on acceptance - a deposit attaches to the first contract and switches on its sign-up fee, a contract product attaches to every contract in the proposal, and anything else becomes a standalone product on the customer's account.
 
 ProposalProducts support Search, Get, Create, Update, Delete.
 
@@ -24,43 +24,43 @@ ProposalProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long | ID of the proposal linked to this record |
-| `--proposal-coworker-id` | int | Proposal coworker ID |
+| `--proposal-id` | long | ID of the proposal this line belongs to; required, and the proposal's issuing location owns this record. |
+| `--proposal-coworker-id` | int | Display value for Proposal.Coworker.Id. |
 | `--from-proposal-coworker-id` | range | |
 | `--to-proposal-coworker-id` | range | |
-| `--proposal-coworker-email` | string | Proposal coworker email |
-| `--proposal-coworker-full-name` | string | Proposal coworker full name |
-| `--product-id` | long | ID of the product linked to this record |
-| `--product-name` | string | Product name |
-| `--product-price` | decimal | Product price |
+| `--proposal-coworker-email` | string | Display value for Proposal.Coworker.Email. |
+| `--proposal-coworker-full-name` | string | Display value for Proposal.Coworker.FullName. |
+| `--product-id` | long | ID of the product quoted on this line; required, and it must belong to a location the user can access. |
+| `--product-name` | string | Display value for Product.Name. |
+| `--product-price` | decimal | Display value for Product.Price. |
 | `--from-product-price` | range | |
 | `--to-product-price` | range | |
-| `--product-apply-pro-rating` | bool | Whether product applies pro-rating |
-| `--product-business-currency-code` | string | Product business currency code |
-| `--quantity` | int | Number of units |
+| `--product-apply-pro-rating` | bool | Display value for Product.ApplyProRating. |
+| `--product-business-currency-code` | string | Display value for Product.Business.Currency.Code. |
+| `--quantity` | int | Number of units of the product quoted, at least 1; it multiplies the unit price in every proposal total. |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--price` | decimal | Price override |
+| `--price` | decimal | Optional per-unit price override in the location's currency; when empty the product's own price is used. |
 | `--from-price` | range | |
 | `--to-price` | range | |
-| `--is-deposit` | bool | Whether this is a deposit |
-| `--is-contract-product` | bool | Whether this is a contract product |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--repeat-cycle` | enum | Repeat cycle pattern |
-| `--invoice-on` | DateTime | Invoice on date |
+| `--is-deposit` | bool | Whether this line is a refundable deposit. On acceptance a deposit is attached to the first contract only and switches on that contract's sign-up fee, and it counts towards the one-off sign-up total rather than the recurring total. |
+| `--is-contract-product` | bool | Whether this line is attached to the contracts rather than sold on its own. On acceptance a contract product is added to every contract in the proposal; when this and IsDeposit are both false, the line becomes a standalone product on the customer's account. |
+| `--regular-charge` | bool | Whether the product recurs with the customer's billing instead of being charged once; it also decides whether the line counts towards the proposal's recurring total or its one-off sign-up total. |
+| `--repeat-cycle` | enum | Recurrence interval used when RegularCharge is true: PricePlan follows the contract's own billing cycle, Day, Week, Month and Year repeat every RepeatUnit of that period, and LastDayOfMonth charges on the final day of each month. |
+| `--invoice-on` | DateTime | Optional UTC date from which this product starts being invoiced; a recurring line whose invoice date falls after a contract's start date is left out of that contract's totals. |
 | `--from-invoice-on` | range | |
 | `--to-invoice-on` | range | |
-| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-from` | DateTime | Optional UTC date on which the recurrence begins; it is carried onto the customer product or contract product created on acceptance. |
 | `--from-repeat-from` | range | |
 | `--to-repeat-from` | range | |
-| `--repeat-until` | DateTime | Repeat until date |
+| `--repeat-until` | DateTime | Optional UTC date after which the product stops recurring; a recurring line that has already ended is left out of the proposal totals. |
 | `--from-repeat-until` | range | |
 | `--to-repeat-until` | range | |
-| `--repeat-unit` | int | Number of repeat units |
+| `--repeat-unit` | int | Number of RepeatCycle periods between charges; 3 with a Month cycle bills quarterly. Acceptance falls back to 1 when it is empty. |
 | `--from-repeat-unit` | range | |
 | `--to-repeat-unit` | range | |
-| `--apply-pro-rating` | bool | Apply pro-rating |
-| `--notes` | string | Optional notes or comments about this proposal product |
+| `--apply-pro-rating` | bool | Whether the product's first charge is prorated for a partial billing period. |
+| `--notes` | string | Free-text note carried onto the product created for the customer when the proposal is accepted. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -79,39 +79,39 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long, required | ID of the proposal linked to this record |
-| `--product-id` | long, required | ID of the product linked to this record |
-| `--quantity` | int, required | Number of units |
-| `--price` | decimal | Price override |
-| `--is-deposit` | bool | Whether this is a deposit |
-| `--is-contract-product` | bool | Whether this is a contract product |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--repeat-cycle` | enum, required | Repeat cycle pattern |
-| `--invoice-on` | DateTime | Invoice on date |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
-| `--repeat-unit` | int | Number of repeat units |
-| `--apply-pro-rating` | bool | Apply pro-rating |
-| `--notes` | string | Optional notes or comments about this proposal product |
+| `--proposal-id` | long, required | ID of the proposal this line belongs to; required, and the proposal's issuing location owns this record. |
+| `--product-id` | long, required | ID of the product quoted on this line; required, and it must belong to a location the user can access. |
+| `--quantity` | int, required | Number of units of the product quoted, at least 1; it multiplies the unit price in every proposal total. |
+| `--price` | decimal | Optional per-unit price override in the location's currency; when empty the product's own price is used. |
+| `--is-deposit` | bool | Whether this line is a refundable deposit. On acceptance a deposit is attached to the first contract only and switches on that contract's sign-up fee, and it counts towards the one-off sign-up total rather than the recurring total. |
+| `--is-contract-product` | bool | Whether this line is attached to the contracts rather than sold on its own. On acceptance a contract product is added to every contract in the proposal; when this and IsDeposit are both false, the line becomes a standalone product on the customer's account. |
+| `--regular-charge` | bool | Whether the product recurs with the customer's billing instead of being charged once; it also decides whether the line counts towards the proposal's recurring total or its one-off sign-up total. |
+| `--repeat-cycle` | enum, required | Recurrence interval used when RegularCharge is true: PricePlan follows the contract's own billing cycle, Day, Week, Month and Year repeat every RepeatUnit of that period, and LastDayOfMonth charges on the final day of each month. |
+| `--invoice-on` | DateTime | Optional UTC date from which this product starts being invoiced; a recurring line whose invoice date falls after a contract's start date is left out of that contract's totals. |
+| `--repeat-from` | DateTime | Optional UTC date on which the recurrence begins; it is carried onto the customer product or contract product created on acceptance. |
+| `--repeat-until` | DateTime | Optional UTC date after which the product stops recurring; a recurring line that has already ended is left out of the proposal totals. |
+| `--repeat-unit` | int | Number of RepeatCycle periods between charges; 3 with a Month cycle bills quarterly. Acceptance falls back to 1 when it is empty. |
+| `--apply-pro-rating` | bool | Whether the product's first charge is prorated for a partial billing period. |
+| `--notes` | string | Free-text note carried onto the product created for the customer when the proposal is accepted. |
 
 #### ProposalProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--proposal-id` | long | ID of the proposal linked to this record |
-| `--product-id` | long | ID of the product linked to this record |
-| `--quantity` | int | Number of units |
-| `--price` | decimal | Price override |
-| `--is-deposit` | bool | Whether this is a deposit |
-| `--is-contract-product` | bool | Whether this is a contract product |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--repeat-cycle` | enum | Repeat cycle pattern |
-| `--invoice-on` | DateTime | Invoice on date |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
-| `--repeat-unit` | int | Number of repeat units |
-| `--apply-pro-rating` | bool | Apply pro-rating |
-| `--notes` | string | Optional notes or comments about this proposal product |
+| `--proposal-id` | long | ID of the proposal this line belongs to; required, and the proposal's issuing location owns this record. |
+| `--product-id` | long | ID of the product quoted on this line; required, and it must belong to a location the user can access. |
+| `--quantity` | int | Number of units of the product quoted, at least 1; it multiplies the unit price in every proposal total. |
+| `--price` | decimal | Optional per-unit price override in the location's currency; when empty the product's own price is used. |
+| `--is-deposit` | bool | Whether this line is a refundable deposit. On acceptance a deposit is attached to the first contract only and switches on that contract's sign-up fee, and it counts towards the one-off sign-up total rather than the recurring total. |
+| `--is-contract-product` | bool | Whether this line is attached to the contracts rather than sold on its own. On acceptance a contract product is added to every contract in the proposal; when this and IsDeposit are both false, the line becomes a standalone product on the customer's account. |
+| `--regular-charge` | bool | Whether the product recurs with the customer's billing instead of being charged once; it also decides whether the line counts towards the proposal's recurring total or its one-off sign-up total. |
+| `--repeat-cycle` | enum | Recurrence interval used when RegularCharge is true: PricePlan follows the contract's own billing cycle, Day, Week, Month and Year repeat every RepeatUnit of that period, and LastDayOfMonth charges on the final day of each month. |
+| `--invoice-on` | DateTime | Optional UTC date from which this product starts being invoiced; a recurring line whose invoice date falls after a contract's start date is left out of that contract's totals. |
+| `--repeat-from` | DateTime | Optional UTC date on which the recurrence begins; it is carried onto the customer product or contract product created on acceptance. |
+| `--repeat-until` | DateTime | Optional UTC date after which the product stops recurring; a recurring line that has already ended is left out of the proposal totals. |
+| `--repeat-unit` | int | Number of RepeatCycle periods between charges; 3 with a Month cycle bills quarterly. Acceptance falls back to 1 when it is empty. |
+| `--apply-pro-rating` | bool | Whether the product's first charge is prorated for a partial billing period. |
+| `--notes` | string | Free-text note carried onto the product created for the customer when the proposal is accepted. |
 
 #### ProposalProduct PII fields
 

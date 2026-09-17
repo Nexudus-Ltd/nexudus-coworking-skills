@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=TariffProducts -->
 
-A **TariffProduct** links a product to a pricing plan (tariff), making the product automatically included or available as part of that plan's offering.
+A plan component (internally TariffProduct) adds one product to a plan (internally tariff) so that the product is charged on every invoice raised for contracts on that plan, and its price is added to the plan's total price. Use it for recurring add-ons such as mail handling, lockers or parking; one-off sign-up charges use sign-up products (TariffSignupProduct) instead.
 
 TariffProducts support Search, Get, Create, Update, Delete.
 
@@ -24,14 +24,15 @@ TariffProducts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--tariff-name` | string | Tariff name |
-| `--product-id` | long | ID of the product linked to this record |
-| `--product-name` | string | Product name |
-| `--product-price` | decimal | Product price |
+| `--tariff-id` | long | ID of the plan this component belongs to; required, and every contract on that plan is then charged for the component's product. |
+| `--tariff-name` | string | Display value for Tariff.Name. |
+| `--tariff-transfer-products-to-contract` | bool | Display value for Tariff.TransferProductsToContract. |
+| `--product-id` | long | ID of the product charged as the plan component; required, and the product's own current price is what gets invoiced, so reuse an existing product instead of creating a duplicate. |
+| `--product-name` | string | Display value for Product.Name. |
+| `--product-price` | decimal | Display value for Product.Price. |
 | `--from-product-price` | range | |
 | `--to-product-price` | range | |
-| `--product-business-currency-code` | string | Product business currency code |
+| `--product-business-currency-code` | string | Display value for Product.Business.Currency.Code. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -50,15 +51,15 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long, required | ID of the tariff linked to this record |
-| `--product-id` | long, required | ID of the product linked to this record |
+| `--tariff-id` | long, required | ID of the plan this component belongs to; required, and every contract on that plan is then charged for the component's product. |
+| `--product-id` | long, required | ID of the product charged as the plan component; required, and the product's own current price is what gets invoiced, so reuse an existing product instead of creating a duplicate. |
 
 #### TariffProduct update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--tariff-id` | long | ID of the tariff linked to this record |
-| `--product-id` | long | ID of the product linked to this record |
+| `--tariff-id` | long | ID of the plan this component belongs to; required, and every contract on that plan is then charged for the component's product. |
+| `--product-id` | long | ID of the product charged as the plan component; required, and the product's own current price is what gets invoiced, so reuse an existing product instead of creating a duplicate. |
 
 ### TariffProduct (key fields)
 

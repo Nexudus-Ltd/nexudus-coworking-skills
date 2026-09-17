@@ -30,7 +30,7 @@ ExtraServices also support entity commands.
 | `--name` | string | Resource rate name |
 | `--description` | string | Optional description of this resource rate |
 | `--invoice-display` | string | Custom text shown on invoice lines instead of the resource rate name |
-| `--visible` | bool | Whether this resource rate is active and available for resource pricing. Not currently used. |
+| `--visible` | bool | Whether this resource rate is listed on the website. Not currently used. |
 | `--display-order` | int | Sort position of this resource rate; lower values appear first |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
@@ -47,13 +47,13 @@ ExtraServices also support entity commands.
 | `--default-price` | bool | Whether this rate is preferred when multiple valid rates match the same resource and charge period |
 | `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
 | `--currency-id` | long | ID of the currency used for prices charged by this resource rate |
-| `--currency-code` | string | Currency code |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
-| `--tax-rate-name` | string |  |
+| `--tax-rate-name` | string | Display value for TaxRate.Name. |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
 | `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
 | `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
-| `--financial-account-name` | string |  |
+| `--financial-account-name` | string | Display value for FinancialAccount.Name. |
 | `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--from-min-length` | range | |
 | `--to-min-length` | range | |
@@ -116,11 +116,11 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--name` | string, required | Resource rate name |
 | `--description` | string | Optional description of this resource rate |
 | `--invoice-display` | string | Custom text shown on invoice lines instead of the resource rate name |
-| `--visible` | bool | Whether this resource rate is active and available for resource pricing. Not currently used. |
+| `--visible` | bool | Whether this resource rate is listed on the website. Not currently used. |
 | `--display-order` | int, required | Sort position of this resource rate; lower values appear first |
 | `--resource-types` | list, repeat flag | List of resource types priced by this rate. At least one resource type is required |
-| `--added-resource-types` | list, repeat flag | The added resource types value for this extra service |
-| `--removed-resource-types` | list, repeat flag | The removed resource types value for this extra service |
+| `--added-resource-types` | list, repeat flag | IDs added to the ResourceTypes relationship. |
+| `--removed-resource-types` | list, repeat flag | IDs removed from the ResourceTypes relationship. |
 | `--price` | decimal, required | Base price in the selected currency per charge period; minute-based rates are prorated as an hourly price |
 | `--credit-price` | decimal | Optional alternative price used when the customer pays using time credit; null uses the base price |
 | `--charge-period` | enum, required | Unit used to calculate the booking cost: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths |
@@ -137,8 +137,8 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
 | `--fixed-cost-price` | decimal | Fixed amount charged for the initial FixedCostLength minutes; requires FixedCostLength |
 | `--tariffs` | list, repeat flag | List of plans whose active members can use this rate; empty means no plan restriction |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this extra service |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this extra service |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--only-for-contacts` | bool | Whether this rate is restricted to contacts without an active contract; cannot be true together with OnlyForMembers |
 | `--only-for-members` | bool | Whether this rate is restricted to customers with an active contract; cannot be true together with OnlyForContacts |
 | `--booking-credit` | bool | Whether this record defines a time credit type rather than a chargeable resource rate |
@@ -153,8 +153,8 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--apply-from` | DateTime | Optional date and time from which this rate is valid, inclusive |
 | `--apply-to` | DateTime | Optional date and time until which this rate is valid, exclusive |
 | `--teams` | list, repeat flag | List of teams whose customers can use this rate; empty means no team restriction |
-| `--added-teams` | list, repeat flag | The added teams value for this extra service |
-| `--removed-teams` | list, repeat flag | The removed teams value for this extra service |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 #### ExtraService update options
@@ -165,11 +165,11 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--name` | string | Resource rate name |
 | `--description` | string | Optional description of this resource rate |
 | `--invoice-display` | string | Custom text shown on invoice lines instead of the resource rate name |
-| `--visible` | bool | Whether this resource rate is active and available for resource pricing. Not currently used. |
+| `--visible` | bool | Whether this resource rate is listed on the website. Not currently used. |
 | `--display-order` | int | Sort position of this resource rate; lower values appear first |
 | `--resource-types` | list, repeat flag | List of resource types priced by this rate. At least one resource type is required |
-| `--added-resource-types` | list, repeat flag | The added resource types value for this extra service |
-| `--removed-resource-types` | list, repeat flag | The removed resource types value for this extra service |
+| `--added-resource-types` | list, repeat flag | IDs added to the ResourceTypes relationship. |
+| `--removed-resource-types` | list, repeat flag | IDs removed from the ResourceTypes relationship. |
 | `--price` | decimal | Base price in the selected currency per charge period; minute-based rates are prorated as an hourly price |
 | `--credit-price` | decimal | Optional alternative price used when the customer pays using time credit; null uses the base price |
 | `--charge-period` | enum | Unit used to calculate the booking cost: Minutes, Days, Weeks, Months, Uses, or FourWeekMonths |
@@ -186,8 +186,8 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
 | `--fixed-cost-price` | decimal | Fixed amount charged for the initial FixedCostLength minutes; requires FixedCostLength |
 | `--tariffs` | list, repeat flag | List of plans whose active members can use this rate; empty means no plan restriction |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this extra service |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this extra service |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--only-for-contacts` | bool | Whether this rate is restricted to contacts without an active contract; cannot be true together with OnlyForMembers |
 | `--only-for-members` | bool | Whether this rate is restricted to customers with an active contract; cannot be true together with OnlyForContacts |
 | `--booking-credit` | bool | Whether this record defines a time credit type rather than a chargeable resource rate |
@@ -202,8 +202,8 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--apply-from` | DateTime | Optional date and time from which this rate is valid, inclusive |
 | `--apply-to` | DateTime | Optional date and time until which this rate is valid, exclusive |
 | `--teams` | list, repeat flag | List of teams whose customers can use this rate; empty means no team restriction |
-| `--added-teams` | list, repeat flag | The added teams value for this extra service |
-| `--removed-teams` | list, repeat flag | The removed teams value for this extra service |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--time-slots` | JSON array or @filepath | The days and times this extra service price is available for booking. The year, month and day component of FromTime/ToTime is always 1976-01-01. |
 
 ### ExtraService (key fields)

@@ -29,9 +29,9 @@ ExtraServicePrices support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--extra-service-id` | long | ID of the extra service linked to this record |
-| `--extra-service-name` | string | Name of the linked extra service |
+| `--extra-service-name` | string | Display value for ExtraService.Name. |
 | `--tariff-id` | long | ID of the tariff linked to this record |
-| `--tariff-name` | string | Name of the linked tariff |
+| `--tariff-name` | string | Display value for Tariff.Name. |
 | `--price` | decimal | Overriding price charged to members on the specified tariff |
 | `--from-price` | range | |
 | `--to-price` | range | |

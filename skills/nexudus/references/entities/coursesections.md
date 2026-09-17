@@ -35,7 +35,7 @@ CourseSections support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--course-id` | long | ID of the course this section belongs to |
-| `--course-title` | string | Title of the parent course |
+| `--course-title` | string | Display value for Course.Title. |
 | `--title` | string | Section title displayed to members |
 | `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
 | `--active` | bool | Whether the section is active and visible to enrolled members |

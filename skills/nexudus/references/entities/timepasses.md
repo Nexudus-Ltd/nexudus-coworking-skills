@@ -27,7 +27,7 @@ TimePasses also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location that owns this pass and supplies its default location scope and local check-in schedule. |
-| `--business-name` | string | Business name |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | Required pass name, up to 254 characters; this is the customer-facing name used to identify the pass. |
 | `--invoice-display` | string | Optional custom text shown on invoice lines instead of the pass name. |
 | `--price` | decimal | Base amount charged in the selected currency; the lowest matching plan-specific special price overrides this amount for eligible members. |
@@ -43,13 +43,13 @@ TimePasses also support entity commands.
 | `--from-use-priority` | range | |
 | `--to-use-priority` | range | |
 | `--currency-id` | long | ID of the ISO 4217 currency used for the pass price and plan-specific special prices. |
-| `--currency-code` | string | Currency code |
+| `--currency-code` | string | Display value for Currency.Code. |
 | `--tax-rate-id` | long | Optional ID of the standard tax rate applied when this pass is invoiced. |
-| `--tax-rate-name` | string |  |
+| `--tax-rate-name` | string | Display value for TaxRate.Name. |
 | `--reduced-tax-rate-id` | long | Optional ID of the reduced tax rate applied when the customer qualifies for reduced taxation. |
 | `--exempt-tax-rate-id` | long | Optional ID of the tax rate applied when the customer is tax exempt. |
 | `--financial-account-id` | long | Optional ID of the financial account used to record pass revenue. |
-| `--financial-account-name` | string |  |
+| `--financial-account-name` | string | Display value for FinancialAccount.Name. |
 | `--kisi-group-id` | string | Optional external Kisi access-control group ID assigned to customers using this pass. |
 | `--door-guard-group-id` | string | Optional external DoorGuard access-control group ID assigned to customers using this pass. |
 | `--allow-network-checkin` | bool | Whether a customer holding this pass can check in to the location's connected IT network. |
@@ -89,16 +89,16 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--exempt-tax-rate-id` | long | Optional ID of the tax rate applied when the customer is tax exempt. |
 | `--financial-account-id` | long | Optional ID of the financial account used to record pass revenue. |
 | `--businesses` | list, repeat flag | List of locations where this pass can be used; when empty, it is valid at the owning location and its child locations, while a non-empty list restricts use to those locations. |
-| `--added-businesses` | list, repeat flag | The added businesses value for this time pass |
-| `--removed-businesses` | list, repeat flag | The removed businesses value for this time pass |
+| `--added-businesses` | list, repeat flag | IDs added to the Businesses relationship. |
+| `--removed-businesses` | list, repeat flag | IDs removed from the Businesses relationship. |
 | `--kisi-group-id` | string | Optional external Kisi access-control group ID assigned to customers using this pass. |
 | `--door-guard-group-id` | string | Optional external DoorGuard access-control group ID assigned to customers using this pass. |
 | `--allow-network-checkin` | bool | Whether a customer holding this pass can check in to the location's connected IT network. |
 | `--only-for-contacts` | bool | Whether this pass is restricted to contacts without an active contract; do not combine with OnlyForMembers. |
 | `--only-for-members` | bool | Whether this pass is restricted to members with an active contract; when Tariffs is non-empty, the member must have an active contract on one of those plans, and this must not be combined with OnlyForContacts. |
 | `--tariffs` | list, repeat flag | List of plans whose active members can use this pass when OnlyForMembers is true; an empty list allows members on any plan. |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this time pass |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this time pass |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--archived` | bool | Whether this pass is archived and should no longer appear in active pass lists. |
 
 #### TimePass update options
@@ -120,16 +120,16 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--exempt-tax-rate-id` | long | Optional ID of the tax rate applied when the customer is tax exempt. |
 | `--financial-account-id` | long | Optional ID of the financial account used to record pass revenue. |
 | `--businesses` | list, repeat flag | List of locations where this pass can be used; when empty, it is valid at the owning location and its child locations, while a non-empty list restricts use to those locations. |
-| `--added-businesses` | list, repeat flag | The added businesses value for this time pass |
-| `--removed-businesses` | list, repeat flag | The removed businesses value for this time pass |
+| `--added-businesses` | list, repeat flag | IDs added to the Businesses relationship. |
+| `--removed-businesses` | list, repeat flag | IDs removed from the Businesses relationship. |
 | `--kisi-group-id` | string | Optional external Kisi access-control group ID assigned to customers using this pass. |
 | `--door-guard-group-id` | string | Optional external DoorGuard access-control group ID assigned to customers using this pass. |
 | `--allow-network-checkin` | bool | Whether a customer holding this pass can check in to the location's connected IT network. |
 | `--only-for-contacts` | bool | Whether this pass is restricted to contacts without an active contract; do not combine with OnlyForMembers. |
 | `--only-for-members` | bool | Whether this pass is restricted to members with an active contract; when Tariffs is non-empty, the member must have an active contract on one of those plans, and this must not be combined with OnlyForContacts. |
 | `--tariffs` | list, repeat flag | List of plans whose active members can use this pass when OnlyForMembers is true; an empty list allows members on any plan. |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this time pass |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this time pass |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--archived` | bool | Whether this pass is archived and should no longer appear in active pass lists. |
 
 ### TimePass (key fields)

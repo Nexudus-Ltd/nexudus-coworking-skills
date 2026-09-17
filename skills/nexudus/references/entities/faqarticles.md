@@ -78,14 +78,14 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--only-for-contacts` | bool | Whether the article is restricted to contacts, meaning customers without an active contract; this restriction is cumulative with all other audience restrictions. |
 | `--only-for-members` | bool | Whether the article is restricted to members, meaning customers with an active contract; this restriction is cumulative with all other audience restrictions. |
 | `--tariffs` | list, repeat flag | List of plan IDs whose active members may view this article; an empty list does not restrict access, and this restriction is cumulative with the other audience restrictions. |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--members` | list, repeat flag | List of customer IDs who may view this article; an empty list does not restrict access, and this restriction is cumulative with the other audience restrictions. |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 | `--teams` | list, repeat flag | List of team IDs whose customers may view this article; an empty list does not restrict access, and this restriction is cumulative with the other audience restrictions. |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 
 #### FaqArticle update options
 
@@ -106,14 +106,14 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--only-for-contacts` | bool | Whether the article is restricted to contacts, meaning customers without an active contract; this restriction is cumulative with all other audience restrictions. |
 | `--only-for-members` | bool | Whether the article is restricted to members, meaning customers with an active contract; this restriction is cumulative with all other audience restrictions. |
 | `--tariffs` | list, repeat flag | List of plan IDs whose active members may view this article; an empty list does not restrict access, and this restriction is cumulative with the other audience restrictions. |
-| `--added-tariffs` | list, repeat flag |  |
-| `--removed-tariffs` | list, repeat flag |  |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--members` | list, repeat flag | List of customer IDs who may view this article; an empty list does not restrict access, and this restriction is cumulative with the other audience restrictions. |
-| `--added-members` | list, repeat flag |  |
-| `--removed-members` | list, repeat flag |  |
+| `--added-members` | list, repeat flag | IDs added to the Members relationship. |
+| `--removed-members` | list, repeat flag | IDs removed from the Members relationship. |
 | `--teams` | list, repeat flag | List of team IDs whose customers may view this article; an empty list does not restrict access, and this restriction is cumulative with the other audience restrictions. |
-| `--added-teams` | list, repeat flag |  |
-| `--removed-teams` | list, repeat flag |  |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 
 #### FaqArticle PII fields
 

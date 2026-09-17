@@ -25,8 +25,8 @@ FloorPlanLayouts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Display name of the linked business (read-only) |
-| `--business-currency-code` | string | The business currency code value for this floor plan layout |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-currency-code` | string | Display value for Business.Currency.Code. |
 | `--name` | string | The name value for this floor plan layout |
 | `--background-image-file-name` | string | Current file name of the background image (read-only; upload via the corresponding URL field) |
 | `--new-background-image-url` | string | URL of a new file to upload as the background image |

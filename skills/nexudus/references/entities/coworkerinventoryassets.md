@@ -27,19 +27,19 @@ CoworkerInventoryAssets also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer receiving the equipment item; the customer must be accessible to the current user. |
-| `--coworker-type` | string | Type of the linked coworker (e.g. Member, Team Member) |
-| `--coworker-full-name` | string | Full name of the linked coworker |
-| `--coworker-billing-name` | string | Billing name of the linked coworker |
-| `--coworker-company-name` | string | Company name of the linked coworker |
-| `--coworker-team-names` | string | Comma-separated team names the linked coworker belongs to |
+| `--coworker-type` | string | Display value for Coworker.CoworkerType. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
+| `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
+| `--coworker-company-name` | string | Display value for Coworker.CompanyName. |
+| `--coworker-team-names` | string | Display value for Coworker.TeamNames. |
 | `--business-id` | long | ID of the location where this customer equipment assignment applies. |
 | `--inventory-asset-id` | long | ID of the equipment item assigned to the customer; a customer cannot have more than one active assignment for the same item. |
-| `--inventory-asset-name` | string | Name of the linked inventory asset |
-| `--inventory-asset-sku` | string | SKU code of the linked inventory asset |
-| `--inventory-asset-value` | decimal | Monetary value of the linked inventory asset |
+| `--inventory-asset-name` | string | Display value for InventoryAsset.Name. |
+| `--inventory-asset-sku` | string | Display value for InventoryAsset.Sku. |
+| `--inventory-asset-value` | decimal | Display value for InventoryAsset.Value. |
 | `--from-inventory-asset-value` | range | |
 | `--to-inventory-asset-value` | range | |
-| `--inventory-asset-unique-id` | string | Unique identifier (e.g. serial number) of the linked inventory asset |
+| `--inventory-asset-unique-id` | string | Display value for InventoryAsset.UniqueId. |
 | `--notes` | string | Optional internal notes about this customer equipment assignment. |
 | `--assigned-from` | DateTime | Required assignment start date and time; the server rejects the record when it is not supplied. |
 | `--from-assigned-from` | range | |

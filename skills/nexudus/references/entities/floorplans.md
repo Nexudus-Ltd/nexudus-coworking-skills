@@ -25,10 +25,10 @@ FloorPlans support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the required location that owns this floor plan |
-| `--business-name` | string | Location name |
-| `--business-currency-code` | string | Currency code of the location |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-currency-code` | string | Display value for Business.Currency.Code. |
 | `--floor-plan-layout-id` | long | ID of the optional Nexudus Floor Plan Editor layout associated with this floor plan; the layout must belong to a location the user can access |
-| `--floor-plan-layout-name` | string | Floor plan layout name |
+| `--floor-plan-layout-name` | string | Display value for FloorPlanLayout.Name. |
 | `--name` | string | Required display name; changing it also updates the associated editor layout name and floor plan unit names containing the previous name |
 | `--background-image-file-name` | string | Filename of the currently stored background/tracing image |
 | `--new-background-image-url` | string | URL of a new background/tracing image to upload. The image will be fetched and stored when the floor plan is saved |

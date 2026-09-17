@@ -2,11 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Charges -->
 
-A **Charge** is a generic debit item applied to a customer account. Prefer more specific entities when available — use `CoworkerProduct` for product sales, `Booking` for room/resource bookings, `EventAttendee` for event registrations, and `CoworkerContract` for recurring plan charges.
-
-Charges can reference the originating sale from another entity via its `UniqueId` (a GUID, not an integer ID). This is how items billed to a non-paying team member are passed through to the team's paying member: the charge appears on the paying member's account with a `UniqueId` reference back to the original `CoworkerProduct`, `Booking`, `EventAttendee`, or `CoworkerTimePass`.
-
-Booking-related extra-service charges are represented by `CoworkerExtraService` records and referenced via `CoworkerExtraServiceUniqueId`.
+A charge (internal name CoworkerCharge) is a one-off debit billed to a customer at a location. It records the item, quantity, amount, optional tax, discount, credit, and invoicing timing; a recurring charge is eligible only when the customer's main contract is due for renewal.
 
 Charges support Search, Get, Create, Update, Delete.
 
@@ -20,7 +16,7 @@ Charges support Search, Get, Create, Update, Delete.
 | `nexudus charges list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus charges list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus charges get <id> --agent` | Get single charge |
-| `nexudus charges create --coworker-id <value> --business-id <value> --quantity <value> --discount-amount <value> --credit-amount <value> --total-amount <value> --agent` | Create charge |
+| `nexudus charges create --coworker-id <value> --business-id <value> --quantity <value> --total-amount <value> --agent` | Create charge |
 | `nexudus charges update <id> --name "New Name" --agent` | Update charge |
 | `nexudus charges delete <id> --yes --agent` | Delete charge (no prompt) |
 
@@ -28,66 +24,61 @@ Charges support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--business-name` | string | Business name |
-| `--business-currency-code` | string | Business currency code |
-| `--charge-number` | string | Charge number |
-| `--quantity` | int | Number of units |
+| `--coworker-id` | long | ID of the customer billed for this charge; the customer's invoicing location controls access. |
+| `--business-id` | long | ID of the location that issued this charge and whose currency applies. |
+| `--business-name` | string | Display value for Business.Name. |
+| `--business-currency-code` | string | Display value for Business.Currency.Code. |
+| `--charge-number` | string | Read-only unique charge number assigned by the system after creation. |
+| `--quantity` | int | Number of units billed by this charge; defaults to 1. |
 | `--from-quantity` | range | |
 | `--to-quantity` | range | |
-| `--description` | string | Free-text description of this charge |
-| `--invoice-line-display-as` | string | Display text on invoice line |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--discount-amount` | decimal | Discount amount |
-| `--from-discount-amount` | range | |
-| `--to-discount-amount` | range | |
-| `--credit-amount` | decimal | Credit amount |
-| `--from-credit-amount` | range | |
-| `--to-credit-amount` | range | |
-| `--discount-code` | string | Discount code |
-| `--due-date` | DateTime | Due date |
+| `--description` | string | Description of the billed item or service. |
+| `--invoice-line-display-as` | string | Optional customer-facing text to display for the resulting invoice line instead of Description. |
+| `--regular-charge` | bool | Whether this recurring charge is invoiced only when the customer has a main contract due for renewal. |
+| `--discount-code` | string | Read-only discount-code text copied to this charge when it is generated. |
+| `--due-date` | DateTime | Optional UTC date and time before which this charge is not eligible to be invoiced. |
 | `--from-due-date` | range | |
 | `--to-due-date` | range | |
-| `--total-amount` | decimal | Total amount |
+| `--total-amount` | decimal | Total monetary amount charged to the customer. |
 | `--from-total-amount` | range | |
 | `--to-total-amount` | range | |
-| `--purchase-order` | string | Purchase order |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--invoiced` | bool | Whether the charge has been invoiced |
-| `--invoiced-on` | DateTime | Date the charge was invoiced |
+| `--purchase-order` | string | Optional purchase-order reference used for invoice grouping and billing. |
+| `--tax-rate-id` | long | Optional ID of the tax rate applied to this charge; required when the issuing location requires tax rates. |
+| `--tax-rate-name` | string | Display value for TaxRate.Name. |
+| `--financial-account-id` | long | Optional ID of the financial account that categorises this charge; required when the issuing location requires financial accounts. |
+| `--financial-account-name` | string | Display value for FinancialAccount.Name. |
+| `--invoiced` | bool | Whether this charge has been added to an invoice; changing an invoiced charge is blocked for locked periods and its amount cannot change after payment. |
+| `--invoiced-on` | DateTime | Read-only UTC date and time set when this charge is marked invoiced. |
 | `--from-invoiced-on` | range | |
 | `--to-invoiced-on` | range | |
-| `--sale-date` | DateTime | Sale date |
+| `--sale-date` | DateTime | Optional UTC date and time when the underlying sale occurred. |
 | `--from-sale-date` | range | |
 | `--to-sale-date` | range | |
-| `--from-team-member` | bool | Whether from team member is enabled |
-| `--coworker-extra-service-name` | string | The coworker extra service name value for this charge |
-| `--coworker-time-pass-name` | string | The coworker time pass name value for this charge |
-| `--coworker-product-name` | string | The coworker product name value for this charge |
-| `--tariff-name` | string | The tariff name value for this charge |
-| `--coworker-product-unique-id` | string | ID of the coworker product unique associated with this record |
-| `--booking-unique-id` | string | ID of the booking unique associated with this record |
-| `--coworker-contract-unique-id` | string | UniqueId of the CoworkerContract that originated this charge |
-| `--coworker-extra-service-unique-id` | string | UniqueId of the CoworkerExtraService (booking extra-service charge) that originated this charge |
-| `--extra-service-unique-id` | string | UniqueId of the ExtraService that originated this charge |
-| `--coworker-time-pass-unique-id` | string | UniqueId of the CoworkerTimePass that originated this charge |
-| `--coworker-charge-unique-id` | string | UniqueId of the original charge passed from a non-paying team member to the team's paying member |
-| `--event-attendee-unique-id` | string | UniqueId of the EventAttendee that originated this charge |
-| `--invoice-from-date` | DateTime | Invoice period start date |
+| `--coworker-extra-service-name` | string | System-maintained display name of the customer time credit associated with this charge. |
+| `--coworker-time-pass-name` | string | System-maintained display name of the customer pass associated with this charge. |
+| `--coworker-product-name` | string | System-maintained display name of the customer product sale associated with this charge. |
+| `--tariff-name` | string | System-maintained name of the plan associated with this charge. |
+| `--coworker-product-unique-id` | string | System-maintained GUID of the customer product sale that generated this charge, when applicable. |
+| `--booking-unique-id` | string | System-maintained GUID of the booking that generated this charge, when applicable. |
+| `--coworker-contract-unique-id` | string | Read-only GUID of the contract that generated this charge, when applicable. |
+| `--coworker-extra-service-unique-id` | string | Read-only GUID of the customer time credit that generated this charge, when applicable. |
+| `--extra-service-unique-id` | string | Read-only GUID of the underlying booking or printing rate associated with this charge, when applicable. |
+| `--coworker-time-pass-unique-id` | string | Read-only GUID of the customer pass that generated this charge, when applicable. |
+| `--coworker-charge-unique-id` | string | Read-only GUID of the related originating charge, when this charge was created from another charge. |
+| `--event-attendee-unique-id` | string | Read-only GUID of the event attendance purchase that generated this charge, when applicable. |
+| `--invoice-from-date` | DateTime | Read-only UTC start date and time of the billed invoice period, when applicable. |
 | `--from-invoice-from-date` | range | |
 | `--to-invoice-from-date` | range | |
-| `--invoice-to-date` | DateTime | Invoice period end date |
+| `--invoice-to-date` | DateTime | Read-only UTC end date and time of the billed invoice period, when applicable. |
 | `--from-invoice-to-date` | range | |
 | `--to-invoice-to-date` | range | |
-| `--repeat-from` | DateTime | Repeat from date |
+| `--repeat-from` | DateTime | Optional UTC date and time from which this recurring charge may be invoiced. |
 | `--from-repeat-from` | range | |
 | `--to-repeat-from` | range | |
-| `--repeat-until` | DateTime | Repeat until date |
+| `--repeat-until` | DateTime | Optional UTC date and time after which this recurring charge must stop being invoiced. |
 | `--from-repeat-until` | range | |
 | `--to-repeat-until` | range | |
-| `--coworker-discount-code-unique-id` | string | UniqueId of the CoworkerDiscountCode applied to this charge |
+| `--coworker-discount-code-unique-id` | string | Read-only GUID of the customer discount-code record that generated this charge's discount. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -106,59 +97,53 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the coworker linked to this record |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--quantity` | int, required | Number of units |
-| `--description` | string | Free-text description of this charge |
-| `--invoice-line-display-as` | string | Display text on invoice line |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--discount-amount` | decimal, required | Discount amount |
-| `--credit-amount` | decimal, required | Credit amount |
-| `--due-date` | DateTime | Due date |
-| `--total-amount` | decimal, required | Total amount |
-| `--purchase-order` | string | Purchase order |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--invoiced` | bool | Whether the charge has been invoiced |
-| `--sale-date` | DateTime | Sale date |
-| `--from-team-member` | bool | Whether from team member is enabled |
-| `--coworker-extra-service-name` | string | The coworker extra service name value for this charge |
-| `--coworker-time-pass-name` | string | The coworker time pass name value for this charge |
-| `--coworker-product-name` | string | The coworker product name value for this charge |
-| `--tariff-name` | string | The tariff name value for this charge |
-| `--coworker-product-unique-id` | string | ID of the coworker product unique associated with this record |
-| `--booking-unique-id` | string | ID of the booking unique associated with this record |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
+| `--coworker-id` | long, required | ID of the customer billed for this charge; the customer's invoicing location controls access. |
+| `--business-id` | long, required | ID of the location that issued this charge and whose currency applies. |
+| `--quantity` | int, required | Number of units billed by this charge; defaults to 1. |
+| `--description` | string | Description of the billed item or service. |
+| `--invoice-line-display-as` | string | Optional customer-facing text to display for the resulting invoice line instead of Description. |
+| `--regular-charge` | bool | Whether this recurring charge is invoiced only when the customer has a main contract due for renewal. |
+| `--due-date` | DateTime | Optional UTC date and time before which this charge is not eligible to be invoiced. |
+| `--total-amount` | decimal, required | Total monetary amount charged to the customer. |
+| `--purchase-order` | string | Optional purchase-order reference used for invoice grouping and billing. |
+| `--tax-rate-id` | long | Optional ID of the tax rate applied to this charge; required when the issuing location requires tax rates. |
+| `--financial-account-id` | long | Optional ID of the financial account that categorises this charge; required when the issuing location requires financial accounts. |
+| `--invoiced` | bool | Whether this charge has been added to an invoice; changing an invoiced charge is blocked for locked periods and its amount cannot change after payment. |
+| `--sale-date` | DateTime | Optional UTC date and time when the underlying sale occurred. |
+| `--coworker-extra-service-name` | string | System-maintained display name of the customer time credit associated with this charge. |
+| `--coworker-time-pass-name` | string | System-maintained display name of the customer pass associated with this charge. |
+| `--coworker-product-name` | string | System-maintained display name of the customer product sale associated with this charge. |
+| `--tariff-name` | string | System-maintained name of the plan associated with this charge. |
+| `--coworker-product-unique-id` | string | System-maintained GUID of the customer product sale that generated this charge, when applicable. |
+| `--booking-unique-id` | string | System-maintained GUID of the booking that generated this charge, when applicable. |
+| `--repeat-from` | DateTime | Optional UTC date and time from which this recurring charge may be invoiced. |
+| `--repeat-until` | DateTime | Optional UTC date and time after which this recurring charge must stop being invoiced. |
 
 #### Charge update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the coworker linked to this record |
-| `--business-id` | long | ID of the business linked to this record |
-| `--quantity` | int | Number of units |
-| `--description` | string | Free-text description of this charge |
-| `--invoice-line-display-as` | string | Display text on invoice line |
-| `--regular-charge` | bool | Whether this is a regular charge |
-| `--discount-amount` | decimal | Discount amount |
-| `--credit-amount` | decimal | Credit amount |
-| `--due-date` | DateTime | Due date |
-| `--total-amount` | decimal | Total amount |
-| `--purchase-order` | string | Purchase order |
-| `--tax-rate-id` | long | ID of the tax rate linked to this record |
-| `--financial-account-id` | long | ID of the financial account linked to this record |
-| `--invoiced` | bool | Whether the charge has been invoiced |
-| `--sale-date` | DateTime | Sale date |
-| `--from-team-member` | bool | Whether from team member is enabled |
-| `--coworker-extra-service-name` | string | The coworker extra service name value for this charge |
-| `--coworker-time-pass-name` | string | The coworker time pass name value for this charge |
-| `--coworker-product-name` | string | The coworker product name value for this charge |
-| `--tariff-name` | string | The tariff name value for this charge |
-| `--coworker-product-unique-id` | string | ID of the coworker product unique associated with this record |
-| `--booking-unique-id` | string | ID of the booking unique associated with this record |
-| `--repeat-from` | DateTime | Repeat from date |
-| `--repeat-until` | DateTime | Repeat until date |
+| `--coworker-id` | long | ID of the customer billed for this charge; the customer's invoicing location controls access. |
+| `--business-id` | long | ID of the location that issued this charge and whose currency applies. |
+| `--quantity` | int | Number of units billed by this charge; defaults to 1. |
+| `--description` | string | Description of the billed item or service. |
+| `--invoice-line-display-as` | string | Optional customer-facing text to display for the resulting invoice line instead of Description. |
+| `--regular-charge` | bool | Whether this recurring charge is invoiced only when the customer has a main contract due for renewal. |
+| `--due-date` | DateTime | Optional UTC date and time before which this charge is not eligible to be invoiced. |
+| `--total-amount` | decimal | Total monetary amount charged to the customer. |
+| `--purchase-order` | string | Optional purchase-order reference used for invoice grouping and billing. |
+| `--tax-rate-id` | long | Optional ID of the tax rate applied to this charge; required when the issuing location requires tax rates. |
+| `--financial-account-id` | long | Optional ID of the financial account that categorises this charge; required when the issuing location requires financial accounts. |
+| `--invoiced` | bool | Whether this charge has been added to an invoice; changing an invoiced charge is blocked for locked periods and its amount cannot change after payment. |
+| `--sale-date` | DateTime | Optional UTC date and time when the underlying sale occurred. |
+| `--coworker-extra-service-name` | string | System-maintained display name of the customer time credit associated with this charge. |
+| `--coworker-time-pass-name` | string | System-maintained display name of the customer pass associated with this charge. |
+| `--coworker-product-name` | string | System-maintained display name of the customer product sale associated with this charge. |
+| `--tariff-name` | string | System-maintained name of the plan associated with this charge. |
+| `--coworker-product-unique-id` | string | System-maintained GUID of the customer product sale that generated this charge, when applicable. |
+| `--booking-unique-id` | string | System-maintained GUID of the booking that generated this charge, when applicable. |
+| `--repeat-from` | DateTime | Optional UTC date and time from which this recurring charge may be invoiced. |
+| `--repeat-until` | DateTime | Optional UTC date and time after which this recurring charge must stop being invoiced. |
 
 ### Charge (key fields)
 

@@ -259,6 +259,9 @@ Before working with an entity, load its reference file for full details (command
 | Entity | CLI command | Operations | Reference |
 | ------ | ----------- | ---------- | --------- |
 | AccessToken | `accesstokens` | list, get, create, update, delete | [accesstokens.md](./references/entities/accesstokens.md) |
+| AdminAgentMessage | `adminagentmessages` | list, get, create, update, delete | [adminagentmessages.md](./references/entities/adminagentmessages.md) |
+| AdminAgentSession | `adminagentsessions` | list, get, create, update, delete | [adminagentsessions.md](./references/entities/adminagentsessions.md) |
+| AdminAgentSessionParticipant | `adminagentsessionparticipants` | list, get, create, update, delete | [adminagentsessionparticipants.md](./references/entities/adminagentsessionparticipants.md) |
 | AiChannelSession | `aichannelsessions` | list, get, create, update, delete | [aichannelsessions.md](./references/entities/aichannelsessions.md) |
 | Application | `applications` | list, get, create, update, delete | [applications.md](./references/entities/applications.md) |
 | AudioFile | `audiofiles` | list, get, create, update, delete | [audiofiles.md](./references/entities/audiofiles.md) |
@@ -425,6 +428,9 @@ Before working with an entity, load its reference file for full details (command
 | RegisteredDevice | `registereddevices` | list, get, update | [registereddevices.md](./references/entities/registereddevices.md) |
 | Reminder | `reminders` | list, get, create, update, delete | [reminders.md](./references/entities/reminders.md) |
 | Report | `reports` | list, get, create, update, delete | [reports.md](./references/entities/reports.md) |
+| ReportDashboard | `reportdashboards` | list, get, create, update, delete | [reportdashboards.md](./references/entities/reportdashboards.md) |
+| ReportDefinition | `reportdefinitions` | list, get, create, update, delete | [reportdefinitions.md](./references/entities/reportdefinitions.md) |
+| ReportSubscription | `reportsubscriptions` | list, get, create, update, delete | [reportsubscriptions.md](./references/entities/reportsubscriptions.md) |
 | Reseller | `resellers` | list, get, create, update, delete | [resellers.md](./references/entities/resellers.md) |
 | ResellerAccount | `reselleraccounts` | list, get, create, update, delete | [reselleraccounts.md](./references/entities/reselleraccounts.md) |
 | ResellerPayout | `resellerpayouts` | list, get, create, update, delete | [resellerpayouts.md](./references/entities/resellerpayouts.md) |

@@ -25,14 +25,14 @@ ResellerPayouts support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--reseller-id` | long | ID of the reseller linked to this record |
-| `--reseller-user-id` | int | ID of the reseller user associated with this record |
+| `--reseller-user-id` | int | Display value for Reseller.User.Id. |
 | `--from-reseller-user-id` | range | |
 | `--to-reseller-user-id` | range | |
-| `--reseller-user-full-name` | string | Display name of the linked reseller user full (read-only) |
-| `--reseller-currency-id` | int | ID of the reseller currency associated with this record |
+| `--reseller-user-full-name` | string | Display value for Reseller.User.FullName. |
+| `--reseller-currency-id` | int | Display value for Reseller.Currency.Id. |
 | `--from-reseller-currency-id` | range | |
 | `--to-reseller-currency-id` | range | |
-| `--reseller-currency-code` | string | The reseller currency code value for this reseller payout |
+| `--reseller-currency-code` | string | Display value for Reseller.Currency.Code. |
 | `--approved` | bool | Whether approved is enabled |
 | `--paid-out` | bool | Whether paid out is enabled |
 | `--paid-out-date` | DateTime | Date/time value for paid out date |

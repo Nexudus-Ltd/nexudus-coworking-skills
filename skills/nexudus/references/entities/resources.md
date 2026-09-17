@@ -27,11 +27,11 @@ Resources also support entity commands.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--business-id` | long | ID of the location where this resource is located. |
-| `--business-name` | string | Name of the location (read-only, resolved from BusinessId). |
+| `--business-name` | string | Display value for Business.Name. |
 | `--name` | string | Display name of the resource (e.g., 'Board Room A', 'Phone Booth 3'). |
 | `--system-resource-type` | enum | Built-in resource category used for system behaviour (e.g., MeetingRoom, HotDesk, PhoneBooth). AI agents use this value to guide customers asking for specific type of services to the right resource. Distinct from the custom ResourceType. |
 | `--resource-type-id` | long | ID of the resource type assigned to this resource. The resource inherits every applicable booking rate (ExtraService) whose ResourceTypes relationship includes this type; use a different resource type when a resource needs a different set of rates. |
-| `--resource-type-name` | string | Name of the resource type (read-only, resolved from ResourceTypeId). |
+| `--resource-type-name` | string | Display value for ResourceType.Name. |
 | `--description` | string | Free-text description shown to users when viewing the resource details. |
 | `--picture-file-name` | string | Current file name of the picture (read-only; upload via the corresponding URL field) |
 | `--new-picture-url` | string | URL of a new file to upload as the picture |
@@ -128,7 +128,7 @@ Resources also support entity commands.
 | `--sensor-last-value` | string | Last value reported by an IoT occupancy sensor attached to this resource (read-only). |
 | `--is-sensor-occupied` | bool | Whether the IoT sensor currently reports this resource as occupied (read-only). |
 | `--cancellation-fee-product-id` | long | ID of the product representing the cancellation fee linked to this resource |
-| `--cancellation-fee-product-name` | string | Name of the cancellation fee product (read-only, resolved from CancellationFeeProductId). |
+| `--cancellation-fee-product-name` | string | Display value for CancellationFeeProduct.Name. |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
 | `--cancellation-fee-amount` | decimal | Fixed cancellation fee amount. Used when CancellationFeeType is Absolute. |
@@ -214,15 +214,15 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--max-booking-length` | int | Maximum allowed duration for a single booking on this resource, in minutes. |
 | `--min-booking-length` | int | Minimum allowed duration for a single booking on this resource, in minutes. |
 | `--tariffs` | list, repeat flag | List of tariffs (pricing plans) linked to this resource. Restricts bookings to customers on specific pricing plans. |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--teams` | list, repeat flag | List of teams linked to this resource. Restricts bookings to members of specific teams. |
-| `--added-teams` | list, repeat flag | The added teams value for this resource |
-| `--removed-teams` | list, repeat flag | The removed teams value for this resource |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--shifts` | string | Comma-separated list of shifts defining when the resource is available. Each shift uses the format 'NAME: START_TIME->END_TIME' where NAME is a descriptive label (cannot contain colons), and times are in 24-hour HH:MM format. Example: 'FULL DAY (9AM - 6PM): 09:00->18:00, MORNING (9AM - 1PM): 09:00->13:00, AFTERNOON (1PM - 6PM): 13:00->18:00'. The shift name must NOT contain ':' as it breaks parsing. |
 | `--linked-resources` | list, repeat flag | List of linked resources. Used to associate resources that make each other unavailable. For example, a larger room that divided and booked individually would be represented as three resources: A (linked to C), B (linked to C) and C (linked to A+B) |
-| `--added-linked-resources` | list, repeat flag | The added linked resources value for this resource |
-| `--removed-linked-resources` | list, repeat flag | The removed linked resources value for this resource |
+| `--added-linked-resources` | list, repeat flag | IDs added to the LinkedResources relationship. |
+| `--removed-linked-resources` | list, repeat flag | IDs removed from the LinkedResources relationship. |
 | `--google-calendar-id` | string | ID of the google calendar associated with this record |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
@@ -239,8 +239,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--only-for-members` | bool | When true, only active members (customers with an active contract for a plan) can book this resource. |
 | `--only-for-invoicing-business` | bool | When true, only customers with a home location set to the resource's location can book this resource. |
 | `--booking-availability-exceptions` | list, repeat flag | List of booking availability exceptions (date ranges when this resource is unavailable or has special availability rules). |
-| `--added-booking-availability-exceptions` | list, repeat flag | The added booking availability exceptions value for this resource |
-| `--removed-booking-availability-exceptions` | list, repeat flag | The removed booking availability exceptions value for this resource |
+| `--added-booking-availability-exceptions` | list, repeat flag | IDs added to the BookingAvailabilityExceptions relationship. |
+| `--removed-booking-availability-exceptions` | list, repeat flag | IDs removed from the BookingAvailabilityExceptions relationship. |
 | `--cancellation-fee-product-id` | long | ID of the product representing the cancellation fee linked to this resource |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum, required | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
@@ -307,15 +307,15 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--max-booking-length` | int | Maximum allowed duration for a single booking on this resource, in minutes. |
 | `--min-booking-length` | int | Minimum allowed duration for a single booking on this resource, in minutes. |
 | `--tariffs` | list, repeat flag | List of tariffs (pricing plans) linked to this resource. Restricts bookings to customers on specific pricing plans. |
-| `--added-tariffs` | list, repeat flag | The added tariffs value for this resource |
-| `--removed-tariffs` | list, repeat flag | The removed tariffs value for this resource |
+| `--added-tariffs` | list, repeat flag | IDs added to the Tariffs relationship. |
+| `--removed-tariffs` | list, repeat flag | IDs removed from the Tariffs relationship. |
 | `--teams` | list, repeat flag | List of teams linked to this resource. Restricts bookings to members of specific teams. |
-| `--added-teams` | list, repeat flag | The added teams value for this resource |
-| `--removed-teams` | list, repeat flag | The removed teams value for this resource |
+| `--added-teams` | list, repeat flag | IDs added to the Teams relationship. |
+| `--removed-teams` | list, repeat flag | IDs removed from the Teams relationship. |
 | `--shifts` | string | Comma-separated list of shifts defining when the resource is available. Each shift uses the format 'NAME: START_TIME->END_TIME' where NAME is a descriptive label (cannot contain colons), and times are in 24-hour HH:MM format. Example: 'FULL DAY (9AM - 6PM): 09:00->18:00, MORNING (9AM - 1PM): 09:00->13:00, AFTERNOON (1PM - 6PM): 13:00->18:00'. The shift name must NOT contain ':' as it breaks parsing. |
 | `--linked-resources` | list, repeat flag | List of linked resources. Used to associate resources that make each other unavailable. For example, a larger room that divided and booked individually would be represented as three resources: A (linked to C), B (linked to C) and C (linked to A+B) |
-| `--added-linked-resources` | list, repeat flag | The added linked resources value for this resource |
-| `--removed-linked-resources` | list, repeat flag | The removed linked resources value for this resource |
+| `--added-linked-resources` | list, repeat flag | IDs added to the LinkedResources relationship. |
+| `--removed-linked-resources` | list, repeat flag | IDs removed from the LinkedResources relationship. |
 | `--google-calendar-id` | string | ID of the google calendar associated with this record |
 | `--longitude` | decimal | GPS longitude coordinate of the resource's physical location. |
 | `--latitude` | decimal | GPS latitude coordinate of the resource's physical location. |
@@ -332,8 +332,8 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--only-for-members` | bool | When true, only active members (customers with an active contract for a plan) can book this resource. |
 | `--only-for-invoicing-business` | bool | When true, only customers with a home location set to the resource's location can book this resource. |
 | `--booking-availability-exceptions` | list, repeat flag | List of booking availability exceptions (date ranges when this resource is unavailable or has special availability rules). |
-| `--added-booking-availability-exceptions` | list, repeat flag | The added booking availability exceptions value for this resource |
-| `--removed-booking-availability-exceptions` | list, repeat flag | The removed booking availability exceptions value for this resource |
+| `--added-booking-availability-exceptions` | list, repeat flag | IDs added to the BookingAvailabilityExceptions relationship. |
+| `--removed-booking-availability-exceptions` | list, repeat flag | IDs removed from the BookingAvailabilityExceptions relationship. |
 | `--cancellation-fee-product-id` | long | ID of the product representing the cancellation fee linked to this resource |
 | `--charge-cancellation-fee` | bool | When true, a fee is charged for late cancellations (past the LateCancellationLimit). |
 | `--cancellation-fee-type` | enum | How the cancellation fee is calculated: Absolute (fixed amount) or Percentage (of booking cost). |
