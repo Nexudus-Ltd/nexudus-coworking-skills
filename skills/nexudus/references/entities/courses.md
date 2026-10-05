@@ -2,18 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Courses -->
 
-A **Course** is a structured learning module published to customers through the Members Portal. Courses are organised into **sections** (milestones) and **lessons** (individual content units). They can be used for internal training, community building, or self-learning offers.
-
-Courses belong to a Location and are assigned a Host (a customer or administrator) who is responsible for its content. You can control who can access a course using the `Visibility` field:
-
-| Visibility | Meaning |
-| ---------- | ------- |
-| Public     | Visible and accessible to everyone on the Members Portal |
-| Hidden     | Not listed on the Members Portal but accessible via a direct link |
-| Private    | Only accessible to members who have been explicitly added |
-| Paid       | Requires purchase via the linked `TariffId` pricing plan |
-
-Courses can optionally display a community discussion group (`HasCommunityGroup`), be featured on the portal home page (`ShowInHomePage`), and be grouped together under a `GroupName` for easier navigation.
+A Course is a structured learning module published to customers through the Members Portal. Courses are organised into sections (milestones) and lessons (individual content units). They can be used for internal training, community building, or self-learning offers. Courses belong to a Location and are assigned a Host (a customer or administrator) who is responsible for its content. You can control who can access a course using the Visibility field: Meaning | ------- | Visible and accessible to everyone on the Members Portal | Not listed on the Members Portal but accessible via a direct link | Only accessible to members who have been explicitly added | Requires purchase via the linked TariffId pricing plan | Courses can optionally display a community discussion group (HasCommunityGroup), be featured on the portal home page (ShowInHomePage), and be grouped together under a GroupName for easier navigation.
 
 Courses support Search, Get, Create, Update, Delete.
 

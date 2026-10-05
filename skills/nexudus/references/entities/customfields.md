@@ -54,8 +54,6 @@ CustomFields support Search, Get, Create, Update, Delete.
 | `--display-in-tariff-sign-up-form` | bool | Whether this custom field is shown when a customer signs up for a plan (Tariff). |
 | `--display-in-booking-sign-up-form` | bool | Whether this custom field is shown on the booking sign-up form. |
 | `--display-in-resource-search` | bool | Whether this custom field is offered as a filter in resource search. |
-| `--display-in-visitor-form` | bool | Whether this custom field is shown on the booking visitor registration form. |
-| `--display-in-visitor-self-registration-form` | bool | Whether this custom field is shown on the booking visitor registration form in NexIO. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -99,20 +97,9 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--display-in-tariff-sign-up-form` | bool | Whether this custom field is shown when a customer signs up for a plan (Tariff). |
 | `--display-in-booking-sign-up-form` | bool | Whether this custom field is shown on the booking sign-up form. |
 | `--display-in-resource-search` | bool | Whether this custom field is offered as a filter in resource search. |
-| `--display-in-visitor-form` | bool | Whether this custom field is shown on the booking visitor registration form. |
-| `--display-in-visitor-self-registration-form` | bool | Whether this custom field is shown on the booking visitor registration form in NexIO. |
 | `--resources` | list, repeat flag | List of resources this Resource-record custom field applies to when it is shown in booking. An empty list means it applies to every resource; setting resources restricts it to those resources. |
 | `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
 | `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
-| `--calendar-events` | list, repeat flag | Events this custom field is scoped to. Empty means it applies to all events. |
-| `--added-calendar-events` | list, repeat flag | IDs added to the CalendarEvents relationship. |
-| `--removed-calendar-events` | list, repeat flag | IDs removed from the CalendarEvents relationship. |
-| `--event-products` | list, repeat flag | Event ticket products this custom field is scoped to. Empty means it applies to all ticket products. |
-| `--added-event-products` | list, repeat flag | IDs added to the EventProducts relationship. |
-| `--removed-event-products` | list, repeat flag | IDs removed from the EventProducts relationship. |
-| `--calendar-event-categories` | list, repeat flag | Event categories this custom field is scoped to. Empty means applies to all events. |
-| `--added-calendar-event-categories` | list, repeat flag | IDs added to the CalendarEventCategories relationship. |
-| `--removed-calendar-event-categories` | list, repeat flag | IDs removed from the CalendarEventCategories relationship. |
 
 #### CustomField update options
 
@@ -143,26 +130,15 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--display-in-tariff-sign-up-form` | bool | Whether this custom field is shown when a customer signs up for a plan (Tariff). |
 | `--display-in-booking-sign-up-form` | bool | Whether this custom field is shown on the booking sign-up form. |
 | `--display-in-resource-search` | bool | Whether this custom field is offered as a filter in resource search. |
-| `--display-in-visitor-form` | bool | Whether this custom field is shown on the booking visitor registration form. |
-| `--display-in-visitor-self-registration-form` | bool | Whether this custom field is shown on the booking visitor registration form in NexIO. |
 | `--resources` | list, repeat flag | List of resources this Resource-record custom field applies to when it is shown in booking. An empty list means it applies to every resource; setting resources restricts it to those resources. |
 | `--added-resources` | list, repeat flag | IDs added to the Resources relationship. |
 | `--removed-resources` | list, repeat flag | IDs removed from the Resources relationship. |
-| `--calendar-events` | list, repeat flag | Events this custom field is scoped to. Empty means it applies to all events. |
-| `--added-calendar-events` | list, repeat flag | IDs added to the CalendarEvents relationship. |
-| `--removed-calendar-events` | list, repeat flag | IDs removed from the CalendarEvents relationship. |
-| `--event-products` | list, repeat flag | Event ticket products this custom field is scoped to. Empty means it applies to all ticket products. |
-| `--added-event-products` | list, repeat flag | IDs added to the EventProducts relationship. |
-| `--removed-event-products` | list, repeat flag | IDs removed from the EventProducts relationship. |
-| `--calendar-event-categories` | list, repeat flag | Event categories this custom field is scoped to. Empty means applies to all events. |
-| `--added-calendar-event-categories` | list, repeat flag | IDs added to the CalendarEventCategories relationship. |
-| `--removed-calendar-event-categories` | list, repeat flag | IDs removed from the CalendarEventCategories relationship. |
 
 ### CustomField (key fields)
 
 `Id`, `Name`
 
-**List properties (only returned by `get`, not by `list`):** `Resources`, `AddedResources`, `RemovedResources`, `CalendarEvents`, `AddedCalendarEvents`, `RemovedCalendarEvents`, `EventProducts`, `AddedEventProducts`, `RemovedEventProducts`, `CalendarEventCategories`, `AddedCalendarEventCategories`, `RemovedCalendarEventCategories`
+**List properties (only returned by `get`, not by `list`):** `Resources`, `AddedResources`, `RemovedResources`
 
 #### CustomField enum values
 

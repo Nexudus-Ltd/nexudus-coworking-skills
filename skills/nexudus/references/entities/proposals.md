@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Proposals -->
 
-A Proposal is a priced offer of one or more contracts that a customer reviews and accepts online. Creating a proposal automatically creates one ProposalContract from the proposal's own plan, unit, price, and date fields; those fields are create-only here, so later changes must be made on that ProposalContract, and further contracts are added as additional ProposalContract records. Extra products and deposits are held as ProposalProduct records and scheduled price changes as ProposalSchedule records. Three attachments are optional: DocumentToSendId, a document template rendered for the customer in place of the standard price-schedule table; DocumentToSignId, a document template generated for e-signature on acceptance; and ProposalFile, a marketing file the customer can download. Sending the proposal stamps SentOn and moves the status to Sent; acceptance creates the real contracts, products, and discount on the customer and sets the status to Accepted, after which no field on the proposal can be changed.
+A Proposal is a priced offer of one or more contracts that a customer reviews and accepts online. Creating a proposal automatically creates one ProposalContract from the proposal's own plan, unit, price, and date fields; those fields are create-only here, so later changes must be made on that ProposalContract, and further contracts are added as additional ProposalContract records. Extra products and deposits are held as ProposalProduct records and scheduled price changes as ProposalSchedule records. Three attachments are optional: DocumentToSendId, a document template rendered for the customer in place of the standard price-schedule table; DocumentToSignId, a document template generated for e-signature on acceptance; and ProposalFile, a marketing file the customer can download. Sending the proposal stamps SentOn and moves the status to Sent; acceptance creates the real contracts, products, and discount on the customer and sets the status to Accepted and stamps AcceptedOn, after which no field on the proposal can be changed; changing the status to Rejected stamps RejectedOn.
 
 Proposals support Search, Get, Create, Update, Delete.
 
@@ -36,7 +36,7 @@ Proposals support Search, Get, Create, Update, Delete.
 | `--coworker-billing-name` | string | Display value for Coworker.BillingName. |
 | `--reference` | string | Required human-readable reference shown to the customer and used to name the generated e-signature document; the admin UI seeds it as a random six-character code followed by the customer and plan names. |
 | `--notes` | string | Free-text notes about this proposal; they are shown to the customer on the proposal page, so they are not internal-only. |
-| `--proposal-status` | enum | Lifecycle state of the proposal: Draft, Sent (stamped when the proposal is emailed), Accepted (set only by the acceptance flow, after which no field on the proposal can be changed), or Rejected (set manually to withdraw the offer). |
+| `--proposal-status` | enum | Lifecycle state of the proposal: Draft, Sent (stamped when the proposal is emailed), Accepted (set only by the acceptance flow, after which no field on the proposal can be changed), or Rejected (set manually to withdraw the offer). Accepting stamps AcceptedOn and rejecting stamps RejectedOn. |
 | `--document-to-send-id` | long | Optional ID of the document template rendered for the customer in place of the standard price-schedule table; when empty, the standard layout is used. |
 | `--document-to-sign-id` | long | Optional ID of the document template used to generate the document the customer is asked to e-sign when the proposal is accepted; when empty, no signature is requested. |
 | `--document-to-sign-html` | string | Per-proposal HTML copy of the document to e-sign, produced from DocumentToSign and editable in the document editor; it is cleared automatically whenever DocumentToSign changes. |
@@ -90,6 +90,12 @@ Proposals support Search, Get, Create, Update, Delete.
 | `--sent-on` | DateTime | UTC date and time the proposal was last emailed to the customer; the send action stamps it and no other flow sets it. |
 | `--from-sent-on` | range | |
 | `--to-sent-on` | range | |
+| `--accepted-on` | DateTime | UTC date and time the proposal was accepted; the acceptance flow stamps it, and it is cleared if the proposal stops being Accepted. Empty unless the status is Accepted. |
+| `--from-accepted-on` | range | |
+| `--to-accepted-on` | range | |
+| `--rejected-on` | DateTime | UTC date and time the proposal status was changed to Rejected; it is stamped automatically on that change and cleared if the status later moves away from Rejected. Empty unless the status is Rejected. |
+| `--from-rejected-on` | range | |
+| `--to-rejected-on` | range | |
 | `--customer-last-opened-date` | DateTime | UTC date and time the customer last opened the public proposal page; it is stamped automatically on each view and stays empty while the customer has never opened it. |
 | `--from-customer-last-opened-date` | range | |
 | `--to-customer-last-opened-date` | range | |
@@ -117,7 +123,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--coworker-id` | long, required | ID of the customer the proposal is addressed to; required, and on acceptance the contracts, products, and discount of this proposal are created against this customer. |
 | `--reference` | string, required | Required human-readable reference shown to the customer and used to name the generated e-signature document; the admin UI seeds it as a random six-character code followed by the customer and plan names. |
 | `--notes` | string | Free-text notes about this proposal; they are shown to the customer on the proposal page, so they are not internal-only. |
-| `--proposal-status` | enum, required | Lifecycle state of the proposal: Draft, Sent (stamped when the proposal is emailed), Accepted (set only by the acceptance flow, after which no field on the proposal can be changed), or Rejected (set manually to withdraw the offer). |
+| `--proposal-status` | enum, required | Lifecycle state of the proposal: Draft, Sent (stamped when the proposal is emailed), Accepted (set only by the acceptance flow, after which no field on the proposal can be changed), or Rejected (set manually to withdraw the offer). Accepting stamps AcceptedOn and rejecting stamps RejectedOn. |
 | `--document-to-send-id` | long | Optional ID of the document template rendered for the customer in place of the standard price-schedule table; when empty, the standard layout is used. |
 | `--document-to-sign-id` | long | Optional ID of the document template used to generate the document the customer is asked to e-sign when the proposal is accepted; when empty, no signature is requested. |
 | `--document-to-sign-html` | string | Per-proposal HTML copy of the document to e-sign, produced from DocumentToSign and editable in the document editor; it is cleared automatically whenever DocumentToSign changes. |
@@ -155,7 +161,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--coworker-id` | long | ID of the customer the proposal is addressed to; required, and on acceptance the contracts, products, and discount of this proposal are created against this customer. |
 | `--reference` | string | Required human-readable reference shown to the customer and used to name the generated e-signature document; the admin UI seeds it as a random six-character code followed by the customer and plan names. |
 | `--notes` | string | Free-text notes about this proposal; they are shown to the customer on the proposal page, so they are not internal-only. |
-| `--proposal-status` | enum | Lifecycle state of the proposal: Draft, Sent (stamped when the proposal is emailed), Accepted (set only by the acceptance flow, after which no field on the proposal can be changed), or Rejected (set manually to withdraw the offer). |
+| `--proposal-status` | enum | Lifecycle state of the proposal: Draft, Sent (stamped when the proposal is emailed), Accepted (set only by the acceptance flow, after which no field on the proposal can be changed), or Rejected (set manually to withdraw the offer). Accepting stamps AcceptedOn and rejecting stamps RejectedOn. |
 | `--document-to-send-id` | long | Optional ID of the document template rendered for the customer in place of the standard price-schedule table; when empty, the standard layout is used. |
 | `--document-to-sign-id` | long | Optional ID of the document template used to generate the document the customer is asked to e-sign when the proposal is accepted; when empty, no signature is requested. |
 | `--document-to-sign-html` | string | Per-proposal HTML copy of the document to e-sign, produced from DocumentToSign and editable in the document editor; it is cleared automatically whenever DocumentToSign changes. |

@@ -89,6 +89,8 @@ Teams also support entity commands.
 | `--vimeo` | string | Optional Vimeo profile URL, limited to 254 characters |
 | `--tumblr` | string | Optional Tumblr profile URL, limited to 254 characters |
 | `--blogger` | string | Optional Blogger profile URL, limited to 254 characters |
+| `--coworker-ids` | string | Read-only comma-separated IDs of the team's customers, ordered by ID and aligned with CoworkerFullNames; generated from TeamMembers, so change TeamMembers instead |
+| `--coworker-full-names` | string | Read-only comma-separated full names of the team's customers, commas removed from each name and aligned with CoworkerIds; generated from TeamMembers, so change TeamMembers instead |
 | `--active-contracts` | int | Read-only count of active contracts across the team's members, refreshed after membership and contract changes |
 | `--from-active-contracts` | range | |
 | `--to-active-contracts` | range | |
@@ -250,6 +252,7 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 | `--vimeo` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
 | `--tumblr` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
 | `--blogger` | `SOCIAL` | `«PII:SOCIAL:a3f2b1c9»` |
+| `--coworker-full-names` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 
 Example:
 

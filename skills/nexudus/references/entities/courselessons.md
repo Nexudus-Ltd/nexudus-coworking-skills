@@ -2,26 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CourseLessons -->
 
-A **CourseLesson** is an individual learning unit within a Course. Lessons are the building blocks that customers complete to work through a course's content. Each lesson belongs to a `Course` and optionally to a `CourseSection` that groups related lessons together.
-
-Lessons have two key behavioural settings:
-
-**`UnlockType`** — controls when a lesson becomes available to enrolled members:
-
-| Value      | Meaning |
-| ---------- | ------- |
-| Immediate  | Available as soon as the member enrols |
-| Sequential | Unlocked only after the previous lesson is completed |
-| Timed      | Unlocked after a number of days specified by `UnlockAfterDays` |
-
-**`CompletionType`** — defines what action marks the lesson as done:
-
-| Value   | Meaning |
-| ------- | ------- |
-| None    | No completion tracking |
-| Visited | Marked complete when the member opens the lesson |
-| Button  | Member must click a completion button |
-| Video   | Member must finish watching the embedded video (must be hosted on YouTube) |
+A CourseLesson is an individual learning unit within a Course. Lessons are the building blocks that customers complete to work through a course's content. Each lesson belongs to a Course and optionally to a CourseSection that groups related lessons together. Lessons have two key behavioural settings: UnlockType — controls when a lesson becomes available to enrolled members: Meaning | ------- | Available as soon as the member enrols | Unlocked only after the previous lesson is completed | Unlocked after a number of days specified by UnlockAfterDays | CompletionType — defines what action marks the lesson as done: Meaning | ------- | No completion tracking | Marked complete when the member opens the lesson | Member must click a completion button | Member must finish watching the embedded video (must be hosted on YouTube) |
 
 CourseLessons support Search, Get, Create, Update, Delete.
 

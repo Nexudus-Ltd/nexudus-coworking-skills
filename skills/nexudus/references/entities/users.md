@@ -27,6 +27,8 @@ Users support Search, Get, Create, Update, Delete.
 | `--full-name` | string | Required full name shown for this staff account. |
 | `--email` | string | Required valid email address used to identify and sign in to this staff account. |
 | `--preferred-language-id` | long | ID of the optional location language used for this account's preferred interface and content language. |
+| `--new-password` | string | New sign-in password; do not expose or set passwords through the Admin Agent. |
+| `--password` | string | Stored password hash; never expose or set it directly. |
 | `--avatar-file-name` | string | Current file name of the avatar (read-only; upload via the corresponding URL field) |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
@@ -107,6 +109,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--full-name` | string, required | Required full name shown for this staff account. |
 | `--email` | string, required | Required valid email address used to identify and sign in to this staff account. |
 | `--preferred-language-id` | long | ID of the optional location language used for this account's preferred interface and content language. |
+| `--new-password` | string | New sign-in password; do not expose or set passwords through the Admin Agent. |
+| `--password` | string | Stored password hash; never expose or set it directly. |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
 | `--application-id` | long | ID of the optional marketplace application whose integration uses this account. |
@@ -160,6 +164,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--full-name` | string | Required full name shown for this staff account. |
 | `--email` | string | Required valid email address used to identify and sign in to this staff account. |
 | `--preferred-language-id` | long | ID of the optional location language used for this account's preferred interface and content language. |
+| `--new-password` | string | New sign-in password; do not expose or set passwords through the Admin Agent. |
+| `--password` | string | Stored password hash; never expose or set it directly. |
 | `--new-avatar-url` | string | URL of a new file to upload as the avatar |
 | `--clear-avatar-file` | bool | Set to true to remove the current avatar file |
 | `--application-id` | long | ID of the optional marketplace application whose integration uses this account. |

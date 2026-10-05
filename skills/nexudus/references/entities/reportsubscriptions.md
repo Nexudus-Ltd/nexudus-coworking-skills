@@ -34,6 +34,7 @@ ReportSubscriptions support Search, Get, Create, Update, Delete.
 | `--dashboard-template-key` | string | Built-in dashboard template to send (key from report_templates kind=dashboard), instead of a saved dashboard |
 | `--recipients` | string | Email addresses separated by commas or semicolons |
 | `--subject` | string | Optional email subject; defaults to the report or dashboard name |
+| `--language` | string | Language of the email, the CSV attachment headers and the AI summary: en, es or fr. Defaults to the app language of the user who creates the schedule |
 | `--frequency` | enum | Daily, Weekly or Monthly |
 | `--day-of-week` | int | Weekly schedules: 1 = Monday ... 7 = Sunday |
 | `--from-day-of-week` | range | |
@@ -84,6 +85,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--dashboard-template-key` | string | Built-in dashboard template to send (key from report_templates kind=dashboard), instead of a saved dashboard |
 | `--recipients` | string, required | Email addresses separated by commas or semicolons |
 | `--subject` | string | Optional email subject; defaults to the report or dashboard name |
+| `--language` | string | Language of the email, the CSV attachment headers and the AI summary: en, es or fr. Defaults to the app language of the user who creates the schedule |
 | `--frequency` | enum, required | Daily, Weekly or Monthly |
 | `--day-of-week` | int, required | Weekly schedules: 1 = Monday ... 7 = Sunday |
 | `--day-of-month` | int, required | Monthly schedules: day of the month (1-28) |
@@ -105,6 +107,7 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--dashboard-template-key` | string | Built-in dashboard template to send (key from report_templates kind=dashboard), instead of a saved dashboard |
 | `--recipients` | string | Email addresses separated by commas or semicolons |
 | `--subject` | string | Optional email subject; defaults to the report or dashboard name |
+| `--language` | string | Language of the email, the CSV attachment headers and the AI summary: en, es or fr. Defaults to the app language of the user who creates the schedule |
 | `--frequency` | enum | Daily, Weekly or Monthly |
 | `--day-of-week` | int | Weekly schedules: 1 = Monday ... 7 = Sunday |
 | `--day-of-month` | int | Monthly schedules: day of the month (1-28) |

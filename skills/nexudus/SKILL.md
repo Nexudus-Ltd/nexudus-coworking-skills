@@ -215,6 +215,14 @@ Do not treat tokens as real values and do not attempt to reverse them.
 2. `nexudus <entity> update <id> --<property> <value> --agent`
 3. Verify the update by checking the returned `data`
 
+### "Set a custom-field answer on a record"
+
+1. `nexudus customfields list --agent` to find the custom field's `Id`
+2. `nexudus <entity> update <id> --custom-field <customFieldId>=<value> --agent` (repeat the flag for several answers; a system key such as `HubSpot.Contact.Id` works in place of the id)
+3. Read the answers back from `data.CustomFields.Data` (each entry has `Name` = custom field id or system key, and `Value`)
+
+`update` sends the record back with every other answer intact. Answers to operator-defined fields are PII-tokenized in agent output; system keys are not.
+
 ### "Delete a entity"
 
 1. `nexudus <entity> get <id> --agent` to confirm the entity exists

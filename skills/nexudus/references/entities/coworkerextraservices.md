@@ -25,6 +25,7 @@ CoworkerExtraServices support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer who owns this time credit or booking charge. |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--business-id` | long | ID of the location that issued this record; it is required and cannot be changed after creation. |
 | `--extra-service-id` | long | ID of the booking rate that defines this record's eligible resource types, currency, and credit type. |
 | `--extra-service-name` | string | Display value for ExtraService.Name. |
@@ -143,11 +144,12 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 
 | Option | Category | Token example |
 | --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
 
 Example:
 
-`nexudus coworkerextraservices update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+`nexudus coworkerextraservices update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
 
 ### CoworkerExtraService (key fields)
 

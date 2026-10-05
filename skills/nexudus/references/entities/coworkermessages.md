@@ -31,7 +31,7 @@ CoworkerMessages support Search, Get (no Create or Delete via API).
 | `--email-account-email-address` | string | Display value for EmailAccount.EmailAddress. |
 | `--subject` | string | Message subject, limited to 254 characters. |
 | `--body` | string | HTML message body; canned-response tokens are expanded for the customer before an outgoing email is queued. |
-| `--is-new-message` | bool | Whether the message is unread; the system clears this flag when the message is updated. |
+| `--is-new-message` | bool | Whether an inbound message is still unread; outgoing messages are never unread, and the COWORKER_MESSAGE_MARK_READ command clears the flag when a message is opened. |
 | `--incoming` | bool | Whether the message was received from the customer (true) rather than sent to the customer (false); inbound messages are created by the email integration. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |

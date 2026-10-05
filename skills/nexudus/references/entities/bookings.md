@@ -137,7 +137,6 @@ Bookings also support entity commands.
 | `--coworker-checked-out-at` | DateTime | UTC date and time when the customer checked out from this booking. |
 | `--from-coworker-checked-out-at` | range | |
 | `--to-coworker-checked-out-at` | range | |
-| `--booking-source` | enum | Read-only record of which channel created this booking, such as the admin panel, Members Portal, public API, CLI, SDK, or an automation tile. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

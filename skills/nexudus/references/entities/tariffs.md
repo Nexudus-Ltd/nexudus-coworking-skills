@@ -213,8 +213,6 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--from-maximum-addresses` | range | |
 | `--to-maximum-addresses` | range | |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
-| `--address-check-document-types` | string | Document types accepted as proof of address in identity checks for customers on this plan. |
-| `--identity-check-document-types` | string | Document types accepted as proof of identity in identity checks for customers on this plan. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -352,8 +350,6 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |
 | `--maximum-addresses` | int | Maximum number of forwarding addresses allowed (virtual office) |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
-| `--address-check-document-types` | string | Document types accepted as proof of address in identity checks for customers on this plan. |
-| `--identity-check-document-types` | string | Document types accepted as proof of identity in identity checks for customers on this plan. |
 
 #### Tariff update options
 
@@ -478,8 +474,6 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |
 | `--maximum-addresses` | int | Maximum number of forwarding addresses allowed (virtual office) |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
-| `--address-check-document-types` | string | Document types accepted as proof of address in identity checks for customers on this plan. |
-| `--identity-check-document-types` | string | Document types accepted as proof of identity in identity checks for customers on this plan. |
 
 #### Tariff PII fields
 

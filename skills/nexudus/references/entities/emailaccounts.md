@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=EmailAccounts -->
 
-An **EmailAccount** configures an incoming email connection (IMAP) used to receive messages for the help desk or other automated workflows. Each account specifies server connection details, credentials, and message handling policies.
+An email account (EmailAccount) connects a location to an external mailbox: Nexudus reads it over IMAP about every 15 minutes and files inbound email against the matching customer as customer messages, and sends outgoing customer messages through its SMTP settings. Saving an account re-tests both connections, and the outgoing test sends a message to the account's own address.
 
 EmailAccounts support Search, Get, Create, Update, Delete.
 
@@ -16,7 +16,7 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 | `nexudus emailaccounts list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus emailaccounts list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus emailaccounts get <id> --agent` | Get single emailaccount |
-| `nexudus emailaccounts create --business-id <value> --display-name <value> --email-address <value> --incoming-server <value> --incoming-server-type <value> --incoming-server-port <value> --incoming-server-username <value> --delete-message-settings <value> --outgoing-server <value> --outgoing-server-port <value> --outgoing-server-username <value> --last-message-id <value> --error-count <value> --agent` | Create emailaccount |
+| `nexudus emailaccounts create --business-id <value> --display-name <value> --email-address <value> --incoming-server <value> --incoming-server-type <value> --incoming-server-port <value> --incoming-server-username <value> --delete-message-settings <value> --outgoing-server <value> --outgoing-server-port <value> --outgoing-server-username <value> --error-count <value> --agent` | Create emailaccount |
 | `nexudus emailaccounts update <id> --name "New Name" --agent` | Update emailaccount |
 | `nexudus emailaccounts delete <id> --yes --agent` | Delete emailaccount (no prompt) |
 
@@ -24,38 +24,32 @@ EmailAccounts support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--display-name` | string | The display name value for this email account |
-| `--email-address` | string | The email address value for this email account |
-| `--active` | bool | Whether this email account is currently active |
-| `--send-notification-on-new-messages` | bool | Whether send notification on new messages is enabled |
-| `--notification-email-address` | string | The notification email address value for this email account |
-| `--incoming-server` | string | The incoming server value for this email account |
-| `--incoming-server-type` | enum | The incoming server type value for this email account |
-| `--incoming-server-port` | int | The incoming server port value for this email account |
+| `--business-id` | long | ID of the location that owns this email account; it is supplied from the agent context. |
+| `--display-name` | string | Account name shown to operators, and the sender display name on email sent through this account; required. |
+| `--email-address` | string | Mailbox address this account connects to; it is the From and Reply-To address of email sent through the account, and it must be unique within the location. Required. |
+| `--active` | bool | Whether the mailbox is polled for new messages; the background check runs about every 15 minutes and skips accounts in a suspended location, and the system switches this off by itself after repeated connection failures. |
+| `--send-notification-on-new-messages` | bool | Whether a notification email is sent each time an inbound message is attached to a customer record through this account. |
+| `--notification-email-address` | string | Address that receives those new-message notifications; it only applies while SendNotificationOnNewMessages is on, and when it is left empty the notifications go to EmailAddress instead. |
+| `--incoming-server` | string | Host name of the IMAP server messages are read from, for example imap.gmail.com; required, and ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-type` | enum | Protocol used to read the mailbox; Imap is the only supported value. |
+| `--incoming-server-port` | int | TCP port of the IMAP server, normally 993 with SSL and 143 without; ignored on accounts connected through Google or Microsoft OAuth. |
 | `--from-incoming-server-port` | range | |
 | `--to-incoming-server-port` | range | |
-| `--incoming-server-s-s-l` | bool | Whether incoming server ssl is enabled |
-| `--incoming-server-username` | string | The incoming server username value for this email account |
-| `--delete-message-settings` | enum | The delete message settings value for this email account |
-| `--outgoing-server` | string | The outgoing server value for this email account |
-| `--outgoing-server-port` | int | The outgoing server port value for this email account |
+| `--incoming-server-s-s-l` | bool | Whether the IMAP connection is made over SSL/TLS; ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-username` | string | User name used to sign in to the IMAP server, usually the full mailbox address; required, stored encrypted, and ignored on accounts connected through Google or Microsoft OAuth. |
+| `--delete-message-settings` | enum | What happens to a message left in the mailbox after Nexudus imports it: DontDelete leaves it in place, DeleteOnReceive removes it as soon as it is imported, and DeleteWhenDeleting removes it only when the matching customer message is deleted in Nexudus. |
+| `--outgoing-server` | string | Host name of the SMTP server used to send email from this account, for example smtp.gmail.com; required. |
+| `--outgoing-server-port` | int | TCP port of the SMTP server, normally 587 or 465. |
 | `--from-outgoing-server-port` | range | |
 | `--to-outgoing-server-port` | range | |
-| `--outgoing-server-s-s-l` | bool | Whether outgoing server ssl is enabled |
-| `--outgoing-server-username` | string | The outgoing server username value for this email account |
-| `--reply-to-email` | string | The reply to email value for this email account |
-| `--last-check-time` | DateTime | Date/time value for last check time |
+| `--outgoing-server-s-s-l` | bool | Whether the SMTP connection is made over SSL/TLS. |
+| `--outgoing-server-username` | string | User name used to sign in to the SMTP server, usually the full mailbox address; required and stored encrypted. |
+| `--last-check-time` | DateTime | UTC timestamp of the last time the background task polled this mailbox; the task maintains it, and an account becomes due for another poll once it is more than 15 minutes old. |
 | `--from-last-check-time` | range | |
 | `--to-last-check-time` | range | |
-| `--last-message-id` | int | ID of the last message associated with this record |
-| `--from-last-message-id` | range | |
-| `--to-last-message-id` | range | |
-| `--error-count` | int | The error count value for this email account |
+| `--error-count` | int | Number of failed mailbox connection attempts since the last scheduled check; the check resets it to zero, and once it passes the EmailAccounts.MaxRetries limit the account is deactivated and a warning email is queued to the account address. |
 | `--from-error-count` | range | |
 | `--to-error-count` | range | |
-| `--google-access-token` | string | The google access token value for this email account |
-| `--office365-access-token` | string | The office365 access token value for this email account |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -74,67 +68,47 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long, required | ID of the business linked to this record |
-| `--display-name` | string, required | The display name value for this email account |
-| `--email-address` | string, required | The email address value for this email account |
-| `--active` | bool | Whether this email account is currently active |
-| `--send-notification-on-new-messages` | bool | Whether send notification on new messages is enabled |
-| `--notification-email-address` | string | The notification email address value for this email account |
-| `--incoming-server` | string, required | The incoming server value for this email account |
-| `--incoming-server-type` | enum, required | The incoming server type value for this email account |
-| `--incoming-server-port` | int, required | The incoming server port value for this email account |
-| `--incoming-server-s-s-l` | bool | Whether incoming server ssl is enabled |
-| `--incoming-server-username` | string, required | The incoming server username value for this email account |
-| `--delete-message-settings` | enum, required | The delete message settings value for this email account |
-| `--outgoing-server` | string, required | The outgoing server value for this email account |
-| `--outgoing-server-port` | int, required | The outgoing server port value for this email account |
-| `--outgoing-server-s-s-l` | bool | Whether outgoing server ssl is enabled |
-| `--outgoing-server-username` | string, required | The outgoing server username value for this email account |
-| `--reply-to-email` | string | The reply to email value for this email account |
-| `--last-check-time` | DateTime | Date/time value for last check time |
-| `--last-message-id` | int, required | ID of the last message associated with this record |
-| `--error-count` | int, required | The error count value for this email account |
-| `--google-access-token` | string | The google access token value for this email account |
-| `--office365-access-token` | string | The office365 access token value for this email account |
+| `--business-id` | long, required | ID of the location that owns this email account; it is supplied from the agent context. |
+| `--display-name` | string, required | Account name shown to operators, and the sender display name on email sent through this account; required. |
+| `--email-address` | string, required | Mailbox address this account connects to; it is the From and Reply-To address of email sent through the account, and it must be unique within the location. Required. |
+| `--active` | bool | Whether the mailbox is polled for new messages; the background check runs about every 15 minutes and skips accounts in a suspended location, and the system switches this off by itself after repeated connection failures. |
+| `--send-notification-on-new-messages` | bool | Whether a notification email is sent each time an inbound message is attached to a customer record through this account. |
+| `--notification-email-address` | string | Address that receives those new-message notifications; it only applies while SendNotificationOnNewMessages is on, and when it is left empty the notifications go to EmailAddress instead. |
+| `--incoming-server` | string, required | Host name of the IMAP server messages are read from, for example imap.gmail.com; required, and ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-type` | enum, required | Protocol used to read the mailbox; Imap is the only supported value. |
+| `--incoming-server-port` | int, required | TCP port of the IMAP server, normally 993 with SSL and 143 without; ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-s-s-l` | bool | Whether the IMAP connection is made over SSL/TLS; ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-username` | string, required | User name used to sign in to the IMAP server, usually the full mailbox address; required, stored encrypted, and ignored on accounts connected through Google or Microsoft OAuth. |
+| `--delete-message-settings` | enum, required | What happens to a message left in the mailbox after Nexudus imports it: DontDelete leaves it in place, DeleteOnReceive removes it as soon as it is imported, and DeleteWhenDeleting removes it only when the matching customer message is deleted in Nexudus. |
+| `--outgoing-server` | string, required | Host name of the SMTP server used to send email from this account, for example smtp.gmail.com; required. |
+| `--outgoing-server-port` | int, required | TCP port of the SMTP server, normally 587 or 465. |
+| `--outgoing-server-s-s-l` | bool | Whether the SMTP connection is made over SSL/TLS. |
+| `--outgoing-server-username` | string, required | User name used to sign in to the SMTP server, usually the full mailbox address; required and stored encrypted. |
+| `--last-check-time` | DateTime | UTC timestamp of the last time the background task polled this mailbox; the task maintains it, and an account becomes due for another poll once it is more than 15 minutes old. |
+| `--error-count` | int, required | Number of failed mailbox connection attempts since the last scheduled check; the check resets it to zero, and once it passes the EmailAccounts.MaxRetries limit the account is deactivated and a warning email is queued to the account address. |
 
 #### EmailAccount update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--business-id` | long | ID of the business linked to this record |
-| `--display-name` | string | The display name value for this email account |
-| `--email-address` | string | The email address value for this email account |
-| `--active` | bool | Whether this email account is currently active |
-| `--send-notification-on-new-messages` | bool | Whether send notification on new messages is enabled |
-| `--notification-email-address` | string | The notification email address value for this email account |
-| `--incoming-server` | string | The incoming server value for this email account |
-| `--incoming-server-type` | enum | The incoming server type value for this email account |
-| `--incoming-server-port` | int | The incoming server port value for this email account |
-| `--incoming-server-s-s-l` | bool | Whether incoming server ssl is enabled |
-| `--incoming-server-username` | string | The incoming server username value for this email account |
-| `--delete-message-settings` | enum | The delete message settings value for this email account |
-| `--outgoing-server` | string | The outgoing server value for this email account |
-| `--outgoing-server-port` | int | The outgoing server port value for this email account |
-| `--outgoing-server-s-s-l` | bool | Whether outgoing server ssl is enabled |
-| `--outgoing-server-username` | string | The outgoing server username value for this email account |
-| `--reply-to-email` | string | The reply to email value for this email account |
-| `--last-check-time` | DateTime | Date/time value for last check time |
-| `--last-message-id` | int | ID of the last message associated with this record |
-| `--error-count` | int | The error count value for this email account |
-| `--google-access-token` | string | The google access token value for this email account |
-| `--office365-access-token` | string | The office365 access token value for this email account |
-
-#### EmailAccount PII fields
-
-In non-interactive mode, these fields are tokenized in output. You can pass those tokens back into create/update options and the CLI resolves them before sending API requests.
-
-| Option | Category | Token example |
-| --- | --- | --- |
-| `--reply-to-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
-
-Example:
-
-`nexudus emailaccounts update <id> --reply-to-email "«PII:EMAIL:a3f2b1c9»" --agent`
+| `--business-id` | long | ID of the location that owns this email account; it is supplied from the agent context. |
+| `--display-name` | string | Account name shown to operators, and the sender display name on email sent through this account; required. |
+| `--email-address` | string | Mailbox address this account connects to; it is the From and Reply-To address of email sent through the account, and it must be unique within the location. Required. |
+| `--active` | bool | Whether the mailbox is polled for new messages; the background check runs about every 15 minutes and skips accounts in a suspended location, and the system switches this off by itself after repeated connection failures. |
+| `--send-notification-on-new-messages` | bool | Whether a notification email is sent each time an inbound message is attached to a customer record through this account. |
+| `--notification-email-address` | string | Address that receives those new-message notifications; it only applies while SendNotificationOnNewMessages is on, and when it is left empty the notifications go to EmailAddress instead. |
+| `--incoming-server` | string | Host name of the IMAP server messages are read from, for example imap.gmail.com; required, and ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-type` | enum | Protocol used to read the mailbox; Imap is the only supported value. |
+| `--incoming-server-port` | int | TCP port of the IMAP server, normally 993 with SSL and 143 without; ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-s-s-l` | bool | Whether the IMAP connection is made over SSL/TLS; ignored on accounts connected through Google or Microsoft OAuth. |
+| `--incoming-server-username` | string | User name used to sign in to the IMAP server, usually the full mailbox address; required, stored encrypted, and ignored on accounts connected through Google or Microsoft OAuth. |
+| `--delete-message-settings` | enum | What happens to a message left in the mailbox after Nexudus imports it: DontDelete leaves it in place, DeleteOnReceive removes it as soon as it is imported, and DeleteWhenDeleting removes it only when the matching customer message is deleted in Nexudus. |
+| `--outgoing-server` | string | Host name of the SMTP server used to send email from this account, for example smtp.gmail.com; required. |
+| `--outgoing-server-port` | int | TCP port of the SMTP server, normally 587 or 465. |
+| `--outgoing-server-s-s-l` | bool | Whether the SMTP connection is made over SSL/TLS. |
+| `--outgoing-server-username` | string | User name used to sign in to the SMTP server, usually the full mailbox address; required and stored encrypted. |
+| `--last-check-time` | DateTime | UTC timestamp of the last time the background task polled this mailbox; the task maintains it, and an account becomes due for another poll once it is more than 15 minutes old. |
+| `--error-count` | int | Number of failed mailbox connection attempts since the last scheduled check; the check resets it to zero, and once it passes the EmailAccounts.MaxRetries limit the account is deactivated and a warning email is queued to the account address. |
 
 #### EmailAccount enum values
 

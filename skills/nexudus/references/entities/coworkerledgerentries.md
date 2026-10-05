@@ -57,6 +57,7 @@ CoworkerLedgerEntries support Search, Get, Create, Update, Delete.
 | `--from-credit` | range | |
 | `--to-credit` | range | |
 | `--payment-gateway-name` | enum | Payment provider or payment method for this transaction; choosing a connected gateway such as Stripe or Spreedly attempts to collect payment and creation can fail if collection fails. Manual payments cannot use GoCardless, GoCardlessPro, StripeDirectDebit, Xero, Forte, or StripeACH. |
+| `--payment-method-number` | string | Payment-method detail supplied by the payment processor; hidden because it can contain sensitive payment information. |
 | `--transaction-date` | DateTime | Date and time of the transaction in UTC; defaults to the current UTC time when omitted and cannot be before the location billing lock date. |
 | `--from-transaction-date` | range | |
 | `--to-transaction-date` | range | |
@@ -90,6 +91,7 @@ Default sort: `TransactionDate` ascending. If no `--order-by` is specified, the 
 | `--debit` | decimal, required | Debit amount in the location currency, rounded to two decimal places when saved; positive debits are invoice charges and negative debits are credit notes. Debit and Credit are mutually exclusive, so set the other amount to zero. |
 | `--credit` | decimal, required | Credit amount in the location currency, rounded to two decimal places when saved; positive credits are received payments and negative credits are refunded payments. Credit and Debit are mutually exclusive, so set the other amount to zero. |
 | `--payment-gateway-name` | enum | Payment provider or payment method for this transaction; choosing a connected gateway such as Stripe or Spreedly attempts to collect payment and creation can fail if collection fails. Manual payments cannot use GoCardless, GoCardlessPro, StripeDirectDebit, Xero, Forte, or StripeACH. |
+| `--payment-method-number` | string | Payment-method detail supplied by the payment processor; hidden because it can contain sensitive payment information. |
 | `--transaction-date` | DateTime | Date and time of the transaction in UTC; defaults to the current UTC time when omitted and cannot be before the location billing lock date. |
 | `--connected-transaction-guid` | string | Internal identifier linking related ledger transactions so that deletion can reverse the connected payment; hidden because it is managed by payment workflows. |
 
@@ -104,6 +106,7 @@ Default sort: `TransactionDate` ascending. If no `--order-by` is specified, the 
 | `--code` | string | Required ledger reference code; payment and invoice workflows commonly generate codes such as PAYM-, CASH-, CRED-, REFD-, or INVC-. |
 | `--debit` | decimal | Debit amount in the location currency, rounded to two decimal places when saved; positive debits are invoice charges and negative debits are credit notes. Debit and Credit are mutually exclusive, so set the other amount to zero. |
 | `--credit` | decimal | Credit amount in the location currency, rounded to two decimal places when saved; positive credits are received payments and negative credits are refunded payments. Credit and Debit are mutually exclusive, so set the other amount to zero. |
+| `--payment-method-number` | string | Payment-method detail supplied by the payment processor; hidden because it can contain sensitive payment information. |
 | `--transaction-date` | DateTime | Date and time of the transaction in UTC; defaults to the current UTC time when omitted and cannot be before the location billing lock date. |
 | `--connected-transaction-guid` | string | Internal identifier linking related ledger transactions so that deletion can reverse the connected payment; hidden because it is managed by payment workflows. |
 

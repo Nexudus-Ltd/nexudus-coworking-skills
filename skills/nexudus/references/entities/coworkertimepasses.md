@@ -12,7 +12,7 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 | `nexudus coworkertimepasses list --id <id> --agent` | Filter by single ID |
 | `nexudus coworkertimepasses list --id <id1> --id <id2> --agent` | Filter by multiple IDs |
 | `nexudus coworkertimepasses list --unique-id <guid> --agent` | Filter by UniqueId (GUID) |
-| `nexudus coworkertimepasses list --coworker-id <value> --business-id <value> --agent` | Filter coworkertimepasses by properties |
+| `nexudus coworkertimepasses list --coworker-id <value> --coworker-full-name <value> --agent` | Filter coworkertimepasses by properties |
 | `nexudus coworkertimepasses list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkertimepasses list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkertimepasses get <id> --agent` | Get single coworkertimepass |
@@ -25,6 +25,7 @@ CoworkerTimePasses support Search, Get, Create, Update, Delete.
 | Option | Type | Description |
 | --- | --- | --- |
 | `--coworker-id` | long | ID of the customer assigned this pass |
+| `--coworker-full-name` | string | Display value for Coworker.FullName. |
 | `--business-id` | long | ID of the location that owns this pass |
 | `--time-pass-id` | long | ID of the pass definition to issue; it determines the included number of uses and default price |
 | `--time-pass-name` | string | Display value for TimePass.Name. |
@@ -113,10 +114,11 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 
 | Option | Category | Token example |
 | --- | --- | --- |
+| `--coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--notes` | `BIO` | `«PII:BIO:a3f2b1c9»` |
 
 Example:
 
-`nexudus coworkertimepasses update <id> --notes "«PII:BIO:a3f2b1c9»" --agent`
+`nexudus coworkertimepasses update <id> --coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
 
 <!-- END:GENERATED entity=CoworkerTimePasses -->

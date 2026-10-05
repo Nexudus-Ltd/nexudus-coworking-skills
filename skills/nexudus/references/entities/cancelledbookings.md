@@ -143,7 +143,6 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking (before it was cancelled) |
 | `--from-coworker-checked-out-at` | range | |
 | `--to-coworker-checked-out-at` | range | |
-| `--booking-source` | enum | Read-only record of which channel created the booking before it was cancelled, such as the admin panel, Members Portal, public API, CLI, SDK, or an automation tile. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |

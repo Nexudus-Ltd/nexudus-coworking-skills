@@ -2,17 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CourseSections -->
 
-A **CourseSection** is a structural grouping that organises lessons within a `Course`. Sections represent milestones or learning stages — each section should bring the member one step closer to the course's overall learning goal.
-
-Sections are ordered by `DisplayOrder` and can be set to unlock immediately or after a delay, using the same `UnlockType` / `UnlockAfterDays` mechanism as individual lessons:
-
-| UnlockType | Meaning |
-| ---------- | ------- |
-| Immediate  | Section is available as soon as the member enrols |
-| Sequential | Unlocked only after the previous section is completed |
-| Timed      | Unlocked after the number of days specified by `UnlockAfterDays` |
-
-Sections are optional — lessons can belong directly to a course without a section. However, using sections can help create a clearer learning path for members, and allows you to unlock groups of lessons at once.
+A CourseSection is a structural grouping that organises lessons within a Course. Sections represent milestones or learning stages — each section should bring the member one step closer to the course's overall learning goal. Sections are ordered by DisplayOrder and can be set to unlock immediately or after a delay, using the same UnlockType / UnlockAfterDays mechanism as individual lessons: Meaning | ------- | Section is available as soon as the member enrols | Unlocked only after the previous section is completed | Unlocked after the number of days specified by UnlockAfterDays | Sections are optional — lessons can belong directly to a course without a section. However, using sections can help create a clearer learning path for members, and allows you to unlock groups of lessons at once.
 
 CourseSections support Search, Get, Create, Update, Delete.
 

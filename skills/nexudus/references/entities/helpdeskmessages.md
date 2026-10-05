@@ -46,6 +46,7 @@ HelpDeskMessages support Search, Get, Create, Update, Delete.
 | `--first-response-time-in-minutes` | int | Read-only first-response duration for this ticket, measured in whole minutes. |
 | `--from-first-response-time-in-minutes` | range | |
 | `--to-first-response-time-in-minutes` | range | |
+| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -74,6 +75,7 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage update options
 
@@ -89,6 +91,7 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
+| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage PII fields
 

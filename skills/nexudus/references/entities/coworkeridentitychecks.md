@@ -52,8 +52,6 @@ CoworkerIdentityChecks also support entity commands.
 | `--identity-check-provider2` | enum | Optional provider for a third check created with this request: Manual or StripeIdentity; requires VerificationType2. |
 | `--verification-type2` | enum | Optional purpose for a third check created with this request: IdDocument or Address; requires IdentityCheckProvider2. |
 | `--description2` | string | Optional notes for the third check created with this request; used only with VerificationType2. |
-| `--address-check-document-types` | string | Document types accepted as proof of address for this check, used when VerificationType is Address. |
-| `--identity-check-document-types` | string | Document types accepted as proof of identity for this check, used when VerificationType is IdDocument. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -89,8 +87,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--identity-check-provider2` | enum | Optional provider for a third check created with this request: Manual or StripeIdentity; requires VerificationType2. |
 | `--verification-type2` | enum | Optional purpose for a third check created with this request: IdDocument or Address; requires IdentityCheckProvider2. |
 | `--description2` | string | Optional notes for the third check created with this request; used only with VerificationType2. |
-| `--address-check-document-types` | string | Document types accepted as proof of address for this check, used when VerificationType is Address. |
-| `--identity-check-document-types` | string | Document types accepted as proof of identity for this check, used when VerificationType is IdDocument. |
 
 #### CoworkerIdentityCheck update options
 
@@ -107,8 +103,6 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--address-document-type` | enum | Address document type when VerificationType is Address: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, or Other. |
 | `--verification-type` | enum | Purpose of the check: IdDocument for identity verification or Address for address verification. |
 | `--description` | string | Optional free-text notes describing this verification check. |
-| `--address-check-document-types` | string | Document types accepted as proof of address for this check, used when VerificationType is Address. |
-| `--identity-check-document-types` | string | Document types accepted as proof of identity for this check, used when VerificationType is IdDocument. |
 
 #### CoworkerIdentityCheck PII fields
 
