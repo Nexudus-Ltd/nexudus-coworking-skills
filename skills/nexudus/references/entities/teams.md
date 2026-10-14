@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Teams -->
 
-A Team is a group of customers at one location that can consolidate invoices under a paying customer and share selected credits, passes, booking credit, and access-related benefits.
+A Team is a group of customers at one location that can consolidate invoices under a paying customer and share selected credits, passes, money credit, and access-related benefits.
 
 Teams support Search, Get, Create, Update, Delete.
 Teams also support entity commands.
@@ -46,7 +46,7 @@ Teams also support entity commands.
 | `--transfer-credits-to-paying-member` | bool | Whether team members' credits are pooled with the paying customer; requires a paying customer and supports teams of up to 50 customers |
 | `--share-time-passes` | bool | Whether team members share passes through the paying customer; with credit pooling enabled, their combined included passes cannot exceed 500 |
 | `--share-extra-services` | bool | Whether team members share time credits and printing credits through the paying customer |
-| `--share-booking-credit` | bool | Whether team members can use the paying customer's booking credit for their bookings |
+| `--share-booking-credit` | bool | Whether team members can use the paying customer's money credit for their bookings |
 | `--discount-extra-services` | decimal | Optional percentage discount on booking rates; the highest applicable team or plan discount is used |
 | `--from-discount-extra-services` | range | |
 | `--to-discount-extra-services` | range | |
@@ -135,7 +135,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--transfer-credits-to-paying-member` | bool | Whether team members' credits are pooled with the paying customer; requires a paying customer and supports teams of up to 50 customers |
 | `--share-time-passes` | bool | Whether team members share passes through the paying customer; with credit pooling enabled, their combined included passes cannot exceed 500 |
 | `--share-extra-services` | bool | Whether team members share time credits and printing credits through the paying customer |
-| `--share-booking-credit` | bool | Whether team members can use the paying customer's booking credit for their bookings |
+| `--share-booking-credit` | bool | Whether team members can use the paying customer's money credit for their bookings |
 | `--discount-extra-services` | decimal | Optional percentage discount on booking rates; the highest applicable team or plan discount is used |
 | `--discount-time-passes` | decimal | Optional percentage discount on passes; the highest applicable team or plan discount is used |
 | `--discount-charges` | decimal | Optional percentage discount on one-off charges; the highest applicable team or plan discount is used |
@@ -193,7 +193,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--transfer-credits-to-paying-member` | bool | Whether team members' credits are pooled with the paying customer; requires a paying customer and supports teams of up to 50 customers |
 | `--share-time-passes` | bool | Whether team members share passes through the paying customer; with credit pooling enabled, their combined included passes cannot exceed 500 |
 | `--share-extra-services` | bool | Whether team members share time credits and printing credits through the paying customer |
-| `--share-booking-credit` | bool | Whether team members can use the paying customer's booking credit for their bookings |
+| `--share-booking-credit` | bool | Whether team members can use the paying customer's money credit for their bookings |
 | `--discount-extra-services` | decimal | Optional percentage discount on booking rates; the highest applicable team or plan discount is used |
 | `--discount-time-passes` | decimal | Optional percentage discount on passes; the highest applicable team or plan discount is used |
 | `--discount-charges` | decimal | Optional percentage discount on one-off charges; the highest applicable team or plan discount is used |

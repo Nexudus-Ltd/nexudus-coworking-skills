@@ -68,6 +68,9 @@ ProposalContracts support Search, Get, Create, Update, Delete.
 | `--floor-plan-desk-names` | string | Read-only denormalized names of the assigned floor-plan units; change Desks rather than this projection. |
 | `--floor-plan-desk-variant-ids` | string | Read-only denormalized IDs of the assigned floor-plan unit packages; change Variants rather than this projection. |
 | `--floor-plan-desk-variant-names` | string | Read-only denormalized names of the assigned floor-plan unit packages; change Variants rather than this projection. |
+| `--indexation-rule-id` | long | Optional indexation rule quoted with this contract. Defaults to the plan's default rule, is copied to the customer contract when the proposal is accepted, and its clause text is shown on the proposal. |
+| `--indexation-rule-name` | string | Display value for IndexationRule.Name. |
+| `--indexation-rule-clause-text` | string | Display value for IndexationRule.ClauseText. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -102,6 +105,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--billing-day` | int, required | Day of the month, from 1 to 28, on which the contract is invoiced after acceptance. |
 | `--quantity` | int, required | Number of plan units on this quoted contract, at least 1; it multiplies the unit price. |
 | `--discount-code-id` | long | Optional ID of a discount code carried onto the customer contract when the proposal is accepted. |
+| `--indexation-rule-id` | long | Optional indexation rule quoted with this contract. Defaults to the plan's default rule, is copied to the customer contract when the proposal is accepted, and its clause text is shown on the proposal. |
 
 #### ProposalContract update options
 
@@ -123,6 +127,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--billing-day` | int | Day of the month, from 1 to 28, on which the contract is invoiced after acceptance. |
 | `--quantity` | int | Number of plan units on this quoted contract, at least 1; it multiplies the unit price. |
 | `--discount-code-id` | long | Optional ID of a discount code carried onto the customer contract when the proposal is accepted. |
+| `--indexation-rule-id` | long | Optional indexation rule quoted with this contract. Defaults to the plan's default rule, is copied to the customer contract when the proposal is accepted, and its clause text is shown on the proposal. |
 
 #### ProposalContract PII fields
 

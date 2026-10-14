@@ -17,7 +17,7 @@ CoworkerIdentityChecks also support entity commands.
 | `nexudus coworkeridentitychecks list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus coworkeridentitychecks list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus coworkeridentitychecks get <id> --agent` | Get single coworkeridentitycheck |
-| `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --identity-check-provider <value> --identity-document-type <value> --address-document-type <value> --verification-type <value> --agent` | Create coworkeridentitycheck |
+| `nexudus coworkeridentitychecks create --business-id <value> --coworker-id <value> --name <value> --identity-check-provider <value> --identity-document-type <value> --address-document-type <value> --verification-type <value> --address-check-document-types <value> --identity-check-document-types <value> --agent` | Create coworkeridentitycheck |
 | `nexudus coworkeridentitychecks update <id> --name "New Name" --agent` | Update coworkeridentitycheck |
 | `nexudus coworkeridentitychecks delete <id> --yes --agent` | Delete coworkeridentitycheck (no prompt) |
 | `nexudus coworkeridentitychecks run-command <key> <ids> --agent` | Run entity command |
@@ -52,6 +52,8 @@ CoworkerIdentityChecks also support entity commands.
 | `--identity-check-provider2` | enum | Optional provider for a third check created with this request: Manual or StripeIdentity; requires VerificationType2. |
 | `--verification-type2` | enum | Optional purpose for a third check created with this request: IdDocument or Address; requires IdentityCheckProvider2. |
 | `--description2` | string | Optional notes for the third check created with this request; used only with VerificationType2. |
+| `--address-check-document-types` | enum | Address document types the customer may upload for this check: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, BankStatement, or Other. When empty, the contract plan's AddressCheckDocumentTypes apply; if both are empty any type is accepted. Uploading any other type is rejected. |
+| `--identity-check-document-types` | enum | Identity document types the customer may upload for this check: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. When empty, the contract plan's IdentityCheckDocumentTypes apply; if both are empty any type is accepted. Uploading any other type is rejected. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -87,6 +89,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--identity-check-provider2` | enum | Optional provider for a third check created with this request: Manual or StripeIdentity; requires VerificationType2. |
 | `--verification-type2` | enum | Optional purpose for a third check created with this request: IdDocument or Address; requires IdentityCheckProvider2. |
 | `--description2` | string | Optional notes for the third check created with this request; used only with VerificationType2. |
+| `--address-check-document-types` | enum, required | Address document types the customer may upload for this check: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, BankStatement, or Other. When empty, the contract plan's AddressCheckDocumentTypes apply; if both are empty any type is accepted. Uploading any other type is rejected. |
+| `--identity-check-document-types` | enum, required | Identity document types the customer may upload for this check: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. When empty, the contract plan's IdentityCheckDocumentTypes apply; if both are empty any type is accepted. Uploading any other type is rejected. |
 
 #### CoworkerIdentityCheck update options
 
@@ -103,6 +107,8 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--address-document-type` | enum | Address document type when VerificationType is Address: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, or Other. |
 | `--verification-type` | enum | Purpose of the check: IdDocument for identity verification or Address for address verification. |
 | `--description` | string | Optional free-text notes describing this verification check. |
+| `--address-check-document-types` | enum | Address document types the customer may upload for this check: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, BankStatement, or Other. When empty, the contract plan's AddressCheckDocumentTypes apply; if both are empty any type is accepted. Uploading any other type is rejected. |
+| `--identity-check-document-types` | enum | Identity document types the customer may upload for this check: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. When empty, the contract plan's IdentityCheckDocumentTypes apply; if both are empty any type is accepted. Uploading any other type is rejected. |
 
 #### CoworkerIdentityCheck PII fields
 

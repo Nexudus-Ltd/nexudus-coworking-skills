@@ -68,7 +68,7 @@ Bookings also support entity commands.
 | `--charge-now` | bool | Whether to charge the booking immediately when it is created or updated. |
 | `--invoice-now` | bool | Whether to generate an invoice for the booking immediately. |
 | `--invoice-this-coworker` | bool | Whether the selected customer receives the booking charge. When false, the customer's team-paying member, if any, is the billing party. |
-| `--do-not-use-booking-credit` | bool | Whether to prevent available customer booking credit from being used for this booking. |
+| `--do-not-use-booking-credit` | bool | Whether to prevent available customer money credit from being used for this booking. |
 | `--purchase-order` | string | Optional customer purchase-order reference for the booking. |
 | `--discount-code` | string | Optional discount code applied when the booking price is calculated. |
 | `--tentative` | bool | Whether the booking is tentative and still requires confirmation. Customer bookings for resources requiring confirmation are created as tentative; administrators can create tentative bookings for any resource. |
@@ -110,6 +110,10 @@ Bookings also support entity commands.
 | `--coworker-invoice-draft` | bool | Read-only indicator that the associated invoice is still a draft, populated when the booking is included in an invoice. |
 | `--coworker-invoice-void` | bool | Read-only indicator that the associated invoice has been voided, populated when the booking is included in an invoice. |
 | `--coworker-invoice-credit-note` | bool | Read-only indicator that the associated invoice is a credit note, populated when the booking is included in an invoice. |
+| `--coworker-extra-service-price` | decimal | Read-only total the booking was charged: the sum of the customer rate entitlements posted for it, net of discounts and of any money credit used, in CoworkerExtraServiceCurrencyCode. Null until the booking is charged; refreshed within about a minute of its charges changing. |
+| `--from-coworker-extra-service-price` | range | |
+| `--to-coworker-extra-service-price` | range | |
+| `--coworker-extra-service-currency-code` | string | Read-only currency code of CoworkerExtraServicePrice, taken from the rate the booking was charged with. |
 | `--include-zoom-invite` | bool | Whether to include a Zoom meeting invitation for this booking. |
 | `--checked-in-at` | DateTime | UTC date and time when the booking was checked in through the booking workflow. |
 | `--from-checked-in-at` | range | |
@@ -137,6 +141,7 @@ Bookings also support entity commands.
 | `--coworker-checked-out-at` | DateTime | UTC date and time when the customer checked out from this booking. |
 | `--from-coworker-checked-out-at` | range | |
 | `--to-coworker-checked-out-at` | range | |
+| `--booking-source` | enum | Read-only channel the booking was created from, detected from the calling client when it is created: AdminPanel, MembersPortal, Passport, NexBoard, Api, Sdk, Cli, McpServer, AutomationTile, or Unknown. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -166,7 +171,7 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 | `--charge-now` | bool | Whether to charge the booking immediately when it is created or updated. |
 | `--invoice-now` | bool | Whether to generate an invoice for the booking immediately. |
 | `--invoice-this-coworker` | bool | Whether the selected customer receives the booking charge. When false, the customer's team-paying member, if any, is the billing party. |
-| `--do-not-use-booking-credit` | bool | Whether to prevent available customer booking credit from being used for this booking. |
+| `--do-not-use-booking-credit` | bool | Whether to prevent available customer money credit from being used for this booking. |
 | `--purchase-order` | string | Optional customer purchase-order reference for the booking. |
 | `--discount-code` | string | Optional discount code applied when the booking price is calculated. |
 | `--tentative` | bool | Whether the booking is tentative and still requires confirmation. Customer bookings for resources requiring confirmation are created as tentative; administrators can create tentative bookings for any resource. |
@@ -206,7 +211,7 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 | `--charge-now` | bool | Whether to charge the booking immediately when it is created or updated. |
 | `--invoice-now` | bool | Whether to generate an invoice for the booking immediately. |
 | `--invoice-this-coworker` | bool | Whether the selected customer receives the booking charge. When false, the customer's team-paying member, if any, is the billing party. |
-| `--do-not-use-booking-credit` | bool | Whether to prevent available customer booking credit from being used for this booking. |
+| `--do-not-use-booking-credit` | bool | Whether to prevent available customer money credit from being used for this booking. |
 | `--purchase-order` | string | Optional customer purchase-order reference for the booking. |
 | `--discount-code` | string | Optional discount code applied when the booking price is calculated. |
 | `--tentative` | bool | Whether the booking is tentative and still requires confirmation. Customer bookings for resources requiring confirmation are created as tentative; administrators can create tentative bookings for any resource. |

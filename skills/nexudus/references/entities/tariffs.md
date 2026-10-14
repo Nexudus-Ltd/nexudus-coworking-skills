@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=Tariffs -->
 
-A Tariff (also called a Plan) is a membership plan that customers can sign up to in exchange for access to a coworking space and other benefits. Tariffs are the foundation for contracts — every time a customer signs up to a plan, Nexudus generates a CoworkerContract for that member based on the plan's settings. Plans define billing frequency (in months or weeks via InvoiceEvery / InvoiceEveryWeeks), pricing, cancellation rules, and limits on check-ins, booking minutes, visitor passes, and hours. Members are invoiced at the end of each billing cycle. Plans can include benefits such as day passes, booking credits, and money credits — these are configured through CoworkerExtraService and Product entities linked to the contract. Use SystemTariffType to categorise the plan (e.g. FullTimeHotDesk, VirtualOffice, Storage). Use Visible to control whether the plan appears on the members portal. Plans can optionally require identity checks before activation, enforce contract terms, support pausing, and define delivery handling preferences for virtual office mail. When you edit a plan, changes impact all members signed up to that plan. To customise settings for an individual member, edit their CoworkerContract instead.
+A Tariff (also called a Plan) is a membership plan that customers can sign up to in exchange for access to a coworking space and other benefits. Tariffs are the foundation for contracts — every time a customer signs up to a plan, Nexudus generates a CoworkerContract for that member based on the plan's settings. Plans define billing frequency (in months or weeks via InvoiceEvery / InvoiceEveryWeeks), pricing, cancellation rules, and limits on check-ins, booking minutes, visitor passes, and hours. Members are invoiced at the end of each billing cycle. Plans can include benefits such as day passes, time credits, and money credits — these are configured through CoworkerExtraService and Product entities linked to the contract. Use SystemTariffType to categorise the plan (e.g. FullTimeHotDesk, VirtualOffice, Storage). Use Visible to control whether the plan appears on the members portal. Plans can optionally require identity checks before activation, enforce contract terms, support pausing, and define delivery handling preferences for virtual office mail. When you edit a plan, changes impact all members signed up to that plan. To customise settings for an individual member, edit their CoworkerContract instead.
 
 Tariffs support Search, Get, Create, Update, Delete.
 
@@ -16,7 +16,7 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `nexudus tariffs list --page-number 2 --page-size 10 --agent` | Paginated list |
 | `nexudus tariffs list --order-by <property> --dir 0 --agent` | Sort results (0=asc, 1=desc) |
 | `nexudus tariffs get <id> --agent` | Get single tariff |
-| `nexudus tariffs create --business-id <value> --name <value> --system-tariff-type <value> --price <value> --currency-id <value> --cancellation-period <value> --display-order <value> --invoice-every <value> --invoice-every-weeks <value> --booking-due-date-strategy <value> --address-identity-check-provider <value> --address-identity-check-repeat-pattern <value> --identity-check-provider <value> --identity-check-repeat-pattern <value> --delivery-preferences-mail <value> --delivery-preferences-parcels <value> --delivery-preferences-checks <value> --delivery-preferences-publicity <value> --delivery-preferences-other <value> --agent` | Create tariff |
+| `nexudus tariffs create --business-id <value> --name <value> --system-tariff-type <value> --price <value> --currency-id <value> --cancellation-period <value> --display-order <value> --invoice-every <value> --invoice-every-weeks <value> --booking-due-date-strategy <value> --address-identity-check-provider <value> --address-identity-check-repeat-pattern <value> --identity-check-provider <value> --identity-check-repeat-pattern <value> --delivery-preferences-mail <value> --delivery-preferences-parcels <value> --delivery-preferences-checks <value> --delivery-preferences-publicity <value> --delivery-preferences-other <value> --address-check-document-types <value> --identity-check-document-types <value> --agent` | Create tariff |
 | `nexudus tariffs update <id> --name "New Name" --agent` | Update tariff |
 | `nexudus tariffs delete <id> --yes --agent` | Delete tariff (no prompt) |
 
@@ -213,6 +213,10 @@ Tariffs support Search, Get, Create, Update, Delete.
 | `--from-maximum-addresses` | range | |
 | `--to-maximum-addresses` | range | |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
+| `--address-check-document-types` | enum | Address document types accepted for the address checks this plan requests: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, BankStatement, or Other. Copied to each address check created for the plan's contracts; an empty list accepts any type. |
+| `--identity-check-document-types` | enum | Identity document types accepted for the identity checks this plan requests: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. Copied to each identity check created for the plan's contracts; an empty list accepts any type. |
+| `--default-indexation-rule-id` | long | Indexation rule given to new contracts on this plan; existing contracts are not changed. After a contract's first indexation step it keeps its own unit price and no longer follows this plan's price. |
+| `--default-indexation-rule-name` | string | Display value for DefaultIndexationRule.Name. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -350,6 +354,9 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |
 | `--maximum-addresses` | int | Maximum number of forwarding addresses allowed (virtual office) |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
+| `--address-check-document-types` | enum, required | Address document types accepted for the address checks this plan requests: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, BankStatement, or Other. Copied to each address check created for the plan's contracts; an empty list accepts any type. |
+| `--identity-check-document-types` | enum, required | Identity document types accepted for the identity checks this plan requests: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. Copied to each identity check created for the plan's contracts; an empty list accepts any type. |
+| `--default-indexation-rule-id` | long | Indexation rule given to new contracts on this plan; existing contracts are not changed. After a contract's first indexation step it keeps its own unit price and no longer follows this plan's price. |
 
 #### Tariff update options
 
@@ -474,6 +481,9 @@ Default sort: `Name` ascending. If no `--order-by` is specified, the API returns
 | `--maximum-recipients` | int | Maximum number of mail recipients allowed (virtual office) |
 | `--maximum-addresses` | int | Maximum number of forwarding addresses allowed (virtual office) |
 | `--transfer-products-to-contract` | bool | Whether to automatically transfer mail handling products to the member's contract |
+| `--address-check-document-types` | enum | Address document types accepted for the address checks this plan requests: Passport, DriversLicense, IdCard, LeaseRentalAgreement, InsurancePolicy, Mortgage, VehicleRegistrationCard, VoterCard, BankStatement, or Other. Copied to each address check created for the plan's contracts; an empty list accepts any type. |
+| `--identity-check-document-types` | enum | Identity document types accepted for the identity checks this plan requests: Passport, DriversLicense, IdCard, UniformedServiceId, CertificateOfNaturalization, AccessCard, MatriculaConsular, ResidentCard, UniversityId, NEXUSCard, or Other. Copied to each identity check created for the plan's contracts; an empty list accepts any type. |
+| `--default-indexation-rule-id` | long | Indexation rule given to new contracts on this plan; existing contracts are not changed. After a contract's first indexation step it keeps its own unit price and no longer follows this plan's price. |
 
 #### Tariff PII fields
 

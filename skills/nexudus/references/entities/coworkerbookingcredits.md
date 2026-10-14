@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerBookingCredits -->
 
-A booking credit (internally CoworkerBookingCredit) is a monetary balance assigned to a customer that can pay for bookings, event sign-ups, or, when universal credit is enabled, products, plans, passes, and selected one-off charges. It can be created manually or released from a plan or product benefit, and its availability can be limited by eligibility and a validity period.
+A money credit (internally CoworkerBookingCredit) is a monetary balance assigned to a customer that can pay for bookings, event sign-ups, or, when universal credit is enabled, products, plans, passes, and selected one-off charges. It can be created manually or released from a plan or product benefit, and its availability can be limited by eligibility and a validity period. Booking credit is its older internal name.
 
 CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 
@@ -24,13 +24,13 @@ CoworkerBookingCredits support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the customer this booking credit belongs to |
+| `--coworker-id` | long | ID of the customer this money credit belongs to |
 | `--coworker-full-name` | string | Display value for Coworker.FullName. |
-| `--business-id` | long | ID of the location that issued and owns this booking credit |
+| `--business-id` | long | ID of the location that issued and owns this money credit |
 | `--business-name` | string | Display value for Business.Name. |
 | `--business-currency-code` | string | Display value for Business.Currency.Code. |
-| `--description` | string | Optional operator-facing label or description for this booking credit |
-| `--tariff-booking-credit-id` | long | Read-only ID of the plan booking-credit definition that created this credit, if applicable |
+| `--description` | string | Optional operator-facing label or description for this money credit |
+| `--tariff-booking-credit-id` | long | Read-only ID of the plan money credit definition that created this credit, if applicable |
 | `--tariff-booking-credit-name` | string | Display value for TariffBookingCredit.Name. |
 | `--remaining-credit` | decimal | Read-only monetary amount still available; the system initializes it from TotalCredit and changes it through credit use or an adjustment |
 | `--from-remaining-credit` | range | |
@@ -69,9 +69,9 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long, required | ID of the customer this booking credit belongs to |
-| `--business-id` | long, required | ID of the location that issued and owns this booking credit |
-| `--description` | string | Optional operator-facing label or description for this booking credit |
+| `--coworker-id` | long, required | ID of the customer this money credit belongs to |
+| `--business-id` | long, required | ID of the location that issued and owns this money credit |
+| `--description` | string | Optional operator-facing label or description for this money credit |
 | `--elegible-resource-types` | list, repeat flag | List of resource-type IDs this credit can pay for when CaneBeUsedForBookings is true; an empty list allows every resource type |
 | `--added-elegible-resource-types` | list, repeat flag | IDs added to the ElegibleResourceTypes relationship. |
 | `--removed-elegible-resource-types` | list, repeat flag | IDs removed from the ElegibleResourceTypes relationship. |
@@ -100,9 +100,9 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--coworker-id` | long | ID of the customer this booking credit belongs to |
-| `--business-id` | long | ID of the location that issued and owns this booking credit |
-| `--description` | string | Optional operator-facing label or description for this booking credit |
+| `--coworker-id` | long | ID of the customer this money credit belongs to |
+| `--business-id` | long | ID of the location that issued and owns this money credit |
+| `--description` | string | Optional operator-facing label or description for this money credit |
 | `--elegible-resource-types` | list, repeat flag | List of resource-type IDs this credit can pay for when CaneBeUsedForBookings is true; an empty list allows every resource type |
 | `--added-elegible-resource-types` | list, repeat flag | IDs added to the ElegibleResourceTypes relationship. |
 | `--removed-elegible-resource-types` | list, repeat flag | IDs removed from the ElegibleResourceTypes relationship. |

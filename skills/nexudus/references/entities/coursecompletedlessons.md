@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CourseCompletedLessons -->
 
-A CourseCompletedLesson records that a specific CourseMember has completed a specific CourseLesson. Each record is the junction between a lesson and the enrolled member who finished it. These records are typically created automatically by the Members Portal when a member meets the lesson's completion criteria (e.g. visiting the lesson page, clicking a completion button, or finishing a video). They can also be created or deleted manually via the API to manage progress programmatically. Use this entity to query which lessons a member has completed, or to find all members who have completed a given lesson.
+A completed lesson (CourseCompletedLesson) records that a course member finished a lesson. The Members Portal creates it when the lesson's completion rule is met; create one to mark a lesson done for a member, or delete it to reset that lesson. Completed lessons drive progress, Sequential unlocking and course completion.
 
 CourseCompletedLessons support Search, Get, Create, Update, Delete.
 
@@ -24,9 +24,9 @@ CourseCompletedLessons support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--course-lesson-id` | long | ID of the course lesson that was completed |
+| `--course-lesson-id` | long | ID of the completed lesson; it must belong to the same course as the course member |
 | `--course-lesson-title` | string | Display value for CourseLesson.Title. |
-| `--course-member-id` | long | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
+| `--course-member-id` | long | ID of the course member (the customer's enrolment) who completed the lesson |
 | `--course-member-coworker-full-name` | string | Display value for CourseMember.Coworker.FullName. |
 | `--course-member-coworker-company-name` | string | Display value for CourseMember.Coworker.CompanyName. |
 | `--course-member-coworker-team-names` | string | Display value for CourseMember.Coworker.TeamNames. |
@@ -48,15 +48,15 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--course-lesson-id` | long, required | ID of the course lesson that was completed |
-| `--course-member-id` | long, required | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
+| `--course-lesson-id` | long, required | ID of the completed lesson; it must belong to the same course as the course member |
+| `--course-member-id` | long, required | ID of the course member (the customer's enrolment) who completed the lesson |
 
 #### CourseCompletedLesson update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--course-lesson-id` | long | ID of the course lesson that was completed |
-| `--course-member-id` | long | ID of the course enrolment (CourseMember) record for the member who completed the lesson |
+| `--course-lesson-id` | long | ID of the completed lesson; it must belong to the same course as the course member |
+| `--course-member-id` | long | ID of the course member (the customer's enrolment) who completed the lesson |
 
 #### CourseCompletedLesson PII fields
 

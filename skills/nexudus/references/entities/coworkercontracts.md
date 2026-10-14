@@ -126,6 +126,46 @@ CoworkerContracts support Search, Get, Create, Update, Delete.
 | `--in-paused-period-until` | DateTime | Calculated UTC end of the active or upcoming pause period; manage pause records instead. |
 | `--from-in-paused-period-until` | range | |
 | `--to-in-paused-period-until` | range | |
+| `--indexation-rule-id` | long | ID of the indexation rule that steps this contract's unit price on each step date for as long as the contract is active. The rule can belong to any location. The first step copies the plan price into the contract's own unit price when it had none, and the contract then no longer follows plan price changes. A contract with a unit price override cannot schedule a different next plan. |
+| `--indexation-rule-name` | string | Display value for IndexationRule.Name. |
+| `--indexation-rule-adjustment-type` | string | Display value for IndexationRule.AdjustmentType. |
+| `--indexation-rule-amount` | decimal | Display value for IndexationRule.Amount. |
+| `--from-indexation-rule-amount` | range | |
+| `--to-indexation-rule-amount` | range | |
+| `--indexation-rule-rounding-increment` | decimal | Display value for IndexationRule.RoundingIncrement. |
+| `--from-indexation-rule-rounding-increment` | range | |
+| `--to-indexation-rule-rounding-increment` | range | |
+| `--indexation-rule-anchor-type` | string | Display value for IndexationRule.AnchorType. |
+| `--indexation-rule-anchor-month` | int | Display value for IndexationRule.AnchorMonth. |
+| `--from-indexation-rule-anchor-month` | range | |
+| `--to-indexation-rule-anchor-month` | range | |
+| `--indexation-rule-anchor-day` | int | Display value for IndexationRule.AnchorDay. |
+| `--from-indexation-rule-anchor-day` | range | |
+| `--to-indexation-rule-anchor-day` | range | |
+| `--indexation-rule-frequency-months` | int | Display value for IndexationRule.FrequencyMonths. |
+| `--from-indexation-rule-frequency-months` | range | |
+| `--to-indexation-rule-frequency-months` | range | |
+| `--indexation-rule-minimum-months-before-first` | int | Display value for IndexationRule.MinimumMonthsBeforeFirst. |
+| `--from-indexation-rule-minimum-months-before-first` | range | |
+| `--to-indexation-rule-minimum-months-before-first` | range | |
+| `--indexation-rule-apply-to-contract-products` | bool | Display value for IndexationRule.ApplyToContractProducts. |
+| `--indexation-rule-active` | bool | Display value for IndexationRule.Active. |
+| `--next-indexation-on` | DateTime | Date of the next indexation step (UTC midnight of the business-local day), maintained by the system from the rule and the contract start. Empty when the contract has no active rule. |
+| `--from-next-indexation-on` | range | |
+| `--to-next-indexation-on` | range | |
+| `--next-indexation-on-local` | DateTime | Business-local date and time of NextIndexationOn. |
+| `--from-next-indexation-on-local` | range | |
+| `--to-next-indexation-on-local` | range | |
+| `--last-indexation-on` | DateTime | Effective date of the last indexation step applied to this contract. |
+| `--from-last-indexation-on` | range | |
+| `--to-last-indexation-on` | range | |
+| `--last-indexation-on-local` | DateTime | Business-local date and time of LastIndexationOn. |
+| `--from-last-indexation-on-local` | range | |
+| `--to-last-indexation-on-local` | range | |
+| `--indexation-count` | int | Number of indexation steps applied to this contract so far. |
+| `--from-indexation-count` | range | |
+| `--to-indexation-count` | range | |
+| `--price-set-by` | enum | Who last wrote the unit price override: Operator (edited by hand), Schedule (a price schedule applied) or Indexation (an indexation step applied). Empty while the contract follows its plan price. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -182,6 +222,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--identity-checks-due-on` | DateTime | Optional UTC date when identity verification is due for this contract. |
 | `--address-checks-due-on` | DateTime | Optional UTC date when address verification is due for this contract. |
 | `--po-box-number` | string | Post-office box number associated with this contract. |
+| `--indexation-rule-id` | long | ID of the indexation rule that steps this contract's unit price on each step date for as long as the contract is active. The rule can belong to any location. The first step copies the plan price into the contract's own unit price when it had none, and the contract then no longer follows plan price changes. A contract with a unit price override cannot schedule a different next plan. |
 | `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 
 #### CoworkerContract update options
@@ -226,6 +267,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--identity-checks-due-on` | DateTime | Optional UTC date when identity verification is due for this contract. |
 | `--address-checks-due-on` | DateTime | Optional UTC date when address verification is due for this contract. |
 | `--po-box-number` | string | Post-office box number associated with this contract. |
+| `--indexation-rule-id` | long | ID of the indexation rule that steps this contract's unit price on each step date for as long as the contract is active. The rule can belong to any location. The first step copies the plan price into the contract's own unit price when it had none, and the contract then no longer follows plan price changes. A contract with a unit price override cannot schedule a different next plan. |
 | `--contract-schedules` | JSON array or @filepath | Scheduled future price changes for this contract. Each entry sets a new Price to apply on a given date |
 
 #### CoworkerContract PII fields

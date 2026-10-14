@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerBookingCreditUseHistories -->
 
-A **CoworkerBookingCreditUseHistory** records each time a `CoworkerBookingCredit` was consumed. Each entry captures the amount of credit deducted and links back to the booking, event attendance, or invoice line that triggered the use.
-
-Use the read-only denormalised fields (`--booking-from-time`, `--booking-resource-name`, `--event-attendee-calendar-event-name`, etc.) to inspect what the credit was spent on without needing to fetch the related records separately.
+A read-only ledger entry for a customer booking credit (monetary credit). The system writes one entry each time credit is spent on a booking, an event ticket or an invoice, and each time an admin adjusts the balance. creditUsed is the amount deducted; a negative amount is credit given back by a manual adjustment. bookingId, eventAttendeeId and the description say what the credit paid for, and the denormalised fields (bookingResourceName, bookingFromTime, eventAttendeeCalendarEventName, ...) save fetching those records. Filter by coworkerBookingCredit_id for one credit, or by coworker_id / coworker_id_in for a customer's or a team's usage across all their credits. To add or remove credit, run ADJUST_BOOKING_CREDIT on the booking credit; entries cannot be created or edited here.
 
 CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete via API).
 
@@ -31,6 +29,7 @@ CoworkerBookingCreditUseHistories support Search, Get, Create, Update (no Delete
 | `--coworker-booking-credit-coworker-id` | int | Display value for CoworkerBookingCredit.Coworker.Id. |
 | `--from-coworker-booking-credit-coworker-id` | range | |
 | `--to-coworker-booking-credit-coworker-id` | range | |
+| `--coworker-booking-credit-coworker-full-name` | string | Display value for CoworkerBookingCredit.Coworker.FullName. |
 | `--coworker-booking-credit-description` | string | Display value for CoworkerBookingCredit.Description. |
 | `--coworker-booking-credit-tariff-booking-credit-name` | string | Display value for CoworkerBookingCredit.TariffBookingCredit.Name. |
 | `--coworker-booking-credit-expire-date` | DateTime | Display value for CoworkerBookingCredit.ExpireDate. |
@@ -102,12 +101,13 @@ In non-interactive mode, these fields are tokenized in output. You can pass thos
 
 | Option | Category | Token example |
 | --- | --- | --- |
+| `--coworker-booking-credit-coworker-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--event-attendee-full-name` | `NAME` | `«PII:NAME:a3f2b1c9»` |
 | `--event-attendee-email` | `EMAIL` | `«PII:EMAIL:a3f2b1c9»` |
 
 Example:
 
-`nexudus coworkerbookingcreditusehistories update <id> --event-attendee-full-name "«PII:NAME:a3f2b1c9»" --agent`
+`nexudus coworkerbookingcreditusehistories update <id> --coworker-booking-credit-coworker-full-name "«PII:NAME:a3f2b1c9»" --agent`
 
 ### CoworkerBookingCreditUseHistory (key fields)
 

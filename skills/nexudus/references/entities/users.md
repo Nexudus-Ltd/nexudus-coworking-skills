@@ -88,6 +88,7 @@ Users support Search, Get, Create, Update, Delete.
 | `--on-virtual-office-tariff-change` | bool | Whether to notify this active user about virtual-office plan changes for their locations. |
 | `--on-virtual-office-delivery-preference-update` | bool | Whether to notify this user when a virtual-office customer updates delivery preferences. |
 | `--on-identity-check-update` | bool | Whether to notify this user when a customer's identity-check status changes. |
+| `--on-contract-indexation` | bool | Whether to send this user the daily price indexation digest (steps applied, steps coming up) for the locations they manage. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -156,6 +157,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--on-virtual-office-tariff-change` | bool | Whether to notify this active user about virtual-office plan changes for their locations. |
 | `--on-virtual-office-delivery-preference-update` | bool | Whether to notify this user when a virtual-office customer updates delivery preferences. |
 | `--on-identity-check-update` | bool | Whether to notify this user when a customer's identity-check status changes. |
+| `--on-contract-indexation` | bool | Whether to send this user the daily price indexation digest (steps applied, steps coming up) for the locations they manage. |
 
 #### User update options
 
@@ -211,6 +213,7 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 | `--on-virtual-office-tariff-change` | bool | Whether to notify this active user about virtual-office plan changes for their locations. |
 | `--on-virtual-office-delivery-preference-update` | bool | Whether to notify this user when a virtual-office customer updates delivery preferences. |
 | `--on-identity-check-update` | bool | Whether to notify this user when a customer's identity-check status changes. |
+| `--on-contract-indexation` | bool | Whether to send this user the daily price indexation digest (steps applied, steps coming up) for the locations they manage. |
 
 #### User PII fields
 

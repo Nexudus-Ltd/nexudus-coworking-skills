@@ -64,7 +64,7 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `--charge-now` | bool | Whether the original booking was requested to be charged immediately. |
 | `--invoice-now` | bool | Whether the original booking was requested to generate an invoice immediately. |
 | `--invoice-this-coworker` | bool | Whether the selected customer was the billing party for the original booking. |
-| `--do-not-use-booking-credit` | bool | Whether customer booking credit was prevented from being used for the original booking. |
+| `--do-not-use-booking-credit` | bool | Whether customer money credit was prevented from being used for the original booking. |
 | `--purchase-order` | string | Customer purchase-order reference retained from the cancelled booking. |
 | `--discount-code` | string | Discount code retained from the cancelled booking. |
 | `--tentative` | bool | Whether the cancelled booking was tentative and awaiting confirmation; tentative bookings still blocked the calendar. |
@@ -143,6 +143,7 @@ CancelledBookings support Search, Get, Create, Update, Delete.
 | `--coworker-checked-out-at` | DateTime | Date and time when the customer checked out from this booking (before it was cancelled) |
 | `--from-coworker-checked-out-at` | range | |
 | `--to-coworker-checked-out-at` | range | |
+| `--booking-source` | enum | Read-only channel the original booking was created from: AdminPanel, MembersPortal, Passport, NexBoard, Api, Sdk, Cli, McpServer, AutomationTile, or Unknown. |
 | `--from-created-on` | range | |
 | `--to-created-on` | range | |
 | `--from-updated-on` | range | |
@@ -172,7 +173,7 @@ Default sort: `FromTime` ascending. If no `--order-by` is specified, the API ret
 | `--charge-now` | bool | Whether the original booking was requested to be charged immediately. |
 | `--invoice-now` | bool | Whether the original booking was requested to generate an invoice immediately. |
 | `--invoice-this-coworker` | bool | Whether the selected customer was the billing party for the original booking. |
-| `--do-not-use-booking-credit` | bool | Whether customer booking credit was prevented from being used for the original booking. |
+| `--do-not-use-booking-credit` | bool | Whether customer money credit was prevented from being used for the original booking. |
 | `--purchase-order` | string | Customer purchase-order reference retained from the cancelled booking. |
 | `--discount-code` | string | Discount code retained from the cancelled booking. |
 | `--tentative` | bool | Whether the cancelled booking was tentative and awaiting confirmation; tentative bookings still blocked the calendar. |

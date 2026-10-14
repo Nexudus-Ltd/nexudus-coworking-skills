@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=EmailQueueItems -->
 
-An EmailQueueItem is a read-only outgoing email delivery record for a location, tracking its recipients, content, sender, attempts, and delivery result.
+An EmailQueueItem is a read-only outgoing email delivery record for a location, tracking its recipients, content, sender, attempts, and delivery result. Every email the system sends from a location is one of these, so together they are the history of sent emails, shown on the dashboard's Email Queue screen.
 
 EmailQueueItems support Search, Get (no Create or Delete via API).
 

@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerProducts -->
 
-A product sale (CoworkerProduct) records a product sold to a customer, either as a one-off purchase or a recurring charge, and can grant the product's included passes, time credit, and booking credit.
+A product sale (CoworkerProduct) records a product sold to a customer, either as a one-off purchase or a recurring charge, and can grant the product's included passes, time credit, and money credit.
 
 CoworkerProducts support Search, Get, Create, Update, Delete.
 
@@ -47,7 +47,7 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `--purchase-order` | string | Optional customer purchase-order reference for this sale. |
 | `--order-number` | string | Read-only order reference assigned by the purchasing workflow. |
 | `--activated` | bool | Whether included benefits have been activated and granted to the customer; controlled by activation processing. |
-| `--activate-now` | bool | Whether to activate included passes, time credit, and booking credit immediately, before the sale is invoiced or paid. |
+| `--activate-now` | bool | Whether to activate included passes, time credit, and money credit immediately, before the sale is invoiced or paid. |
 | `--invoice-this-coworker` | bool | Whether to invoice this customer directly instead of the paying customer in their team. |
 | `--price` | decimal | Optional unit-price override in the product currency; when omitted, the product's current price is used, then multiplied by Quantity. |
 | `--from-price` | range | |
@@ -94,7 +94,7 @@ CoworkerProducts support Search, Get, Create, Update, Delete.
 | `--coworker-invoice-number` | string | Read-only invoice number containing this sale, populated by the invoicing process. |
 | `--coworker-invoice-paid` | bool | Read-only payment status of the invoice containing this sale, populated from the invoice. |
 | `--teams-at-purchase` | string | Internal snapshot of the customer's teams when the sale was created, populated by the create handler. |
-| `--credit-amount` | decimal | Read-only monetary amount from the customer's available booking credit applied to this sale by the BookingProduct workflow. |
+| `--credit-amount` | decimal | Read-only monetary amount from the customer's available money credit applied to this sale by the BookingProduct workflow. |
 | `--from-credit-amount` | range | |
 | `--to-credit-amount` | range | |
 | `--discount-amount` | decimal | Monetary discount amount applied to this sale in the invoice currency. |
@@ -124,7 +124,7 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--product-id` | long, required | ID of the product being sold; the product must be available to the selected customer at this location. |
 | `--notes` | string | Optional internal notes about this product sale. |
 | `--purchase-order` | string | Optional customer purchase-order reference for this sale. |
-| `--activate-now` | bool | Whether to activate included passes, time credit, and booking credit immediately, before the sale is invoiced or paid. |
+| `--activate-now` | bool | Whether to activate included passes, time credit, and money credit immediately, before the sale is invoiced or paid. |
 | `--invoice-this-coworker` | bool | Whether to invoice this customer directly instead of the paying customer in their team. |
 | `--price` | decimal | Optional unit-price override in the product currency; when omitted, the product's current price is used, then multiplied by Quantity. |
 | `--quantity` | int, required | Number of product units to sell; must be at least 1 and multiplies price and included benefits. |

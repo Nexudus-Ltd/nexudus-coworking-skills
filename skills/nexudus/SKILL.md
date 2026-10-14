@@ -314,6 +314,7 @@ Before working with an entity, load its reference file for full details (command
 | CommunityThreadRead | `communitythreadreads` | list, get, create, update, delete | [communitythreadreads.md](./references/entities/communitythreadreads.md) |
 | ContractContact | `contractcontacts` | list, get, create, update, delete | [contractcontacts.md](./references/entities/contractcontacts.md) |
 | ContractDeposit | `contractdeposits` | list, get, create, update, delete | [contractdeposits.md](./references/entities/contractdeposits.md) |
+| ContractIndexation | `contractindexations` | list, get, create, update | [contractindexations.md](./references/entities/contractindexations.md) |
 | ContractPausedPeriod | `contractpausedperiods` | list, get, create, update, delete | [contractpausedperiods.md](./references/entities/contractpausedperiods.md) |
 | ContractProduct | `contractproducts` | list, get, create, update, delete | [contractproducts.md](./references/entities/contractproducts.md) |
 | ContractSchedule | `contractschedules` | list, get, create, update, delete | [contractschedules.md](./references/entities/contractschedules.md) |
@@ -399,6 +400,7 @@ Before working with an entity, load its reference file for full details (command
 | HelpDeskDepartment | `helpdeskdepartments` | list, get, create, update, delete | [helpdeskdepartments.md](./references/entities/helpdeskdepartments.md) |
 | HelpDeskMessage | `helpdeskmessages` | list, get, create, update, delete | [helpdeskmessages.md](./references/entities/helpdeskmessages.md) |
 | ImageFile | `imagefiles` | list, get, create, update, delete | [imagefiles.md](./references/entities/imagefiles.md) |
+| IndexationRule | `indexationrules` | list, get, create, update, delete | [indexationrules.md](./references/entities/indexationrules.md) |
 | InstalledApplication | `installedapplications` | list, get, create, update, delete | [installedapplications.md](./references/entities/installedapplications.md) |
 | InstalledMarketPlaceApplication | `installedmarketplaceapplications` | list, get, create, update, delete | [installedmarketplaceapplications.md](./references/entities/installedmarketplaceapplications.md) |
 | InventoryAsset | `inventoryassets` | list, get, create, update, delete | [inventoryassets.md](./references/entities/inventoryassets.md) |

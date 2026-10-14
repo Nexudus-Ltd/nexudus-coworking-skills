@@ -2,7 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CourseSections -->
 
-A CourseSection is a structural grouping that organises lessons within a Course. Sections represent milestones or learning stages — each section should bring the member one step closer to the course's overall learning goal. Sections are ordered by DisplayOrder and can be set to unlock immediately or after a delay, using the same UnlockType / UnlockAfterDays mechanism as individual lessons: Meaning | ------- | Section is available as soon as the member enrols | Unlocked only after the previous section is completed | Unlocked after the number of days specified by UnlockAfterDays | Sections are optional — lessons can belong directly to a course without a section. However, using sections can help create a clearer learning path for members, and allows you to unlock groups of lessons at once.
+A course section (CourseSection) is an ordered heading that groups lessons within a course on the Members Portal. Lessons join a section through their SectionId; lessons without a section are listed before all sections.
 
 CourseSections support Search, Get, Create, Update, Delete.
 
@@ -24,19 +24,19 @@ CourseSections support Search, Get, Create, Update, Delete.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--course-id` | long | ID of the course this section belongs to |
+| `--course-id` | long | ID of the course that contains this section; the course's location determines access to the section |
 | `--course-title` | string | Display value for Course.Title. |
-| `--title` | string | Section title displayed to members |
-| `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
-| `--active` | bool | Whether the section is active and visible to enrolled members |
-| `--display-order` | int | Position of the section within the course; lower numbers appear first |
+| `--title` | string | Required section heading shown above its lessons in the Members Portal course menu |
+| `--section-contents` | string | Optional section summary returned to the Members Portal with the course's lessons |
+| `--active` | bool | Stored flag for whether the section is in use; the Members Portal still shows an inactive section and its lessons, so set the lessons' Active to false to hide them |
+| `--display-order` | int | Position of the section within its course; sections appear in ascending order after any lessons that have no section. On create it is an insert index (0 puts the section first, a large number puts it last), and the system renumbers the course's sections in steps of 100 after each save |
 | `--from-display-order` | range | |
 | `--to-display-order` | range | |
-| `--unlock-type` | enum | When the section becomes available: Immediate (1), after the previous section is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--unlock-type` | enum | Stored unlock rule for the section: Immediate, Sequential or Timed; defaults to Immediate. Members Portal access is decided by each lesson's own UnlockType, so set the lessons' unlock rules to control when they open |
 | `--image-file-name` | string | Stored filename of the section thumbnail image (read-only; use --new-image-url to set) |
 | `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
 | `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
-| `--unlock-after-days` | int | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |
+| `--unlock-after-days` | int | Days after a member joins before a Timed section unlocks; stored with UnlockType and, like it, not applied to the section's lessons |
 | `--from-unlock-after-days` | range | |
 | `--to-unlock-after-days` | range | |
 | `--from-created-on` | range | |
@@ -57,29 +57,29 @@ Default sort: `Id` ascending. If no `--order-by` is specified, the API returns r
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--course-id` | long, required | ID of the course this section belongs to |
-| `--title` | string, required | Section title displayed to members |
-| `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
-| `--active` | bool | Whether the section is active and visible to enrolled members |
-| `--display-order` | int, required | Position of the section within the course; lower numbers appear first |
-| `--unlock-type` | enum, required | When the section becomes available: Immediate (1), after the previous section is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--course-id` | long, required | ID of the course that contains this section; the course's location determines access to the section |
+| `--title` | string, required | Required section heading shown above its lessons in the Members Portal course menu |
+| `--section-contents` | string | Optional section summary returned to the Members Portal with the course's lessons |
+| `--active` | bool | Stored flag for whether the section is in use; the Members Portal still shows an inactive section and its lessons, so set the lessons' Active to false to hide them |
+| `--display-order` | int, required | Position of the section within its course; sections appear in ascending order after any lessons that have no section. On create it is an insert index (0 puts the section first, a large number puts it last), and the system renumbers the course's sections in steps of 100 after each save |
+| `--unlock-type` | enum, required | Stored unlock rule for the section: Immediate, Sequential or Timed; defaults to Immediate. Members Portal access is decided by each lesson's own UnlockType, so set the lessons' unlock rules to control when they open |
 | `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
 | `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
-| `--unlock-after-days` | int, required | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |
+| `--unlock-after-days` | int, required | Days after a member joins before a Timed section unlocks; stored with UnlockType and, like it, not applied to the section's lessons |
 
 #### CourseSection update options
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `--course-id` | long | ID of the course this section belongs to |
-| `--title` | string | Section title displayed to members |
-| `--section-contents` | string | Optional HTML or rich-text introductory content shown at the top of the section |
-| `--active` | bool | Whether the section is active and visible to enrolled members |
-| `--display-order` | int | Position of the section within the course; lower numbers appear first |
-| `--unlock-type` | enum | When the section becomes available: Immediate (1), after the previous section is done — Sequential (2), or after a set number of days — Timed (3) |
+| `--course-id` | long | ID of the course that contains this section; the course's location determines access to the section |
+| `--title` | string | Required section heading shown above its lessons in the Members Portal course menu |
+| `--section-contents` | string | Optional section summary returned to the Members Portal with the course's lessons |
+| `--active` | bool | Stored flag for whether the section is in use; the Members Portal still shows an inactive section and its lessons, so set the lessons' Active to false to hide them |
+| `--display-order` | int | Position of the section within its course; sections appear in ascending order after any lessons that have no section. On create it is an insert index (0 puts the section first, a large number puts it last), and the system renumbers the course's sections in steps of 100 after each save |
+| `--unlock-type` | enum | Stored unlock rule for the section: Immediate, Sequential or Timed; defaults to Immediate. Members Portal access is decided by each lesson's own UnlockType, so set the lessons' unlock rules to control when they open |
 | `--new-image-url` | string | URL of a new thumbnail image to upload (JPG/JPEG, PNG, or GIF, max 10 MB) |
 | `--clear-image-file` | bool | Set to true to remove the existing thumbnail image |
-| `--unlock-after-days` | int | Number of days after enrolment before the section unlocks; only used when UnlockType is Timed (3) |
+| `--unlock-after-days` | int | Days after a member joins before a Timed section unlocks; stored with UnlockType and, like it, not applied to the section's lessons |
 
 #### CourseSection enum values
 

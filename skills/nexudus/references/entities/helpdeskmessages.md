@@ -75,7 +75,6 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage update options
 
@@ -91,7 +90,6 @@ Default sort: `Subject` ascending. If no `--order-by` is specified, the API retu
 | `--owner-id` | long | Optional ID of the staff user currently assigned to own the ticket. |
 | `--new-image-url` | string | URL of a new file to upload as the image |
 | `--clear-image-file` | bool | Set to true to remove the current image file |
-| `--ai-channel-session-id` | long | System-managed ID of the AI channel session that escalated this ticket; do not set it through help desk ticket operations. |
 
 #### HelpDeskMessage PII fields
 

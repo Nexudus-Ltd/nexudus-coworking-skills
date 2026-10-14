@@ -48,11 +48,11 @@ ExtraServices also support entity commands.
 | `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
 | `--currency-id` | long | ID of the currency used for prices charged by this resource rate |
 | `--currency-code` | string | Display value for Currency.Code. |
-| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
+| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not time credits |
 | `--tax-rate-name` | string | Display value for TaxRate.Name. |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
 | `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
-| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
+| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not time credits |
 | `--financial-account-name` | string | Display value for FinancialAccount.Name. |
 | `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--from-min-length` | range | |
@@ -128,10 +128,10 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--default-price` | bool | Whether this rate is preferred when multiple valid rates match the same resource and charge period |
 | `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
 | `--currency-id` | long, required | ID of the currency used for prices charged by this resource rate |
-| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
+| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not time credits |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
 | `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
-| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
+| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not time credits |
 | `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
 | `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |
@@ -177,10 +177,10 @@ Default sort: `CreatedOn` ascending. If no `--order-by` is specified, the API re
 | `--default-price` | bool | Whether this rate is preferred when multiple valid rates match the same resource and charge period |
 | `--per-night-pricing` | bool | Whether day-based booking length is calculated by nights rather than elapsed 24-hour periods |
 | `--currency-id` | long | ID of the currency used for prices charged by this resource rate |
-| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not booking credits |
+| `--tax-rate-id` | long | ID of the standard tax rate applied to charges; may be required by location settings for rates that are not time credits |
 | `--reduced-tax-rate-id` | long | ID of the reduced tax rate applied when the customer qualifies for reduced taxation |
 | `--exempt-tax-rate-id` | long | ID of the tax rate applied when the customer is tax exempt |
-| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not booking credits |
+| `--financial-account-id` | long | ID of the financial account used to record revenue; may be required by location settings for rates that are not time credits |
 | `--min-length` | int | Optional minimum booking length expressed in the selected charge period |
 | `--max-length` | int | Optional maximum booking length expressed in the selected charge period |
 | `--fixed-cost-length` | int | Optional initial booking duration in minutes charged at FixedCostPrice; requires FixedCostPrice |

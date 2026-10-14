@@ -2,9 +2,7 @@
 
 <!-- BEGIN:GENERATED entity=CoworkerLegalContentAudits -->
 
-A **CoworkerLegalContentAudit** records when a customer accepted a specific version of a legal document at a location. Each record captures the type of legal content accepted (e.g. general terms, privacy policy, or plan-specific terms) along with the unique version identifier that was in effect at the time of acceptance.
-
-Use these records to demonstrate compliance and to determine exactly which version of a document a customer agreed to. For tariff-specific terms (`LegalContentType = TariffTerms`), `TariffUniqueId` identifies the pricing plan whose terms were accepted. `LegalContentAuditUniqueId` identifies the precise version of the document that was shown to and accepted by the customer.
+A read-only legal acceptance record showing which version of a location's legal content a customer accepted, including plan-specific terms.
 
 CoworkerLegalContentAudits support Search, Get, Create, Update, Delete.
 

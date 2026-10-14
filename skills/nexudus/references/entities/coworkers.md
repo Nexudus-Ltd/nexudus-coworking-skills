@@ -110,7 +110,7 @@ Coworkers also support entity commands.
 | `--from-minutes-since-last-renewal` | range | |
 | `--to-minutes-since-last-renewal` | range | |
 | `--access-card-id` | string | Physical access-card identifier; managed through access control and not exposed to the agent. |
-| `--access-pincode` | string | Access-control PIN; security-sensitive and not exposed to the agent. |
+| `--access-pincode` | string | Access-control PIN; write-only: it can be set on create or update, but list and get return hasAccessPincode instead of the value. Staff reveal a PIN in the customer form after re-entering their password. |
 | `--key-fob-number` | string | Physical access key-fob identifier; managed through access control and not exposed to the agent. |
 | `--notify-on-delivery` | bool | Whether to notify this customer about deliveries for their team. |
 | `--ezeep-user-id` | string | External Ezeep user ID used by the printing integration. |
@@ -344,7 +344,7 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--do-not-auto-process-invoices` | bool | Whether automatic invoice payment processing is disabled for this customer. |
 | `--allow-network-checkin` | bool | Whether this customer may check in through the network check-in integration. |
 | `--access-card-id` | string | Physical access-card identifier; managed through access control and not exposed to the agent. |
-| `--access-pincode` | string | Access-control PIN; security-sensitive and not exposed to the agent. |
+| `--access-pincode` | string | Access-control PIN; write-only: it can be set on create or update, but list and get return hasAccessPincode instead of the value. Staff reveal a PIN in the customer form after re-entering their password. |
 | `--key-fob-number` | string | Physical access key-fob identifier; managed through access control and not exposed to the agent. |
 | `--notify-on-delivery` | bool | Whether to notify this customer about deliveries for their team. |
 | `--ezeep-user-id` | string | External Ezeep user ID used by the printing integration. |
@@ -511,7 +511,7 @@ Default sort: `FullName` ascending. If no `--order-by` is specified, the API ret
 | `--do-not-auto-process-invoices` | bool | Whether automatic invoice payment processing is disabled for this customer. |
 | `--allow-network-checkin` | bool | Whether this customer may check in through the network check-in integration. |
 | `--access-card-id` | string | Physical access-card identifier; managed through access control and not exposed to the agent. |
-| `--access-pincode` | string | Access-control PIN; security-sensitive and not exposed to the agent. |
+| `--access-pincode` | string | Access-control PIN; write-only: it can be set on create or update, but list and get return hasAccessPincode instead of the value. Staff reveal a PIN in the customer form after re-entering their password. |
 | `--key-fob-number` | string | Physical access key-fob identifier; managed through access control and not exposed to the agent. |
 | `--notify-on-delivery` | bool | Whether to notify this customer about deliveries for their team. |
 | `--ezeep-user-id` | string | External Ezeep user ID used by the printing integration. |
